@@ -152,7 +152,5 @@ Includes support for [github-updater](https://github.com/afragen/github-updater)
 
 Just because we're sober doesn't mean we don't enjoy socializing.
 
-WordPress themes and plugins without the hangover.
-
-* Twitter [@withjacoby](https://twitter.com/darrenjacoby)
+* Twitter [@withjacoby](https://twitter.com/withjacoby)
 * GitHub [@soberwp](https://github.com/soberwp)
