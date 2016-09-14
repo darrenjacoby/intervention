@@ -1,24 +1,24 @@
 # remove-user-fields
 
-#### Description
+### Description
 Remove WordPress user fields from profiles for specific user roles.
 
-#### Usage
+### Usage
 Supports multiple instances.
 ```php
 intervention('remove-user-fields', $fields(string|array), $roles(string|array));
 ```
 
-#### Defaults
+### Defaults
 $items: `all`
 $roles: `all`
 
-#### Options
+### Options
 $fields: `options, option-title, option-editor, option-schemes, option-shortcuts, option-toolbar, names, name-first, name-last, name-nickname, name-display, contact, contact-web, about, about-bio, about-profile`
 
 $roles: `all, all-not-admin, admin, editor, author, contributor, subscriber`
 
-#### Examples
+### Examples
 ```php
 invervention('remove-user-fields');
 // Removes all user fields for all user roles.

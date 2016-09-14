@@ -1,9 +1,9 @@
 # add-acf-page
 
-#### Description
+### Description
 Add custom Advanced Custom Fields option page/s.
 
-#### Usage
+### Usage
 Supports multiple instances.
 
 You may pass a string to `$config` to update page_title, menu_title and menu_slug, or an array using any [advanced custom field options](https://www.advancedcustomfields.com/resources/acf_add_options_page/).
@@ -12,16 +12,16 @@ You may pass a string to `$config` to update page_title, menu_title and menu_slu
 intervention('add-acf-page', $config(string|array), $roles(string|array));
 ```
 
-#### Defaults
+### Defaults
 $config: `null`
 $roles: `admin, editor`
 
-#### Options
+### Options
 $config: [advanced custom field options](https://www.advancedcustomfields.com/resources/acf_add_options_page/)
 
 $roles: `all, all-not-admin, admin, editor, author, contributor, subscriber`
 
-#### Examples
+### Examples
 ```php
 invervention('add-acf-page');
 // Adds a default Advanced Custom Fields options page.

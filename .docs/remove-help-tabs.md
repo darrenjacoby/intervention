@@ -1,9 +1,9 @@
 # remove-help-tabs
 
-#### Description
+### Description
 Remove help tabs from WordPress screen options.
 
-#### Usage
+### Usage
 Supports single instance.
 ```php
 intervention('remove-help-tabs');

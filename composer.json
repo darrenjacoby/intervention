@@ -2,7 +2,7 @@
   "name": "soberwp/intervention",
   "type": "wordpress-plugin",
   "license": "MIT",
-  "description": "WordPress plugin that contains modules for developers to help clean up and modify the WordPress backend.",
+  "description": "WordPress plugin containing modules to help clean up and modify the backend.",
   "homepage": "https://github.com/soberwp",
   "authors": [
     {

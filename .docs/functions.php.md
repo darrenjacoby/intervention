@@ -1,6 +1,6 @@
 # functions.php
 
-#### Description
+### Description
 Include modules into your themes functions.php file.
 
 Recommended: Use a conditional statement to determine if the plugin is activated to avoid errors.
@@ -11,7 +11,7 @@ if (function_exists('Sober\Intervention\intervention')) {
 }
 ```
 
-#### Example
+### Example
 ```php
 /**
  * Intervention functions/modules

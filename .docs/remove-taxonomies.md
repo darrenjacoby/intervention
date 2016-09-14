@@ -1,21 +1,21 @@
 # remove-taxonomies
 
-#### Description
+### Description
 Remove WordPress default taxonomies.
 
-#### Usage
+### Usage
 Supports multiple instances.
 ```php
 intervention('remove-taxonomies', $taxonomies(string|array));
 ```
 
-#### Defaults
+### Defaults
 $taxonomies: `all`
 
-#### Options
+### Options
 $components: `all, category, tag`
 
-#### Examples
+### Examples
 ```php
 invervention('remove-taxonomies');
 // Removes category and tag taxonomies.

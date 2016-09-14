@@ -1,21 +1,21 @@
 # remove-post-components
 
-#### Description
+### Description
 Remove WordPress support for post component/s.
 
-#### Usage
+### Usage
 Supports multiple instances.
 ```php
 intervention('remove-post-components', $components(string|array));
 ```
 
-#### Defaults
+### Defaults
 $components: `author, excerpt, trackbacks, custom-fields, comments`
 
-#### Options
+### Options
 $components: `all, editor, author, excerpt, trackbacks, custom-fields, comments, slug, revisions, thumbnail`
 
-#### Examples
+### Examples
 ```php
 invervention('remove-post-components');
 // Removes default post components.

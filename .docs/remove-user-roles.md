@@ -1,21 +1,21 @@
 # remove-user-roles
 
-#### Description
+### Description
 Remove WordPress default user roles.
 
-#### Usage
+### Usage
 Supports multiple instances.
 ```php
 intervention('remove-user-roles', $roles(string|array));
 ```
 
-#### Defaults
+### Defaults
 $roles: `author, subscriber, contributor`
 
-#### Options
+### Options
 $roles: `all, all-not-admin, admin, editor, author, contributor, subscriber`
 
-#### Examples
+### Examples
 ```php
 invervention('remove-user-roles');
 // Removes default user roles.

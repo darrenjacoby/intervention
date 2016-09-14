@@ -1,9 +1,9 @@
 # remove-emoji
 
-#### Description
+### Description
 Remove emoji from WordPress.
 
-#### Usage
+### Usage
 Supports single instance.
 ```php
 intervention('remove-emoji');

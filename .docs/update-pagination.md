@@ -1,18 +1,18 @@
 # update-pagination
 
-#### Description
+### Description
 Update WordPress admin area posts per page for default post types.
 
-#### Usage
+### Usage
 Supports single instance.
 ```php
 intervention('update-pagination', $amount(integer));
 ```
 
-#### Defaults
+### Defaults
 $amount: `40`
 
-#### Examples
+### Examples
 ```php
 invervention('update-pagination');
 // Updates to 40 posts per page. (WordPress default is 20)

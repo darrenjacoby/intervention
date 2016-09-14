@@ -1,18 +1,18 @@
 # update-label-page
 
-#### Description
+### Description
 Update WordPress pages post type labels.
 
-#### Usage
+### Usage
 Supports single instance.
 ```php
 intervention('update-label-page', $labels(string|array));
 ```
 
-#### Defaults
+### Defaults
 $labels: `null`
 
-#### Examples
+### Examples
 ```php
 invervention('update-label-page', 'Contents');
 // Updates plural label from Pages to Contents.

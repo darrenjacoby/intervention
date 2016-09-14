@@ -1,15 +1,15 @@
 # add-dashboard-item
 
-#### Description
+### Description
 Add custom WordPress dashboard items/widgets.
 
-#### Usage
+### Usage
 Supports multiple instances.
 ```php
 intervention('add-dashboard-item', $item(array));
 ```
 
-#### Example
+### Example
 ```php
 invervention('add-dashboard-item', ['Dashboard Header', 'Dashboard Content']);
 // Adds a new dashboard item/widget.

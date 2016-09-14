@@ -1,21 +1,21 @@
 # remove-page-components
 
-#### Description
+### Description
 Remove WordPress support for page component/s.
 
-#### Usage
+### Usage
 Supports multiple instances.
 ```php
 intervention('remove-page-components', $components(string|array));
 ```
 
-#### Defaults
+### Defaults
 $components: `author, thumbnail, page-attributes, custom-fields, comments`
 
-#### Options
+### Options
 $components: `all, editor, author, thumbnail, page-attributes, custom-fields, comments`
 
-#### Examples
+### Examples
 ```php
 invervention('remove-page-components');
 // Removes default page components.

@@ -1,21 +1,21 @@
 # remove-toolbar-frontend
 
-#### Description
+### Description
 Remove the WordPress admin toolbar on the front-end for specific user roles.
 
-#### Usage
+### Usage
 Supports multiple instances.
 ```php
 intervention('remove-toolbar-frontend', $roles(string|array));
 ```
 
-#### Defaults
+### Defaults
 $roles: `all`
 
-#### Options
+### Options
 $roles:  `all, all-not-admin, admin, editor, author, contributor, subscriber`
 
-#### Examples
+### Examples
 ```php
 invervention(remove-toolbar-frontend);
 // Removes front-end toolbar for all user roles.

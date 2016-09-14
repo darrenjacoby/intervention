@@ -1,21 +1,21 @@
 # remove-update-notices
 
-#### Description
+### Description
 Remove the WordPress update notices for specific user roles.
 
-#### Usage
+### Usage
 Supports multiple instances.
 ```php
 intervention('remove-update-notices', $roles(string|array));
 ```
 
-#### Defaults
+### Defaults
 $roles: `all-not-admin`
 
-#### Options
+### Options
 $roles: `all, all-not-admin, admin, editor, author, contributor, subscriber`
 
-#### Examples
+### Examples
 ```php
 invervention(remove-update-notices);
 // Removes update notices for user roles all-not-admin.

@@ -1,17 +1,17 @@
 # Intervention
 
-WordPress plugin that contains modules for developers to help clean up and modify the WordPress backend.
+WordPress plugin containing modules to help clean up and modify the backend.
 
 ## Installation
 
-#### Composer:
+### Composer:
 Recommended method; [Roots Bedrock](https://roots.io/bedrock/) and [WP-CLI](http://wp-cli.org/)
 ```shell
 $ composer require soberwp/intervention
 $ wp plugin activate intervention
 ```
 
-#### Manual:
+### Manual:
 * Clone this repository to plugins/
 * Activate via WordPress
 
@@ -21,14 +21,14 @@ $ wp plugin activate intervention
 
 ## Usage
 
-#### Import the namespace function:
+### Import the namespace function:
 
 Place at the top of your themes functions.php file.
 ```php
 use function Sober\Intervention\intervention;
 ```
 
-#### Modules:
+### Modules:
 
 Use function `intervention()` to use plugin modules.
 
@@ -63,7 +63,7 @@ intervention('remove-menu-items', ['themes', 'plugins'], ['editor', 'author']);
 * [update-label-post](.docs/update-label-post.md)
 * [update-pagination](.docs/update-pagination.md)
 
-#### Quick Reference
+### Quick Reference
 
 * **add-acf-page**<br>
 `intervention('add-acf-page', $config(string|array), $roles(string|array));`
@@ -136,12 +136,12 @@ intervention('remove-menu-items', ['themes', 'plugins'], ['editor', 'author']);
 
 ## Updating
 
-#### Composer:
+### Composer:
 ```shell
 $ composer update
 ```
 
-#### WordPress:
+### WordPress:
 Includes support for [github-updater](https://github.com/afragen/github-updater)
 * Download [github-updater](https://github.com/afragen/github-updater)
 * Clone to to plugins/ or mu-plugins/

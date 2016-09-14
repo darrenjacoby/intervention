@@ -1,24 +1,24 @@
 # remove-toolbar-items
 
-#### Description
+### Description
 Remove the WordPress toolbar items from the front-end and back-end for specific user roles.
 
-#### Usage
+### Usage
 Supports multiple instances.
 ```php
 intervention('remove-toolbar-items', $items(string|array), $roles(string|array));
 ```
 
-#### Defaults
+### Defaults
 $items: `logo, updates, comments, new`
 $roles: `all`
 
-#### Options
+### Options
 $items: `logo, updates, site-name, comments, customize, new, new-post, new-page, new-media, new-user, account, account-user, account-profile`
 
 $roles: `all, all-not-admin, admin, editor, author, contributor, subscriber`
 
-#### Examples
+### Examples
 ```php
 invervention('remove-toolbar-items');
 // Removes default toolbar items for all user roles.

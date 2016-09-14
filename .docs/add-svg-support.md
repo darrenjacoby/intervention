@@ -1,21 +1,21 @@
 # add-svg-support
 
-#### Description
+### Description
 Add WordPress svg file support for specific user roles.
 
-#### Usage
+### Usage
 Supports multiple instances.
 ```php
 intervention('add-svg-support', $roles(string|array));
 ```
 
-#### Defaults
+### Defaults
 $roles: `admin, editor, author`
 
-#### Options
+### Options
 $roles: `all, all-not-admin, admin, editor, author, contributor, subscriber`
 
-#### Examples
+### Examples
 ```php
 intervention('add-svg-support');
 // Adds svg support for user roles admin, editor and author.

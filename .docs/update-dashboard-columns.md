@@ -1,21 +1,21 @@
 # update-dashboard-columns
 
-#### Description
+### Description
 Update WordPress dashboard columns layout.
 
-#### Usage
+### Usage
 Supports single instance.
 ```php
 intervention('update-dashboard-columns', $amount(integer));
 ```
 
-#### Defaults
+### Defaults
 $amount: `1`
 
-#### Options
+### Options
 $amount: `1, 2, 3`
 
-#### Examples
+### Examples
 ```php
 invervention('update-dashboard-columns');
 // Updates dashboard to 1 column layout

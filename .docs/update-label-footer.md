@@ -1,18 +1,18 @@
 # update-label-footer
 
-#### Description
+### Description
 Update WordPress footer label.
 
-#### Usage
+### Usage
 Supports single instance.
 ```php
 intervention('update-label-footer', $label(string));
 ```
 
-#### Defaults
+### Defaults
 $label: `null`
 
-#### Examples
+### Examples
 ```php
 invervention('update-label-footer');
 // Removes footer label

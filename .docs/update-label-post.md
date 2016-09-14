@@ -1,18 +1,18 @@
 # update-label-post
 
-#### Description
+### Description
 Update WordPress posts post type labels.
 
-#### Usage
+### Usage
 Supports single instance.
 ```php
 intervention('update-label-post', $labels(string|array));
 ```
 
-#### Defaults
+### Defaults
 $labels: `null`
 
-#### Examples
+### Examples
 ```php
 invervention('update-label-post', 'Books');
 // Updates plural label from posts to Contents.

@@ -1,18 +1,18 @@
 # remove-howdy
 
-#### Description
+### Description
 Remove or replace howdy from WordPress admin toolbar.
 
-#### Usage
+### Usage
 Supports single instance.
 ```php
 intervention('remove-howdy', $replace(string));
 ```
 
-#### Defaults
+### Defaults
 $replace: `null`
 
-#### Examples
+### Examples
 ```php
 intervention('remove-howdy');
 // Removes howdy.
