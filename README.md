@@ -7,7 +7,7 @@ WordPress plugin containing modules to help clean up and modify the backend.
 ### Composer:
 Recommended method; [Roots Bedrock](https://roots.io/bedrock/) and [WP-CLI](http://wp-cli.org/)
 ```shell
-$ composer require soberwp/intervention
+$ composer require soberwp/intervention 1.0.0
 $ wp plugin activate intervention
 ```
 
