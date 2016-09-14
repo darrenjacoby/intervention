@@ -1,0 +1,32 @@
+{
+  "name": "soberwp/intervention",
+  "type": "wordpress-plugin",
+  "license": "MIT",
+  "description": "WordPress plugin that contains modules for developers to help clean up and modify the WordPress backend.",
+  "homepage": "https://github.com/soberwp",
+  "authors": [
+    {
+      "name": "Darren Jacoby",
+      "email": "darren@jacoby.co.za",
+      "homepage": "https://github.com/darrenjacoby"
+    }
+  ],
+  "keywords": [
+    "wordpress"
+  ],
+  "support": {
+    "issues": "https://github.com/soberwp/intervention/issues"
+  },
+  "require": {
+    "php": ">=5.4.0",
+    "composer/installers": "~1.0"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "2.*"
+  },
+  "scripts": {
+    "test": [
+      "vendor/bin/phpcs --extensions=php --ignore=vendor/ ."
+    ]
+  }
+}
