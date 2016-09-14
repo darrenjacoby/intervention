@@ -7,12 +7,12 @@ WordPress plugin containing modules to help clean up and modify the backend.
 ### Composer:
 Recommended method; [Roots Bedrock](https://roots.io/bedrock/) and [WP-CLI](http://wp-cli.org/)
 ```shell
-$ composer require soberwp/intervention 1.0.0
+$ composer require soberwp/intervention ^1.0.0
 $ wp plugin activate intervention
 ```
 
 ### Manual:
-* Clone this repository to plugins/
+* Clone this repository to your sites plugins/ folder
 * Activate via WordPress
 
 ## Requirements
@@ -142,9 +142,9 @@ $ composer update
 ```
 
 ### WordPress:
-Includes support for [github-updater](https://github.com/afragen/github-updater)
+Includes support for [github-updater](https://github.com/afragen/github-updater) to keep track on updates through the WordPress backend.
 * Download [github-updater](https://github.com/afragen/github-updater)
-* Clone to to plugins/ or mu-plugins/
+* Clone [github-updater](https://github.com/afragen/github-updater) to your sites plugins/ folder
 * Activate via WordPress
 
 
