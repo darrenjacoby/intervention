@@ -30,12 +30,12 @@ use function Sober\Intervention\intervention;
 
 ### Modules:
 
-Use function `intervention()` to use plugin modules.
+Use function `intervention()` to use plugin modules.<br>
+[Example functions.php file](.docs/functions.php.md)
 
 ```php
 intervention('remove-menu-items', ['themes', 'plugins'], ['editor', 'author']);
 ```
-[Example functions.php file](.docs/functions.php.md)
 
 **Click on a module below to view its usage documentation:**
 
