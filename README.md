@@ -1,6 +1,6 @@
 # Intervention
 
-WordPress plugin containing modules to help clean up and modify the backend.
+WordPress plugin containing modules to help clean up and modify the backend easily.
 
 ## Installation
 
