@@ -32,7 +32,7 @@ use function Sober\Intervention\intervention;
 ### Modules:
 
 Use function `intervention()` to use plugin modules.<br>
-[Example functions.php file](.docs/functions.php.md)
+[Example functions.php file](.github/functions.php.md)
 
 ```php
 intervention('remove-menu-items', ['themes', 'plugins'], ['editor', 'author']);
@@ -40,29 +40,29 @@ intervention('remove-menu-items', ['themes', 'plugins'], ['editor', 'author']);
 
 **Click on a module below to view its usage documentation:**
 
-* [add-acf-page](.docs/add-acf-page.md)
-* [add-dashboard-item](.docs/add-dashboard-item.md)
-* [add-dashboard-redirect](.docs/add-dashboard-item.md)
-* [add-svg-support](.docs/add-svg-support.md)
-* [remove-dashboard-items](.docs/remove-dashboard-items.md)
-* [remove-emoji](.docs/remove-emoji.md)
-* [remove-help-tabs](.docs/remove-help-tabs.md)
-* [remove-howdy](.docs/remove-howdy.md)
-* [remove-menu-items](.docs/remove-menu-items.md)
-* [remove-page-components](.docs/remove-page-components.md)
-* [remove-post-components](.docs/remove-post-components.md)
-* [remove-taxonomies](.docs/remove-taxonomies.md)
-* [remove-toolbar-frontend](.docs/remove-toolbar-frontend.md)
-* [remove-toolbar-items](.docs/remove-toolbar-items.md)
-* [remove-update-notices](.docs/remove-update-notices.md)
-* [remove-user-fields](.docs/remove-user-fields.md)
-* [remove-user-roles](.docs/remove-user-roles.md)
-* [remove-widgets](.docs/remove-widgets.md)
-* [update-dashboard-columns](.docs/update-dashboard-columns.md)
-* [update-label-footer](.docs/update-label-footer.md)
-* [update-label-page](.docs/update-label-page.md)
-* [update-label-post](.docs/update-label-post.md)
-* [update-pagination](.docs/update-pagination.md)
+* [add-acf-page](.github/add-acf-page.md)
+* [add-dashboard-item](.github/add-dashboard-item.md)
+* [add-dashboard-redirect](.github/add-dashboard-item.md)
+* [add-svg-support](.github/add-svg-support.md)
+* [remove-dashboard-items](.github/remove-dashboard-items.md)
+* [remove-emoji](.github/remove-emoji.md)
+* [remove-help-tabs](.github/remove-help-tabs.md)
+* [remove-howdy](.github/remove-howdy.md)
+* [remove-menu-items](.github/remove-menu-items.md)
+* [remove-page-components](.github/remove-page-components.md)
+* [remove-post-components](.github/remove-post-components.md)
+* [remove-taxonomies](.github/remove-taxonomies.md)
+* [remove-toolbar-frontend](.github/remove-toolbar-frontend.md)
+* [remove-toolbar-items](.github/remove-toolbar-items.md)
+* [remove-update-notices](.github/remove-update-notices.md)
+* [remove-user-fields](.github/remove-user-fields.md)
+* [remove-user-roles](.github/remove-user-roles.md)
+* [remove-widgets](.github/remove-widgets.md)
+* [update-dashboard-columns](.github/update-dashboard-columns.md)
+* [update-label-footer](.github/update-label-footer.md)
+* [update-label-page](.github/update-label-page.md)
+* [update-label-post](.github/update-label-post.md)
+* [update-pagination](.github/update-pagination.md)
 
 ### Quick Reference
 
