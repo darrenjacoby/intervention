@@ -14,14 +14,14 @@ $labels: `null`
 
 ### Examples
 ```php
-invervention('update-label-post', 'Books');
+intervention('update-label-post', 'Books');
 // Updates plural label from posts to Contents.
 
-invervention('update-label-post', '[Books, 'Book']');
+intervention('update-label-post', '[Books, 'Book']');
 // Param 1 updates plural label from Posts to Books.
 // Param 2 updates singular label from Post to Book.
 
-invervention('update-label-post', '[Books, 'Book', 'book-alt']');
+intervention('update-label-post', '[Books, 'Book', 'book-alt']');
 // Param 1 updates plural label from Posts to Books.
 // Param 2 updates singular label from Post to Book.
 // Param 3 updates dashicon to dashicons-book-alt.

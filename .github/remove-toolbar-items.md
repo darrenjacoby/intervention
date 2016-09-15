@@ -20,18 +20,18 @@ $roles: `all, all-not-admin, admin, editor, author, contributor, subscriber`
 
 ### Examples
 ```php
-invervention('remove-toolbar-items');
+intervention('remove-toolbar-items');
 // Removes default toolbar items for all user roles.
 
-invervention('remove-toolbar-items', 'comments');
+intervention('remove-toolbar-items', 'comments');
 // Removes toolbar item comments for all user roles.
 
-invervention('remove-toolbar-items', ['comments', 'updates']);
+intervention('remove-toolbar-items', ['comments', 'updates']);
 // Removes toolbar items comments and updates for all user roles.
 
-invervention('remove-toolbar-items', ['comments', 'updates'], 'editor');
+intervention('remove-toolbar-items', ['comments', 'updates'], 'editor');
 // Removes toolbar items comments and updates for user role editor.
 
-invervention('remove-toolbar-items', ['comments', 'updates'], ['editor', 'author']);
+intervention('remove-toolbar-items', ['comments', 'updates'], ['editor', 'author']);
 // Removes toolbar items comments and updates for user roles editor and author.
 ```

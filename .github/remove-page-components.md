@@ -17,12 +17,12 @@ $components: `all, editor, author, thumbnail, page-attributes, custom-fields, co
 
 ### Examples
 ```php
-invervention('remove-page-components');
+intervention('remove-page-components');
 // Removes default page components.
 
-invervention('remove-page-components', 'author');
+intervention('remove-page-components', 'author');
 // Removes page component author.
 
-invervention('remove-page-components', ['author', 'custom-fields']);
+intervention('remove-page-components', ['author', 'custom-fields']);
 // Removes page components author and custom-fields.
 ```

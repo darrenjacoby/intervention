@@ -17,12 +17,12 @@ $roles: `all, all-not-admin, admin, editor, author, contributor, subscriber`
 
 ### Examples
 ```php
-invervention('remove-user-roles');
+intervention('remove-user-roles');
 // Removes default user roles.
 
-invervention('remove-user-roles', 'contributor');
+intervention('remove-user-roles', 'contributor');
 // Removes user role contributor.
 
-invervention('remove-user-roles', ['contributor', 'subscriber']);
+intervention('remove-user-roles', ['contributor', 'subscriber']);
 // Removes user roles contributor and subscriber.
 ```

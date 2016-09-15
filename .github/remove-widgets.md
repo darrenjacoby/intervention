@@ -17,12 +17,12 @@ $widgets: `pages, calendar, archives, links, meta, search, text, categories, rec
 
 ### Examples
 ```php
-invervention('remove-widgets');
+intervention('remove-widgets');
 // Removes all widgets.
 
-invervention('remove-widgets', 'calendar');
+intervention('remove-widgets', 'calendar');
 // Removes widget calendar.
 
-invervention('remove-widgets', ['calendar', 'rss']);
+intervention('remove-widgets', ['calendar', 'rss']);
 // Removes widgets calendar and rss.
 ```

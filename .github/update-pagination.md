@@ -14,9 +14,9 @@ $amount: `40`
 
 ### Examples
 ```php
-invervention('update-pagination');
+intervention('update-pagination');
 // Updates to 40 posts per page. (WordPress default is 20)
 
-invervention('update-pagination', 100);
+intervention('update-pagination', 100);
 // Updates to 100 posts per page.
 ```

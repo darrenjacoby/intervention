@@ -14,9 +14,9 @@ $label: `null`
 
 ### Examples
 ```php
-invervention('update-label-footer');
+intervention('update-label-footer');
 // Removes footer label
 
-invervention('update-dashboard-columns', 'Created by developer');
+intervention('update-dashboard-columns', 'Created by developer');
 // Updates footer label to Created by developer
 ```

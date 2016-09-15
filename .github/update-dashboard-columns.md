@@ -17,9 +17,9 @@ $amount: `1, 2, 3`
 
 ### Examples
 ```php
-invervention('update-dashboard-columns');
+intervention('update-dashboard-columns');
 // Updates dashboard to 1 column layout
 
-invervention('update-dashboard-columns', 2);
+intervention('update-dashboard-columns', 2);
 // Updates dashboard to 2 column layout
 ```

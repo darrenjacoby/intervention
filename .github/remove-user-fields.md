@@ -20,18 +20,18 @@ $roles: `all, all-not-admin, admin, editor, author, contributor, subscriber`
 
 ### Examples
 ```php
-invervention('remove-user-fields');
+intervention('remove-user-fields');
 // Removes all user fields for all user roles.
 
-invervention('remove-user-fields', 'options');
+intervention('remove-user-fields', 'options');
 // Removes user fields options for all user roles.
 
-invervention('remove-user-fields', ['options', 'names']);
+intervention('remove-user-fields', ['options', 'names']);
 // Removes user fields options and names for all user roles.
 
-invervention('remove-user-fields', ['options', 'names'], 'editor');
+intervention('remove-user-fields', ['options', 'names'], 'editor');
 // Removes user fields options and names for user role editor.
 
-invervention('remove-user-fields', ['options', 'names'], ['editor', 'author']);
+intervention('remove-user-fields', ['options', 'names'], ['editor', 'author']);
 // Removes user fields options and names for user roles editor and author.
 ```

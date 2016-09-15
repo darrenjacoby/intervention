@@ -23,22 +23,22 @@ $roles: `all, all-not-admin, admin, editor, author, contributor, subscriber`
 
 ### Examples
 ```php
-invervention('add-acf-page');
+intervention('add-acf-page');
 // Adds a default Advanced Custom Fields options page.
 
-invervention('add-acf-page', 'Theme Settings');
+intervention('add-acf-page', 'Theme Settings');
 // Adds a Advanced Custom Fields options page with page and menu title as Theme Settings and slug theme_settings.
 
-invervention('add-acf-page', [
+intervention('add-acf-page', [
   'page_title' 	=> 'Theme General Settings',
   'menu_title' 	=> 'Theme Settings',
   'menu_slug' 	=> 'theme-general-settings']
 );
 // Adds a Advanced Custom Fields options page using the https://www.advancedcustomfields.com/resources/acf_add_options_page/ parameters.
 
-invervention('add-acf-page', 'Theme Settings', 'admin');
+intervention('add-acf-page', 'Theme Settings', 'admin');
 // Adds a Advanced Custom Fields custom options page for user role admin.
 
-invervention('add-acf-page', 'Theme Settings', ['admin', 'editor']);
+intervention('add-acf-page', 'Theme Settings', ['admin', 'editor']);
 // Adds a Advanced Custom Fields custom options page for user roles admin and editor.
 ```

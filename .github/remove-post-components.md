@@ -17,12 +17,12 @@ $components: `all, editor, author, excerpt, trackbacks, custom-fields, comments,
 
 ### Examples
 ```php
-invervention('remove-post-components');
+intervention('remove-post-components');
 // Removes default post components.
 
-invervention('remove-post-components', 'author');
+intervention('remove-post-components', 'author');
 // Removes post component author.
 
-invervention('remove-post-components', ['author', 'custom-fields']);
+intervention('remove-post-components', ['author', 'custom-fields']);
 // Removes post components author and custom-fields.
 ```
