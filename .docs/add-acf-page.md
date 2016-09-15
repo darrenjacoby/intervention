@@ -4,7 +4,7 @@
 Add custom Advanced Custom Fields option page/s.
 
 ### Usage
-Supports multiple instances.
+&#10003; Supports multiple instances.
 
 You may pass a string to `$config` to update page_title, menu_title and menu_slug, or an array using any [advanced custom field options](https://www.advancedcustomfields.com/resources/acf_add_options_page/).
 

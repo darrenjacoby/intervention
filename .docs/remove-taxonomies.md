@@ -4,7 +4,7 @@
 Remove WordPress default taxonomies.
 
 ### Usage
-Supports multiple instances.
+&#10003; Supports multiple instances.
 ```php
 intervention('remove-taxonomies', $taxonomies(string|array));
 ```

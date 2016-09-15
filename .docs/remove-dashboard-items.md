@@ -4,7 +4,7 @@
 Remove WordPress dashboard items/widgets for specific user roles.
 
 ### Usage
-Supports multiple instances.
+&#10003; Supports multiple instances.
 ```php
 intervention('remove-dashboard-items', $items(string|array), $roles(string|array));
 ```

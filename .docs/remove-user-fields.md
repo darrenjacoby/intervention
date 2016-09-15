@@ -4,7 +4,7 @@
 Remove WordPress user fields from profiles for specific user roles.
 
 ### Usage
-Supports multiple instances.
+&#10003; Supports multiple instances.
 ```php
 intervention('remove-user-fields', $fields(string|array), $roles(string|array));
 ```

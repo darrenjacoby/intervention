@@ -4,7 +4,7 @@
 Add WordPress svg file support for specific user roles.
 
 ### Usage
-Supports multiple instances.
+&#10003; Supports multiple instances.
 ```php
 intervention('add-svg-support', $roles(string|array));
 ```

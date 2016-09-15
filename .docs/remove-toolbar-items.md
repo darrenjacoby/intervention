@@ -4,7 +4,7 @@
 Remove the WordPress toolbar items from the front-end and back-end for specific user roles.
 
 ### Usage
-Supports multiple instances.
+&#10003; Supports multiple instances.
 ```php
 intervention('remove-toolbar-items', $items(string|array), $roles(string|array));
 ```

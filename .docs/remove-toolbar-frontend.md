@@ -4,7 +4,7 @@
 Remove the WordPress admin toolbar on the front-end for specific user roles.
 
 ### Usage
-Supports multiple instances.
+&#10003; Supports multiple instances.
 ```php
 intervention('remove-toolbar-frontend', $roles(string|array));
 ```

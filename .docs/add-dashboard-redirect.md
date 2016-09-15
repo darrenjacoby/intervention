@@ -4,7 +4,7 @@
 Add WordPress dashboard redirects for specific user roles.
 
 ### Usage
-Supports multiple instances.
+&#10003; Supports multiple instances.
 ```php
 intervention('add-dashboard-redirect', $route(string), $roles(string|array));
 ```

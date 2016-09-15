@@ -4,7 +4,7 @@
 Add custom WordPress dashboard items/widgets.
 
 ### Usage
-Supports multiple instances.
+&#10003; Supports multiple instances.
 ```php
 intervention('add-dashboard-item', $item(array));
 ```

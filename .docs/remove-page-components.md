@@ -4,7 +4,7 @@
 Remove WordPress support for page component/s.
 
 ### Usage
-Supports multiple instances.
+&#10003; Supports multiple instances.
 ```php
 intervention('remove-page-components', $components(string|array));
 ```

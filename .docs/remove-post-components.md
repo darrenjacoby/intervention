@@ -4,7 +4,7 @@
 Remove WordPress support for post component/s.
 
 ### Usage
-Supports multiple instances.
+&#10003; Supports multiple instances.
 ```php
 intervention('remove-post-components', $components(string|array));
 ```

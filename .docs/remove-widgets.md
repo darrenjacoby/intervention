@@ -4,7 +4,7 @@
 Remove WordPress widgets.
 
 ### Usage
-Supports multiple instances.
+&#10003; Supports multiple instances.
 ```php
 intervention('remove-widgets', $widgets(string|array));
 ```

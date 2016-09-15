@@ -4,7 +4,7 @@
 Remove WordPress menu items for specific user roles.
 
 ### Usage
-Supports multiple instances.
+&#10003; Supports multiple instances.
 ```php
 intervention('remove-menu-items', $items(string|array), $roles(string|array));
 ```
