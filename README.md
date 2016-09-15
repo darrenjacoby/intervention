@@ -1,6 +1,6 @@
 # Intervention
 
-WordPress plugin containing modules to cleanup and customize wp-admin easily.
+Lightweight WordPress plugin containing modules to cleanup and customize wp-admin easily.
 
 ## Installation
 
