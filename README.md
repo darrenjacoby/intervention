@@ -1,6 +1,6 @@
 # Intervention
 
-WordPress plugin containing modules to help clean up and modify the backend easily.
+WordPress plugin containing modules to cleanup and customize wp-admin easily.
 
 ## Installation
 
@@ -12,7 +12,8 @@ $ wp plugin activate intervention
 ```
 
 ### Manual:
-* Clone this repository to your sites plugins/ folder
+* Download the [zip file](https://github.com/soberwp/intervention/archive.master.zip)
+* Unzip to your sites plugin folder
 * Activate via WordPress
 
 ## Requirements
@@ -146,7 +147,6 @@ Includes support for [github-updater](https://github.com/afragen/github-updater)
 * Download [github-updater](https://github.com/afragen/github-updater)
 * Clone [github-updater](https://github.com/afragen/github-updater) to your sites plugins/ folder
 * Activate via WordPress
-
 
 ## Socializing
 
