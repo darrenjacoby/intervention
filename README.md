@@ -156,4 +156,4 @@ Includes support for [github-updater](https://github.com/afragen/github-updater)
 Just because we're sober doesn't mean we don't enjoy socializing.
 
 * Twitter [@withjacoby](https://twitter.com/withjacoby)
-* GitHub [@soberwp](https://github.com/soberwp)
+* GitHub [https://github.com/soberwp](https://github.com/soberwp)
