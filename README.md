@@ -7,7 +7,7 @@ Lightweight WordPress plugin containing modules to cleanup and customize wp-admi
 ### Composer:
 Recommended method; [Roots Bedrock](https://roots.io/bedrock/) and [WP-CLI](http://wp-cli.org/)
 ```shell
-$ composer require soberwp/intervention 1.0.0
+$ composer require soberwp/intervention ^1.0.0
 $ wp plugin activate intervention
 ```
 
@@ -138,6 +138,9 @@ intervention('remove-menu-items', ['themes', 'plugins'], ['editor', 'author']);
 ## Updating
 
 ### Composer:
+**Change the composer.json version to ^1.0.0**<br>
+Please check CHANGELOG.md for any breaking changes before updating.
+
 ```shell
 $ composer update
 ```
