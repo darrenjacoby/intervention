@@ -24,6 +24,12 @@
   "require-dev": {
     "squizlabs/php_codesniffer": "2.*"
   },
+  "autoload": {
+    "psr-4": {
+      "Sober\\Intervention\\": "src/",
+      "Sober\\Intervention\\Module\\": "src/modules/"
+    }
+  },
   "scripts": {
     "test": [
       "vendor/bin/phpcs --extensions=php --ignore=vendor/ ."

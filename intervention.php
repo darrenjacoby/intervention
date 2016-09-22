@@ -2,34 +2,42 @@
 /*
 Plugin Name:        Intervention
 Plugin URI:         http://github.com/soberwp/intervention
-Description:        Modules for developers to help clean up and modify the WordPress backend.
-Version:            1.0.0
+Description:        Lightweight WordPress plugin containing modules to cleanup and customize wp-admin easily.
+Version:            1.0.1
 Author:             Sober
 Author URI:         http://github.com/soberwp/
 License:            MIT License
 License URI:        http://opensource.org/licenses/MIT
-GitHub Plugin URI: soberwp/intervention
-GitHub Branch:     master
+GitHub Plugin URI:  soberwp/intervention
+GitHub Branch:      master
 */
 namespace Sober\Intervention;
 
-foreach (glob(__DIR__ . '/lib/*.php') as $file) {
-    require_once $file;
+/**
+ * Restrict direct access to file
+ */
+if (!defined('ABSPATH')) {
+    exit;
 }
 
-function intervention($module = false, $args = false, $roles = false)
-{
-    Module::setInstance($module, $args, $roles);
+/**
+ * Require Composer PSR-4 autoloader, fallback dist/autoload.php
+ */
+if (file_exists($composer = __DIR__ . '/vendor/autoload.php')) {
+    require $composer;
+} else {
+    require __DIR__ . '/dist/autoload.php';
 }
 
-function autoloader()
+/**
+ * Setup $loader object from function intervention
+ *
+ * @param string $module
+ * @param string|array $config
+ * @param string|array $roles
+ */
+function intervention($module = false, $config = false, $roles = false)
 {
-    $modules = Module::getInitializedList();
-    foreach (glob(__DIR__ . '/modules/*.php') as $file) {
-        $module = Module::getFromFile($file);
-        if (in_array($module, $modules)) {
-            require_once $file;
-        }
-    }
+    $class = __NAMESPACE__ . '\Module\\' . str_replace('-', '', ucwords($module, '-'));
+    $instance = (new $class($config, $roles))->run();
 }
-add_action('after_setup_theme', __NAMESPACE__ . '\\autoloader', 100);

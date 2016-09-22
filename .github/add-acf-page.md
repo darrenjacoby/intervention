@@ -30,10 +30,10 @@ intervention('add-acf-page', 'Theme Settings');
 // Adds a Advanced Custom Fields options page with page and menu title as Theme Settings and slug theme_settings.
 
 intervention('add-acf-page', [
-  'page_title' 	=> 'Theme General Settings',
-  'menu_title' 	=> 'Theme Settings',
-  'menu_slug' 	=> 'theme-general-settings']
-);
+    'page_title' 	=> 'Theme General Settings',
+    'menu_title'  => 'Theme Settings',
+    'menu_slug'   => 'theme-general-settings'
+]);
 // Adds a Advanced Custom Fields options page using the https://www.advancedcustomfields.com/resources/acf_add_options_page/ parameters.
 
 intervention('add-acf-page', 'Theme Settings', 'admin');
