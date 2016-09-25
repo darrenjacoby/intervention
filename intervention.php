@@ -17,7 +17,7 @@ namespace Sober\Intervention;
  * Restrict direct access to file
  */
 if (!defined('ABSPATH')) {
-    exit;
+    die;
 }
 
 /**
