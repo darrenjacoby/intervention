@@ -1,3 +1,6 @@
+### 1.0.2: 26th September 2016
+* Bug; Remove 'Add New' from default singular label.
+
 ### 1.0.1: 22nd September 2016
 * Rewrite; Move to OOPHP and use PSR-4 autoloading.
 * Bug; Fix module remove-menu-items for Advanced Custom Fields top level menu item.

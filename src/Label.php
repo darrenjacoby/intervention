@@ -55,9 +55,9 @@ class Label
      */
     public static function setSingular($labels, $singular)
     {
-        $labels->singular_name = __('Add New ' . $singular);
+        $labels->singular_name = __($singular);
         $labels->add_new = __('Add ' . $singular);
-        $labels->add_new_item = __('Add ' . $singular);
+        $labels->add_new_item = __('Add New ' . $singular);
         $labels->edit_item = __('Edit ' . $singular);
         $labels->new_item = __('New ' . $singular);
         $labels->view_item = __('View ' . $singular);

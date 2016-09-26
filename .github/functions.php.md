@@ -17,7 +17,6 @@ if (function_exists('Sober\Intervention\intervention')) {
  * Intervention functions/modules
  * @link https://github.com/soberwp/
  */
-
 use function Sober\Intervention\intervention;
 
 if (function_exists('Sober\Intervention\intervention')) {
