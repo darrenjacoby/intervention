@@ -28,7 +28,9 @@ $ wp plugin activate intervention
 
 Place at the top of your themes functions.php file.
 ```php
-use function Sober\Intervention\intervention;
+if (function_exists('Sober\Intervention\intervention')) {
+    use function Sober\Intervention\intervention;
+}
 ```
 
 ### Modules:
