@@ -1,3 +1,7 @@
+### 1.1.0: 02nd November 2016
+* Feature; Remove default from add-dashboard-redirect so that a custom route can be applied.
+* New; remove-customizer-items to help remove sections and controls from Customizer.
+
 ### 1.0.2: 26th September 2016
 * Bug; Remove 'Add New' from default singular label.
 
