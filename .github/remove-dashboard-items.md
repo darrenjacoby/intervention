@@ -26,6 +26,6 @@ intervention('remove-dashboard-items');
 intervention('remove-dashboard-items', ['welcome', 'activity']);
 // Removes items/widgets welcome and activity for all user roles.
 
-intervention('add-dashboard-items', ['welcome', 'activity'], ['admin', 'editor']);
+intervention('remove-dashboard-items', ['welcome', 'activity'], ['admin', 'editor']);
 // Removes items/widgets welcome and activity for user roles admin and editor.
 ```
