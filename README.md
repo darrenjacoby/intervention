@@ -83,6 +83,9 @@ intervention('remove-menu-items', ['themes', 'plugins'], ['editor', 'author']);
 * **add-svg-support**<br>
 `intervention('add-svg-support', $roles(string|array));`
 
+* **remove-customizer-items**<br>
+`intervention('remove-customizer-items', $items(string|array), $roles(string|array));`
+
 * **remove-dashboard-items**<br>
 `intervention('remove-dashboard-items', $items(string|array), $roles(string|array));`
 
