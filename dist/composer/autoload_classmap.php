@@ -84,6 +84,7 @@ return array(
     'Sober\\Intervention\\Module\\AddDashboardItem' => $baseDir . '/src/Module/AddDashboardItem.php',
     'Sober\\Intervention\\Module\\AddDashboardRedirect' => $baseDir . '/src/Module/AddDashboardRedirect.php',
     'Sober\\Intervention\\Module\\AddSvgSupport' => $baseDir . '/src/Module/AddSvgSupport.php',
+    'Sober\\Intervention\\Module\\RemoveCustomizer' => $baseDir . '/src/Module/RemoveCustomizer.php',
     'Sober\\Intervention\\Module\\RemoveDashboardItems' => $baseDir . '/src/Module/RemoveDashboardItems.php',
     'Sober\\Intervention\\Module\\RemoveEmoji' => $baseDir . '/src/Module/RemoveEmoji.php',
     'Sober\\Intervention\\Module\\RemoveHelpTabs' => $baseDir . '/src/Module/RemoveHelpTabs.php',

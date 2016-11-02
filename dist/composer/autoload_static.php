@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit5b62f87e5e1761b30e80de153cd274c9
+class ComposerStaticInit19a590ab84635cab601c3b0b531b11f2
 {
     public static $prefixLengthsPsr4 = array (
         'S' => 
@@ -112,6 +112,7 @@ class ComposerStaticInit5b62f87e5e1761b30e80de153cd274c9
         'Sober\\Intervention\\Module\\AddDashboardItem' => __DIR__ . '/../..' . '/src/Module/AddDashboardItem.php',
         'Sober\\Intervention\\Module\\AddDashboardRedirect' => __DIR__ . '/../..' . '/src/Module/AddDashboardRedirect.php',
         'Sober\\Intervention\\Module\\AddSvgSupport' => __DIR__ . '/../..' . '/src/Module/AddSvgSupport.php',
+        'Sober\\Intervention\\Module\\RemoveCustomizer' => __DIR__ . '/../..' . '/src/Module/RemoveCustomizer.php',
         'Sober\\Intervention\\Module\\RemoveDashboardItems' => __DIR__ . '/../..' . '/src/Module/RemoveDashboardItems.php',
         'Sober\\Intervention\\Module\\RemoveEmoji' => __DIR__ . '/../..' . '/src/Module/RemoveEmoji.php',
         'Sober\\Intervention\\Module\\RemoveHelpTabs' => __DIR__ . '/../..' . '/src/Module/RemoveHelpTabs.php',
@@ -138,9 +139,9 @@ class ComposerStaticInit5b62f87e5e1761b30e80de153cd274c9
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit5b62f87e5e1761b30e80de153cd274c9::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit5b62f87e5e1761b30e80de153cd274c9::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit5b62f87e5e1761b30e80de153cd274c9::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit19a590ab84635cab601c3b0b531b11f2::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit19a590ab84635cab601c3b0b531b11f2::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit19a590ab84635cab601c3b0b531b11f2::$classMap;
 
         }, null, ClassLoader::class);
     }
