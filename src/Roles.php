@@ -7,7 +7,7 @@ class Roles
     /**
      * Get all user roles from WordPress
      *
-     * @param boolean $include_admin
+     * @param bool $include_admin
      * @return array
      */
     public static function getAll($incl_admin = true)

@@ -9,7 +9,7 @@ class Util
      *
      * @param int $pos
      * @param array $arr
-     * @return boolean
+     * @return bool
      */
     public static function isArrayValueSet($pos, $arr)
     {
