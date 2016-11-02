@@ -123,8 +123,6 @@ class AddDashboardRedirect extends Instance
             case 'setting-permalink':
                 $this->config = 'options-permalink.php';
                 break;
-            default:
-                $this->config = 'edit.php';
         }
     }
 
