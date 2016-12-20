@@ -161,9 +161,6 @@ Includes support for [github-updater](https://github.com/afragen/github-updater)
 * Clone [github-updater](https://github.com/afragen/github-updater) to your sites plugins/ folder
 * Activate via WordPress
 
-## Socializing
-
-Just because we're sober doesn't mean we don't enjoy socializing.
+## Social:
 
 * Twitter [@withjacoby](https://twitter.com/withjacoby)
-* GitHub [https://github.com/soberwp](https://github.com/soberwp)
