@@ -20,7 +20,7 @@ $ wp plugin activate intervention
 
 ## Requirements
 
-* [PHP](http://php.net/manual/en/install.php) >= 5.4.x
+* [PHP](http://php.net/manual/en/install.php) >= 5.6.x
 
 ## Usage
 
