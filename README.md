@@ -161,6 +161,6 @@ Includes support for [github-updater](https://github.com/afragen/github-updater)
 * Clone [github-updater](https://github.com/afragen/github-updater) to your sites plugins/ folder
 * Activate via WordPress
 
-## Social:
+## Social
 
 * Twitter [@withjacoby](https://twitter.com/withjacoby)
