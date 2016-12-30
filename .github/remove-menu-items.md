@@ -23,15 +23,15 @@ $roles: `all, all-not-admin, admin, editor, author, contributor, subscriber`
 intervention('remove-menu-items');
 // Removes menu item in the danger zone for all-not-admin user roles.
 
-intervention(remove-menu-items, 'plugins');
+intervention('remove-menu-items', 'plugins');
 // Removes menu item plugin for user roles all-not-admin.
 
-intervention(remove-menu-items, ['themes', 'plugins']);
+intervention('remove-menu-items', ['themes', 'plugins']);
 // Removes menu items themes and plugins for user roles all-not-admin.
 
-intervention(remove-menu-items, ['themes', 'plugins'], 'editor');
+intervention('remove-menu-items', ['themes', 'plugins'], 'editor');
 // Removes menu items themes and plugins for user role editor.
 
-intervention(remove-menu-items, ['updates', 'themes', 'plugins'], ['editor', 'author']);
+intervention('remove-menu-items', ['updates', 'themes', 'plugins'], ['editor', 'author']);
 // Removes menu items themes and plugins for user roles editor and author.
 ```
