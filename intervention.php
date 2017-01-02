@@ -2,7 +2,7 @@
 /*
 Plugin Name:        Intervention
 Plugin URI:         http://github.com/soberwp/intervention
-Description:        Lightweight WordPress plugin containing modules to cleanup and customize wp-admin easily.
+Description:        WordPress plugin containing modules to cleanup and customize wp-admin easily
 Version:            1.1.0
 Author:             Sober
 Author URI:         http://github.com/soberwp/

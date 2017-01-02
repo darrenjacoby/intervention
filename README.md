@@ -152,7 +152,7 @@ intervention('remove-menu-items', ['themes', 'plugins'], ['editor', 'author']);
 ### Composer:
 
 **Change the composer.json version to ^1.1.0**<br>
-Please check CHANGELOG.md for any breaking changes before updating.
+Please check [CHANGELOG.md](CHANGELOG.md) for any breaking changes before updating.
 
 ```shell
 $ composer update
