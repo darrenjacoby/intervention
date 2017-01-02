@@ -4,7 +4,7 @@ Lightweight WordPress plugin containing modules to cleanup and customize wp-admi
 
 ## Installation
 
-### Composer:
+#### Composer:
 
 Recommended method; [Roots Bedrock](https://roots.io/bedrock/) and [WP-CLI](http://wp-cli.org/)
 ```shell
@@ -12,19 +12,19 @@ $ composer require soberwp/intervention
 $ wp plugin activate intervention
 ```
 
-### Manual:
+#### Manual:
 
 * Download the [zip file](https://github.com/soberwp/intervention/archive.master.zip)
 * Unzip to your sites plugin folder
 * Activate via WordPress
 
-## Requirements
+#### Requirements
 
 * [PHP](http://php.net/manual/en/install.php) >= 5.6.x
 
 ## Usage
 
-### Import the namespace function:
+#### Import the namespaced function:
 
 Place at the top of your themes functions.php file.
 ```php
@@ -37,7 +37,7 @@ if (function_exists('Sober\Intervention\intervention')) {
 }
 ```
 
-### Modules:
+## Modules
 
 Use function `intervention()` to use plugin modules.<br>
 [Example functions.php file](.github/functions.php.md)
@@ -147,18 +147,18 @@ intervention('remove-menu-items', ['themes', 'plugins'], ['editor', 'author']);
 * **update-pagination**<br>
 `intervention('update-pagination', $amount(integer));`
 
-## Updating
+## Updates
 
-### Composer:
+#### Composer:
 
-**Change the composer.json version to ^1.1.0**<br>
-Please check [CHANGELOG.md](CHANGELOG.md) for any breaking changes before updating.
+* Change the composer.json version to ^1.1.0**<br>
+* Check [CHANGELOG.md](CHANGELOG.md) for any breaking changes before updating.
 
 ```shell
 $ composer update
 ```
 
-### WordPress:
+#### WordPress:
 
 Includes support for [github-updater](https://github.com/afragen/github-updater) to keep track on updates through the WordPress backend.
 * Download [github-updater](https://github.com/afragen/github-updater)
