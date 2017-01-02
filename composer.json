@@ -2,7 +2,7 @@
   "name": "soberwp/intervention",
   "type": "wordpress-plugin",
   "license": "MIT",
-  "description": "Lightweight WordPress plugin containing modules to cleanup and customize wp-admin easily.",
+  "description": "WordPress plugin containing modules to cleanup and customize wp-admin.",
   "homepage": "https://github.com/soberwp",
   "authors": [
     {
