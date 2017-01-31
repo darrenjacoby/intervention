@@ -50,7 +50,7 @@ intervention('remove-menu-items', ['themes', 'plugins'], ['editor', 'author']);
 
 * [add-acf-page](.github/add-acf-page.md)
 * [add-dashboard-item](.github/add-dashboard-item.md)
-* [add-dashboard-redirect](.github/add-dashboard-item.md)
+* [add-dashboard-redirect](.github/add-dashboard-redirect.md)
 * [add-svg-support](.github/add-svg-support.md)
 * [remove-customizer-items](.github/remove-customizer-items.md)
 * [remove-dashboard-items](.github/remove-dashboard-items.md)
