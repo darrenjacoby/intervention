@@ -14,7 +14,7 @@ $ wp plugin activate intervention
 
 #### Manual:
 
-* Download the [zip file](https://github.com/soberwp/intervention/archive.master.zip)
+* Download the [zip file](https://github.com/soberwp/intervention/archive/master.zip)
 * Unzip to your sites plugin folder
 * Activate via WordPress
 
