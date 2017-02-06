@@ -3,7 +3,7 @@
 namespace Sober\Intervention\Module;
 
 use Sober\Intervention\Instance;
-use Sober\Intervention\Util;
+use Sober\Intervention\Utils;
 
 /**
  * Module: update-dashboard-columns
@@ -20,16 +20,18 @@ use Sober\Intervention\Util;
  */
 class UpdateDashboardColumns extends Instance
 {
+    use Utils;
+
     public function run()
     {
-        $this->setup();
-        $this->hook();
+        $this->setup()->hook();
     }
 
     protected function setup()
     {
         $this->setDefaultConfig(1);
-        $this->config = (100 / Util::escArray($this->config));
+        $this->config = (100 / $this->escArray($this->config));
+        return $this;
     }
 
     protected function hook()

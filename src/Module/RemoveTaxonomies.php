@@ -24,8 +24,7 @@ class RemoveTaxonomies extends Instance
 
     public function run()
     {
-        $this->setup();
-        $this->hook();
+        $this->setup()->hook();
     }
 
     protected function setup()
@@ -33,6 +32,7 @@ class RemoveTaxonomies extends Instance
         $this->taxonomies = ['category', 'post_tag'];
         $this->setDefaultConfig('all');
         $this->config = $this->aliasTaxTag($this->config);
+        return $this;
     }
 
     protected function hook()

@@ -23,8 +23,7 @@ class RemoveDashboardItems extends Instance
 {
     public function run()
     {
-        $this->setup();
-        $this->hook();
+        $this->setup()->hook();
     }
 
     protected function setup()
@@ -32,6 +31,7 @@ class RemoveDashboardItems extends Instance
         $this->setDefaultConfig(['welcome', 'right-now', 'notices', 'recent-comments', 'incoming-links', 'plugins', 'quick-draft', 'drafts', 'news']);
         $this->setDefaultRoles('all');
         $this->roles = $this->aliasUserRoles($this->roles);
+        return $this;
     }
 
     protected function hook()

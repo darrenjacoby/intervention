@@ -22,8 +22,7 @@ class RemoveCustomizerItems extends Instance
 {
     public function run()
     {
-        $this->setup();
-        $this->hook();
+        $this->setup()->hook();
     }
 
     protected function setup()
@@ -31,6 +30,7 @@ class RemoveCustomizerItems extends Instance
         $this->setDefaultConfig(['header-image', 'background-image', 'colors', 'custom-css', 'site-tagline']);
         $this->setDefaultRoles('all');
         $this->roles = $this->aliasUserRoles($this->roles);
+        return $this;
     }
 
     protected function hook()

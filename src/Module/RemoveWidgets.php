@@ -23,13 +23,13 @@ class RemoveWidgets extends Instance
 {
     public function run()
     {
-        $this->setup();
-        $this->hook();
+        $this->setup()->hook();
     }
 
     protected function setup()
     {
         $this->setDefaultConfig('all');
+        return $this;
     }
 
     protected function hook()

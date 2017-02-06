@@ -25,8 +25,7 @@ class RemovePostComponents extends Instance
 
     public function run()
     {
-        $this->setup();
-        $this->hook();
+        $this->setup()->hook();
     }
 
     protected function setup()
@@ -34,6 +33,7 @@ class RemovePostComponents extends Instance
         $this->type = 'post';
         $this->components = ['editor', 'author', 'excerpt', 'trackbacks', 'custom-fields', 'comments', 'slug', 'revisions', 'thumbnail'];
         $this->setDefaultConfig(['author', 'excerpt', 'trackbacks', 'custom-fields', 'comments']);
+        return $this;
     }
 
     protected function hook()

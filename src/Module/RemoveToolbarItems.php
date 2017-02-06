@@ -24,8 +24,7 @@ class RemoveToolbarItems extends Instance
 {
     public function run()
     {
-        $this->setup();
-        $this->hook();
+        $this->setup()->hook();
     }
 
     protected function setup()
@@ -33,6 +32,7 @@ class RemoveToolbarItems extends Instance
         $this->setDefaultConfig(['logo', 'updates', 'customize', 'comments', 'new']);
         $this->setDefaultRoles('all');
         $this->roles = $this->aliasUserRoles($this->roles);
+        return $this;
     }
 
     protected function hook()

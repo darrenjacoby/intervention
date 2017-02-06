@@ -23,14 +23,14 @@ class RemoveUpdateNotices extends Instance
 {
     public function run()
     {
-        $this->setup();
-        $this->delegateHook();
+        $this->setup()->delegateHook();
     }
 
     protected function setup()
     {
         $this->setDefaultConfig('all-not-admin');
         $this->config = $this->aliasUserRoles($this->config);
+        return $this;
     }
 
     protected function delegateHook()

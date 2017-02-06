@@ -22,8 +22,7 @@ class RemoveUserFields extends Instance
 {
     public function run()
     {
-        $this->setup();
-        $this->hook();
+        $this->setup()->hook();
     }
 
     protected function setup()
@@ -31,6 +30,7 @@ class RemoveUserFields extends Instance
         $this->setDefaultConfig('all');
         $this->setDefaultRoles('all');
         $this->roles = $this->aliasUserRoles($this->roles);
+        return $this;
     }
 
     protected function hook()

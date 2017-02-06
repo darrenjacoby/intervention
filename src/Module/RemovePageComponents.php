@@ -25,8 +25,7 @@ class RemovePageComponents extends Instance
 
     public function run()
     {
-        $this->setup();
-        $this->hook();
+        $this->setup()->hook();
     }
 
     protected function setup()
@@ -34,6 +33,7 @@ class RemovePageComponents extends Instance
         $this->type = 'page';
         $this->components = ['editor', 'author', 'thumbnail', 'page-attributes', 'custom-fields', 'comments'];
         $this->setDefaultConfig(['author', 'thumbnail', 'page-attributes', 'custom-fields', 'comments']);
+        return $this;
     }
 
     protected function hook()

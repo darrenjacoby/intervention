@@ -4,6 +4,8 @@ namespace Sober\Intervention;
 
 class Instance
 {
+    use Utils;
+
     protected $config;
     protected $roles;
 
@@ -13,8 +15,8 @@ class Instance
      */
     public function __construct($config, $roles)
     {
-        $this->config = Util::toArray($config);
-        $this->roles = Util::toArray($roles);
+        $this->config = $this->toArray($config);
+        $this->roles = $this->toArray($roles);
     }
 
     /**
@@ -25,7 +27,7 @@ class Instance
     protected function setDefaultConfig($args)
     {
         if (!current($this->config)) {
-            $this->config = Util::toArray($args);
+            $this->config = $this->toArray($args);
         }
     }
 
@@ -37,7 +39,7 @@ class Instance
     protected function setDefaultRoles($args)
     {
         if (!current($this->roles)) {
-            $this->roles = Util::toArray($args);
+            $this->roles = $this->toArray($args);
         }
     }
 
@@ -51,13 +53,33 @@ class Instance
     protected function aliasUserRoles($args)
     {
         if (in_array('all', $args)) {
-            $args = Roles::getAll();
+            $args = $this->getUserRoles();
         }
         if (in_array('all-not-admin', $args)) {
-            $args = Roles::getAll(false);
+            $args = $this->getUserRoles(false);
         }
         $args = preg_replace('/\badmin\b/', 'administrator', $args);
         return $args;
+    }
+
+    /**
+     * Get all user roles from WordPress
+     *
+     * @param bool $include_admin
+     * @return array
+     */
+    public static function getUserRoles($incl_admin = true)
+    {
+        $wp_roles = new \WP_Roles();
+        $wp_roles = $wp_roles->get_names();
+        if (!$incl_admin) {
+            unset($wp_roles['administrator']);
+        }
+        $roles = [];
+        foreach ($wp_roles as $key => $value) {
+            $roles[] = $key;
+        }
+        return $roles;
     }
 
     /**

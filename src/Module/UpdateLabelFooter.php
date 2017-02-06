@@ -3,7 +3,7 @@
 namespace Sober\Intervention\Module;
 
 use Sober\Intervention\Instance;
-use Sober\Intervention\Util;
+use Sober\Intervention\Utils;
 
 /**
  * Module: update-label-footer
@@ -20,6 +20,8 @@ use Sober\Intervention\Util;
  */
 class UpdateLabelFooter extends Instance
 {
+    use Utils;
+
     public function run()
     {
         $this->hook();
@@ -32,6 +34,6 @@ class UpdateLabelFooter extends Instance
 
     public function updateLabelFooter()
     {
-        return Util::escArray($this->config);
+        return $this->escArray($this->config);
     }
 }

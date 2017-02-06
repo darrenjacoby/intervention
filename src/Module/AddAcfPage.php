@@ -3,7 +3,7 @@
 namespace Sober\Intervention\Module;
 
 use Sober\Intervention\Instance;
-use Sober\Intervention\Util;
+use Sober\Intervention\Utils;
 
 /**
  * Module: add-acf-page
@@ -20,11 +20,11 @@ use Sober\Intervention\Util;
  */
 class AddAcfPage extends Instance
 {
+    use Utils;
+
     public function run()
     {
-        $this->setup();
-        $this->setupStrToAcf();
-        $this->addAcfPage();
+        $this->setup()->setupStrToAcf()->addAcfPage();
     }
 
     protected function setup()
@@ -32,18 +32,20 @@ class AddAcfPage extends Instance
         $this->setDefaultConfig([]);
         $this->setDefaultRoles(['admin', 'editor']);
         $this->roles = $this->aliasUserRoles($this->roles);
+        return $this;
     }
 
     protected function setupStrToAcf()
     {
-        if (Util::isArrayValueSet(0, $this->config)) {
-            $this->config = Util::escArray($this->config);
+        if ($this->isArrayValueSet(0, $this->config)) {
+            $this->config = $this->escArray($this->config);
             $this->config = [
                 'page_title' => $this->config,
                 'menu_title' => $this->config,
                 'menu_slug'  => strtolower(str_replace(' ', '_', $this->config))
             ];
         }
+        return $this;
     }
 
     public function addAcfPage()

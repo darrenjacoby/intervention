@@ -21,14 +21,14 @@ class RemoveToolbarFrontend extends Instance
 {
     public function run()
     {
-        $this->setup();
-        $this->removeToolbarFrontend();
+        $this->setup()->removeToolbarFrontend();
     }
 
     protected function setup()
     {
         $this->setDefaultConfig('all');
         $this->config = $this->aliasUserRoles($this->config);
+        return $this;
     }
 
     public function removeToolbarFrontend()

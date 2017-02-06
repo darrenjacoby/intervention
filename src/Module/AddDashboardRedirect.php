@@ -3,7 +3,7 @@
 namespace Sober\Intervention\Module;
 
 use Sober\Intervention\Instance;
-use Sober\Intervention\Util;
+use Sober\Intervention\Utils;
 
 /**
  * Module: add-dashboard-redirect
@@ -24,25 +24,20 @@ use Sober\Intervention\Util;
  */
 class AddDashboardRedirect extends Instance
 {
+    use Utils;
+
     public function run()
     {
-        $this->setup();
-        $this->redirectRouter();
-        $this->hook();
+        $this->setup()->redirectRouter()->hook();
     }
 
     protected function setup()
     {
         $this->setDefaultConfig('posts');
-        $this->config = Util::escArray($this->config);
+        $this->config = $this->escArray($this->config);
         $this->setDefaultRoles('all');
         $this->roles = $this->aliasUserRoles($this->roles);
-    }
-
-    protected function hook()
-    {
-        add_action('wp_dashboard_setup', [$this, 'redirect']);
-        add_action('admin_init', [$this, 'removeDashboard']);
+        return $this;
     }
 
     protected function redirectRouter()
@@ -124,13 +119,20 @@ class AddDashboardRedirect extends Instance
                 $this->config = 'options-permalink.php';
                 break;
         }
+        return $this;
+    }
+
+    protected function hook()
+    {
+        add_action('wp_dashboard_setup', [$this, 'redirect']);
+        add_action('admin_init', [$this, 'removeDashboard']);
     }
 
     public function redirect()
     {
         foreach ($this->roles as $role) {
             if (current_user_can($role)) {
-                wp_redirect(admin_url(Util::escArray($this->config)));
+                wp_redirect(admin_url($this->escArray($this->config)));
             }
         }
     }

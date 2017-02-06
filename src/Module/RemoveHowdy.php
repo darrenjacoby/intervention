@@ -3,7 +3,7 @@
 namespace Sober\Intervention\Module;
 
 use Sober\Intervention\Instance;
-use Sober\Intervention\Util;
+use Sober\Intervention\Utils;
 
 /**
  * Module: remove-howdy
@@ -23,19 +23,21 @@ use Sober\Intervention\Util;
  */
 class RemoveHowdy extends Instance
 {
+    use Utils;
+
     protected $replace;
     protected $account;
     protected $title;
 
     public function run()
     {
-        $this->setup();
-        $this->hook();
+        $this->setup()->hook();
     }
 
     protected function setup()
     {
-        $this->replace = Util::escArray($this->config);
+        $this->replace = $this->escArray($this->config);
+        return $this;
     }
 
     protected function hook()

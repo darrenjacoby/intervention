@@ -3,7 +3,7 @@
 namespace Sober\Intervention\Module;
 
 use Sober\Intervention\Instance;
-use Sober\Intervention\Label;
+use Sober\Intervention\Labels;
 
 /**
  * Module: update-label-page
@@ -23,17 +23,19 @@ use Sober\Intervention\Label;
  */
 class UpdateLabelPage extends Instance
 {
+    use Labels;
+
     protected $type;
 
     public function run()
     {
-        $this->setup();
-        $this->hook();
+        $this->setup()->hook();
     }
 
     protected function setup()
     {
         $this->type = 'page';
+        return $this;
     }
 
     protected function hook()
@@ -44,11 +46,11 @@ class UpdateLabelPage extends Instance
 
     public function updateLabelPage()
     {
-        Label::setLabels($this->type, $this->config);
+        $this->setLabels($this->type, $this->config);
     }
 
     public function updateIconPage()
     {
-        Label::setIcon($this->type, $this->config);
+        $this->setLabelIcon($this->type, $this->config);
     }
 }

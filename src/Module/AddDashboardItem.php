@@ -3,7 +3,7 @@
 namespace Sober\Intervention\Module;
 
 use Sober\Intervention\Instance;
-use Sober\Intervention\Util;
+use Sober\Intervention\Utils;
 
 /**
  * Module: add-dashboard-item
@@ -21,19 +21,21 @@ use Sober\Intervention\Util;
  */
 class AddDashboardItem extends Instance
 {
+    use Utils;
+
     protected $slug;
     protected $content;
 
     public function run()
     {
-        $this->setup();
-        $this->hook();
+        $this->setup()->hook();
     }
 
     protected function setup()
     {
         $this->slug = strtolower(str_replace(' ', '_', $this->config[0]));
-        $this->content = Util::isArrayValueSet(1, $this->config) ? $this->config[1] : current($this->config);
+        $this->content = $this->isArrayValueSet(1, $this->config) ? $this->config[1] : current($this->config);
+        return $this;
     }
 
     protected function hook()

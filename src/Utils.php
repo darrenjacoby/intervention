@@ -2,7 +2,7 @@
 
 namespace Sober\Intervention;
 
-class Util
+trait Utils
 {
     /**
      * Determine if array value has been set
@@ -11,7 +11,7 @@ class Util
      * @param array $arr
      * @return bool
      */
-    public static function isArrayValueSet($pos, $arr)
+    public function isArrayValueSet($pos, $arr)
     {
         if (is_array($arr) && array_key_exists($pos, $arr) && !empty($arr[$pos])) {
             return true;
@@ -24,7 +24,7 @@ class Util
      * @param string|array $param
      * @return array
      */
-    public static function toArray($param)
+    public function toArray($param)
     {
         if (!is_array($param)) {
             return [$param];
@@ -39,7 +39,7 @@ class Util
      * @param string|array $param
      * @return string
      */
-    public static function escArray($param)
+    public function escArray($param)
     {
         if (is_array($param)) {
             return current($param);

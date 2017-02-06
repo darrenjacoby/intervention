@@ -24,8 +24,7 @@ class RemoveMenuItems extends Instance
 {
     public function run()
     {
-        $this->setup();
-        $this->hook();
+        $this->setup()->hook();
     }
 
     protected function setup()
@@ -33,6 +32,7 @@ class RemoveMenuItems extends Instance
         $this->setDefaultConfig('danger-zone');
         $this->setDefaultRoles('all-not-admin');
         $this->roles = $this->aliasUserRoles($this->roles);
+        return $this;
     }
 
     protected function hook()

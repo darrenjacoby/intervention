@@ -21,14 +21,14 @@ class RemoveUserRoles extends Instance
 {
     public function run()
     {
-        $this->setup();
-        $this->hook();
+        $this->setup()->hook();
     }
 
     protected function setup()
     {
         $this->setDefaultConfig(['author', 'subscriber', 'contributor']);
         $this->config = $this->aliasUserRoles($this->config);
+        return $this;
     }
 
     protected function hook()

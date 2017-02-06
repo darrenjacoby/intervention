@@ -1,3 +1,9 @@
+### 1.1.1: 06th February 2017
+* Bug; add-svg-support to support WordPress 4.7.1+ bug. 
+* Change; Add new label attributes for posts and pages when being renamed
+* Change; Merge Roles.php into Instance.php
+* Change; Change Labels to a triat
+
 ### 1.1.0: 02nd November 2016
 * Feature; Remove default from add-dashboard-redirect so that a custom route can be applied.
 * New; remove-customizer-items to help remove sections and controls from Customizer.

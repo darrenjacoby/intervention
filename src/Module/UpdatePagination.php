@@ -3,7 +3,7 @@
 namespace Sober\Intervention\Module;
 
 use Sober\Intervention\Instance;
-use Sober\Intervention\Util;
+use Sober\Intervention\Utils;
 
 /**
  * Module: update-pagination
@@ -20,20 +20,22 @@ use Sober\Intervention\Util;
  */
 class UpdatePagination extends Instance
 {
+    use Utils;
+
     protected $users;
     protected $key;
 
     public function run()
     {
-        $this->setup();
-        $this->hook();
+        $this->setup()->hook();
     }
 
     protected function setup()
     {
         $this->setDefaultConfig(40);
-        $this->config = Util::escArray($this->config);
+        $this->config = $this->escArray($this->config);
         $this->users = get_users();
+        return $this;
     }
 
     protected function hook()
