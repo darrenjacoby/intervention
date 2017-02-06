@@ -28,7 +28,7 @@ class RemoveDashboardItems extends Instance
 
     protected function setup()
     {
-        $this->setDefaultConfig(['welcome', 'right-now', 'notices', 'recent-comments', 'incoming-links', 'plugins', 'quick-draft', 'drafts', 'news']);
+        $this->setDefaultConfig(['welcome', 'notices', 'activity', 'right-now', 'recent-comments', 'incoming-links', 'plugins', 'quick-draft', 'drafts', 'news']);
         $this->setDefaultRoles('all');
         $this->roles = $this->aliasUserRoles($this->roles);
         return $this;
