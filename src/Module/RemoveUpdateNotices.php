@@ -73,6 +73,6 @@ class RemoveUpdateNotices extends Instance
     }
     
     public function removeUpdateFooter() {
-        remove_filter( 'update_footer', 'core_update_footer' );
+        remove_filter('update_footer', 'core_update_footer');
     }
 }
