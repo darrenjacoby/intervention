@@ -79,6 +79,10 @@ class RemoveToolbarItems extends Instance
                 if (in_array('new-user', $this->config)) {
                     $wp_admin_bar->remove_node('new-user');
                 }
+                // View Items
+                if (in_array('view', $this->config) || in_array('all', $this->config)) {
+                    $wp_admin_bar->remove_node('view');
+                }
                 // Account
                 if (in_array('account', $this->config) || in_array('all', $this->config)) {
                     array_push($this->config, 'account-user', 'account-profile');
