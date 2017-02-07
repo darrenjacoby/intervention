@@ -17,12 +17,12 @@ $roles: `all, all-not-admin, admin, editor, author, contributor, subscriber`
 
 ### Examples
 ```php
-intervention(remove-update-notices);
+intervention('remove-update-notices');
 // Removes update notices for user roles all-not-admin.
 
-intervention(remove-update-notices, 'editor');
+intervention('remove-update-notices', 'editor');
 // Removes update notices for user role editor.
 
-intervention(remove-update-notices, ['editor', 'author']);
+intervention('remove-update-notices', ['editor', 'author']);
 // Removes update notices for user roles editor and author.
 ```
