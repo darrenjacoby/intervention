@@ -14,7 +14,7 @@ $items: `logo, updates, comments, new`
 $roles: `all`
 
 ### Options
-$items: `logo, updates, site-name, comments, customize, new, new-post, new-page, new-media, new-user, account, account-user, account-profile`
+$items: `logo, updates, site-name, comments, customize, new, new-post, new-page, new-media, new-user, account, account-user, account-profile, view`
 
 $roles: `all, all-not-admin, admin, editor, author, contributor, subscriber`
 
