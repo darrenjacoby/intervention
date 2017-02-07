@@ -48,8 +48,8 @@ class RemoveUpdateNotices extends Instance
         add_filter('pre_site_transient_update_plugins', [$this, 'removeUpdateNotices']);
         add_filter('pre_site_transient_update_themes', [$this, 'removeUpdateNotices']);
         add_action('admin_init', [$this, 'removeUpdatePage']);
+        add_action('admin_init', [$this, 'removeUpdateFooter']);
         add_action('admin_menu', [$this, 'removeUpdateNag']);
-        remove_filter( 'update_footer', 'core_update_footer' );
     }
 
     public function removeUpdateNotices()
@@ -65,6 +65,11 @@ class RemoveUpdateNotices extends Instance
     public function removeUpdatePage()
     {
         remove_submenu_page('index.php', 'update-core.php');
+    }
+
+    public function removeUpdateFooter()
+    {
+        remove_filter('update_footer', 'core_update_footer');
     }
 
     public function removeUpdateNag()
