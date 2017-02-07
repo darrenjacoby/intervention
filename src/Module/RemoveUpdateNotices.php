@@ -49,7 +49,7 @@ class RemoveUpdateNotices extends Instance
         add_filter('pre_site_transient_update_themes', [$this, 'removeUpdateNotices']);
         add_action('admin_init', [$this, 'removeUpdatePage']);
         add_action('admin_menu', [$this, 'removeUpdateNag']);
-        add_action('admin_menu', [$this, 'removeUpdateFooter']);
+        add_action('admin_init', [$this, 'removeUpdateFooter']);
     }
 
     public function removeUpdateNotices()
