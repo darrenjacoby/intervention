@@ -39,7 +39,8 @@ if (function_exists('Sober\Intervention\intervention')) {
 
 ## Modules
 
-Use function `intervention()` to use plugin modules.<br>
+Use function `intervention()` to use plugin modules.
+
 [Example functions.php file](.github/functions.php.md)
 
 ```php
