@@ -2,13 +2,10 @@
 <ruleset name="Sober">
   <description>Sober Coding Standards</description>
 
-  <!-- Show colors in console -->
-  <arg value="-colors"/>
-
-  <!-- Use PSR-2 as a base -->
   <rule ref="PSR2">
     <exclude name="Generic.Files.LineLength"/>
     <exclude name="PSR1.Files.SideEffects"/>
   </rule>
 
+  <arg value="-colors"/>
 </ruleset>
