@@ -29,9 +29,9 @@ $ wp plugin activate intervention
 Place at the top of your themes functions.php file.
 ```php
 
-use function Sober\Intervention\intervention;
+use function \Sober\Intervention\intervention;
 
-if (function_exists('Sober\Intervention\intervention')) {
+if (function_exists('\Sober\Intervention\intervention')) {
     // now you can use the function to call the required modules and their params
     intervention('remove-menu-items', 'plugins', 'all');
 }
