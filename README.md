@@ -168,4 +168,4 @@ Includes support for [github-updater](https://github.com/afragen/github-updater)
 
 ## Social
 
-* Twitter [@withjacoby](https://twitter.com/withjacoby)
+* For Intervention updates and other WordPress dev, follow [@withjacoby](https://twitter.com/withjacoby)
