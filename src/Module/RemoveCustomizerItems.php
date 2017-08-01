@@ -35,7 +35,7 @@ class RemoveCustomizerItems extends Instance
 
     protected function hook()
     {
-      add_action('customize_register', [$this, 'removeCustomizer']);
+      add_action('customize_register', [$this, 'removeCustomizerItems']);
     }
 
     public function removeCustomizerItems($wp_customize)
