@@ -17,12 +17,12 @@ $roles:  `all, all-not-admin, admin, editor, author, contributor, subscriber`
 
 ### Examples
 ```php
-intervention(remove-toolbar-frontend);
+intervention('remove-toolbar-frontend');
 // Removes front-end toolbar for all user roles.
 
-intervention(remove-toolbar-frontend, 'contributor');
+intervention('remove-toolbar-frontend', 'contributor');
 // Removes front-end toolbar for user role contributor.
 
-intervention(remove-toolbar-frontend, ['contributor', 'subscriber']);
+intervention('remove-toolbar-frontend', ['contributor', 'subscriber']);
 // Removes front-end toolbar for user roles contributor and subscriber.
 ```
