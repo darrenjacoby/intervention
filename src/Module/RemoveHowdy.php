@@ -49,7 +49,8 @@ class RemoveHowdy extends Instance
     {
         global $wp_admin_bar;
         $this->account = $wp_admin_bar->get_node('my-account');
-        $this->title = str_replace('Howdy,', $this->replace, $this->account->title);
+        $howdy = str_replace(' %s', '', __('Howdy, %s'));
+        $this->title = str_replace($howdy, $this->replace, $this->account->title);
         $wp_admin_bar->add_node([
             'id' => 'my-account',
             'title' => $this->title
