@@ -6,10 +6,17 @@ WordPress plugin containing modules to cleanup and customize wp-admin.
 
 #### Composer:
 
-Recommended method; [Roots Bedrock](https://roots.io/bedrock/) and [WP-CLI](http://wp-cli.org/)
+Recommended method/s;
+
+[Roots Bedrock](https://roots.io/bedrock/) and [WP-CLI](http://wp-cli.org/)
 ```shell
 $ composer require soberwp/intervention
 $ wp plugin activate intervention
+```
+
+[Roots Sage](https://roots.io/sage/) and [WP-CLI](http://wp-cli.org/)
+```shell
+$ composer require soberwp/intervention:1.2.0-package
 ```
 
 #### Manual:
@@ -52,6 +59,7 @@ intervention('remove-menu-items', ['themes', 'plugins'], ['editor', 'author']);
 * [add-acf-page](.github/add-acf-page.md)
 * [add-dashboard-item](.github/add-dashboard-item.md)
 * [add-dashboard-redirect](.github/add-dashboard-redirect.md)
+* [add-menu-page](.github/add-menu-page.md)
 * [add-svg-support](.github/add-svg-support.md)
 * [remove-customizer-items](.github/remove-customizer-items.md)
 * [remove-dashboard-items](.github/remove-dashboard-items.md)
@@ -84,6 +92,9 @@ intervention('remove-menu-items', ['themes', 'plugins'], ['editor', 'author']);
 
 * **add-dashboard-redirect**<br>
 `intervention('add-dashboard-redirect', $route(string), $roles(string|array));`
+
+* **add-menu-page**<br>
+`intervention('add-menu-page', $config(string|array), $roles(string|array));`
 
 * **add-svg-support**<br>
 `intervention('add-svg-support', $roles(string|array));`
@@ -152,7 +163,7 @@ intervention('remove-menu-items', ['themes', 'plugins'], ['editor', 'author']);
 
 #### Composer:
 
-* Change the composer.json version to ^1.1.1**<br>
+* Change the composer.json version to ^1.2.0**<br>
 * Check [CHANGELOG.md](CHANGELOG.md) for any breaking changes before updating.
 
 ```shell
