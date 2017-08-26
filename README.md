@@ -16,7 +16,7 @@ $ wp plugin activate intervention
 
 [Roots Sage](https://roots.io/sage/) and [WP-CLI](http://wp-cli.org/)
 ```shell
-$ composer require soberwp/intervention:1.2.0-package
+$ composer require soberwp/intervention:1.2.0-p
 ```
 
 #### Manual:
