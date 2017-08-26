@@ -13,7 +13,7 @@ intervention('remove-widgets', $widgets(string|array));
 $widgets: `all`
 
 ### Options
-$widgets: `pages, calendar, archives, links, meta, search, text, categories, recent-posts, recent-comments, rss, tag-cloud, custom-menu`
+$widgets: `pages, calendar, archives, links, meta, search, text, categories, recent-posts, recent-comments, rss, tag-cloud, custom-menu, custom-html, media-audio, media-image, media-video, akismet`
 
 ### Examples
 ```php

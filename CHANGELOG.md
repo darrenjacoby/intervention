@@ -1,3 +1,7 @@
+### 1.2.0: 22nd August 2017
+* New; Add custom-html, media-image, media-audio, media-video, akismet to remove-widgets module
+* New: Add AddMenuPage
+
 ### 1.1.1: 06th February 2017
 * Bug; add-svg-support to support WordPress 4.7.1+ bug. 
 * Change; Add new label attributes for posts and pages when being renamed

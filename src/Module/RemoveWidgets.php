@@ -78,5 +78,21 @@ class RemoveWidgets extends Instance
         if (in_array('custom-menu', $this->config) || in_array('all', $this->config)) {
             unregister_widget('WP_Nav_Menu_Widget');
         }
+        if (in_array('custom-html', $this->config) || in_array('all', $this->config)) {
+            unregister_widget('WP_Widget_Custom_HTML');
+        }
+        if (in_array('media-audio', $this->config) || in_array('all', $this->config)) {
+            unregister_widget('WP_Widget_Media_Audio');
+        }
+        if (in_array('media-image', $this->config) || in_array('all', $this->config)) {
+            unregister_widget('WP_Widget_Media_Image');
+        }
+        if (in_array('media-video', $this->config) || in_array('all', $this->config)) {
+            unregister_widget('WP_Widget_Media_Video');
+        }
+        // Akismet 
+        if (in_array('akismet', $this->config) || in_array('all', $this->config)) {
+            unregister_widget('Akismet_Widget');
+        }
     }
 }
