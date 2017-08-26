@@ -38,23 +38,23 @@ class AddMenuPage extends Instance
     protected function config()
     {
         $this->config = (object) [
-            'page_title' => $this->config[0],
-            'menu_title' => $this->config[0],
-            'menu_slug'  => (isset($this->config[1]) ? $this->config[1] : $this->config[0]),
-            'function'   => strtolower(str_replace(' ', '_', (isset($this->config[2]) ? $this->config[2] : $this->config[0]))),
-            'position'   => (isset($this->config[3]) ? $this->config[3] : null),
-            'icon'       => (isset($this->config[4]) ? $this->config[4] : ''),
-            'capability' => (isset($this->config[5]) ? $this->config[5] : 'read')
+            'page_title' => $this->config['page_title'],
+            'menu_title' => $this->config['menu_title'],
+            'menu_slug'  => (isset($this->config['menu_slug']) ? $this->config['menu_slug'] : $this->config['page_title']),
+            'function'   => strtolower(str_replace(' ', '_', (isset($this->config['function']) ? $this->config['function'] : $this->config['page_title']))),
+            'position'   => (isset($this->config['position']) ? $this->config['position'] : null),
+            'icon_url'   => (isset($this->config['icon_url']) ? $this->config['icon_url'] : ''),
+            'capability' => (isset($this->config['capability']) ? $this->config['capability'] : 'read')
         ];
         return $this;
     }
 
     protected function setLabelIcon()
-    {   
-        if ($this->config->icon !== '') {
+    {
+        if ($this->config->icon_url !== '') {
             // Append 'dashicons-' prefix if it has not been included
-            if (strpos($this->config->icon, 'dashicons-') === false) {
-                $this->config->icon = 'dashicons-' . $this->config->icon;
+            if (strpos($this->config->icon_url, 'dashicons-') === false) {
+                $this->config->icon_url = 'dashicons-' . $this->config->icon_url;
             }
         }
         return $this;
@@ -69,7 +69,7 @@ class AddMenuPage extends Instance
     {
         foreach ($this->roles as $role) {
             if (current_user_can($role)) {
-                add_menu_page($this->config->page_title, $this->config->menu_title, $this->config->capability, $this->config->menu_slug, $this->config->function, $this->config->icon, $this->config->position);
+                add_menu_page($this->config->page_title, $this->config->menu_title, $this->config->capability, $this->config->menu_slug, $this->config->function, $this->config->icon_url, $this->config->position);
             }
         }
     }
