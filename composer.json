@@ -28,7 +28,10 @@
     "psr-4": {
       "Sober\\Intervention\\": "src/",
       "Sober\\Intervention\\Module\\": "src/modules/"
-    }
+    },
+    "files": [
+      "intervention.php"
+    ]
   },
   "scripts": {
     "test": [
