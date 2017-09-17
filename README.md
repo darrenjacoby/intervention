@@ -8,15 +8,15 @@ WordPress plugin containing modules to cleanup and customize wp-admin.
 
 Recommended method/s;
 
-[Roots Bedrock](https://roots.io/bedrock/) and [WP-CLI](http://wp-cli.org/)
+[Roots Bedrock](https://roots.io/bedrock/)
+```shell
+$ composer require soberwp/intervention:1.2.0-p
+```
+
+[Roots Sage](https://roots.io/sage/) and [WP-CLI](http://wp-cli.org/)
 ```shell
 $ composer require soberwp/intervention
 $ wp plugin activate intervention
-```
-
-[Roots Sage](https://roots.io/sage/)
-```shell
-$ composer require soberwp/intervention:1.2.0-p
 ```
 
 #### Manual:
