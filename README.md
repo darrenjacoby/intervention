@@ -25,6 +25,12 @@ $ composer require soberwp/intervention:1.2.0-p
 * Unzip to your sites plugin folder
 * Activate via WordPress
 
+#### WP-CLI:
+
+```shell
+$ wp plugin install https://github.com/soberwp/intervention/archive/master.zip --activate
+```
+
 #### Requirements:
 
 * [PHP](http://php.net/manual/en/install.php) >= 5.6.x
