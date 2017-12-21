@@ -36,6 +36,9 @@ class RemoveHelpTabs extends Instance
     public function removeHelpTabs()
     {
         $this->screen = get_current_screen();
-        $this->screen->remove_help_tabs();
+
+        if($this->screen) {
+          $this->screen->remove_help_tabs();
+        }
     }
 }
