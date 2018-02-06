@@ -183,6 +183,7 @@ Includes support for [github-updater](https://github.com/afragen/github-updater)
 * Clone [github-updater](https://github.com/afragen/github-updater) to your sites plugins/ folder
 * Activate via WordPress
 
-## Social
+## Other
 
-* For Intervention updates and other WordPress dev, follow [@withjacoby](https://twitter.com/withjacoby)
+* For Intervention updates follow [@withjacoby](https://twitter.com/withjacoby)
+* You can also [hire me](mailto:darren@jacoby.co.za) for WordPress related work
