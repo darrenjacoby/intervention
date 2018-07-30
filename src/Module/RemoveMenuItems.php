@@ -37,7 +37,7 @@ class RemoveMenuItems extends Instance
 
     protected function hook()
     {
-        add_action('admin_init', [$this, 'removeMenuItems']);
+        add_action('admin_menu', [$this, 'removeMenuItems']);
     }
 
     public function removeMenuItems()
