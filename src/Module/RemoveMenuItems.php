@@ -7,11 +7,11 @@ use Sober\Intervention\Instance;
 /**
  * Module: remove-menu-items
  *
- * Hooks into admin_init to removes menu item/s for user role/s.
+ * Hooks into admin_menu to removes menu item/s for user role/s.
  *
  * @example intervention('remove-menu-items', $items(string|array), $roles(string|array));
  *
- * @link https://developer.wordpress.org/reference/hooks/admin_init/
+ * @link https://developer.wordpress.org/reference/hooks/admin_menu/
  * @link https://developer.wordpress.org/reference/functions/current_user_can/
  * @link https://developer.wordpress.org/reference/functions/remove_menu_page/
  * @link https://developer.wordpress.org/reference/functions/remove_submenu_page/
