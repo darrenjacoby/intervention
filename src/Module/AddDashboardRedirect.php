@@ -15,7 +15,7 @@ use Sober\Intervention\Utils;
  * @link https://developer.wordpress.org/reference/functions/wp_dashboard_setup/
  * @link https://developer.wordpress.org/reference/functions/wp_redirect/
  * @link https://developer.wordpress.org/reference/functions/admin_url/
- * @link https://developer.wordpress.org/reference/hooks/admin_init/
+ * @link https://developer.wordpress.org/reference/hooks/admin_menu/
  * @link https://developer.wordpress.org/reference/functions/remove_menu_page/
  *
  * @package WordPress
@@ -125,7 +125,7 @@ class AddDashboardRedirect extends Instance
     protected function hook()
     {
         add_action('wp_dashboard_setup', [$this, 'redirect']);
-        add_action('admin_init', [$this, 'removeDashboard']);
+        add_action('admin_menu', [$this, 'removeDashboard']);
     }
 
     public function redirect()
