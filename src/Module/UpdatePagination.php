@@ -40,22 +40,31 @@ class UpdatePagination extends Instance
 
     protected function hook()
     {
-        add_action('admin_head', [$this, 'updatePagination']);
+        add_action('current_screen', [$this, 'setPaginationFilter']);
     }
 
-    public function updatePagination()
+    public function setPaginationFilter()
     {
-        foreach ($this->users as $user) {
-            $this->key = 'edit_post_per_page';
-            update_user_meta($user->ID, $this->key, $this->config);
+        $screen = get_current_screen();
+        $filter = false;
+
+        if ($screen->id == 'upload') {
+            $filter = "get_user_option_upload_per_page";
+        } else if ($screen->id == 'edit-comments') {
+            $filter = "get_user_option_edit_comments_per_page";
+        } else if ($screen->taxonomy != '') {
+            $filter = "get_user_option_edit_{$screen->taxonomy}_per_page";
+        } else if ($screen->post_type != '') {
+            $filter = "get_user_option_edit_{$screen->post_type}_per_page";
         }
-        foreach ($this->users as $user) {
-            $this->key = 'edit_page_per_page';
-            update_user_meta($user->ID, $this->key, $this->config);
+
+        if ($filter) {
+            add_filter($filter, [$this, 'updatePagination']);
         }
-        foreach ($this->users as $user) {
-            $this->key = 'edit_comments_per_page';
-            update_user_meta($user->ID, $this->key, $this->config);
-        }
+    }
+
+    public function updatePagination($result)
+    {
+        return $result ?: $this->config;
     }
 }
