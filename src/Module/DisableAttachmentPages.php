@@ -69,7 +69,7 @@ class DisableAttachmentPages extends Instance
             }
             // remove this filter and rerun with the prefix
             remove_filter('wpUniquePostSlug', [$this, 'wpUniquePostSlug'], 10);
-            $slug = wpUniquePostSlug($prefix . $original_slug, $post_ID, $post_status, $post_type, $post_parent);
+            $slug = $this->wpUniquePostSlug($prefix . $original_slug, $post_ID, $post_status, $post_type, $post_parent, $original_slug);
             add_filter('wpUniquePostSlug', [$this, 'wpUniquePostSlug'], 10, 6);
 
             return $slug;
