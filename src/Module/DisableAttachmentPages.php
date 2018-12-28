@@ -42,7 +42,7 @@ class DisableAttachmentPages extends Instance
         // this does nothing currently, but maybe someday will, if WordPress standardizes attachments as a post type
         add_filter('register_post_type_args',[$this, 'makeAttachmentsPrivate'], 10, 2);
     }
-    
+
     public function removeAttachmentRewrites($rules)
     {
         foreach ($rules as $pattern => $rewrite) {
@@ -52,16 +52,16 @@ class DisableAttachmentPages extends Instance
         }
             return $rules;
     }
- 
+
     // this function is a trimmed down version of `wp_unique_post_slug` from WordPress 4.8.3
     public function wpUniquePostSlug($slug, $post_ID, $post_status, $post_type, $post_parent, $original_slug)
     {
             global $wpdb, $wp_rewrite;
- 
+
         if ($post_type =='nav_menu_item') {
             return $slug;
         }
- 
+
         if ($post_type == "attachment") {
             $prefix = apply_filters('gjs_attachment_slug_prefix', 'wp-attachment-', $original_slug, $post_ID, $post_status, $post_type, $post_parent);
             if (! $prefix || 'wp-attachment-' === $prefix) {
@@ -74,16 +74,16 @@ class DisableAttachmentPages extends Instance
 
             return $slug;
         }
- 
+
         if (! is_post_type_hierarchical($post_type)) {
             return $slug;
         }
- 
+
             $feeds = $wp_rewrite->feeds;
         if (! is_array($feeds)) {
             $feeds = array();
         }
- 
+
         /*
          * NOTE: This is the big change. We are NOT checking attachments along with our post type
          */
@@ -110,10 +110,10 @@ class DisableAttachmentPages extends Instance
             } while ($post_name_check);
             $slug = $alt_post_name;
         }
- 
+
             return $slug;
     }
- 
+
     public function removeAttachmentQueryVar($vars)
     {
         if (! empty($vars['attachment'])) {
@@ -121,10 +121,10 @@ class DisableAttachmentPages extends Instance
             $vars['name'] = $vars['attachment'];
             unset($vars['attachment']);
         }
- 
+
             return $vars;
     }
- 
+
     public function makeAttachmentsPrivate($args, $slug)
     {
         if ($slug == 'attachment') {
@@ -133,7 +133,7 @@ class DisableAttachmentPages extends Instance
         }
             return $args;
     }
- 
+
     public function changeAttachmentLinkToFile($url, $id)
     {
         $attachment_url = wp_get_attachment_url($id);
@@ -142,7 +142,7 @@ class DisableAttachmentPages extends Instance
         }
             return $url;
     }
- 
+
     public function redirectAttachmentPagesToFile()
     {
         if (is_attachment()) {
