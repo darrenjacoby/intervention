@@ -64,7 +64,7 @@ class DisableAttachmentPages extends Instance
  
         if ($post_type == "attachment") {
             $prefix = apply_filters('gjs_attachment_slug_prefix', 'wp-attachment-', $original_slug, $post_ID, $post_status, $post_type, $post_parent);
-            if (! $prefix) {
+            if (! $prefix || 'wp-attachment-' === $prefix) {
                 return $slug;
             }
             // remove this filter and rerun with the prefix
