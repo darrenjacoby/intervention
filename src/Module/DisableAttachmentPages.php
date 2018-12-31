@@ -56,22 +56,9 @@ class DisableAttachmentPages extends Instance
     // this function is a trimmed down version of `wp_unique_post_slug` from WordPress 4.8.3
     public function wpUniquePostSlug($slug, $post_ID, $post_status, $post_type, $post_parent, $original_slug)
     {
-            global $wpdb, $wp_rewrite;
+        global $wpdb, $wp_rewrite;
 
         if ($post_type =='nav_menu_item') {
-            return $slug;
-        }
-
-        if ($post_type == "attachment") {
-            $prefix = apply_filters('gjs_attachment_slug_prefix', 'wp-attachment-', $original_slug, $post_ID, $post_status, $post_type, $post_parent);
-            if (! $prefix || 'wp-attachment-' === $prefix) {
-                return $slug;
-            }
-            // remove this filter and rerun with the prefix
-            remove_filter('wpUniquePostSlug', [$this, 'wpUniquePostSlug'], 10);
-            $slug = $this->wpUniquePostSlug($prefix . $original_slug, $post_ID, $post_status, $post_type, $post_parent, $original_slug);
-            add_filter('wpUniquePostSlug', [$this, 'wpUniquePostSlug'], 10, 6);
-
             return $slug;
         }
 
@@ -79,7 +66,7 @@ class DisableAttachmentPages extends Instance
             return $slug;
         }
 
-            $feeds = $wp_rewrite->feeds;
+        $feeds = $wp_rewrite->feeds;
         if (! is_array($feeds)) {
             $feeds = array();
         }
