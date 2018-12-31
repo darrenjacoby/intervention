@@ -67,6 +67,7 @@ intervention('remove-menu-items', ['themes', 'plugins'], ['editor', 'author']);
 * [add-dashboard-redirect](.github/add-dashboard-redirect.md)
 * [add-menu-page](.github/add-menu-page.md)
 * [add-svg-support](.github/add-svg-support.md)
+* [disable-attachment-pages](.github/disable-attachment-pages.md)
 * [remove-customizer-items](.github/remove-customizer-items.md)
 * [remove-dashboard-items](.github/remove-dashboard-items.md)
 * [remove-emoji](.github/remove-emoji.md)
@@ -104,6 +105,9 @@ intervention('remove-menu-items', ['themes', 'plugins'], ['editor', 'author']);
 
 * **add-svg-support**<br>
 `intervention('add-svg-support', $roles(string|array));`
+
+* **disable-attachment-pages**<br>
+`intervention('disable-attachment-pages');
 
 * **remove-customizer-items**<br>
 `intervention('remove-customizer-items', $items(string|array), $roles(string|array));`
