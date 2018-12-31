@@ -107,7 +107,7 @@ intervention('remove-menu-items', ['themes', 'plugins'], ['editor', 'author']);
 `intervention('add-svg-support', $roles(string|array));`
 
 * **disable-attachment-pages**<br>
-`intervention('disable-attachment-pages');
+`intervention('disable-attachment-pages');`
 
 * **remove-customizer-items**<br>
 `intervention('remove-customizer-items', $items(string|array), $roles(string|array));`
