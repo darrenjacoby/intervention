@@ -32,5 +32,8 @@ require(file_exists($composer = __DIR__ . '/vendor/autoload.php') ? $composer : 
 function intervention($module = false, $config = false, $roles = false)
 {
     $class = __NAMESPACE__ . '\Module\\' . str_replace('-', '', ucwords($module, '-'));
+    if (!class_exists($class)) {
+        return;
+    }
     $instance = (new $class($config, $roles))->run();
 }
