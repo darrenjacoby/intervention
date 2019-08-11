@@ -22,7 +22,9 @@
     "composer/installers": "~1.0"
   },
   "require-dev": {
-    "squizlabs/php_codesniffer": "2.*"
+    "squizlabs/php_codesniffer": "2.*",
+    "phpstan/phpstan-shim": "^0.11.12",
+    "szepeviktor/phpstan-wordpress": "^0.2.0"
   },
   "autoload": {
     "psr-4": {

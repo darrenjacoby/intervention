@@ -13,9 +13,7 @@ trait Utils
      */
     public function isArrayValueSet($pos, $arr)
     {
-        if (is_array($arr) && array_key_exists($pos, $arr) && !empty($arr[$pos])) {
-            return true;
-        }
+        return (is_array($arr) && array_key_exists($pos, $arr) && !empty($arr[$pos]));
     }
 
     /**

@@ -76,7 +76,8 @@ class RemoveMenuItems extends Instance
                     remove_menu_page('edit.php?post_type=page');
                 }
                 if (in_array('page-new', $this->config)) {
-                    remove_menu_page('edit.php?post_type=page', 'post-new.php?post_type=page');
+                    remove_menu_page('edit.php?post_type=page');
+                    remove_menu_page('post-new.php?post_type=page');
                 }
                 // Comments
                 if (in_array('comments', $this->config) || in_array('all', $this->config)) {

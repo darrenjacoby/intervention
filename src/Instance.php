@@ -65,7 +65,7 @@ class Instance
     /**
      * Get all user roles from WordPress
      *
-     * @param bool $include_admin
+     * @param bool $incl_admin
      * @return array
      */
     public static function getUserRoles($incl_admin = true)

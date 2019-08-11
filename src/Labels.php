@@ -15,8 +15,8 @@ trait Labels
      */
     public function setLabels($type, $config)
     {
-        global $wp_post_types;
-        $labels = $wp_post_types[$type]->labels;
+        $wp_post_type = get_post_type_object($type);
+        $labels = $wp_post_type->labels;
         // route to one and many
         if ($this->isArrayValueSet(0, $config)) {
             $this->setLabelMany($labels, $config[0]);
@@ -29,9 +29,9 @@ trait Labels
     /**
      * Set post type plural labels
      *
-     * @param object $labels
+     * @param PostTypeLabels $labels
      * @param string $many
-     * @return object
+     * @return PostTypeLabels
      */
      
     public function setLabelMany($labels, $many)
@@ -52,9 +52,9 @@ trait Labels
     /**
      * Set post type singular labels
      *
-     * @param object $labels
+     * @param PostTypeLabels $labels
      * @param string $one
-     * @return object
+     * @return PostTypeLabels
      */
     public function setLabelOne($labels, $one)
     {
@@ -77,8 +77,8 @@ trait Labels
     /**
      * Set post type icon
      *
-     * @param object $labels
-     * @param string $many
+     * @param string $type
+     * @param array $config
      */
     public function setLabelIcon($type, $config)
     {
@@ -89,6 +89,9 @@ trait Labels
                 break;
             case 'page':
                 $position = 20;
+                break;
+            default:
+                $position = 0;
                 break;
         }
         if ($this->isArrayValueSet(2, $config)) {

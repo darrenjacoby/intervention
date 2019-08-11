@@ -48,6 +48,10 @@ class UpdatePagination extends Instance
         $screen = get_current_screen();
         $filter = false;
 
+        if ($screen === null) {
+            return;
+        }
+
         if ($screen->id == 'upload') {
             $filter = "get_user_option_upload_per_page";
         } else if ($screen->id == 'edit-comments') {
