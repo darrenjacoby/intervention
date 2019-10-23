@@ -167,8 +167,8 @@ intervention('remove-menu-items', ['themes', 'plugins'], ['editor', 'author']);
 
 ## Support
 
-* For updates follow [@withjacoby](https://twitter.com/withjacoby)
-* Buy me a coffee or beer http://paypal.me/darrenjacoby
+* Follow [@withjacoby](https://twitter.com/withjacoby)
+* Buy me a beer, or pay my rent http://paypal.me/darrenjacoby
 
 ## Updates
 
