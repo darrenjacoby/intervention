@@ -1,6 +1,6 @@
 # Intervention
 
-WordPress plugin containing modules to cleanup and customize wp-admin.
+WordPress plugin containing modules to cleanup and customize wp-admin. Let's get rid of that admin panel we love so much.
 
 ## Installation
 
@@ -165,6 +165,11 @@ intervention('remove-menu-items', ['themes', 'plugins'], ['editor', 'author']);
 * **update-pagination**<br>
 `intervention('update-pagination', $amount(integer));`
 
+## Support
+
+* Follow [@withjacoby](https://twitter.com/withjacoby) on Twitter
+* Buy me a beer or pay my rent, [paypal.me/darrenjacoby](https://paypal.me/darrenjacoby)
+
 ## Updates
 
 #### Composer:
@@ -182,8 +187,3 @@ Includes support for [github-updater](https://github.com/afragen/github-updater)
 * Download [github-updater](https://github.com/afragen/github-updater)
 * Clone [github-updater](https://github.com/afragen/github-updater) to your sites plugins/ folder
 * Activate via WordPress
-
-## Other
-
-* For updates follow [@withjacoby](https://twitter.com/withjacoby)
-* You can also [hire me](mailto:darren@jacoby.co.za) for WordPress or frontend work
