@@ -14,17 +14,17 @@ $ composer require soberwp/intervention
 $ wp plugin activate intervention
 ```
 
-#### Manual:
-
-* Download the [zip file](https://github.com/soberwp/intervention/archive/master.zip)
-* Unzip to your sites plugin folder
-* Activate via WordPress
-
 #### WP-CLI:
 
 ```shell
 $ wp plugin install https://github.com/soberwp/intervention/archive/master.zip --activate
 ```
+
+#### Manual:
+
+* Download the [zip file](https://github.com/soberwp/intervention/archive/master.zip)
+* Unzip to your sites plugin folder
+* Activate via WordPress
 
 #### Requirements:
 
@@ -163,7 +163,6 @@ intervention('remove-menu-items', ['themes', 'plugins'], ['editor', 'author']);
 ## Support
 
 * Follow [@withjacoby](https://twitter.com/withjacoby) on Twitter
-* Buy me a beer or pay my rent, [paypal.me/darrenjacoby](https://paypal.me/darrenjacoby)
 
 ## Updates
 
