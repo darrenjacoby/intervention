@@ -1,6 +1,6 @@
 # Intervention
 
-WordPress plugin containing modules to cleanup and customize wp-admin. Let's get rid of that admin panel we love so much.
+WordPress plugin containing modules to cleanup and customize wp-admin.
 
 ## Installation
 
@@ -12,11 +12,6 @@ Recommended method/s;
 ```shell
 $ composer require soberwp/intervention
 $ wp plugin activate intervention
-```
-
-[Roots Sage](https://roots.io/sage/)
-```shell
-$ composer require soberwp/intervention:1.2.0-p
 ```
 
 #### Manual:
@@ -33,7 +28,7 @@ $ wp plugin install https://github.com/soberwp/intervention/archive/master.zip -
 
 #### Requirements:
 
-* [PHP](http://php.net/manual/en/install.php) >= 5.6.x
+* [PHP](http://php.net/manual/en/install.php) >= 7.0.0
 
 ## Usage
 
@@ -174,7 +169,7 @@ intervention('remove-menu-items', ['themes', 'plugins'], ['editor', 'author']);
 
 #### Composer:
 
-* Change the composer.json version to ^1.2.0**<br>
+* Change the composer.json version to ^1.3.0**<br>
 * Check [CHANGELOG.md](CHANGELOG.md) for any breaking changes before updating.
 
 ```shell

@@ -50,11 +50,11 @@ class UpdatePagination extends Instance
 
         if ($screen->id == 'upload') {
             $filter = "get_user_option_upload_per_page";
-        } else if ($screen->id == 'edit-comments') {
+        } elseif ($screen->id == 'edit-comments') {
             $filter = "get_user_option_edit_comments_per_page";
-        } else if ($screen->taxonomy != '') {
+        } elseif ($screen->taxonomy != '') {
             $filter = "get_user_option_edit_{$screen->taxonomy}_per_page";
-        } else if ($screen->post_type != '') {
+        } elseif ($screen->post_type != '') {
             $filter = "get_user_option_edit_{$screen->post_type}_per_page";
         }
 

@@ -90,7 +90,7 @@ class RemoveWidgets extends Instance
         if (in_array('media-video', $this->config) || in_array('all', $this->config)) {
             unregister_widget('WP_Widget_Media_Video');
         }
-        // Akismet 
+        // Akismet
         if (in_array('akismet', $this->config) || in_array('all', $this->config)) {
             unregister_widget('Akismet_Widget');
         }
