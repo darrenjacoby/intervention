@@ -1,6 +1,6 @@
 # Intervention
 
-WordPress plugin containing modules to cleanup and customize wp-admin. Let's get rid of that admin panel we love so much.
+WordPress plugin containing modules to cleanup and customize wp-admin.
 
 ## Installation
 
@@ -14,9 +14,10 @@ $ composer require soberwp/intervention
 $ wp plugin activate intervention
 ```
 
-[Roots Sage](https://roots.io/sage/)
+#### WP-CLI:
+
 ```shell
-$ composer require soberwp/intervention:1.2.0-p
+$ wp plugin install https://github.com/soberwp/intervention/archive/master.zip --activate
 ```
 
 #### Manual:
@@ -25,15 +26,9 @@ $ composer require soberwp/intervention:1.2.0-p
 * Unzip to your sites plugin folder
 * Activate via WordPress
 
-#### WP-CLI:
-
-```shell
-$ wp plugin install https://github.com/soberwp/intervention/archive/master.zip --activate
-```
-
 #### Requirements:
 
-* [PHP](http://php.net/manual/en/install.php) >= 5.6.x
+* [PHP](http://php.net/manual/en/install.php) >= 7.0.0
 
 ## Usage
 
@@ -67,6 +62,7 @@ intervention('remove-menu-items', ['themes', 'plugins'], ['editor', 'author']);
 * [add-dashboard-redirect](.github/add-dashboard-redirect.md)
 * [add-menu-page](.github/add-menu-page.md)
 * [add-svg-support](.github/add-svg-support.md)
+* [disable-attachment-pages](.github/disable-attachment-pages.md)
 * [remove-customizer-items](.github/remove-customizer-items.md)
 * [remove-dashboard-items](.github/remove-dashboard-items.md)
 * [remove-emoji](.github/remove-emoji.md)
@@ -104,6 +100,9 @@ intervention('remove-menu-items', ['themes', 'plugins'], ['editor', 'author']);
 
 * **add-svg-support**<br>
 `intervention('add-svg-support', $roles(string|array));`
+
+* **disable-attachment-pages**<br>
+`intervention('disable-attachment-pages');`
 
 * **remove-customizer-items**<br>
 `intervention('remove-customizer-items', $items(string|array), $roles(string|array));`
@@ -168,13 +167,12 @@ intervention('remove-menu-items', ['themes', 'plugins'], ['editor', 'author']);
 ## Support
 
 * Follow [@withjacoby](https://twitter.com/withjacoby) on Twitter
-* Buy me a beer or pay my rent, [paypal.me/darrenjacoby](https://paypal.me/darrenjacoby)
 
 ## Updates
 
 #### Composer:
 
-* Change the composer.json version to ^1.2.0**<br>
+* Change the composer.json version to ^1.3.0**<br>
 * Check [CHANGELOG.md](CHANGELOG.md) for any breaking changes before updating.
 
 ```shell

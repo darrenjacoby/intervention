@@ -19,11 +19,10 @@
 
   <target name="transfer">
     <copy todir="dist">
-        <fileset dir="vendor">
-            <include name="autoload.php"></include>
-            <include name="composer/**.php"></include>
-        </fileset>
+      <fileset dir="vendor">
+        <include name="autoload.php"></include>
+        <include name="composer/**.php"></include>
+      </fileset>
     </copy>
   </target>
-
 </project>

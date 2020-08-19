@@ -3,7 +3,7 @@
 Plugin Name:        Intervention
 Plugin URI:         http://github.com/soberwp/intervention
 Description:        WordPress plugin containing modules to cleanup and customize wp-admin
-Version:            1.1.1
+Version:            1.3.0
 Author:             Sober
 Author URI:         http://github.com/soberwp/
 License:            MIT License
@@ -32,5 +32,8 @@ require(file_exists($composer = __DIR__ . '/vendor/autoload.php') ? $composer : 
 function intervention($module = false, $config = false, $roles = false)
 {
     $class = __NAMESPACE__ . '\Module\\' . str_replace('-', '', ucwords($module, '-'));
+    if (!class_exists($class)) {
+        return;
+    }
     $instance = (new $class($config, $roles))->run();
 }
