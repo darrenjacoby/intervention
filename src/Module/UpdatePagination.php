@@ -22,9 +22,6 @@ class UpdatePagination extends Instance
 {
     use Utils;
 
-    protected $users;
-    protected $key;
-
     public function run()
     {
         $this->setup()->hook();
@@ -34,7 +31,6 @@ class UpdatePagination extends Instance
     {
         $this->setDefaultConfig(40);
         $this->config = $this->escArray($this->config);
-        $this->users = get_users();
         return $this;
     }
 
