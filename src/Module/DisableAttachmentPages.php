@@ -1,4 +1,4 @@
-<?php // phpcs:disable PSR1.Files.SideEffects
+<?php
 
 namespace Sober\Intervention\Module;
 
