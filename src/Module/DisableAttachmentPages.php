@@ -40,7 +40,7 @@ class DisableAttachmentPages extends Instance
         // just in case everything else fails, and somehow an attachment page is requested
         add_action('template_redirect', [$this, 'redirectAttachmentPagesToFile']);
         // this does nothing currently, but maybe someday will, if WordPress standardizes attachments as a post type
-        add_filter('register_post_type_args',[$this, 'makeAttachmentsPrivate'], 10, 2);
+        add_filter('register_post_type_args', [$this, 'makeAttachmentsPrivate'], 10, 2);
     }
 
     public function removeAttachmentRewrites($rules)
