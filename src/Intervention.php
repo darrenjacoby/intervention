@@ -84,8 +84,9 @@ class Intervention
     {
         add_action('plugins_loaded', function () use ($group, $class, $str) {
             $wp_roles = new \WP_Roles();
+            $current_user = wp_get_current_user();
 
-            $init = $group->filter(function ($v, $k) use ($str, $wp_roles) {
+            $init = $group->filter(function ($v, $k) use ($str, $wp_roles, $current_user) {
                 $key = Str::explode('.', $k);
                 $roles = Str::explode('|', $key->shift());
 
@@ -106,8 +107,8 @@ class Intervention
 
                 $role_allowed = $roles
                     ->values()
-                    ->map(function ($role) {
-                        if (current_user_can($role) || $role === 'all') {
+                    ->map(function ($role) use ($current_user) {
+                        if (in_array($role, $current_user->roles) || $role === 'all') {
                             return true;
                         }
                     });
