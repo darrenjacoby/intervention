@@ -23,7 +23,7 @@ $ wp plugin install https://github.com/soberwp/intervention/archive/master.zip -
 
 ## Usage
 
-Create `config/intervention.php` (Sage 10 users) or `intervention.php` inside your theme root folder and return an array.
+Create `config/intervention.php` for Sage 10 or `intervention.php` inside your theme root folder and return an array.
 
 ```php
 return [
