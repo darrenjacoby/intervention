@@ -80,7 +80,7 @@ return [
 * [common.tabs](.github/wp-admin/common.tabs.md)
 * [common.title-link](.github/wp-admin/common.title-link.md)
 * [common.updates](.github/wp-admin/common.updates.md)
-* [common.all.lists](.github/wp-admin/common.all.lists.md)
+* [common.all.list](.github/wp-admin/common.all.list.md)
 * [common.all.pagination](.github/wp-admin/common.all.pagination.md)
 * [common.all.search](.github/wp-admin/common.all.search.md)
 * [common.all.subsets](.github/wp-admin/common.all.subsets.md)
@@ -94,8 +94,10 @@ return [
 * [posts](.github/wp-admin/posts.md)
 * [posts.all](.github/wp-admin/posts.all.md)
 * [posts.item](.github/wp-admin/posts.item.md)
-* [posts.categories](.github/wp-admin/posts.categories.md)
-* [posts.tags](.github/wp-admin/posts.tags.md)
+* [posts.categories.all](.github/wp-admin/posts.categories.all.md)
+* [posts.categories.item](.github/wp-admin/posts.categories.item.md)
+* [posts.tags.all](.github/wp-admin/posts.tags.all.md)
+* [posts.tags.item](.github/wp-admin/posts.tags.item.md)
 
 **Media**
 * [media](.github/wp-admin/media.md)
@@ -198,13 +200,14 @@ return [
 * [Full configuration example](.github/application-example.md)
 * [Register custom posttype](.github/application/posts.md#register)
 * [Register custom taxonomy](.github/application/taxonomies.md#register)
-* [Register custom image sizes](.github/application/media.md#custom-image-sizes)
+* [Register custom image sizes](.github/application/media.md#image-sizes)
 * [Register custom nav menu](.github/application/menus.md#register)
 * [Remove posttype](.github/application/posts.md#remove)
 * [Remove taxonomy](.github/application/taxonomies.md#remove)
+* [Remove image size](.github/application/media.md#image-sizes)
 * [Remove emoji](.github/application/writing.md)
 * [Remove attachments](.github/application/posts.md#remove)
-* [Enable custom media/mime types](.github/application/media.md#custom-mime-types)
+* [Enable custom media/mime types](.github/application/media.md#mime-types)
 
 ## Updating
 
