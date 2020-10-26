@@ -1,9 +1,5 @@
 <?php
-/**
- * Based on Laravel Helper Arr
- *
- * @link https://github.com/laravel/framework/blob/7.x/src/Illuminate/Support/Arr.php
- */
+
 namespace Sober\Intervention\Support;
 
 use Illuminate\Support\Collection;
@@ -11,11 +7,13 @@ use Illuminate\Support\Collection;
 /**
  * Array
  * 
- * Helper class for arrays.
+ * Laravel based helper class for arrays.
  *
  * @package WordPress
  * @subpackage Intervention
  * @since 2.0.0
+ * 
+ * @link https://github.com/laravel/framework/blob/7.x/src/Illuminate/Support/Arr.php
  */
 class Arr
 {

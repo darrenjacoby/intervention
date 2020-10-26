@@ -1,9 +1,5 @@
 <?php
-/**
- * Based on Laravel Helper Str
- *
- * @link https://github.com/laravel/framework/blob/7.x/src/Illuminate/Support/Str.php
- */
+
 namespace Sober\Intervention\Support;
 
 use Illuminate\Support\Collection;
@@ -11,11 +7,13 @@ use Illuminate\Support\Collection;
 /**
  * String
  * 
- * Helper class for strings.
+ * Laravel based helper class for strings.
  *
  * @package WordPress
  * @subpackage Intervention
  * @since 2.0.0
+ * 
+ * @link https://github.com/laravel/framework/blob/7.x/src/Illuminate/Support/Str.php
  */
 class Str
 {
