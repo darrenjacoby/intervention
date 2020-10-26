@@ -211,7 +211,7 @@ return [
 
 ## Updating
 
-* [Guide to upgrade from version 1.x.x to 2.x.x](.github/upgrading.md)
+* **[Guide to upgrade from version 1.x.x to 2.x.x](.github/upgrading.md)**
 
 #### Composer:
 
