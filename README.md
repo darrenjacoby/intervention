@@ -1,17 +1,17 @@
 # Intervention
 
-Easily customize **[wp-admin](#admin)** and configure **[application](#application)** options.
+Easily customize [wp-admin](#admin) and configure [application](#application) options.
 
 ## Installation
 
-#### [Composer/Bedrock](https://roots.io/bedrock/)
+[Composer/Bedrock](https://roots.io/bedrock/)
 
 ```shell
 $ composer require soberwp/intervention
 $ wp plugin activate intervention
 ```
 
-#### [WP-CLI](http://wp-cli.org/)
+[WP-CLI](http://wp-cli.org/)
 
 ```shell
 $ wp plugin install https://github.com/soberwp/intervention/archive/master.zip --activate
@@ -23,7 +23,7 @@ $ wp plugin install https://github.com/soberwp/intervention/archive/master.zip -
 
 ## Usage
 
-Create `config/intervention.php` or `intervention.php` inside your theme root folder and return an array.
+Create `config/intervention.php` (Sage 10 users) or `intervention.php` inside your theme root folder and return an array.
 
 ```php
 return [
@@ -71,83 +71,83 @@ return [
 <!-- **[Quick Reference]()** -->
 
 **Login**
-* [login](.github/wp-adminlogin.md)
+* [login](.github/wp-admin/login.md)
 
 **Common**
-* [common.adminbar](.github/wp-admincommon.adminbar.md)
-* [common.footer](.github/wp-admincommon.footer.md)
-* [common.menu](.github/wp-admincommon.menu.md)
-* [common.tabs](.github/wp-admincommon.tabs.md)
-* [common.title-link](.github/wp-admincommon.title-link.md)
-* [common.updates](.github/wp-admincommon.updates.md)
-* [common.all.lists](.github/wp-admincommon.all.lists.md)
-* [common.all.pagination](.github/wp-admincommon.all.pagination.md)
-* [common.all.search](.github/wp-admincommon.all.search.md)
-* [common.all.subsets](.github/wp-admincommon.all.subsets.md)
+* [common.adminbar](.github/wp-admin/common.adminbar.md)
+* [common.footer](.github/wp-admin/common.footer.md)
+* [common.menu](.github/wp-admin/common.menu.md)
+* [common.tabs](.github/wp-admin/common.tabs.md)
+* [common.title-link](.github/wp-admin/common.title-link.md)
+* [common.updates](.github/wp-admin/common.updates.md)
+* [common.all.lists](.github/wp-admin/common.all.lists.md)
+* [common.all.pagination](.github/wp-admin/common.all.pagination.md)
+* [common.all.search](.github/wp-admin/common.all.search.md)
+* [common.all.subsets](.github/wp-admin/common.all.subsets.md)
 
 **Dashboard**
-* [dashboard](.github/wp-admindashboard.md)
-* [dashboard.home](.github/wp-admindashboard.home.md)
-* [dashboard.updates](.github/wp-admindashboard.updates.md)
+* [dashboard](.github/wp-admin/dashboard.md)
+* [dashboard.home](.github/wp-admin/dashboard.home.md)
+* [dashboard.updates](.github/wp-admin/dashboard.updates.md)
 
 **Posts**
-* [posts](.github/wp-adminposts.md)
-* [posts.all](.github/wp-adminposts.all.md)
-* [posts.item](.github/wp-adminposts.item.md)
-* [posts.categories](.github/wp-adminposts.categories.md)
-* [posts.tags](.github/wp-adminposts.tags.md)
+* [posts](.github/wp-admin/posts.md)
+* [posts.all](.github/wp-admin/posts.all.md)
+* [posts.item](.github/wp-admin/posts.item.md)
+* [posts.categories](.github/wp-admin/posts.categories.md)
+* [posts.tags](.github/wp-admin/posts.tags.md)
 
 **Media**
-* [media](.github/wp-adminmedia.md)
-* [media.all](.github/wp-adminmedia.all.md)
-* [media.add](.github/wp-adminmedia.add.md)
+* [media](.github/wp-admin/media.md)
+* [media.all](.github/wp-admin/media.all.md)
+* [media.add](.github/wp-admin/media.add.md)
 
 **Pages**
-* [pages](.github/wp-adminpages.md)
-* [pages.all](.github/wp-adminpages.all.md)
-* [pages.item](.github/wp-adminpages.item.md)
+* [pages](.github/wp-admin/pages.md)
+* [pages.all](.github/wp-admin/pages.all.md)
+* [pages.item](.github/wp-admin/pages.item.md)
 
 **Comments**
-* [comments](.github/wp-admincomments.md)
-* [comments.all](.github/wp-admincomments.all.md)
+* [comments](.github/wp-admin/comments.md)
+* [comments.all](.github/wp-admin/comments.all.md)
 
 **Appearance**
-* [appearance](.github/wp-adminappearance.md)
-* [appearance.themes](.github/wp-adminappearance.themes.md)
-* [appearance.customize](.github/wp-adminappearance.customize.md)
-* [appearance.widgets](.github/wp-adminappearance.widgets.md)
-* [appearance.menus](.github/wp-adminappearance.menus.md)
-* [appearance.theme-editor](.github/wp-adminappearance.theme-editor.md)
+* [appearance](.github/wp-admin/appearance.md)
+* [appearance.themes](.github/wp-admin/appearance.themes.md)
+* [appearance.customize](.github/wp-admin/appearance.customize.md)
+* [appearance.widgets](.github/wp-admin/appearance.widgets.md)
+* [appearance.menus](.github/wp-admin/appearance.menus.md)
+* [appearance.theme-editor](.github/wp-admin/appearance.theme-editor.md)
 
 **Plugins**
-* [plugins](.github/wp-adminplugins.md)
-* [plugins.all](.github/wp-adminplugins.all.md)
-* [plugins.add](.github/wp-adminplugins.add.md)
-* [plugins.plugin-editor](.github/wp-adminplugins.plugin-editor.md)
+* [plugins](.github/wp-admin/plugins.md)
+* [plugins.all](.github/wp-admin/plugins.all.md)
+* [plugins.add](.github/wp-admin/plugins.add.md)
+* [plugins.plugin-editor](.github/wp-admin/plugins.plugin-editor.md)
 
 **Users**
-* [users](.github/wp-adminusers.md)
-* [users.all](.github/wp-adminusers.all.md)
-* [users.add](.github/wp-adminusers.add.md)
-* [users.profile](.github/wp-adminusers.profile.md)
+* [users](.github/wp-admin/users.md)
+* [users.all](.github/wp-admin/users.all.md)
+* [users.add](.github/wp-admin/users.add.md)
+* [users.profile](.github/wp-admin/users.profile.md)
 
 **Tools**
-* [tools](.github/wp-admintools.md)
-* [tools.available](.github/wp-admintools.available.md)
-* [tools.import](.github/wp-admintools.import.md)
-* [tools.export](.github/wp-admintools.export.md)
-* [tools.site-health](.github/wp-admintools.site-health.md)
-* [tools.export-personal-data](.github/wp-admintools.export-personal-data.md)
-* [tools.erase-personal-data](.github/wp-admintools.erase-personal-data.md)
+* [tools](.github/wp-admin/tools.md)
+* [tools.available](.github/wp-admin/tools.available.md)
+* [tools.import](.github/wp-admin/tools.import.md)
+* [tools.export](.github/wp-admin/tools.export.md)
+* [tools.site-health](.github/wp-admin/tools.site-health.md)
+* [tools.export-personal-data](.github/wp-admin/tools.export-personal-data.md)
+* [tools.erase-personal-data](.github/wp-admin/tools.erase-personal-data.md)
 
 **Settings**
-* [settings](.github/wp-adminsettings.md)
-* [settings.general](.github/wp-adminsettings.general.md)
-* [settings.writing](.github/wp-adminsettings.writing.md)
-* [settings.reading](.github/wp-adminsettings.reading.md)
-* [settings.discussion](.github/wp-adminsettings.discussion.md)
-* [settings.media](.github/wp-adminsettings.media.md)
-* [settings.permalinks](.github/wp-adminsettings.permalinks.md)
+* [settings](.github/wp-admin/settings.md)
+* [settings.general](.github/wp-admin/settings.general.md)
+* [settings.writing](.github/wp-admin/settings.writing.md)
+* [settings.reading](.github/wp-admin/settings.reading.md)
+* [settings.discussion](.github/wp-admin/settings.discussion.md)
+* [settings.media](.github/wp-admin/settings.media.md)
+* [settings.permalinks](.github/wp-admin/settings.permalinks.md)
 
 ## Application
 
