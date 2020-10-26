@@ -1,4 +1,4 @@
-## `wp-admin.{role}.tools.site-health`
+## `wp-admin.$role.tools.site-health`
 
 Remove tools site-health components.
 

@@ -1,4 +1,4 @@
-## `wp-admin.{role}.media`
+## `wp-admin.$role.media`
 
 Update, remove or redirect the media menu item.
 

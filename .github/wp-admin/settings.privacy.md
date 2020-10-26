@@ -1,4 +1,4 @@
-## `wp-admin.{role}.settings.privacy`
+## `wp-admin.$role.settings.privacy`
 
 Remove settings privacy components.
 

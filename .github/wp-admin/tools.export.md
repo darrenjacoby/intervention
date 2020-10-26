@@ -1,4 +1,4 @@
-## `wp-admin.{role}.tools.export`
+## `wp-admin.$role.tools.export`
 
 Remove tools export components.
 

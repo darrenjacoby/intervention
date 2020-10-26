@@ -1,4 +1,4 @@
-## `wp-admin.{role}.common.adminbar`
+## `wp-admin.$role.common.adminbar`
 
 Remove wp-admin adminbar components.
 

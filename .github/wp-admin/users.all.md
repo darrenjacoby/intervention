@@ -1,4 +1,4 @@
-## `wp-admin.{role}.users.all`
+## `wp-admin.$role.users.all`
 
 Remove users all/index components.
 

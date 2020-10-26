@@ -1,4 +1,4 @@
-## `wp-admin.{role}.appearance.widgets`
+## `wp-admin.$role.appearance.widgets`
 
 Remove wp-admin widgets components.
 

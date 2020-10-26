@@ -1,4 +1,4 @@
-## `wp-admin.{role}.posts.categories.all`
+## `wp-admin.$role.posts.categories.all`
 
 Remove posts categories all/index components.
 

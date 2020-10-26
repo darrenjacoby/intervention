@@ -1,4 +1,4 @@
-## `wp-admin.{role}.posts.tags.item`
+## `wp-admin.$role.posts.tags.item`
 
 Remove posts tags item components.
 

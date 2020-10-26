@@ -1,4 +1,4 @@
-## `wp-admin.{role}.settings.reading`
+## `wp-admin.$role.settings.reading`
 
 Remove settings reading components.
 

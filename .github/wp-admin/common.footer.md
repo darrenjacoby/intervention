@@ -1,4 +1,4 @@
-## `wp-admin.{role}.common.footer`
+## `wp-admin.$role.common.footer`
 
 Remove wp-admin footer components.
 

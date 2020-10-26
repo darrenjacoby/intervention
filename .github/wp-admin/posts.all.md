@@ -1,4 +1,4 @@
-## `wp-admin.{role}.posts.all`
+## `wp-admin.$role.posts.all`
 
 Remove posts all/index components.
 

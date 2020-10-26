@@ -1,4 +1,4 @@
-## `wp-admin.{role}.dashboard`
+## `wp-admin.$role.dashboard`
 
 Update, remove or redirect the dashboard menu item.
 

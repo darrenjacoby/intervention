@@ -1,4 +1,4 @@
-## `wp-admin.{role}.appearance.theme-editor`
+## `wp-admin.$role.appearance.theme-editor`
 
 Remove wp-admin theme editor components.
 

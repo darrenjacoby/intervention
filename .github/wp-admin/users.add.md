@@ -1,4 +1,4 @@
-## `wp-admin.{role}.users.add`
+## `wp-admin.$role.users.add`
 
 Remove users add-new components.
 

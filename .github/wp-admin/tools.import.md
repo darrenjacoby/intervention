@@ -1,4 +1,4 @@
-## `wp-admin.{role}.tools.import`
+## `wp-admin.$role.tools.import`
 
 Remove tools import components.
 

@@ -1,4 +1,4 @@
-## `wp-admin.{role}.pages`
+## `wp-admin.$role.pages`
 
 Update, remove or redirect the pages menu item.
 

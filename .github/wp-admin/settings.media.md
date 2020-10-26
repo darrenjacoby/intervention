@@ -1,4 +1,4 @@
-## `wp-admin.{role}.settings.media`
+## `wp-admin.$role.settings.media`
 
 Remove settings media components.
 

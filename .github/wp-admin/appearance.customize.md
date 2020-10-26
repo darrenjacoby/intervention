@@ -1,4 +1,4 @@
-## `wp-admin.{role}.appearance.customize`
+## `wp-admin.$role.appearance.customize`
 
 Remove wp-admin customize components.
 

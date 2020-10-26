@@ -1,4 +1,4 @@
-## `wp-admin.{role}.comments.all`
+## `wp-admin.$role.comments.all`
 
 Remove all/index comment components.
 

@@ -1,4 +1,4 @@
-## `wp-admin.{role}.appearance`
+## `wp-admin.$role.appearance`
 
 Update, remove or redirect the appearance menu item.
 

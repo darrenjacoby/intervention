@@ -1,4 +1,4 @@
-## `wp-admin.{role}.plugins.add`
+## `wp-admin.$role.plugins.add`
 
 Remove plugins add-new components.
 

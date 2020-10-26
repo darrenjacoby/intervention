@@ -1,4 +1,4 @@
-## `wp-admin.{role}.posts.tags.all`
+## `wp-admin.$role.posts.tags.all`
 
 Remove posts tags all/index components.
 

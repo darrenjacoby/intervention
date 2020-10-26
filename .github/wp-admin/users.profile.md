@@ -1,4 +1,4 @@
-## `wp-admin.{role}.users.profile`
+## `wp-admin.$role.users.profile`
 
 Remove users profile components.
 

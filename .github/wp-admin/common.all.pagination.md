@@ -1,4 +1,4 @@
-## `wp-admin.{role}.common.all.pagination`
+## `wp-admin.$role.common.all.pagination`
 
 Change wp-admin all/index item pagination.
 

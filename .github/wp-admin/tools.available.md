@@ -1,4 +1,4 @@
-## `wp-admin.{role}.tools.available`
+## `wp-admin.$role.tools.available`
 
 Remove tools available components.
 

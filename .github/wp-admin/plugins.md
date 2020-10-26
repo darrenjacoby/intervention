@@ -1,4 +1,4 @@
-## `wp-admin.{role}.plugins`
+## `wp-admin.$role.plugins`
 
 Update, remove or redirect the plugins menu item.
 

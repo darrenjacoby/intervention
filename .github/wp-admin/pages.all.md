@@ -1,4 +1,4 @@
-## `wp-admin.{role}.pages.all`
+## `wp-admin.$role.pages.all`
 
 Remove pages all/index components.
 

@@ -1,4 +1,4 @@
-## `wp-admin.{role}.posts.categories.item`
+## `wp-admin.$role.posts.categories.item`
 
 Remove posts categories item components.
 

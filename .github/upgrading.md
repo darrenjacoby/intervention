@@ -31,12 +31,12 @@
 ### remove-customizer-items
 
 ```php
-intervention('remove-customizer-items', ['site', 'custom-css'], '{role}');
+intervention('remove-customizer-items', ['site', 'custom-css'], '$role');
 ```
 
 ```php
 return [
-    'wp-admin.{role}' => [
+    'wp-admin.$role' => [
         'appearance.customize', => [
             'site', 'custom-css'
         ],
@@ -47,12 +47,12 @@ return [
 ### remove-dashboard-items
 
 ```php
-intervention('remove-dashboard-items', ['right-now', 'recent-comments'], '{role}');
+intervention('remove-dashboard-items', ['right-now', 'recent-comments'], '$role');
 ```
 
 ```php
 return [
-    'wp-admin.{role}' => [
+    'wp-admin.$role' => [
         'dashboard.home' => [
             'right-now', 'recent-comments'
         ],
@@ -68,7 +68,7 @@ intervention('remove-help-tabs');
 
 ```php
 return [
-    'wp-admin.{role}' => [
+    'wp-admin.$role' => [
         'common.tabs',
     ],
 ];
@@ -82,7 +82,7 @@ intervention('remove-howdy');
 
 ```php
 return [
-    'wp-admin.{role}' => [
+    'wp-admin.$role' => [
         'common.adminbar.user.howdy',
     ],
 ];
@@ -91,12 +91,12 @@ return [
 ### remove-menu-items
 
 ```php
-intervention('remove-menu-items', ['media', 'comments'], '{role}');
+intervention('remove-menu-items', ['media', 'comments'], '$role');
 ```
 
 ```php
 return [
-    'wp-admin.{role}' => [
+    'wp-admin.$role' => [
         'media', 'comments'
     ],
 ];
@@ -110,7 +110,7 @@ intervention('remove-page-components', ['author', 'custom-fields']);
 
 ```php
 return [
-    'wp-admin.{role}' => [
+    'wp-admin.$role' => [
         'pages.item' => [
             'author', 'custom-fields'
         ],
@@ -126,7 +126,7 @@ intervention('remove-post-components', ['author', 'custom-fields']);
 
 ```php
 return [
-    'wp-admin.{role}' => [
+    'wp-admin.$role' => [
         'posts.item' => [
             'author', 'custom-fields'
         ],
@@ -154,12 +154,12 @@ return [
 ### remove-toolbar-frontend
 
 ```php
-intervention('remove-toolbar-frontend', '{role}');
+intervention('remove-toolbar-frontend', '$role');
 ```
 
 ```php
 return [
-    'wp-admin.{role}' => [
+    'wp-admin.$role' => [
         'common.adminbar.theme',
     ],
 ];
@@ -168,12 +168,12 @@ return [
 ### remove-toolbar-items
 
 ```php
-intervention('remove-toolbar-items', ['logo', 'new'], '{role}');
+intervention('remove-toolbar-items', ['logo', 'new'], '$role');
 ```
 
 ```php
 return [
-    'wp-admin.{role}' => [
+    'wp-admin.$role' => [
         'common.adminbar' => [
             'wp', 'new'
         ],
@@ -184,12 +184,12 @@ return [
 ### remove-update-notices
 
 ```php
-intervention('remove-update-notices', '{role}'));
+intervention('remove-update-notices', '$role'));
 ```
 
 ```php
 return [
-    'wp-admin.{role}' => [
+    'wp-admin.$role' => [
         'common.updates',
     ],
 ];
@@ -198,12 +198,12 @@ return [
 ### remove-user-fields
 
 ```php
-intervention('remove-user-fields', ['options', 'names'], '{role}');
+intervention('remove-user-fields', ['options', 'names'], '$role');
 ```
 
 ```php
 return [
-    'wp-admin.{role}' => [
+    'wp-admin.$role' => [
         'users.profile' => [
             'options', 'name'
         ],
@@ -214,12 +214,12 @@ return [
 ### remove-user-roles
 
 ```php
-intervention('remove-user-roles', ['contributor', 'subscriber'], '{role}');
+intervention('remove-user-roles', ['contributor', 'subscriber'], '$role');
 ```
 
 ```php
 return [
-    'wp-admin.{role}' => [
+    'wp-admin.$role' => [
         'users.profile.role' => [
             'contributor', 'subscriber'
         ],
@@ -235,7 +235,7 @@ intervention('remove-widgets', ['calendar', 'rss']);
 
 ```php
 return [
-    'wp-admin.{role}' => [
+    'wp-admin.$role' => [
         'appearance.widgets.available' => [
             'calendar', 'rss'
         ],
@@ -279,7 +279,7 @@ intervention('update-dashboard-columns', 2);
 
 ```php
 return [
-    'wp-admin.{role}' => [
+    'wp-admin.$role' => [
         'dashboard.home.cols' => 2,
     ],
 ];
@@ -294,7 +294,7 @@ intervention('update-label-footer', 'Created by');
 
 ```php
 return [
-    'wp-admin.{role}' => [
+    'wp-admin.$role' => [
         'common.footer.credit' => 'Created by',
     ],
 ];
@@ -342,7 +342,7 @@ intervention('update-pagination', 40);
 
 ```php
 return [
-    'wp-admin.{role}' => [
+    'wp-admin.$role' => [
         'common.pagination' => 40,
     ],
 ];
@@ -351,12 +351,12 @@ return [
 ### add-dashboard-redirect
 
 ```php
-intervention('add-dashboard-redirect', 'posts', '{role}');
+intervention('add-dashboard-redirect', 'posts', '$role');
 ```
 
 ```php
 return [
-    'wp-admin.{role}' => [
+    'wp-admin.$role' => [
         'dashboard' => 'posts'
     ],
 ];

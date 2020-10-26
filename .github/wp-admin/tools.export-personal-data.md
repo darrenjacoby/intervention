@@ -1,4 +1,4 @@
-## `wp-admin.{role}.tools.export-personal-data`
+## `wp-admin.$role.tools.export-personal-data`
 
 Remove tools export-personal-data components.
 

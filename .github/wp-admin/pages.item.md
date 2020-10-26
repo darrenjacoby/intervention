@@ -1,4 +1,4 @@
-## `wp-admin.{role}.pages.item`
+## `wp-admin.$role.pages.item`
 
 Remove pages item components.
 

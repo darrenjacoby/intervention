@@ -1,4 +1,4 @@
-## `wp-admin.{role}.settings.general`
+## `wp-admin.$role.settings.general`
 
 Remove settings general components.
 

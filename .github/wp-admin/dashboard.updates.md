@@ -1,4 +1,4 @@
-## `wp-admin.{role}.dashboard.updates`
+## `wp-admin.$role.dashboard.updates`
 
 Remove dashboard updates components.
 

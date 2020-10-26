@@ -1,4 +1,4 @@
-## `wp-admin.{role}.common.all.search`
+## `wp-admin.$role.common.all.search`
 
 Remove wp-admin all/index subsets component.
 

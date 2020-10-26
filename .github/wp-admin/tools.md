@@ -1,4 +1,4 @@
-## `wp-admin.{role}.tools`
+## `wp-admin.$role.tools`
 
 Update, remove or redirect the tools menu item.
 

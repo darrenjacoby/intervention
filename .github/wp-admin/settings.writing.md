@@ -1,4 +1,4 @@
-## `wp-admin.{role}.settings.writing`
+## `wp-admin.$role.settings.writing`
 
 Remove settings writing components.
 

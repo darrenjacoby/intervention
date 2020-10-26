@@ -1,4 +1,4 @@
-## `wp-admin.{role}.media.add`
+## `wp-admin.$role.media.add`
 
 Remove media add components.
 

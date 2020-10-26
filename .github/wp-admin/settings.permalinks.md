@@ -1,4 +1,4 @@
-## `wp-admin.{role}.settings.permalinks`
+## `wp-admin.$role.settings.permalinks`
 
 Remove settings permalinks components.
 

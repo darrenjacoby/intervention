@@ -1,4 +1,4 @@
-## `wp-admin.{role}.settings.discussion`
+## `wp-admin.$role.settings.discussion`
 
 Remove settings discussion components.
 

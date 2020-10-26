@@ -1,4 +1,4 @@
-## `wp-admin.{role}.comments`
+## `wp-admin.$role.comments`
 
 Update, remove or redirect the comments menu item.
 

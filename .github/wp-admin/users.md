@@ -1,4 +1,4 @@
-## `wp-admin.{role}.users`
+## `wp-admin.$role.users`
 
 Update, remove or redirect the users menu item.
 

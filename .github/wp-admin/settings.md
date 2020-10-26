@@ -1,4 +1,4 @@
-## `wp-admin.{role}.settings`
+## `wp-admin.$role.settings`
 
 Update, remove or redirect the settings menu item.
 

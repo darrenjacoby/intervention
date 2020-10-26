@@ -1,4 +1,4 @@
-## `wp-admin.{role}.plugins.plugin-editor`
+## `wp-admin.$role.plugins.plugin-editor`
 
 Remove wp-admin plugin editor components.
 

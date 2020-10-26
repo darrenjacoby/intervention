@@ -1,4 +1,4 @@
-## `wp-admin.{role}.appearance.menus`
+## `wp-admin.$role.appearance.menus`
 
 Remove wp-admin menu components.
 

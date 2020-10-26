@@ -1,4 +1,4 @@
-## `wp-admin.{role}.posts`
+## `wp-admin.$role.posts`
 
 Update, remove or redirect the posts menu item.
 

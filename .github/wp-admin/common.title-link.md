@@ -1,4 +1,4 @@
-## `wp-admin.{role}.common.title-link`
+## `wp-admin.$role.common.title-link`
 
 Remove wp-admin title links.
 

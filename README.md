@@ -30,7 +30,7 @@ return [
     'application' => [
 
     ],
-    'wp-admin.{role}' => [
+    'wp-admin.$role' => [
 
     ],
 ];
@@ -42,14 +42,14 @@ For the options, you can use [dot notatation, a standard array, or a combination
 
 Remove components from wp-admin.
 
-Return `wp-admin.{role}`
+Return `wp-admin.$role`
 
 * Support for multiple user roles using a pipe operator. 
     * `editor|author`
 
 ```php
 return [
-    'wp-admin.{role}' => [
+    'wp-admin.$role' => [
         'common.adminbar',
     ],
 ];

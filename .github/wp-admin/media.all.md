@@ -1,4 +1,4 @@
-## `wp-admin.{role}.media.all`
+## `wp-admin.$role.media.all`
 
 Remove media all/index components.
 

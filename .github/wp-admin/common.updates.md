@@ -1,4 +1,4 @@
-## `wp-admin.{role}.common.updates`
+## `wp-admin.$role.common.updates`
 
 Remove wp-admin update notices.
 

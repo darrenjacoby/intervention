@@ -1,4 +1,4 @@
-## `wp-admin.{role}.common.menu`
+## `wp-admin.$role.common.menu`
 
 Remove wp-admin left hand side menu components.
 

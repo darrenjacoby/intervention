@@ -1,4 +1,4 @@
-## `wp-admin.{role}.appearance.themes`
+## `wp-admin.$role.appearance.themes`
 
 Remove wp-admin themes components.
 

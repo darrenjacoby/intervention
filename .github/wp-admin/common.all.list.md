@@ -1,4 +1,4 @@
-## `wp-admin.{role}.common.all.list`
+## `wp-admin.$role.common.all.list`
 
 Remove wp-admin all/index item list components.
 

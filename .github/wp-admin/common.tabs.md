@@ -1,4 +1,4 @@
-## `wp-admin.{role}.common.tabs`
+## `wp-admin.$role.common.tabs`
 
 Remove wp-admin screen options and help tabs.
 

@@ -1,4 +1,4 @@
-## `wp-admin.{role}.posts.item`
+## `wp-admin.$role.posts.item`
 
 Remove posts item components.
 

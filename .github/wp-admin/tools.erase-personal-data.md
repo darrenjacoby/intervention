@@ -1,4 +1,4 @@
-## `wp-admin.{role}.tools.erase-personal-data`
+## `wp-admin.$role.tools.erase-personal-data`
 
 Remove tools erase-personal-data components.
 

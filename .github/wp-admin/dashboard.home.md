@@ -1,4 +1,4 @@
-## `wp-admin.{role}.dashboard.home`
+## `wp-admin.$role.dashboard.home`
 
 Remove dashboard home components.
 

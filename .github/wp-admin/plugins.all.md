@@ -1,4 +1,4 @@
-## `wp-admin.{role}.plugins.all`
+## `wp-admin.$role.plugins.all`
 
 Remove plugins all/index components.
 
