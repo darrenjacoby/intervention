@@ -211,7 +211,7 @@ return [
 
 ## Updating
 
-* **[Guide to upgrade from version 1.x.x to 2.x.x](.github/upgrading.md)**
+* [Guide to upgrade from version 1.x.x to 2.x.x](.github/upgrading.md)
 
 #### Composer:
 
@@ -235,9 +235,5 @@ Includes support for github-updater to track updates through wp-admin.
 * Support removing comments.
 * Support for advanced custom fields.
 * Support `application.site.language`.
-
-## Bug?
-
-* **[Please open an issue](https://github.com/soberwp/intervention/issues/new?labels=bug&assignees=darrenjacoby)**
 
 Have a suggestion for Intervention, or want to track new releases? [@soberwp](https://twitter.com/soberwp)
