@@ -14,6 +14,7 @@ use Sober\Intervention\Support\Arr;
  * @since 2.0.0
  *
  * @link https://developer.wordpress.org/reference/functions/unregister_post_type/
+ * @link https://developer.wordpress.org/reference/hooks/wp_loaded/
  */
 class Remove
 {
@@ -55,7 +56,9 @@ class Remove
         } elseif (Arr::collect(['attachment'])->contains($this->posttype)) {
             new RemoveAttachment();
         } else {
-            unregister_post_type($this->posttype);
+            add_action('wp_loaded', function() {
+                unregister_post_type($this->posttype);
+            });
         }
     }
 

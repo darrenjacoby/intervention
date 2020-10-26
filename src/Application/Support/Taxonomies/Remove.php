@@ -12,6 +12,7 @@ use Sober\Intervention\Support\Arr;
  * @since 2.0.0
  *
  * @link https://developer.wordpress.org/reference/functions/unregister_taxonomy/
+ * @link https://developer.wordpress.org/reference/hooks/wp_loaded/
  */
 class Remove
 {
@@ -53,7 +54,9 @@ class Remove
         if (Arr::collect(['category', 'post_tag'])->contains($this->taxonomy)) {
             unset($GLOBALS['wp_taxonomies'][$this->taxonomy]);
         } else {
-            unregister_taxonomy($this->taxonomy);
+            add_action('wp_loaded', function() {
+                unregister_taxonomy($this->taxonomy);
+            });
         }
     }
 }
