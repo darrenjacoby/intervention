@@ -240,4 +240,4 @@ Includes support for github-updater to track updates through wp-admin.
 
 * **[Please open an issue](https://github.com/soberwp/intervention/issues/new?labels=bug&assignees=darrenjacoby)**
 
-**Have a suggestion for Intervention, or want to track new releases? [@soberwp](https://twitter.com/soberwp)**
+Have a suggestion for Intervention, or want to track new releases? [@soberwp](https://twitter.com/soberwp)
