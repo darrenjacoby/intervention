@@ -57,6 +57,10 @@ class Router
 
         $this->route = Maps::set('screens')->get($value);
 
+        if (wp_doing_ajax()) {
+            return;
+        }
+
         // Route
         add_action('admin_init', function () {
             if (Maps::set('screens')->get($this->key) === $GLOBALS['pagenow']) {
