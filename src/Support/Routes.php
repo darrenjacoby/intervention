@@ -2,6 +2,15 @@
 
 namespace Sober\Intervention\Support;
 
+/**
+ * Routes
+ * 
+ * Application and wp-admin class routes.
+ *
+ * @package WordPress
+ * @subpackage Intervention
+ * @since 2.0.0
+ */
 class Routes
 {
     const APPLICATION = [

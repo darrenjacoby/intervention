@@ -5,6 +5,15 @@ namespace Sober\Intervention;
 use Sober\Intervention\Support\Arr;
 use Sober\Intervention\Support\Routes;
 
+/**
+ * Admin
+ * 
+ * Programmatic API for wp-admin.
+ *
+ * @package WordPress
+ * @subpackage Intervention
+ * @since 2.0.0
+ */
 class Admin
 {
     protected $key;

@@ -5,6 +5,15 @@ namespace Sober\Intervention;
 use Sober\Intervention\Support\Arr;
 use Sober\Intervention\Support\Routes;
 
+/**
+ * Application
+ * 
+ * Programmatic API for application.
+ *
+ * @package WordPress
+ * @subpackage Intervention
+ * @since 2.0.0
+ */
 class Application
 {
     protected $key;

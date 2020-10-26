@@ -7,6 +7,15 @@ use Sober\Intervention\Support\Composer;
 use Sober\Intervention\Support\Routes;
 use Sober\Intervention\Support\Str;
 
+/**
+ * Intervention
+ * 
+ * Loader for the config file.
+ *
+ * @package WordPress
+ * @subpackage Intervention
+ * @since 2.0.0
+ */
 class Intervention
 {
     /**

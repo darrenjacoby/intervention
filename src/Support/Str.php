@@ -8,6 +8,15 @@ namespace Sober\Intervention\Support;
 
 use Illuminate\Support\Collection;
 
+/**
+ * String
+ * 
+ * Helper class for strings.
+ *
+ * @package WordPress
+ * @subpackage Intervention
+ * @since 2.0.0
+ */
 class Str
 {
     /**

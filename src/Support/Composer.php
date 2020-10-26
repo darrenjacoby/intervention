@@ -2,6 +2,15 @@
 
 namespace Sober\Intervention\Support;
 
+/**
+ * Composer
+ * 
+ * Helper class for \Illuminate\Support\Collection.
+ *
+ * @package WordPress
+ * @subpackage Intervention
+ * @since 2.0.0
+ */
 class Composer
 {
     protected $config;
