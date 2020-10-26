@@ -39,7 +39,7 @@ Remove all/index comment components.
 
 ```php
 [
-    'appearance',
+    'comments.all',
 ];
 ```
 
@@ -47,7 +47,7 @@ Remove all/index comment components.
 
 ```php
 [
-    'appearance' => 'posts',
+    'comments.all' => 'posts',
 ];
 ```
 

@@ -6,10 +6,10 @@ Update, remove or redirect the posts menu item.
 
 ```php
 [
-    'pages',
-    'pages' => (string) $route,
-    'pages.title' => (string) $title,
-    'pages.icon' => (string) $dashicon,
+    'posts',
+    'posts' => (string) $route,
+    'posts.title' => (string) $title,
+    'posts.icon' => (string) $dashicon,
 ];
 ```
 
