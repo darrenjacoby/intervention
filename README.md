@@ -23,9 +23,11 @@ $ wp plugin install https://github.com/soberwp/intervention/archive/master.zip -
 
 ## Usage
 
-Create `config/intervention.php` for Sage 10 or `intervention.php` inside your theme root folder and return an array.
+Create `config/intervention.php` for Sage 10, `resources/intervention.php` for Sage 9, or `intervention.php` inside your theme root folder and return an array.
 
 ```php
+<?php
+
 return [
     'application' => [
 
@@ -48,6 +50,8 @@ Return `wp-admin.$role`
     * `editor|author`
 
 ```php
+<?php
+
 return [
     'wp-admin.$role' => [
         'common.adminbar',
@@ -161,6 +165,8 @@ Set application options.
 Return `application`.
 
 ```php
+<?php
+
 return [
     'application' => [
         'site' => [
