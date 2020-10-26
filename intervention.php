@@ -3,7 +3,7 @@
 Plugin Name:        Intervention
 Plugin URI:         http://github.com/soberwp/intervention
 Description:        WordPress plugin containing modules to cleanup and customize wp-admin
-Version:            1.3.0
+Version:            2.0.0-rc.1
 Author:             Sober
 Author URI:         http://github.com/soberwp/
 License:            MIT License
@@ -14,26 +14,43 @@ GitHub Branch:      master
 namespace Sober\Intervention;
 
 /**
- * Plugin
+ * Restrict direct access
  */
 if (!defined('ABSPATH')) {
     die;
 };
 
-require(file_exists($composer = __DIR__ . '/vendor/autoload.php') ? $composer : __DIR__ . '/dist/autoload.php');
+/**
+ * Support for Bedrock/Composer
+ */
+include file_exists($composer = __DIR__ . '/vendor/autoload.php') ? $composer : __DIR__ . '/dist/autoload.php';
 
 /**
- * Setup $loader object from function intervention
- *
- * @param string $module
- * @param string|array $config
- * @param string|array $roles
+ * Return user config for Intervention
  */
-function intervention($module = false, $config = false, $roles = false)
+function get()
 {
-    $class = __NAMESPACE__ . '\Module\\' . str_replace('-', '', ucwords($module, '-'));
-    if (!class_exists($class)) {
+    $theme = get_stylesheet_directory();
+
+    $default = file_exists($theme . '/config/') ?
+        $theme . '/config/intervention.php' :
+        $theme . '/intervention.php';
+
+    $config = has_filter('sober/intervention/return') ?
+        apply_filters('sober/intervention/return', rtrim($path)) :
+        $default;
+
+    
+    if (!file_exists($config)) {
         return;
     }
-    $instance = (new $class($config, $roles))->run();
+
+    $read = include($config);
+
+    return $read === 1 ? false : $read;
 }
+
+/**
+ * Initialize
+ */
+$intervention = new Intervention(get());

@@ -1,0 +1,65 @@
+<?php
+
+namespace Sober\Intervention\Admin\Tools;
+
+use Sober\Intervention\Admin\SharedApi;
+use Sober\Intervention\Support\Arr;
+use Sober\Intervention\Support\Composer;
+
+/**
+ * Tools/Available
+ *
+ * @package WordPress
+ * @subpackage Intervention
+ * @since 2.0.0
+ *
+ * @param
+ * [
+ *     'tools.available',
+ *     'tools.available' => (string) $route,
+ *     'tools.available.title' => (string) $title,
+ *     'tools.available.title.[menu, page]' => (string) $title,
+ *     'tools.available.tabs',
+ *     'tools.available.tabs.[screen-options, help]',
+ * ]
+ */
+class Available
+{
+    protected $config;
+
+    /**
+     * Initialize
+     *
+     * @param array $config
+     */
+    public function __construct($config = false)
+    {
+        $compose = Composer::set(Arr::normalize($config));
+
+        $compose = $compose->has('tools.available.all')->add('tools.available.', [
+            'tabs',
+        ]);
+
+        $compose = $compose->has('tools.available.title')->add('tools.available.title.', [
+            'menu', 'page',
+        ]);
+
+        $compose = $compose->has('tools.available.tabs')->add('tools.available.tabs.', [
+            'screen-options', 'help',
+        ]);
+
+        $this->config = $compose->get();
+        $this->hook();
+    }
+
+    /**
+     * Hook
+     */
+    protected function hook()
+    {
+        $shared = SharedApi::set('tools.available', $this->config);
+        $shared->router();
+        $shared->title();
+        $shared->tabs();
+    }
+}
