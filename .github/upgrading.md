@@ -35,6 +35,8 @@ intervention('remove-customizer-items', ['site', 'custom-css'], '$role');
 ```
 
 ```php
+<?php
+
 return [
     'wp-admin.$role' => [
         'appearance.customize', => [
@@ -51,6 +53,8 @@ intervention('remove-dashboard-items', ['right-now', 'recent-comments'], '$role'
 ```
 
 ```php
+<?php
+
 return [
     'wp-admin.$role' => [
         'dashboard.home' => [
@@ -67,6 +71,8 @@ intervention('remove-help-tabs');
 ```
 
 ```php
+<?php
+
 return [
     'wp-admin.$role' => [
         'common.tabs',
@@ -81,6 +87,8 @@ intervention('remove-howdy');
 ```
 
 ```php
+<?php
+
 return [
     'wp-admin.$role' => [
         'common.adminbar.user.howdy',
@@ -95,6 +103,8 @@ intervention('remove-menu-items', ['media', 'comments'], '$role');
 ```
 
 ```php
+<?php
+
 return [
     'wp-admin.$role' => [
         'media', 'comments'
@@ -109,6 +119,8 @@ intervention('remove-page-components', ['author', 'custom-fields']);
 ```
 
 ```php
+<?php
+
 return [
     'wp-admin.$role' => [
         'pages.item' => [
@@ -125,6 +137,8 @@ intervention('remove-post-components', ['author', 'custom-fields']);
 ```
 
 ```php
+<?php
+
 return [
     'wp-admin.$role' => [
         'posts.item' => [
@@ -141,6 +155,8 @@ intervention('remove-taxonomies', ['category', 'tag']);
 ```
 
 ```php
+<?php
+
 return [
     'application' => [
         'taxonomies' => [
@@ -158,6 +174,8 @@ intervention('remove-toolbar-frontend', '$role');
 ```
 
 ```php
+<?php
+
 return [
     'wp-admin.$role' => [
         'common.adminbar.theme',
@@ -172,6 +190,8 @@ intervention('remove-toolbar-items', ['logo', 'new'], '$role');
 ```
 
 ```php
+<?php
+
 return [
     'wp-admin.$role' => [
         'common.adminbar' => [
@@ -188,6 +208,8 @@ intervention('remove-update-notices', '$role'));
 ```
 
 ```php
+<?php
+
 return [
     'wp-admin.$role' => [
         'common.updates',
@@ -202,6 +224,8 @@ intervention('remove-user-fields', ['options', 'names'], '$role');
 ```
 
 ```php
+<?php
+
 return [
     'wp-admin.$role' => [
         'users.profile' => [
@@ -218,6 +242,8 @@ intervention('remove-user-roles', ['contributor', 'subscriber'], '$role');
 ```
 
 ```php
+<?php
+
 return [
     'wp-admin.$role' => [
         'users.profile.role' => [
@@ -234,6 +260,8 @@ intervention('remove-widgets', ['calendar', 'rss']);
 ```
 
 ```php
+<?php
+
 return [
     'wp-admin.$role' => [
         'appearance.widgets.available' => [
@@ -250,6 +278,8 @@ intervention('remove-emoji', 40);
 ```
 
 ```php
+<?php
+
 return [
     'application' => [
         'writing.emoji' => false,
@@ -264,6 +294,8 @@ intervention('remove-attachment-pages');
 ```
 
 ```php
+<?php
+
 return [
     'application' => [
         'posts.attachment' => false,
@@ -278,6 +310,8 @@ intervention('update-dashboard-columns', 2);
 ```
 
 ```php
+<?php
+
 return [
     'wp-admin.$role' => [
         'dashboard.home.cols' => 2,
@@ -293,6 +327,8 @@ intervention('update-label-footer', 'Created by');
 ```
 
 ```php
+<?php
+
 return [
     'wp-admin.$role' => [
         'common.footer.credit' => 'Created by',
@@ -307,6 +343,8 @@ intervention('update-label-page', 'Label');
 ```
 
 ```php
+<?php
+
 return [
     'application' => [
         'posts.page.labels' => [
@@ -324,6 +362,8 @@ intervention('update-label-post', 'Label');
 ```
 
 ```php
+<?php
+
 return [
     'application' => [
         'posts.post.labels' => [
@@ -341,6 +381,8 @@ intervention('update-pagination', 40);
 ```
 
 ```php
+<?php
+
 return [
     'wp-admin.$role' => [
         'common.pagination' => 40,
@@ -355,6 +397,8 @@ intervention('add-dashboard-redirect', 'posts', '$role');
 ```
 
 ```php
+<?php
+
 return [
     'wp-admin.$role' => [
         'dashboard' => 'posts'
@@ -369,6 +413,8 @@ intervention('add-svg-support');
 ```
 
 ```php
+<?php
+
 return [
     'application' => [
         'media.mimes.svg' => true,
