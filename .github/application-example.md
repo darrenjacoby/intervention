@@ -7,9 +7,11 @@ Configuration example for default WordPress options.
 
 return [
     'application' => [
-        'posts.documentation' => true,
+        'posts' => [
+            'documentation' => true,
+        ],
         'taxonomies' => [
-            'package' => 'Package',
+            'package' => true,
             'package.links' => 'documentation',
         ],
         'theme' => 'soberwp',
