@@ -3,6 +3,8 @@
 Configuration options available.
 
 ```php
+<?php
+
 return [
     'application' => [
         'posts.$name' => (boolean|string|array) $enable|$label|$config,

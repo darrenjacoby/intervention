@@ -3,6 +3,8 @@
 Configuration example for default WordPress options, excluding taxonomies and post types.
 
 ```php
+<?php
+
 return [
     'application' => [
         'theme' => 'soberwp',
