@@ -1,12 +1,17 @@
 # Application
 
-Configuration example for default WordPress options, excluding taxonomies and post types.
+Configuration example for default WordPress options.
 
 ```php
 <?php
 
 return [
     'application' => [
+        'posts.documentation' => true,
+        'taxonomies' => [
+            'package' => 'Package',
+            'package.links' => 'documentation',
+        ],
         'theme' => 'soberwp',
         'menus' =>[
             'primary_navigation' => false,
