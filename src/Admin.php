@@ -84,9 +84,10 @@ class Admin
     public function init($config = false)
     {
         $this->config = Arr::normalize([$this->key => $config]);
+        $current_user = wp_get_current_user();
 
         foreach ($this->roles->toArray() as $role) {
-            $allowed_role = $role === 'all' || current_user_can($role);
+            $allowed_role = $role === 'all' || in_array($role, $current_user->roles);
 
             if (!$allowed_role) {
                 continue;
