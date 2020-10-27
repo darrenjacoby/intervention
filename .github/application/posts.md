@@ -6,7 +6,7 @@ Set application posts/posttypes.
 
 ```php
 [
-    'posts.{name}' => (boolean|string|array) $enable|$label|$config,
+    'posts.$name' => (boolean|string|array) $enable|$label|$config,
 ];
 ```
 
@@ -104,7 +104,7 @@ If you are only changing one option, consider using dot notation for a cleaner c
 
 ### Further Reading;
 
-* `posts.{name}`
+* `posts.$name`
     * [https://developer.wordpress.org/reference/functions/register_post_type/](https://developer.wordpress.org/reference/functions/register_post_type/)
 
 ### Bug?

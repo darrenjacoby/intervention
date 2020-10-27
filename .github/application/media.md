@@ -7,12 +7,12 @@ Set application media options.
 ```php
 [
     'media' => [
-        'sizes.{name}' => (boolean|int|array) false|$width|[
+        'sizes.$name' => (boolean|int|array) false|$width|[
             'width'|'w' => (int) $width,
             'height'|'h' => (int) $height,
             'crop' => (boolean) $enable_crop,
         ],
-        'mimes.{name}' => (boolean|string) $enable_mime_type,
+        'mimes.$name' => (boolean|string) $enable_mime_type,
         'uploads.organize' => (boolean) $enable_upload_organization,
     ],
 ];
@@ -84,9 +84,9 @@ To enable custom mimes, a string of the mime type will need to be passed.
 
 ### Further Reading;
 
-* `mimes.{name}`
+* `mimes.$name`
     * [https://wpengine.com/support/mime-types-wordpress/](https://wpengine.com/support/mime-types-wordpress/)
-* `sizes.{name}`
+* `sizes.$name`
     * [https://developer.wordpress.org/reference/functions/add_image_size/](https://developer.wordpress.org/reference/functions/add_image_size/)
 
 ### Bug?

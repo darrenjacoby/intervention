@@ -6,7 +6,7 @@ Set application taxonomies.
 
 ```php
 [
-    'taxonomies.{name}' => (boolean|string|array) $enable|$label|$config,
+    'taxonomies.$name' => (boolean|string|array) $enable|$label|$config,
 ];
 ```
 
@@ -89,7 +89,7 @@ If you are only changing one option, consider using dot notation for a cleaner c
 
 ### Further Reading;
 
-* `taxonomies.{name}`
+* `taxonomies.$name`
     * [https://developer.wordpress.org/reference/functions/register_taxonomy/](https://developer.wordpress.org/reference/functions/register_taxonomy/)
 
 ### Bug?

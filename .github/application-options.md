@@ -5,11 +5,11 @@ Configuration options available.
 ```php
 return [
     'application' => [
-        'posts.{name}' => (boolean|string|array) $enable|$label|$config,
-        'taxonomies.{name}' => (boolean|string|array) $enable|$label|$config,
+        'posts.$name' => (boolean|string|array) $enable|$label|$config,
+        'taxonomies.$name' => (boolean|string|array) $enable|$label|$config,
         'theme' => (string) $stylesheet,
         'menus' => [
-            '{name}' => (boolean|string) $enable|$name
+            '$name' => (boolean|string) $enable|$name
         ],
         'plugins' => (array) $plugins,
         'site' => [
@@ -71,12 +71,12 @@ return [
             'avatars.default' => (string) $avatar_default,
         ],
         'media' => [
-            'sizes.{name}' => (int|array) $width|[
+            'sizes.$name' => (int|array) $width|[
                 'width' => (int) $width,
                 'height' => (int) $height,
                 'crop' => (boolean) $enable_crop,
             ],
-            'mimes.{name}' => (boolean|string) $enable_mime_type,
+            'mimes.$name' => (boolean|string) $enable_mime_type,
             'uploads.organize' => (boolean) $enable_upload_organization
         ],
         'permalinks' => [

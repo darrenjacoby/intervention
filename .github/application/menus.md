@@ -7,7 +7,7 @@ Set application menus.
 ```php
 [
     'menus' => [
-        '{name}' => (boolean|string) $enable|$name
+        '$name' => (boolean|string) $enable|$name
     ],
 ];
 ```
@@ -39,7 +39,7 @@ Passing in `true` will use the key in studly case. `main_menu` displays as `Main
 
 ### Further Reading;
 
-* `menus.{name}`
+* `menus.$name`
     * [https://developer.wordpress.org/reference/functions/register_nav_menus/](https://developer.wordpress.org/reference/functions/register_nav_menus/)
 
 ### Bug?
