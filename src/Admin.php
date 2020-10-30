@@ -36,42 +36,11 @@ class Admin
     public function __construct($key = false, $config = false)
     {
         $this->key = $key;
-        $this->roles = Arr::collect(['all']);
 
         // `::set()` shorthand is used
         if ($config) {
             $this->init($config);
         }
-    }
-
-    /**
-     * Roles
-     *
-     * @param array $roles
-     * @return object $this
-     */
-    public function roles($roles)
-    {
-        $this->roles = Arr::collect($roles);
-
-        $wp_roles = new \WP_Roles();
-
-        /**
-         * Alias for all-not-administrator
-         */
-        if ($this->roles->contains('all-not-administrator')) {
-            foreach ($wp_roles->get_names() as $role => $v) {
-                if ($role === 'administrator') {
-                    continue;
-                }
-                $this->roles->push($role);
-            }
-
-            // remove from collection
-            $this->roles->pull('all-not-administrator');
-        }
-
-        return $this;
     }
 
     /**
@@ -85,16 +54,8 @@ class Admin
     {
         $this->config = Arr::normalize([$this->key => $config]);
 
-        foreach ($this->roles->toArray() as $role) {
-            $allowed_role = $role === 'all' || current_user_can($role);
-
-            if (!$allowed_role) {
-                continue;
-            }
-
-            Routes::set('wp-admin')->map(function ($class, $k) {
-                (new Intervention())->init($this->config, $class, $k);
-            });
-        }
+        Routes::set('wp-admin')->map(function ($class, $k) {
+            (new Intervention())->init($this->config, $class, $k);
+        });
     }
 }
