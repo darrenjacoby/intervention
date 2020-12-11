@@ -10,6 +10,7 @@ Set application permalinks options.
         'structure' => (string) $tags,
         'category-base' => (boolean|string) false|$category_base_path,
         'tag-base' => (boolean|string) false|$tag_base_path,
+        'search-base' => (boolean|string) true|$search_base_path
     ],
 ];
 ```
@@ -22,9 +23,12 @@ Set application permalinks options.
         'structure' => '/%postname%/',
         'category-base' => 'category',
         'tag-base' => 'tag',
+        'search-base' => 'search',
     ],
 ];
 ```
+
+* Setting `'permalinks.search-base' => true` will change the default WordPress search permalink structure from `?s={query}` to `/search/{query}`
 
 ### Further Reading;
 
