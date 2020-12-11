@@ -83,8 +83,9 @@ return [
         ],
         'permalinks' => [
             'structure' => (string) $tags,
-            'category-base' => (string) $category_base_path,
-            'tag-base' => (string) $tag_base_path,
+            'category-base' => (boolean|string) false|$category_base_path,
+            'tag-base' => (boolean|string) false|$tag_base_path,
+            'search-base' => (boolean|string) true|$search_base_path,
         ],
         'privacy.policy-page' => (int) $page_id,
     ],

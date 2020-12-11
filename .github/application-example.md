@@ -96,6 +96,7 @@ return [
             'structure' => '/%postname%/',
             'category-base' => '',
             'tag-base' => '',
+            'search-base' => 'search',
         ],
         'privacy.policy-page' => 2,
     ],
