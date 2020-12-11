@@ -70,7 +70,7 @@ class Register
     {
         if ($this->config->has('supports')) {
             $keys = Arr::collect($this->config->get('supports'))->keys()->toArray();
-            $keys = array_map(function($value) {
+            $keys = array_map(function ($value) {
                 return str_replace('_', '-', $value);
             }, $keys);
             $this->config->put('supports', $keys);

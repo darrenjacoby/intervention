@@ -9,7 +9,7 @@ use Sober\Intervention\Support\Str;
 
 /**
  * Intervention
- * 
+ *
  * Loader for the config file.
  *
  * @package WordPress

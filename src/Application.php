@@ -7,7 +7,7 @@ use Sober\Intervention\Support\Routes;
 
 /**
  * Application
- * 
+ *
  * Programmatic API for application.
  *
  * @package WordPress

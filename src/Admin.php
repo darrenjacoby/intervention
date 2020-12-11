@@ -7,7 +7,7 @@ use Sober\Intervention\Support\Routes;
 
 /**
  * Admin
- * 
+ *
  * Programmatic API for wp-admin.
  *
  * @package WordPress

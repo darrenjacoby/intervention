@@ -54,7 +54,7 @@ class Remove
         if (Arr::collect(['category', 'post_tag'])->contains($this->taxonomy)) {
             unset($GLOBALS['wp_taxonomies'][$this->taxonomy]);
         } else {
-            add_action('wp_loaded', function() {
+            add_action('wp_loaded', function () {
                 unregister_taxonomy($this->taxonomy);
             });
         }

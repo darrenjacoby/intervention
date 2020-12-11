@@ -6,13 +6,13 @@ use Illuminate\Support\Collection;
 
 /**
  * Array
- * 
+ *
  * Laravel based helper class for arrays.
  *
  * @package WordPress
  * @subpackage Intervention
  * @since 2.0.0
- * 
+ *
  * @link https://github.com/laravel/framework/blob/7.x/src/Illuminate/Support/Arr.php
  */
 class Arr

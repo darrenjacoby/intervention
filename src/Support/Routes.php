@@ -4,7 +4,7 @@ namespace Sober\Intervention\Support;
 
 /**
  * Routes
- * 
+ *
  * Application and wp-admin class routes.
  *
  * @package WordPress

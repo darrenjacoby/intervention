@@ -4,7 +4,7 @@ namespace Sober\Intervention\Support;
 
 /**
  * Composer
- * 
+ *
  * Custom helper class for \Illuminate\Support\Collection.
  *
  * @package WordPress

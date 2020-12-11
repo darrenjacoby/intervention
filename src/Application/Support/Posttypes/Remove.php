@@ -56,7 +56,7 @@ class Remove
         } elseif (Arr::collect(['attachment'])->contains($this->posttype)) {
             new RemoveAttachment();
         } else {
-            add_action('wp_loaded', function() {
+            add_action('wp_loaded', function () {
                 unregister_post_type($this->posttype);
             });
         }
