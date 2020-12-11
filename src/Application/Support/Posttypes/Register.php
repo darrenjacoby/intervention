@@ -69,7 +69,14 @@ class Register
     public function setSupports()
     {
         if ($this->config->has('supports')) {
-            $keys = Composer::set($this->config)->groupKeys('supports')->get();
+            /**
+             * $keys = Composer::set($this->config)->groupKeys('supports')->get();
+             * $this->config->put('supports', $keys);
+             */
+            $keys = Arr::collect($this->config->get('supports'))->keys()->toArray();
+            $keys = array_map(function($value) {
+                return str_replace('_', '-', $value);
+            }, $keys);
             $this->config->put('supports', $keys);
         }
     }

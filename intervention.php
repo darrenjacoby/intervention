@@ -40,7 +40,6 @@ function get()
         apply_filters('sober/intervention/return', rtrim($path)) :
         $default;
 
-    
     if (!file_exists($config)) {
         return;
     }
