@@ -76,7 +76,7 @@ class Register
     public function setLinks()
     {
         $this->links = $this->config->has('links') ?
-            $this->config->pull('links') :
+            array_keys($this->config->pull('links')) :
             'post';
     }
 
