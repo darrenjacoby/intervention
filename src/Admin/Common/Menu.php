@@ -61,7 +61,14 @@ class Menu
         }
 
         if ($this->config->has('common.menu.icons')) {
-            echo '<style>body:not(.folded) #adminmenu div.wp-menu-image {width:12px;} body:not(.folded) #adminmenu div.wp-menu-image:before {content:""!important;} body:not(.folded) #adminmenu .collapse-button-icon {display: none;} body:not(.folded) #collapse-button .collapse-button-label {padding-left:12px;}</style>';
+            echo '
+                <style>
+                    body:not(.folded) #adminmenu div.wp-menu-image {width:12px;} 
+                    body:not(.folded) #adminmenu div.wp-menu-image:before {content:""!important;} 
+                    body:not(.folded) #adminmenu .collapse-button-icon {display: none;} 
+                    body:not(.folded) #collapse-button .collapse-button-label {padding-left:12px;}
+                    body:not(.folded) #adminmenu div.wp-menu-name {padding-left: 12px;}
+                </style>';
         }
 
         if ($this->config->has('common.menu.nags')) {
