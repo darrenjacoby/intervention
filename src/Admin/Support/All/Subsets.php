@@ -30,7 +30,7 @@ class Subsets
      */
     public static function set($key = false)
     {
-        return new self($key, $custom);
+        return new self($key);
     }
 
     /**
