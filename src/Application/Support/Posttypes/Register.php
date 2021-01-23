@@ -68,10 +68,13 @@ class Register
      * @param string $this->config
      */
     public function setSupports()
-    {   
-
+    {
         if ($this->config->has('supports')) {
-            $this->config->put('supports', array_keys($this->config->pull('supports')));
+            $keys = Arr::collect($this->config->get('supports'))->keys()->toArray();
+            $keys = array_map(function ($value) {
+                return str_replace('_', '-', $value);
+            }, $keys);
+            $this->config->put('supports', $keys);
         }
     }
 
@@ -83,10 +86,17 @@ class Register
      * @param string $this->config
      */
     public function setTaxonomies()
-    {   
+    {
+        $taxonomies = $this->config->has('taxonomies') ? 
+            $this->config->pull('taxonomies') : 
+            false;
 
-        if ($this->config->has('taxonomies')) {
-            $this->config->put('taxonomies', array_keys($this->config->pull('taxonomies')));
+        if ($taxonomies) {
+            $taxonomies = is_string($taxonomies) ? 
+                [$taxonomies] : 
+                Arr::collect($taxonomies)->keys()->toArray();
+
+            $this->config->put('taxonomies', $taxonomies);
         }
     }
 
