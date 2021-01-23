@@ -22,12 +22,14 @@ class Labels
     /**
      * Interface
      *
+     * @param string $one
+     * @param string $many
      * @param string|array $config
      * @return Sober\Intervention\Application\Support\Posttypes\Labels
      */
-    public static function set($config = false)
+    public static function set($one, $many = false, $config = false)
     {
-        return new self($config);
+        return new self($one, $many, $config);
     }
 
     /**
