@@ -81,6 +81,6 @@ class Item
             ->toArray();
 
         new Add(['posts.add' => $config]);
-        // new Edit(['posts.edit' => $config]);
+        new Edit(['posts.edit' => $config]);
     }
 }
