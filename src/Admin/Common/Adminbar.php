@@ -82,14 +82,14 @@ class Adminbar
     protected function hook()
     {
         if ($this->config->has('common.adminbar.user.avatar')) {
-            foreach ([0, 10] as $priority) {
-                add_action('admin_bar_menu', function () {
-                    add_filter('pre_option_show_avatars', '__return_zero');
-                }, $priority);
-            }
-
             add_action('admin_head', function () {
-                echo '<style>#wp-admin-bar-my-account a::before {display: none}</style>';
+                echo '
+                <style>
+                    #wpadminbar #wp-admin-bar-my-account a::before, 
+                    #wpadminbar #wp-admin-bar-my-account.with-avatar > a img,
+                    #wpadminbar #wp-admin-bar-my-account.without-avatar > a img {display: none}
+                </style>';
+                echo '<script>jQuery(document).ready(function() {jQuery("#wp-admin-bar-my-account").removeClass("with-avatar").addClass("without-avatar")});</script>';
             });
         }
 
