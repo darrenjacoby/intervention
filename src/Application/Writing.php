@@ -2,7 +2,7 @@
 
 namespace Sober\Intervention\Application;
 
-use Sober\Intervention\Admin;
+use Sober\Intervention\Application\Support\Element;
 use Sober\Intervention\Application\Support\Emoji;
 use Sober\Intervention\Support\Arr;
 
@@ -53,8 +53,7 @@ class Writing
     protected function hook()
     {
         add_action('init', [$this, 'options']);
- 
-        $this->admin();
+        add_action('admin_head-options-writing.php', [$this, 'admin']);
 
         if ($this->config->get('writing.emoji') === false) {
             Emoji::remove();
@@ -111,23 +110,35 @@ class Writing
     public function admin()
     {
         if ($this->config->has('writing.default-category')) {
-            Admin::set('settings.writing', ['default-category']);
+            Element::disabled('#default_category');
         }
 
         if ($this->config->has('writing.default-post-format')) {
-            Admin::set('settings.writing', ['default-post-format']);
+            Element::disabled('#default_post_format');
         }
 
-        if ($this->config->has('writing.post-via-email.server') &&
-            $this->config->has('writing.post-via-email.login') &&
-            $this->config->has('writing.post-via-email.pass') &&
-            $this->config->has('writing.post-via-email.port') &&
-            $this->config->has('writing.post-via-email.default-category')) {
-            Admin::set('settings.writing', ['post-via-email']);
+        if ($this->config->has('writing.post-via-email.server')) {
+            Element::disabled('#mailserver_url');
+        }
+
+        if ($this->config->has('writing.post-via-email.login')) {
+            Element::disabled('#mailserver_login');
+        }
+
+        if ($this->config->has('writing.post-via-email.pass')) {
+            Element::disabled('#mailserver_pass');
+        }
+
+        if ($this->config->has('writing.post-via-email.default-category')) {
+            Element::disabled('#default_email_category');
+        }
+
+        if ($this->config->has('writing.post-via-email.port')) {
+            Element::disabled('#mailserver_port');
         }
 
         if ($this->config->has('writing.update-services')) {
-            Admin::set('settings.writing', ['update-services']);
+            Element::disabled('#ping_sites');
         }
     }
 }

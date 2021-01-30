@@ -2,7 +2,7 @@
 
 namespace Sober\Intervention\Application;
 
-use Sober\Intervention\Admin;
+use Sober\Intervention\Application\Support\Element;
 use Sober\Intervention\Support\Arr;
 
 /**
@@ -45,8 +45,7 @@ class Permalinks
     protected function hook()
     {
         add_action('init', [$this, 'options']);
-        
-        $this->admin();
+        add_action('admin_head-options-permalink.php', [$this, 'admin']);
     }
 
     /**
@@ -93,19 +92,15 @@ class Permalinks
     public function admin()
     {
         if ($this->config->has('permalinks.structure')) {
-            Admin::set('settings.permalinks', ['common']);
-        }
-
-        if ($this->config->has('permalinks.category-base') && $this->config->has('permalinks.category-base')) {
-            Admin::set('settings.permalinks', ['optional']);
+            Element::disabled('.permalink-structure input[type=radio], #permalink_structure, .available-structure-tags button');
         }
 
         if ($this->config->has('permalinks.category-base')) {
-            Admin::set('settings.permalinks', ['optional.category']);
+            Element::disabled('#category_base');
         }
 
         if ($this->config->has('permalinks.tag-base')) {
-            Admin::set('settings.permalinks', ['optional.tag']);
+            Element::disabled('#tag_base');
         }
     }
 }

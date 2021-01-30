@@ -2,7 +2,7 @@
 
 namespace Sober\Intervention\Application\Media;
 
-use Sober\Intervention\Admin;
+use Sober\Intervention\Application\Support\Element;
 use Sober\Intervention\Support\Arr;
 use Sober\Intervention\Support\Composer;
 
@@ -43,8 +43,7 @@ class Uploads
     protected function hook()
     {
         add_action('after_setup_theme', [$this, 'options']);
-        
-        $this->admin();
+        add_action('admin_head-options-media.php', [$this, 'admin']);
     }
 
     /**
@@ -63,7 +62,7 @@ class Uploads
     public function admin()
     {
         if ($this->config->has('media.uploads.organize')) {
-            Admin::set('settings.media', ['uploads']);
+            Element::disabled('#uploads_use_yearmonth_folders');
         }
     }
 }

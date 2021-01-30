@@ -2,7 +2,7 @@
 
 namespace Sober\Intervention\Application;
 
-use Sober\Intervention\Admin;
+use Sober\Intervention\Application\Support\Element;
 use Sober\Intervention\Support\Arr;
 
 /**
@@ -41,8 +41,7 @@ class Privacy
     protected function hook()
     {
         add_action('init', [$this, 'options']);
-        
-        $this->admin();
+        add_action('admin_head-options-privacy.php', [$this, 'admin']);
     }
 
     /**
@@ -61,7 +60,7 @@ class Privacy
     public function admin()
     {
         if ($this->config->has('privacy.policy-page')) {
-            Admin::set('settings.privacy', ['policy-page']);
+            Element::disabled('#page_for_privacy_policy, #set-page, #create-page');
         }
     }
 }

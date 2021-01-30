@@ -2,7 +2,7 @@
 
 namespace Sober\Intervention\Application\Media;
 
-use Sober\Intervention\Admin;
+use Sober\Intervention\Application\Support\Element;
 use Sober\Intervention\Support\Arr;
 use Sober\Intervention\Support\Composer;
 
@@ -60,8 +60,7 @@ class Sizes
     protected function hook()
     {
         add_action('after_setup_theme', [$this, 'options']);
-
-        $this->admin();
+        add_action('admin_head-options-media.php', [$this, 'admin']);
     }
 
     /**
@@ -130,20 +129,32 @@ class Sizes
      */
     public function admin()
     {
-        // Remove section
-        if ($this->sizes->contains('thumbnail') &&
-            $this->sizes->contains('medium') &&
-            $this->sizes->contains('large')) {
-            Admin::set('settings.media', ['sizes']);
-        } else {
-            // Else remove individual sections
-            foreach ($this->sizes as $size) {
-                if ($this->defaults->contains($size) &&
-                    ($this->config->has($size . '.width') && $this->config->has($size . '.height')) ||
-                    $this->config->get($size) === false) {
-                    Admin::set('settings.media', ['sizes.' . $size]);
-                }
-            }
+        if ($this->config->has('thumbnail') || $this->config->has('thumbnail.width') || $this->config->has('thumbnail.w')) {
+            Element::disabled('#thumbnail_size_w');
+        }
+
+        if ($this->config->has('thumbnail.height') || $this->config->has('thumbnail.h')) {
+            Element::disabled('#thumbnail_size_h');
+        }
+
+        if ($this->config->has('thumbnail.crop')) {
+            Element::disabled('#thumbnail_crop');
+        }
+
+        if ($this->config->has('medium') || $this->config->has('medium.w') || $this->config->has('medium.width')) {
+            Element::disabled('#medium_size_w');
+        }
+
+        if ($this->config->has('medium.h') || $this->config->has('medium.height')) {
+            Element::disabled('#medium_size_h');
+        }
+
+        if ($this->config->has('large') || $this->config->has('large.w') || $this->config->has('large.width')) {
+            Element::disabled('#large_size_w');
+        }
+
+        if ($this->config->has('large.h') || $this->config->has('large.height')) {
+            Element::disabled('#large_size_h');
         }
     }
 }

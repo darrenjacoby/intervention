@@ -2,7 +2,7 @@
 
 namespace Sober\Intervention\Application;
 
-use Sober\Intervention\Admin;
+use Sober\Intervention\Application\Support\Element;
 use Sober\Intervention\Support\Arr;
 
 /**
@@ -46,8 +46,7 @@ class Reading
     protected function hook()
     {
         add_action('init', [$this, 'options']);
-        
-        $this->admin();
+        add_action('admin_head-options-reading.php', [$this, 'admin']);
     }
 
     /**
@@ -109,27 +108,28 @@ class Reading
     public function admin()
     {
         if ($this->config->has('reading.front-page')) {
-            Admin::set('settings.reading', ['front-page']);
+            Element::disabled('input[name=show_on_front]');
+            Element::disabled('#page_on_front', true);
         }
 
         if ($this->config->has('reading.front-page.posts')) {
-            Admin::set('settings.reading', ['front-page.posts']);
+            Element::disabled('#page_for_posts', true);
         }
 
         if ($this->config->has('reading.posts-per-page')) {
-            Admin::set('settings.reading', ['posts-per-page']);
+            Element::disabled('#posts_per_page');
         }
 
         if ($this->config->has('reading.posts-per-rss')) {
-            Admin::set('settings.reading', ['posts-per-rss']);
+            Element::disabled('#posts_per_rss');
         }
 
         if ($this->config->has('reading.rss-excerpt')) {
-            Admin::set('settings.reading', ['rss-excerpt']);
+            Element::disabled('input[name=rss_use_excerpt]');
         }
 
         if ($this->config->has('reading.discourage-search')) {
-            Admin::set('settings.reading', ['discourage-search']);
+            Element::disabled('#blog_public');
         }
     }
 }

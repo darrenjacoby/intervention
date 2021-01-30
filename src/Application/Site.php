@@ -2,7 +2,7 @@
 
 namespace Sober\Intervention\Application;
 
-use Sober\Intervention\Admin;
+use Sober\Intervention\Application\Support\Element;
 use Sober\Intervention\Support\Arr;
 use Sober\Intervention\Support\Str;
 
@@ -57,8 +57,7 @@ class Site
     protected function hook()
     {
         add_action('init', [$this, 'options']);
-        
-        $this->admin();
+        add_action('admin_head-options-general.php', [$this, 'admin']);
     }
 
     /**
@@ -140,47 +139,47 @@ class Site
     public function admin()
     {
         if ($this->config->has('site.site-title')) {
-            // Admin::set('settings.general', ['site-title']);
+            Element::disabled('#blogname');
         }
 
         if ($this->config->has('site.tagline')) {
-            Admin::set('settings.general', ['tagline']);
+            Element::disabled('#blogdescription');
         }
 
         if ($this->config->has('site.wp-address')) {
-            Admin::set('settings.general', ['wp-address']);
+            Element::disabled('#siteurl');
         }
 
         if ($this->config->has('site.site-address')) {
-            Admin::set('settings.general', ['site-address']);
+            Element::disabled('#home');
         }
 
         if ($this->config->has('site.admin-email')) {
-            Admin::set('settings.general', ['admin-email']);
+            Element::disabled('#new_admin_email');
         }
 
         if ($this->config->has('site.membership')) {
-            Admin::set('settings.general', ['membership']);
+            Element::disabled('#users_can_register');
         }
 
         if ($this->config->has('site.default-role')) {
-            Admin::set('settings.general', ['default-role']);
+            Element::disabled('#default_role');
         }
 
         if ($this->config->has('site.timezone')) {
-            Admin::set('settings.general', ['timezone']);
+            Element::disabled('#timezone_string');
         }
 
         if ($this->config->has('site.date-format')) {
-            Admin::set('settings.general', ['date-format']);
+            Element::disabled('input[name=date_format], #date_format_custom');
         }
 
         if ($this->config->has('site.time-format')) {
-            Admin::set('settings.general', ['time-format']);
+            Element::disabled('input[name=time_format], #time_format_custom');
         }
 
         if ($this->config->has('site.week-starts')) {
-            Admin::set('settings.general', ['week-starts']);
+            Element::disabled('#start_of_week');
         }
     }
 }

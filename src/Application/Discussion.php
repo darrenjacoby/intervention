@@ -2,7 +2,7 @@
 
 namespace Sober\Intervention\Application;
 
-use Sober\Intervention\Admin;
+use Sober\Intervention\Application\Support\Element;
 use Sober\Intervention\Support\Arr;
 
 /**
@@ -66,8 +66,7 @@ class Discussion
     protected function hook()
     {
         add_action('init', [$this, 'discussion']);
-        
-        $this->admin();
+        add_action('admin_head-options-discussion.php', [$this, 'admin']);
     }
 
     /**
@@ -188,132 +187,106 @@ class Discussion
     public function admin()
     {
         // Post
-        if ($this->config->has('discussion.post.ping-flag') &&
-            $this->config->has('discussion.post.ping-status') &&
-            $this->config->has('discussion.post.comments')) {
-            Admin::set('settings.discussion', ['post']);
-        }
-
         if ($this->config->has('discussion.post.ping-flag')) {
-            Admin::set('settings.discussion', ['post.ping-flag']);
+            Element::disabled('#default_pingback_flag');
         }
 
         if ($this->config->has('discussion.post.ping-status')) {
-            Admin::set('settings.discussion', ['post.ping-status']);
+            Element::disabled('#default_ping_status');
         }
 
         if ($this->config->has('discussion.post.comments')) {
-            Admin::set('settings.discussion', ['post.comments']);
+            Element::disabled('#default_comment_status');
         }
 
         // Comments
-        if ($this->config->has('discussion.comments.name-email') &&
-            $this->config->has('discussion.comments.registration') &&
-            $this->config->has('discussion.comments.close') &&
-            $this->config->has('discussion.comments.cookies') &&
-            $this->config->has('discussion.comments.thread') &&
-            $this->config->has('discussion.comments.pages') &&
-            $this->config->has('discussion.comments.order')) {
-            Admin::set('settings.discussion', ['comments']);
-        }
-
         if ($this->config->has('discussion.comments.name-email')) {
-            Admin::set('settings.discussion', ['comments.name-email']);
+            Element::disabled('#require_name_email');
         }
 
         if ($this->config->has('discussion.comments.registration')) {
-            Admin::set('settings.discussion', ['comments.registration']);
+            Element::disabled('#comment_registration');
         }
 
-        if ($this->config->has('discussion.comments.close') &&
-            $this->config->has('discussion.comments.close.days')) {
-            Admin::set('settings.discussion', ['comments.close']);
+        if ($this->config->has('discussion.comments.close')) {
+            Element::disabled('#close_comments_for_old_posts');
+        }
+
+        if ($this->config->has('discussion.comments.close.days')) {
+            Element::disabled('#close_comments_days_old');
         }
 
         if ($this->config->has('discussion.comments.cookies')) {
-            Admin::set('settings.discussion', ['comments.cookies']);
+            Element::disabled('#show_comments_cookies_opt_in');
         }
 
-        if ($this->config->has('discussion.comments.thread') &&
-            $this->config->has('discussion.comments.thread.depth')) {
-            Admin::set('settings.discussion', ['comments.thread']);
+        if ($this->config->has('discussion.comments.thread')) {
+            Element::disabled('#thread_comments');
         }
 
-        if ($this->config->has('discussion.comments.pages') &&
-            $this->config->has('discussion.comments.pages.per-page') &&
-            $this->config->has('discussion.comments.pages.default')) {
-            Admin::set('settings.discussion', ['comments.pages']);
+        if ($this->config->has('discussion.comments.thread.depth')) {
+            Element::disabled('#thread_comments_depth');
+        }
+
+        if ($this->config->has('discussion.comments.pages')) {
+            Element::disabled('#page_comments');
+        }
+
+        if ($this->config->has('discussion.comments.pages.per-page')) {
+            Element::disabled('#comments_per_page');
+        }
+
+        if ($this->config->has('discussion.comments.pages.default')) {
+            Element::disabled('#default_comments_page');
         }
 
         if ($this->config->has('discussion.comments.order')) {
-            Admin::set('settings.discussion', ['comments.order']);
+            Element::disabled('#comment_order');
         }
 
         // Emails
-        if ($this->config->has('discussion.emails.comment') &&
-            $this->config->has('discussion.emails.moderation')) {
-            Admin::set('settings.discussion', ['emails']);
-        }
-
         if ($this->config->has('discussion.emails.comment')) {
-            Admin::set('settings.discussion', ['emails.comment']);
+            Element::disabled('#comments_notify');
         }
 
         if ($this->config->has('discussion.emails.moderation')) {
-            Admin::set('settings.discussion', ['emails.moderation']);
+            Element::disabled('#moderation_notify');
         }
 
         // Moderation/Approve
-        if ($this->config->has('discussion.moderation.approve-manual') &&
-            $this->config->has('discussion.moderation.approve-previous')) {
-            Admin::set('settings.discussion', ['moderation.approve']);
-        }
-
         if ($this->config->has('discussion.moderation.approve-manual')) {
-            Admin::set('settings.discussion', ['moderation.approve.manual']);
+            Element::disabled('#comment_moderation');
         }
 
         if ($this->config->has('discussion.moderation.approve-previous')) {
-            Admin::set('settings.discussion', ['moderation.approve.previous']);
+            Element::disabled('#comment_previously_approved');
         }
 
         // Moderation/Queue
-        if ($this->config->has('discussion.moderation.queue-links') &&
-            $this->config->has('discussion.moderation.queue-keys')) {
-            Admin::set('settings.discussion', ['moderation.queue']);
-        }
-
         if ($this->config->has('discussion.moderation.queue-links')) {
-            Admin::set('settings.discussion', ['moderation.queue.links']);
+            Element::disabled('#comment_max_links');
         }
 
         if ($this->config->has('discussion.moderation.queue-keys')) {
-            Admin::set('settings.discussion', ['moderation.queue.keys']);
+            Element::disabled('#moderation_keys');
         }
 
         // Moderation/Disallowed Keys
         if ($this->config->has('discussion.moderation.disallowed-keys')) {
-            Admin::set('settings.discussion', ['moderation.disallowed-keys']);
+            Element::disabled('#disallowed_keys');
         }
 
         // Avatars
-        if ($this->config->has('discussion.avatars') &&
-            $this->config->has('discussion.avatars.rating') &&
-            $this->config->has('discussion.avatars.default') ||
-            $this->config->get('discussion.avatars') === false) {
-            Admin::set('settings.discussion', ['avatars']);
-        }
-
         if ($this->config->has('discussion.avatars')) {
-            Admin::set('settings.discussion', ['avatars.show']);
+            Element::disabled('#show_avatars');
         }
 
         if ($this->config->has('discussion.avatars.rating')) {
-            Admin::set('settings.discussion', ['avatars.rating']);
+            Element::disabled('.avatar-settings:nth-child(2) fieldset');
         }
 
         if ($this->config->has('discussion.avatars.default')) {
-            Admin::set('settings.discussion', ['avatars.default']);
+            Element::disabled('.avatar-settings:nth-child(3) fieldset');
         }
     }
 }
