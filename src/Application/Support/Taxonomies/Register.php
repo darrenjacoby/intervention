@@ -75,12 +75,12 @@ class Register
      */
     public function setLinks()
     {
-        $links = $this->config->has('links') ? 
-            $this->config->pull('links') : 
+        $links = $this->config->has('links') ?
+            $this->config->pull('links') :
             'post';
 
-        $this->links = is_string($links) ? 
-            [$links] : 
+        $this->links = is_string($links) ?
+            [$links] :
             Arr::collect($links)->keys()->toArray();
     }
 

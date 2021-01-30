@@ -87,13 +87,13 @@ class Register
      */
     public function setTaxonomies()
     {
-        $taxonomies = $this->config->has('taxonomies') ? 
-            $this->config->pull('taxonomies') : 
+        $taxonomies = $this->config->has('taxonomies') ?
+            $this->config->pull('taxonomies') :
             false;
 
         if ($taxonomies) {
-            $taxonomies = is_string($taxonomies) ? 
-                [$taxonomies] : 
+            $taxonomies = is_string($taxonomies) ?
+                [$taxonomies] :
                 Arr::collect($taxonomies)->keys()->toArray();
 
             $this->config->put('taxonomies', $taxonomies);
