@@ -91,6 +91,7 @@ class Discussion
     {
         $shared = SharedApi::set('settings.discussion', $this->config);
         $shared->router();
+        $shared->menu();
         $shared->title();
         $shared->tabs();
 

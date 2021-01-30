@@ -48,6 +48,7 @@ class Users
     {
         $shared = SharedApi::set('users', $this->config);
         $shared->router();
+        $shared->menu();
         $shared->title();
         $shared->icon();
 

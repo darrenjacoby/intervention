@@ -47,6 +47,7 @@ class Tools
     {
         $shared = SharedApi::set('tools', $this->config);
         $shared->router();
+        $shared->menu();
         $shared->title();
         $shared->icon();
     }

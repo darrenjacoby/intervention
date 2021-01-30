@@ -60,6 +60,7 @@ class Add
     {
         $shared = SharedApi::set('media.add', $this->config);
         $shared->router();
+        $shared->menu();
         $shared->title();
         $shared->tabs();
 

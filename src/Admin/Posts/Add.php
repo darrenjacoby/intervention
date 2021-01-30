@@ -72,6 +72,10 @@ class Add
             'screen-options', 'help',
         ]);
 
+        $compose = $compose->has('posts.add.title')->add('posts.add.title.', [
+            'menu', 'page',
+        ]);
+
         $this->config = $compose->get();
 
         $this->editor = Composer::set($this->config)
@@ -90,12 +94,13 @@ class Add
     {
         $shared = SharedApi::set('posts.add', $this->config);
         $shared->router();
-        $shared->title();
+        $shared->menu();
 
         if ($GLOBALS['pagenow'] !== 'post-new.php') {
             return;
         }
 
+        $shared->title();
         $shared->tabs();
 
         BlockEditor::set($this->editor);

@@ -94,15 +94,29 @@ class SharedApi
     }
 
     /**
+     * Menu
+     *
+     * @see Sober\Intervention\Admin\Support\Menu
+     */
+    public function menu()
+    {
+        if ($this->config->has($this->key . '.title.menu')) {
+            Menu::set($this->key)->rename($this->config->get($this->key . '.title.menu'));
+        }
+    }
+
+    /**
      * Title
      *
      * @see Sober\Intervention\Admin\Support\Title
      */
     public function title()
     {
+        /*
         if ($this->config->has($this->key . '.title.menu')) {
             Menu::set($this->key)->rename($this->config->get($this->key . '.title.menu'));
         }
+        */
 
         if ($this->config->has($this->key . '.title.page')) {
             Title::set($this->key)->rename($this->config->get($this->key . '.title.page'));

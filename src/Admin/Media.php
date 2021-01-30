@@ -47,6 +47,7 @@ class Media
     {
         $shared = SharedApi::set('media', $this->config);
         $shared->router();
+        $shared->menu();
         $shared->title();
         $shared->icon();
     }

@@ -86,6 +86,7 @@ class Home
     {
         $shared = SharedApi::set('dashboard.home', $this->config);
         $shared->router();
+        $shared->menu();
         $shared->title();
         $shared->tabs();
 

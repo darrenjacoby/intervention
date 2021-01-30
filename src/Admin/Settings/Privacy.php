@@ -62,6 +62,7 @@ class Privacy
     {
         $shared = SharedApi::set('settings.privacy', $this->config);
         $shared->router();
+        $shared->menu();
         $shared->title();
         $shared->tabs();
 

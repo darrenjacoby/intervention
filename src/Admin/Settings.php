@@ -47,6 +47,7 @@ class Settings
     {
         $shared = SharedApi::set('settings', $this->config);
         $shared->router();
+        $shared->menu();
         $shared->title();
         $shared->icon();
     }

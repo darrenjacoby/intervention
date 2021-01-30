@@ -85,6 +85,7 @@ class General
     {
         $shared = SharedApi::set('settings.general', $this->config);
         $shared->router();
+        $shared->menu();
         $shared->title();
         $shared->tabs();
 

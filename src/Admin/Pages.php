@@ -47,6 +47,7 @@ class Pages
     {
         $shared = SharedApi::set('pages', $this->config);
         $shared->router();
+        $shared->menu();
         $shared->title();
         $shared->icon();
     }

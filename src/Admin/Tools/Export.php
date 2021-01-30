@@ -59,6 +59,7 @@ class Export
     {
         $shared = SharedApi::set('tools.export', $this->config);
         $shared->router();
+        $shared->menu();
         $shared->title();
         $shared->tabs();
     }

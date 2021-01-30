@@ -47,6 +47,7 @@ class Plugins
     {
         $shared = SharedApi::set('plugins', $this->config);
         $shared->router();
+        $shared->menu();
         $shared->title();
         $shared->icon();
     }

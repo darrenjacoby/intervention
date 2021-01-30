@@ -58,7 +58,7 @@ class Item
     {
         $shared = SharedApi::set('posts.tags.item', $this->config);
         $shared->router();
-        $shared->title();
+        $shared->menu();
 
         if (!isset($_GET['taxonomy'])) {
             return;
@@ -67,6 +67,8 @@ class Item
         if ($_GET['taxonomy'] !== 'post_tag') {
             return;
         }
+
+        $shared->title();
 
         add_action('admin_head-edit-tags.php', [$this, 'headAll']);
         add_action('admin_head-term.php', [$this, 'headItem']);

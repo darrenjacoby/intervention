@@ -115,6 +115,7 @@ class Profile
     {
         $shared = SharedApi::set('users.profile', $this->config);
         $shared->router();
+        $shared->menu();
         $shared->title();
         $shared->tabs();
 

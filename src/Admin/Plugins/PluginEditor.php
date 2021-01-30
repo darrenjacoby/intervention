@@ -59,6 +59,7 @@ class PluginEditor
     {
         $shared = SharedApi::set('plugins.plugin-editor', $this->config);
         $shared->router();
+        $shared->menu();
         $shared->title();
         $shared->tabs();
     }

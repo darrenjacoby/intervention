@@ -68,6 +68,7 @@ class Permalinks
     {
         $shared = SharedApi::set('settings.permalinks', $this->config);
         $shared->router();
+        $shared->menu();
         $shared->title();
         $shared->tabs();
 

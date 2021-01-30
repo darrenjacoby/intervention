@@ -85,12 +85,13 @@ class Add
     {
         $shared = SharedApi::set('pages.add', $this->config);
         $shared->router();
-        $shared->title();
+        $shared->menu();
 
         if ($GLOBALS['pagenow'] !== 'post-new.php') {
             return;
         }
 
+        $shared->title();
         $shared->tabs();
 
         BlockEditor::set($this->editor);

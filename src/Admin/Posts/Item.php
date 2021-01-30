@@ -69,9 +69,11 @@ class Item
             'featured-image',
         ]);
 
+        /*
         $compose = $compose->has('posts.item.tabs')->add('posts.item.tabs.', [
             'screen-options', 'help',
         ]);
+        */
 
         $config = Composer::set($compose->get())
             ->group('posts.item')
@@ -79,6 +81,6 @@ class Item
             ->toArray();
 
         new Add(['posts.add' => $config]);
-        new Edit(['posts.edit' => $config]);
+        // new Edit(['posts.edit' => $config]);
     }
 }

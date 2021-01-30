@@ -77,6 +77,7 @@ class Customize
     {
         $shared = SharedApi::set('appearance.customize', $this->config);
         $shared->router();
+        $shared->menu();
         $shared->title();
 
         if ($this->config->has('appearance.customize.footer.devices')) {

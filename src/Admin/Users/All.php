@@ -91,6 +91,7 @@ class All
 
         $shared = SharedApi::set('users.all', $this->config);
         $shared->router();
+        $shared->menu();
         $shared->title();
         $shared->tabs();
         $shared->pagination();

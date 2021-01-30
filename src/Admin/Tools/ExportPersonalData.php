@@ -59,6 +59,7 @@ class ExportPersonalData
     {
         $shared = SharedApi::set('tools.export-personal-data', $this->config);
         $shared->router();
+        $shared->menu();
         $shared->title();
         $shared->tabs();
     }

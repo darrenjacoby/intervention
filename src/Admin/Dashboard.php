@@ -47,6 +47,7 @@ class Dashboard
     {
         $shared = SharedApi::set('dashboard', $this->config);
         $shared->router();
+        $shared->menu();
         $shared->title();
         $shared->icon();
     }

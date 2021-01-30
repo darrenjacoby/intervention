@@ -59,6 +59,7 @@ class Available
     {
         $shared = SharedApi::set('tools.available', $this->config);
         $shared->router();
+        $shared->menu();
         $shared->title();
         $shared->tabs();
     }

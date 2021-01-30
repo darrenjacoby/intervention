@@ -107,6 +107,7 @@ class All
     {
         $shared = SharedApi::set('pages.all', $this->config);
         $shared->router();
+        $shared->menu();
 
         if (!isset($_GET['post_type'])) {
             return;

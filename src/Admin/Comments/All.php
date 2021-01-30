@@ -96,6 +96,7 @@ class All
 
         $shared = SharedApi::set('comments.all', $this->config);
         $shared->router();
+        $shared->menu();
         $shared->title();
         $shared->tabs();
         $shared->pagination();

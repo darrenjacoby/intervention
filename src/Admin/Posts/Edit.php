@@ -92,12 +92,13 @@ class Edit
     {
         $shared = SharedApi::set('posts.edit', $this->config);
         $shared->router();
-        $shared->title();
+        // $shared->menu();
 
         if ($GLOBALS['pagenow'] !== 'post.php' || get_post_type($_GET['post']) !== 'post') {
             return;
         }
 
+        // $shared->title();
         $shared->tabs();
 
         BlockEditor::set($this->editor);

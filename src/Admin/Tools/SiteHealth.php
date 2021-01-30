@@ -49,6 +49,7 @@ class SiteHealth
     {
         $shared = SharedApi::set('tools.site-health', $this->config);
         $shared->router();
+        $shared->menu();
         $shared->title();
     }
 }

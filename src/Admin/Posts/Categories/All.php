@@ -93,7 +93,7 @@ class All
         // Required to run before $shared
         $shared = SharedApi::set('posts.categories.all', $this->config);
         $shared->router();
-        $shared->title();
+        $shared->menu();
 
         if (!isset($_GET['taxonomy'])) {
             return;
@@ -105,6 +105,7 @@ class All
 
         $checkbox = $this->config->has('posts.categories.all.actions') || $this->config->has('posts.categories.all.actions.bulk');
 
+        $shared->title();
         $shared->tabs();
         $shared->pagination();
         $shared->search();

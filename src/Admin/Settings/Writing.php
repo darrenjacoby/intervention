@@ -65,6 +65,7 @@ class Writing
     {
         $shared = SharedApi::set('settings.writing', $this->config);
         $shared->router();
+        $shared->menu();
         $shared->title();
         $shared->tabs();
 

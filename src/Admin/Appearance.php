@@ -47,6 +47,7 @@ class Appearance
     {
         $shared = SharedApi::set('appearance', $this->config);
         $shared->router();
+        $shared->menu();
         $shared->title();
         $shared->icon();
     }

@@ -103,6 +103,7 @@ class All
 
         $shared = SharedApi::set('media.all', $this->config);
         $shared->router();
+        $shared->menu();
         $shared->title();
         $shared->tabs();
         $shared->pagination();

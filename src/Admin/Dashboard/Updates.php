@@ -59,6 +59,7 @@ class Updates
     {
         $shared = SharedApi::set('dashboard.updates', $this->config);
         $shared->router();
+        $shared->menu();
         $shared->title();
         $shared->tabs();
     }

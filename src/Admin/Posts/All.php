@@ -108,14 +108,15 @@ class All
     {
         $shared = SharedApi::set('posts.all', $this->config);
         $shared->router();
-        $shared->title();
+        $shared->menu();
 
-        if ($_GET['post_type'] !== null) {
+        if (isset($_GET['post_type']) && $_GET['post_type'] !== null) {
             return;
         }
 
         $checkbox = $this->config->has('posts.all.actions') || $this->config->has('posts.all.actions.bulk');
 
+        $shared->title();
         $shared->tabs();
         $shared->pagination();
         $shared->search();

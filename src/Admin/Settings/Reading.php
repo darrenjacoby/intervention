@@ -67,6 +67,7 @@ class Reading
     {
         $shared = SharedApi::set('settings.reading', $this->config);
         $shared->router();
+        $shared->menu();
         $shared->title();
         $shared->tabs();
 

@@ -59,6 +59,7 @@ class ErasePersonalData
     {
         $shared = SharedApi::set('tools.erase-personal-data', $this->config);
         $shared->router();
+        $shared->menu();
         $shared->title();
         $shared->tabs();
     }

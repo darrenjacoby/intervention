@@ -33,7 +33,7 @@ class Comments
         $compose = Composer::set(Arr::normalize($config));
 
         $compose = $compose->has('comments.title')->add('comments.title.', [
-            'menu',
+            'page', 'menu',
         ]);
 
         $this->config = $compose->get();
@@ -47,6 +47,7 @@ class Comments
     {
         $shared = SharedApi::set('comments', $this->config);
         $shared->router();
+        $shared->menu();
         $shared->title();
         $shared->icon();
     }

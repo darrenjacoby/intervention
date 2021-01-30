@@ -69,6 +69,10 @@ class Edit
             'screen-options', 'help',
         ]);
 
+        $compose = $compose->has('pages.edit.title')->add('pages.edit.title.', [
+            'menu', 'page',
+        ]);
+
         $this->config = $compose->get();
 
         $this->editor = Composer::set($this->config)
@@ -87,12 +91,13 @@ class Edit
     {
         $shared = SharedApi::set('pages.edit', $this->config);
         $shared->router();
-        $shared->title();
+        // $shared->menu();
 
         if ($GLOBALS['pagenow'] !== 'post.php' || get_post_type($_GET['post']) !== 'page') {
             return;
         }
 
+        // $shared->title();
         $shared->tabs();
 
         BlockEditor::set($this->editor);

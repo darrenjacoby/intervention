@@ -63,6 +63,7 @@ class Media
     {
         $shared = SharedApi::set('settings.media', $this->config);
         $shared->router();
+        $shared->menu();
         $shared->title();
         $shared->tabs();
 

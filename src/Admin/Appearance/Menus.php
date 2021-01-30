@@ -78,6 +78,7 @@ class Menus
     {
         $shared = SharedApi::set('appearance.menus', $this->config);
         $shared->router();
+        $shared->menu();
         $shared->title();
         $shared->tabs();
 

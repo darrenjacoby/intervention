@@ -99,6 +99,7 @@ class All
 
         $shared = SharedApi::set('plugins.all', $this->config);
         $shared->router();
+        $shared->menu();
         $shared->title();
         $shared->tabs();
         $shared->pagination();
