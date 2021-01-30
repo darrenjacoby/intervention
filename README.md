@@ -159,8 +159,8 @@ return [
 
 Set application options.
 
-* Passed in options are automatically removed from `wp-admin`.
-* Configuration can be placed under version control.
+* Options are automatically changed to read only fields in `wp-admin`.
+* Options can be placed under version control.
 
 Return `application`.
 
@@ -239,7 +239,6 @@ Includes support for github-updater to track updates through wp-admin.
 * Better support for the block editor.
 * Support `wp-admin` custom post types.
 * Support removing comments.
-* Support for advanced custom fields.
 * Support `application.site.language`.
 
 **Have a suggestion, or want to track new releases? [@soberwp](https://twitter.com/soberwp)**
