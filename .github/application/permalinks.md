@@ -10,7 +10,12 @@ Set application permalinks options.
         'structure' => (string) $tags,
         'category-base' => (boolean|string) false|$category_base_path,
         'tag-base' => (boolean|string) false|$tag_base_path,
-        'search-base' => (boolean|string) true|$search_base_path
+        'search-base' => (boolean|string) true|$search_base_path,
+        'author-base' => (string) $author_base_path,
+        'comments-base' => (string) $comments_base_path,
+        'pagination-base' => (string) $pagination_base_path,
+        'comments-pagination-base' => (string) $comments_pagination_base_path,
+        'feed-base' => (string) $feed_base_path,
     ],
 ];
 ```
@@ -24,6 +29,11 @@ Set application permalinks options.
         'category-base' => 'category',
         'tag-base' => 'tag',
         'search-base' => 'search',
+        'author-base' => 'author',
+        'comments-base' => 'comments',
+        'pagination-base' => 'page',
+        'comments-pagination-base' => 'comment-page',
+        'feed-base' => 'feed',
     ],
 ];
 ```
