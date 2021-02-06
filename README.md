@@ -176,6 +176,7 @@ return [
             'admin-email' => 'example@soberwp.com',
             'membership' => false,
             'default-role' => 'editor',
+            'language' => 'en_US',
             'timezone' => 'Africa/Johannesburg',
             'date-format' => 'F j Y',
             'time-format' => 'g:i a',
@@ -239,6 +240,5 @@ Includes support for github-updater to track updates through wp-admin.
 * Better support for the block editor.
 * Support `wp-admin` custom post types.
 * Support removing comments.
-* Support `application.site.language`.
 
 **Have a suggestion, or want to track new releases? [@soberwp](https://twitter.com/soberwp)**

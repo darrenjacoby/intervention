@@ -31,6 +31,7 @@ return [
             'admin-email' => 'example@soberwp.com',
             'membership' => true,
             'default-role' => 'editor',
+            'language' => 'en_US',
             'timezone' => 'Africa/Johannesburg',
             'date-format' => 'F j Y',
             'time-format' => 'g:i a',

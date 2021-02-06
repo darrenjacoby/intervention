@@ -14,6 +14,7 @@ Set application site/general options.
         'admin-email' => (string) $admin_email,
         'membership' => (boolean) $enable_membership,
         'default-role' => (string) $role,
+        'language' => (string) $language,
         'timezone' => (string) $timezone,
         'date-format' => (string) $date_format,
         'time-format' => (string) $time_format,
@@ -34,6 +35,7 @@ Set application site/general options.
         'admin-email' => 'example@soberwp.com',
         'membership' => true,
         'default-role' => 'editor',
+        'language' => 'en_US',
         'timezone' => 'Africa/Johannesburg',
         'date-format' => 'F j Y',
         'time-format' => 'g:i a',
@@ -41,6 +43,10 @@ Set application site/general options.
     ],
 ];
 ```
+
+### Note;
+
+The language must be installed and available in order for `'language' => (string) $language` to work. You can see if the language is available using [get_available_languages()](https://developer.wordpress.org/reference/functions/get_available_languages/).
 
 ### Further Reading;
 

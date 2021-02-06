@@ -30,6 +30,7 @@ use Sober\Intervention\Support\Str;
  *     'site.admin-email' => (string) $admin_email,
  *     'site.membership' => (boolean) $enable_membership,
  *     'site.default-role' => (string) $role,
+ *     'site.language' => (string) $language,
  *     'site.timezone' => (string) $timezone,
  *     'site.date-format' => (string) $date_format,
  *     'site.time-format' => (string) $time_format,
@@ -131,6 +132,10 @@ class Site
 
             update_option('start_of_week', $day);
         }
+
+        if ($this->config->has('site.language')) {
+            switch_to_locale($this->config->get('site.language'));
+        }
     }
 
     /**
@@ -180,6 +185,10 @@ class Site
 
         if ($this->config->has('site.week-starts')) {
             Element::disabled('#start_of_week');
+        }
+
+        if ($this->config->has('site.language')) {
+            Element::disabled('#WPLANG');
         }
     }
 }

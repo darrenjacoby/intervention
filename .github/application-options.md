@@ -22,6 +22,7 @@ return [
             'admin-email' => (string) $admin_email,
             'membership' => (boolean) $enable_membership,
             'default-role' => (string) $role,
+            'language' => (string) $language,
             'timezone' => (string) $timezone,
             'date-format' => (string) $date_format,
             'time-format' => (string) $time_format,
