@@ -33,10 +33,17 @@ class BlockEditor
      */
     public function __construct($config = false)
     {
-        add_action('admin_enqueue_scripts', function () use ($config) {
-            wp_register_script('intervention-block-editor', plugin_dir_url(__DIR__) . 'Support/BlockEditor.js', ['wp-blocks', 'wp-edit-post']);
+        add_action('enqueue_block_assets', function () use ($config) {
+            if (wp_script_is('intervention-block-editor', 'registered')) {
+                return;
+            }
+
+            wp_enqueue_script(
+                'intervention-block-editor', plugin_dir_url(__DIR__) . 'Support/BlockEditor.js',
+                ['wp-blocks', 'wp-edit-post']
+            );
+
             wp_localize_script('intervention-block-editor', 'config', $config);
-            register_block_type('sober/intervention-block-editor', ['editor_script' => 'intervention-block-editor']);
         });
     }
 }
