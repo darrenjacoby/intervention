@@ -10,6 +10,7 @@ Update, remove or redirect the dashboard menu item.
     'dashboard' => (string) $route,
     'dashboard.title' => (string) $title,
     'dashboard.icon' => (string) $dashicon,
+    'dashboard.order' => (integer) $order,
 ];
 ```
 

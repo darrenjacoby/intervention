@@ -10,6 +10,7 @@ Update, remove or redirect the media menu item.
     'media' => (string) $route,
     'media.title' => (string) $title,
     'media.icon' => (string) $dashicon,
+    'media.order' => (integer) $order,
 ];
 ```
 

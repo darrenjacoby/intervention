@@ -10,6 +10,7 @@ Update, remove or redirect the pages menu item.
     'pages' => (string) $route,
     'pages.title' => (string) $title,
     'pages.icon' => (string) $dashicon,
+    'pages.order' => (integer) $order,
 ];
 ```
 

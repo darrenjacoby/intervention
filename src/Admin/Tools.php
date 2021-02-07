@@ -50,5 +50,6 @@ class Tools
         $shared->menu();
         $shared->title();
         $shared->icon();
+        $shared->order();
     }
 }

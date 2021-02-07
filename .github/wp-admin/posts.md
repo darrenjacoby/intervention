@@ -10,6 +10,7 @@ Update, remove or redirect the posts menu item.
     'posts' => (string) $route,
     'posts.title' => (string) $title,
     'posts.icon' => (string) $dashicon,
+    'posts.order' => (integer) $order,
 ];
 ```
 

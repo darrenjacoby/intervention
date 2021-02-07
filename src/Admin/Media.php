@@ -50,5 +50,6 @@ class Media
         $shared->menu();
         $shared->title();
         $shared->icon();
+        $shared->order();
     }
 }
