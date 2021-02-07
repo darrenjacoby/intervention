@@ -12,12 +12,39 @@ Remove wp-admin left hand side menu components.
     'common.menu.collapse',
     'common.menu.icons',
     'common.menu.nags',
+    'common.menu.order' => (array) $order,
 ];
 ```
 
 ### Examples;
 
-Remove all;
+Order top level menu items;
+
+```php
+[
+    'common.menu.order' => [
+        'dashboard',
+        'pages',
+        'posts',
+        'separator1',
+        'users',
+        'comments',
+        'separator2',
+        'media',
+        'appearance',
+        'plugins',
+        'tools',
+        'settings',
+        // for custom pages, reference the page filename. 
+        'edit.php?post_type=acf-field-group.php', // advanced custom fields
+    ]
+];
+```
+
+* WordPress has two menu separators by default, named `separator1` and `separator2`.
+* [Further reading](https://developer.wordpress.org/reference/hooks/menu_order/)
+
+#### Remove all;
 
 ```php
 [
