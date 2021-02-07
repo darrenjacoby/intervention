@@ -18,6 +18,14 @@ Remove wp-admin left hand side menu components.
 
 ### Examples;
 
+Remove all;
+
+```php
+[
+    'common.menu',
+];
+```
+
 Order top level menu items;
 
 ```php
@@ -43,14 +51,6 @@ Order top level menu items;
 
 * WordPress has two menu separators by default, named `separator1` and `separator2`.
 * [Further reading](https://developer.wordpress.org/reference/hooks/menu_order/)
-
-#### Remove all;
-
-```php
-[
-    'common.menu',
-];
-```
 
 ### Bug?
 
