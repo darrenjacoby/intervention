@@ -10,7 +10,6 @@ Update, remove or redirect the users menu item.
     'users' => (string) $route,
     'users.title' => (string) $title,
     'users.icon' => (string) $dashicon,
-    'users.order' => (integer) $order,
 ];
 ```
 

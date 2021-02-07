@@ -50,6 +50,5 @@ class Pages
         $shared->menu();
         $shared->title();
         $shared->icon();
-        $shared->order();
     }
 }

@@ -10,7 +10,6 @@ Update, remove or redirect the settings menu item.
     'settings' => (string) $route,
     'settings.title' => (string) $title,
     'settings.icon' => (string) $dashicon,
-    'settings.order' => (integer) $order,
 ];
 ```
 

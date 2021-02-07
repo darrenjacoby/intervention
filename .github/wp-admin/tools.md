@@ -10,7 +10,6 @@ Update, remove or redirect the tools menu item.
     'tools' => (string) $route,
     'tools.title' => (string) $title,
     'tools.icon' => (string) $dashicon,
-    'tools.order' => (integer) $order,
 ];
 ```
 

@@ -109,33 +109,6 @@ class Menu
     }
 
     /**
-     * Order
-     *
-     * @param integer $order
-     * @return object $this
-     */
-    public function order($order)
-    {
-        if (wp_doing_ajax()) {
-            return;
-        }
-
-        add_filter('custom_menu_order', '__return_true');
-
-        add_action('menu_order', function ($menu_order) use ($order) {
-            $menu = Arr::collect($menu_order);
-            $position_key = $menu->search($this->page);
-            $menu
-                ->forget($position_key)
-                ->splice($order, 0, [$this->page]);
-
-            return $menu->toArray();
-        });
-
-        return $this;
-    }
-
-    /**
      * Remove
      *
      * @return object $this

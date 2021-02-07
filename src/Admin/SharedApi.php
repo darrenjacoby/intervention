@@ -93,18 +93,6 @@ class SharedApi
     }
 
     /**
-     * Order
-     *
-     * @see Sober\Intervention\Admin\Support\Menu
-     */
-    public function order()
-    {
-        if ($this->config->has($this->key . '.order')) {
-            Menu::set($this->key)->order($this->config->get($this->key . '.order'));
-        }
-    }
-
-    /**
      * Menu
      *
      * @see Sober\Intervention\Admin\Support\Menu

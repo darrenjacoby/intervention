@@ -10,7 +10,6 @@ Update, remove or redirect the plugins menu item.
     'plugins' => (string) $route,
     'plugins.title' => (string) $title,
     'plugins.icon' => (string) $dashicon,
-    'plugins.order' => (integer) $order,
 ];
 ```
 

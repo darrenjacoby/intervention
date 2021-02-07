@@ -50,6 +50,5 @@ class Comments
         $shared->menu();
         $shared->title();
         $shared->icon();
-        $shared->order();
     }
 }
