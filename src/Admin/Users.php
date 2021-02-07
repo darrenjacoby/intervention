@@ -51,7 +51,6 @@ class Users
         $shared->menu();
         $shared->title();
         $shared->icon();
-        $shared->order();
 
         if ($this->config->get('users') === true) {
             Menu::set('profile')->remove();

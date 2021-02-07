@@ -76,7 +76,8 @@ class SharedApi
     public function router()
     {
         if ($this->config->has($this->key)) {
-            Router::set($this->key)->route($this->config->get($this->key));
+            Router::set($this->key)
+                ->route($this->config->get($this->key));
         }
     }
 
@@ -89,18 +90,6 @@ class SharedApi
     {
         if ($this->config->has($this->key . '.icon')) {
             Menu::set($this->key)->icon($this->config->get($this->key . '.icon'));
-        }
-    }
-
-    /**
-     * Order
-     *
-     * @see Sober\Intervention\Admin\Support\Menu
-     */
-    public function order()
-    {
-        if ($this->config->has($this->key . '.order')) {
-            Menu::set($this->key)->order($this->config->get($this->key . '.order'));
         }
     }
 
@@ -123,6 +112,12 @@ class SharedApi
      */
     public function title()
     {
+        /*
+        if ($this->config->has($this->key . '.title.menu')) {
+            Menu::set($this->key)->rename($this->config->get($this->key . '.title.menu'));
+        }
+        */
+
         if ($this->config->has($this->key . '.title.page')) {
             Title::set($this->key)->rename($this->config->get($this->key . '.title.page'));
         }

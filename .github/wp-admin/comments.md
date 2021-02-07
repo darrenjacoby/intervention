@@ -10,7 +10,6 @@ Update, remove or redirect the comments menu item.
     'comments' => (string) $route,
     'comments.title' => (string) $title,
     'comments.icon' => (string) $dashicon,
-    'comments.order' => (integer) $order,
 ];
 ```
 

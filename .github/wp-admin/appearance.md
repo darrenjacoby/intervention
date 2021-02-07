@@ -10,7 +10,6 @@ Update, remove or redirect the appearance menu item.
     'appearance' => (string) $route,
     'appearance.title' => (string) $title,
     'appearance.icon' => (string) $dashicon,
-    'appearance.order' => (integer) $order,
 ];
 ```
 
