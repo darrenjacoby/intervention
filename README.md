@@ -7,7 +7,7 @@ Easily customize [wp-admin](#admin) and configure [application](#application) op
 [Composer/Bedrock](https://roots.io/bedrock/)
 
 ```shell
-$ composer require soberwp/intervention:2.0.0-rc.2
+$ composer require soberwp/intervention:dev-master
 $ wp plugin activate intervention
 ```
 
