@@ -86,6 +86,17 @@ class Intervention
             $wp_roles = new \WP_Roles();
             $current_user = wp_get_current_user();
 
+            /** 
+             * Support multisite 
+             * 
+             * WordPress passes `$current_user->roles` as an empty array
+             * when the user is a super-administrator on a multisite setup,
+             * so we manually add 'administrator' to `$current_user->roles`
+             */
+            if (is_multisite() && empty($current_user->roles)) {
+                $current_user->roles = ['administrator'];
+            }
+
             $init = $group->filter(function ($v, $k) use ($str, $wp_roles, $current_user) {
                 $key = Str::explode('.', $k);
                 $roles = Str::explode('|', $key->shift());
