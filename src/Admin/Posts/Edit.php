@@ -94,7 +94,7 @@ class Edit
         $shared->router();
         // $shared->menu();
 
-        if ($GLOBALS['pagenow'] !== 'post.php' || get_post_type($_GET['post']) !== 'post') {
+        if ($GLOBALS['pagenow'] !== 'post.php' || (isset($_GET['post']) && get_post_type($_GET['post']) !== 'post')) {
             return;
         }
 
