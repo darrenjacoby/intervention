@@ -21,7 +21,7 @@ class Routes
         'theme' => 'Application\Theme',
         'menus' => 'Application\Menus',
         'plugins' => 'Application\Plugins',
-        'site' => 'Application\Site',
+        'general' => 'Application\General',
         'writing' => 'Application\Writing',
         'reading' => 'Application\Reading',
         'discussion' => 'Application\Discussion',

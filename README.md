@@ -169,7 +169,7 @@ Return `application`.
 
 return [
     'application' => [
-        'site' => [
+        'general' => [
             'tagline' => 'Intervention',
             'wp-address' => 'https://soberwp.com/wp',
             'site-address' => 'https://soberwp.com',
@@ -193,7 +193,7 @@ return [
 * [taxonomies](.github/application/taxonomies.md)
 * [menus](.github/application/menus.md)
 * [plugins](.github/application/plugins.md)
-* [site](.github/application/site.md)
+* [general](.github/application/general.md)
 * [reading](.github/application/reading.md)
 * [writing](.github/application/writing.md)
 * [discussion](.github/application/discussion.md)

@@ -1,12 +1,12 @@
-## `application.site`
+## `application.general`
 
-Set application site/general options.
+Set application general options.
 
 ### Options;
 
 ```php
 [
-    'site' => [
+    'general' => [
         'site-title' => (string) $title,
         'tagline' => (string) $tagline,
         'wp-address' => (string) $wp_url,
@@ -27,7 +27,7 @@ Set application site/general options.
 
 ```php
 [
-    'site' => [
+    'general' => [
         'site-title' => 'soberwp',
         'tagline' => 'Tools for WordPress',
         'wp-address' => 'https://soberwp.com/wp',
@@ -52,15 +52,15 @@ The language must be installed and available in order for `'language' => (string
 
 * **Option Reference**
     * [https://codex.wordpress.org/Option_Reference#General](https://codex.wordpress.org/Option_Reference#Reading)
-* `site.timezone`
+* `general.timezone`
     * [WordPress accepted timezones gist](https://gist.github.com/mj1856/f0eaa302d56cd7b3dd3e)
-* `site.date-format`
+* `general.date-format`
     * [https://www.php.net/manual/en/datetime.formats.date.php](https://www.php.net/manual/en/datetime.formats.date.php)
-* `site.time-format`
+* `general.time-format`
     * [https://www.php.net/manual/en/datetime.formats.time.php](https://www.php.net/manual/en/datetime.formats.time.php)
-* `site.week-starts`
+* `general.week-starts`
     * [https://www.php.net/manual/en/datetime.formats.relative.php](https://www.php.net/manual/en/datetime.formats.relative.php)
 
 ### Bug?
 
-* **[Please open an issue](https://github.com/soberwp/intervention/issues/new?title=[application.site]&labels=bug&assignees=darrenjacoby)**
+* **[Please open an issue](https://github.com/soberwp/intervention/issues/new?title=[application.general]&labels=bug&assignees=darrenjacoby)**
