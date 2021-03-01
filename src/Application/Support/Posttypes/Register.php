@@ -44,6 +44,7 @@ class Register
         $this->config = $config;
         $this->setDefaults();
         $this->setSupports();
+        $this->setTemplates();
         $this->setTaxonomies();
         $this->register();
     }
@@ -63,18 +64,37 @@ class Register
     /**
      * Set Supports
      *
-     * Transform from [$x => true, $y = true] to [$x, $y]
+     * Transform from [$x => true, $y = true] to [$x, $y] and convert to dashcase
      *
      * @param string $this->config
      */
     public function setSupports()
     {
         if ($this->config->has('supports')) {
-            $keys = Arr::collect($this->config->get('supports'))->keys()->toArray();
-            $keys = array_map(function ($value) {
-                return str_replace('_', '-', $value);
-            }, $keys);
+            $supports = Arr::transformKeysToDashcase($this->config->get('supports'));
+            $keys = Arr::collect($supports)->keys()->toArray();
             $this->config->put('supports', $keys);
+        }
+    }
+
+    /**
+     * Set Templates
+     *
+     * Transform from [$x => true, $y => [...]] to [$x, $y => [...]]
+     *
+     * @param string $this->config
+     */
+    public function setTemplates()
+    {
+        if ($this->config->has('template')) {
+            $templates = Arr::collect($this->config->get('template'));
+
+            $templates = $templates->map(function($item, $key) {
+                $item_arr = Arr::collect($item);
+                $first = $item_arr->keys()->first();
+                $blocks = $item_arr->forget($first)->toArray();
+                return [$first, $blocks];
+            });
         }
     }
 

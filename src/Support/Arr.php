@@ -111,6 +111,23 @@ class Arr
     }
 
     /**
+     * Transform Keys To Dashcase
+     *
+     * Recursively transform multidimensional associative array keys to snakecase
+     *
+     * @link https://stackoverflow.com/questions/7490105/array-walk-recursive-modify-both-keys-and-values/57622225#57622225
+     *
+     * @param array $array
+     * @return array
+     */
+    public static function transformKeysToDashcase($array)
+    {
+        return static::transform($array, function ($k, $v) {
+            return [str_replace('_', '-', $k), $v];
+        });
+    }
+
+    /**
      * Transform Entries To True
      *
      * Recursively transform multidimensional associative array null entries to true
@@ -123,7 +140,8 @@ class Arr
     public static function transformEntriesToTrue($array)
     {
         return static::transform($array, function ($k, $v) {
-            return is_numeric($k) ? [$v, true] : [$k, $v];
+            // check for [0 => 'key'] and make sure the value is not an array
+            return is_numeric($k) && !is_array($v) ? [$v, true] : [$k, $v];
         });
     }
 
