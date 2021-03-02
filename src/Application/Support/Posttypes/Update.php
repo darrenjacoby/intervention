@@ -54,21 +54,55 @@ class Update
     {
         $object = get_post_type_object($this->posttype);
 
-        // Set `$object->labels` to `$this->config[labels]`
+        /**
+         * Set Labels
+         *
+         * Set `$object->labels` to `$this->config[labels]`
+         *
+         * @param string $this->config
+         */
         if ($this->config->has('labels')) {
             $object->labels = (object) $this->config->pull('labels');
         }
 
-        // Merge `$object->cap` with `$this->config[capabilities]`
+        /**
+         * Set Capabilities
+         *
+         * Set `$object->cap` with `$this->config[capabilities]`
+         *
+         * @param string $this->config
+         */
         if ($this->config->has('capabilities')) {
             $capabilities = $this->config->pull('capabilities');
             $capabilities = Arr::collect($object->cap)->merge($capabilities);
             $object->cap = (object) $capabilities->toArray();
         }
 
-        // Set `$_wp_post_type_features` to `$this->config[supports]`
+        /**
+         * Set Supports
+         *
+         * Set `$_wp_post_type_features` to `$this->config[supports]`
+         *
+         * @param string $this->config
+         */
         if ($this->config->has('supports')) {
-            $GLOBALS['_wp_post_type_features'][$this->posttype] = $this->config->pull('supports');
+            $supports = Arr::transformKeysToDashcase($this->config->pull('supports'));
+            $GLOBALS['_wp_post_type_features'][$this->posttype] = $supports;
+        }
+
+        /**
+         * Set Template
+         *
+         * Set `$object->template`to `$this->config[template]`
+         * Convert ['core/x' => true] to [0 => 'core/x'] recursively
+         *
+         * @param string $this->config
+         */
+        if ($this->config->has('template')) {
+            $template = $this->config->pull('template');
+            $object->template = Arr::transform($template, function ($k, $v) {
+                return $v === true ? [0, $k] : [$k, $v];
+            });
         }
 
         // Set remaining `$object->{$key}` overrides from `$this->config`

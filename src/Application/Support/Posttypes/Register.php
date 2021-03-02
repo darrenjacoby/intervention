@@ -44,7 +44,7 @@ class Register
         $this->config = $config;
         $this->setDefaults();
         $this->setSupports();
-        $this->setTemplates();
+        $this->setTemplate();
         $this->setTaxonomies();
         $this->register();
     }
@@ -78,23 +78,20 @@ class Register
     }
 
     /**
-     * Set Templates
+     * Set Template
      *
-     * Transform from [$x => true, $y => [...]] to [$x, $y => [...]]
+     * Transform from ['core/x' => true] to [0 => 'core/x']
      *
      * @param string $this->config
      */
-    public function setTemplates()
+    public function setTemplate()
     {
         if ($this->config->has('template')) {
-            $templates = Arr::collect($this->config->get('template'));
-
-            $templates = $templates->map(function($item, $key) {
-                $item_arr = Arr::collect($item);
-                $first = $item_arr->keys()->first();
-                $blocks = $item_arr->forget($first)->toArray();
-                return [$first, $blocks];
+            $template = $this->config->pull('template');
+            $template = Arr::transform($template, function ($k, $v) {
+                return $v === true ? [0, $k] : [$k, $v];
             });
+            $this->config->put('template', $template);
         }
     }
 
