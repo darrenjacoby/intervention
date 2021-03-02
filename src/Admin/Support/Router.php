@@ -63,7 +63,7 @@ class Router
 
         // Route
         add_action('admin_init', function () {
-            if (Maps::set('screens')->get($this->key) === $GLOBALS['pagenow']) {
+            if (Maps::set('screens')->get($this->key) === $GLOBALS['pagenow'] . $_SERVER['QUERY_STRING']) {
                 wp_redirect(admin_url($this->route));
             };
         });
