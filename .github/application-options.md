@@ -14,7 +14,7 @@ return [
             '$name' => (boolean|string) $enable|$name
         ],
         'plugins' => (array) $plugins,
-        'site' => [
+        'general' => [
             'site-title' => (string) $title,
             'tagline' => (string) $tagline,
             'wp-address' => (string) $wp_url,

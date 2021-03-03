@@ -23,7 +23,7 @@ return [
             'disable-comments' => true,
             'regenerate-thumbnails' => true,
         ],
-        'site' => [
+        'general' => [
             'site-title' => 'soberwp',
             'tagline' => 'Tools for WordPress',
             'wp-address' => 'https://soberwp.com/wp',
