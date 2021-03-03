@@ -21,7 +21,8 @@
     <copy todir="dist">
       <fileset dir="vendor">
         <include name="autoload.php"></include>
-        <include name="composer/**.php"></include>
+        <include name="**.php"></include>
+        <include name="**/*.php"></include>
       </fileset>
     </copy>
   </target>

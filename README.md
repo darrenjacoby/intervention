@@ -1,30 +1,21 @@
 # Intervention
 
-WordPress plugin containing modules to cleanup and customize wp-admin.
+Easily customize [wp-admin](#admin) and configure [application](#application) options.
 
 ## Installation
 
-#### Composer:
+[Composer/Bedrock](https://roots.io/bedrock/)
 
-Recommended method/s;
-
-[Roots Bedrock](https://roots.io/bedrock/) and [WP-CLI](http://wp-cli.org/)
 ```shell
-$ composer require soberwp/intervention
+$ composer require soberwp/intervention:dev-master
 $ wp plugin activate intervention
 ```
 
-#### WP-CLI:
+[WP-CLI](http://wp-cli.org/)
 
 ```shell
 $ wp plugin install https://github.com/soberwp/intervention/archive/master.zip --activate
 ```
-
-#### Manual:
-
-* Download the [zip file](https://github.com/soberwp/intervention/archive/master.zip)
-* Unzip to your sites plugin folder
-* Activate via WordPress
 
 #### Requirements:
 
@@ -32,147 +23,206 @@ $ wp plugin install https://github.com/soberwp/intervention/archive/master.zip -
 
 ## Usage
 
-#### Import the namespaced function:
-
-Place at the top of your themes functions.php file.
-```php
-
-use function \Sober\Intervention\intervention;
-
-if (function_exists('\Sober\Intervention\intervention')) {
-    // now you can use the function to call the required modules and their params
-    intervention('remove-menu-items', 'plugins', 'all');
-}
-```
-
-## Modules
-
-Use function `intervention()` to use plugin modules.
-
-[Example functions.php file](.github/functions.php.md)
+Create `config/intervention.php` for Sage 10, `resources/intervention.php` for Sage 9, or `intervention.php` inside your theme root folder and return an array.
 
 ```php
-intervention('remove-menu-items', ['themes', 'plugins'], ['editor', 'author']);
+<?php
+
+return [
+    'application' => [
+
+    ],
+    'wp-admin.$role' => [
+
+    ],
+];
 ```
 
-**Click on a module below to view its usage documentation:**
+For the options, you can use [dot notatation, a standard array, or a combination](.github/config.md).
 
-* [add-acf-page](.github/add-acf-page.md)
-* [add-dashboard-item](.github/add-dashboard-item.md)
-* [add-dashboard-redirect](.github/add-dashboard-redirect.md)
-* [add-menu-page](.github/add-menu-page.md)
-* [add-svg-support](.github/add-svg-support.md)
-* [disable-attachment-pages](.github/disable-attachment-pages.md)
-* [remove-customizer-items](.github/remove-customizer-items.md)
-* [remove-dashboard-items](.github/remove-dashboard-items.md)
-* [remove-emoji](.github/remove-emoji.md)
-* [remove-help-tabs](.github/remove-help-tabs.md)
-* [remove-howdy](.github/remove-howdy.md)
-* [remove-menu-items](.github/remove-menu-items.md)
-* [remove-page-components](.github/remove-page-components.md)
-* [remove-post-components](.github/remove-post-components.md)
-* [remove-taxonomies](.github/remove-taxonomies.md)
-* [remove-toolbar-frontend](.github/remove-toolbar-frontend.md)
-* [remove-toolbar-items](.github/remove-toolbar-items.md)
-* [remove-update-notices](.github/remove-update-notices.md)
-* [remove-user-fields](.github/remove-user-fields.md)
-* [remove-user-roles](.github/remove-user-roles.md)
-* [remove-widgets](.github/remove-widgets.md)
-* [update-dashboard-columns](.github/update-dashboard-columns.md)
-* [update-label-footer](.github/update-label-footer.md)
-* [update-label-page](.github/update-label-page.md)
-* [update-label-post](.github/update-label-post.md)
-* [update-pagination](.github/update-pagination.md)
+## Admin
+
+Remove components from wp-admin.
+
+Return `wp-admin.$role`
+
+* Support for multiple user roles using a pipe operator. 
+    * `editor|author`
+
+```php
+<?php
+
+return [
+    'wp-admin.$role' => [
+        'common.adminbar',
+    ],
+];
+```
+
+**User Roles**
+
+* `all` 
+* `all-not-administrator` (shortcut alias)
+* `administrator`
+* `author`
+* `editor`
+* `contributor`
+* `subscriber`
+* `shop-mananger` (woocommerce)
+* `customer` (woocommerce)
+
+### Options
+<!-- **[Quick Reference]()** -->
+
+**Login**
+* [login](.github/wp-admin/login.md)
+
+**Common**
+* [common.adminbar](.github/wp-admin/common.adminbar.md)
+* [common.footer](.github/wp-admin/common.footer.md)
+* [common.menu](.github/wp-admin/common.menu.md)
+* [common.tabs](.github/wp-admin/common.tabs.md)
+* [common.title-link](.github/wp-admin/common.title-link.md)
+* [common.updates](.github/wp-admin/common.updates.md)
+* [common.all.list](.github/wp-admin/common.all.list.md)
+* [common.all.pagination](.github/wp-admin/common.all.pagination.md)
+* [common.all.search](.github/wp-admin/common.all.search.md)
+* [common.all.subsets](.github/wp-admin/common.all.subsets.md)
+
+**Dashboard**
+* [dashboard](.github/wp-admin/dashboard.md)
+* [dashboard.home](.github/wp-admin/dashboard.home.md)
+* [dashboard.updates](.github/wp-admin/dashboard.updates.md)
+
+**Posts**
+* [posts](.github/wp-admin/posts.md)
+* [posts.all](.github/wp-admin/posts.all.md)
+* [posts.item](.github/wp-admin/posts.item.md)
+* [posts.categories.all](.github/wp-admin/posts.categories.all.md)
+* [posts.categories.item](.github/wp-admin/posts.categories.item.md)
+* [posts.tags.all](.github/wp-admin/posts.tags.all.md)
+* [posts.tags.item](.github/wp-admin/posts.tags.item.md)
+
+**Media**
+* [media](.github/wp-admin/media.md)
+* [media.all](.github/wp-admin/media.all.md)
+* [media.add](.github/wp-admin/media.add.md)
+
+**Pages**
+* [pages](.github/wp-admin/pages.md)
+* [pages.all](.github/wp-admin/pages.all.md)
+* [pages.item](.github/wp-admin/pages.item.md)
+
+**Comments**
+* [comments](.github/wp-admin/comments.md)
+* [comments.all](.github/wp-admin/comments.all.md)
+
+**Appearance**
+* [appearance](.github/wp-admin/appearance.md)
+* [appearance.themes](.github/wp-admin/appearance.themes.md)
+* [appearance.customize](.github/wp-admin/appearance.customize.md)
+* [appearance.widgets](.github/wp-admin/appearance.widgets.md)
+* [appearance.menus](.github/wp-admin/appearance.menus.md)
+* [appearance.theme-editor](.github/wp-admin/appearance.theme-editor.md)
+
+**Plugins**
+* [plugins](.github/wp-admin/plugins.md)
+* [plugins.all](.github/wp-admin/plugins.all.md)
+* [plugins.add](.github/wp-admin/plugins.add.md)
+* [plugins.plugin-editor](.github/wp-admin/plugins.plugin-editor.md)
+
+**Users**
+* [users](.github/wp-admin/users.md)
+* [users.all](.github/wp-admin/users.all.md)
+* [users.add](.github/wp-admin/users.add.md)
+* [users.profile](.github/wp-admin/users.profile.md)
+
+**Tools**
+* [tools](.github/wp-admin/tools.md)
+* [tools.available](.github/wp-admin/tools.available.md)
+* [tools.import](.github/wp-admin/tools.import.md)
+* [tools.export](.github/wp-admin/tools.export.md)
+* [tools.site-health](.github/wp-admin/tools.site-health.md)
+* [tools.export-personal-data](.github/wp-admin/tools.export-personal-data.md)
+* [tools.erase-personal-data](.github/wp-admin/tools.erase-personal-data.md)
+
+**Settings**
+* [settings](.github/wp-admin/settings.md)
+* [settings.general](.github/wp-admin/settings.general.md)
+* [settings.writing](.github/wp-admin/settings.writing.md)
+* [settings.reading](.github/wp-admin/settings.reading.md)
+* [settings.discussion](.github/wp-admin/settings.discussion.md)
+* [settings.media](.github/wp-admin/settings.media.md)
+* [settings.permalinks](.github/wp-admin/settings.permalinks.md)
+
+## Application
+
+Set application options.
+
+* Options are automatically changed to read only fields in `wp-admin`.
+* Options can be placed under version control.
+
+Return `application`.
+
+```php
+<?php
+
+return [
+    'application' => [
+        'general' => [
+            'tagline' => 'Intervention',
+            'wp-address' => 'https://soberwp.com/wp',
+            'site-address' => 'https://soberwp.com',
+            'admin-email' => 'example@soberwp.com',
+            'membership' => false,
+            'default-role' => 'editor',
+            'language' => 'en_US',
+            'timezone' => 'Africa/Johannesburg',
+            'date-format' => 'F j Y',
+            'time-format' => 'g:i a',
+            'week-starts' => 'Mon',
+        ],
+    ],
+];
+```
+
+### Options
+
+* [theme](.github/application/theme.md)
+* [posts/posttypes](.github/application/posts.md)
+* [taxonomies](.github/application/taxonomies.md)
+* [menus](.github/application/menus.md)
+* [plugins](.github/application/plugins.md)
+* [general](.github/application/general.md)
+* [reading](.github/application/reading.md)
+* [writing](.github/application/writing.md)
+* [discussion](.github/application/discussion.md)
+* [media](.github/application/media.md)
+* [permalinks](.github/application/permalinks.md)
+* [privacy](.github/application/privacy.md)
 
 ### Quick Reference
 
-* **add-acf-page**<br>
-`intervention('add-acf-page', $config(string|array), $roles(string|array));`
+* [Full configuration options](.github/application-options.md)
+* [Full configuration example](.github/application-example.md)
+* [Register custom posttype](.github/application/posts.md#register)
+* [Register custom taxonomy](.github/application/taxonomies.md#register)
+* [Register custom image sizes](.github/application/media.md#image-sizes)
+* [Register custom nav menu](.github/application/menus.md#register)
+* [Remove posttype](.github/application/posts.md#remove)
+* [Remove taxonomy](.github/application/taxonomies.md#remove)
+* [Remove image size](.github/application/media.md#image-sizes)
+* [Remove emoji](.github/application/writing.md)
+* [Remove attachments](.github/application/posts.md#remove)
+* [Enable custom media/mime types](.github/application/media.md#mime-types)
 
-* **add-dashboard-item**<br>
-`intervention('add-dashboard-item', $item(array));`
+## Updating
 
-* **add-dashboard-redirect**<br>
-`intervention('add-dashboard-redirect', $route(string), $roles(string|array));`
-
-* **add-menu-page**<br>
-`intervention('add-menu-page', $config(string|array), $roles(string|array));`
-
-* **add-svg-support**<br>
-`intervention('add-svg-support', $roles(string|array));`
-
-* **disable-attachment-pages**<br>
-`intervention('disable-attachment-pages');`
-
-* **remove-customizer-items**<br>
-`intervention('remove-customizer-items', $items(string|array), $roles(string|array));`
-
-* **remove-dashboard-items**<br>
-`intervention('remove-dashboard-items', $items(string|array), $roles(string|array));`
-
-* **remove-emoji**<br>
-`intervention('remove-emoji');`
-
-* **remove-help-tabs**<br>
-`intervention('remove-help-tabs');`
-
-* **remove-howdy**<br>
-`intervention('remove-howdy', $replace(string));`
-
-* **remove-menu-items**<br>
-`intervention('remove-menu-items', $items(string|array), $roles(string|array));`
-
-* **remove-page-components**<br>
-`intervention('remove-page-components', $components(string|array));`
-
-* **remove-post-components**<br>
-`intervention('remove-post-components', $components(string|array));`
-
-* **remove-taxonomies**<br>
-`intervention('remove-taxonomies', $taxonomies(string|array));`
-
-* **remove-toolbar-frontend**<br>
-`intervention('remove-toolbar-frontend', $roles(string|array));`
-
-* **remove-toolbar-items**<br>
-`intervention('remove-toolbar-items', $items(string|array), $roles(string|array));`
-
-* **remove-update-notices**<br>
-`intervention('remove-update-notices', $roles(string|array));`
-
-* **remove-user-fields**<br>
-`intervention('remove-user-fields', $fields(string|array), $roles(string|array));`
-
-* **remove-user-roles**<br>
-`intervention('remove-user-roles', $roles(string|array));`
-
-* **remove-widgets**<br>
-`intervention('remove-widgets', $widgets(string|array));`
-
-* **update-dashboard-columns**<br>
-`intervention('update-dashboard-columns', $amount(integer));`
-
-* **update-label-footer**<br>
-`intervention('update-label-footer', $label(string));`
-
-* **update-label-page**<br>
-`intervention('update-label-page', $labels(string|array));`
-
-* **update-label-post**<br>
-`intervention('update-label-post', $labels(string|array));`
-
-* **update-pagination**<br>
-`intervention('update-pagination', $amount(integer));`
-
-## Support
-
-* Follow [@withjacoby](https://twitter.com/withjacoby) on Twitter
-
-## Updates
+* **[Guide to upgrade from version 1.x.x to 2.x.x](.github/upgrading.md)**
 
 #### Composer:
 
-* Change the composer.json version to ^1.3.0**<br>
+* Change the composer.json version to ^2.0.0**<br>
 * Check [CHANGELOG.md](CHANGELOG.md) for any breaking changes before updating.
 
 ```shell
@@ -181,7 +231,14 @@ $ composer update
 
 #### WordPress:
 
-Includes support for [github-updater](https://github.com/afragen/github-updater) to keep track on updates through the WordPress backend.
-* Download [github-updater](https://github.com/afragen/github-updater)
-* Clone [github-updater](https://github.com/afragen/github-updater) to your sites plugins/ folder
-* Activate via WordPress
+Includes support for github-updater to track updates through wp-admin.
+* [Download](https://github.com/afragen/github-updater)
+
+## Roadmap
+
+* Better visual documentation.
+* Better support for the block editor.
+* Support `wp-admin` custom post types.
+* Support removing comments.
+
+**Have a suggestion, or want to track new releases? [@soberwp](https://twitter.com/soberwp)**
