@@ -68,8 +68,6 @@ return [
 * `editor`
 * `contributor`
 * `subscriber`
-* `shop-mananger` (woocommerce)
-* `customer` (woocommerce)
 
 ### Options
 <!-- **[Quick Reference]()** -->
