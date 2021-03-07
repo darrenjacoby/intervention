@@ -237,6 +237,5 @@ Includes support for github-updater to track updates through wp-admin.
 * Better visual documentation.
 * Better support for the block editor.
 * Support `wp-admin` custom post types.
-* Support removing comments.
 
 **Have a suggestion, or want to track new releases? [@soberwp](https://twitter.com/soberwp)**
