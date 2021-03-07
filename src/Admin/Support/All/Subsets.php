@@ -78,7 +78,7 @@ class Subsets
      */
     public function remove($array)
     {
-        $group = Arr::normalize($array);
+        $group = Arr::normalizeTrue($array);
         $group = Composer::set($group)
             ->removeFirstKey()
             ->get();

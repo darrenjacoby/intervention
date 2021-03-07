@@ -32,7 +32,7 @@ class SiteHealth
      */
     public function __construct($config = false)
     {
-        $compose = Composer::set(Arr::normalize($config));
+        $compose = Composer::set(Arr::normalizeTrue($config));
 
         $compose = $compose->has('tools.site-health.title')->add('tools.site-health.title.', [
             'menu', 'page',

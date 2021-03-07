@@ -54,7 +54,7 @@ class All
      */
     public function __construct($config = false)
     {
-        $compose = Composer::set(Arr::normalize($config));
+        $compose = Composer::set(Arr::normalizeTrue($config));
 
         $compose = $compose->has('pages.all.all')->add('pages.all.', [
             'title-link', 'tabs', 'pagination', 'search', 'subsets', 'actions', 'filter', 'list',

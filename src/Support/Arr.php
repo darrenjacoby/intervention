@@ -20,16 +20,32 @@ class Arr
     /**
      * Normalize
      *
-     * Return `static::transform`, `static::dot` and `static::collect`.
+     * Return `static::dot` and `static::collect`.
      *
      * @param array $array
      * @return \Illuminate\Support\Collection
      */
     public static function normalize($array)
     {
-        $array = static::transformEntriesToTrue($array);
+        // $array = static::transformEntriesToTrue($array);
         $array = static::dot($array);
         $array = static::collect($array);
+
+        return $array;
+    }
+
+    /**
+     * Normalize to True
+     *
+     * Return `static::transformEntriesToTrue`, `static::dot` and `static::collect`.
+     *
+     * @param array $array
+     * @return \Illuminate\Support\Collection
+     */
+    public static function normalizeTrue($array)
+    {
+        $array = static::transformEntriesToTrue($array);
+        $array = static::normalize($array);
 
         return $array;
     }
@@ -120,12 +136,14 @@ class Arr
      * @param array $array
      * @return array
      */
+    /*
     public static function transformKeysToDashcase($array)
     {
         return static::transform($array, function ($k, $v) {
             return [str_replace('_', '-', $k), $v];
         });
     }
+    */
 
     /**
      * Transform Entries To True
@@ -158,6 +176,10 @@ class Arr
      */
     public static function transform(&$array, $callback)
     {
+        if (!$array) {
+            return;
+        }
+
         $keys = array_keys($array);
 
         foreach ($keys as $index => $k) {

@@ -50,7 +50,7 @@ class Edit
      */
     public function __construct($config = false)
     {
-        $compose = Composer::set(Arr::normalize($config));
+        $compose = Composer::set(Arr::normalizeTrue($config));
 
         $compose = $compose->has('posts.edit.all')->add('posts.edit.', [
             'tabs',
@@ -68,6 +68,7 @@ class Edit
             'discussion',
             'link',
             'featured-image',
+            'format',
         ]);
 
         $compose = $compose->has('posts.edit.tabs')->add('posts.edit.tabs.', [

@@ -18,7 +18,7 @@ The most simplified registration, `genre` labels are auto generated as `Genre` a
 
 ```php
 [
-    'taxonomies.genre',
+    'taxonomies.genre' => true,
 ];
 ```
 

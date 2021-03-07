@@ -11,6 +11,7 @@ Remove login components for all roles.
     'login.remember',
     'login.nav',
     'login.back',
+    'login.policy',
 ];
 ```
 

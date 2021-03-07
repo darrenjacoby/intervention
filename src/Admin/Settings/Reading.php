@@ -42,7 +42,7 @@ class Reading
      */
     public function __construct($config = false)
     {
-        $compose = Composer::set(Arr::normalize($config));
+        $compose = Composer::set(Arr::normalizeTrue($config));
 
         $compose = $compose->has('settings.reading.all')->add('settings.reading.', [
             'tabs', 'front-page', 'posts-per-page', 'posts-per-rss', 'rss-excerpt', 'discourage-search',

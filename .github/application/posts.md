@@ -18,7 +18,7 @@ The most simplified registration, `book` labels are auto generated as `Book` and
 
 ```php
 [
-    'posts.book',
+    'posts.book' => true,
 ];
 ```
 

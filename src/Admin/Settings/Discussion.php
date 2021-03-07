@@ -58,7 +58,7 @@ class Discussion
      */
     public function __construct($config = false)
     {
-        $compose = Composer::set(Arr::normalize($config));
+        $compose = Composer::set(Arr::normalizeTrue($config));
 
         $compose = $compose->has('settings.discussion.all')->add('settings.discussion.', [
             'tabs', 'post', 'comments', 'emails', 'moderation', 'avatars',

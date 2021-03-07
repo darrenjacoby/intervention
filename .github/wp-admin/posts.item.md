@@ -27,6 +27,8 @@ Remove posts item components.
     'posts.item.categories',
     'posts.item.tags',
     'posts.item.sticky',
+    'posts.item.revisions',
+    'posts.item.format',
 ];
 ```
 

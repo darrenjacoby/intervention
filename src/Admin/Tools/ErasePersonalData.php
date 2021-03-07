@@ -34,7 +34,7 @@ class ErasePersonalData
      */
     public function __construct($config = false)
     {
-        $compose = Composer::set(Arr::normalize($config));
+        $compose = Composer::set(Arr::normalizeTrue($config));
 
         $compose = $compose->has('tools.erase-personal-data.all')->add('tools.erase-personal-data.', [
             'tabs',

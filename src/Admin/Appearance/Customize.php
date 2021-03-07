@@ -52,7 +52,7 @@ class Customize
      */
     public function __construct($config = false)
     {
-        $compose = Composer::set(Arr::normalize($config));
+        $compose = Composer::set(Arr::normalizeTrue($config));
 
         $compose = $compose->has('appearance.customize.all')->add('appearance.customize.', [
             'theme', 'site', 'custom-css', 'colors', 'header-image', 'background-image', 'homepage', 'menus', 'widgets', 'footer',
@@ -64,6 +64,10 @@ class Customize
 
         $compose = $compose->has('appearance.customize.site')->add('appearance.customize.site.', [
             'title', 'tagline', 'icon',
+        ]);
+
+        $compose = $compose->has('appearance.customize.footer')->add('appearance.customize.footer.', [
+            'devices',
         ]);
 
         $this->config = $compose->get();
@@ -84,7 +88,7 @@ class Customize
             add_filter('customize_previewable_devices', '__return_empty_array');
         }
 
-        add_action('admin_head', [$this, 'head']);
+        add_action('admin_init', [$this, 'head']);
         add_action('customize_register', [$this, 'customize'], 20);
     }
 
@@ -95,6 +99,11 @@ class Customize
     {
         if ($this->config->has('appearance.customize.footer')) {
             echo '<style>.wp-customizer #customize-footer-actions {display: none;}</style>';
+        }
+
+        // replaced $wp_customize->remove_panel('widgets'); due to error
+        if ($this->config->has('appearance.customize.widgets')) {
+            echo '<style>#accordion-panel-widgets {display: none !important;}</style>';
         }
     }
 
@@ -147,7 +156,8 @@ class Customize
         }
 
         if ($this->config->has('appearance.customize.menus')) {
-            $wp_customize->remove_panel('nav_menus');
+            // https://core.trac.wordpress.org/ticket/33411
+            $wp_customize->get_panel('nav_menus')->active_callback = '__return_false';
         }
 
         if ($this->config->has('appearance.customize.menus.locations')) {
@@ -158,8 +168,10 @@ class Customize
             $wp_customize->remove_section('add_menu');
         }
 
+        /*
         if ($this->config->has('appearance.customize.widgets')) {
             $wp_customize->remove_panel('widgets');
         }
+        */
     }
 }
