@@ -32,7 +32,7 @@ return [
     'application' => [
 
     ],
-    'wp-admin.$role' => [
+    'wp-admin.$role|$username' => [
 
     ],
 ];

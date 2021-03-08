@@ -117,7 +117,7 @@ class Intervention
                 $role_allowed = $roles
                     ->values()
                     ->map(function ($role) use ($current_user) {
-                        if (in_array($role, $current_user->roles) || $role === 'all') {
+                        if (in_array($role, $current_user->roles) || $role === 'all' || $role === $current_user->user_login) {
                             return true;
                         }
                     });
