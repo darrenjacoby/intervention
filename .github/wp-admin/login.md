@@ -8,7 +8,7 @@ Remove login components for all roles.
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
+    'wp-admin.all' => [
         'login',
         'login.logo',
         'login.remember',
