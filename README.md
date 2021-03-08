@@ -44,7 +44,7 @@ For the options, you can use [dot notatation, a standard array, or a combination
 
 Remove components from wp-admin.
 
-Return `wp-admin.$role`
+Return `wp-admin.$role` or `wp-admin.$username`
 
 * Support for multiple user roles using a pipe operator. 
     * `editor|author`
