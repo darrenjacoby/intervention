@@ -53,7 +53,7 @@ Return `wp-admin.$role`
 <?php
 
 return [
-    'wp-admin.$role' => [
+    'wp-admin.$role|$username' => [
         'common.adminbar',
     ],
 ];
