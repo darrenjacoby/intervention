@@ -5,11 +5,15 @@ Update, remove or redirect the posts menu item.
 ### Options;
 
 ```php
-[
-    'posts',
-    'posts' => (string) $route,
-    'posts.title' => (string) $title,
-    'posts.icon' => (string) $dashicon,
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'posts',
+        'posts' => (string) $route,
+        'posts.title' => (string) $title,
+        'posts.icon' => (string) $dashicon,
+    ],
 ];
 ```
 
@@ -23,16 +27,24 @@ Update, remove or redirect the posts menu item.
 Remove from menu;
 
 ```php
-[
-    'posts',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'posts',
+    ],
 ];
 ```
 
 Remove from menu and enforce a page redirect;
 
 ```php
-[
-    'posts' => 'pages',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'posts' => 'pages',
+    ],
 ];
 ```
 

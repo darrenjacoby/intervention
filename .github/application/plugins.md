@@ -5,8 +5,10 @@ Set application plugins.
 ### Options;
 
 ```php
-[
-    'plugins' => (array) $plugins,
+<?php
+
+return [
+    'application.plugins' => (array) $plugins,
 ];
 ```
 
@@ -15,8 +17,10 @@ Set application plugins.
 #### Activate
 
 ```php
-[
-    'plugins' => [
+<?php
+
+return [
+    'application.plugins' => [
         'disable-comments' => true,
         'regenerate-thumbnails' => true,
     ],
@@ -26,8 +30,10 @@ Set application plugins.
 #### Deactivate
 
 ```php
-[
-    'plugins' => [
+<?php
+
+return [
+    'application.plugins' => [
         'disable-comments' => false,
         'regenerate-thumbnails' => false,
     ],
@@ -43,8 +49,10 @@ Intervention matches folder name to the plugin file name, `'disable-comments' =>
 **Should folder and file name not match, use the full path;**
 
 ```php
-[
-    'plugins' => [
+<?php
+
+return [
+    'application.plugins' => [
         'advanced-custom-fields-pro/acf.php' => true,
     ],
 ];

@@ -8,14 +8,18 @@ Remove posts tags item components.
 * For concise documentation, `option.[x, y]` has been abbreviated from `option.x, option.y`.
 
 ```php
-[
-    'posts.tags.item',
-    'posts.tags.item' => (string) $route,
-    'posts.tags.item.title' => (string) $title,
-    'posts.tags.item.title.page' => (string) $title,
-    'posts.tags.item.slug',
-    'posts.tags.item.parent',
-    'posts.tags.item.description',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'posts.tags.item',
+        'posts.tags.item' => (string) $route,
+        'posts.tags.item.title' => (string) $title,
+        'posts.tags.item.title.page' => (string) $title,
+        'posts.tags.item.slug',
+        'posts.tags.item.parent',
+        'posts.tags.item.description',
+    ],
 ];
 ```
 
@@ -26,16 +30,24 @@ Remove posts tags item components.
 Remove from menu;
 
 ```php
-[
-    'posts.tags.item',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'posts.tags.item',
+    ],
 ];
 ```
 
 Remove from menu and enforce a page redirect;
 
 ```php
-[
-    'posts.tags.item' => 'pages',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'posts.tags.item' => 'pages',
+    ],
 ];
 ```
 

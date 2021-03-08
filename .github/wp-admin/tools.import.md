@@ -8,13 +8,17 @@ Remove tools import components.
 * For concise documentation, `option.[x, y]` has been abbreviated from `option.x, option.y`.
 
 ```php
-[
-    'tools.import',
-    'tools.import' => (string) $route,
-    'tools.import.title' => (string) $title,
-    'tools.import.title.[menu, page]' => (string) $title,
-    'tools.import.tabs',
-    'tools.import.tabs.[screen-options, help]',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'tools.import',
+        'tools.import' => (string) $route,
+        'tools.import.title' => (string) $title,
+        'tools.import.title.[menu, page]' => (string) $title,
+        'tools.import.tabs',
+        'tools.import.tabs.[screen-options, help]',
+    ],
 ];
 ```
 
@@ -25,16 +29,24 @@ Remove tools import components.
 Remove from menu;
 
 ```php
-[
-    'tools.import',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'tools.import',
+    ],
 ];
 ```
 
 Remove from menu and enforce a page redirect;
 
 ```php
-[
-    'tools.import' => 'posts',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'tools.import' => 'posts',
+    ],
 ];
 ```
 

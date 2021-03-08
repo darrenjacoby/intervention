@@ -7,11 +7,15 @@ Remove wp-admin footer components.
 * Parent items remove child items. 
 
 ```php
-[
-    'common.footer',
-    'common.footer.credit',
-    'common.footer.credit' => (string) $credit,
-    'common.footer.version',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'common.footer',
+        'common.footer.credit',
+        'common.footer.credit' => (string) $credit,
+        'common.footer.version',
+    ],
 ];
 ```
 
@@ -20,8 +24,12 @@ Remove wp-admin footer components.
 Remove all;
 
 ```php
-[
-    'common.footer',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'common.footer',
+    ],
 ];
 ```
 

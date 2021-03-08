@@ -8,16 +8,20 @@ Remove settings permalinks components.
 * For concise documentation, `option.[x, y]` has been abbreviated from `option.x, option.y`.
 
 ```php
-[
-    'settings.permalinks',
-    'settings.permalinks' => (string) $route,
-    'settings.permalinks.title' => (string) $title,
-    'settings.permalinks.title.[menu, page]' => (string) $title,
-    'settings.permalinks.tabs',
-    'settings.permalinks.tabs.[screen-options, help]',
-    'settings.permalinks.common',
-    'settings.permalinks.optional',
-    'settings.permalinks.optional.[category, tag]',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'settings.permalinks',
+        'settings.permalinks' => (string) $route,
+        'settings.permalinks.title' => (string) $title,
+        'settings.permalinks.title.[menu, page]' => (string) $title,
+        'settings.permalinks.tabs',
+        'settings.permalinks.tabs.[screen-options, help]',
+        'settings.permalinks.common',
+        'settings.permalinks.optional',
+        'settings.permalinks.optional.[category, tag]',
+    ],
 ];
 ```
 
@@ -28,16 +32,24 @@ Remove settings permalinks components.
 Remove from menu;
 
 ```php
-[
-    'settings.permalinks',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'settings.permalinks',
+    ],
 ];
 ```
 
 Remove from menu and enforce a page redirect;
 
 ```php
-[
-    'settings.permalinks' => 'posts',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'settings.permalinks' => 'posts',
+    ],
 ];
 ```
 

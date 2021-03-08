@@ -8,13 +8,17 @@ Remove tools available components.
 * For concise documentation, `option.[x, y]` has been abbreviated from `option.x, option.y`.
 
 ```php
-[
-    'tools.available',
-    'tools.available' => (string) $route,
-    'tools.available.title' => (string) $title,
-    'tools.available.title.[menu, page]' => (string) $title,
-    'tools.available.tabs',
-    'tools.available.tabs.[screen-options, help]',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'tools.available',
+        'tools.available' => (string) $route,
+        'tools.available.title' => (string) $title,
+        'tools.available.title.[menu, page]' => (string) $title,
+        'tools.available.tabs',
+        'tools.available.tabs.[screen-options, help]',
+    ],
 ];
 ```
 
@@ -25,16 +29,24 @@ Remove tools available components.
 Remove from menu;
 
 ```php
-[
-    'tools.available',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'tools.available',
+    ],
 ];
 ```
 
 Remove from menu and enforce a page redirect;
 
 ```php
-[
-    'tools.available' => 'posts',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'tools.available' => 'posts',
+    ],
 ];
 ```
 

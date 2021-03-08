@@ -8,19 +8,23 @@ Remove settings reading components.
 * For concise documentation, `option.[x, y]` has been abbreviated from `option.x, option.y`.
 
 ```php
-[
-    'settings.reading',
-    'settings.reading' => (string) $route,
-    'settings.reading.title' => (string) $title,
-    'settings.reading.title.[menu, page]' => (string) $title,
-    'settings.reading.tabs',
-    'settings.reading.tabs.[screen-options, help]',
-    'settings.reading.front-page',
-    'settings.reading.front-page.posts',
-    'settings.reading.posts-per-page',
-    'settings.reading.posts-per-rss',
-    'settings.reading.rss-excerpt',
-    'settings.reading.discourage-search',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'settings.reading',
+        'settings.reading' => (string) $route,
+        'settings.reading.title' => (string) $title,
+        'settings.reading.title.[menu, page]' => (string) $title,
+        'settings.reading.tabs',
+        'settings.reading.tabs.[screen-options, help]',
+        'settings.reading.front-page',
+        'settings.reading.front-page.posts',
+        'settings.reading.posts-per-page',
+        'settings.reading.posts-per-rss',
+        'settings.reading.rss-excerpt',
+        'settings.reading.discourage-search',
+    ],
 ];
 ```
 
@@ -31,16 +35,24 @@ Remove settings reading components.
 Remove from menu;
 
 ```php
-[
-    'settings.reading',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'settings.reading',
+    ],
 ];
 ```
 
 Remove from menu and enforce a page redirect;
 
 ```php
-[
-    'settings.reading' => 'posts',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'settings.reading' => 'posts',
+    ],
 ];
 ```
 

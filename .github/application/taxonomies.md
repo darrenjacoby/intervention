@@ -5,8 +5,10 @@ Set application taxonomies.
 ### Options;
 
 ```php
-[
-    'taxonomies.$name' => (boolean|string|array) $enable|$label|$config,
+<?php
+
+return [
+    'application.taxonomies.$name' => (boolean|string|array) $enable|$label|$config,
 ];
 ```
 
@@ -17,24 +19,30 @@ Set application taxonomies.
 The most simplified registration, `genre` labels are auto generated as `Genre` and `Genres`.
 
 ```php
-[
-    'taxonomies.genre' => true,
+<?php
+
+return [
+    'application.taxonomies.genre' => true,
 ];
 ```
 
 You can also pass in the singular label as a string.
 
 ```php
-[
-    'taxonomies.genre' => 'Types',
+<?php
+
+return [
+    'application.taxonomies.genre' => 'Types',
 ];
 ```
 
 The standard custom posttype configuration can be passed in. 
 
 ```php
-[
-    'taxonomies' => [
+<?php
+
+return [
+    'application.taxonomies' => [
         'genre' => [
             'one' => 'Genre',
             'many' => 'Genres',
@@ -52,8 +60,10 @@ The standard custom posttype configuration can be passed in.
 #### Remove
 
 ```php
-[
-    'taxonomies.post-tag' => false,
+<?php
+
+return [
+    'application.taxonomies.post-tag' => false,
 ];
 ```
 
@@ -62,8 +72,10 @@ The standard custom posttype configuration can be passed in.
 Change options on an existing post type.
 
 ```php
-[
-    'taxonomies' => [
+<?php
+
+return [
+    'application.taxonomies' => [
         'category' => [
             'one' => 'Genre',
             'many' => 'Genres',
@@ -78,8 +90,10 @@ Change options on an existing post type.
 If you are only changing one option, consider using dot notation for a cleaner config. 
 
 ```php
-[
-    'taxonomies.category.links' => [
+<?php
+
+return [
+    'application.taxonomies.category.links' => [
         'post', 'book'
     ],
 ];

@@ -5,13 +5,17 @@ Remove login components for all roles.
 ### Options;
 
 ```php
-[
-    'login',
-    'login.logo',
-    'login.remember',
-    'login.nav',
-    'login.back',
-    'login.policy',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'login',
+        'login.logo',
+        'login.remember',
+        'login.nav',
+        'login.back',
+        'login.policy',
+    ],
 ];
 ```
 

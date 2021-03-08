@@ -5,8 +5,10 @@ Set application posts/posttypes.
 ### Options;
 
 ```php
-[
-    'posts.$name' => (boolean|string|array) $enable|$label|$config,
+<?php
+
+return [
+    'application.posts.$name' => (boolean|string|array) $enable|$label|$config,
 ];
 ```
 
@@ -17,24 +19,30 @@ Set application posts/posttypes.
 The most simplified registration, `book` labels are auto generated as `Book` and `Books`.
 
 ```php
-[
-    'posts.book' => true,
+<?php
+
+return [
+    'application.posts.book' => true,
 ];
 ```
 
 You can also pass in the singular label as a string.
 
 ```php
-[
-    'posts.book' => 'Boook',
+<?php
+
+return [
+    'application.posts.book' => 'Boook',
 ];
 ```
 
 The standard custom posttype configuration can be passed in. 
 
 ```php
-[
-    'posts' => [
+<?php
+
+return [
+    'application.posts' => [
         'book' => [
             'one' => 'Book',
             'many' => 'Books',
@@ -54,8 +62,10 @@ The standard custom posttype configuration can be passed in.
 #### Remove
 
 ```php
-[
-    'posts' => [
+<?php
+
+return [
+    'application.posts' => [
         'post' => false,
         'attachment' => false,
     ],
@@ -69,8 +79,10 @@ The standard custom posttype configuration can be passed in.
 Change options on an existing post type.
 
 ```php
-[
-    'posts' => [
+<?php
+
+return [
+    'application.posts' => [
         'post' => [
             'one' => 'Book',
             'many' => 'Books',
@@ -85,8 +97,10 @@ Change options on an existing post type.
 If you are only changing one option, consider using dot notation for a cleaner config. 
 
 ```php
-[
-    'posts.post.supports' => [
+<?php
+
+return [
+    'application.posts.post.supports' => [
         'title', 'thumbnail', 'editor'
     ],
 ];
@@ -97,9 +111,13 @@ If you are only changing one option, consider using dot notation for a cleaner c
 * You can also use `posttypes` versus shorthand `posts`.
 
 ```php
-'posttypes.post.supports' => [
-    'title', 'thumbnail', 'editor'
-],
+<?php
+
+return [
+    'application.posttypes.post.supports' => [
+        'title', 'thumbnail', 'editor'
+    ],
+];
 ```
 
 ### Further Reading;

@@ -8,23 +8,27 @@ Remove posts tags all/index components.
 * For concise documentation, `option.[x, y]` has been abbreviated from `option.x, option.y`.
 
 ```php
-[
-    'posts.tags.all',
-    'posts.tags.all' => (string) $route,
-    'posts.tags.all.title' => (string) $title,
-    'posts.tags.all.title.[menu, page]' => (string) $title,
-    'posts.tags.all.tabs',
-    'posts.tags.all.tabs.[screen-options, help]',
-    'posts.tags.all.search',
-    'posts.tags.all.actions',
-    'posts.tags.all.actions.bulk',
-    'posts.tags.all.list',
-    'posts.tags.all.list.cols',
-    'posts.tags.all.list.cols.[description, slug, count]',
-    'posts.tags.all.list.actions',
-    'posts.tags.all.list.actions.[edit, quick-edit, trash, view]',
-    'posts.tags.all.list.count',
-    'posts.tags.all.notes',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'posts.tags.all',
+        'posts.tags.all' => (string) $route,
+        'posts.tags.all.title' => (string) $title,
+        'posts.tags.all.title.[menu, page]' => (string) $title,
+        'posts.tags.all.tabs',
+        'posts.tags.all.tabs.[screen-options, help]',
+        'posts.tags.all.search',
+        'posts.tags.all.actions',
+        'posts.tags.all.actions.bulk',
+        'posts.tags.all.list',
+        'posts.tags.all.list.cols',
+        'posts.tags.all.list.cols.[description, slug, count]',
+        'posts.tags.all.list.actions',
+        'posts.tags.all.list.actions.[edit, quick-edit, trash, view]',
+        'posts.tags.all.list.count',
+        'posts.tags.all.notes',
+    ],
 ];
 ```
 
@@ -35,16 +39,24 @@ Remove posts tags all/index components.
 Remove from menu;
 
 ```php
-[
-    'posts.tags.all',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'posts.tags.all',
+    ],
 ];
 ```
 
 Remove from menu and enforce a page redirect;
 
 ```php
-[
-    'posts.tags.all' => 'pages',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'posts.tags.all' => 'pages',
+    ],
 ];
 ```
 

@@ -8,37 +8,41 @@ Remove wp-admin widgets components.
 * For concise documentation, `option.[x, y]` has been abbreviated from `option.x, option.y`.
 
 ```php
-[
-    'appearance.widgets',
-    'appearance.widgets' => (string) $route,
-    'appearance.widgets.title' => (string) $title,
-    'appearance.widgets.title.[menu, page]' => (string) $title,
-    'appearance.widgets.title-link',
-    'appearance.widgets.tabs',
-    'appearance.widgets.tabs.[screen-options, help]',
-    'appearance.widgets.inactive',
-    'appearance.widgets.available',
-    'appearance.widgets.available.[
-        archives, 
-        audio, 
-        calendar, 
-        categories, 
-        custom-html, 
-        gallery, 
-        image, 
-        meta, 
-        navigation-menu, 
-        pages, 
-        recent-comments, 
-        recent-posts, 
-        rss, 
-        search, 
-        tag-cloud, 
-        text, 
-        video, 
-        akisment, 
-        links
-    ]',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'appearance.widgets',
+        'appearance.widgets' => (string) $route,
+        'appearance.widgets.title' => (string) $title,
+        'appearance.widgets.title.[menu, page]' => (string) $title,
+        'appearance.widgets.title-link',
+        'appearance.widgets.tabs',
+        'appearance.widgets.tabs.[screen-options, help]',
+        'appearance.widgets.inactive',
+        'appearance.widgets.available',
+        'appearance.widgets.available.[
+            archives, 
+            audio, 
+            calendar, 
+            categories, 
+            custom-html, 
+            gallery, 
+            image, 
+            meta, 
+            navigation-menu, 
+            pages, 
+            recent-comments, 
+            recent-posts, 
+            rss, 
+            search, 
+            tag-cloud, 
+            text, 
+            video, 
+            akisment, 
+            links
+        ]',
+    ],
 ];
 ```
 
@@ -49,16 +53,24 @@ Remove wp-admin widgets components.
 Remove from menu;
 
 ```php
-[
-    'appearance.widgets',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'appearance.widgets',
+    ],
 ];
 ```
 
 Remove from menu and enforce a page redirect;
 
 ```php
-[
-    'appearance.widgets' => 'posts',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'appearance.widgets' => 'posts',
+    ],
 ];
 ```
 

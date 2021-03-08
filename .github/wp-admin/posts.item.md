@@ -8,27 +8,31 @@ Remove posts item components.
 * For concise documentation, `option.[x, y]` has been abbreviated from `option.x, option.y`.
 
 ```php
-[
-    'posts.item',
-    'posts.item' => (string) $route,
-    'posts.item.tabs',
-    'posts.item.tabs.[screen-options, help]',
-    'posts.item.add',
-    'posts.item.editor',
-    'posts.item.author',
-    'posts.item.excerpt',
-    'posts.item.trackbacks',
-    'posts.item.custom-fields',
-    'posts.item.discussion',
-    'posts.item.link',
-    'posts.item.revisions',
-    'posts.item.featured-image',
-    'posts.item.editor',
-    'posts.item.categories',
-    'posts.item.tags',
-    'posts.item.sticky',
-    'posts.item.revisions',
-    'posts.item.format',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'posts.item',
+        'posts.item' => (string) $route,
+        'posts.item.tabs',
+        'posts.item.tabs.[screen-options, help]',
+        'posts.item.add',
+        'posts.item.editor',
+        'posts.item.author',
+        'posts.item.excerpt',
+        'posts.item.trackbacks',
+        'posts.item.custom-fields',
+        'posts.item.discussion',
+        'posts.item.link',
+        'posts.item.revisions',
+        'posts.item.featured-image',
+        'posts.item.editor',
+        'posts.item.categories',
+        'posts.item.tags',
+        'posts.item.sticky',
+        'posts.item.revisions',
+        'posts.item.format',
+    ],
 ];
 ```
 
@@ -39,16 +43,24 @@ Remove posts item components.
 Remove from menu;
 
 ```php
-[
-    'posts.item',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'posts.item',
+    ],
 ];
 ```
 
 Remove from menu and enforce a page redirect;
 
 ```php
-[
-    'posts.item' => 'pages',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'posts.item' => 'pages',
+    ],
 ];
 ```
 

@@ -8,22 +8,26 @@ Remove wp-admin menu components.
 * For concise documentation, `option.[x, y]` has been abbreviated from `option.x, option.y`.
 
 ```php
-[
-    'appearance.menus',
-    'appearance.menus' => (string) $route,
-    'appearance.menus.title' => (string) $title,
-    'appearance.menus.title.[menu, page]' => (string) $title,
-    'appearance.menus.title-link',
-    'appearance.menus.tabs',
-    'appearance.menus.tabs.[screen-options, help]',
-    'appearance.menus.nag',
-    'appearance.menus.add',
-    'appearance.menus.add.[custom, post, page, category, tag]',
-    'appearance.menus.item',
-    'appearance.menus.item.[target, title, classes, xfn, description, remove]',
-    'appearance.menus.settings',
-    'appearance.menus.settings.[auto-add, location]',
-    'appearance.menus.delete',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'appearance.menus',
+        'appearance.menus' => (string) $route,
+        'appearance.menus.title' => (string) $title,
+        'appearance.menus.title.[menu, page]' => (string) $title,
+        'appearance.menus.title-link',
+        'appearance.menus.tabs',
+        'appearance.menus.tabs.[screen-options, help]',
+        'appearance.menus.nag',
+        'appearance.menus.add',
+        'appearance.menus.add.[custom, post, page, category, tag]',
+        'appearance.menus.item',
+        'appearance.menus.item.[target, title, classes, xfn, description, remove]',
+        'appearance.menus.settings',
+        'appearance.menus.settings.[auto-add, location]',
+        'appearance.menus.delete',
+    ],
 ];
 ```
 
@@ -34,16 +38,24 @@ Remove wp-admin menu components.
 Remove from menu;
 
 ```php
-[
-    'appearance.menus',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'appearance.menus',
+    ],
 ];
 ```
 
 Remove from menu and enforce a page redirect;
 
 ```php
-[
-    'appearance.menus' => 'posts',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'appearance.menus' => 'posts',
+    ],
 ];
 ```
 

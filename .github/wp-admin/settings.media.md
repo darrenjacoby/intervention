@@ -8,15 +8,19 @@ Remove settings media components.
 * For concise documentation, `option.[x, y]` has been abbreviated from `option.x, option.y`.
 
 ```php
-[
-    'settings.media',
-    'settings.media' => (string) $route,
-    'settings.media.title' => (string) $title,
-    'settings.media.title.[menu, page]' => (string) $title,
-    'settings.media.tabs',
-    'settings.media.tabs.[screen-options, help]',
-    'settings.media.sizes',
-    'settings.media.uploads',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'settings.media',
+        'settings.media' => (string) $route,
+        'settings.media.title' => (string) $title,
+        'settings.media.title.[menu, page]' => (string) $title,
+        'settings.media.tabs',
+        'settings.media.tabs.[screen-options, help]',
+        'settings.media.sizes',
+        'settings.media.uploads',
+    ],
 ];
 ```
 
@@ -27,16 +31,24 @@ Remove settings media components.
 Remove from menu;
 
 ```php
-[
-    'settings.media',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'settings.media',
+    ],
 ];
 ```
 
 Remove from menu and enforce a page redirect;
 
 ```php
-[
-    'settings.media' => 'posts',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'settings.media' => 'posts',
+    ],
 ];
 ```
 

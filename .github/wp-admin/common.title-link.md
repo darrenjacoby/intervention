@@ -7,8 +7,12 @@ Remove wp-admin title links.
 * Parent items remove child items. 
 
 ```php
-[
-    'common.title-link',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'common.title-link',
+    ],
 ];
 ```
 

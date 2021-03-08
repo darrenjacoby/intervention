@@ -5,8 +5,10 @@ Set application general options.
 ### Options;
 
 ```php
-[
-    'general' => [
+<?php
+
+return [
+    'application.general' => [
         'site-title' => (string) $title,
         'tagline' => (string) $tagline,
         'wp-address' => (string) $wp_url,
@@ -26,8 +28,10 @@ Set application general options.
 ### Example;
 
 ```php
-[
-    'general' => [
+<?php
+
+return [
+    'application.general' => [
         'site-title' => 'soberwp',
         'tagline' => 'Tools for WordPress',
         'wp-address' => 'https://soberwp.com/wp',

@@ -5,8 +5,12 @@ Change wp-admin all/index item pagination.
 ### Options;
 
 ```php
-[
-    'common.all.pagination' => (int) $pagination,
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'common.all.pagination' => (int) $pagination,
+    ],
 ];
 ```
 

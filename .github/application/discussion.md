@@ -5,8 +5,10 @@ Set application discussion options.
 ### Options;
 
 ```php
-[
-    'discussion' => [
+<?php
+
+return [
+    'application.discussion' => [
         'post.ping-flag' => (boolean) $enable_ping_flag,
         'post.ping-status' => (boolean) $enable_ping_status,
         'post.comments' => (boolean) $enable_comments,
@@ -38,8 +40,10 @@ Set application discussion options.
 ### Example;
 
 ```php
-[
-    'discussion' => [
+<?php
+
+return [
+    'application.discussion' => [
         'post.ping-flag' => true,
         'post.ping-status' => false,
         'post.comments' => false,

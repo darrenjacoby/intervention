@@ -8,19 +8,23 @@ Remove wp-admin themes components.
 * For concise documentation, `option.[x, y]` has been abbreviated from `option.x, option.y`.
 
 ```php
-[
-    'appearance.themes',
-    'appearance.themes' => (string) $route,
-    'appearance.themes.title' => (string) $title,
-    'appearance.themes.title.[menu, page]' => (string) $title,
-    'appearance.themes.title-count',
-    'appearance.themes.title-link',
-    'appearance.themes.search',
-    'appearance.themes.tabs',
-    'appearance.themes.inactive',
-    'appearance.themes.theme',
-    'appearance.themes.theme.[actions, nag]',
-    'appearance.themes.theme.actions.[activate, customize]',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'appearance.themes',
+        'appearance.themes' => (string) $route,
+        'appearance.themes.title' => (string) $title,
+        'appearance.themes.title.[menu, page]' => (string) $title,
+        'appearance.themes.title-count',
+        'appearance.themes.title-link',
+        'appearance.themes.search',
+        'appearance.themes.tabs',
+        'appearance.themes.inactive',
+        'appearance.themes.theme',
+        'appearance.themes.theme.[actions, nag]',
+        'appearance.themes.theme.actions.[activate, customize]',
+    ],
 ];
 ```
 
@@ -31,16 +35,24 @@ Remove wp-admin themes components.
 Remove from menu;
 
 ```php
-[
-    'appearance.themes',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'appearance.themes',
+    ],
 ];
 ```
 
 Remove from menu and enforce a page redirect;
 
 ```php
-[
-    'appearance.themes' => 'posts',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'appearance.themes' => 'posts',
+    ],
 ];
 ```
 
