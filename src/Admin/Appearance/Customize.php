@@ -97,6 +97,14 @@ class Customize
      */
     public function head()
     {
+        if (!is_customize_preview()) {
+            return;
+        }
+
+        if (wp_doing_ajax()) {
+            return;
+        }
+
         if ($this->config->has('appearance.customize.footer')) {
             echo '<style>.wp-customizer #customize-footer-actions {display: none;}</style>';
         }
