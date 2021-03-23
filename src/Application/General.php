@@ -134,7 +134,15 @@ class General
         }
 
         if ($this->config->has('general.language')) {
-            switch_to_locale($this->config->get('general.language'));
+	        $general_language = $this->config->get('general.language');
+
+	        if (!empty($general_language) && !in_array($general_language, get_available_languages())) {
+		        require_once(ABSPATH . 'wp-admin/includes/file.php');
+		        require_once(ABSPATH . 'wp-admin/includes/translation-install.php');
+		        wp_download_language_pack($general_language);
+	        }
+
+	        switch_to_locale($general_language);
         }
     }
 
