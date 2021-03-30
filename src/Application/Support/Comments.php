@@ -66,7 +66,7 @@ class Comments
     {
         global $pagenow;
 
-        if ('edit-comments.php' === $pagenow) {
+        if ($pagenow === 'edit-comments.php') {
             wp_safe_redirect(admin_url());
             exit;
         }
