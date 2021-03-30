@@ -8,6 +8,7 @@ Set application discussion options.
 <?php
 
 return [
+    'application.discussion' => (boolean) $enable_comments,
     'application.discussion' => [
         'post.ping-flag' => (boolean) $enable_ping_flag,
         'post.ping-status' => (boolean) $enable_ping_status,
@@ -69,6 +70,16 @@ return [
         'avatars.rating' => 'PG',
         'avatars.default' => 'blank',
     ],
+];
+```
+
+#### Remove
+
+```php
+<?php
+
+return [
+    'application.discussion' => false,
 ];
 ```
 

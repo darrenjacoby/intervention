@@ -207,6 +207,7 @@ return [
 * [Register custom taxonomy](.github/application/taxonomies.md#register)
 * [Register custom image sizes](.github/application/media.md#image-sizes)
 * [Register custom nav menu](.github/application/menus.md#register)
+* [Remove comments](.github/application/discussion.md#remove)
 * [Remove posttype](.github/application/posts.md#remove)
 * [Remove taxonomy](.github/application/taxonomies.md#remove)
 * [Remove image size](.github/application/media.md#image-sizes)
