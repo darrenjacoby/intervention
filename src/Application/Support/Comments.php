@@ -22,8 +22,7 @@ use Sober\Intervention\Admin\Support\BlockEditor;
 class Comments
 {
     /**
-     * Static function must be called after require within functions.php
-     * This will setup all action and filter hooks related to comments.
+     * Remove
      */
     public static function remove() {
         $self = new self();
@@ -66,6 +65,7 @@ class Comments
     public function adminMenuRedirect()
     {
         global $pagenow;
+
         if ('edit-comments.php' === $pagenow) {
             wp_safe_redirect(admin_url());
             exit;
@@ -73,13 +73,13 @@ class Comments
     }
 
     /**
-	 * Remove the comments endpoint for the REST API
-	 */
-	public function filterRestEndpoints($endpoints)
-	{
-		unset($endpoints['comments']);
-		return $endpoints;
-	}
+     * Remove the comments endpoint for the REST API
+     */
+    public function filterRestEndpoints($endpoints)
+    {
+        unset($endpoints['comments']);
+        return $endpoints;
+    }
 
     /**
      * Admin CSS
