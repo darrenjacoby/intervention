@@ -17,7 +17,7 @@ $ wp plugin activate intervention
 $ wp plugin install https://github.com/soberwp/intervention/archive/master.zip --activate
 ```
 
-#### Requirements:
+#### Requirements
 
 * [PHP](http://php.net/manual/en/install.php) >= 7.0.0
 
@@ -219,7 +219,7 @@ return [
 
 * **[Guide to upgrade from version 1.x.x to 2.x.x](.github/upgrading.md)**
 
-#### Composer:
+#### Composer
 
 * Change the composer.json version to ^2.0.0**<br>
 * Check [CHANGELOG.md](CHANGELOG.md) for any breaking changes before updating.
@@ -228,7 +228,7 @@ return [
 $ composer update
 ```
 
-#### WordPress:
+#### WordPress
 
 Includes support for github-updater to track updates through wp-admin.
 * [Download](https://github.com/afragen/github-updater)
