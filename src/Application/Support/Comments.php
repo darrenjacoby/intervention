@@ -29,11 +29,8 @@ class Comments
 
         add_filter('rest_endpoints', [$self, 'filterRestEndpoints']);
         add_action('wp_loaded', [$self, 'removePostTypesSupport']);
-
-        if (is_admin()) {
-            add_action('admin_init', [$self, 'adminMenuRedirect']);
-            add_action('admin_head-index.php', [$self, 'dashboard']);
-        }
+        add_action('admin_init', [$self, 'adminMenuRedirect']);
+        add_action('admin_head-index.php', [$self, 'dashboard']);
 
         if (!is_admin()) {
             add_action('template_redirect', [$self, 'templateComments']);
