@@ -20,6 +20,8 @@ if (!defined('ABSPATH')) {
     die;
 };
 
+define('INTERVENTION_DIR', dirname(__FILE__));
+
 /**
  * Support for Bedrock/Composer
  */

@@ -27,13 +27,25 @@ class Comments
     public static function remove() {
         $self = new self();
 
-        add_action('admin_init', [$self, 'removePostTypesSupport']);
-        add_action('admin_init', [$self, 'adminMenuRedirect']);
         add_filter('rest_endpoints', [$self, 'filterRestEndpoints']);
-        add_action('admin_head-index.php', [$self, 'dashboard']);
-        add_filter('comments_open', '__return_false', 20, 2);
-        add_filter('pings_open', '__return_false', 20, 2);
-        add_filter('comments_array', '__return_empty_array', 10, 2);
+        add_action('wp_loaded', [$self, 'removePostTypesSupport']);
+
+        if (is_admin()) {
+            add_action('admin_init', [$self, 'adminMenuRedirect']);
+            add_action('admin_head-index.php', [$self, 'dashboard']);
+        }
+
+        if (!is_admin()) {
+            add_action('template_redirect', [$self, 'templateComments']);
+            add_filter('comments_open', '__return_false', 10, 1);
+            add_filter('pings_open', '__return_false', 10, 1);
+            add_filter('post_comments_feed_link', '__return_false', 10, 1);
+            add_filter('comments_link_feed', '__return_false', 10, 1);
+            add_filter('comment_link', '__return_false', 10, 1);
+            add_filter('get_comments_number', '__return_false', 10, 2);
+            add_filter('feed_links_show_comments_feed', '__return_false');
+            // add_filter('comments_array', '__return_empty_array', 10, 2);
+        }
 
         Admin::set('common.adminbar.comments', true);
         Admin::set('dashboard.home.recent-commments', true);
@@ -95,5 +107,21 @@ class Comments
                 display: none !important;
             }
         </style>';
+    }
+
+    /**
+     * Template comments
+     */
+    public function templateComments()
+    {
+        if (!is_singular()) {
+            return;
+        }
+
+        wp_deregister_script('comment-reply');
+        remove_action('wp_head', 'feed_links_extra', 3);
+        add_filter('comments_template', function () {
+            return INTERVENTION_DIR . '/comments-template.php';
+        }, 20);
     }
 }
