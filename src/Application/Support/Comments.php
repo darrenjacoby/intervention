@@ -30,9 +30,7 @@ class Comments
         add_action('admin_init', [$self, 'removePostTypesSupport']);
         add_action('admin_init', [$self, 'adminMenuRedirect']);
         add_filter('rest_endpoints', [$self, 'filterRestEndpoints']);
-        add_action('admin_print_styles-index.php', [$self, 'adminCss']);
-        add_action('admin_print_styles-profile.php', [$self, 'adminCss']);
-
+        add_action('admin_head-index.php', [$self, 'dashboard']);
         add_filter('comments_open', '__return_false', 20, 2);
         add_filter('pings_open', '__return_false', 20, 2);
         add_filter('comments_array', '__return_empty_array', 10, 2);
@@ -42,6 +40,7 @@ class Comments
         Admin::set('comments', true);
         Admin::set('settings.discussion', true);
         Admin::set('appearance.widgets.available.recent-comments', true);
+        Admin::set('users.profile.options.shortcuts', true);
         BlockEditor::set('discussion', true);
     }
 
@@ -52,8 +51,8 @@ class Comments
     {
         $post_types = get_post_types();
 
-        foreach ( $post_types as $post_type ) {
-            if (post_type_supports($post_type, 'comments') ) {
+        foreach ($post_types as $post_type) {
+            if (post_type_supports($post_type, 'comments')) {
                 remove_post_type_support($post_type, 'comments');
                 remove_post_type_support($post_type, 'trackbacks');
             }
@@ -83,16 +82,16 @@ class Comments
     }
 
     /**
-     * Admin CSS
+     * Dashboard
      */
-    public function adminCss()
+    public function dashboard()
     {
-        echo '<style>
+        echo '
+        <style>
             #dashboard_right_now .comment-count,
             #dashboard_right_now .comment-mod-count,
             #latest-comments,
-            #welcome-panel .welcome-comments,
-            .user-comment-shortcuts-wrap {
+            #welcome-panel .welcome-comments {
                 display: none !important;
             }
         </style>';
