@@ -28,6 +28,8 @@ use Sober\Intervention\Support\Str;
  *     'general.wp-address' => (string) $wp_url,
  *     'general.site-address' => (string) $site_url,
  *     'general.admin-email' => (string) $admin_email,
+ *     'general.email-from' => (string) $email_from,
+ *     'general.email-from-name' => (string) $email_from_name,
  *     'general.membership' => (boolean) $enable_membership,
  *     'general.default-role' => (string) $role,
  *     'general.language' => (string) $language,
@@ -84,6 +86,20 @@ class General
 
         if ($this->config->has('general.admin-email')) {
             update_option('admin_email', $this->config->get('general.admin-email'));
+        }
+
+        if ($this->config->has('general.email-from')) {
+            $from = $this->config->get('general.email-from');
+            add_filter('wp_mail_from', function () use ($from) {
+                return $from;
+            });
+        }
+
+        if ($this->config->has('general.email-from-name')) {
+            $from_name = $this->config->get('general.email-from-name');
+            add_filter('wp_mail_from_name', function () {
+                return $from_name;
+            });
         }
 
         if ($this->config->has('general.membership')) {

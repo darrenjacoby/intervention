@@ -20,6 +20,8 @@ return [
             'wp-address' => (string) $wp_url,
             'site-address' => (string) $site_url,
             'admin-email' => (string) $admin_email,
+            'email-from' => (string) $email_from,
+            'email-from-name' => (string) $email_from_name,
             'membership' => (boolean) $enable_membership,
             'default-role' => (string) $role,
             'language' => (string) $language,
