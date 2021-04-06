@@ -42,7 +42,7 @@ class Themes
      */
     public function __construct($config = false)
     {
-        $compose = Composer::set(Arr::normalize($config));
+        $compose = Composer::set(Arr::normalizeTrue($config));
 
         $compose = $compose->has('appearance.themes.all')->add('appearance.themes.', [
             'title-link', 'title-count', 'search', 'tabs', 'inactive', 'theme',

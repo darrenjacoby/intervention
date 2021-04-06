@@ -8,13 +8,17 @@ Remove media add components.
 * For concise documentation, `option.[x, y]` has been abbreviated from `option.x, option.y`.
 
 ```php
-[
-    'media.add',
-    'media.add' => (string) $route,
-    'media.add.title' => (string) $title,
-    'media.add.title.[menu, page]' => (string) $title,
-    'media.add.tabs',
-    'media.add.tabs.[screen-options, help]',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'media.add',
+        'media.add' => (string) $route,
+        'media.add.title' => (string) $title,
+        'media.add.title.[menu, page]' => (string) $title,
+        'media.add.tabs',
+        'media.add.tabs.[screen-options, help]',
+    ],
 ];
 ```
 
@@ -25,16 +29,24 @@ Remove media add components.
 Remove from menu;
 
 ```php
-[
-    'media.add',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'media.add',
+    ],
 ];
 ```
 
 Remove from menu and enforce a page redirect;
 
 ```php
-[
-    'media.ad' => 'posts',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'media.ad' => 'posts',
+    ],
 ];
 ```
 

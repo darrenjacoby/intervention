@@ -34,7 +34,7 @@ class Menu
      */
     public function __construct($config = false)
     {
-        $compose = Composer::set(Arr::normalize($config));
+        $compose = Composer::set(Arr::normalizeTrue($config));
 
         $compose = $compose->has('common.menu')->add('common.menu.', [
             'collapse', 'icons', 'nags',
@@ -74,7 +74,7 @@ class Menu
         }
 
         if ($this->config->has('common.menu.nags')) {
-            echo '<style>#adminmenu div.wp-menu-name span {display:none!important;}</style>';
+            echo '<style>#adminmenu span {display:none!important;}</style>';
         }
     }
 

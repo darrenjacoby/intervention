@@ -29,6 +29,8 @@ return [
             'wp-address' => 'https://soberwp.com/wp',
             'site-address' => 'https://soberwp.com',
             'admin-email' => 'example@soberwp.com',
+            'email-from' => 'app@soberwp.com'
+            'email-from-name' => 'soberwp'
             'membership' => true,
             'default-role' => 'editor',
             'language' => 'en_US',

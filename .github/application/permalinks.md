@@ -5,8 +5,10 @@ Set application permalinks options.
 ### Options;
 
 ```php
-[
-    'permalinks' => [
+<?php
+
+return [
+    'application.permalinks' => [
         'structure' => (string) $tags,
         'category-base' => (boolean|string) false|$category_base_path,
         'tag-base' => (boolean|string) false|$tag_base_path,
@@ -18,8 +20,10 @@ Set application permalinks options.
 ### Example;
 
 ```php
-[
-    'permalinks' => [
+<?php
+
+return [
+    'application.permalinks' => [
         'structure' => '/%postname%/',
         'category-base' => 'category',
         'tag-base' => 'tag',

@@ -5,11 +5,15 @@ Update, remove or redirect the dashboard menu item.
 ### Options;
 
 ```php
-[
-    'dashboard',
-    'dashboard' => (string) $route,
-    'dashboard.title' => (string) $title,
-    'dashboard.icon' => (string) $dashicon,
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'dashboard',
+        'dashboard' => (string) $route,
+        'dashboard.title' => (string) $title,
+        'dashboard.icon' => (string) $dashicon,
+    ],
 ];
 ```
 
@@ -21,16 +25,24 @@ Update, remove or redirect the dashboard menu item.
 Remove from menu;
 
 ```php
-[
-    'dashboard',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'dashboard',
+    ],
 ];
 ```
 
 Remove from menu and enforce a page redirect;
 
 ```php
-[
-    'dashboard' => 'posts',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'dashboard' => 'posts',
+    ],
 ];
 ```
 

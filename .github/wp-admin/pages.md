@@ -5,11 +5,15 @@ Update, remove or redirect the pages menu item.
 ### Options;
 
 ```php
-[
-    'pages',
-    'pages' => (string) $route,
-    'pages.title' => (string) $title,
-    'pages.icon' => (string) $dashicon,
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'pages',
+        'pages' => (string) $route,
+        'pages.title' => (string) $title,
+        'pages.icon' => (string) $dashicon,
+    ],
 ];
 ```
 
@@ -23,16 +27,24 @@ Update, remove or redirect the pages menu item.
 Remove from menu;
 
 ```php
-[
-    'pages',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'pages',
+    ],
 ];
 ```
 
 Remove from menu and enforce a page redirect;
 
 ```php
-[
-    'pages' => 'posts',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'pages' => 'posts',
+    ],
 ];
 ```
 

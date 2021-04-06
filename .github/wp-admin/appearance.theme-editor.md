@@ -8,13 +8,18 @@ Remove wp-admin theme editor components.
 * For concise documentation, `option.[x, y]` has been abbreviated from `option.x, option.y`.
 
 ```php
-[
-    'appearance.theme-editor',
-    'appearance.theme-editor' => (string) $route,
-    'appearance.theme-editor.title' => (string) $title,
-    'appearance.theme-editor.title.[menu, page]' => (string) $title,
-    'appearance.theme-editor.tabs',
-    'appearance.theme-editor.tabs.[screen-options, help]',
+<?php
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'appearance.theme-editor',
+        'appearance.theme-editor' => (string) $route,
+        'appearance.theme-editor.title' => (string) $title,
+        'appearance.theme-editor.title.[menu, page]' => (string) $title,
+        'appearance.theme-editor.tabs',
+        'appearance.theme-editor.tabs.[screen-options, help]',
+    ],
 ];
 ```
 
@@ -25,16 +30,24 @@ Remove wp-admin theme editor components.
 Remove from menu;
 
 ```php
-[
-    'appearance.theme-editor',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'appearance.theme-editor',
+    ],
 ];
 ```
 
 Remove from menu and enforce a page redirect;
 
 ```php
-[
-    'appearance.theme-editor' => 'posts',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'appearance.theme-editor' => 'posts',
+    ],
 ];
 ```
 

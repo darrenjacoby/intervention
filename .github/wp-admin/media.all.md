@@ -8,27 +8,31 @@ Remove media all/index components.
 * For concise documentation, `option.[x, y]` has been abbreviated from `option.x, option.y`.
 
 ```php
-[
-    'media.all',
-    'media.all' => (string) $route,
-    'media.all.title' => (string) $title,
-    'media.all.title.[menu, page]' => (string) $title,
-    'media.all.title-link',
-    'media.all.tabs',
-    'media.all.tabs.[screen-options, help]',
-    'media.all.pagination' => (int) $pagination,
-    'media.all.search',
-    'media.all.mode',
-    'media.all.mode' => (string) 'grid' or 'list',
-    'media.all.filter',
-    'media.all.filter.[type, date]',
-    'media.all.actions',
-    'media.all.list',
-    'media.all.list.cols',
-    'media.all.list.cols.[author, uploaded-to, comments, date]',
-    'media.all.list.actions',
-    'media.all.list.actions.[edit, delete, view]',
-    'media.all.list.count',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'media.all',
+        'media.all' => (string) $route,
+        'media.all.title' => (string) $title,
+        'media.all.title.[menu, page]' => (string) $title,
+        'media.all.title-link',
+        'media.all.tabs',
+        'media.all.tabs.[screen-options, help]',
+        'media.all.pagination' => (int) $pagination,
+        'media.all.search',
+        'media.all.mode',
+        'media.all.mode' => (string) 'grid' or 'list',
+        'media.all.filter',
+        'media.all.filter.[type, date]',
+        'media.all.actions',
+        'media.all.list',
+        'media.all.list.cols',
+        'media.all.list.cols.[author, uploaded-to, comments, date]',
+        'media.all.list.actions',
+        'media.all.list.actions.[edit, delete, view]',
+        'media.all.list.count',
+    ],
 ];
 ```
 
@@ -39,16 +43,24 @@ Remove media all/index components.
 Remove from menu;
 
 ```php
-[
-    'media.all',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'media.all',
+    ],
 ];
 ```
 
 Remove from menu and enforce a page redirect;
 
 ```php
-[
-    'media.all' => 'posts',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'media.all' => 'posts',
+    ],
 ];
 ```
 

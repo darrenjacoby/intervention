@@ -40,7 +40,7 @@ class Writing
      */
     public function __construct($config = false)
     {
-        $compose = Composer::set(Arr::normalize($config));
+        $compose = Composer::set(Arr::normalizeTrue($config));
 
         $compose = $compose->has('settings.writing.all')->add('settings.writing.', [
             'tabs', 'default-category', 'default-post-format', 'post-via-email', 'update-services',

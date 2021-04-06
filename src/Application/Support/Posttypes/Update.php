@@ -86,7 +86,8 @@ class Update
          * @param string $this->config
          */
         if ($this->config->has('supports')) {
-            $supports = Arr::transformKeysToDashcase($this->config->pull('supports'));
+            $supports = Arr::transformEntriesToTrue($this->config->get('supports'));
+            // $supports = Arr::transformKeysToDashcase($this->config->pull('supports'));
             $GLOBALS['_wp_post_type_features'][$this->posttype] = $supports;
         }
 
@@ -98,12 +99,14 @@ class Update
          *
          * @param string $this->config
          */
+        /*
         if ($this->config->has('template')) {
             $template = $this->config->pull('template');
             $object->template = Arr::transform($template, function ($k, $v) {
                 return $v === true ? [0, $k] : [$k, $v];
             });
         }
+        */
 
         // Set remaining `$object->{$key}` overrides from `$this->config`
         $this->config->map(function ($value, $key) use ($object) {

@@ -49,7 +49,7 @@ class Add
      */
     public function __construct($config = false)
     {
-        $compose = Composer::set(Arr::normalize($config));
+        $compose = Composer::set(Arr::normalizeTrue($config));
 
         $compose = $compose->has('posts.add.all')->add('posts.add.', [
             'tabs',
@@ -66,6 +66,7 @@ class Add
             'discussion',
             'link',
             'featured-image',
+            'format',
         ]);
 
         $compose = $compose->has('posts.add.tabs')->add('posts.add.tabs.', [

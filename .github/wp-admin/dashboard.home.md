@@ -8,25 +8,29 @@ Remove dashboard home components.
 * For concise documentation, `option.[x, y]` has been abbreviated from `option.x, option.y`.
 
 ```php
-[
-    'dashboard.home',
-    'dashboard.home' => (string) $route,
-    'dashboard.home.title' => (string) $title,
-    'dashboard.home.title.[menu, page]' => (string) $title,
-    'dashboard.home.tabs',
-    'dashboard.home.tabs.[screen-options, help]',
-    'dashboard.home.cols' => (int) $num_of_cols
-    'dashboard.home.welcome'
-    'dashboard.home.notices'
-    'dashboard.home.activity'
-    'dashboard.home.right-now'
-    'dashboard.home.recent-comments'
-    'dashboard.home.incoming-links'
-    'dashboard.home.plugins'
-    'dashboard.home.quick-draft'
-    'dashboard.home.drafts'
-    'dashboard.home.news'
-    'dashboard.home.site-health'
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'dashboard.home',
+        'dashboard.home' => (string) $route,
+        'dashboard.home.title' => (string) $title,
+        'dashboard.home.title.[menu, page]' => (string) $title,
+        'dashboard.home.tabs',
+        'dashboard.home.tabs.[screen-options, help]',
+        'dashboard.home.cols' => (int) $num_of_cols
+        'dashboard.home.welcome'
+        'dashboard.home.notices'
+        'dashboard.home.activity'
+        'dashboard.home.right-now'
+        'dashboard.home.recent-comments'
+        'dashboard.home.incoming-links'
+        'dashboard.home.plugins'
+        'dashboard.home.quick-draft'
+        'dashboard.home.drafts'
+        'dashboard.home.news'
+        'dashboard.home.site-health'
+    ],
 ];
 ```
 
@@ -37,16 +41,24 @@ Remove dashboard home components.
 Remove from menu;
 
 ```php
-[
-    'dashboard.home',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'dashboard.home',
+    ],
 ];
 ```
 
 Remove from menu and enforce a page redirect;
 
 ```php
-[
-    'dashboard.home' => 'posts',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'dashboard.home' => 'posts',
+    ],
 ];
 ```
 

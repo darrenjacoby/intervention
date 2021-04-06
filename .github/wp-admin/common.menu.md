@@ -7,12 +7,16 @@ Remove wp-admin left hand side menu components.
 * Parent items remove child items. 
 
 ```php
-[
-    'common.menu',
-    'common.menu.collapse',
-    'common.menu.icons',
-    'common.menu.nags',
-    'common.menu.order' => (array) $order,
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'common.menu',
+        'common.menu.collapse',
+        'common.menu.icons',
+        'common.menu.nags',
+        'common.menu.order' => (array) $order,
+    ],
 ];
 ```
 
@@ -21,31 +25,39 @@ Remove wp-admin left hand side menu components.
 Remove all;
 
 ```php
-[
-    'common.menu',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'common.menu',
+    ],
 ];
 ```
 
 Order top level menu items;
 
 ```php
-[
-    'common.menu.order' => [
-        'dashboard',
-        'pages',
-        'posts',
-        'separator1',
-        'users',
-        'comments',
-        'separator2',
-        'media',
-        'appearance',
-        'plugins',
-        'tools',
-        'settings',
-        // for custom pages, reference the page filename. 
-        'edit.php?post_type=acf-field-group.php', // advanced custom fields
-    ]
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'common.menu.order' => [
+            'dashboard',
+            'pages',
+            'posts',
+            'separator1',
+            'users',
+            'comments',
+            'separator2',
+            'media',
+            'appearance',
+            'plugins',
+            'tools',
+            'settings',
+            // for custom pages, reference the page filename. 
+            'edit.php?post_type=acf-field-group.php', // advanced custom fields
+        ],
+    ],
 ];
 ```
 

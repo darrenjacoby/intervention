@@ -29,7 +29,7 @@ class Pagination
      */
     public function __construct($config = false)
     {
-        $this->config = Arr::normalize($config);
+        $this->config = Arr::normalizeTrue($config);
         $this->hook();
     }
 

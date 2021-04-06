@@ -5,8 +5,10 @@ Set application theme.
 ### Options;
 
 ```php
-[
-    'theme' => (string) $stylesheet,
+<?php
+
+return [
+    'application.theme' => (string) $stylesheet,
 ];
 ```
 
@@ -17,8 +19,10 @@ Set application theme.
 #### Activate
 
 ```php
-[
-    'theme' => 'soberwp',
+<?php
+
+return [
+    'application.theme' => 'soberwp',
 ];
 ```
 

@@ -5,8 +5,12 @@ Remove wp-admin update notices.
 ### Options;
 
 ```php
-[
-    'common.updates'
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'common.updates'
+    ],
 ];
 ```
 

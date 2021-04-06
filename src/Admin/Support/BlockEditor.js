@@ -20,6 +20,7 @@ wp.domReady(() => {
 
     if (config.includes('discussion')) {
         wp.data.dispatch('core/edit-post').removeEditorPanel('discussion-panel');
+        wp.blocks.unregisterBlockType('core/latest-comments');
     }
 
     if (config.includes('categories')) {

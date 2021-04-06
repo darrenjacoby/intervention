@@ -8,13 +8,17 @@ Remove tools export-personal-data components.
 * For concise documentation, `option.[x, y]` has been abbreviated from `option.x, option.y`.
 
 ```php
-[
-    'tools.export-personal-data',
-    'tools.export-personal-data' => (string) $route,
-    'tools.export-personal-data.title' => (string) $title,
-    'tools.export-personal-data.title.[menu, page]' => (string) $title,
-    'tools.export-personal-data.tabs',
-    'tools.export-personal-data.tabs.[screen-options, help]',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'tools.export-personal-data',
+        'tools.export-personal-data' => (string) $route,
+        'tools.export-personal-data.title' => (string) $title,
+        'tools.export-personal-data.title.[menu, page]' => (string) $title,
+        'tools.export-personal-data.tabs',
+        'tools.export-personal-data.tabs.[screen-options, help]',
+    ],
 ];
 ```
 
@@ -25,16 +29,24 @@ Remove tools export-personal-data components.
 Remove from menu;
 
 ```php
-[
-    'tools.export-personal-data',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'tools.export-personal-data',
+    ],
 ];
 ```
 
 Remove from menu and enforce a page redirect;
 
 ```php
-[
-    'tools.export-personal-data' => 'posts',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'tools.export-personal-data' => 'posts',
+    ],
 ];
 ```
 

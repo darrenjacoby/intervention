@@ -5,11 +5,15 @@ Update, remove or redirect the tools menu item.
 ### Options;
 
 ```php
-[
-    'tools',
-    'tools' => (string) $route,
-    'tools.title' => (string) $title,
-    'tools.icon' => (string) $dashicon,
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'tools',
+        'tools' => (string) $route,
+        'tools.title' => (string) $title,
+        'tools.icon' => (string) $dashicon,
+    ],
 ];
 ```
 
@@ -21,16 +25,24 @@ Update, remove or redirect the tools menu item.
 Remove from menu;
 
 ```php
-[
-    'tools',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'tools',
+    ],
 ];
 ```
 
 Remove from menu and enforce a page redirect;
 
 ```php
-[
-    'tools' => 'posts',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'tools' => 'posts',
+    ],
 ];
 ```
 

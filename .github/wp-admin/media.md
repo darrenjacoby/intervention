@@ -5,11 +5,15 @@ Update, remove or redirect the media menu item.
 ### Options;
 
 ```php
-[
-    'media',
-    'media' => (string) $route,
-    'media.title' => (string) $title,
-    'media.icon' => (string) $dashicon,
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'media',
+        'media' => (string) $route,
+        'media.title' => (string) $title,
+        'media.icon' => (string) $dashicon,
+    ],
 ];
 ```
 
@@ -21,16 +25,24 @@ Update, remove or redirect the media menu item.
 Remove from menu;
 
 ```php
-[
-    'media',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'media',
+    ],
 ];
 ```
 
 Remove from menu and enforce a page redirect;
 
 ```php
-[
-    'media' => 'posts',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'media' => 'posts',
+    ],
 ];
 ```
 

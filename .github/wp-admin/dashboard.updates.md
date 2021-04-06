@@ -8,13 +8,17 @@ Remove dashboard updates components.
 * For concise documentation, `option.[x, y]` has been abbreviated from `option.x, option.y`.
 
 ```php
-[
-    'dashboard.updates',
-    'dashboard.updates' => (string) $route,
-    'dashboard.updates.title' => (string) $title,
-    'dashboard.updates.title.[menu, page]' => (string) $title,
-    'dashboard.updates.tabs',
-    'dashboard.updates.tabs.help',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'dashboard.updates',
+        'dashboard.updates' => (string) $route,
+        'dashboard.updates.title' => (string) $title,
+        'dashboard.updates.title.[menu, page]' => (string) $title,
+        'dashboard.updates.tabs',
+        'dashboard.updates.tabs.help',
+    ],
 ];
 ```
 
@@ -25,16 +29,24 @@ Remove dashboard updates components.
 Remove from menu;
 
 ```php
-[
-    'dashboard.updates',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'dashboard.updates',
+    ],
 ];
 ```
 
 Remove from menu and enforce a page redirect;
 
 ```php
-[
-    'dashboard.updates' => 'posts',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'dashboard.updates' => 'posts',
+    ],
 ];
 ```
 

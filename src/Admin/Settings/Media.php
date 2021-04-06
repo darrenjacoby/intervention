@@ -38,7 +38,7 @@ class Media
      */
     public function __construct($config = false)
     {
-        $compose = Composer::set(Arr::normalize($config));
+        $compose = Composer::set(Arr::normalizeTrue($config));
 
         $compose = $compose->has('settings.media.all')->add('settings.media.', [
             'tabs', 'sizes', 'uploads',

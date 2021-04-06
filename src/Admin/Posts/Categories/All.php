@@ -47,7 +47,7 @@ class All
      */
     public function __construct($config = false)
     {
-        $compose = Composer::set(Arr::normalize($config));
+        $compose = Composer::set(Arr::normalizeTrue($config));
 
         $compose = $compose->has('posts.categories.all.all')->add('posts.categories.all.', [
             'tabs', 'search', 'actions', 'list', 'notes',

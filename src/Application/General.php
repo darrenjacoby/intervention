@@ -28,6 +28,8 @@ use Sober\Intervention\Support\Str;
  *     'general.wp-address' => (string) $wp_url,
  *     'general.site-address' => (string) $site_url,
  *     'general.admin-email' => (string) $admin_email,
+ *     'general.email-from' => (string) $email_from,
+ *     'general.email-from-name' => (string) $email_from_name,
  *     'general.membership' => (boolean) $enable_membership,
  *     'general.default-role' => (string) $role,
  *     'general.language' => (string) $language,
@@ -86,6 +88,20 @@ class General
             update_option('admin_email', $this->config->get('general.admin-email'));
         }
 
+        if ($this->config->has('general.email-from')) {
+            $from = $this->config->get('general.email-from');
+            add_filter('wp_mail_from', function () use ($from) {
+                return $from;
+            });
+        }
+
+        if ($this->config->has('general.email-from-name')) {
+            $from_name = $this->config->get('general.email-from-name');
+            add_filter('wp_mail_from_name', function () {
+                return $from_name;
+            });
+        }
+
         if ($this->config->has('general.membership')) {
             update_option('users_can_register', $this->config->get('general.membership'));
         }
@@ -134,7 +150,15 @@ class General
         }
 
         if ($this->config->has('general.language')) {
-            switch_to_locale($this->config->get('general.language'));
+	        $general_language = $this->config->get('general.language');
+
+	        if (!empty($general_language) && !in_array($general_language, get_available_languages())) {
+		        require_once(ABSPATH . 'wp-admin/includes/file.php');
+		        require_once(ABSPATH . 'wp-admin/includes/translation-install.php');
+		        wp_download_language_pack($general_language);
+	        }
+
+	        switch_to_locale($general_language);
         }
     }
 

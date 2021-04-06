@@ -5,11 +5,15 @@ Update, remove or redirect the settings menu item.
 ### Options;
 
 ```php
-[
-    'settings',
-    'settings' => (string) $route,
-    'settings.title' => (string) $title,
-    'settings.icon' => (string) $dashicon,
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'settings',
+        'settings' => (string) $route,
+        'settings.title' => (string) $title,
+        'settings.icon' => (string) $dashicon,
+    ],
 ];
 ```
 
@@ -21,16 +25,24 @@ Update, remove or redirect the settings menu item.
 Remove from menu;
 
 ```php
-[
-    'settings',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'settings',
+    ],
 ];
 ```
 
 Remove from menu and enforce a page redirect;
 
 ```php
-[
-    'settings' => 'posts',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'settings' => 'posts',
+    ],
 ];
 ```
 

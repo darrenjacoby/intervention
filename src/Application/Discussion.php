@@ -3,6 +3,7 @@
 namespace Sober\Intervention\Application;
 
 use Sober\Intervention\Application\Support\Element;
+use Sober\Intervention\Application\Support\Comments;
 use Sober\Intervention\Support\Arr;
 
 /**
@@ -17,6 +18,7 @@ use Sober\Intervention\Support\Arr;
  *
  * @param
  * [
+ *     'discussion' => false,
  *     'discussion.post.ping-flag' => (boolean) $enable_ping_flag,
  *     'discussion.post.ping-status' => (boolean) $enable_ping_status,
  *     'discussion.post.comments' => (boolean) $enable_comments,
@@ -65,6 +67,32 @@ class Discussion
      */
     protected function hook()
     {
+        if ($this->config->get('discussion') === false) {
+            $settings = [
+                'discussion.post.ping-flag' => false,
+                'discussion.post.ping-status' => false,
+                'discussion.post.comments' => false,
+                'discussion.comments.name-email' => false,
+                'discussion.comments.registration' => false,
+                'discussion.comments.close' => false,
+                'discussion.comments.close.days' => 0,
+                'discussion.comments.cookies' => false,
+                'discussion.comments.thread' => false,
+                'discussion.comments.pages' => false,
+                'discussion.emails.comment' => false,
+                'discussion.emails.moderation' => false,
+                'discussion.moderation.approve-manual' => false,
+                'discussion.moderation.approve-previous' => false,
+                'discussion.moderation.queue-keys' => '',
+                'discussion.moderation.disallowed-keys' => '',
+                'discussion.avatars' => false,
+            ];
+
+            $this->config = $this->config->merge($settings);
+
+            Comments::remove();
+        }
+
         add_action('init', [$this, 'discussion']);
         add_action('admin_head-options-discussion.php', [$this, 'admin']);
     }

@@ -29,9 +29,7 @@ class Intervention
             return;
         }
 
-        $config = Arr::normalize($config);
-
-        $admin = Composer::set($config)
+        $admin = Composer::set(Arr::normalizeTrue($config))
             ->group('wp-admin')
             ->get();
 
@@ -39,7 +37,7 @@ class Intervention
             $this->initRoleFromConfigFile($admin, $class, $k);
         });
 
-        $application = Composer::set($config)
+        $application = Composer::set(Arr::normalize($config))
             ->group('application')
             ->get();
 
@@ -119,7 +117,7 @@ class Intervention
                 $role_allowed = $roles
                     ->values()
                     ->map(function ($role) use ($current_user) {
-                        if (in_array($role, $current_user->roles) || $role === 'all') {
+                        if (in_array($role, $current_user->roles) || $role === 'all' || $role === $current_user->user_login) {
                             return true;
                         }
                     });

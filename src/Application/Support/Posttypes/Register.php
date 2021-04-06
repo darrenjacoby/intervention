@@ -43,9 +43,9 @@ class Register
         $this->posttype = $posttype;
         $this->config = $config;
         $this->setDefaults();
-        $this->setSupports();
-        $this->setTemplate();
-        $this->setTaxonomies();
+        // $this->setSupports();
+        // $this->setTemplate();
+        // $this->setTaxonomies();
         $this->register();
     }
 
@@ -68,6 +68,7 @@ class Register
      *
      * @param string $this->config
      */
+    /*
     public function setSupports()
     {
         if ($this->config->has('supports')) {
@@ -76,6 +77,7 @@ class Register
             $this->config->put('supports', $keys);
         }
     }
+    */
 
     /**
      * Set Template
@@ -84,6 +86,7 @@ class Register
      *
      * @param string $this->config
      */
+    /*
     public function setTemplate()
     {
         if ($this->config->has('template')) {
@@ -94,6 +97,7 @@ class Register
             $this->config->put('template', $template);
         }
     }
+    */
 
     /**
      * Set Taxonomies
@@ -102,6 +106,7 @@ class Register
      *
      * @param string $this->config
      */
+    /*
     public function setTaxonomies()
     {
         $taxonomies = $this->config->has('taxonomies') ?
@@ -116,6 +121,7 @@ class Register
             $this->config->put('taxonomies', $taxonomies);
         }
     }
+    */
 
     /**
      * Register

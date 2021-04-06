@@ -5,16 +5,20 @@ Set application privacy options.
 ### Options;
 
 ```php
-[
-    'privacy.policy-page' => (int) $page_id,
+<?php
+
+return [
+    'application.privacy.policy-page' => (int) $page_id,
 ];
 ```
 
 ### Example;
 
 ```php
-[
-    'privacy.policy-page' => 2,
+<?php
+
+return [
+    'application.privacy.policy-page' => 2,
 ];
 ```
 

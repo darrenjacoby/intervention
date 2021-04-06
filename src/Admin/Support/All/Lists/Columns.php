@@ -91,7 +91,7 @@ class Columns
             return;
         }
 
-        $group = Arr::normalize($array);
+        $group = Arr::normalizeTrue($array);
         $group = Composer::set($group)->removeFirstKey()->get();
 
         foreach ($this->filter as $filter) {

@@ -5,8 +5,10 @@ Set application media options.
 ### Options;
 
 ```php
-[
-    'media' => [
+<?php
+
+return [
+    'application.media' => [
         'sizes.$name' => (boolean|int|array) false|$width|[
             'width'|'w' => (int) $width,
             'height'|'h' => (int) $height,
@@ -21,8 +23,10 @@ Set application media options.
 ### Examples;
 
 ```php
-[
-    'media' => [
+<?php
+
+return [
+    'application.media' => [
         'sizes.thumbnail' => [
             'width' => 200,
             'height' => 200,
@@ -42,8 +46,10 @@ Set application media options.
 Intervention can register custom image sizes.
 
 ```php
-[
-    'media' => [
+<?php
+
+return [
+    'application.media' => [
         'sizes.100vw' => 1800,
         'sizes.3/12' => 400,
         'sizes.4/12' => 600,
@@ -60,8 +66,10 @@ Intervention can register custom image sizes.
 To remove an image size pass in `false`.
 
 ```php
-[
-    'media.sizes.medium' => false,
+<?php
+
+return [
+    'application.media.sizes.medium' => false,
 ];
 ```
 
@@ -73,8 +81,10 @@ To enable custom mimes, a string of the mime type will need to be passed.
 **Enabling custom mimes;**
 
 ```php
-[
-    'media' => [
+<?php
+
+return [
+    'application.media' => [
         'mimes.svg' => true,
         'mimes.bmp' => 'image/bmp',
         'mimes.webm' => 'video/webm',

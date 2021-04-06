@@ -34,10 +34,10 @@ class Login
      */
     public function __construct($config = false)
     {
-        $compose = Composer::set(Arr::normalize($config));
+        $compose = Composer::set(Arr::normalizeTrue($config));
 
         $compose = $compose->has('login')->add('login.', [
-            'logo', 'remember', 'nav', 'back',
+            'logo', 'remember', 'nav', 'back', 'policy',
         ]);
 
         $this->config = $compose->get();
@@ -84,6 +84,10 @@ class Login
 
         if ($this->config->has('login.back')) {
             echo '<style>#login #backtoblog {display: none;}</style>';
+        }
+
+        if ($this->config->has('login.policy')) {
+            echo '<style>#login .privacy-policy-page-link {display: none;}</style>';
         }
     }
 }

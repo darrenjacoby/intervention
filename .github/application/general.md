@@ -5,13 +5,17 @@ Set application general options.
 ### Options;
 
 ```php
-[
-    'general' => [
+<?php
+
+return [
+    'application.general' => [
         'site-title' => (string) $title,
         'tagline' => (string) $tagline,
         'wp-address' => (string) $wp_url,
         'site-address' => (string) $site_url,
         'admin-email' => (string) $admin_email,
+        'email-from' => (string) $email_from,
+        'email-from-name' => (string) $email_from_name,
         'membership' => (boolean) $enable_membership,
         'default-role' => (string) $role,
         'language' => (string) $language,
@@ -26,13 +30,17 @@ Set application general options.
 ### Example;
 
 ```php
-[
-    'general' => [
+<?php
+
+return [
+    'application.general' => [
         'site-title' => 'soberwp',
         'tagline' => 'Tools for WordPress',
         'wp-address' => 'https://soberwp.com/wp',
         'site-address' => 'https://soberwp.com',
         'admin-email' => 'example@soberwp.com',
+        'email-from' => 'app@soberwp.com'
+        'email-from-name' => 'soberwp'
         'membership' => true,
         'default-role' => 'editor',
         'language' => 'en_US',

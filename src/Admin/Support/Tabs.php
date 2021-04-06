@@ -91,7 +91,7 @@ class Tabs
      */
     public function remove($array)
     {
-        $group = Arr::normalize($array);
+        $group = Arr::normalizeTrue($array);
         $filter = $this->filter ? 'admin_head-' . $this->filter : 'admin_head';
 
         // add_action('current_screen', function () {

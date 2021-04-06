@@ -46,7 +46,7 @@ class PostComponents
      */
     public function remove($array)
     {
-        $group = Arr::normalize($array);
+        $group = Arr::normalizeTrue($array);
 
         add_action('admin_init', function () use ($group) {
             foreach ($this->posttypes as $posttype) {
@@ -74,8 +74,9 @@ class PostComponents
                     remove_post_type_support($posttype, 'comments');
                 }
 
-                if ($group->has('link')) {
+                if ($group->has('link') || $group->has('slug')) {
                     remove_post_type_support($posttype, 'slug');
+                    remove_meta_box('slugdiv', $posttype, 'normal');
                 }
 
                 if ($group->has('featured-image')) {
@@ -98,6 +99,14 @@ class PostComponents
 
                 if ($group->has('attributes')) {
                     remove_post_type_support($posttype, 'page-attributes');
+                }
+
+                if ($group->has('revisions')) {
+                    remove_post_type_support($posttype, 'revisions');
+                }
+
+                if ($group->has('format')) {
+                    remove_meta_box('formatdiv', $posttype, 'normal');
                 }
             }
         });

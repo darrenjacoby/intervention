@@ -5,11 +5,15 @@ Update, remove or redirect the appearance menu item.
 ### Options;
 
 ```php
-[
-    'appearance',
-    'appearance' => (string) $route,
-    'appearance.title' => (string) $title,
-    'appearance.icon' => (string) $dashicon,
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'appearance',
+        'appearance' => (string) $route,
+        'appearance.title' => (string) $title,
+        'appearance.icon' => (string) $dashicon,
+    ],
 ];
 ```
 
@@ -21,16 +25,24 @@ Update, remove or redirect the appearance menu item.
 Remove from menu;
 
 ```php
-[
-    'appearance',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'appearance',
+    ],
 ];
 ```
 
 Remove from menu and enforce a page redirect;
 
 ```php
-[
-    'appearance' => 'posts',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'appearance' => 'posts',
+    ],
 ];
 ```
 * [Route options](../route-options.md)

@@ -17,7 +17,7 @@ $ wp plugin activate intervention
 $ wp plugin install https://github.com/soberwp/intervention/archive/master.zip --activate
 ```
 
-#### Requirements:
+#### Requirements
 
 * [PHP](http://php.net/manual/en/install.php) >= 7.0.0
 
@@ -32,7 +32,7 @@ return [
     'application' => [
 
     ],
-    'wp-admin.$role' => [
+    'wp-admin.$role|$username' => [
 
     ],
 ];
@@ -44,7 +44,7 @@ For the options, you can use [dot notatation, a standard array, or a combination
 
 Remove components from wp-admin.
 
-Return `wp-admin.$role`
+Return `wp-admin.$role` or `wp-admin.$username`
 
 * Support for multiple user roles using a pipe operator. 
     * `editor|author`
@@ -53,7 +53,7 @@ Return `wp-admin.$role`
 <?php
 
 return [
-    'wp-admin.$role' => [
+    'wp-admin.$role|$username' => [
         'common.adminbar',
     ],
 ];
@@ -68,16 +68,14 @@ return [
 * `editor`
 * `contributor`
 * `subscriber`
-* `shop-mananger` (woocommerce)
-* `customer` (woocommerce)
 
 ### Options
 <!-- **[Quick Reference]()** -->
 
-**Login**
+#### Login
 * [login](.github/wp-admin/login.md)
 
-**Common**
+#### Common
 * [common.adminbar](.github/wp-admin/common.adminbar.md)
 * [common.footer](.github/wp-admin/common.footer.md)
 * [common.menu](.github/wp-admin/common.menu.md)
@@ -89,12 +87,12 @@ return [
 * [common.all.search](.github/wp-admin/common.all.search.md)
 * [common.all.subsets](.github/wp-admin/common.all.subsets.md)
 
-**Dashboard**
+#### Dashboard
 * [dashboard](.github/wp-admin/dashboard.md)
 * [dashboard.home](.github/wp-admin/dashboard.home.md)
 * [dashboard.updates](.github/wp-admin/dashboard.updates.md)
 
-**Posts**
+#### Posts
 * [posts](.github/wp-admin/posts.md)
 * [posts.all](.github/wp-admin/posts.all.md)
 * [posts.item](.github/wp-admin/posts.item.md)
@@ -103,21 +101,21 @@ return [
 * [posts.tags.all](.github/wp-admin/posts.tags.all.md)
 * [posts.tags.item](.github/wp-admin/posts.tags.item.md)
 
-**Media**
+#### Media
 * [media](.github/wp-admin/media.md)
 * [media.all](.github/wp-admin/media.all.md)
 * [media.add](.github/wp-admin/media.add.md)
 
-**Pages**
+#### Pages
 * [pages](.github/wp-admin/pages.md)
 * [pages.all](.github/wp-admin/pages.all.md)
 * [pages.item](.github/wp-admin/pages.item.md)
 
-**Comments**
+#### Comments
 * [comments](.github/wp-admin/comments.md)
 * [comments.all](.github/wp-admin/comments.all.md)
 
-**Appearance**
+#### Appearance
 * [appearance](.github/wp-admin/appearance.md)
 * [appearance.themes](.github/wp-admin/appearance.themes.md)
 * [appearance.customize](.github/wp-admin/appearance.customize.md)
@@ -125,19 +123,19 @@ return [
 * [appearance.menus](.github/wp-admin/appearance.menus.md)
 * [appearance.theme-editor](.github/wp-admin/appearance.theme-editor.md)
 
-**Plugins**
+#### Plugins
 * [plugins](.github/wp-admin/plugins.md)
 * [plugins.all](.github/wp-admin/plugins.all.md)
 * [plugins.add](.github/wp-admin/plugins.add.md)
 * [plugins.plugin-editor](.github/wp-admin/plugins.plugin-editor.md)
 
-**Users**
+#### Users
 * [users](.github/wp-admin/users.md)
 * [users.all](.github/wp-admin/users.all.md)
 * [users.add](.github/wp-admin/users.add.md)
 * [users.profile](.github/wp-admin/users.profile.md)
 
-**Tools**
+#### Tools
 * [tools](.github/wp-admin/tools.md)
 * [tools.available](.github/wp-admin/tools.available.md)
 * [tools.import](.github/wp-admin/tools.import.md)
@@ -146,7 +144,7 @@ return [
 * [tools.export-personal-data](.github/wp-admin/tools.export-personal-data.md)
 * [tools.erase-personal-data](.github/wp-admin/tools.erase-personal-data.md)
 
-**Settings**
+#### Settings
 * [settings](.github/wp-admin/settings.md)
 * [settings.general](.github/wp-admin/settings.general.md)
 * [settings.writing](.github/wp-admin/settings.writing.md)
@@ -209,6 +207,7 @@ return [
 * [Register custom taxonomy](.github/application/taxonomies.md#register)
 * [Register custom image sizes](.github/application/media.md#image-sizes)
 * [Register custom nav menu](.github/application/menus.md#register)
+* [Remove comments](.github/application/discussion.md#remove)
 * [Remove posttype](.github/application/posts.md#remove)
 * [Remove taxonomy](.github/application/taxonomies.md#remove)
 * [Remove image size](.github/application/media.md#image-sizes)
@@ -220,7 +219,7 @@ return [
 
 * **[Guide to upgrade from version 1.x.x to 2.x.x](.github/upgrading.md)**
 
-#### Composer:
+#### Composer
 
 * Change the composer.json version to ^2.0.0**<br>
 * Check [CHANGELOG.md](CHANGELOG.md) for any breaking changes before updating.
@@ -229,7 +228,7 @@ return [
 $ composer update
 ```
 
-#### WordPress:
+#### WordPress
 
 Includes support for github-updater to track updates through wp-admin.
 * [Download](https://github.com/afragen/github-updater)
@@ -239,6 +238,5 @@ Includes support for github-updater to track updates through wp-admin.
 * Better visual documentation.
 * Better support for the block editor.
 * Support `wp-admin` custom post types.
-* Support removing comments.
 
 **Have a suggestion, or want to track new releases? [@soberwp](https://twitter.com/soberwp)**
