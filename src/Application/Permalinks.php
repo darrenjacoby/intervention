@@ -96,7 +96,6 @@ class Permalinks
 
             add_action('template_redirect', function () use ($search_base, $pagination_base) {
                 if (is_search() && !empty($_GET['s'])) {
-                    //wp_redirect(home_url('/' . $search_base . '/') . urlencode(get_query_var('s')));
                     $location = '/' . $search_base . '/' . $_GET['s'];
                     if (isset($_GET['paged']) && $_GET['paged']) {
                         $location .= '/' . $pagination_base . '/' . $_GET['paged'];
@@ -109,9 +108,6 @@ class Permalinks
             $GLOBALS['wp_rewrite']->search_base = $search_base;
             
             if ( (get_option('current_rewrite_search_base') !== $search_base) || (get_option('current_rewrite_pagination_base') !== $pagination_base) ) {
-                //var_dump('Flushing rules, search_base is changed from: ' . get_option('current_rewrite_search_base') . ' to ' . $search_base);
-                //var_dump( 'or pagination_base has changed: ' . $pagination_base);
-    
                 add_rewrite_rule($search_base . '/([^/]+)/?$', 'index.php?s=$matches[1]', 'top');
                 add_rewrite_rule($search_base . '/([^/]+)(/' . $pagination_base . '/(\d+))/?$', 'index.php?s=$matches[1]&paged=$matches[3]', 'top');
     
