@@ -79,9 +79,7 @@ class Register
             $this->config->pull('links') :
             'post';
 
-        $this->links = is_string($links) ?
-            [$links] :
-            Arr::collect($links)->keys()->toArray();
+        $this->links = is_string($links) ? [$links] : $links;
     }
 
     /**

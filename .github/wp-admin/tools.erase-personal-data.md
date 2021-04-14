@@ -8,13 +8,17 @@ Remove tools erase-personal-data components.
 * For concise documentation, `option.[x, y]` has been abbreviated from `option.x, option.y`.
 
 ```php
-[
-    'tools.erase-personal-data',
-    'tools.erase-personal-data' => (string) $route,
-    'tools.erase-personal-data.title' => (string) $title,
-    'tools.erase-personal-data.title.[menu, page]' => (string) $title,
-    'tools.erase-personal-data.tabs',
-    'tools.erase-personal-data.tabs.[screen-options, help]',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'tools.erase-personal-data',
+        'tools.erase-personal-data' => (string) $route,
+        'tools.erase-personal-data.title' => (string) $title,
+        'tools.erase-personal-data.title.[menu, page]' => (string) $title,
+        'tools.erase-personal-data.tabs',
+        'tools.erase-personal-data.tabs.[screen-options, help]',
+    ],
 ];
 ```
 
@@ -25,16 +29,24 @@ Remove tools erase-personal-data components.
 Remove from menu;
 
 ```php
-[
-    'tools.erase-personal-data',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'tools.erase-personal-data',
+    ],
 ];
 ```
 
 Remove from menu and enforce a page redirect;
 
 ```php
-[
-    'tools.erase-personal-data' => 'posts',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'tools.erase-personal-data' => 'posts',
+    ],
 ];
 ```
 

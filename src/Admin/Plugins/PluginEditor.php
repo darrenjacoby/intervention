@@ -34,7 +34,7 @@ class PluginEditor
      */
     public function __construct($config = false)
     {
-        $compose = Composer::set(Arr::normalize($config));
+        $compose = Composer::set(Arr::normalizeTrue($config));
 
         $compose = $compose->has('plugins.plugin-editor.all')->add('plugins.plugin-editor.', [
             'tabs', 'pagination', 'add', 'search', 'subsets', 'actions', 'list',

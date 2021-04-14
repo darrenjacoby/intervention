@@ -50,7 +50,7 @@ class Edit
      */
     public function __construct($config = false)
     {
-        $compose = Composer::set(Arr::normalize($config));
+        $compose = Composer::set(Arr::normalizeTrue($config));
 
         $compose = $compose->has('posts.edit.all')->add('posts.edit.', [
             'tabs',
@@ -68,6 +68,7 @@ class Edit
             'discussion',
             'link',
             'featured-image',
+            'format',
         ]);
 
         $compose = $compose->has('posts.edit.tabs')->add('posts.edit.tabs.', [
@@ -94,7 +95,7 @@ class Edit
         $shared->router();
         // $shared->menu();
 
-        if ($GLOBALS['pagenow'] !== 'post.php' || get_post_type($_GET['post']) !== 'post') {
+        if ($GLOBALS['pagenow'] !== 'post.php' || (isset($_GET['post']) && get_post_type($_GET['post']) !== 'post')) {
             return;
         }
 

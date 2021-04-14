@@ -23,14 +23,17 @@ return [
             'disable-comments' => true,
             'regenerate-thumbnails' => true,
         ],
-        'site' => [
+        'general' => [
             'site-title' => 'soberwp',
             'tagline' => 'Tools for WordPress',
             'wp-address' => 'https://soberwp.com/wp',
             'site-address' => 'https://soberwp.com',
             'admin-email' => 'example@soberwp.com',
+            'email-from' => 'app@soberwp.com'
+            'email-from-name' => 'soberwp'
             'membership' => true,
             'default-role' => 'editor',
+            'language' => 'en_US',
             'timezone' => 'Africa/Johannesburg',
             'date-format' => 'F j Y',
             'time-format' => 'g:i a',

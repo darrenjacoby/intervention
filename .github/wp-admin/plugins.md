@@ -5,11 +5,15 @@ Update, remove or redirect the plugins menu item.
 ### Options;
 
 ```php
-[
-    'plugins',
-    'plugins' => (string) $route,
-    'plugins.title' => (string) $title,
-    'plugins.icon' => (string) $dashicon,
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'plugins',
+        'plugins' => (string) $route,
+        'plugins.title' => (string) $title,
+        'plugins.icon' => (string) $dashicon,
+    ],
 ];
 ```
 
@@ -21,16 +25,24 @@ Update, remove or redirect the plugins menu item.
 Remove from menu;
 
 ```php
-[
-    'plugins',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'plugins',
+    ],
 ];
 ```
 
 Remove from menu and enforce a page redirect;
 
 ```php
-[
-    'plugins' => 'posts',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'plugins' => 'posts',
+    ],
 ];
 ```
 

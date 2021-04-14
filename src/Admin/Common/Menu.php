@@ -2,6 +2,7 @@
 
 namespace Sober\Intervention\Admin\Common;
 
+use Sober\Intervention\Admin\Support\Maps;
 use Sober\Intervention\Support\Arr;
 use Sober\Intervention\Support\Composer;
 
@@ -33,7 +34,7 @@ class Menu
      */
     public function __construct($config = false)
     {
-        $compose = Composer::set(Arr::normalize($config));
+        $compose = Composer::set(Arr::normalizeTrue($config));
 
         $compose = $compose->has('common.menu')->add('common.menu.', [
             'collapse', 'icons', 'nags',
@@ -49,6 +50,7 @@ class Menu
     protected function hook()
     {
         add_action('admin_head', [$this, 'head']);
+        $this->order();
     }
 
     /**
@@ -72,7 +74,37 @@ class Menu
         }
 
         if ($this->config->has('common.menu.nags')) {
-            echo '<style>#adminmenu div.wp-menu-name span {display:none!important;}</style>';
+            echo '<style>#adminmenu span {display:none!important;}</style>';
         }
+    }
+
+    /**
+     * Order
+     */
+    public function order()
+    {
+        $order = Composer::set($this->config)
+            ->groupKeys('common.menu.order')
+            ->get();
+
+        if ($order->isEmpty()) {
+            return;
+        }
+
+        $screens = Maps::set('screens');
+
+        $menu_arr = $order->map(function ($item) use ($screens) {
+            if ($screens->has($item)) {
+                return $screens->get($item);
+            }
+            return $item;
+        })
+        ->toArray();
+
+        add_filter('custom_menu_order', '__return_true');
+
+        add_action('menu_order', function ($menu_order) use ($menu_arr) {
+            return $menu_arr;
+        });
     }
 }

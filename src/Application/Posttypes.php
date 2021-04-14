@@ -85,6 +85,10 @@ class Posttypes
         $one = $one === true ? Str::studly($this->posttype) : $one;
         $one = $this->config->has('one') ? $this->config->get('one') : $one;
 
+        if (!$one) {
+            return;
+        }
+
         // Update `$this->config` with returned array from class `Labels`
         $labels = Labels::set($one, $this->config->get('many'), $this->config->get('labels'))->get();
         $this->config->put('labels', $labels);

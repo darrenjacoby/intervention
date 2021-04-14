@@ -8,21 +8,25 @@ Remove pages item components.
 * For concise documentation, `option.[x, y]` has been abbreviated from `option.x, option.y`.
 
 ```php
-[
-    'pages.item',
-    'pages.item' => (string) $route,
-    'pages.item.title' => (string) $title,
-    'pages.item.title.[menu, page]' => (string) $title,
-    'pages.item.title-link',
-    'pages.item.tabs',
-    'pages.item.tabs.[screen-options, help]',
-    'pages.item.editor',
-    'pages.item.author',
-    'pages.item.link',
-    'pages.item.featured-image',
-    'pages.item.attributes',
-    'pages.item.custom-fields',
-    'pages.item.discussion',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'pages.item',
+        'pages.item' => (string) $route,
+        'pages.item.title' => (string) $title,
+        'pages.item.title.[menu, page]' => (string) $title,
+        'pages.item.title-link',
+        'pages.item.tabs',
+        'pages.item.tabs.[screen-options, help]',
+        'pages.item.editor',
+        'pages.item.author',
+        'pages.item.link',
+        'pages.item.featured-image',
+        'pages.item.attributes',
+        'pages.item.custom-fields',
+        'pages.item.discussion',
+    ],
 ];
 ```
 
@@ -33,16 +37,24 @@ Remove pages item components.
 Remove from menu;
 
 ```php
-[
-    'pages.item',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'pages.item',
+    ],
 ];
 ```
 
 Remove from menu and enforce a page redirect;
 
 ```php
-[
-    'pages.item' => 'posts',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'pages.item' => 'posts',
+    ],
 ];
 ```
 

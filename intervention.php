@@ -3,7 +3,7 @@
 Plugin Name:        Intervention
 Plugin URI:         http://github.com/soberwp/intervention
 Description:        Easily customize wp-admin and configure application options.
-Version:            2.0.0-rc.1
+Version:            2.0.0-rc.2
 Author:             Sober
 Author URI:         http://github.com/soberwp/
 License:            MIT License
@@ -19,6 +19,8 @@ namespace Sober\Intervention;
 if (!defined('ABSPATH')) {
     die;
 };
+
+define('INTERVENTION_DIR', dirname(__FILE__));
 
 /**
  * Support for Bedrock/Composer

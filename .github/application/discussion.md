@@ -5,8 +5,11 @@ Set application discussion options.
 ### Options;
 
 ```php
-[
-    'discussion' => [
+<?php
+
+return [
+    'application.discussion' => (boolean) $enable_discussion,
+    'application.discussion' => [
         'post.ping-flag' => (boolean) $enable_ping_flag,
         'post.ping-status' => (boolean) $enable_ping_status,
         'post.comments' => (boolean) $enable_comments,
@@ -38,8 +41,10 @@ Set application discussion options.
 ### Example;
 
 ```php
-[
-    'discussion' => [
+<?php
+
+return [
+    'application.discussion' => [
         'post.ping-flag' => true,
         'post.ping-status' => false,
         'post.comments' => false,
@@ -65,6 +70,16 @@ Set application discussion options.
         'avatars.rating' => 'PG',
         'avatars.default' => 'blank',
     ],
+];
+```
+
+#### Remove
+
+```php
+<?php
+
+return [
+    'application.discussion' => false,
 ];
 ```
 

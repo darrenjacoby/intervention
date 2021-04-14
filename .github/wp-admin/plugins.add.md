@@ -8,20 +8,24 @@ Remove plugins add-new components.
 * For concise documentation, `option.[x, y]` has been abbreviated from `option.x, option.y`.
 
 ```php
-[
-    'plugins.add',
-    'plugins.add' => (string) $route,
-    'plugins.add.title' => (string) $title,
-    'plugins.add.title.[menu, page]' => (string) $title,
-    'plugins.add.title-link',
-    'plugins.add.tabs',
-    'plugins.add.tabs.help',
-    'plugins.add.filter',
-    'plugins.add.filter.[featured, popular, recommended, favorites]',
-    'plugins.add.search',
-    'plugins.add.popular-tags',
-    'plugins.add.item',
-    'plugins.add.item.[actions, meta]',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'plugins.add',
+        'plugins.add' => (string) $route,
+        'plugins.add.title' => (string) $title,
+        'plugins.add.title.[menu, page]' => (string) $title,
+        'plugins.add.title-link',
+        'plugins.add.tabs',
+        'plugins.add.tabs.help',
+        'plugins.add.filter',
+        'plugins.add.filter.[featured, popular, recommended, favorites]',
+        'plugins.add.search',
+        'plugins.add.popular-tags',
+        'plugins.add.item',
+        'plugins.add.item.[actions, meta]',
+    ],
 ];
 ```
 
@@ -32,16 +36,24 @@ Remove plugins add-new components.
 Remove from menu;
 
 ```php
-[
-    'plugins.add',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'plugins.add',
+    ],
 ];
 ```
 
 Remove from menu and enforce a page redirect;
 
 ```php
-[
-    'plugins.add' => 'posts',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'plugins.add' => 'posts',
+    ],
 ];
 ```
 

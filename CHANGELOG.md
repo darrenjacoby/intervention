@@ -1,6 +1,15 @@
 # Changelog
 
-### 2.0.0-rc
+### 2.0.0-rc.2
+**08/02/2021**
+* Fixes
+* Menu order
+* Language application option
+* Read only application
+* Menu icons for WP 5.6+
+* Permalinks search-base
+
+### 2.0.0-rc.1
 **26/10/2020**
 * Rewrite
 

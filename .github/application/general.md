@@ -1,19 +1,24 @@
-## `application.site`
+## `application.general`
 
-Set application site/general options.
+Set application general options.
 
 ### Options;
 
 ```php
-[
-    'site' => [
+<?php
+
+return [
+    'application.general' => [
         'site-title' => (string) $title,
         'tagline' => (string) $tagline,
         'wp-address' => (string) $wp_url,
         'site-address' => (string) $site_url,
         'admin-email' => (string) $admin_email,
+        'email-from' => (string) $email_from,
+        'email-from-name' => (string) $email_from_name,
         'membership' => (boolean) $enable_membership,
         'default-role' => (string) $role,
+        'language' => (string) $language,
         'timezone' => (string) $timezone,
         'date-format' => (string) $date_format,
         'time-format' => (string) $time_format,
@@ -25,15 +30,20 @@ Set application site/general options.
 ### Example;
 
 ```php
-[
-    'site' => [
+<?php
+
+return [
+    'application.general' => [
         'site-title' => 'soberwp',
         'tagline' => 'Tools for WordPress',
         'wp-address' => 'https://soberwp.com/wp',
         'site-address' => 'https://soberwp.com',
         'admin-email' => 'example@soberwp.com',
+        'email-from' => 'app@soberwp.com'
+        'email-from-name' => 'soberwp'
         'membership' => true,
         'default-role' => 'editor',
+        'language' => 'en_US',
         'timezone' => 'Africa/Johannesburg',
         'date-format' => 'F j Y',
         'time-format' => 'g:i a',
@@ -42,19 +52,23 @@ Set application site/general options.
 ];
 ```
 
+### Note;
+
+The language must be installed and available in order for `'language' => (string) $language` to work. You can see if the language is available using [get_available_languages()](https://developer.wordpress.org/reference/functions/get_available_languages/).
+
 ### Further Reading;
 
 * **Option Reference**
     * [https://codex.wordpress.org/Option_Reference#General](https://codex.wordpress.org/Option_Reference#Reading)
-* `site.timezone`
+* `general.timezone`
     * [WordPress accepted timezones gist](https://gist.github.com/mj1856/f0eaa302d56cd7b3dd3e)
-* `site.date-format`
+* `general.date-format`
     * [https://www.php.net/manual/en/datetime.formats.date.php](https://www.php.net/manual/en/datetime.formats.date.php)
-* `site.time-format`
+* `general.time-format`
     * [https://www.php.net/manual/en/datetime.formats.time.php](https://www.php.net/manual/en/datetime.formats.time.php)
-* `site.week-starts`
+* `general.week-starts`
     * [https://www.php.net/manual/en/datetime.formats.relative.php](https://www.php.net/manual/en/datetime.formats.relative.php)
 
 ### Bug?
 
-* **[Please open an issue](https://github.com/soberwp/intervention/issues/new?title=[application.site]&labels=bug&assignees=darrenjacoby)**
+* **[Please open an issue](https://github.com/soberwp/intervention/issues/new?title=[application.general]&labels=bug&assignees=darrenjacoby)**

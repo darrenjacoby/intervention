@@ -43,8 +43,9 @@ class Register
         $this->posttype = $posttype;
         $this->config = $config;
         $this->setDefaults();
-        $this->setSupports();
-        $this->setTaxonomies();
+        // $this->setSupports();
+        // $this->setTemplate();
+        // $this->setTaxonomies();
         $this->register();
     }
 
@@ -63,20 +64,40 @@ class Register
     /**
      * Set Supports
      *
-     * Transform from [$x => true, $y = true] to [$x, $y]
+     * Transform from [$x => true, $y = true] to [$x, $y] and convert to dashcase
      *
      * @param string $this->config
      */
+    /*
     public function setSupports()
     {
         if ($this->config->has('supports')) {
-            $keys = Arr::collect($this->config->get('supports'))->keys()->toArray();
-            $keys = array_map(function ($value) {
-                return str_replace('_', '-', $value);
-            }, $keys);
+            $supports = Arr::transformKeysToDashcase($this->config->get('supports'));
+            $keys = Arr::collect($supports)->keys()->toArray();
             $this->config->put('supports', $keys);
         }
     }
+    */
+
+    /**
+     * Set Template
+     *
+     * Transform from ['core/x' => true] to [0 => 'core/x']
+     *
+     * @param string $this->config
+     */
+    /*
+    public function setTemplate()
+    {
+        if ($this->config->has('template')) {
+            $template = $this->config->pull('template');
+            $template = Arr::transform($template, function ($k, $v) {
+                return $v === true ? [0, $k] : [$k, $v];
+            });
+            $this->config->put('template', $template);
+        }
+    }
+    */
 
     /**
      * Set Taxonomies
@@ -85,6 +106,7 @@ class Register
      *
      * @param string $this->config
      */
+    /*
     public function setTaxonomies()
     {
         $taxonomies = $this->config->has('taxonomies') ?
@@ -99,6 +121,7 @@ class Register
             $this->config->put('taxonomies', $taxonomies);
         }
     }
+    */
 
     /**
      * Register

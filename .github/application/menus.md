@@ -5,8 +5,10 @@ Set application menus.
 ### Options;
 
 ```php
-[
-    'menus' => [
+<?php
+
+return [
+    'application.menus' => [
         '$name' => (boolean|string) $enable|$name
     ],
 ];
@@ -17,8 +19,10 @@ Set application menus.
 #### Register
 
 ```php
-[
-    'menus' => [
+<?php
+
+return [
+    'application.menus' => [
         'main' => true,
         'side' => 'Sidebar'
     ],
@@ -30,8 +34,10 @@ Passing in `true` will use the key in studly case. `main_menu` displays as `Main
 ### Remove;
 
 ```php
-[
-    'menus' => [
+<?php
+
+return [
+    'application.menus' => [
         'primary_navigation' => false,
     ],
 ];

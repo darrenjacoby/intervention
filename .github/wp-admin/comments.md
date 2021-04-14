@@ -5,11 +5,15 @@ Update, remove or redirect the comments menu item.
 ### Options;
 
 ```php
-[
-    'comments',
-    'comments' => (string) $route,
-    'comments.title' => (string) $title,
-    'comments.icon' => (string) $dashicon,
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'comments',
+        'comments' => (string) $route,
+        'comments.title' => (string) $title,
+        'comments.icon' => (string) $dashicon,
+    ],
 ];
 ```
 
@@ -21,16 +25,24 @@ Update, remove or redirect the comments menu item.
 Remove from menu;
 
 ```php
-[
-    'comments',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'comments',
+    ],
 ];
 ```
 
 Remove from menu and enforce a page redirect;
 
 ```php
-[
-    'comments' => 'posts',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'comments' => 'posts',
+    ],
 ];
 ```
 

@@ -29,9 +29,7 @@ class Intervention
             return;
         }
 
-        $config = Arr::normalize($config);
-
-        $admin = Composer::set($config)
+        $admin = Composer::set(Arr::normalizeTrue($config))
             ->group('wp-admin')
             ->get();
 
@@ -39,7 +37,7 @@ class Intervention
             $this->initRoleFromConfigFile($admin, $class, $k);
         });
 
-        $application = Composer::set($config)
+        $application = Composer::set(Arr::normalize($config))
             ->group('application')
             ->get();
 
@@ -86,6 +84,17 @@ class Intervention
             $wp_roles = new \WP_Roles();
             $current_user = wp_get_current_user();
 
+            /** 
+             * Support multisite 
+             * 
+             * WordPress passes `$current_user->roles` as an empty array
+             * when the user is a super-administrator on a multisite setup,
+             * so we manually add 'administrator' to `$current_user->roles`
+             */
+            if (is_multisite() && empty($current_user->roles)) {
+                $current_user->roles = ['administrator'];
+            }
+
             $init = $group->filter(function ($v, $k) use ($str, $wp_roles, $current_user) {
                 $key = Str::explode('.', $k);
                 $roles = Str::explode('|', $key->shift());
@@ -108,7 +117,7 @@ class Intervention
                 $role_allowed = $roles
                     ->values()
                     ->map(function ($role) use ($current_user) {
-                        if (in_array($role, $current_user->roles) || $role === 'all') {
+                        if (in_array($role, $current_user->roles) || $role === 'all' || $role === $current_user->user_login) {
                             return true;
                         }
                     });

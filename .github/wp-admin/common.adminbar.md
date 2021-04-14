@@ -8,23 +8,27 @@ Remove wp-admin adminbar components.
 * For concise documentation, `option.[x, y]` has been abbreviated from `option.x, option.y`.
 
 ```php
-[
-    'common.adminbar',
-    'common.adminbar.wp',
-    'common.adminbar.wp.[about, documentation, support, feedback]',
-    'common.adminbar.updates',
-    'common.adminbar.site',
-    'common.adminbar.site.[menu, visit, dashboard, themes, widgets, menus]',
-    'common.adminbar.comments',
-    'common.adminbar.new',
-    'common.adminbar.new.[post, page, media, user]',
-    'common.adminbar.edit',
-    'common.adminbar.view',
-    'common.adminbar.view.[archive, single]',
-    'common.adminbar.user',
-    'common.adminbar.user.[howdy, avatar, profile, edit]',
-    'common.adminbar.search',
-    'common.adminbar.theme',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'common.adminbar',
+        'common.adminbar.wp',
+        'common.adminbar.wp.[about, documentation, support, feedback]',
+        'common.adminbar.updates',
+        'common.adminbar.site',
+        'common.adminbar.site.[menu, visit, dashboard, themes, widgets, menus]',
+        'common.adminbar.comments',
+        'common.adminbar.new',
+        'common.adminbar.new.[post, page, media, user]',
+        'common.adminbar.edit',
+        'common.adminbar.view',
+        'common.adminbar.view.[archive, single]',
+        'common.adminbar.user',
+        'common.adminbar.user.[howdy, avatar, profile, edit]',
+        'common.adminbar.search',
+        'common.adminbar.theme',
+    ],
 ];
 ```
 
@@ -33,16 +37,24 @@ Remove wp-admin adminbar components.
 Remove all;
 
 ```php
-[
-    'common.adminbar',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'common.adminbar',
+    ],
 ];
 ```
 
 Remove from theme view;
 
 ```php
-[
-    'common.adminbar.theme',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'common.adminbar.theme',
+    ],
 ];
 ```
 

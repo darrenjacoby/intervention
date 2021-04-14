@@ -8,14 +8,18 @@ Remove users add-new components.
 * For concise documentation, `option.[x, y]` has been abbreviated from `option.x, option.y`.
 
 ```php
-[
-    'users.add',
-    'users.add' => (string) $route,
-    'users.add.title' => (string) $title,
-    'users.add.title.[menu, page]' => (string) $title,
-    'users.add.tabs',
-    'users.add.tabs.[screen-options, help]',
-    'users.add.user-notification'
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'users.add',
+        'users.add' => (string) $route,
+        'users.add.title' => (string) $title,
+        'users.add.title.[menu, page]' => (string) $title,
+        'users.add.tabs',
+        'users.add.tabs.[screen-options, help]',
+        'users.add.user-notification',
+    ],
 ];
 ```
 
@@ -26,16 +30,24 @@ Remove users add-new components.
 Remove from menu;
 
 ```php
-[
-    'users.add',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'users.add',
+    ],
 ];
 ```
 
 Remove from menu and enforce a page redirect;
 
 ```php
-[
-    'users.add' => 'posts',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'users.add' => 'posts',
+    ],
 ];
 ```
 

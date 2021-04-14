@@ -47,7 +47,7 @@ class Add
      */
     public function __construct($config = false)
     {
-        $compose = Composer::set(Arr::normalize($config));
+        $compose = Composer::set(Arr::normalizeTrue($config));
 
         $compose = $compose->has('plugins.add.all')->add('plugins.add.', [
             'title-link', 'tabs', 'filter', 'search', 'popular-tags', 'item',

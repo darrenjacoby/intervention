@@ -34,7 +34,7 @@ class Footer
      */
     public function __construct($config = false)
     {
-        $compose = Composer::set(Arr::normalize($config));
+        $compose = Composer::set(Arr::normalizeTrue($config));
 
         $compose = $compose->has('common.footer')->add('common.footer.', [
             'credit', 'version',

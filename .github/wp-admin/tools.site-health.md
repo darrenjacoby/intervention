@@ -8,11 +8,15 @@ Remove tools site-health components.
 * For concise documentation, `option.[x, y]` has been abbreviated from `option.x, option.y`.
 
 ```php
-[
-    'tools.site-health',
-    'tools.site-health' => (string) $route,
-    'tools.site-health.title' => (string) $title,
-    'tools.site-health.title.[menu, page]' => (string) $title,
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'tools.site-health',
+        'tools.site-health' => (string) $route,
+        'tools.site-health.title' => (string) $title,
+        'tools.site-health.title.[menu, page]' => (string) $title,
+    ],
 ];
 ```
 
@@ -23,16 +27,24 @@ Remove tools site-health components.
 Remove from menu;
 
 ```php
-[
-    'tools.site-health',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'tools.site-health',
+    ],
 ];
 ```
 
 Remove from menu and enforce a page redirect;
 
 ```php
-[
-    'tools.site-health' => 'posts',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'tools.site-health' => 'posts',
+    ],
 ];
 ```
 

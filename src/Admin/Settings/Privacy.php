@@ -37,7 +37,7 @@ class Privacy
      */
     public function __construct($config = false)
     {
-        $compose = Composer::set(Arr::normalize($config));
+        $compose = Composer::set(Arr::normalizeTrue($config));
 
         $compose = $compose->has('settings.privacy.all')->add('settings.privacy.', [
             'tabs', 'policy-page',

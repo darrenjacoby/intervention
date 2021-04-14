@@ -62,7 +62,7 @@ class Widgets
      */
     public function __construct($config = false)
     {
-        $compose = Composer::set(Arr::normalize($config));
+        $compose = Composer::set(Arr::normalizeTrue($config));
 
         $compose = $compose->has('appearance.widgets.all')->add('appearance.widgets.', [
             'title-link', 'tabs', 'inactive', 'available',

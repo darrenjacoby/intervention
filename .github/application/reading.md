@@ -5,8 +5,10 @@ Set application reading options.
 ### Options;
 
 ```php
-[
-    'reading' => [
+<?php
+
+return [
+    'application.reading' => [
         'front-page' => (string|int) 'post'|$page_id,
         'front-page.posts' => (string) $page_id_for_posts,
         'posts-per-page' => (int) $posts_per_page,
@@ -20,8 +22,10 @@ Set application reading options.
 ### Example;
 
 ```php
-[
-    'reading' => [
+<?php
+
+return [
+    'application.reading' => [
         'front-page' => 2,
         'front-page.posts' => 4,
         'posts-per-page' => 20,

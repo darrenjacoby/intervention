@@ -8,13 +8,17 @@ Remove wp-admin plugin editor components.
 * For concise documentation, `option.[x, y]` has been abbreviated from `option.x, option.y`.
 
 ```php
-[
-    'plugins.plugin-editor',
-    'plugins.plugin-editor' => (string) $route,
-    'plugins.plugin-editor.title' => (string) $title,
-    'plugins.plugin-editor.title.[menu, page]' => (string) $title,
-    'plugins.plugin-editor.tabs',
-    'plugins.plugin-editor.tabs.[screen-options, help]',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'plugins.plugin-editor',
+        'plugins.plugin-editor' => (string) $route,
+        'plugins.plugin-editor.title' => (string) $title,
+        'plugins.plugin-editor.title.[menu, page]' => (string) $title,
+        'plugins.plugin-editor.tabs',
+        'plugins.plugin-editor.tabs.[screen-options, help]',
+    ],
 ];
 ```
 
@@ -25,16 +29,24 @@ Remove wp-admin plugin editor components.
 Remove from menu;
 
 ```php
-[
-    'plugins.plugin-editor',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'plugins.plugin-editor',
+    ],
 ];
 ```
 
 Remove from menu and enforce a page redirect;
 
 ```php
-[
-    'plugins.plugin-editor' => 'posts',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'plugins.plugin-editor' => 'posts',
+    ],
 ];
 ```
 

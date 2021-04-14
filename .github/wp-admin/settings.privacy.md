@@ -8,14 +8,18 @@ Remove settings privacy components.
 * For concise documentation, `option.[x, y]` has been abbreviated from `option.x, option.y`.
 
 ```php
-[
-    'settings.privacy',
-    'settings.privacy' => (string) $route,
-    'settings.privacy.title' => (string) $title,
-    'settings.privacy.title.[menu, page]' => (string) $title,
-    'settings.privacy.tabs',
-    'settings.privacy.tabs.[screen-options, help]',
-    'settings.privacy.policy-page',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'settings.privacy',
+        'settings.privacy' => (string) $route,
+        'settings.privacy.title' => (string) $title,
+        'settings.privacy.title.[menu, page]' => (string) $title,
+        'settings.privacy.tabs',
+        'settings.privacy.tabs.[screen-options, help]',
+        'settings.privacy.policy-page',
+    ],
 ];
 ```
 
@@ -26,16 +30,24 @@ Remove settings privacy components.
 Remove from menu;
 
 ```php
-[
-    'settings.privacy',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'settings.privacy',
+    ],
 ];
 ```
 
 Remove from menu and enforce a page redirect;
 
 ```php
-[
-    'settings.privacy' => 'posts',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'settings.privacy' => 'posts',
+    ],
 ];
 ```
 

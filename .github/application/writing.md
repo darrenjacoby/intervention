@@ -5,8 +5,10 @@ Set application writing options.
 ### Options;
 
 ```php
-[
-    'writing' => [
+<?php
+
+return [
+    'application.writing' => [
         'emoji' => (boolean) $enable_emoji,
         'default-category' => (int) $default_category_id,
         'default-post-format' => (string) $default_post_format,
@@ -23,8 +25,10 @@ Set application writing options.
 ### Example;
 
 ```php
-[
-    'writing' => [
+<?php
+
+return [
+    'application.writing' => [
         'emoji' => false,
         'default-category' => 10,
         'default-post-format' => 'standard',

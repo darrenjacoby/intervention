@@ -37,7 +37,7 @@ class Item
      */
     public function __construct($config = false)
     {
-        $compose = Composer::set(Arr::normalize($config));
+        $compose = Composer::set(Arr::normalizeTrue($config));
 
         $compose = $compose->has('posts.categories.item.all')->add('posts.categories.item.', [
             'slug', 'parent', 'description',

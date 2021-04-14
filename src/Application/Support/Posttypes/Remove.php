@@ -82,8 +82,21 @@ class Remove
          */
         $menu_position = $GLOBALS['wp_post_types'][$this->posttype]->menu_position;
         unset($GLOBALS['menu'][$menu_position]);
-        unset($GLOBALS['wp_post_types'][$this->posttype]);
         unset($GLOBALS['_wp_post_type_features'][$this->posttype]);
+
+        // suppress wp errors
+        // https://wordpress.stackexchange.com/questions/293148/how-do-i-remove-the-default-post-type-from-the-admin-toolbar
+        // unset($GLOBALS['wp_post_types'][$this->posttype]);
+        $GLOBALS['wp_post_types'][$this->posttype]->public = false;
+        $GLOBALS['wp_post_types'][$this->posttype]->show_ui = false;
+        $GLOBALS['wp_post_types'][$this->posttype]->show_in_menu = false;
+        $GLOBALS['wp_post_types'][$this->posttype]->show_in_admin_bar = false;
+        $GLOBALS['wp_post_types'][$this->posttype]->show_in_nav_menus = false;
+        $GLOBALS['wp_post_types'][$this->posttype]->can_export = false;
+        $GLOBALS['wp_post_types'][$this->posttype]->has_archive = false;
+        $GLOBALS['wp_post_types'][$this->posttype]->exclude_from_search = true;
+        $GLOBALS['wp_post_types'][$this->posttype]->publicly_queryable = false;
+        $GLOBALS['wp_post_types'][$this->posttype]->show_in_rest = false;
 
         /**
          * Admin

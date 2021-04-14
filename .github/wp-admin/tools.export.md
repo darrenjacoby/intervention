@@ -8,13 +8,17 @@ Remove tools export components.
 * For concise documentation, `option.[x, y]` has been abbreviated from `option.x, option.y`.
 
 ```php
-[
-    'tools.export',
-    'tools.export' => (string) $route,
-    'tools.export.title' => (string) $title,
-    'tools.export.title.[menu, page]' => (string) $title,
-    'tools.export.tabs',
-    'tools.export.tabs.[screen-options, help]',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'tools.export',
+        'tools.export' => (string) $route,
+        'tools.export.title' => (string) $title,
+        'tools.export.title.[menu, page]' => (string) $title,
+        'tools.export.tabs',
+        'tools.export.tabs.[screen-options, help]',
+    ],
 ];
 ```
 
@@ -25,16 +29,24 @@ Remove tools export components.
 Remove from menu;
 
 ```php
-[
-    'tools.export',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'tools.export',
+    ],
 ];
 ```
 
 Remove from menu and enforce a page redirect;
 
 ```php
-[
-    'tools.export' => 'posts',
+<?php
+
+return [
+    'wp-admin.$role|$username' => [
+        'tools.export' => 'posts',
+    ],
 ];
 ```
 
