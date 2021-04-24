@@ -50,7 +50,7 @@ class Comments
         Admin::set('settings.discussion', true);
         Admin::set('appearance.widgets.available.recent-comments', true);
         Admin::set('users.profile.options.shortcuts', true);
-        BlockEditor::set('discussion', true);
+        BlockEditor::set(['discussion']);
     }
 
     /** 
