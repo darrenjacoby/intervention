@@ -39,7 +39,6 @@ class BlockEditor
             }
 
             wp_enqueue_script('intervention-block-editor', plugin_dir_url(__DIR__) . 'Support/BlockEditor.js', ['wp-blocks', 'wp-edit-post']);
-
             wp_localize_script('intervention-block-editor', 'config', $config);
         });
     }
