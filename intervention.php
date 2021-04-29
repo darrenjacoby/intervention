@@ -25,7 +25,9 @@ define('INTERVENTION_DIR', dirname(__FILE__));
 /**
  * Support for Bedrock/Composer
  */
-include file_exists($composer = __DIR__ . '/vendor/autoload.php') ? $composer : __DIR__ . '/dist/autoload.php';
+if (!class_exists('Sober\Intervention\Intervention')) {
+    include file_exists($composer = __DIR__ . '/vendor/autoload.php') ? $composer : __DIR__ . '/dist/autoload.php';
+}
 
 /**
  * Return user config for Intervention
@@ -39,7 +41,7 @@ function get()
         $theme . '/intervention.php';
 
     $config = has_filter('sober/intervention/return') ?
-        apply_filters('sober/intervention/return', rtrim($path)) :
+        apply_filters('sober/intervention/return', rtrim($default)) :
         $default;
 
     if (!file_exists($config)) {

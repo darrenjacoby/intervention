@@ -84,9 +84,9 @@ class Intervention
             $wp_roles = new \WP_Roles();
             $current_user = wp_get_current_user();
 
-            /** 
-             * Support multisite 
-             * 
+            /**
+             * Support multisite
+             *
              * WordPress passes `$current_user->roles` as an empty array
              * when the user is a super-administrator on a multisite setup,
              * so we manually add 'administrator' to `$current_user->roles`
