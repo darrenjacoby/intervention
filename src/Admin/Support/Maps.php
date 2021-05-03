@@ -13,7 +13,7 @@ use Sober\Intervention\Support\Arr;
  */
 class Maps
 {
-    const SCREENS = [
+    public const SCREENS = [
         'dashboard' => 'index.php',
         'dashboard.home' => 'index.php',
         'dashboard.updates' => 'update-core.php',
@@ -72,7 +72,7 @@ class Maps
         'custom-fields.tools' => '',
     ];
 
-    const MENU_POSITIONS = [
+    public const MENU_POSITIONS = [
         'dashboard' => 2,
         'dashboard.home' => 0,
         'dashboard.updates' => 10,
