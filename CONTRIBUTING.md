@@ -9,12 +9,18 @@ $ composer install
 
 ## Guidelines
 
-### PHPCS/PSR-2
+### PSR-12
 
-Run [PHPCS](https://github.com/squizlabs/PHP_CodeSniffer) to ensure new code complies with PSR-2 guidelines.
+Run [Easy Coding Standards](https://github.com/symplify/easy-coding-standard) to ensure new code complies with PSR-12 guidelines.
 
 ```shell
-$ composer test
+$ composer lint
+```
+
+Most errors can easily be fixed with:
+
+```shell
+$ composer lint:fix
 ```
 
 ### Composer/Phing
