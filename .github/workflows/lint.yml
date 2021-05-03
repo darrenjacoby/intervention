@@ -1,0 +1,14 @@
+name: Tests
+
+on: ['pull_request', 'push']
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: 7.4
+      - uses: ramsey/composer-install@v1
+      - run: composer lint
