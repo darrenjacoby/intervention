@@ -19,7 +19,7 @@ $ composer test
 
 ### Composer/Phing
 
-Changes to `composer.json` require a build step to create a `dist` folder for WordPress users who do not use Composer to manage their depedencies. 
+Changes to `composer.json` require a build step to create a `dist` folder for WordPress users who do not use Composer to manage their depedencies.
 
 Run [Phing](https://www.phing.info/) to build the `dist` folder.
 

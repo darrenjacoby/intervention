@@ -24,7 +24,8 @@ class Comments
     /**
      * Remove
      */
-    public static function remove() {
+    public static function remove()
+    {
         $self = new self();
 
         add_filter('rest_endpoints', [$self, 'filterRestEndpoints']);
@@ -53,7 +54,7 @@ class Comments
         BlockEditor::set(['discussion']);
     }
 
-    /** 
+    /**
      * Disable support for comments and trackbacks in post types
      */
     public function removePostTypesSupport()
@@ -68,7 +69,7 @@ class Comments
         }
     }
 
-    /** 
+    /**
      * Redirect any user trying to access comments page
      */
     public function adminMenuRedirect()
