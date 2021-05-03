@@ -21,7 +21,7 @@
   "require-dev": {
     "composer/installers": "^1.11",
     "phing/phing": "^2.16.4",
-    "squizlabs/php_codesniffer": "3.6.0"
+    "symplify/easy-coding-standard": "^9.3"
   },
   "autoload": {
     "psr-4": {
@@ -32,8 +32,11 @@
     "build": [
       "vendor/bin/phing"
     ],
-    "test": [
-      "vendor/bin/phpcs --extensions=php ./src"
+    "lint": [
+      "vendor/bin/ecs check"
+    ],
+    "lint:fix": [
+      "vendor/bin/ecs check --fix"
     ]
   },
   "support": {

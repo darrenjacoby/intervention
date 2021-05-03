@@ -13,7 +13,7 @@ namespace Sober\Intervention\Support;
  */
 class Routes
 {
-    const APPLICATION = [
+    public const APPLICATION = [
         'posttypes' => 'Application\Posttypes',
         'posts' => 'Application\Posts',
         'taxonomies' => 'Application\Taxonomies',
@@ -32,7 +32,7 @@ class Routes
         'privacy' => 'Application\Privacy',
     ];
 
-    const WP_ADMIN = [
+    public const WP_ADMIN = [
         'login' => 'Admin\Login',
         'common.adminbar' => 'Admin\Common\Adminbar',
         'common.footer' => 'Admin\Common\Footer',
