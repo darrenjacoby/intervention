@@ -107,7 +107,7 @@ class Permalinks
 
             $GLOBALS['wp_rewrite']->search_base = $search_base;
             
-            if ( (get_option('current_rewrite_search_base') !== $search_base) || (get_option('current_rewrite_pagination_base') !== $pagination_base) ) {
+            if ((get_option('current_rewrite_search_base') !== $search_base) || (get_option('current_rewrite_pagination_base') !== $pagination_base)) {
                 add_rewrite_rule($search_base . '/([^/]+)/?$', 'index.php?s=$matches[1]', 'top');
                 add_rewrite_rule($search_base . '/([^/]+)(/' . $pagination_base . '/(\d+))/?$', 'index.php?s=$matches[1]&paged=$matches[3]', 'top');
     
