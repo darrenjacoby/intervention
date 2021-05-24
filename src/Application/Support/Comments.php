@@ -48,6 +48,7 @@ class Comments
         Admin::set('common.adminbar.comments', true);
         Admin::set('dashboard.home.recent-commments', true);
         Admin::set('posts.all.list.cols.comments', true);
+        Admin::set('pages.all.list.cols.comments', true);
         Admin::set('comments', true);
         Admin::set('settings.discussion', true);
         Admin::set('appearance.widgets.available.recent-comments', true);
