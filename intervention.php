@@ -36,13 +36,29 @@ function get()
 {
     $theme = get_stylesheet_directory();
 
-    $default = file_exists($theme . '/config/') ?
+    /**
+     * Sage once included `style.css`under directory resources
+     * which makes `$theme` incorrectly point to `resources/config`
+     * resulting in the config file not being found. Searching 
+     * for `resources` and changing to the parent directory fixes
+     * the issue
+     */
+    $matchpos = strpos($theme, '/resources');
+    $match = $matchpos && strpos($theme, 'resources') + strlen('resources') === strlen($theme);
+
+    if ($match) {
+        $theme = dirname(get_stylesheet_directory());
+    }
+
+    $config = file_exists($theme . '/config/') ?
         $theme . '/config/intervention.php' :
         $theme . '/intervention.php';
 
+    /*
     $config = has_filter('sober/intervention/return') ?
         apply_filters('sober/intervention/return', rtrim($default)) :
         $default;
+    */
 
     if (!file_exists($config)) {
         return;
