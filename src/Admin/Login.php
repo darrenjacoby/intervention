@@ -56,6 +56,10 @@ class Login
         if ($this->config->has('login.admin-email-check-interval')) {
             apply_filters('admin_email_check_interval', [$this, 'adminEmailCheckInterval']);
         }
+
+        if ($this->config->has('general.admin-email')) {
+            add_filter('admin_email_check_interval', '__return_false');
+        }
     }
 
     /**
