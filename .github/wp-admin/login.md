@@ -15,6 +15,7 @@ return [
         'login.nav',
         'login.back',
         'login.policy',
+        'login.admin-email-check-interval' => 6 * MONTH_IN_SECONDS,
     ],
 ];
 ```

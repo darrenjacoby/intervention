@@ -13,6 +13,7 @@ use Sober\Intervention\Support\Composer;
  * @since 2.0.0
  *
  * @link https://developer.wordpress.org/reference/hooks/login_head/
+ * @link https://developer.wordpress.org/reference/hooks/admin_email_check_interval/
  *
  * @param
  * [
@@ -21,6 +22,7 @@ use Sober\Intervention\Support\Composer;
  *     'login.remember',
  *     'login.nav',
  *     'login.back',
+ *     'login.admin-email-check-interval',
  * ]
  */
 class Login
@@ -37,7 +39,7 @@ class Login
         $compose = Composer::set(Arr::normalizeTrue($config));
 
         $compose = $compose->has('login')->add('login.', [
-            'logo', 'remember', 'nav', 'back', 'policy',
+            'logo', 'remember', 'nav', 'back', 'policy', 'admin-email-check-interval',
         ]);
 
         $this->config = $compose->get();
@@ -50,6 +52,10 @@ class Login
     protected function hook()
     {
         add_action('login_head', [$this, 'head']);
+
+        if ($this->config->has('login.admin-email-check-interval')) {
+            apply_filters('admin_email_check_interval', [$this, 'adminEmailCheckInterval']);
+        }
     }
 
     /**
@@ -89,5 +95,21 @@ class Login
         if ($this->config->has('login.policy')) {
             echo '<style>#login .privacy-policy-page-link {display: none;}</style>';
         }
+    }
+
+    /**
+     * Filters the interval for redirecting the user to the admin email confirmation screen.
+     *
+     * @internal The returned value should be in seconds to change the interval. Returning a “falsey” value, such as 0, false, __return_zero or __return_false, will disable the feature.
+     * @param $interval
+     * @return mixed
+     */
+    public function adminEmailCheckInterval($interval)
+    {
+        if ($this->config->get('login.admin-email-check-interval')) {
+            $interval = $this->config->get('login.admin-email-check-interval');
+        }
+
+        return $interval;
     }
 }
