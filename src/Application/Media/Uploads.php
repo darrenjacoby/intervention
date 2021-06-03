@@ -52,7 +52,7 @@ class Uploads
     public function options()
     {
         if ($this->config->has('media.uploads.organize')) {
-            update_option('uploads_use_yearmonth_folders', $this->config->get('media.uploads.organize'));
+            update_option('uploads_use_yearmonth_folders', (int) $this->config->get('media.uploads.organize')->first());
         }
     }
 
