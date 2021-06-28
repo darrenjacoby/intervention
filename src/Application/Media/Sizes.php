@@ -2,6 +2,7 @@
 
 namespace Sober\Intervention\Application\Media;
 
+use Sober\Intervention\Application\OptionsApi;
 use Sober\Intervention\Application\Support\Element;
 use Sober\Intervention\Support\Arr;
 use Sober\Intervention\Support\Composer;
@@ -14,7 +15,6 @@ use Sober\Intervention\Support\Composer;
  * @since 2.0.0
  *
  * @link https://developer.wordpress.org/reference/hooks/after_setup_theme/
- * @link https://developer.wordpress.org/reference/functions/update_option/
  * @link https://wordpress.stackexchange.com/questions/357955/wp-5-3-removing-default-wordpress-image-sizes
  *
  * @param
@@ -30,6 +30,7 @@ class Sizes
     protected $config;
     protected $sizes;
     protected $defaults;
+    protected $sourceMap;
 
     /**
      * Initialize
@@ -51,6 +52,12 @@ class Sizes
         // Set `$this->defaults` with WordPress default image sizes
         $this->defaults = Arr::collect(['thumbnail', 'medium', 'large']);
 
+        // Format a source map with `media.sizes` to correlate with `Maps.php` data for `OptionsApi`
+        $this->sourceMap = $this->config->keyBy(function ($value, $key) {
+            return 'media.sizes.' . $key;
+        });
+        $this->api = OptionsApi::set($this->sourceMap);
+
         $this->hook();
     }
 
@@ -60,7 +67,7 @@ class Sizes
     protected function hook()
     {
         add_action('after_setup_theme', [$this, 'options']);
-        add_action('admin_head-options-media.php', [$this, 'admin']);
+        add_action('admin_head-options-media.php', [$this->api, 'disableKeys']);
     }
 
     /**
@@ -70,9 +77,7 @@ class Sizes
     {
         foreach ($this->sizes as $size) {
             // Group for specific `$size`
-            $value = Composer::set($this->config)
-                ->group($size)
-                ->get();
+            $value = Composer::set($this->config)->group($size)->get();
 
             // Shorthand `media.sizes.size => x`, remove key `$size` and replace with `width`
             $value = $value->get($size) ?
@@ -103,15 +108,15 @@ class Sizes
                 }
 
                 if ($value->has('width')) {
-                    update_option($size . '_size_w', $value->get('width'));
+                    $this->api->save('media.sizes.' . $size . '.width', $value->get('width'));
                 }
 
                 if ($value->has('height')) {
-                    update_option($size . '_size_h', $value->get('height'));
+                    $this->api->save('media.sizes.' . $size . '.height', $value->get('height'));
                 }
 
                 if ($value->has('crop')) {
-                    update_option($size . '_crop', $value->get('crop'));
+                    $this->api->save('media.sizes.' . $size . '.crop', $value->get('crop'));
                 }
             } else {
                 // Custom image size
@@ -121,40 +126,6 @@ class Sizes
                     add_image_size($size, $value['width'], $value['height'] ?? 9999, $value['crop'] ?? false);
                 }
             }
-        }
-    }
-
-    /**
-     * Admin
-     */
-    public function admin()
-    {
-        if ($this->config->has('thumbnail') || $this->config->has('thumbnail.width') || $this->config->has('thumbnail.w')) {
-            Element::disabled('#thumbnail_size_w');
-        }
-
-        if ($this->config->has('thumbnail.height') || $this->config->has('thumbnail.h')) {
-            Element::disabled('#thumbnail_size_h');
-        }
-
-        if ($this->config->has('thumbnail.crop')) {
-            Element::disabled('#thumbnail_crop');
-        }
-
-        if ($this->config->has('medium') || $this->config->has('medium.w') || $this->config->has('medium.width')) {
-            Element::disabled('#medium_size_w');
-        }
-
-        if ($this->config->has('medium.h') || $this->config->has('medium.height')) {
-            Element::disabled('#medium_size_h');
-        }
-
-        if ($this->config->has('large') || $this->config->has('large.w') || $this->config->has('large.width')) {
-            Element::disabled('#large_size_w');
-        }
-
-        if ($this->config->has('large.h') || $this->config->has('large.height')) {
-            Element::disabled('#large_size_h');
         }
     }
 }
