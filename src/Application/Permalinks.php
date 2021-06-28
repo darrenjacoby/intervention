@@ -3,7 +3,6 @@
 namespace Sober\Intervention\Application;
 
 use Sober\Intervention\Application\OptionsApi;
-use Sober\Intervention\Application\Support\Element;
 use Sober\Intervention\Support\Arr;
 
 /**
