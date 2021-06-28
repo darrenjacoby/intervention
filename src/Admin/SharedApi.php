@@ -76,8 +76,7 @@ class SharedApi
     public function router()
     {
         if ($this->config->has($this->key)) {
-            Router::set($this->key)
-                ->route($this->config->get($this->key));
+            Router::set($this->key)->route($this->config->get($this->key));
         }
     }
 

@@ -34,6 +34,10 @@ class BlockEditor
     public function __construct($config = false)
     {
         add_action('enqueue_block_assets', function () use ($config) {
+            if (!is_admin()) {
+                return;
+            }
+
             if (wp_script_is('intervention-block-editor', 'registered')) {
                 return;
             }

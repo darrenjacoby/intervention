@@ -2,7 +2,7 @@
 
 namespace Sober\Intervention\Application;
 
-use Sober\Intervention\Application\Support\Element;
+use Sober\Intervention\Application\OptionsApi;
 use Sober\Intervention\Support\Arr;
 
 /**
@@ -13,7 +13,6 @@ use Sober\Intervention\Support\Arr;
  * @since 2.0.0
  *
  * @link https://developer.wordpress.org/reference/hooks/init/
- * @link https://developer.wordpress.org/reference/functions/update_option/
  *
  * @param
  * [
@@ -28,6 +27,7 @@ use Sober\Intervention\Support\Arr;
 class Reading
 {
     protected $config;
+    protected $api;
 
     /**
      * Initialize
@@ -37,6 +37,7 @@ class Reading
     public function __construct($config = false)
     {
         $this->config = Arr::normalize($config);
+        $this->api = OptionsApi::set($this->config);
         $this->hook();
     }
 
@@ -46,7 +47,7 @@ class Reading
     protected function hook()
     {
         add_action('init', [$this, 'options']);
-        add_action('admin_head-options-reading.php', [$this, 'admin']);
+        add_action('admin_head-options-reading.php', [$this->api, 'disableKeys']);
     }
 
     /**
@@ -54,32 +55,27 @@ class Reading
      */
     public function options()
     {
-        // Front Page
+        $this->api->saveKeys([
+            'reading.posts-per-page',
+            'reading.posts-per-rss',
+        ]);
+
+        // frontpage
         if ($this->config->has('reading.front-page') || $this->config->has('reading.front-page.posts')) {
             $value = $this->config->get('reading.front-page');
             $type = $value === 'posts' ? 'posts' : 'page';
-            update_option('show_on_front', $type);
+            $this->api->save('reading.front-page', $type);
 
             if ($type === 'page') {
-                update_option('page_on_front', $value);
+                $this->api->save('reading.front-page.page', $value);
             }
 
             if ($type === 'page' && $this->config->has('reading.front-page.posts')) {
-                update_option('page_for_posts', $this->config->get('reading.front-page.posts'));
+                $this->api->save('reading.front-page.posts', $this->config->get('reading.front-page.posts'));
             }
         }
 
-        // Posts Per Page
-        if ($this->config->has('reading.posts-per-page')) {
-            update_option('posts_per_page', $this->config->get('reading.posts-per-page'));
-        }
-
-        // Posts Per RSS
-        if ($this->config->has('reading.posts-per-rss')) {
-            update_option('posts_per_rss', $this->config->get('reading.posts-per-rss'));
-        }
-
-        // RSS Excerpt
+        // rss excerpt
         if ($this->config->has('reading.rss-excerpt')) {
             $rss = $this->config->get('reading.rss-excerpt');
             $rss_arr = [
@@ -88,48 +84,18 @@ class Reading
                 'summary' => 1,
             ];
 
-            // Return key/index of array item
+            // return key/index of array item
             if (is_string($rss) && isset($rss_arr[$rss])) {
                 $rss = $rss_arr[$rss];
             }
 
-            update_option('rss_use_excerpt', $rss);
+            $this->api->save('reading.rss-excerpt', $rss);
         }
 
-        // Discourage Search
+        // discourage search
         if ($this->config->has('reading.discourage-search')) {
-            update_option('blog_public', !$this->config->get('reading.discourage-search'));
-        }
-    }
-
-    /**
-     * Admin
-     */
-    public function admin()
-    {
-        if ($this->config->has('reading.front-page')) {
-            Element::disabled('input[name=show_on_front]');
-            Element::disabled('#page_on_front', true);
-        }
-
-        if ($this->config->has('reading.front-page.posts')) {
-            Element::disabled('#page_for_posts', true);
-        }
-
-        if ($this->config->has('reading.posts-per-page')) {
-            Element::disabled('#posts_per_page');
-        }
-
-        if ($this->config->has('reading.posts-per-rss')) {
-            Element::disabled('#posts_per_rss');
-        }
-
-        if ($this->config->has('reading.rss-excerpt')) {
-            Element::disabled('input[name=rss_use_excerpt]');
-        }
-
-        if ($this->config->has('reading.discourage-search')) {
-            Element::disabled('#blog_public');
+            $value = !$this->config->get('reading.discourage-search');
+            $this->api->save('reading.discourage-search', $value);
         }
     }
 }
