@@ -7,7 +7,6 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Attribute' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
-    'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'Sober\\Intervention\\Admin' => $baseDir . '/src/Admin.php',
     'Sober\\Intervention\\Admin\\Appearance' => $baseDir . '/src/Admin/Appearance.php',
     'Sober\\Intervention\\Admin\\Appearance\\Customize' => $baseDir . '/src/Admin/Appearance/Customize.php',
@@ -93,6 +92,7 @@ return array(
     'Sober\\Intervention\\Application\\Media\\Sizes' => $baseDir . '/src/Application/Media/Sizes.php',
     'Sober\\Intervention\\Application\\Media\\Uploads' => $baseDir . '/src/Application/Media/Uploads.php',
     'Sober\\Intervention\\Application\\Menus' => $baseDir . '/src/Application/Menus.php',
+    'Sober\\Intervention\\Application\\OptionsApi' => $baseDir . '/src/Application/OptionsApi.php',
     'Sober\\Intervention\\Application\\Permalinks' => $baseDir . '/src/Application/Permalinks.php',
     'Sober\\Intervention\\Application\\Plugins' => $baseDir . '/src/Application/Plugins.php',
     'Sober\\Intervention\\Application\\Posts' => $baseDir . '/src/Application/Posts.php',
@@ -100,8 +100,8 @@ return array(
     'Sober\\Intervention\\Application\\Privacy' => $baseDir . '/src/Application/Privacy.php',
     'Sober\\Intervention\\Application\\Reading' => $baseDir . '/src/Application/Reading.php',
     'Sober\\Intervention\\Application\\Support\\Comments' => $baseDir . '/src/Application/Support/Comments.php',
-    'Sober\\Intervention\\Application\\Support\\Element' => $baseDir . '/src/Application/Support/Element.php',
     'Sober\\Intervention\\Application\\Support\\Emoji' => $baseDir . '/src/Application/Support/Emoji.php',
+    'Sober\\Intervention\\Application\\Support\\Maps' => $baseDir . '/src/Application/Support/Maps.php',
     'Sober\\Intervention\\Application\\Support\\Posttypes\\Labels' => $baseDir . '/src/Application/Support/Posttypes/Labels.php',
     'Sober\\Intervention\\Application\\Support\\Posttypes\\Register' => $baseDir . '/src/Application/Support/Posttypes/Register.php',
     'Sober\\Intervention\\Application\\Support\\Posttypes\\Remove' => $baseDir . '/src/Application/Support/Posttypes/Remove.php',
@@ -189,10 +189,11 @@ return array(
     'Tightenco\\Collect\\Support\\Collection' => $vendorDir . '/tightenco/collect/src/Collect/Support/Collection.php',
     'Tightenco\\Collect\\Support\\Enumerable' => $vendorDir . '/tightenco/collect/src/Collect/Support/Enumerable.php',
     'Tightenco\\Collect\\Support\\HigherOrderCollectionProxy' => $vendorDir . '/tightenco/collect/src/Collect/Support/HigherOrderCollectionProxy.php',
-    'Tightenco\\Collect\\Support\\HtmlString' => $vendorDir . '/tightenco/collect/src/Collect/Support/HtmlString.php',
+    'Tightenco\\Collect\\Support\\HigherOrderWhenProxy' => $vendorDir . '/tightenco/collect/src/Collect/Support/HigherOrderWhenProxy.php',
     'Tightenco\\Collect\\Support\\LazyCollection' => $vendorDir . '/tightenco/collect/src/Collect/Support/LazyCollection.php',
     'Tightenco\\Collect\\Support\\Traits\\EnumeratesValues' => $vendorDir . '/tightenco/collect/src/Collect/Support/Traits/EnumeratesValues.php',
     'Tightenco\\Collect\\Support\\Traits\\Macroable' => $vendorDir . '/tightenco/collect/src/Collect/Support/Traits/Macroable.php',
+    'Tightenco\\Collect\\Support\\Traits\\Tappable' => $vendorDir . '/tightenco/collect/src/Collect/Support/Traits/Tappable.php',
     'UnhandledMatchError' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/UnhandledMatchError.php',
     'ValueError' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/ValueError.php',
 );

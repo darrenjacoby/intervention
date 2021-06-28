@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitec65028454448fae02dfcb3bed24949d
+class ComposerStaticInitc7861890ff9de032bc9af981452aa755
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -53,7 +53,6 @@ class ComposerStaticInitec65028454448fae02dfcb3bed24949d
 
     public static $classMap = array (
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
-        'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Sober\\Intervention\\Admin' => __DIR__ . '/../..' . '/src/Admin.php',
         'Sober\\Intervention\\Admin\\Appearance' => __DIR__ . '/../..' . '/src/Admin/Appearance.php',
         'Sober\\Intervention\\Admin\\Appearance\\Customize' => __DIR__ . '/../..' . '/src/Admin/Appearance/Customize.php',
@@ -139,6 +138,7 @@ class ComposerStaticInitec65028454448fae02dfcb3bed24949d
         'Sober\\Intervention\\Application\\Media\\Sizes' => __DIR__ . '/../..' . '/src/Application/Media/Sizes.php',
         'Sober\\Intervention\\Application\\Media\\Uploads' => __DIR__ . '/../..' . '/src/Application/Media/Uploads.php',
         'Sober\\Intervention\\Application\\Menus' => __DIR__ . '/../..' . '/src/Application/Menus.php',
+        'Sober\\Intervention\\Application\\OptionsApi' => __DIR__ . '/../..' . '/src/Application/OptionsApi.php',
         'Sober\\Intervention\\Application\\Permalinks' => __DIR__ . '/../..' . '/src/Application/Permalinks.php',
         'Sober\\Intervention\\Application\\Plugins' => __DIR__ . '/../..' . '/src/Application/Plugins.php',
         'Sober\\Intervention\\Application\\Posts' => __DIR__ . '/../..' . '/src/Application/Posts.php',
@@ -146,8 +146,8 @@ class ComposerStaticInitec65028454448fae02dfcb3bed24949d
         'Sober\\Intervention\\Application\\Privacy' => __DIR__ . '/../..' . '/src/Application/Privacy.php',
         'Sober\\Intervention\\Application\\Reading' => __DIR__ . '/../..' . '/src/Application/Reading.php',
         'Sober\\Intervention\\Application\\Support\\Comments' => __DIR__ . '/../..' . '/src/Application/Support/Comments.php',
-        'Sober\\Intervention\\Application\\Support\\Element' => __DIR__ . '/../..' . '/src/Application/Support/Element.php',
         'Sober\\Intervention\\Application\\Support\\Emoji' => __DIR__ . '/../..' . '/src/Application/Support/Emoji.php',
+        'Sober\\Intervention\\Application\\Support\\Maps' => __DIR__ . '/../..' . '/src/Application/Support/Maps.php',
         'Sober\\Intervention\\Application\\Support\\Posttypes\\Labels' => __DIR__ . '/../..' . '/src/Application/Support/Posttypes/Labels.php',
         'Sober\\Intervention\\Application\\Support\\Posttypes\\Register' => __DIR__ . '/../..' . '/src/Application/Support/Posttypes/Register.php',
         'Sober\\Intervention\\Application\\Support\\Posttypes\\Remove' => __DIR__ . '/../..' . '/src/Application/Support/Posttypes/Remove.php',
@@ -235,10 +235,11 @@ class ComposerStaticInitec65028454448fae02dfcb3bed24949d
         'Tightenco\\Collect\\Support\\Collection' => __DIR__ . '/..' . '/tightenco/collect/src/Collect/Support/Collection.php',
         'Tightenco\\Collect\\Support\\Enumerable' => __DIR__ . '/..' . '/tightenco/collect/src/Collect/Support/Enumerable.php',
         'Tightenco\\Collect\\Support\\HigherOrderCollectionProxy' => __DIR__ . '/..' . '/tightenco/collect/src/Collect/Support/HigherOrderCollectionProxy.php',
-        'Tightenco\\Collect\\Support\\HtmlString' => __DIR__ . '/..' . '/tightenco/collect/src/Collect/Support/HtmlString.php',
+        'Tightenco\\Collect\\Support\\HigherOrderWhenProxy' => __DIR__ . '/..' . '/tightenco/collect/src/Collect/Support/HigherOrderWhenProxy.php',
         'Tightenco\\Collect\\Support\\LazyCollection' => __DIR__ . '/..' . '/tightenco/collect/src/Collect/Support/LazyCollection.php',
         'Tightenco\\Collect\\Support\\Traits\\EnumeratesValues' => __DIR__ . '/..' . '/tightenco/collect/src/Collect/Support/Traits/EnumeratesValues.php',
         'Tightenco\\Collect\\Support\\Traits\\Macroable' => __DIR__ . '/..' . '/tightenco/collect/src/Collect/Support/Traits/Macroable.php',
+        'Tightenco\\Collect\\Support\\Traits\\Tappable' => __DIR__ . '/..' . '/tightenco/collect/src/Collect/Support/Traits/Tappable.php',
         'UnhandledMatchError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/UnhandledMatchError.php',
         'ValueError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/ValueError.php',
     );
@@ -246,9 +247,9 @@ class ComposerStaticInitec65028454448fae02dfcb3bed24949d
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitec65028454448fae02dfcb3bed24949d::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitec65028454448fae02dfcb3bed24949d::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInitec65028454448fae02dfcb3bed24949d::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitc7861890ff9de032bc9af981452aa755::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitc7861890ff9de032bc9af981452aa755::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitc7861890ff9de032bc9af981452aa755::$classMap;
 
         }, null, ClassLoader::class);
     }

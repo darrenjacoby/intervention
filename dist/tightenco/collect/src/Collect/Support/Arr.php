@@ -144,6 +144,10 @@ class Arr
      */
     public static function exists($array, $key)
     {
+        if ($array instanceof Enumerable) {
+            return $array->has($key);
+        }
+
         if ($array instanceof ArrayAccess) {
             return $array->offsetExists($key);
         }
@@ -405,7 +409,7 @@ class Arr
      * Pluck an array of values from an array.
      *
      * @param  iterable  $array
-     * @param  string|array  $value
+     * @param  string|array|int|null  $value
      * @param  string|array|null  $key
      * @return array
      */
@@ -463,7 +467,7 @@ class Arr
      */
     public static function prepend($array, $value, $key = null)
     {
-        if (is_null($key)) {
+        if (func_num_args() == 2) {
             array_unshift($array, $value);
         } else {
             $array = [$key => $value] + $array;
@@ -494,11 +498,12 @@ class Arr
      *
      * @param  array  $array
      * @param  int|null  $number
+     * @param  bool|false  $preserveKeys
      * @return mixed
      *
      * @throws \InvalidArgumentException
      */
-    public static function random($array, $number = null)
+    public static function random($array, $number = null, $preserveKeys = false)
     {
         $requested = is_null($number) ? 1 : $number;
 
@@ -522,8 +527,14 @@ class Arr
 
         $results = [];
 
-        foreach ((array) $keys as $key) {
-            $results[] = $array[$key];
+        if ($preserveKeys) {
+            foreach ((array) $keys as $key) {
+                $results[$key] = $array[$key];
+            }
+        } else {
+            foreach ((array) $keys as $key) {
+                $results[] = $array[$key];
+            }
         }
 
         return $results;
@@ -593,7 +604,7 @@ class Arr
      * Sort the array using the given callback or "dot" notation.
      *
      * @param  array  $array
-     * @param  callable|string|null  $callback
+     * @param  callable|array|string|null  $callback
      * @return array
      */
     public static function sort($array, $callback = null)
@@ -605,20 +616,26 @@ class Arr
      * Recursively sort an array by keys and values.
      *
      * @param  array  $array
+     * @param  int  $options
+     * @param  bool  $descending
      * @return array
      */
-    public static function sortRecursive($array)
+    public static function sortRecursive($array, $options = SORT_REGULAR, $descending = false)
     {
         foreach ($array as &$value) {
             if (is_array($value)) {
-                $value = static::sortRecursive($value);
+                $value = static::sortRecursive($value, $options, $descending);
             }
         }
 
         if (static::isAssoc($array)) {
-            ksort($array);
+            $descending
+                    ? krsort($array, $options)
+                    : ksort($array, $options);
         } else {
-            sort($array);
+            $descending
+                    ? rsort($array, $options)
+                    : sort($array, $options);
         }
 
         return $array;
