@@ -32,6 +32,8 @@ use Sober\Intervention\Support\Composer;
  *     'appearance.menus.settings',
  *     'appearance.menus.settings.[auto-add, location]',
  *     'appearance.menus.delete',
+ *     'appearance.menus.max-depth' => (int) $depth
+ *     'appearance.menus.max-depth.$name' => (int) $depth
  * ]
  */
 class Menus
@@ -83,6 +85,7 @@ class Menus
         $shared->tabs();
 
         add_action('admin_head-nav-menus.php', [$this, 'head']);
+        add_action('admin_enqueue_scripts', [$this, 'maxDepth']);
     }
 
     /**
@@ -194,5 +197,29 @@ class Menus
         if ($this->config->has('appearance.menus.delete')) {
             echo '<style>.nav-menus-php #nav-menu-footer .delete-action {display: none;}</style>';
         }
+    }
+
+    /**
+     * Max Depth
+     */
+    public function maxDepth($page)
+    {
+        if ($page !== 'nav-menus.php') {
+            return;
+        }
+
+        $menus = Composer::set($this->config)
+            ->group('appearance.menus.max-depth')
+            ->get();
+
+        if ($menus->has('appearance.menus.max-depth')) {
+            $menus
+                ->prepend($menus->get('appearance.menus.max-depth'), 'all')
+                ->forget('appearance.menus.max-depth');
+        }
+
+        wp_register_script('intervention-menus', plugin_dir_url(__DIR__) . 'Appearance/Menus.js', []);
+        wp_localize_script('intervention-menus', 'menus', $menus->toArray());
+        wp_enqueue_script('intervention-menus');
     }
 }
