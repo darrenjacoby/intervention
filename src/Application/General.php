@@ -27,6 +27,7 @@ use Sober\Intervention\Support\Str;
  *     'general.wp-address' => (string) $wp_url,
  *     'general.site-address' => (string) $site_url,
  *     'general.admin-email' => (string) $admin_email,
+ *     'general.admin-email.verification' => (boolean|int) $email_verification,
  *     'general.email-from' => (string) $email_from,
  *     'general.email-from-name' => (string) $email_from_name,
  *     'general.membership' => (boolean) $enable_membership,
@@ -81,6 +82,20 @@ class General
             'general.date-format',
             'general.time-format',
         ]);
+
+        // disable login email verification screen
+        if ($this->config->has('general.admin-email')) {
+            add_filter('admin_email_check_interval', '__return_false');
+        }
+
+        // only show login email verification screen if `general.admin-email` is not set
+        if ($this->config->has('general.admin-email.verification') && !$this->config->has('general.admin-email')) {
+            $value = $this->config->get('general.admin-email.verification');
+
+            add_filter('admin_email_check_interval', function () use ($value) {
+                return $value;
+            });
+        }
 
         if ($this->config->has('general.email-from')) {
             $from = $this->config->get('general.email-from');
