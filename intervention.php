@@ -1,15 +1,15 @@
 <?php
 /*
-Plugin Name:        Intervention
-Plugin URI:         http://github.com/soberwp/intervention
-Description:        Easily customize wp-admin and configure application options.
-Version:            2.0.0-rc.2
-Author:             Sober
-Author URI:         http://github.com/soberwp/
-License:            MIT License
-License URI:        http://opensource.org/licenses/MIT
-GitHub Plugin URI:  soberwp/intervention
-GitHub Branch:      master
+Plugin Name: Intervention
+Plugin URI: https://github.com/soberwp/intervention
+Description: Easily customize wp-admin and configure application options.
+Version: 2.0.0-rc.3
+Author: Darren Jacoby
+Author URI: https://github.com/darrenjacoby
+License: MIT License
+License URI: https://opensource.org/licenses/MIT
+GitHub Plugin URI: soberwp/intervention
+GitHub Branch: master
 */
 namespace Sober\Intervention;
 
