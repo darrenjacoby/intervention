@@ -21,7 +21,7 @@
   "require-dev": {
     "composer/installers": "^1.11",
     "phing/phing": "^2.16.4",
-    "symplify/easy-coding-standard": "^9.3"
+    "symplify/easy-coding-standard": "dev-main"
   },
   "autoload": {
     "psr-4": {
