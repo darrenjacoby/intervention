@@ -51,8 +51,9 @@ class Uploads
      */
     public function options()
     {
-        $this->api->saveKeys([
-            'media.uploads.organize',
-        ]);
+        if ($this->config->has('media.uploads.organize')) {
+            $value = (int) $this->config->get('media.uploads.organize');
+            $this->api->save('media.uploads.organize', $value);
+        }
     }
 }
