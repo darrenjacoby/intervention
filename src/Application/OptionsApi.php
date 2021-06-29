@@ -21,7 +21,8 @@ class OptionsApi
      * @param string $config
      * @return Sober\Intervention\Application\OptionsApi
      */
-    public static function set($config = false) {
+    public static function set($config = false)
+    {
         return new self($config);
     }
 
@@ -37,7 +38,7 @@ class OptionsApi
 
     /**
      * Save
-     * 
+     *
      * @param string|int|boolean $custom_value
      */
     public function save($key = false, $custom_value = null)

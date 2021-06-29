@@ -13,7 +13,7 @@ use Sober\Intervention\Support\Arr;
  */
 class Maps
 {
-    const DB = [
+    public const DB = [
         'general.site-title' => 'blogname',
         'general.tagline' => 'blogdescription',
         'general.wp-address' => 'siteurl',
@@ -78,7 +78,7 @@ class Maps
         'privacy.policy-page' => 'wp_page_for_privacy_policy',
     ];
 
-    const ELEMENT = [
+    public const ELEMENT = [
         'general.site-title' => '#blogname',
         'general.tagline' => '#blogdescription',
         'general.wp-address' => '#siteurl',
