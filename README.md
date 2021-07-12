@@ -19,7 +19,7 @@ $ wp plugin install https://github.com/soberwp/intervention/archive/master.zip -
 
 #### Requirements
 
-* [PHP](http://php.net/manual/en/install.php) >= 7.0.0
+* [PHP](http://php.net/manual/en/install.php) >= 7.4.0
 
 ## Usage
 
