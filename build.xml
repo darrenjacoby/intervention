@@ -21,8 +21,7 @@
       <fileset dir="vendor">
         <include name="autoload.php"></include>
         <include name="**.php"></include>
-        <include name="composer/*.php"></include>
-        <include name="tightenco/**/*.php"></include>
+        <include name="**/*.php"></include>
       </fileset>
     </copy>
   </target>
