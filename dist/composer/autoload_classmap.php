@@ -199,7 +199,6 @@ return array(
     'Sober\\Intervention\\Admin\\Support\\All\\Search' => $baseDir . '/src/Admin/Support/All/Search.php',
     'Sober\\Intervention\\Admin\\Support\\All\\Subsets' => $baseDir . '/src/Admin/Support/All/Subsets.php',
     'Sober\\Intervention\\Admin\\Support\\BlockEditor' => $baseDir . '/src/Admin/Support/BlockEditor.php',
-    'Sober\\Intervention\\Admin\\Support\\Maps' => $baseDir . '/src/Admin/Support/Maps.php',
     'Sober\\Intervention\\Admin\\Support\\Menu' => $baseDir . '/src/Admin/Support/Menu.php',
     'Sober\\Intervention\\Admin\\Support\\PostComponents' => $baseDir . '/src/Admin/Support/PostComponents.php',
     'Sober\\Intervention\\Admin\\Support\\Router' => $baseDir . '/src/Admin/Support/Router.php',
@@ -232,7 +231,6 @@ return array(
     'Sober\\Intervention\\Application\\Reading' => $baseDir . '/src/Application/Reading.php',
     'Sober\\Intervention\\Application\\Support\\Comments' => $baseDir . '/src/Application/Support/Comments.php',
     'Sober\\Intervention\\Application\\Support\\Emoji' => $baseDir . '/src/Application/Support/Emoji.php',
-    'Sober\\Intervention\\Application\\Support\\Maps' => $baseDir . '/src/Application/Support/Maps.php',
     'Sober\\Intervention\\Application\\Support\\Posttypes\\Labels' => $baseDir . '/src/Application/Support/Posttypes/Labels.php',
     'Sober\\Intervention\\Application\\Support\\Posttypes\\Register' => $baseDir . '/src/Application/Support/Posttypes/Register.php',
     'Sober\\Intervention\\Application\\Support\\Posttypes\\Remove' => $baseDir . '/src/Application/Support/Posttypes/Remove.php',
@@ -247,6 +245,7 @@ return array(
     'Sober\\Intervention\\Intervention' => $baseDir . '/src/Intervention.php',
     'Sober\\Intervention\\Support\\Arr' => $baseDir . '/src/Support/Arr.php',
     'Sober\\Intervention\\Support\\Composer' => $baseDir . '/src/Support/Composer.php',
+    'Sober\\Intervention\\Support\\Config' => $baseDir . '/src/Support/Config.php',
     'Sober\\Intervention\\Support\\Routes' => $baseDir . '/src/Support/Routes.php',
     'Sober\\Intervention\\Support\\Str' => $baseDir . '/src/Support/Str.php',
 );

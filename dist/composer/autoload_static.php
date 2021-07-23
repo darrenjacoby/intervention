@@ -245,7 +245,6 @@ class ComposerStaticInit9584cdfe770786ace660cfb9e8352e0a
         'Sober\\Intervention\\Admin\\Support\\All\\Search' => __DIR__ . '/../..' . '/src/Admin/Support/All/Search.php',
         'Sober\\Intervention\\Admin\\Support\\All\\Subsets' => __DIR__ . '/../..' . '/src/Admin/Support/All/Subsets.php',
         'Sober\\Intervention\\Admin\\Support\\BlockEditor' => __DIR__ . '/../..' . '/src/Admin/Support/BlockEditor.php',
-        'Sober\\Intervention\\Admin\\Support\\Maps' => __DIR__ . '/../..' . '/src/Admin/Support/Maps.php',
         'Sober\\Intervention\\Admin\\Support\\Menu' => __DIR__ . '/../..' . '/src/Admin/Support/Menu.php',
         'Sober\\Intervention\\Admin\\Support\\PostComponents' => __DIR__ . '/../..' . '/src/Admin/Support/PostComponents.php',
         'Sober\\Intervention\\Admin\\Support\\Router' => __DIR__ . '/../..' . '/src/Admin/Support/Router.php',
@@ -278,7 +277,6 @@ class ComposerStaticInit9584cdfe770786ace660cfb9e8352e0a
         'Sober\\Intervention\\Application\\Reading' => __DIR__ . '/../..' . '/src/Application/Reading.php',
         'Sober\\Intervention\\Application\\Support\\Comments' => __DIR__ . '/../..' . '/src/Application/Support/Comments.php',
         'Sober\\Intervention\\Application\\Support\\Emoji' => __DIR__ . '/../..' . '/src/Application/Support/Emoji.php',
-        'Sober\\Intervention\\Application\\Support\\Maps' => __DIR__ . '/../..' . '/src/Application/Support/Maps.php',
         'Sober\\Intervention\\Application\\Support\\Posttypes\\Labels' => __DIR__ . '/../..' . '/src/Application/Support/Posttypes/Labels.php',
         'Sober\\Intervention\\Application\\Support\\Posttypes\\Register' => __DIR__ . '/../..' . '/src/Application/Support/Posttypes/Register.php',
         'Sober\\Intervention\\Application\\Support\\Posttypes\\Remove' => __DIR__ . '/../..' . '/src/Application/Support/Posttypes/Remove.php',
@@ -293,6 +291,7 @@ class ComposerStaticInit9584cdfe770786ace660cfb9e8352e0a
         'Sober\\Intervention\\Intervention' => __DIR__ . '/../..' . '/src/Intervention.php',
         'Sober\\Intervention\\Support\\Arr' => __DIR__ . '/../..' . '/src/Support/Arr.php',
         'Sober\\Intervention\\Support\\Composer' => __DIR__ . '/../..' . '/src/Support/Composer.php',
+        'Sober\\Intervention\\Support\\Config' => __DIR__ . '/../..' . '/src/Support/Config.php',
         'Sober\\Intervention\\Support\\Routes' => __DIR__ . '/../..' . '/src/Support/Routes.php',
         'Sober\\Intervention\\Support\\Str' => __DIR__ . '/../..' . '/src/Support/Str.php',
     );
