@@ -77,6 +77,7 @@ return [
 
 #### Common
 * [common.adminbar](.github/wp-admin/common.adminbar.md)
+* [common.editor](.github/wp-admin/common.editor.md)
 * [common.footer](.github/wp-admin/common.footer.md)
 * [common.menu](.github/wp-admin/common.menu.md)
 * [common.tabs](.github/wp-admin/common.tabs.md)

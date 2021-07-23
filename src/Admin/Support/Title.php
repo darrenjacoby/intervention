@@ -62,8 +62,10 @@ class Title
         add_action('admin_head-' . $this->filter, function () use ($str) {
             echo '
                 <style>
-                    .wrap h1:first-child {font-size: 0; visibility: hidden;}
-                    .wrap h1:first-child::after {font-size: 23px; visibility: visible; content: "' . $str . '"}
+                    #wpwrap h1:first-child {font-size: 0;}
+                    #wpwrap h1:first-child::after {font-size: 23px; visibility: visible; content: "' . $str . '"}
+                    .block-editor-page #wpwrap h1 {padding-top: 7px;}
+                    .block-editor-page #wpwrap h1:first-child::after {font-size: 20px;}
                 </style>
             ';
         });

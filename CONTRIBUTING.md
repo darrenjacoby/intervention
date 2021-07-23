@@ -32,3 +32,13 @@ Run [Phing](https://www.phing.info/) to build the `dist` folder.
 ```shell
 $ composer build
 ```
+
+### NPM
+
+Changes to folder `resources/` require a build step to create a `dist` folder for styles and scripts. If you have `run composer build` prior you can skip this step.
+
+Run [NPM](https://www.npmjs.com/) to build the `dist/styles` and `dist/scripts` folder.
+
+```shell
+$ composer build:assets
+```

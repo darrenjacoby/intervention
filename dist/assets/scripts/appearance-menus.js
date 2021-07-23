@@ -1,0 +1,1 @@
+$=window.jQuery,wp.domReady((function(){var n=wpNavMenu.options.globalMaxDepth;function o(){$.each(interventionAppearanceMenus,(function(n,o){var e=$("#locations-"+n).prop("checked");("all"===n||e)&&(wpNavMenu.options.globalMaxDepth=o)}))}o(),$(".menu-theme-locations input").on("change",(function(){wpNavMenu.options.globalMaxDepth=n,o()}))}));

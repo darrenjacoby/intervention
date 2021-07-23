@@ -3,6 +3,7 @@
 namespace Sober\Intervention\Admin\Appearance;
 
 use Sober\Intervention\Admin\SharedApi;
+use Sober\Intervention\Admin\Support\BlockEditor;
 use Sober\Intervention\Support\Arr;
 use Sober\Intervention\Support\Composer;
 
@@ -23,6 +24,26 @@ use Sober\Intervention\Support\Composer;
  *     'appearance.widgets' => (string) $route,
  *     'appearance.widgets.title' => (string) $title,
  *     'appearance.widgets.title.[menu, page]' => (string) $title,
+ *     'appearance.widgets.add',
+ *     'appearance.widgets.add' => [
+ *          search,
+ *          preview,
+ *          headers,
+ *          tips,
+ *          grid,
+ *          icons,
+ *      ],
+ *      'appearance.widgets.add.blocks',
+ *      'appearance.widgets.add.blocks' => [
+ *          text,
+ *          media,
+ *          design,
+ *          widgets,
+ *          theme,
+ *          embeds,
+ *      ],
+ *     'appearance.widgets.block-editor',
+ *      --- classic ---
  *     'appearance.widgets.title-link',
  *     'appearance.widgets.tabs',
  *     'appearance.widgets.tabs.[screen-options, help]',
@@ -54,6 +75,18 @@ use Sober\Intervention\Support\Composer;
 class Widgets
 {
     protected $config;
+    protected $editor;
+
+    /**
+     * Interface
+     *
+     * @param array $posttypes
+     * @return Sober\Intervention\Admin\Appearance\Widgets
+     */
+    public static function set($config = false)
+    {
+        return new self($config);
+    }
 
     /**
      * Initialize
@@ -99,6 +132,13 @@ class Widgets
         ]);
 
         $this->config = $compose->get();
+
+        $this->editor = Composer::set($this->config)
+            ->group('appearance.widgets')
+            ->get()
+            ->keys()
+            ->toArray();
+
         $this->hook();
     }
 
@@ -116,6 +156,18 @@ class Widgets
         add_action('admin_head-widgets.php', [$this, 'head']);
         add_action('widgets_init', [$this, 'available']);
         add_action('after_setup_theme', [$this, 'inactive']);
+
+        /**
+         * Block Editor
+         */
+        if ($this->config->has('appearance.widgets.block-editor')) {
+            add_filter('gutenberg_use_widgets_block_editor', '__return_false', 100);
+            add_filter('use_widgets_block_editor', '__return_false');
+        }
+
+        if ($GLOBALS['pagenow'] === 'widgets.php') {
+            BlockEditor::set($this->editor);
+        }
     }
 
     /**

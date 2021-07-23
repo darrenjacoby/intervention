@@ -16,6 +16,27 @@ return [
         'appearance.widgets' => (string) $route,
         'appearance.widgets.title' => (string) $title,
         'appearance.widgets.title.[menu, page]' => (string) $title,
+        // block-editor
+        'appearance.widgets.add',
+        'appearance.widgets.add.[
+            search,
+            preview,
+            headers,
+            tips,
+            grid,
+            icons,
+        ],'
+        'appearance.widgets.add.blocks',
+        'appearance.widgets.add.blocks.[
+            text,
+            media,
+            design,
+            widgets,
+            theme,
+            embeds,
+        ],'
+        'appearance.widgets.block-editor',
+        // classic
         'appearance.widgets.title-link',
         'appearance.widgets.tabs',
         'appearance.widgets.tabs.[screen-options, help]',
@@ -47,6 +68,7 @@ return [
 ```
 
 * [Route options](../route-options.md)
+* [Full list of `editor.add.blocks.$x`](../common.editor.md)
 
 ### Remove;
 

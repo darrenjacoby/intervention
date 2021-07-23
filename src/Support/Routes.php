@@ -35,6 +35,7 @@ class Routes
     public const WP_ADMIN = [
         'login' => 'Admin\Login',
         'common.adminbar' => 'Admin\Common\Adminbar',
+        'common.editor' => 'Admin\Common\Editor',
         'common.footer' => 'Admin\Common\Footer',
         'common.tabs' => 'Admin\Common\Tabs',
         'common.menu' => 'Admin\Common\Menu',

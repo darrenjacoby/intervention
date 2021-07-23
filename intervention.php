@@ -30,7 +30,14 @@ if (!class_exists('Sober\Intervention\Intervention')) {
 }
 
 /**
+ * WordPress/Laravel mix function
+ */
+include __DIR__ . '/mix.php';
+
+/**
  * Return user config for Intervention
+ * 
+ * @return array
  */
 function get()
 {

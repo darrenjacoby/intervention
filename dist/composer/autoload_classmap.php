@@ -21,6 +21,7 @@ return array(
     'Sober\\Intervention\\Admin\\Common\\All\\Pagination' => $baseDir . '/src/Admin/Common/All/Pagination.php',
     'Sober\\Intervention\\Admin\\Common\\All\\Search' => $baseDir . '/src/Admin/Common/All/Search.php',
     'Sober\\Intervention\\Admin\\Common\\All\\Subsets' => $baseDir . '/src/Admin/Common/All/Subsets.php',
+    'Sober\\Intervention\\Admin\\Common\\Editor' => $baseDir . '/src/Admin/Common/Editor.php',
     'Sober\\Intervention\\Admin\\Common\\Footer' => $baseDir . '/src/Admin/Common/Footer.php',
     'Sober\\Intervention\\Admin\\Common\\Menu' => $baseDir . '/src/Admin/Common/Menu.php',
     'Sober\\Intervention\\Admin\\Common\\Tabs' => $baseDir . '/src/Admin/Common/Tabs.php',

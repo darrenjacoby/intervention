@@ -30,7 +30,11 @@
   },
   "scripts": {
     "build": [
-      "vendor/bin/phing"
+      "vendor/bin/phing",
+      "npm run build"
+    ],
+    "build:assets": [
+      "npm run build"
     ],
     "lint": [
       "vendor/bin/ecs check"
