@@ -1,6 +1,6 @@
 <?php
 /**
- * Return array of key to WordPress database options key
+ * Return array of key to WordPress database options key.
  * 
  * @see Application/OptionsApi
  */

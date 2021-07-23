@@ -1,6 +1,6 @@
 <?php
 /**
- * Return array of key to WordPress menu positions
+ * Return array of key to WordPress menu positions.
  * 
  * @see Admin/Support/Menu.php
  */
