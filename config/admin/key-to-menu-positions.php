@@ -1,0 +1,61 @@
+<?php
+/**
+ * Return array of key to WordPress menu positions
+ * 
+ * @see Admin/Support/Menu.php
+ */
+namespace Sober\Intervention;
+
+return [
+    'dashboard' => 2,
+    'dashboard.home' => 0,
+    'dashboard.updates' => 10,
+    'posts' => 5,
+    'posts.all' => 5,
+    'posts.add' => 10,
+    'posts.categories.all' => 15,
+    'posts.categories.item' => 15,
+    'posts.tags.all' => 16,
+    'posts.tags.item' => 16,
+    'media' => 10,
+    'media.all' => 5,
+    'media.add' => 10,
+    'pages' => 20,
+    'pages.all' => 5,
+    'pages.add' => 10,
+    'comments' => 25,
+    'comments.all' => 0,
+    'appearance' => 60,
+    'appearance.themes' => 5,
+    'appearance.customize' => 6,
+    'appearance.widgets' => 7,
+    'appearance.menus' => 10,
+    // 'appearance.theme-editor' => 0
+    'plugins' => 65,
+    'plugins.all' => 5,
+    'plugins.add' => 10,
+    'plugins.plugin-editor' => 15,
+    'users' => 70,
+    'users.all' => 5,
+    'users.add' => 10,
+    'users.profile' => 15,
+    'tools' => 75,
+    'tools.available' => 5,
+    'tools.import' => 10,
+    'tools.export' => 15,
+    'tools.site-health' => 20,
+    'tools.export-personal-data' => 25,
+    'tools.erase-personal-data' => 30,
+    'settings' => 80,
+    'settings.general' => 10,
+    'settings.writing' => 15,
+    'settings.reading' => 20,
+    'settings.discussion' => 25,
+    'settings.media' => 30,
+    'settings.privacy' => 45,
+    'settings.permalinks' => 40,
+    'custom-fields' => '80.025',
+    'custom-fields.groups' => 30,
+    'custom-fields.add' => 45,
+    'custom-fields.tools' => 40,
+];

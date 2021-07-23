@@ -9,12 +9,12 @@ use Sober\Intervention\Admin\Support\All\Lists\Count as ListCount;
 use Sober\Intervention\Admin\Support\All\Pagination;
 use Sober\Intervention\Admin\Support\All\Search;
 use Sober\Intervention\Admin\Support\All\Subsets;
-use Sober\Intervention\Admin\Support\Maps;
 use Sober\Intervention\Admin\Support\Menu;
 use Sober\Intervention\Admin\Support\Router;
 use Sober\Intervention\Admin\Support\Tabs;
 use Sober\Intervention\Admin\Support\Title;
 use Sober\Intervention\Support\Composer;
+use Sober\Intervention\Support\Config;
 
 /**
  * Shared API
@@ -65,7 +65,7 @@ class SharedApi
     {
         $this->key = $key;
         $this->config = $config;
-        $this->screen = Maps::set('screens')->get($this->key);
+        $this->screen = Config::get('admin/key-to-screen')->get($this->key);
     }
 
     /**

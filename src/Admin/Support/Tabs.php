@@ -2,8 +2,8 @@
 
 namespace Sober\Intervention\Admin\Support;
 
-use Sober\Intervention\Admin\Support\Maps;
 use Sober\Intervention\Support\Arr;
+use Sober\Intervention\Support\Config;
 use Sober\Intervention\Support\Str;
 
 /**
@@ -78,7 +78,7 @@ class Tabs
     public function __construct($key = false)
     {
         $this->key = $key;
-        $this->filter = Maps::set('screens')->get($this->key);
+        $this->filter = Config::get('admin/key-to-screen')->get($this->key);
         // Remove anything after `?`
         $this->filter = Str::explode('?', $this->filter)[0];
     }

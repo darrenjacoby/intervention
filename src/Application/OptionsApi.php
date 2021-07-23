@@ -2,7 +2,7 @@
 
 namespace Sober\Intervention\Application;
 
-use Sober\Intervention\Application\Support\Maps;
+use Sober\Intervention\Support\Config;
 
 /**
  * Application/OptionsApi
@@ -47,7 +47,7 @@ class OptionsApi
             return;
         }
 
-        $database = Maps::set('db')->get($key);
+        $database = Config::get('application/key-to-database')->get($key);
         $value = $custom_value !== null ? $custom_value : $this->config->get($key);
 
         if ($database) {
@@ -80,17 +80,19 @@ class OptionsApi
             return;
         }
 
-        $element = Maps::set('element')->get($key);
+        $elem = Config::get('application/key-to-dom-elem')->get($key);
 
-        // Timeout has been set for `#page_on_front` and `#page_for_posts` bugs
-        echo '
-        <script>
-            jQuery(window).on("load", function() {
-                setTimeout(function() {
-                    jQuery("' . $element . '").prop("disabled", true);
-                }, 1);
-            });
-        </script>';
+        if ($elem !== null) {
+            // timeout has been set for `#page_on_front` and `#page_for_posts` bugs
+            echo '
+            <script>
+                jQuery(window).on("load", function() {
+                    setTimeout(function() {
+                        jQuery("' . $elem . '").prop("disabled", true);
+                    }, 1);
+                });
+            </script>';
+        }
     }
 
     /**
