@@ -16,7 +16,7 @@
   ],
   "require": {
     "php": "^7.4|^8.0",
-    "tightenco/collect": "^8"
+    "illuminate/collections": "^8.51"
   },
   "require-dev": {
     "composer/installers": "^1.11",
