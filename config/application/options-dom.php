@@ -1,6 +1,6 @@
 <?php
 /**
- * Return array of key to WordPress options DOM elem.
+ * Return array of key to WordPress options DOM element.
  * 
  * @see Application/OptionsApi
  */

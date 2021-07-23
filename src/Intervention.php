@@ -4,7 +4,7 @@ namespace Sober\Intervention;
 
 use Sober\Intervention\Support\Arr;
 use Sober\Intervention\Support\Composer;
-use Sober\Intervention\Support\Routes;
+use Sober\Intervention\Support\Config;
 use Sober\Intervention\Support\Str;
 
 /**
@@ -33,7 +33,7 @@ class Intervention
             ->group('wp-admin')
             ->get();
 
-        Routes::set('wp-admin')->map(function ($class, $k) use ($admin) {
+        Config::get('admin/routing')->map(function ($class, $k) use ($admin) {
             $this->initRoleFromConfigFile($admin, $class, $k);
         });
 
@@ -41,7 +41,7 @@ class Intervention
             ->group('application')
             ->get();
 
-        Routes::set('application')->map(function ($class, $k) use ($application) {
+        Config::get('application/routing')->map(function ($class, $k) use ($application) {
             $this->init($application, $class, $k);
         });
     }

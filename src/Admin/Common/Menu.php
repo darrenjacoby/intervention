@@ -92,7 +92,7 @@ class Menu
             return;
         }
 
-        $screens = Config::get('admin/key-to-screen');
+        $screens = Config::get('admin/pagenow');
 
         $menu_arr = $order->map(function ($item) use ($screens) {
             if ($screens->has($item)) {

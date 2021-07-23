@@ -47,7 +47,7 @@ class OptionsApi
             return;
         }
 
-        $database = Config::get('application/key-to-database')->get($key);
+        $database = Config::get('application/options-database')->get($key);
         $value = $custom_value !== null ? $custom_value : $this->config->get($key);
 
         if ($database) {
@@ -80,7 +80,7 @@ class OptionsApi
             return;
         }
 
-        $elem = Config::get('application/key-to-dom-elem')->get($key);
+        $elem = Config::get('application/options-dom')->get($key);
 
         if ($elem !== null) {
             // timeout has been set for `#page_on_front` and `#page_for_posts` bugs

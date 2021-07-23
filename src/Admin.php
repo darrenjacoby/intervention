@@ -3,7 +3,7 @@
 namespace Sober\Intervention;
 
 use Sober\Intervention\Support\Arr;
-use Sober\Intervention\Support\Routes;
+use Sober\Intervention\Support\Config;
 
 /**
  * Admin
@@ -54,7 +54,7 @@ class Admin
     {
         $this->config = Arr::normalize([$this->key => $config]);
 
-        Routes::set('wp-admin')->map(function ($class, $k) {
+        Config::get('admin/routing')->map(function ($class, $k) {
             (new Intervention())->init($this->config, $class, $k);
         });
     }

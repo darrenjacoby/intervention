@@ -246,6 +246,5 @@ return array(
     'Sober\\Intervention\\Support\\Arr' => $baseDir . '/src/Support/Arr.php',
     'Sober\\Intervention\\Support\\Composer' => $baseDir . '/src/Support/Composer.php',
     'Sober\\Intervention\\Support\\Config' => $baseDir . '/src/Support/Config.php',
-    'Sober\\Intervention\\Support\\Routes' => $baseDir . '/src/Support/Routes.php',
     'Sober\\Intervention\\Support\\Str' => $baseDir . '/src/Support/Str.php',
 );

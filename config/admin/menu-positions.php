@@ -2,7 +2,7 @@
 /**
  * Return array of key to WordPress menu positions.
  * 
- * @see Admin/Support/Menu.php
+ * @see Admin/Support/Menu
  */
 namespace Sober\Intervention;
 

@@ -43,7 +43,7 @@ class SharedApi
 {
     protected $key;
     protected $config;
-    protected $screen;
+    // protected $screen;
 
     /**
      * Interface
@@ -65,7 +65,7 @@ class SharedApi
     {
         $this->key = $key;
         $this->config = $config;
-        $this->screen = Config::get('admin/key-to-screen')->get($this->key);
+        // $this->screen = Config::get('admin/pagenow')->get($this->key);
     }
 
     /**

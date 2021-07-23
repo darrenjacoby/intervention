@@ -1,6 +1,6 @@
 <?php
 /**
- * Return array of key to WordPress screen ID.
+ * Return array of key to WordPress pagenow.
  * 
  * @see Admin/Common/Menu
  * @see Admin/SharedApi/SharedApi

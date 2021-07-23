@@ -51,11 +51,11 @@ class Router
         // Support for shorthand/true
         $value = $str === true ? 'posts' : $str;
 
-        if (!Config::get('admin/key-to-screen')->get($value)) {
+        if (!Config::get('admin/pagenow')->get($value)) {
             return;
         }
 
-        $this->route = Config::get('admin/key-to-screen')->get($value);
+        $this->route = Config::get('admin/pagenow')->get($value);
 
         if (wp_doing_ajax()) {
             return;
@@ -63,7 +63,7 @@ class Router
 
         // Route
         add_action('admin_init', function () {
-            if (Config::get('admin/key-to-screen')->get($this->key) === $GLOBALS['pagenow'] . $_SERVER['QUERY_STRING']) {
+            if (Config::get('admin/pagenow')->get($this->key) === $GLOBALS['pagenow'] . $_SERVER['QUERY_STRING']) {
                 wp_redirect(admin_url($this->route));
             };
         });

@@ -292,7 +292,6 @@ class ComposerStaticInit9584cdfe770786ace660cfb9e8352e0a
         'Sober\\Intervention\\Support\\Arr' => __DIR__ . '/../..' . '/src/Support/Arr.php',
         'Sober\\Intervention\\Support\\Composer' => __DIR__ . '/../..' . '/src/Support/Composer.php',
         'Sober\\Intervention\\Support\\Config' => __DIR__ . '/../..' . '/src/Support/Config.php',
-        'Sober\\Intervention\\Support\\Routes' => __DIR__ . '/../..' . '/src/Support/Routes.php',
         'Sober\\Intervention\\Support\\Str' => __DIR__ . '/../..' . '/src/Support/Str.php',
     );
 

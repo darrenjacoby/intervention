@@ -45,13 +45,13 @@ class Menu
         /**
          * Eg: dashboard or dashboard.home
          */
-        $this->position = Config::get('admin/key-to-menu-positions')
+        $this->position = Config::get('admin/menu-positions')
             ->get($this->key);
 
-        $this->page = Config::get('admin/key-to-screen')
+        $this->page = Config::get('admin/pagenow')
             ->get(Str::explode('.', $this->key)->first());
 
-        $this->subpage = Config::get('admin/key-to-screen')
+        $this->subpage = Config::get('admin/pagenow')
             ->get($this->key);
     }
 

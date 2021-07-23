@@ -78,7 +78,7 @@ class Tabs
     public function __construct($key = false)
     {
         $this->key = $key;
-        $this->filter = Config::get('admin/key-to-screen')->get($this->key);
+        $this->filter = Config::get('admin/pagenow')->get($this->key);
         // Remove anything after `?`
         $this->filter = Str::explode('?', $this->filter)[0];
     }
