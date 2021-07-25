@@ -21,6 +21,7 @@ if (!defined('ABSPATH')) {
 };
 
 define('INTERVENTION_DIR', dirname(__FILE__));
+define('INTERVENTION_TEXT_DOMAIN', wp_get_theme()->get('TextDomain'));
 
 /**
  * Support for Bedrock/Composer
