@@ -244,4 +244,4 @@ Includes support for github-updater to track updates through wp-admin.
 
 **Have a suggestion, or want to track new releases? [@soberwp](https://twitter.com/soberwp)**
 
-If you would like to buy me a beer, [paypal.me/darrenjacoby](paypal.me/darrenjacoby)
+If you would like to buy me a beer, [paypal.me/darrenjacoby](https://paypal.me/darrenjacoby)
