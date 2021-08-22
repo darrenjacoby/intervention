@@ -3,6 +3,7 @@
 namespace Sober\Intervention\Application;
 
 use Sober\Intervention\Support\Config;
+use Sober\Intervention\UserInterface\Tools\Import;
 
 /**
  * Application/OptionsApi
@@ -47,13 +48,15 @@ class OptionsApi
             return;
         }
 
-        $database = Config::get('application/options-database')->get($key);
+        $database_key = Config::get('application/options-database')->get($key);
         $value = $custom_value !== null ? $custom_value : $this->config->get($key);
 
-        if ($database) {
-            add_filter('pre_option_' . $database, function () use ($value) {
+        if ($database_key && $value) {
+            add_filter('pre_option_' . $database_key, function () use ($value) {
                 return $value;
             });
+
+            Import::save($database_key, $value);
         }
     }
 
@@ -103,5 +106,18 @@ class OptionsApi
         $this->config->each(function ($item, $key) {
             $this->disable($key);
         });
+
+        /**
+         * Remove the disabled attributes so that the form still submits the field.
+         */
+        echo '
+        <script>
+            jQuery(document).on("submit", "form", function() {
+                jQuery(":disabled").each(function(e) {
+                    jQuery(this).removeAttr("disabled");
+                })
+            });
+        </script>
+        ';
     }
 }
