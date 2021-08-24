@@ -3,7 +3,6 @@
 namespace Sober\Intervention\Application;
 
 use Sober\Intervention\Support\Config;
-use Sober\Intervention\UserInterface\Tools\Import;
 
 /**
  * Application/OptionsApi
