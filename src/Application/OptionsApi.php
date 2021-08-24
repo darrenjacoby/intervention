@@ -54,8 +54,6 @@ class OptionsApi
             add_filter('pre_option_' . $database_key, function () use ($value) {
                 return $value;
             });
-
-            Import::save($database_key, $value);
         }
     }
 
