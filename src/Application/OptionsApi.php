@@ -50,7 +50,7 @@ class OptionsApi
         $database_key = Config::get('application/options-database')->get($key);
         $value = $custom_value !== null ? $custom_value : $this->config->get($key);
 
-        if ($database_key && $value) {
+        if ($database_key && $value !== null) {
             add_filter('pre_option_' . $database_key, function () use ($value) {
                 return $value;
             });
