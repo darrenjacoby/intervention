@@ -1,4 +1,4 @@
-## Why
+## Setting `application`
 
 The main reasons export a WordPress database to an `intervention.php` config file;
 
