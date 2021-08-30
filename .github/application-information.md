@@ -1,4 +1,4 @@
-## Setting `application`
+## WordPress application state
 
 The main reasons export a WordPress database to an `intervention.php` config file;
 
