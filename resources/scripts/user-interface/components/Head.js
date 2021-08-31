@@ -1,6 +1,6 @@
 import Header from './Head/Header';
 import Name from './Head/Name';
-import NavLink from './Head/NavLink';
+// import NavLink from './Head/NavLink';
 import OutboundLink from './Head/OutboundLink';
 import { __ } from '../utils/wp';
 
@@ -11,7 +11,7 @@ const Head = () => {
   return (
     <Header>
       <div className="flex flex-wrap">
-        <Name>{__('Intervention')}</Name>
+        <Name>Intervention</Name>
 
         {/*
         <div className="flex flex-wrap">
@@ -23,12 +23,12 @@ const Head = () => {
 
       <div className="hidden md:flex md:flex-wrap">
         <OutboundLink href="https://github.com/soberwp/intervention">
-          {__('GitHub')}
+          GitHub
         </OutboundLink>
 
         {/*
         <OutboundLink href="https://twitter.com/soberwp">
-          {__('Twitter')}
+          Twitter
         </OutboundLink>
         */}
       </div>
