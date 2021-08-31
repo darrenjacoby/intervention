@@ -1,6 +1,6 @@
 ## Export
 
-The main reasons export a WordPress database to an `intervention.php` config file;
+Reasons to export the WordPress database to an `intervention.php` config file;
 
 * WordPress options can be placed under version control.
 * WordPress `wp-admin` fields are marked as read-only.
