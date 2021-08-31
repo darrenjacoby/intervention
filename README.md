@@ -176,7 +176,7 @@ Set application options.
 
 Return `application`.
 
-**New!** You can generate/export a config file from the database using `Tools/Intervention` in the WordPress admin.
+**New!** You can auto-generate/export a config file from the database using `Tools/Intervention` in the WordPress admin.
 
 ```php
 <?php
