@@ -20,7 +20,7 @@
     "brick/varexporter": "^0.3.5"
   },
   "require-dev": {
-    "composer/installers": "^1.11",
+    "composer/installers": "^2.0",
     "phing/phing": "^2.16.4",
     "symplify/easy-coding-standard": "dev-main"
   },
