@@ -36,11 +36,7 @@ class Import
      *
      * Store updated values from the `OptionsApi`.
      */
-    public static function save(
-        $database_k,
-        $intervention_k,
-        $intervention_v
-    )
+    public static function save($database_k, $intervention_k, $intervention_v)
     {
         self::$store[$database_k] = [
             'intervention_k' => $intervention_k,
