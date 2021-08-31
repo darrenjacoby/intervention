@@ -113,9 +113,9 @@ class SharedApi
     {
         /*
         if ($this->config->has($this->key . '.title.menu')) {
-            Menu::set($this->key)->rename($this->config->get($this->key . '.title.menu'));
+        Menu::set($this->key)->rename($this->config->get($this->key . '.title.menu'));
         }
-        */
+         */
 
         if ($this->config->has($this->key . '.title.page')) {
             Title::set($this->key)->rename($this->config->get($this->key . '.title.page'));

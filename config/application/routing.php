@@ -1,7 +1,7 @@
 <?php
 /**
  * Return array of key to Intervention class for routing.
- * 
+ *
  * @see Intervention
  * @see Application
  */
@@ -11,7 +11,7 @@ return [
     'posttypes' => 'Application\Posttypes',
     'posts' => 'Application\Posts',
     'taxonomies' => 'Application\Taxonomies',
-    'blocks' => 'Application\Blocks',
+    // 'blocks' => 'Application\Blocks',
     'theme' => 'Application\Theme',
     'menus' => 'Application\Menus',
     'plugins' => 'Application\Plugins',

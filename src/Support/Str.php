@@ -7,7 +7,7 @@ use Illuminate\Support\Collection;
 /**
  * String
  *
- * Laravel based helper class for strings.
+ * Illuminate based helper class for strings.
  *
  * @package WordPress
  * @subpackage Intervention

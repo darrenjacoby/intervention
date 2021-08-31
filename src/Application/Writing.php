@@ -67,6 +67,7 @@ class Writing
     public function options()
     {
         $this->api->saveKeys([
+            'writing.default-post-format',
             'writing.default-category',
             'writing.post-via-email.server',
             'writing.post-via-email.login',
@@ -75,12 +76,5 @@ class Writing
             'writing.post-via-email.default-category',
             'writing.update-services',
         ]);
-
-        // default post format
-        if ($this->config->has('writing.default-post-format')) {
-            $format = $this->config->get('writing.default-post-format');
-            $format = $format === 'standard' ? 0 : $format;
-            $this->api->save('writing.default-post-format', $format);
-        }
     }
 }

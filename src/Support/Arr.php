@@ -139,11 +139,11 @@ class Arr
     /*
     public static function transformKeysToDashcase($array)
     {
-        return static::transform($array, function ($k, $v) {
-            return [str_replace('_', '-', $k), $v];
-        });
+    return static::transform($array, function ($k, $v) {
+    return [str_replace('_', '-', $k), $v];
+    });
     }
-    */
+     */
 
     /**
      * Transform Entries To True
@@ -239,5 +239,38 @@ class Arr
         $array[array_shift($keys)] = $value;
 
         return $array;
+    }
+
+    /**
+     * Multidimension First Key
+     *
+     * Extract first keys into separate arrays.
+     *
+     * `['general.site-title' => $x]` to `['general' => ['site-title' => $x]]`
+     *
+     * @param array $array
+     * @return array
+     */
+    public static function multidimensionalFirstKey($array)
+    {
+        return $array->reduce(function ($carry, $v, $k) {
+            /**
+             * Explode key into an array using `.` as the delimiter.
+             */
+            $key_arr = explode('.', $k);
+
+            /**
+             * Only proceed to split if the delimiter exists in the key.
+             */
+            if (count($key_arr) > 1) {
+                $key_first = array_shift($key_arr);
+                $key_next = join($key_arr, '.');
+                $carry[$key_first][$key_next] = $v;
+            } else {
+                $carry[$k] = $v;
+            }
+
+            return $carry;
+        }, []);
     }
 }

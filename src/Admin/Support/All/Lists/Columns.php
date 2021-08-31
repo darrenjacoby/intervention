@@ -91,26 +91,35 @@ class Columns
             return;
         }
 
-        $group = Arr::normalizeTrue($array);
-        $group = Composer::set($group)->removeFirstKey()->get();
+        /**
+         * This could use some cleaning up, separate out checkbox and list items.
+         */
+        if (Arr::collect($array)->isNotEmpty()) {
+            $group = Arr::normalizeTrue($array);
+            $group = Composer::set($group)->removeFirstKey()->get();
+        } else {
+            $group = Arr::collect([]);
+        }
 
         foreach ($this->filter as $filter) {
             add_filter($filter, function ($columns) use ($group, $checkbox) {
-                foreach ($group->keys()->toArray() as $item) {
-                    if (isset($columns[$item])) {
-                        unset($columns[$item]);
-                    }
-                }
-
-                if ($group->has('all.list.cols')) {
-                    $removals = array_splice($columns, 2);
-                    foreach ($removals as $k => $v) {
-                        unset($columns[$k]);
-                    }
-                }
-
                 if ($checkbox) {
                     unset($columns['cb']);
+                }
+
+                if ($group->isNotEmpty()) {
+                    foreach ($group->keys()->toArray() as $item) {
+                        if (isset($columns[$item])) {
+                            unset($columns[$item]);
+                        }
+                    }
+
+                    if ($group->has('all.list.cols')) {
+                        $removals = array_splice($columns, 2);
+                        foreach ($removals as $k => $v) {
+                            unset($columns[$k]);
+                        }
+                    }
                 }
 
                 return $columns;

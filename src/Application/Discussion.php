@@ -105,6 +105,8 @@ class Discussion
     {
         $this->api->saveKeys([
             'discussion.post.ping-flag',
+            'discussion.post.ping-status',
+            'discussion.post.comments',
             'discussion.comments.name-email',
             'discussion.comments.registration',
             'discussion.comments.close',
@@ -127,23 +129,5 @@ class Discussion
             'discussion.avatars.rating',
             'discussion.avatars.default',
         ]);
-
-        /*
-        if ($this->config->has('discussion.post.ping-flag')) {
-            $this->api->save('discussion.post.ping-flag', $this->config->get('discussion.post.ping-flag'));
-        }
-        */
-
-        if ($this->config->has('discussion.post.ping-status')) {
-            $value = $this->config->get('discussion.post.ping-status');
-            $value = $value === true ? 'open' : 'closed';
-            $this->api->save('discussion.post.ping-status', $value);
-        }
-
-        if ($this->config->has('discussion.post.comments')) {
-            $value = $this->config->get('discussion.post.comments');
-            $value = $value === true ? 'open' : 'closed';
-            $this->api->save('discussion.post.comments', $value);
-        }
     }
 }

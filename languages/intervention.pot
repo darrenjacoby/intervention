@@ -1,0 +1,96 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=utf-8\n"
+"X-Generator: babel-plugin-makepot\n"
+
+#: resources/scripts/user-interface/components/Head.js:14
+msgid "Intervention"
+msgstr ""
+
+#: resources/scripts/user-interface/components/Head.js:26
+msgid "GitHub"
+msgstr ""
+
+#: resources/scripts/user-interface/components/Page/ButtonCopy.js:15
+msgid "Copy"
+msgstr ""
+
+#: resources/scripts/user-interface/components/Page/ButtonCopy.js:20
+msgid "Copied"
+msgstr ""
+
+#: resources/scripts/user-interface/components/Page/ImportNotice.js:11
+msgid "Intervention and the database match."
+msgstr ""
+
+#: resources/scripts/user-interface/components/Page/ImportNotice.js:30
+msgid "Imported %1$s and %2$s failed."
+msgstr ""
+
+#: resources/scripts/user-interface/components/Page/ImportNotice.js:44
+msgid "Imported %1$s."
+msgstr ""
+
+#: resources/scripts/user-interface/components/Page/ImportNotice.js:64
+msgid "Found %s differences between Intervention and the database"
+msgstr ""
+
+#: resources/scripts/user-interface/components/Page/ImportNotice.js:69
+#: resources/scripts/user-interface/components/Tools/Import.js:99
+msgid "Show"
+msgstr ""
+
+#: resources/scripts/user-interface/components/Page/ImportRowEmpty.js:20
+msgid "Nothing found."
+msgstr ""
+
+#: resources/scripts/user-interface/components/Tools.js:15
+#: resources/scripts/user-interface/components/Tools/Export.js:156
+msgid "Export"
+msgstr ""
+
+#: resources/scripts/user-interface/components/Tools.js:16
+#: resources/scripts/user-interface/components/Tools/Import.js:94
+msgid "Import"
+msgstr ""
+
+#: resources/scripts/user-interface/components/Tools.js:19
+msgid "Tools"
+msgstr ""
+
+#: resources/scripts/user-interface/components/Tools/Export.js:161
+msgid "Application"
+msgstr ""
+
+#: resources/scripts/user-interface/components/Tools/Export.js:170
+msgid "Toggle All"
+msgstr ""
+
+#: resources/scripts/user-interface/components/Tools/Export.js:201
+#: resources/scripts/user-interface/components/Tools/Import.js:121
+msgid "Database"
+msgstr ""
+
+#: resources/scripts/user-interface/components/Tools/Export.js:208
+msgid "Export the database to an %s config file"
+msgstr ""
+
+#: resources/scripts/user-interface/components/Tools/Export.js:217
+msgid "Why"
+msgstr ""
+
+#: resources/scripts/user-interface/components/Tools/Import.js:108
+msgid "All"
+msgstr ""
+
+#: resources/scripts/user-interface/components/Tools/Import.js:109
+msgid "Mismatch"
+msgstr ""
+
+#: resources/scripts/user-interface/components/Tools/Import.js:110
+msgid "Match"
+msgstr ""
+
+#: resources/scripts/user-interface/components/Tools/Import.js:76
+msgid "Importing"
+msgstr ""

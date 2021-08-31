@@ -1,5 +1,8 @@
 {
-  "extends": "stylelint-config-standard",
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-rational-order"
+  ],
   "rules": {
     "declaration-colon-newline-after": null,
     "declaration-block-no-duplicate-properties": true,

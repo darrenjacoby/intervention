@@ -58,6 +58,7 @@ class Reading
         $this->api->saveKeys([
             'reading.posts-per-page',
             'reading.posts-per-rss',
+            'reading.rss-excerpt',
         ]);
 
         // frontpage
@@ -73,23 +74,6 @@ class Reading
             if ($type === 'page' && $this->config->has('reading.front-page.posts')) {
                 $this->api->save('reading.front-page.posts', $this->config->get('reading.front-page.posts'));
             }
-        }
-
-        // rss excerpt
-        if ($this->config->has('reading.rss-excerpt')) {
-            $rss = $this->config->get('reading.rss-excerpt');
-            $rss_arr = [
-                'full' => 0,
-                'full-text' => 0,
-                'summary' => 1,
-            ];
-
-            // return key/index of array item
-            if (is_string($rss) && isset($rss_arr[$rss])) {
-                $rss = $rss_arr[$rss];
-            }
-
-            $this->api->save('reading.rss-excerpt', $rss);
         }
 
         // discourage search

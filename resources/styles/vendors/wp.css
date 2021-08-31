@@ -1,0 +1,10 @@
+#wpfooter {
+  padding: 10px 28px;
+}
+
+a:focus {
+  color: theme('colors.primary');
+  outline: 1px solid transparent;
+  box-shadow: 0 0 0 1px theme('colors.primary'),
+    0 0 2px 1px theme('colors.primary');
+}

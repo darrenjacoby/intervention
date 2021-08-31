@@ -55,6 +55,7 @@ class Sizes
         $this->sourceMap = $this->config->keyBy(function ($value, $key) {
             return 'media.sizes.' . $key;
         });
+
         $this->api = OptionsApi::set($this->sourceMap);
 
         $this->hook();
@@ -65,7 +66,7 @@ class Sizes
      */
     protected function hook()
     {
-        add_action('after_setup_theme', [$this, 'options']);
+        add_action('init', [$this, 'options']); // after_setup_theme
         add_action('admin_head-options-media.php', [$this->api, 'disableKeys']);
     }
 
@@ -80,9 +81,9 @@ class Sizes
 
             // Shorthand `media.sizes.size => x`, remove key `$size` and replace with `width`
             $value = $value->get($size) ?
-                $value->put('width', $value->get($size))->forget($size) :
-                $value;
-            
+            $value->put('width', $value->get($size))->forget($size) :
+            $value;
+
             // Shortcuts aliases for width and height
             if ($value->has('w')) {
                 $value->put('width', $value->get('w'))->forget('w');
@@ -101,7 +102,7 @@ class Sizes
                                 unset($sizes[$index]);
                             }
                         }
-    
+
                         return $sizes;
                     });
                 }

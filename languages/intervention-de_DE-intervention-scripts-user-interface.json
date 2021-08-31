@@ -1,0 +1,40 @@
+{
+  "translation-revision-date": "",
+  "domain": "messages",
+  "locale_data": {
+    "messages": {
+      "": {
+        "domain": "messages",
+        "lang": "de_DE",
+        "plural-forms": "nplurals=2; plural=(n != 1);"
+      },
+      "Tools": ["Werkzeuge"],
+      "Export": ["Export"],
+      "Import": ["Import"],
+      "Copy": ["Kopie"],
+      "Copied": ["Kopiert"],
+      "Application": ["Antrag"],
+      "Toggle All": ["Alle Umschalten"],
+      "Theme": ["Thema"],
+      "Plugins": ["Plugins"],
+      "General": ["Allgemein"],
+      "Writing": ["Schreiben"],
+      "Reading": ["Lesen"],
+      "Discussion": ["Diskussion"],
+      "Media": ["Medien"],
+      "Permalinks": ["Permalinks"],
+      "Privacy": ["Datenschutz"],
+      "Why": ["Warum"],
+      "Export the database to an %s config file": [
+        "Exportieren Sie die Datenbank in eine %s Konfigurationsdatei"
+      ],
+      "All": ["Alle"],
+      "Mismatch": ["Mismatch"],
+      "Match": ["Match"],
+      "Show": ["Zeigen"],
+      "Found %s differences between Intervention and the database": [
+        "%s Unterschiede zwischen Intervention und der Datenbank gefunden"
+      ]
+    }
+  }
+}

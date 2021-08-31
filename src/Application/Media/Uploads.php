@@ -4,7 +4,6 @@ namespace Sober\Intervention\Application\Media;
 
 use Sober\Intervention\Application\OptionsApi;
 use Sober\Intervention\Support\Arr;
-use Sober\Intervention\Support\Composer;
 
 /**
  * Media/Uploads
@@ -42,7 +41,7 @@ class Uploads
      */
     protected function hook()
     {
-        add_action('after_setup_theme', [$this, 'options']);
+        add_action('init', [$this, 'options']); // after_setup_theme
         add_action('admin_head-options-media.php', [$this->api, 'disableKeys']);
     }
 
@@ -51,9 +50,8 @@ class Uploads
      */
     public function options()
     {
-        if ($this->config->has('media.uploads.organize')) {
-            $value = (int) $this->config->get('media.uploads.organize');
-            $this->api->save('media.uploads.organize', $value);
-        }
+        $this->api->saveKeys([
+            'media.uploads.organize',
+        ]);
     }
 }

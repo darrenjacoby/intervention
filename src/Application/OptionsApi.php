@@ -3,6 +3,8 @@
 namespace Sober\Intervention\Application;
 
 use Sober\Intervention\Support\Config;
+use Sober\Intervention\Support\Middleware\InterventionToWordPress;
+use Sober\Intervention\UserInterface\Tools\Import;
 
 /**
  * Application/OptionsApi
@@ -47,13 +49,30 @@ class OptionsApi
             return;
         }
 
-        $database_key = Config::get('application/options-database')->get($key);
+        /**
+         * Fetch WordPress database key from `application/settings-database`.
+         */
+        $database_k = Config::get('application/settings-database')->get($key);
+
+        /**
+         * Update value if there is a custom value passed in.
+         */
         $value = $custom_value !== null ? $custom_value : $this->config->get($key);
 
-        if ($database_key && $value) {
-            add_filter('pre_option_' . $database_key, function () use ($value) {
-                return $value;
+        /**
+         * Middleware to transform value from Intervention to WordPress database values.
+         */
+        $intervention_v_transformed = InterventionToWordPress::transform($key, $value);
+
+        /**
+         * Save using `pre_option` and pass data to class `UserInterface/Import`.
+         */
+        if ($database_k && $value !== null) {
+            add_filter('pre_option_' . $database_k, function () use ($intervention_v_transformed) {
+                return $intervention_v_transformed;
             });
+
+            Import::save($database_k, $key, $value);
         }
     }
 
@@ -80,10 +99,12 @@ class OptionsApi
             return;
         }
 
-        $elem = Config::get('application/options-dom')->get($key);
+        $elem = Config::get('application/settings-dom')->get($key);
 
         if ($elem !== null) {
-            // timeout has been set for `#page_on_front` and `#page_for_posts` bugs
+            /**
+             * Timeout has been set for `#page_on_front` and `#page_for_posts` bugs.
+             */
             echo '
             <script>
                 jQuery(window).on("load", function() {
@@ -96,7 +117,9 @@ class OptionsApi
     }
 
     /**
-     * Disable Elems From Keys
+     * Disable Keys
+     *
+     * Disable DOM elements associated with keys in `$this->config`.
      */
     public function disableKeys()
     {
@@ -105,7 +128,7 @@ class OptionsApi
         });
 
         /**
-         * Remove the disabled attributes so that the form still submits the field.
+         * Remove the `disabled` attributes on form submit else the database values are cleared.
          */
         echo '
         <script>

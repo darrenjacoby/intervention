@@ -81,14 +81,19 @@ class General
             'general.timezone',
             'general.date-format',
             'general.time-format',
+            'general.week-starts',
         ]);
 
-        // disable login email verification screen
+        /**
+         * Disable login email verification screen.
+         */
         if ($this->config->has('general.admin-email')) {
             add_filter('admin_email_check_interval', '__return_false');
         }
 
-        // only show login email verification screen if `general.admin-email` is not set
+        /**
+         * Only show login email verification screen if `general.admin-email` is not set.
+         */
         if ($this->config->has('general.admin-email.verification') && !$this->config->has('general.admin-email')) {
             $value = $this->config->get('general.admin-email.verification');
 
@@ -97,6 +102,9 @@ class General
             });
         }
 
+        /**
+         * Set filters for `email-from`.
+         */
         if ($this->config->has('general.email-from')) {
             $from = $this->config->get('general.email-from');
             add_filter('wp_mail_from', function () use ($from) {
@@ -111,39 +119,15 @@ class General
             });
         }
 
-        if ($this->config->has('general.week-starts')) {
-            $day = Str::lower($this->config->get('general.week-starts'));
-            $days = [
-                'sunday' => 0,
-                'sun' => 0,
-                'monday' => 1,
-                'mon' => 1,
-                'tuesday' => 2,
-                'tue' => 2,
-                'wednesday' => 3,
-                'wed' => 3,
-                'thursday' => 4,
-                'thu' => 4,
-                'friday' => 5,
-                'fri' => 5,
-                'saturday' => 6,
-                'sat' => 6,
-            ];
-
-            // return value of array item
-            if (is_string($day) && isset($days[$day])) {
-                $day = $days[$day];
-            }
-
-            $this->api->save('general.week-starts', $day);
-        }
-
+        /**
+         * Set `switch_to_locale` for `general.language`.
+         */
         if ($this->config->has('general.language')) {
             $general_language = $this->config->get('general.language');
 
             if (!empty($general_language) && !in_array($general_language, get_available_languages())) {
-                require_once(ABSPATH . 'wp-admin/includes/file.php');
-                require_once(ABSPATH . 'wp-admin/includes/translation-install.php');
+                require_once ABSPATH . 'wp-admin/includes/file.php';
+                require_once ABSPATH . 'wp-admin/includes/translation-install.php';
                 wp_download_language_pack($general_language);
             }
 
