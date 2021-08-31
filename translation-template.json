@@ -1,0 +1,40 @@
+{
+  "translation-revision-date": "",
+  "domain": "messages",
+  "locale_data": {
+    "messages": {
+      "": {
+        "domain": "messages",
+        "lang": "",
+        "plural-forms": "nplurals=2; plural=(n != 1);"
+      },
+      "Tools": [""],
+      "Export": [""],
+      "Import": [""],
+      "Copy": [""],
+      "Copied": [""],
+      "Application": [""],
+      "Toggle All": [""],
+      "Theme": [""],
+      "Plugins": [""],
+      "General": [""],
+      "Writing": [""],
+      "Reading": [""],
+      "Discussion": [""],
+      "Media": [""],
+      "Permalinks": [""],
+      "Privacy": [""],
+      "Why": [""],
+      "Export the database to an %s config file": [""],
+      "All": [""],
+      "Mismatch": [""],
+      "Match": [""],
+      "Show": [""],
+      "Found %s differences between Intervention and the database": [""],
+      "Intervention and the database match": [""],
+      "Imported %1$s and %2$s failed": [""],
+      "Imported %s": [""],
+      "Nothing found": [""]
+    }
+  }
+}

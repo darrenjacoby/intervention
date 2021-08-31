@@ -8,7 +8,7 @@ import { __ } from '../../utils/wp';
  * @param {object} props
  */
 const ImportNotice = ({ imported, diff, setRadio }) => {
-  const match = __('Intervention and the database match.');
+  const match = __('Intervention and the database match') + '.';
 
   /**
    * Handle Diffs Link
@@ -27,10 +27,11 @@ const ImportNotice = ({ imported, diff, setRadio }) => {
     return (
       <Notice>
         {sprintf(
-          __('Imported %1$s and %2$s failed.'),
+          __('Imported %1$s and %2$s failed'),
           imported.completed.length,
           imported.skipped.length
         )}
+        {'.'}
       </Notice>
     );
   }
@@ -41,7 +42,7 @@ const ImportNotice = ({ imported, diff, setRadio }) => {
   if (imported.completed.length > 0) {
     return (
       <Notice highlight={true}>
-        {sprintf(__('Imported %1$s.'), imported.completed.length)} {match}
+        {sprintf(__('Imported %s'), imported.completed.length)}. {match}
       </Notice>
     );
   }

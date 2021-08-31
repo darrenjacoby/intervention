@@ -34,7 +34,15 @@
       "Show": ["Show"],
       "Found %s differences between Intervention and the database": [
         "Hittade %s skillnader mellan intervention och databasen"
-      ]
+      ],
+      "Intervention and the database match": [
+        "Intervention och databasmatchning"
+      ],
+      "Imported %1$s and %2$s failed": [
+        "Importerade %1$s och %2$s misslyckades"
+      ],
+      "Imported %s": ["Importerade %s"],
+      "Nothing found": ["Inget hittat"]
     }
   }
 }

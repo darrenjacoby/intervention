@@ -17,7 +17,7 @@ const ImportRowEmpty = () => {
         text-gray-50
         last:border-0"
     >
-      {__('Nothing found.')}
+      {__('Nothing found')}.
     </div>
   );
 };

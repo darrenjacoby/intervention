@@ -34,7 +34,13 @@
       "Show": ["Toon"],
       "Found %s differences between Intervention and the database": [
         "%s verschillen gevonden tussen interventie en de database"
-      ]
+      ],
+      "Intervention and the database match": [
+        "Intervention en de database match"
+      ],
+      "Imported %1$s and %2$s failed": ["Geïmporteerd %1$s en %2$s mislukt"],
+      "Imported %s": ["%s geïmporteerd"],
+      "Nothing found": ["Niets gevonden"]
     }
   }
 }

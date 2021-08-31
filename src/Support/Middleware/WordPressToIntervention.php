@@ -52,6 +52,7 @@ class WordPressToIntervention
         $empty_strings = [
             'discussion.avatars',
             'media.sizes.thumbnail.crop',
+            'media.uploads.organize',
         ];
 
         if (in_array($key, $empty_strings)) {
