@@ -252,12 +252,12 @@ Includes support for github-updater to track updates through wp-admin.
 
 ## Roadmap
 
-- Export database values to Intervention config file.
-- Save to database manual option (`update_option` vs `pre_option`).
-- Intervention wp-admin interface.
+- ✅ Export database values to Intervention config file.
+- ✅ Save to database manual option (`update_option` vs `pre_option`).
+- (WIP) Intervention wp-admin interface.
 - Better support for the block editor.
 - Support `wp-admin` custom post types.
 
 **Have a suggestion, or want to track new releases? [@soberwp](https://twitter.com/soberwp)**
 
-If you would like to buy me a beer, [paypal.me/darrenjacoby](https://paypal.me/darrenjacoby)
+If you would like to buy me a coffee, [paypal.me/darrenjacoby](https://paypal.me/darrenjacoby)
