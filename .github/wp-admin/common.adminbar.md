@@ -4,7 +4,7 @@ Remove wp-admin adminbar components.
 
 ### Options;
 
-* Parent items remove child items. 
+* Parent items remove child items.
 * For concise documentation, `option.[x, y]` has been abbreviated from `option.x, option.y`.
 
 ```php
@@ -18,6 +18,7 @@ return [
         'common.adminbar.updates',
         'common.adminbar.site',
         'common.adminbar.site.[menu, visit, dashboard, themes, widgets, menus]',
+        'common.adminbar.customize',
         'common.adminbar.comments',
         'common.adminbar.new',
         'common.adminbar.new.[post, page, media, user]',
