@@ -27,6 +27,7 @@ use Sober\Intervention\Support\Str;
  *     'common.adminbar.updates',
  *     'common.adminbar.site',
  *     'common.adminbar.site.[menu, visit, dashboard, themes, widgets, menus]',
+ *     'common.adminbar.customize',
  *     'common.adminbar.comments',
  *     'common.adminbar.new',
  *     'common.adminbar.new.[post, page, media, user]',
@@ -85,7 +86,7 @@ class Adminbar
             add_action('admin_head', function () {
                 echo '
                 <style>
-                    #wpadminbar #wp-admin-bar-my-account a::before, 
+                    #wpadminbar #wp-admin-bar-my-account a::before,
                     #wpadminbar #wp-admin-bar-my-account.with-avatar > a img,
                     #wpadminbar #wp-admin-bar-my-account.without-avatar > a img {display: none}
                 </style>';
@@ -162,6 +163,11 @@ class Adminbar
 
         if ($this->config->has('common.adminbar.site.menus')) {
             $GLOBALS['wp_admin_bar']->remove_node('menus');
+        }
+
+        // Customize
+        if ($this->config->has('common.adminbar.customize')) {
+            $GLOBALS['wp_admin_bar']->remove_node('customize');
         }
 
         // Comments
