@@ -114,7 +114,7 @@ class General
 
         if ($this->config->has('general.email-from-name')) {
             $from_name = $this->config->get('general.email-from-name');
-            add_filter('wp_mail_from_name', function () {
+            add_filter('wp_mail_from_name', function () use ($from_name) {
                 return $from_name;
             });
         }
