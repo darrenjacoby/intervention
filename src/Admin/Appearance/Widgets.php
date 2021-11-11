@@ -165,9 +165,11 @@ class Widgets
             add_filter('use_widgets_block_editor', '__return_false');
         }
 
-        if ($GLOBALS['pagenow'] === 'widgets.php') {
-            BlockEditor::set($this->editor);
-        }
+        add_action('admin_init', function () {
+            if ($GLOBALS['pagenow'] === 'widgets.php') {
+                BlockEditor::set($this->editor);
+            }
+        });
     }
 
     /**
