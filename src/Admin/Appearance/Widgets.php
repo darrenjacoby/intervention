@@ -165,7 +165,7 @@ class Widgets
             add_filter('use_widgets_block_editor', '__return_false');
         }
 
-        add_action('admin_init', function (){
+        add_action('admin_init', function () {
             if ($GLOBALS['pagenow'] === 'widgets.php') {
                 BlockEditor::set($this->editor);
             }
