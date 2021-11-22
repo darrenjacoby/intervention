@@ -114,7 +114,7 @@ class Menu
      */
     public function remove()
     {
-        add_action('admin_init', function () {
+        add_action('admin_menu', function () {
             // customize.php exception for removing menu items
             if ($this->subpage === 'customize.php') {
                 $this->subpage = 'customize.php?return=' . urlencode($_SERVER['REQUEST_URI']);
