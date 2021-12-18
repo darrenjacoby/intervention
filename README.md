@@ -258,6 +258,6 @@ Includes support for github-updater to track updates through wp-admin.
 - Better support for the block editor.
 - Support `wp-admin` custom post types.
 
-**Have a suggestion, or want to track new releases? [@soberwp](https://twitter.com/soberwp)**
+**Have a suggestion, or want to track new releases? [@withjacoby](https://twitter.com/withjacoby)**
 
 If you would like to buy me a coffee, [paypal.me/darrenjacoby](https://paypal.me/darrenjacoby)
