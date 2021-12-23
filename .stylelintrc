@@ -1,0 +1,41 @@
+{
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-rational-order"
+  ],
+  "rules": {
+    "declaration-colon-newline-after": null,
+    "declaration-block-no-duplicate-properties": true,
+    "value-list-comma-newline-after": null,
+    "no-empty-source": null,
+    "no-descending-specificity": null,
+    "at-rule-empty-line-before": null,
+    "at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": [
+          "extend",
+          "at-root",
+          "debug",
+          "warn",
+          "error",
+          "if",
+          "else",
+          "for",
+          "each",
+          "while",
+          "mixin",
+          "include",
+          "content",
+          "return",
+          "tailwind",
+          "apply",
+          "responsive",
+          "variants",
+          "screen",
+          "function"
+        ]
+      }
+    ]
+  }
+}

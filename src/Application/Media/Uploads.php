@@ -2,9 +2,8 @@
 
 namespace Sober\Intervention\Application\Media;
 
-use Sober\Intervention\Application\Support\Element;
+use Sober\Intervention\Application\OptionsApi;
 use Sober\Intervention\Support\Arr;
-use Sober\Intervention\Support\Composer;
 
 /**
  * Media/Uploads
@@ -15,7 +14,6 @@ use Sober\Intervention\Support\Composer;
  *
  * @link https://developer.wordpress.org/reference/hooks/after_setup_theme/
  * @link https://developer.wordpress.org/reference/hooks/init/
- * @link https://developer.wordpress.org/reference/functions/update_option/
  *
  * @param
  * [
@@ -33,7 +31,8 @@ class Uploads
      */
     public function __construct($config = false)
     {
-        $this->config = Composer::set(Arr::normalize($config));
+        $this->config = Arr::normalize($config);
+        $this->api = OptionsApi::set($this->config);
         $this->hook();
     }
 
@@ -42,8 +41,8 @@ class Uploads
      */
     protected function hook()
     {
-        add_action('after_setup_theme', [$this, 'options']);
-        add_action('admin_head-options-media.php', [$this, 'admin']);
+        add_action('init', [$this, 'options']); // after_setup_theme
+        add_action('admin_head-options-media.php', [$this->api, 'disableKeys']);
     }
 
     /**
@@ -51,18 +50,8 @@ class Uploads
      */
     public function options()
     {
-        if ($this->config->has('media.uploads.organize')) {
-            update_option('uploads_use_yearmonth_folders', $this->config->get('media.uploads.organize'));
-        }
-    }
-
-    /**
-     * Admin
-     */
-    public function admin()
-    {
-        if ($this->config->has('media.uploads.organize')) {
-            Element::disabled('#uploads_use_yearmonth_folders');
-        }
+        $this->api->saveKeys([
+            'media.uploads.organize',
+        ]);
     }
 }

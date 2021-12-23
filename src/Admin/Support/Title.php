@@ -2,7 +2,7 @@
 
 namespace Sober\Intervention\Admin\Support;
 
-use Sober\Intervention\Admin\Support\Maps;
+use Sober\Intervention\Support\Config;
 use Sober\Intervention\Support\Str;
 
 /**
@@ -38,7 +38,7 @@ class Title
     public function __construct($key = false)
     {
         $this->key = $key;
-        $this->filter = Maps::set('screens')->get($this->key);
+        $this->filter = Config::get('admin/pagenow')->get($this->key);
         // Remove anything after `?`
         $this->filter = Str::explode('?', $this->filter)[0];
     }
@@ -62,8 +62,10 @@ class Title
         add_action('admin_head-' . $this->filter, function () use ($str) {
             echo '
                 <style>
-                    .wrap h1:first-child {font-size: 0; visibility: hidden;}
-                    .wrap h1:first-child::after {font-size: 23px; visibility: visible; content: "' . $str . '"}
+                    #wpwrap h1:first-child {font-size: 0;}
+                    #wpwrap h1:first-child::after {font-size: 23px; visibility: visible; content: "' . $str . '"}
+                    .block-editor-page #wpwrap h1 {padding-top: 7px;}
+                    .block-editor-page #wpwrap h1:first-child::after {font-size: 20px;}
                 </style>
             ';
         });

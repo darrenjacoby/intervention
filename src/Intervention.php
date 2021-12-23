@@ -4,7 +4,7 @@ namespace Sober\Intervention;
 
 use Sober\Intervention\Support\Arr;
 use Sober\Intervention\Support\Composer;
-use Sober\Intervention\Support\Routes;
+use Sober\Intervention\Support\Config;
 use Sober\Intervention\Support\Str;
 use Sober\Intervention\UserInterface\Admin as UserInterfaceAdmin;
 
@@ -34,13 +34,9 @@ class Intervention
             ->group('wp-admin')
             ->get();
 
-<<<<<<< Updated upstream
-        Routes::set('wp-admin')->map(function ($class, $k) use ($admin) {
-=======
         UserInterfaceAdmin::set($admin);
 
         Config::get('admin/routing')->map(function ($class, $k) use ($admin) {
->>>>>>> Stashed changes
             $this->initRoleFromConfigFile($admin, $class, $k);
         });
 
@@ -48,7 +44,7 @@ class Intervention
             ->group('application')
             ->get();
 
-        Routes::set('application')->map(function ($class, $k) use ($application) {
+        Config::get('application/routing')->map(function ($class, $k) use ($application) {
             $this->init($application, $class, $k);
         });
     }
@@ -91,9 +87,9 @@ class Intervention
             $wp_roles = new \WP_Roles();
             $current_user = wp_get_current_user();
 
-            /** 
-             * Support multisite 
-             * 
+            /**
+             * Support multisite
+             *
              * WordPress passes `$current_user->roles` as an empty array
              * when the user is a super-administrator on a multisite setup,
              * so we manually add 'administrator' to `$current_user->roles`

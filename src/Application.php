@@ -3,7 +3,7 @@
 namespace Sober\Intervention;
 
 use Sober\Intervention\Support\Arr;
-use Sober\Intervention\Support\Routes;
+use Sober\Intervention\Support\Config;
 
 /**
  * Application
@@ -53,7 +53,7 @@ class Application
     {
         $this->config = Arr::normalize([$this->key => $config]);
 
-        Routes::set('application')->map(function ($class, $k) {
+        Config::get('application/routing')->map(function ($class, $k) {
             (new Intervention())->init($this->config, $class, $k);
         });
     }

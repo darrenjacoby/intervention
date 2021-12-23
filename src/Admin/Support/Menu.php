@@ -2,7 +2,7 @@
 
 namespace Sober\Intervention\Admin\Support;
 
-use Sober\Intervention\Admin\Support\Maps;
+use Sober\Intervention\Support\Config;
 use Sober\Intervention\Support\Str;
 
 /**
@@ -45,13 +45,13 @@ class Menu
         /**
          * Eg: dashboard or dashboard.home
          */
-        $this->position = Maps::set('menu-positions')
+        $this->position = Config::get('admin/menu-positions')
             ->get($this->key);
 
-        $this->page = Maps::set('screens')
+        $this->page = Config::get('admin/pagenow')
             ->get(Str::explode('.', $this->key)->first());
 
-        $this->subpage = Maps::set('screens')
+        $this->subpage = Config::get('admin/pagenow')
             ->get($this->key);
     }
 

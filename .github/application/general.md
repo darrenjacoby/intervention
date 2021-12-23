@@ -14,6 +14,7 @@ return [
         'wp-address' => (string) $wp_url,
         'site-address' => (string) $site_url,
         'admin-email' => (string) $admin_email,
+        'admin-email.verification' => (boolean|int) $verification,
         'email-from' => (string) $email_from,
         'email-from-name' => (string) $email_from_name,
         'membership' => (boolean) $enable_membership,
@@ -39,6 +40,7 @@ return [
         'wp-address' => 'https://soberwp.com/wp',
         'site-address' => 'https://soberwp.com',
         'admin-email' => 'example@soberwp.com',
+        'admin-email.verification' => 6 * MONTH_IN_SECONDS,
         'email-from' => 'app@soberwp.com'
         'email-from-name' => 'soberwp'
         'membership' => true,

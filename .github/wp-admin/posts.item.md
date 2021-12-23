@@ -14,9 +14,25 @@ return [
     'wp-admin.$role|$username' => [
         'posts.item',
         'posts.item' => (string) $route,
-        'posts.item.tabs',
-        'posts.item.tabs.[screen-options, help]',
+        // block-editor
         'posts.item.add',
+        'posts.item.add.[
+            search,
+            preview,
+            headers,
+            tips,
+            grid,
+            icons,
+        ],'
+        'posts.item.add.blocks',
+        'posts.item.add.blocks.[
+            text,
+            media,
+            design,
+            widgets,
+            theme,
+            embeds,
+        ],'
         'posts.item.editor',
         'posts.item.author',
         'posts.item.excerpt',
@@ -32,11 +48,15 @@ return [
         'posts.item.sticky',
         'posts.item.revisions',
         'posts.item.format',
+        // classic
+        'posts.item.tabs',
+        'posts.item.tabs.[screen-options, help]',
     ],
 ];
 ```
 
 * [Route options](../route-options.md)
+* [Full list of `editor.add.blocks.$x`](../common.editor.md)
 
 ### Remove;
 

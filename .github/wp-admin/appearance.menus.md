@@ -27,6 +27,8 @@ return [
         'appearance.menus.settings',
         'appearance.menus.settings.[auto-add, location]',
         'appearance.menus.delete',
+        'appearance.menus.max-depth' => (int) $depth,
+        'appearance.menus.max-depth.$name' => (int) $depth,
     ],
 ];
 ```

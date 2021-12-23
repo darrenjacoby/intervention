@@ -5,6 +5,7 @@ namespace Sober\Intervention\Admin\Common;
 use Sober\Intervention\Admin\Support\Maps;
 use Sober\Intervention\Support\Arr;
 use Sober\Intervention\Support\Composer;
+use Sober\Intervention\Support\Config;
 
 /**
  * Common/Menu
@@ -91,7 +92,7 @@ class Menu
             return;
         }
 
-        $screens = Maps::set('screens');
+        $screens = Config::get('admin/pagenow');
 
         $menu_arr = $order->map(function ($item) use ($screens) {
             if ($screens->has($item)) {

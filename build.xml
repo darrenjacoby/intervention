@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="Intervention" default="build" basedir=".">
-  <property name="php_bin_path" value="/usr/local/bin"/>
 
   <target name="build">
     <phingcall target="prepare"/>
@@ -14,7 +13,7 @@
   </target>
 
   <target name="composer">
-    <exec passthru="true" checkreturn="false" command="php ${php_bin_path}/composer.phar update --no-dev --optimize-autoloader --prefer-dist --no-interaction"/>
+    <exec passthru="true" checkreturn="false" command="composer update --no-dev --optimize-autoloader --prefer-dist --no-interaction"/>
   </target>
 
   <target name="transfer">

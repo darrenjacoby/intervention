@@ -9,12 +9,12 @@ use Sober\Intervention\Admin\Support\All\Lists\Count as ListCount;
 use Sober\Intervention\Admin\Support\All\Pagination;
 use Sober\Intervention\Admin\Support\All\Search;
 use Sober\Intervention\Admin\Support\All\Subsets;
-use Sober\Intervention\Admin\Support\Maps;
 use Sober\Intervention\Admin\Support\Menu;
 use Sober\Intervention\Admin\Support\Router;
 use Sober\Intervention\Admin\Support\Tabs;
 use Sober\Intervention\Admin\Support\Title;
 use Sober\Intervention\Support\Composer;
+use Sober\Intervention\Support\Config;
 
 /**
  * Shared API
@@ -43,7 +43,7 @@ class SharedApi
 {
     protected $key;
     protected $config;
-    protected $screen;
+    // protected $screen;
 
     /**
      * Interface
@@ -65,7 +65,7 @@ class SharedApi
     {
         $this->key = $key;
         $this->config = $config;
-        $this->screen = Maps::set('screens')->get($this->key);
+        // $this->screen = Config::get('admin/pagenow')->get($this->key);
     }
 
     /**
@@ -76,8 +76,7 @@ class SharedApi
     public function router()
     {
         if ($this->config->has($this->key)) {
-            Router::set($this->key)
-                ->route($this->config->get($this->key));
+            Router::set($this->key)->route($this->config->get($this->key));
         }
     }
 
@@ -114,9 +113,9 @@ class SharedApi
     {
         /*
         if ($this->config->has($this->key . '.title.menu')) {
-            Menu::set($this->key)->rename($this->config->get($this->key . '.title.menu'));
+        Menu::set($this->key)->rename($this->config->get($this->key . '.title.menu'));
         }
-        */
+         */
 
         if ($this->config->has($this->key . '.title.page')) {
             Title::set($this->key)->rename($this->config->get($this->key . '.title.page'));

@@ -3,52 +3,26 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "X-Generator: babel-plugin-makepot\n"
 
-#: resources/scripts/user-interface/components/Admin.js:214
-msgid "You have unsaved changes, are you sure you want to leave?"
+#: resources/scripts/user-interface/components/Page/ImportNotice.js:11
+msgid "Intervention and the database match"
 msgstr ""
 
-#: resources/scripts/user-interface/components/Admin.js:277
+#: resources/scripts/user-interface/components/Page/ImportNotice.js:30
+msgid "Imported %1$s and %2$s failed"
+msgstr ""
+
+#: resources/scripts/user-interface/components/Page/ImportNotice.js:45
+msgid "Imported %s"
+msgstr ""
+
+#: resources/scripts/user-interface/components/Page/ImportNotice.js:65
+msgid "Found %s differences between Intervention and the database"
+msgstr ""
+
+#: resources/scripts/user-interface/components/Page/ImportNotice.js:70
 msgid "Show"
 msgstr ""
 
-#: resources/scripts/user-interface/components/Admin.js:286
-msgid "All"
-msgstr ""
-
-#: resources/scripts/user-interface/components/Admin.js:287
-msgid "Applied"
-msgstr ""
-
-#: resources/scripts/user-interface/components/Admin/AddRoleGroup.js:49
-msgid "Add"
-msgstr ""
-
-#: resources/scripts/user-interface/components/Admin/ButtonSave.js:102
-msgid ""
-"Empty role group found, please assign a role or delete the group before "
-"saving."
-msgstr ""
-
-#: resources/scripts/user-interface/components/Admin/ButtonSave.js:111
-msgid "Found matching user groups, proceeding to save will merge groups."
-msgstr ""
-
-#: resources/scripts/user-interface/components/Admin/ButtonSave.js:23
-msgid "Saving"
-msgstr ""
-
-#: resources/scripts/user-interface/components/Admin/ButtonSave.js:42
-msgid "Save"
-msgstr ""
-
-#: resources/scripts/user-interface/components/Admin/RoleGroupEdit.js:140
-msgid "Delete"
-msgstr ""
-
-#: resources/scripts/user-interface/components/Admin/RoleGroupEdit.js:159
-msgid "Edit"
-msgstr ""
-
-#: resources/scripts/user-interface/components/Admin/RoleGroupEdit.js:172
-msgid "Hardcoded"
+#: resources/scripts/user-interface/components/Page/ImportRowEmpty.js:20
+msgid "Nothing found"
 msgstr ""

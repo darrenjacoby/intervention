@@ -1,0 +1,48 @@
+{
+  "translation-revision-date": "",
+  "domain": "messages",
+  "locale_data": {
+    "messages": {
+      "": {
+        "domain": "messages",
+        "lang": "nl_NL",
+        "plural-forms": "nplurals=2; plural=(n != 1);"
+      },
+      "Tools": ["Verktyg"],
+      "Export": ["Exportera"],
+      "Import": ["Importera"],
+      "Copy": ["Kopiera"],
+      "Copied": ["Kopieras"],
+      "Application": ["Applikation"],
+      "Toggle All": ["Växla All"],
+      "Theme": ["Teman"],
+      "Plugins": ["Tillägg"],
+      "General": ["Allmänt"],
+      "Writing": ["Skriva"],
+      "Reading": ["Läsa"],
+      "Discussion": ["Diskussion"],
+      "Media": ["Media"],
+      "Permalinks": ["Permalänkar"],
+      "Privacy": ["Integritet"],
+      "Why": ["Varför"],
+      "Export the database to an %s config file": [
+        "Exportera databasen till en %s konfigurationsfil"
+      ],
+      "All": ["Allt"],
+      "Mismatch": ["Mismatch"],
+      "Match": ["Match"],
+      "Show": ["Show"],
+      "Found %s differences between Intervention and the database": [
+        "Hittade %s skillnader mellan intervention och databasen"
+      ],
+      "Intervention and the database match": [
+        "Intervention och databasmatchning"
+      ],
+      "Imported %1$s and %2$s failed": [
+        "Importerade %1$s och %2$s misslyckades"
+      ],
+      "Imported %s": ["Importerade %s"],
+      "Nothing found": ["Inget hittat"]
+    }
+  }
+}

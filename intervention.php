@@ -1,15 +1,16 @@
 <?php
 /*
-Plugin Name:        Intervention
-Plugin URI:         http://github.com/soberwp/intervention
-Description:        Easily customize wp-admin and configure application options.
-Version:            2.0.0-rc.2
-Author:             Sober
-Author URI:         http://github.com/soberwp/
-License:            MIT License
-License URI:        http://opensource.org/licenses/MIT
-GitHub Plugin URI:  soberwp/intervention
-GitHub Branch:      master
+Plugin Name: Intervention
+Plugin URI: https://github.com/soberwp/intervention
+Description: Easily customize wp-admin and configure application options.
+Text Domain: intervention
+Version: 2.0.0-rc.4
+Author: Darren Jacoby
+Author URI: https://github.com/darrenjacoby
+License: MIT License
+License URI: https://opensource.org/licenses/MIT
+GitHub Plugin URI: soberwp/intervention
+GitHub Branch: master
  */
 namespace Sober\Intervention;
 
@@ -19,19 +20,27 @@ namespace Sober\Intervention;
 if (!defined('ABSPATH')) {
     die;
 }
-;
 
 define('INTERVENTION_DIR', dirname(__FILE__));
-define('INTERVENTION_TEXT_DOMAIN', 'intervention');
 define('THEME_TEXT_DOMAIN', wp_get_theme()->get('TextDomain'));
+define('INTERVENTION_TEXT_DOMAIN', 'intervention');
 
 /**
  * Support for Bedrock/Composer
  */
-include file_exists($composer = __DIR__ . '/vendor/autoload.php') ? $composer : __DIR__ . '/dist/autoload.php';
+if (!class_exists('Sober\Intervention\Intervention')) {
+    include file_exists($composer = __DIR__ . '/vendor/autoload.php') ? $composer : __DIR__ . '/dist/autoload.php';
+}
+
+/**
+ * WordPress/Laravel mix function
+ */
+include __DIR__ . '/mix.php';
 
 /**
  * Return user config for Intervention
+ *
+ * @return array
  */
 function get()
 {
@@ -57,4 +66,5 @@ function get()
 /**
  * Initialize
  */
-$intervention = new Intervention(get());
+new Intervention(get());
+new UserInterface();

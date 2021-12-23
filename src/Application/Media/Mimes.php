@@ -60,7 +60,6 @@ class Mimes
      */
     public function mimes($mimes)
     {
-
         $mimes = Arr::collect($mimes);
 
         foreach ($this->config as $mime => $value) {

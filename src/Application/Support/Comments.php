@@ -24,7 +24,8 @@ class Comments
     /**
      * Remove
      */
-    public static function remove() {
+    public static function remove()
+    {
         $self = new self();
 
         add_filter('rest_endpoints', [$self, 'filterRestEndpoints']);
@@ -50,10 +51,10 @@ class Comments
         Admin::set('settings.discussion', true);
         Admin::set('appearance.widgets.available.recent-comments', true);
         Admin::set('users.profile.options.shortcuts', true);
-        BlockEditor::set('discussion', true);
+        BlockEditor::set(['discussion']);
     }
 
-    /** 
+    /**
      * Disable support for comments and trackbacks in post types
      */
     public function removePostTypesSupport()
@@ -68,7 +69,7 @@ class Comments
         }
     }
 
-    /** 
+    /**
      * Redirect any user trying to access comments page
      */
     public function adminMenuRedirect()

@@ -1,10 +1,10 @@
-import React from "react";
-import { HashRouter, Routes } from "react-router-dom";
-import WordPressContainer from "./Page/WordPressContainer";
-import Head from "./Head";
-import Admin from "./Admin";
-import Export from "./Export";
-import Application from "./Application";
+import React from 'react';
+import { HashRouter, Routes } from 'react-router-dom';
+import WordPressContainer from './Page/WordPressContainer';
+import Head from './Head';
+import Admin from './Admin';
+import Export from './Export';
+import Application from './Application';
 
 /**
  * App

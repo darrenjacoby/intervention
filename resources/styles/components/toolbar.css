@@ -1,0 +1,32 @@
+.toolbar-divider {
+  position: relative;
+  width: 8px;
+  height: 48px;
+  margin: 1px 10px 0 12px;
+  border-left: 1px solid theme('colors.gray-5');
+
+  &::before,
+  &::after {
+    position: absolute;
+    top: 50%;
+    left: -2px;
+    display: block;
+    width: 0;
+    height: 0;
+    margin-top: -8px;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    content: '';
+  }
+
+  &::before {
+    z-index: 1;
+    margin-left: 1px;
+    border-left: 8px solid theme('colors.gray-5');
+  }
+
+  &::after {
+    z-index: 2;
+    border-left: 8px solid theme('colors.white');
+  }
+}
