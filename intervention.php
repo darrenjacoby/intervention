@@ -10,7 +10,7 @@ License:            MIT License
 License URI:        http://opensource.org/licenses/MIT
 GitHub Plugin URI:  soberwp/intervention
 GitHub Branch:      master
-*/
+ */
 namespace Sober\Intervention;
 
 /**
@@ -18,9 +18,12 @@ namespace Sober\Intervention;
  */
 if (!defined('ABSPATH')) {
     die;
-};
+}
+;
 
 define('INTERVENTION_DIR', dirname(__FILE__));
+define('INTERVENTION_TEXT_DOMAIN', 'intervention');
+define('THEME_TEXT_DOMAIN', wp_get_theme()->get('TextDomain'));
 
 /**
  * Support for Bedrock/Composer
@@ -35,18 +38,18 @@ function get()
     $theme = get_stylesheet_directory();
 
     $default = file_exists($theme . '/config/') ?
-        $theme . '/config/intervention.php' :
-        $theme . '/intervention.php';
+    $theme . '/config/intervention.php' :
+    $theme . '/intervention.php';
 
     $config = has_filter('sober/intervention/return') ?
-        apply_filters('sober/intervention/return', rtrim($path)) :
-        $default;
+    apply_filters('sober/intervention/return', rtrim($path)) :
+    $default;
 
     if (!file_exists($config)) {
         return;
     }
 
-    $read = include($config);
+    $read = include $config;
 
     return $read === 1 ? false : $read;
 }

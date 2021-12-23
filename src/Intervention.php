@@ -6,6 +6,7 @@ use Sober\Intervention\Support\Arr;
 use Sober\Intervention\Support\Composer;
 use Sober\Intervention\Support\Routes;
 use Sober\Intervention\Support\Str;
+use Sober\Intervention\UserInterface\Admin as UserInterfaceAdmin;
 
 /**
  * Intervention
@@ -33,7 +34,13 @@ class Intervention
             ->group('wp-admin')
             ->get();
 
+<<<<<<< Updated upstream
         Routes::set('wp-admin')->map(function ($class, $k) use ($admin) {
+=======
+        UserInterfaceAdmin::set($admin);
+
+        Config::get('admin/routing')->map(function ($class, $k) use ($admin) {
+>>>>>>> Stashed changes
             $this->initRoleFromConfigFile($admin, $class, $k);
         });
 

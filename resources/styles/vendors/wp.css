@@ -1,0 +1,105 @@
+body {
+  background-color: theme('colors.white');
+}
+
+#wpfooter {
+  height: 26px;
+  padding: 2px 16px;
+  border-top: 1px solid theme('colors.gray-5');
+
+  /* height: auto; */
+
+  /* border: 1px solid theme('colors.primary'); */
+}
+
+#wpbody-content {
+  position: relative;
+  padding-bottom: 26px;
+}
+
+#intervention > div {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - (32px + 26px));
+}
+
+a:focus {
+  color: theme('colors.primary');
+  outline: 1px solid transparent;
+  box-shadow: 0 0 0 1px theme('colors.primary'),
+    0 0 2px 1px theme('colors.primary');
+}
+
+ul#adminmenu a.wp-has-current-submenu::after,
+ul#adminmenu > li.current > a.current::after {
+  border-right-color: white;
+}
+
+/*
+.components-panel__body-toggle.components-button {
+  font-size: 14px;
+}
+
+.components-button {
+  font-size: 14px;
+}
+*/
+
+.components-panel__body.is-opened {
+  padding-bottom: 13px !important;
+}
+
+.components-button.is-deletion {
+  color: theme('colors.gray-40');
+  font-size: 14px;
+  white-space: nowrap;
+  background: transparent;
+
+  /*
+  box-shadow: inset 0 0 0 1px theme('colors.gray-5');
+  transition: box-shadow 0.1s linear, color 0.1s linear;
+  */
+}
+
+.components-button.is-deletion:active,
+.components-button.is-deletion:focus,
+.components-button.is-deletion:hover {
+  color: theme('colors.red');
+
+  /* box-shadow: inset 0 0 0 1px theme('colors.red'); */
+}
+
+/*
+.components-panel__body.is-opened > .components-panel__body-title {
+  margin-bottom: 0;
+}
+*/
+
+.components-tab-panel__tabs {
+  border-bottom: 1px solid theme('colors.gray-5');
+}
+
+.components-panel {
+  border: 0;
+  border-bottom: 1px solid theme('colors.gray-5');
+}
+
+.components-panel,
+.components-panel__body-toggle {
+  min-height: 49px;
+}
+
+.components-tab-panel__tabs-item {
+  height: 49px;
+}
+
+.roles-button {
+  /* transition: border-color 0.05s ease-in-out; */
+  box-shadow: inset 0 0 0 1px theme('colors.gray-2');
+  transition: box-shadow 0.1s linear, color 0.1s linear;
+}
+
+.roles-button.is-active {
+  box-shadow: inset 0 0 0 1px theme('colors.primary-10');
+}
