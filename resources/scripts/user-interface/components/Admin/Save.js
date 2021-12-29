@@ -1,25 +1,27 @@
 import React from 'react';
-import { useContext, useState } from '@wordpress/element';
+import { useState } from '@wordpress/element';
+import { useAtom } from 'jotai';
 import { Button } from '@wordpress/components';
 import apiFetch from '@wordpress/api-fetch';
-import AdminContext from '../AdminContext';
-import { __ } from '../../utils/wp';
-import { sortDataByRoleKeys } from '../../utils/admin';
+import { dataAtom, selectedIndexAtom, isBlockingAtom } from '../AdminAtoms';
 import { arrayHasDuplicates } from '../../utils/arr';
+import { sortDataByRoleKeys } from '../../utils/admin';
+import { __ } from '../../utils/wp';
 
 /**
  * Head
  */
 const Save = () => {
-  const { data, setData, index, setIndex, isBlocking, setIsBlocking } =
-    useContext(AdminContext);
+  const [data, setData] = useAtom(dataAtom);
+  const [selectedIndex] = useAtom(selectedIndexAtom);
+  const [isBlocking, setIsBlocking] = useAtom(isBlockingAtom);
 
   const [buttonText, setButtonText] = useState(__('Save'));
 
   /**
-   * Handle Save
+   * Handler
    */
-  const handleSave = () => {
+  const handler = () => {
     setButtonText(__('Saving'));
 
     const save = () => {
@@ -29,7 +31,7 @@ const Save = () => {
         data: { data: middleware, save: true },
       }).then((res) => {
         if (res?.data) {
-          const sorted = sortDataByRoleKeys(res.data, index);
+          const sorted = sortDataByRoleKeys(res.data, selectedIndex);
           setData(sorted.data);
           // setIndex(sorted.index);
           setButtonText(__('Save'));
@@ -98,6 +100,9 @@ const Save = () => {
       return arrayHasDuplicates(rolesAsKeys);
     };
 
+    /**
+     * If Empty Role Group Found
+     */
     if (emptyRoleGroupFound()) {
       const msg = __(
         'Empty role group found, please assign a role or delete the group before saving.'
@@ -107,6 +112,9 @@ const Save = () => {
       return;
     }
 
+    /**
+     * If Duplicate Role Group Found
+     */
     if (duplicateRoleGroupFound()) {
       const msg = __(
         'Found matching user groups, proceeding to save will merge groups.'
@@ -119,10 +127,13 @@ const Save = () => {
     save();
   };
 
+  /**
+   * Render
+   */
   return (
     <Button
       className="is-primary"
-      onClick={() => handleSave()}
+      onClick={() => handler()}
       disabled={isBlocking === true}
     >
       {buttonText}

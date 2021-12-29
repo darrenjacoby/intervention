@@ -3,14 +3,61 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "X-Generator: babel-plugin-makepot\n"
 
-#: resources/scripts/user-interface/components/Admin.js:84
+#: resources/scripts/user-interface/components/Admin.js:64
 msgid "Show"
 msgstr ""
 
-#: resources/scripts/user-interface/components/Admin.js:93
+#: resources/scripts/user-interface/components/Admin.js:73
 msgid "All"
 msgstr ""
 
-#: resources/scripts/user-interface/components/Admin.js:94
+#: resources/scripts/user-interface/components/Admin.js:74
 msgid "Applied"
+msgstr ""
+
+#: resources/scripts/user-interface/components/Admin/AddRoleGroup.js:31
+msgid "Add Group"
+msgstr ""
+
+#: resources/scripts/user-interface/components/Admin/ButtonSave.js:107
+#: resources/scripts/user-interface/components/Admin/Save.js:107
+msgid ""
+"Empty role group found, please assign a role or delete the group before "
+"saving."
+msgstr ""
+
+#: resources/scripts/user-interface/components/Admin/ButtonSave.js:119
+#: resources/scripts/user-interface/components/Admin/Save.js:119
+msgid "Found matching user groups, proceeding to save will merge groups."
+msgstr ""
+
+#: resources/scripts/user-interface/components/Admin/ButtonSave.js:25
+#: resources/scripts/user-interface/components/Admin/Save.js:25
+msgid "Saving"
+msgstr ""
+
+#: resources/scripts/user-interface/components/Admin/ButtonSave.js:44
+#: resources/scripts/user-interface/components/Admin/Save.js:44
+msgid "Save"
+msgstr ""
+
+#: resources/scripts/user-interface/components/Admin/Components/Breadcrumb.js:32
+msgid "root"
+msgstr ""
+
+#: resources/scripts/user-interface/components/Admin/Components/RouteItem.js:175
+#: resources/scripts/user-interface/components/Admin/Components/TextItem.js:92
+msgid "Undo"
+msgstr ""
+
+#: resources/scripts/user-interface/components/Admin/RoleGroupEdit.js:134
+msgid "Delete"
+msgstr ""
+
+#: resources/scripts/user-interface/components/Admin/RoleGroupEdit.js:153
+msgid "Edit"
+msgstr ""
+
+#: resources/scripts/user-interface/components/Admin/RoleGroupEdit.js:166
+msgid "Hardcoded"
 msgstr ""

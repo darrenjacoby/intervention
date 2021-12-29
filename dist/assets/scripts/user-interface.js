@@ -275,6 +275,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var jotai__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! jotai */ "./node_modules/jotai/esm/index.js");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
@@ -283,12 +284,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Page_Sidebar__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Page/Sidebar */ "./resources/scripts/user-interface/components/Page/Sidebar.js");
 /* harmony import */ var _Admin_Head__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Admin/Head */ "./resources/scripts/user-interface/components/Admin/Head.js");
 /* harmony import */ var _Admin_Components__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Admin/Components */ "./resources/scripts/user-interface/components/Admin/Components.js");
-/* harmony import */ var _AdminContext__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./AdminContext */ "./resources/scripts/user-interface/components/AdminContext.js");
+/* harmony import */ var _AdminAtoms__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./AdminAtoms */ "./resources/scripts/user-interface/components/AdminAtoms.js");
 /* harmony import */ var _utils_admin__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../utils/admin */ "./resources/scripts/user-interface/utils/admin.js");
 /* harmony import */ var _utils_wp__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../utils/wp */ "./resources/scripts/user-interface/utils/wp.js");
 
 
- // import { usePrompt } from 'react-router-dom';
+
 
 
 
@@ -301,49 +302,24 @@ __webpack_require__.r(__webpack_exports__);
 
 
 _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_4___default().use(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_4___default().createNonceMiddleware(intervention.nonce));
-/*
-const objHasProp = (obj, key) => {
-  return Object.prototype.hasOwnProperty.call(obj, key);
-};
-*/
-
 /**
  * Admin
  */
 
 var Admin = function Admin() {
-  var dataInit = {
-    roles: {
-      group: [],
-      immutable: false
-    },
-    components: []
-  };
+  var _useAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_12__.useAtom)(_AdminAtoms__WEBPACK_IMPORTED_MODULE_9__.dataAtom),
+      _useAtom2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useAtom, 2),
+      setData = _useAtom2[1];
 
-  var _useState = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useState)([dataInit]),
-      _useState2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useState, 2),
-      data = _useState2[0],
-      setData = _useState2[1];
+  var _useAtom3 = (0,jotai__WEBPACK_IMPORTED_MODULE_12__.useAtom)(_AdminAtoms__WEBPACK_IMPORTED_MODULE_9__.selectedIndexAtom),
+      _useAtom4 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useAtom3, 1),
+      selectedIndex = _useAtom4[0];
+  /**
+   * Get (change to react-query)
+   *
+   * @description
+   */
 
-  var _useState3 = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useState)(0),
-      _useState4 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useState3, 2),
-      index = _useState4[0],
-      setIndex = _useState4[1];
-
-  var _useState5 = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useState)(dataInit),
-      _useState6 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useState5, 2),
-      dataIndex = _useState6[0],
-      setDataIndex = _useState6[1];
-
-  var _useState7 = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useState)(false),
-      _useState8 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useState7, 2),
-      isBlocking = _useState8[0],
-      setIsBlocking = _useState8[1];
-
-  var _useState9 = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useState)(false),
-      _useState10 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useState9, 2),
-      isLoaded = _useState10[0],
-      setIsLoaded = _useState10[1];
 
   var get = function get() {
     _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_4___default()({
@@ -351,38 +327,23 @@ var Admin = function Admin() {
       url: intervention.route.admin.url
     }).then(function (res) {
       if (res !== null && res !== void 0 && res.data) {
-        var sorted = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_10__.sortDataByRoleKeys)(res.data, index);
-        setData(sorted.data);
-        setDataIndex(sorted.data[index]);
-        setIsBlocking(false);
-        setIsLoaded(true);
+        var sorted = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_10__.sortDataByRoleKeys)(res.data, selectedIndex);
+        setData(sorted.data); // setIsBlocking(false);
+        // setIsLoaded(true);
       }
     });
   };
 
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     return get();
-  }, []);
-  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
-    return setDataIndex(data[index]);
-  }, [index]); // useEffect(() => console.log(dataIndex.components), [dataIndex]);
+  }, []); // useEffect(() => setDataIndex(data[selectedIndex]), [selectedIndex]);
+  // useEffect(() => console.log(dataIndex.components), [dataIndex]);
 
   /**
    * Render
    */
 
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_AdminContext__WEBPACK_IMPORTED_MODULE_9__.default.Provider, {
-    value: {
-      data: data,
-      setData: setData,
-      index: index,
-      setIndex: setIndex,
-      dataIndex: dataIndex,
-      setDataIndex: setDataIndex,
-      isBlocking: isBlocking,
-      setIsBlocking: setIsBlocking
-    }
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Page_Page__WEBPACK_IMPORTED_MODULE_5__.default, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Page_Page__WEBPACK_IMPORTED_MODULE_5__.default, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
     className: "w-full flex-1"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Admin_Head__WEBPACK_IMPORTED_MODULE_7__.default, null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Admin_Components__WEBPACK_IMPORTED_MODULE_8__.default, null)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Page_Sidebar__WEBPACK_IMPORTED_MODULE_6__.default, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Panel, {
     className: "border-0 border-b border-gray-5"
@@ -403,7 +364,7 @@ var Admin = function Admin() {
     onChange: function onChange(value) {
       return console.log(value);
     }
-  })))))));
+  }))))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Admin);
@@ -422,14 +383,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ "./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _AdminContext__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../AdminContext */ "./resources/scripts/user-interface/components/AdminContext.js");
-/* harmony import */ var _utils_wp__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../utils/wp */ "./resources/scripts/user-interface/utils/wp.js");
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var jotai__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! jotai */ "./node_modules/jotai/esm/index.js");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _AdminAtoms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../AdminAtoms */ "./resources/scripts/user-interface/components/AdminAtoms.js");
+/* harmony import */ var _utils_wp__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../utils/wp */ "./resources/scripts/user-interface/utils/wp.js");
+
 
 
 
@@ -438,29 +402,30 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /**
- * Role Group Edit
+ * Add Role Group
  *
- * @returns <Roles />
+ * @returns <AddRoleGroup />
  */
 
 var AddRoleGroup = function AddRoleGroup() {
-  var _useContext = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useContext)(_AdminContext__WEBPACK_IMPORTED_MODULE_4__.default),
-      data = _useContext.data,
-      setData = _useContext.setData,
-      setIndex = _useContext.setIndex;
+  var _useAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_7__.useAtom)(_AdminAtoms__WEBPACK_IMPORTED_MODULE_5__.dataAtom),
+      _useAtom2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__.default)(_useAtom, 2),
+      data = _useAtom2[0],
+      setData = _useAtom2[1];
+
+  var _useAtom3 = (0,jotai__WEBPACK_IMPORTED_MODULE_7__.useAtom)(_AdminAtoms__WEBPACK_IMPORTED_MODULE_5__.selectedIndexAtom),
+      _useAtom4 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__.default)(_useAtom3, 2),
+      setSelectedIndex = _useAtom4[1];
 
   var addRoleGroup = function addRoleGroup() {
-    var roles = {
-      group: ['administrator'],
-      immutable: false
-    };
+    var roles = [['administrator'], false];
     var template = {
       roles: roles,
       components: []
     };
     var addGroup = [].concat((0,_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__.default)(data), [template]);
     setData(addGroup);
-    setIndex(data.length);
+    setSelectedIndex(data.length);
   };
   /**
    * Add Role Group
@@ -469,192 +434,15 @@ var AddRoleGroup = function AddRoleGroup() {
    */
 
 
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Button, {
     className: "is-secondary",
     onClick: function onClick() {
       return addRoleGroup();
     }
-  }, (0,_utils_wp__WEBPACK_IMPORTED_MODULE_5__.__)('Add Group'));
+  }, (0,_utils_wp__WEBPACK_IMPORTED_MODULE_6__.__)('Add Group'));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AddRoleGroup);
-
-/***/ }),
-
-/***/ "./resources/scripts/user-interface/components/Admin/ButtonSave.js":
-/*!*************************************************************************!*\
-  !*** ./resources/scripts/user-interface/components/Admin/ButtonSave.js ***!
-  \*************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
-/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _AdminContext__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../AdminContext */ "./resources/scripts/user-interface/components/AdminContext.js");
-/* harmony import */ var _utils_wp__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../utils/wp */ "./resources/scripts/user-interface/utils/wp.js");
-/* harmony import */ var _utils_admin__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../utils/admin */ "./resources/scripts/user-interface/utils/admin.js");
-/* harmony import */ var _utils_arr__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../utils/arr */ "./resources/scripts/user-interface/utils/arr.js");
-
-
-
-
-
-
-
-
-
-
-/**
- * Head
- */
-
-var Save = function Save() {
-  var _useContext = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useContext)(_AdminContext__WEBPACK_IMPORTED_MODULE_5__.default),
-      data = _useContext.data,
-      setData = _useContext.setData,
-      index = _useContext.index,
-      setIndex = _useContext.setIndex,
-      isBlocking = _useContext.isBlocking,
-      setIsBlocking = _useContext.setIsBlocking;
-
-  var _useState = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useState)((0,_utils_wp__WEBPACK_IMPORTED_MODULE_6__.__)('Save')),
-      _useState2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useState, 2),
-      buttonText = _useState2[0],
-      setButtonText = _useState2[1];
-  /**
-   * Handle Save
-   */
-
-
-  var handleSave = function handleSave() {
-    setButtonText((0,_utils_wp__WEBPACK_IMPORTED_MODULE_6__.__)('Saving'));
-
-    var save = function save() {
-      _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_4___default()({
-        url: intervention.route.admin.url,
-        method: 'POST',
-        data: {
-          data: middleware,
-          save: true
-        }
-      }).then(function (res) {
-        if (res !== null && res !== void 0 && res.data) {
-          var sorted = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_7__.sortDataByRoleKeys)(res.data, index);
-          setData(sorted.data); // setIndex(sorted.index);
-
-          setButtonText((0,_utils_wp__WEBPACK_IMPORTED_MODULE_6__.__)('Save'));
-          setIsBlocking(false);
-        }
-      });
-    };
-
-    var escape = function escape() {
-      setButtonText((0,_utils_wp__WEBPACK_IMPORTED_MODULE_6__.__)('Save'));
-    };
-    /*
-    const rolesAsKeys = applied.reduce((carry, { roles }) => {
-      carry.push(roles.join('|'));
-      return carry;
-    }, []);
-    */
-
-    /**
-     * Convert to object for saving
-     *
-     * @returns {object}
-     */
-
-
-    var middleware = data.reduce(function (carry, _ref) {
-      var roles = _ref.roles,
-          components = _ref.components;
-      var removeImmutableComponents = Object.entries(components).reduce(function (carry, _ref2) {
-        var _ref3 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_ref2, 2),
-            k = _ref3[0],
-            _ref3$ = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_ref3[1], 2),
-            value = _ref3$[0],
-            immutable = _ref3$[1];
-
-        if (immutable !== true) {
-          carry[k] = [value, false];
-        }
-
-        return carry;
-      }, {});
-      /*
-      if (Object.keys(components).length > 0) {
-        carry[roles.join('|')] = removeImmutableComponents;
-      }
-      */
-
-      carry[roles.group.join('|')] = removeImmutableComponents;
-      return carry;
-    }, {});
-    /**
-     * Empty Role Group Found
-     *
-     * @returns {boolean}
-     */
-
-    var emptyRoleGroupFound = function emptyRoleGroupFound() {
-      return Object.keys(middleware).includes('');
-    };
-    /**
-     * Duplicate Role Group Found
-     *
-     * @returns {boolean}
-     */
-
-
-    var duplicateRoleGroupFound = function duplicateRoleGroupFound() {
-      var rolesAsKeys = data.reduce(function (carry, _ref4) {
-        var roles = _ref4.roles;
-        carry.push(roles.group.join('|'));
-        return carry;
-      }, []);
-      return (0,_utils_arr__WEBPACK_IMPORTED_MODULE_8__.arrayHasDuplicates)(rolesAsKeys);
-    };
-
-    if (emptyRoleGroupFound()) {
-      var msg = (0,_utils_wp__WEBPACK_IMPORTED_MODULE_6__.__)('Empty role group found, please assign a role or delete the group before saving.');
-
-      window.alert(msg);
-      escape();
-      return;
-    }
-
-    if (duplicateRoleGroupFound()) {
-      var _msg = (0,_utils_wp__WEBPACK_IMPORTED_MODULE_6__.__)('Found matching user groups, proceeding to save will merge groups.');
-
-      var proceed = window.confirm(_msg);
-      proceed ? save() : escape();
-      return;
-    }
-
-    save();
-  };
-
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
-    className: "is-primary",
-    onClick: function onClick() {
-      return handleSave();
-    },
-    disabled: isBlocking === true
-  }, buttonText);
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Save);
 
 /***/ }),
 
@@ -674,15 +462,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _AdminContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../AdminContext */ "./resources/scripts/user-interface/components/AdminContext.js");
-/* harmony import */ var _ComponentsContext__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ComponentsContext */ "./resources/scripts/user-interface/components/Admin/ComponentsContext.js");
-/* harmony import */ var _Components_HierachicalItem__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Components/HierachicalItem */ "./resources/scripts/user-interface/components/Admin/Components/HierachicalItem.js");
-/* harmony import */ var _Components_BooleanItem__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Components/BooleanItem */ "./resources/scripts/user-interface/components/Admin/Components/BooleanItem.js");
-/* harmony import */ var _Components_BooleanGroup__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Components/BooleanGroup */ "./resources/scripts/user-interface/components/Admin/Components/BooleanGroup.js");
-/* harmony import */ var _Components_TextItem__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Components/TextItem */ "./resources/scripts/user-interface/components/Admin/Components/TextItem.js");
-/* harmony import */ var _Components_NumberItem__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Components/NumberItem */ "./resources/scripts/user-interface/components/Admin/Components/NumberItem.js");
-/* harmony import */ var _Components_RouteItem__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./Components/RouteItem */ "./resources/scripts/user-interface/components/Admin/Components/RouteItem.js");
-/* harmony import */ var _utils_admin__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../utils/admin */ "./resources/scripts/user-interface/utils/admin.js");
+/* harmony import */ var jotai__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! jotai */ "./node_modules/jotai/esm/index.js");
+/* harmony import */ var _Components_Breadcrumb__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Components/Breadcrumb */ "./resources/scripts/user-interface/components/Admin/Components/Breadcrumb.js");
+/* harmony import */ var _Components_HierachicalItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Components/HierachicalItem */ "./resources/scripts/user-interface/components/Admin/Components/HierachicalItem.js");
+/* harmony import */ var _Components_BooleanItem__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Components/BooleanItem */ "./resources/scripts/user-interface/components/Admin/Components/BooleanItem.js");
+/* harmony import */ var _Components_BooleanGroup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Components/BooleanGroup */ "./resources/scripts/user-interface/components/Admin/Components/BooleanGroup.js");
+/* harmony import */ var _Components_TextItem__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Components/TextItem */ "./resources/scripts/user-interface/components/Admin/Components/TextItem.js");
+/* harmony import */ var _Components_NumberItem__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Components/NumberItem */ "./resources/scripts/user-interface/components/Admin/Components/NumberItem.js");
+/* harmony import */ var _Components_RouteItem__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Components/RouteItem */ "./resources/scripts/user-interface/components/Admin/Components/RouteItem.js");
+/* harmony import */ var _utils_admin__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../utils/admin */ "./resources/scripts/user-interface/utils/admin.js");
+/* harmony import */ var _AdminAtoms__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../AdminAtoms */ "./resources/scripts/user-interface/components/AdminAtoms.js");
 /* harmony import */ var _utils_wp__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../utils/wp */ "./resources/scripts/user-interface/utils/wp.js");
 
 
@@ -706,71 +495,9 @@ var staticComponentsData = intervention.route.admin.data.components;
  */
 
 var Components = function Components() {
-  var _useContext = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useContext)(_AdminContext__WEBPACK_IMPORTED_MODULE_3__.default),
-      dataIndex = _useContext.dataIndex;
-
-  var _useState = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useState)(''),
-      _useState2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useState, 2),
-      path = _useState2[0],
-      setPath = _useState2[1];
-
-  var _useState3 = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
-      _useState4 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useState3, 2),
-      edited = _useState4[0],
-      setEdited = _useState4[1];
-
-  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
-    setEdited(dataIndex.components);
-  }, [dataIndex]);
-  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
-    console.log({
-      edited: edited
-    });
-  }, [edited]);
-  /**
-   * Api
-   *
-   * @param {object} edited
-   * @returns
-   */
-
-  var api = function api() {
-    var toggle = function toggle(key) {
-      return !(0,_utils_admin__WEBPACK_IMPORTED_MODULE_11__.objHasKey)(edited, key) ? add(key) : remove(key);
-    };
-
-    var add = function add(key) {
-      var value = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
-      return edited[key] = [value, false];
-    };
-
-    var remove = function remove(key) {
-      return (0,_utils_admin__WEBPACK_IMPORTED_MODULE_11__.objHasKey)(edited, key) && edited[key][1] === false && delete edited[key];
-    };
-
-    var get = function get() {
-      return edited;
-    };
-
-    return Object.freeze({
-      toggle: toggle,
-      add: add,
-      remove: remove,
-      get: get
-    });
-  };
-  /**
-   * Get Edited
-   *
-   * @param {string} k
-   * @returns {array} [ {boolean|string} value, {boolean} immutable ]
-   */
-
-
-  var getEdited = function getEdited(k) {
-    var key = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_11__.getInterventionKey)(k);
-    return Object.keys(edited).includes(key) ? edited[key] : [false, false];
-  };
+  var _useAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_13__.useAtom)(_AdminAtoms__WEBPACK_IMPORTED_MODULE_11__.pathAtom),
+      _useAtom2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useAtom, 1),
+      path = _useAtom2[0];
   /**
    * Get Static Components Data
    *
@@ -783,7 +510,7 @@ var Components = function Components() {
     var get = function get() {
       var paths = path.split('/');
       return paths.reduce(function (carry, item) {
-        carry = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_11__.objHasKey)(carry, item) ? carry[item] : carry;
+        carry = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_10__.objectHasKey)(carry, item) ? carry[item] : carry;
         return carry;
       }, staticComponentsData);
     };
@@ -791,37 +518,13 @@ var Components = function Components() {
     return path !== '' ? get() : staticComponentsData;
   };
   /**
-   * Breadcrumb
+   * Get First Path Key
    *
-   * @returns <Breadcrumb />
+   * @description required to determine `:route` items.
    */
 
 
-  var Breadcrumb = function Breadcrumb() {
-    var paths = path.split('/');
-
-    var handler = function handler(k) {
-      var pos = path.indexOf(k) + k.length;
-      setPath(path.substring(0, pos));
-    };
-
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
-      className: "flex"
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
-      className: "cursor-pointer",
-      onClick: function onClick() {
-        return handler('');
-      }
-    }, (0,_utils_wp__WEBPACK_IMPORTED_MODULE_12__.__)('root')), paths.map(function (item) {
-      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
-        key: item,
-        className: "cursor-pointer",
-        onClick: function onClick() {
-          return handler(item);
-        }
-      }, (0,_utils_admin__WEBPACK_IMPORTED_MODULE_11__.getInterventionKey)(item));
-    }));
-  };
+  var getFirstPathKey = Object.keys(getStaticComponentsData(path))[0];
   /**
    * Routing
    *
@@ -829,60 +532,45 @@ var Components = function Components() {
    * @returns <Routing />
    */
 
-
   var Routing = function Routing(_ref) {
     var k = _ref.item;
     var key = path !== '' ? "".concat(path, "/").concat(k) : k;
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, (0,_Components_HierachicalItem__WEBPACK_IMPORTED_MODULE_5__.isHierachical)(k) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Components_HierachicalItem__WEBPACK_IMPORTED_MODULE_5__.Hierachical, {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, (0,_Components_HierachicalItem__WEBPACK_IMPORTED_MODULE_4__.isHierachical)(k) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Components_HierachicalItem__WEBPACK_IMPORTED_MODULE_4__.Hierachical, {
       item: key
-    }), (0,_Components_BooleanItem__WEBPACK_IMPORTED_MODULE_6__.isBooleanItem)(k) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Components_BooleanItem__WEBPACK_IMPORTED_MODULE_6__.BooleanItem, {
+    }), (0,_Components_BooleanItem__WEBPACK_IMPORTED_MODULE_5__.isBooleanItem)(k) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Components_BooleanItem__WEBPACK_IMPORTED_MODULE_5__.BooleanItem, {
       item: key
-    }), (0,_Components_TextItem__WEBPACK_IMPORTED_MODULE_8__.isTextItem)(k) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Components_TextItem__WEBPACK_IMPORTED_MODULE_8__.TextItem, {
+    }), (0,_Components_TextItem__WEBPACK_IMPORTED_MODULE_7__.isTextItem)(k) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Components_TextItem__WEBPACK_IMPORTED_MODULE_7__.TextItem, {
       item: key
-    }), (0,_Components_NumberItem__WEBPACK_IMPORTED_MODULE_9__.isNumberItem)(k) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Components_NumberItem__WEBPACK_IMPORTED_MODULE_9__.NumberItem, {
+    }), (0,_Components_NumberItem__WEBPACK_IMPORTED_MODULE_8__.isNumberItem)(k) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Components_NumberItem__WEBPACK_IMPORTED_MODULE_8__.NumberItem, {
       item: key
-    }), (0,_Components_BooleanGroup__WEBPACK_IMPORTED_MODULE_7__.isBooleanGroup)(k) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Components_BooleanGroup__WEBPACK_IMPORTED_MODULE_7__.BooleanGroup, {
-      item: key
+    }), (0,_Components_BooleanGroup__WEBPACK_IMPORTED_MODULE_6__.isBooleanGroup)(k) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Components_BooleanGroup__WEBPACK_IMPORTED_MODULE_6__.BooleanGroup, {
+      item: key,
+      data: getStaticComponentsData(key)
     }));
   };
+  /**
+   * Route Item Group
+   *
+   * @returns <RouteGroup>
+   */
 
-  var firstPathKey = Object.keys(getStaticComponentsData(path))[0];
 
-  var RouteGroup = function RouteGroup() {
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Components_RouteItem__WEBPACK_IMPORTED_MODULE_10__.RouteItem, {
-      item: "".concat(path, "/").concat(firstPathKey)
+  var RouteItemGroup = function RouteItemGroup() {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Components_RouteItem__WEBPACK_IMPORTED_MODULE_9__.RouteItem, {
+      item: "".concat(path, "/").concat(getFirstPathKey)
     }, Object.keys(getStaticComponentsData(path)).map(function (key) {
       return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(Routing, {
         key: key,
         item: key
       });
-    })));
+    }));
   };
-  /*
-  const Group = () => {
-    return (
-      <>
-        <Route item={firstPathKey}>
-          {Object.keys(getStaticComponentsData(path)).map((key) => (
-            <Routing key={key} item={key} />
-          ))}
-        </Route>
-      </>
-    );
-  };
-  */
+  /**
+   * Render
+   */
 
 
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_ComponentsContext__WEBPACK_IMPORTED_MODULE_4__.default.Provider, {
-    value: {
-      edited: edited,
-      getEdited: getEdited,
-      setEdited: setEdited,
-      setPath: setPath,
-      api: api,
-      getStaticComponentsData: getStaticComponentsData
-    }
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(Breadcrumb, null), (0,_Components_RouteItem__WEBPACK_IMPORTED_MODULE_10__.isRouteItem)(firstPathKey) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(RouteGroup, null), !(0,_Components_RouteItem__WEBPACK_IMPORTED_MODULE_10__.isRouteItem)(firstPathKey) && Object.keys(getStaticComponentsData(path)).map(function (key) {
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Components_Breadcrumb__WEBPACK_IMPORTED_MODULE_3__.Breadcrumb, null), (0,_Components_RouteItem__WEBPACK_IMPORTED_MODULE_9__.isRouteItem)(getFirstPathKey) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(RouteItemGroup, null), !(0,_Components_RouteItem__WEBPACK_IMPORTED_MODULE_9__.isRouteItem)(getFirstPathKey) && Object.keys(getStaticComponentsData(path)).map(function (key) {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(Routing, {
       key: key,
       item: key
@@ -910,10 +598,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _ComponentsContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../ComponentsContext */ "./resources/scripts/user-interface/components/Admin/ComponentsContext.js");
-/* harmony import */ var _Row__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Row */ "./resources/scripts/user-interface/components/Admin/Components/Row.js");
+/* harmony import */ var jotai__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! jotai */ "./node_modules/jotai/esm/index.js");
+/* harmony import */ var _Row__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Row */ "./resources/scripts/user-interface/components/Admin/Components/Row.js");
+/* harmony import */ var _AdminAtoms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../AdminAtoms */ "./resources/scripts/user-interface/components/AdminAtoms.js");
 /* harmony import */ var _utils_admin__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../utils/admin */ "./resources/scripts/user-interface/utils/admin.js");
 /* harmony import */ var _utils_wp__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../utils/wp */ "./resources/scripts/user-interface/utils/wp.js");
+
 
 
 
@@ -941,67 +631,72 @@ var isBooleanGroup = function isBooleanGroup(k) {
 
 
 var BooleanGroup = function BooleanGroup(_ref) {
-  var parentKey = _ref.item;
+  var parentKey = _ref.item,
+      data = _ref.data;
+  var parentInterventionKey = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_5__.getInterventionKey)(parentKey);
 
-  var _useContext = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useContext)(_ComponentsContext__WEBPACK_IMPORTED_MODULE_3__.default),
-      api = _useContext.api,
-      getEdited = _useContext.getEdited,
-      setEdited = _useContext.setEdited,
-      getStaticComponentsData = _useContext.getStaticComponentsData;
+  var _useAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_7__.useAtom)(_AdminAtoms__WEBPACK_IMPORTED_MODULE_4__.componentsAtom),
+      _useAtom2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__.default)(_useAtom, 2),
+      components = _useAtom2[0],
+      setComponents = _useAtom2[1];
 
-  var childDataKeys = Object.keys(getStaticComponentsData(parentKey));
-  var childDataFormatted = childDataKeys.reduce(function (carry, k) {
-    carry.push((0,_utils_admin__WEBPACK_IMPORTED_MODULE_5__.getInterventionKey)("".concat(parentKey, "/").concat(k)));
-    return carry;
-  }, []);
-  var initSelected = childDataFormatted.reduce(function (carry, k) {
-    if (getEdited(k)[0]) {
-      carry.push(k);
-    }
-
-    return carry;
-  }, []);
-
-  var _getEdited = getEdited(parentKey),
-      _getEdited2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__.default)(_getEdited, 2),
-      parentValue = _getEdited2[0],
-      parentImmutable = _getEdited2[1];
-
-  var _useState = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useState)(parentValue ? childDataFormatted : initSelected),
-      _useState2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__.default)(_useState, 2),
-      selected = _useState2[0],
-      setSelected = _useState2[1];
+  var _getValue = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_5__.getValue)(components, parentInterventionKey),
+      _getValue2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__.default)(_getValue, 2),
+      parentValue = _getValue2[0],
+      parentImmutable = _getValue2[1];
 
   var firstUpdate = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useRef)(true);
   /**
-   * Parent On Effect Api
-   *
-   * @description group `api` calls for when parent is selected.
+   * State: Selected
    */
 
-  var parentOnEffectApi = function parentOnEffectApi() {
+  var childData = Object.keys(data).reduce(function (carry, k) {
+    var interventionKey = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_5__.getInterventionKey)("".concat(parentKey, "/").concat(k));
+    carry.push(interventionKey);
+    return carry;
+  }, []);
+  var selectedChildData = childData.reduce(function (carry, k) {
+    var _getValue3 = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_5__.getValue)(components, k),
+        _getValue4 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__.default)(_getValue3, 1),
+        value = _getValue4[0];
+
+    return value ? [carry, k] : carry;
+  }, []);
+
+  var _useState = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useState)(parentValue ? childData : selectedChildData),
+      _useState2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__.default)(_useState, 2),
+      selected = _useState2[0],
+      setSelected = _useState2[1];
+  /**
+   * Parent On Tasks
+   *
+   * @description group `setComponent` calls for when parent is selected.
+   */
+
+
+  var parentOnTasks = function parentOnTasks() {
     selected.map(function (k) {
-      return api().remove(k);
+      setComponents(['del', k]);
     });
-    api().add((0,_utils_admin__WEBPACK_IMPORTED_MODULE_5__.getInterventionKey)(parentKey));
+    setComponents(['add', parentInterventionKey]);
   };
   /**
-   * Parent Off Effect Api
+   * Parent Off Tasks
    *
-   * @description group `api` calls for when parent is deselected.
+   * @description group `setComponent` calls for when parent is deselected.
    */
 
 
-  var parentOffEffectApi = function parentOffEffectApi() {
+  var parentOffTasks = function parentOffTasks() {
     selected.map(function (k) {
-      return api().add(k);
+      setComponents(['add', k]);
     });
-    api().remove((0,_utils_admin__WEBPACK_IMPORTED_MODULE_5__.getInterventionKey)(parentKey));
+    setComponents(['del', parentInterventionKey]);
   };
   /**
    * Effect
    *
-   * @description after first update, watch `selected` for changes and run `api` calls.
+   * @description after first update, watch `selected` for changes and run `setComponent` calls.
    */
 
 
@@ -1011,9 +706,8 @@ var BooleanGroup = function BooleanGroup(_ref) {
       return;
     }
 
-    var parentOnState = childDataKeys.length === selected.length;
-    parentOnState ? parentOnEffectApi() : parentOffEffectApi();
-    setEdited(api().get()); // setParentOn(parentOnState);
+    var parentOnState = childData.length === selected.length;
+    parentOnState ? parentOnTasks() : parentOffTasks();
   }, [selected]);
   /**
    * Parent Item
@@ -1027,7 +721,7 @@ var BooleanGroup = function BooleanGroup(_ref) {
         return;
       }
 
-      var selectedChange = selected.length === childDataKeys.length ? [] : childDataFormatted;
+      var selectedChange = selected.length === childData.length ? [] : childData;
       setSelected(selectedChange);
     };
 
@@ -1035,8 +729,8 @@ var BooleanGroup = function BooleanGroup(_ref) {
       onClick: function onClick() {
         return handler();
       }
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_Row__WEBPACK_IMPORTED_MODULE_4__.Row, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_Row__WEBPACK_IMPORTED_MODULE_4__.RowState, {
-      state: selected.length === childDataKeys.length,
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_Row__WEBPACK_IMPORTED_MODULE_3__.Row, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_Row__WEBPACK_IMPORTED_MODULE_3__.RowState, {
+      state: selected.length === childData.length,
       immutable: parentImmutable
     }), (0,_utils_admin__WEBPACK_IMPORTED_MODULE_5__.getInterventionKey)(parentKey)));
   };
@@ -1050,11 +744,12 @@ var BooleanGroup = function BooleanGroup(_ref) {
 
   var BooleanItem = function BooleanItem(_ref2) {
     var key = _ref2.item;
-    var state = selected.includes((0,_utils_admin__WEBPACK_IMPORTED_MODULE_5__.getInterventionKey)(key));
+    var interventionKey = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_5__.getInterventionKey)(key);
+    var state = selected.includes(interventionKey);
 
-    var _getEdited3 = getEdited(key),
-        _getEdited4 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__.default)(_getEdited3, 2),
-        immutable = _getEdited4[1];
+    var _getValue5 = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_5__.getValue)(key),
+        _getValue6 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__.default)(_getValue5, 2),
+        immutable = _getValue6[1];
 
     var handler = function handler() {
       if (parentImmutable || immutable) {
@@ -1072,17 +767,21 @@ var BooleanGroup = function BooleanGroup(_ref) {
       onClick: function onClick() {
         return handler();
       }
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_Row__WEBPACK_IMPORTED_MODULE_4__.Row, {
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_Row__WEBPACK_IMPORTED_MODULE_3__.Row, {
       item: key
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_Row__WEBPACK_IMPORTED_MODULE_4__.RowState, {
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_Row__WEBPACK_IMPORTED_MODULE_3__.RowState, {
       state: state,
       immutable: parentImmutable || immutable
     }), key));
   };
+  /**
+   * Render
+   */
+
 
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(ParentItem, null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("div", {
     className: "pl-48"
-  }, childDataFormatted.map(function (k) {
+  }, childData.map(function (k) {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(BooleanItem, {
       key: k,
       item: k
@@ -1109,7 +808,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _ComponentsContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../ComponentsContext */ "./resources/scripts/user-interface/components/Admin/ComponentsContext.js");
+/* harmony import */ var jotai__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! jotai */ "./node_modules/jotai/esm/index.js");
+/* harmony import */ var _AdminAtoms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../AdminAtoms */ "./resources/scripts/user-interface/components/AdminAtoms.js");
 /* harmony import */ var _Row__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Row */ "./resources/scripts/user-interface/components/Admin/Components/Row.js");
 /* harmony import */ var _utils_admin__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../utils/admin */ "./resources/scripts/user-interface/utils/admin.js");
 
@@ -1118,6 +818,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+/**
+ * Is Boolean Item
+ *
+ * @param {string} k
+ * @returns {boolean}
+ */
 
 var isBooleanItem = function isBooleanItem(k) {
   return !k.includes(':');
@@ -1132,31 +839,39 @@ var isBooleanItem = function isBooleanItem(k) {
 
 var BooleanItem = function BooleanItem(_ref) {
   var key = _ref.item;
+  var interventionKey = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_4__.getInterventionKey)(key);
 
-  var _useContext = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useContext)(_ComponentsContext__WEBPACK_IMPORTED_MODULE_2__.default),
-      api = _useContext.api,
-      getEdited = _useContext.getEdited,
-      setEdited = _useContext.setEdited;
+  var _useAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_5__.useAtom)(_AdminAtoms__WEBPACK_IMPORTED_MODULE_2__.componentsAtom),
+      _useAtom2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useAtom, 2),
+      components = _useAtom2[0],
+      setComponents = _useAtom2[1];
 
-  var _getEdited = getEdited(key),
-      _getEdited2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_getEdited, 2),
-      value = _getEdited2[0],
-      immutable = _getEdited2[1];
+  var _getValue = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_4__.getValue)(components, interventionKey),
+      _getValue2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_getValue, 2),
+      value = _getValue2[0],
+      immutable = _getValue2[1];
 
   var _useState = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useState)(value),
       _useState2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useState, 2),
       state = _useState2[0],
       setState = _useState2[1];
+  /**
+   * Handler
+   */
+
 
   var handler = function handler() {
     if (immutable) {
       return;
     }
 
-    api().toggle((0,_utils_admin__WEBPACK_IMPORTED_MODULE_4__.getInterventionKey)(key));
-    setEdited(api().get());
+    setComponents(['toggle', interventionKey]);
     setState(!state);
   };
+  /**
+   * Render
+   */
+
 
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
     onClick: function onClick() {
@@ -1166,6 +881,83 @@ var BooleanItem = function BooleanItem(_ref) {
     state: value,
     immutable: immutable
   }), (0,_utils_admin__WEBPACK_IMPORTED_MODULE_4__.getInterventionKey)(key)));
+};
+
+
+
+/***/ }),
+
+/***/ "./resources/scripts/user-interface/components/Admin/Components/Breadcrumb.js":
+/*!************************************************************************************!*\
+  !*** ./resources/scripts/user-interface/components/Admin/Components/Breadcrumb.js ***!
+  \************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Breadcrumb": () => (/* binding */ Breadcrumb)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var jotai__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! jotai */ "./node_modules/jotai/esm/index.js");
+/* harmony import */ var _AdminAtoms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../AdminAtoms */ "./resources/scripts/user-interface/components/AdminAtoms.js");
+/* harmony import */ var _utils_admin__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../utils/admin */ "./resources/scripts/user-interface/utils/admin.js");
+/* harmony import */ var _utils_wp__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../utils/wp */ "./resources/scripts/user-interface/utils/wp.js");
+
+
+
+
+
+
+
+/**
+ * Breadcrumb
+ *
+ * @returns <Breadcrumb />
+ */
+
+var Breadcrumb = function Breadcrumb() {
+  var _useAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_6__.useAtom)(_AdminAtoms__WEBPACK_IMPORTED_MODULE_3__.pathAtom),
+      _useAtom2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useAtom, 2),
+      path = _useAtom2[0],
+      setPath = _useAtom2[1];
+
+  var paths = path.split('/');
+  /**
+   * Handler
+   *
+   * @param {string} k
+   */
+
+  var handler = function handler(k) {
+    var pos = path.indexOf(k) + k.length;
+    setPath(path.substring(0, pos));
+  };
+  /**
+   * Render
+   */
+
+
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+    className: "flex"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+    className: "cursor-pointer",
+    onClick: function onClick() {
+      return handler('');
+    }
+  }, (0,_utils_wp__WEBPACK_IMPORTED_MODULE_5__.__)('root')), paths.map(function (item) {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+      key: item,
+      className: "cursor-pointer",
+      onClick: function onClick() {
+        return handler(item);
+      }
+    }, (0,_utils_admin__WEBPACK_IMPORTED_MODULE_4__.getInterventionKey)(item));
+  }));
 };
 
 
@@ -1184,19 +976,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "isHierachical": () => (/* binding */ isHierachical),
 /* harmony export */   "Hierachical": () => (/* binding */ Hierachical)
 /* harmony export */ });
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _ComponentsContext__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../ComponentsContext */ "./resources/scripts/user-interface/components/Admin/ComponentsContext.js");
-/* harmony import */ var _Row__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Row */ "./resources/scripts/user-interface/components/Admin/Components/Row.js");
-/* harmony import */ var _utils_admin__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../utils/admin */ "./resources/scripts/user-interface/utils/admin.js");
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var jotai__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! jotai */ "./node_modules/jotai/esm/index.js");
+/* harmony import */ var _AdminAtoms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../AdminAtoms */ "./resources/scripts/user-interface/components/AdminAtoms.js");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _Row__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Row */ "./resources/scripts/user-interface/components/Admin/Components/Row.js");
+/* harmony import */ var _utils_admin__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../utils/admin */ "./resources/scripts/user-interface/utils/admin.js");
 
 
 
 
 
 
+
+/**
+ * Is Hierachical
+ *
+ * @param {string} k
+ * @returns {boolean}
+ */
 
 var isHierachical = function isHierachical(k) {
   return k.includes(':hierachical');
@@ -1212,14 +1013,15 @@ var isHierachical = function isHierachical(k) {
 var Hierachical = function Hierachical(_ref) {
   var key = _ref.item;
 
-  var _useContext = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useContext)(_ComponentsContext__WEBPACK_IMPORTED_MODULE_2__.default),
-      setPath = _useContext.setPath;
+  var _useAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_6__.useAtom)(_AdminAtoms__WEBPACK_IMPORTED_MODULE_2__.pathAtom),
+      _useAtom2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useAtom, 2),
+      setPath = _useAtom2[1];
 
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
     onClick: function onClick() {
       return setPath(key);
     }
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Row__WEBPACK_IMPORTED_MODULE_3__.Row, null, (0,_utils_admin__WEBPACK_IMPORTED_MODULE_4__.getInterventionKey)(key), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Icon, {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Row__WEBPACK_IMPORTED_MODULE_4__.Row, null, (0,_utils_admin__WEBPACK_IMPORTED_MODULE_5__.getInterventionKey)(key), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Icon, {
     className: " ml-4 flex items-center justify-center text-primary-10 text-16 p-0 border-2 ",
     icon: "arrow-right-alt"
   })));
@@ -1243,19 +1045,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _TextItem__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./TextItem */ "./resources/scripts/user-interface/components/Admin/Components/TextItem.js");
-/* harmony import */ var _Row__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Row */ "./resources/scripts/user-interface/components/Admin/Components/Row.js");
-/* harmony import */ var _utils_admin__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../utils/admin */ "./resources/scripts/user-interface/utils/admin.js");
-/* harmony import */ var _utils_wp__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../utils/wp */ "./resources/scripts/user-interface/utils/wp.js");
+/* harmony import */ var _TextItem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TextItem */ "./resources/scripts/user-interface/components/Admin/Components/TextItem.js");
+/* harmony import */ var _utils_wp__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../utils/wp */ "./resources/scripts/user-interface/utils/wp.js");
 
 
 
-
-
-
-
+/**
+ * Is Number Item
+ *
+ * @param {string} k
+ * @returns {boolean}
+ */
 
 var isNumberItem = function isNumberItem(k) {
   return k.includes(':number');
@@ -1270,7 +1070,7 @@ var isNumberItem = function isNumberItem(k) {
 
 var NumberItem = function NumberItem(_ref) {
   var key = _ref.item;
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_TextItem__WEBPACK_IMPORTED_MODULE_2__.TextItem, {
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_TextItem__WEBPACK_IMPORTED_MODULE_1__.TextItem, {
     item: key,
     type: "number"
   });
@@ -1296,12 +1096,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ "./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _ComponentsContext__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../ComponentsContext */ "./resources/scripts/user-interface/components/Admin/ComponentsContext.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var jotai__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! jotai */ "./node_modules/jotai/esm/index.js");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _Row__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Row */ "./resources/scripts/user-interface/components/Admin/Components/Row.js");
-/* harmony import */ var _utils_admin__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../utils/admin */ "./resources/scripts/user-interface/utils/admin.js");
-/* harmony import */ var _utils_wp__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../utils/wp */ "./resources/scripts/user-interface/utils/wp.js");
+/* harmony import */ var _AdminAtoms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../AdminAtoms */ "./resources/scripts/user-interface/components/AdminAtoms.js");
+/* harmony import */ var _utils_admin__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../utils/admin */ "./resources/scripts/user-interface/utils/admin.js");
+/* harmony import */ var _utils_wp__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../utils/wp */ "./resources/scripts/user-interface/utils/wp.js");
+
+
 
 
 
@@ -1369,38 +1174,38 @@ var isRouteItem = function isRouteItem(k) {
   return k.includes(':route');
 };
 /**
- * Route
+ * Route Ittem
  *
  * @param {object} { key: {string} key }
- * @returns <HierachicalItem />
+ * @returns <RouteItem />
  */
 
 
 var RouteItem = function RouteItem(_ref) {
   var key = _ref.item,
       children = _ref.children;
-  var interventionKey = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_6__.getInterventionKey)(key);
+  var interventionKey = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_7__.getInterventionKey)(key);
 
-  var _useContext = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useContext)(_ComponentsContext__WEBPACK_IMPORTED_MODULE_4__.default),
-      api = _useContext.api,
-      edited = _useContext.edited,
-      getEdited = _useContext.getEdited,
-      setEdited = _useContext.setEdited;
+  var _useAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_9__.useAtom)(_AdminAtoms__WEBPACK_IMPORTED_MODULE_6__.componentsAtom),
+      _useAtom2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useAtom, 2),
+      components = _useAtom2[0],
+      setComponents = _useAtom2[1];
 
-  var _getEdited = getEdited(key),
-      _getEdited2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_getEdited, 2),
-      value = _getEdited2[0],
-      immutable = _getEdited2[1];
+  var _getValue = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_7__.getValue)(components, key),
+      _getValue2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_getValue, 2),
+      value = _getValue2[0],
+      immutable = _getValue2[1];
 
   var init = value === false ? '' : value;
 
   var _useState = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useState)(init),
       _useState2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useState, 2),
       state = _useState2[0],
-      setState = _useState2[1]; // const sanitizeKey = key.replace(':route', '');
-
+      setState = _useState2[1];
   /**
    * Immutable Option
+   *
+   * @description only return the hard coded option.
    *
    * @param {string} value
    * @returns {array}
@@ -1417,6 +1222,8 @@ var RouteItem = function RouteItem(_ref) {
   /**
    * Excl Key From Options
    *
+   * @description remove routes that start with this `key`.
+   *
    * @param {array} options
    * @returns {array}
    */
@@ -1427,6 +1234,12 @@ var RouteItem = function RouteItem(_ref) {
       return item.value.startsWith(interventionKey) === false;
     }).filter(Boolean);
   };
+  /**
+   * Options
+   *
+   * @description resolve correct options.
+   */
+
 
   var options = immutable ? immutableOption(state) : exclKeyFromOptions(optionsAll);
   /**
@@ -1434,17 +1247,11 @@ var RouteItem = function RouteItem(_ref) {
    */
 
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useEffect)(function () {
-    state !== '' ? api().add(interventionKey, state) : api().remove(interventionKey);
-    setEdited(api().get());
-    console.log({
-      state: state
-    });
-    console.log({
-      interventionKey: interventionKey
-    });
-    console.log({
-      edited: edited
-    });
+    if (state !== '') {
+      setComponents(['add', interventionKey, state]);
+    } else {
+      setComponents(['remove', interventionKey]);
+    }
   }, [state]);
   /**
    * Handler
@@ -1470,12 +1277,12 @@ var RouteItem = function RouteItem(_ref) {
     state: state,
     immutable: immutable
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("div", {
-    className: "flex w-full items-center"
+    className: " flex w-full items-center"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("div", {
     className: "w-1/2"
-  }, (0,_utils_admin__WEBPACK_IMPORTED_MODULE_6__.getInterventionKey)(key)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("div", {
-    className: "w-1/2 flex items-center border-l border-gray-2"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.SelectControl, {
+  }, interventionKey), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("div", {
+    className: " w-1/2 flex items-center border-l border-gray-2"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.SelectControl, {
     label: "Route",
     hideLabelFromVision: true,
     value: state,
@@ -1484,11 +1291,11 @@ var RouteItem = function RouteItem(_ref) {
     onChange: function onChange(route) {
       return handler(route);
     }
-  }), immutable === false && state !== '' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
+  }), immutable === false && state !== '' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Button, {
     onClick: function onClick() {
       return handler('');
     }
-  }, (0,_utils_wp__WEBPACK_IMPORTED_MODULE_7__.__)('Undo'))))), state === '' && children);
+  }, (0,_utils_wp__WEBPACK_IMPORTED_MODULE_8__.__)('Undo'))))), state === '' && children);
 };
 
 
@@ -1577,10 +1384,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var jotai__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! jotai */ "./node_modules/jotai/esm/index.js");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _ComponentsContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../ComponentsContext */ "./resources/scripts/user-interface/components/Admin/ComponentsContext.js");
-/* harmony import */ var _Row__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Row */ "./resources/scripts/user-interface/components/Admin/Components/Row.js");
+/* harmony import */ var _Row__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Row */ "./resources/scripts/user-interface/components/Admin/Components/Row.js");
+/* harmony import */ var _AdminAtoms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../AdminAtoms */ "./resources/scripts/user-interface/components/AdminAtoms.js");
 /* harmony import */ var _utils_admin__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../utils/admin */ "./resources/scripts/user-interface/utils/admin.js");
 /* harmony import */ var _utils_wp__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../utils/wp */ "./resources/scripts/user-interface/utils/wp.js");
 
@@ -1591,6 +1399,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+/**
+ * Is Text Item
+ *
+ * @param {string} k
+ * @returns {boolean}
+ */
 
 var isTextItem = function isTextItem(k) {
   return k.includes(':text');
@@ -1607,16 +1422,17 @@ var TextItem = function TextItem(_ref) {
   var key = _ref.item,
       _ref$type = _ref.type,
       type = _ref$type === void 0 ? 'text' : _ref$type;
+  var interventionKey = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_5__.getInterventionKey)(key);
 
-  var _useContext = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useContext)(_ComponentsContext__WEBPACK_IMPORTED_MODULE_3__.default),
-      api = _useContext.api,
-      getEdited = _useContext.getEdited,
-      setEdited = _useContext.setEdited;
+  var _useAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_7__.useAtom)(_AdminAtoms__WEBPACK_IMPORTED_MODULE_4__.componentsAtom),
+      _useAtom2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useAtom, 2),
+      components = _useAtom2[0],
+      setComponents = _useAtom2[1];
 
-  var _getEdited = getEdited(key),
-      _getEdited2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_getEdited, 2),
-      value = _getEdited2[0],
-      immutable = _getEdited2[1];
+  var _getValue = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_5__.getValue)(components, interventionKey),
+      _getValue2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_getValue, 2),
+      value = _getValue2[0],
+      immutable = _getValue2[1];
 
   var init = value === false ? '' : value;
 
@@ -1624,11 +1440,23 @@ var TextItem = function TextItem(_ref) {
       _useState2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useState, 2),
       state = _useState2[0],
       setState = _useState2[1];
+  /**
+   * Effect
+   */
+
 
   (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
-    state !== '' ? api().add((0,_utils_admin__WEBPACK_IMPORTED_MODULE_5__.getInterventionKey)(key), state) : api().remove((0,_utils_admin__WEBPACK_IMPORTED_MODULE_5__.getInterventionKey)(key));
-    setEdited(api().get());
+    if (state !== '') {
+      setComponents(['add', interventionKey, state]);
+    } else {
+      setComponents(['del', interventionKey]);
+    }
   }, [state]);
+  /**
+   * Handler
+   *
+   * @param {string|number} value
+   */
 
   var handler = function handler(value) {
     if (immutable) {
@@ -1636,22 +1464,26 @@ var TextItem = function TextItem(_ref) {
     }
 
     if (type === 'number') {
-      value = value <= 0 ? '' : value;
+      value = value <= 0 ? '' : Number(value);
     }
 
     setState(value);
   };
+  /**
+   * Render
+   */
 
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Row__WEBPACK_IMPORTED_MODULE_4__.Row, {
+
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Row__WEBPACK_IMPORTED_MODULE_3__.Row, {
     item: key
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Row__WEBPACK_IMPORTED_MODULE_4__.RowState, {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Row__WEBPACK_IMPORTED_MODULE_3__.RowState, {
     state: state,
     immutable: immutable
   }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
-    className: "flex w-full items-center"
+    className: " flex w-full items-center"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
     className: "w-1/2"
-  }, (0,_utils_admin__WEBPACK_IMPORTED_MODULE_5__.getInterventionKey)(key)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+  }, interventionKey), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
     className: " w-1/2 flex items-center border-l border-gray-2"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
     label: false,
@@ -1663,7 +1495,7 @@ var TextItem = function TextItem(_ref) {
     onChange: function onChange(value) {
       return handler(value);
     }
-  }), state !== '' && immutable === false && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+  }), immutable === false && state !== '' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
     onClick: function onClick() {
       return handler('');
     }
@@ -1671,25 +1503,6 @@ var TextItem = function TextItem(_ref) {
 };
 
 
-
-/***/ }),
-
-/***/ "./resources/scripts/user-interface/components/Admin/ComponentsContext.js":
-/*!********************************************************************************!*\
-  !*** ./resources/scripts/user-interface/components/Admin/ComponentsContext.js ***!
-  \********************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-
-var ComponentsContext = react__WEBPACK_IMPORTED_MODULE_0___default().createContext();
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ComponentsContext);
 
 /***/ }),
 
@@ -1709,39 +1522,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _RoleGroups__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./RoleGroups */ "./resources/scripts/user-interface/components/Admin/RoleGroups.js");
-/* harmony import */ var _RoleGroupEdit__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./RoleGroupEdit */ "./resources/scripts/user-interface/components/Admin/RoleGroupEdit.js");
-/* harmony import */ var _AddRoleGroup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./AddRoleGroup */ "./resources/scripts/user-interface/components/Admin/AddRoleGroup.js");
-/* harmony import */ var _ButtonSave__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ButtonSave */ "./resources/scripts/user-interface/components/Admin/ButtonSave.js");
-/* harmony import */ var _utils_wp__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../utils/wp */ "./resources/scripts/user-interface/utils/wp.js");
+/* harmony import */ var _AddRoleGroup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./AddRoleGroup */ "./resources/scripts/user-interface/components/Admin/AddRoleGroup.js");
+/* harmony import */ var _Save__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Save */ "./resources/scripts/user-interface/components/Admin/Save.js");
+/* harmony import */ var _utils_wp__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../utils/wp */ "./resources/scripts/user-interface/utils/wp.js");
 
 
-
+ // import RoleGroupEdit from './RoleGroupEdit';
 
 
 
 
 /**
  * Head
+ *
+ * @returns <Head />
  */
 
 var Head = function Head() {
-  {
-    /*
-      <Toolbar>
-        <div className="flex flex-wrap items-center text-14 text-gray-90">
-          <span className="font-500 mr-10">{__('Admin')}</span>
-          <div className="w-1 h-[49px] bg-gray-5"></div>
-        </div>
-        <Button
-          className="is-primary"
-          onClick={() => handleSave()}
-          disabled={isBlocking === false}
-        >
-          {buttonText}
-        </Button>
-      </Toolbar>
-    */
-  }
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: " relative n:sticky n:top-0 n:md:top-[32px] w-full flex justify-between border-b border-gray-5 bg-white z-10"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -1754,216 +1551,12 @@ var Head = function Head() {
     className: "w-1 h-[50px] bg-gray-5 mx-12"
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "flex items-center"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_AddRoleGroup__WEBPACK_IMPORTED_MODULE_4__.default, null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_AddRoleGroup__WEBPACK_IMPORTED_MODULE_3__.default, null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "w-8"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_ButtonSave__WEBPACK_IMPORTED_MODULE_5__.default, null)))));
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Save__WEBPACK_IMPORTED_MODULE_4__.default, null)))));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Head);
-
-/***/ }),
-
-/***/ "./resources/scripts/user-interface/components/Admin/RoleGroupEdit.js":
-/*!****************************************************************************!*\
-  !*** ./resources/scripts/user-interface/components/Admin/RoleGroupEdit.js ***!
-  \****************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ "./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js");
-/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _AdminContext__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../AdminContext */ "./resources/scripts/user-interface/components/AdminContext.js");
-/* harmony import */ var _utils_wp__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../utils/wp */ "./resources/scripts/user-interface/utils/wp.js");
-
-
-
-
-
-
-
-/**
- * Registered user roles from WordPress.
- */
-
-var registeredRoles = intervention.route.admin.data.roles;
-var registeredRolesKeys = Object.keys(registeredRoles);
-/**
- * Role Group Edit
- *
- * @returns <Roles />
- */
-
-var RoleGroupEdit = function RoleGroupEdit() {
-  var _useContext = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useContext)(_AdminContext__WEBPACK_IMPORTED_MODULE_4__.default),
-      data = _useContext.data,
-      setData = _useContext.setData,
-      index = _useContext.index,
-      setIndex = _useContext.setIndex,
-      setIsBlocking = _useContext.setIsBlocking;
-
-  var _useState = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useState)(false),
-      _useState2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__.default)(_useState, 2),
-      edit = _useState2[0],
-      setEdit = _useState2[1];
-
-  var isImmutableItem = function isImmutableItem() {
-    return data[index].roles.immutable === true;
-  };
-  /**
-   * Toggle Role In Group
-   *
-   * @param {string} role
-   */
-
-
-  var toggleRoleInGroup = function toggleRoleInGroup(role) {
-    var add = function add(item) {
-      return [].concat((0,_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__.default)(item.roles.group), [role]);
-    };
-
-    var remove = function remove(item) {
-      return item.roles.group.filter(function (item) {
-        return item !== role;
-      });
-    };
-
-    var sortRoles = function sortRoles(sort) {
-      return registeredRolesKeys.filter(function (v) {
-        return sort.includes(v);
-      });
-    };
-
-    var indexRole = data.map(function (item, i) {
-      if (i === index) {
-        item.roles.group = item.roles.group.includes(role) ? remove(item) : add(item);
-        item.roles.group = sortRoles(item.roles.group);
-      }
-
-      return item;
-    });
-    setData(indexRole);
-    setIsBlocking(true);
-  };
-  /**
-   * Delete Role Group
-   *
-   * @description Remove the role group `index` from `data`.
-   */
-
-
-  var deleteRoleGroup = function deleteRoleGroup() {
-    var indexHasComponents = Object.keys(data[index].components).length > 0;
-
-    if (indexHasComponents) {
-      var proceed = window.confirm('Proceed? Deleted group settings will be lost.');
-
-      if (proceed === false) {
-        return;
-      }
-    }
-
-    var removeGroup = data.filter(function (item, i) {
-      return i !== index;
-    });
-    var newIndex = index === 0 ? index : index - 1;
-    setData(removeGroup);
-    setIndex(newIndex);
-    setIsBlocking(true);
-  };
-  /**
-   * Role List
-   *
-   * @description Display role list using `registeredRoles` from WordPress.
-   *
-   * @return <RoleList>
-   */
-
-
-  var RoleList = function RoleList() {
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("div", {
-      className: "flex flex-wrap items-center"
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("div", {
-      className: "w-1 h-[48px] bg-gray-2 mr-12"
-    }), Object.entries(registeredRoles).map(function (_ref) {
-      var _ref2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__.default)(_ref, 2),
-          key = _ref2[0],
-          name = _ref2[1].name;
-
-      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("div", {
-        key: key,
-        className: "\n            cursor-pointer\n            mr-6\n            last:mr-12\n            py-[2px]\n            border\n            rounded\n            px-[4px]\n            ".concat(data[index].roles.group.includes(key) ? 'text-primary-10 border-primary-10' : 'text-gray-50 border-gray-2 hover:border-gray-5', "\n          "),
-        onClick: function onClick() {
-          return toggleRoleInGroup(key);
-        }
-      }, key);
-    }));
-  };
-  /**
-   * Remove Role Group
-   *
-   * @description Remove role group layout
-   *
-   * @returns <RemoveRoleGroup />
-   */
-
-
-  var RemoveRoleGroup = function RemoveRoleGroup() {
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("a", {
-      href: "#",
-      className: " text-gray-50 no-underline active:text-red hover:text-red focus:text-red",
-      onClick: function onClick() {
-        return deleteRoleGroup();
-      }
-    }, (0,_utils_wp__WEBPACK_IMPORTED_MODULE_5__.__)('Delete'));
-  };
-  /**
-   * Editable Group
-   *
-   * @description
-   */
-
-
-  var EditableRoleGroup = function EditableRoleGroup() {
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("div", {
-      className: "flex items-center"
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("a", {
-      href: "#",
-      className: "mr-12 ".concat(edit ? 'no-underline text-gray-90' : 'underline'),
-      onClick: function onClick(event) {
-        event.preventDefault();
-        setEdit(!edit);
-      }
-    }, (0,_utils_wp__WEBPACK_IMPORTED_MODULE_5__.__)('Edit')), edit && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(RoleList, null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("div", {
-      className: "w-1 h-[50px] bg-gray-5 mr-12"
-    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(RemoveRoleGroup, null));
-  };
-  /**
-   * Hardcoded Group
-   */
-
-
-  var HardcodedRoleGroup = function HardcodedRoleGroup() {
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("span", {
-      className: "text-gray-50 flex items-center"
-    }, (0,_utils_wp__WEBPACK_IMPORTED_MODULE_5__.__)('Hardcoded'));
-  };
-  /**
-   * Render
-   */
-
-
-  return isImmutableItem() ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(HardcodedRoleGroup, null) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(EditableRoleGroup, null);
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RoleGroupEdit);
 
 /***/ }),
 
@@ -1978,21 +1571,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _AdminContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../AdminContext */ "./resources/scripts/user-interface/components/AdminContext.js");
-/* harmony import */ var _utils_wp__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../utils/wp */ "./resources/scripts/user-interface/utils/wp.js");
-/* harmony import */ var _utils_admin__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../utils/admin */ "./resources/scripts/user-interface/utils/admin.js");
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var jotai__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! jotai */ "./node_modules/jotai/esm/index.js");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _AdminAtoms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../AdminAtoms */ "./resources/scripts/user-interface/components/AdminAtoms.js");
+/* harmony import */ var _utils_wp__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../utils/wp */ "./resources/scripts/user-interface/utils/wp.js");
+/* harmony import */ var _utils_admin__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../utils/admin */ "./resources/scripts/user-interface/utils/admin.js");
 
 
 
 
 
- // import { arrayHasDuplicates } from '../utils/arr';
+
 
 
 /**
@@ -2000,32 +1595,50 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 var RoleGroups = function RoleGroups() {
-  var _useContext = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useContext)(_AdminContext__WEBPACK_IMPORTED_MODULE_3__.default),
-      data = _useContext.data,
-      setIndex = _useContext.setIndex,
-      index = _useContext.index;
+  var _useAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_7__.useAtom)(_AdminAtoms__WEBPACK_IMPORTED_MODULE_4__.dataAtom),
+      _useAtom2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useAtom, 1),
+      data = _useAtom2[0];
+
+  var _useAtom3 = (0,jotai__WEBPACK_IMPORTED_MODULE_7__.useAtom)(_AdminAtoms__WEBPACK_IMPORTED_MODULE_4__.selectedIndexAtom),
+      _useAtom4 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useAtom3, 2),
+      selectedIndex = _useAtom4[0],
+      setSelectedIndex = _useAtom4[1];
+  /**
+   * Select Control Options
+   */
+
 
   var options = data.map(function (item, i) {
-    var name = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_5__.getRolesAsNiceName)(item.roles.group);
+    var _item$roles = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(item.roles, 1),
+        roles = _item$roles[0];
+
+    var name = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_6__.getRolesAsNiceName)(roles);
     return {
       key: i,
       name: name
     };
   });
+  /**
+   * Handler
+   *
+   * @param {object} selectedItem
+   */
 
   var handler = function handler(selectedItem) {
-    // setState(value);
-    setIndex(selectedItem.key);
-  }; // const [state, setState] = useState(index);
+    setSelectedIndex(selectedItem.key);
+  };
+  /**
+   * Render
+   */
 
 
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
     className: "flex flex-wrap items-center"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.CustomSelectControl, {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CustomSelectControl, {
     label: "Route",
     hideLabelFromVision: true,
     value: options.find(function (option) {
-      return option.key === index;
+      return option.key === selectedIndex;
     }),
     options: options,
     onChange: function onChange(_ref) {
@@ -2039,10 +1652,10 @@ var RoleGroups = function RoleGroups() {
 
 /***/ }),
 
-/***/ "./resources/scripts/user-interface/components/AdminContext.js":
-/*!*********************************************************************!*\
-  !*** ./resources/scripts/user-interface/components/AdminContext.js ***!
-  \*********************************************************************/
+/***/ "./resources/scripts/user-interface/components/Admin/Save.js":
+/*!*******************************************************************!*\
+  !*** ./resources/scripts/user-interface/components/Admin/Save.js ***!
+  \*******************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -2050,11 +1663,315 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var jotai__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! jotai */ "./node_modules/jotai/esm/index.js");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _AdminAtoms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../AdminAtoms */ "./resources/scripts/user-interface/components/AdminAtoms.js");
+/* harmony import */ var _utils_arr__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../utils/arr */ "./resources/scripts/user-interface/utils/arr.js");
+/* harmony import */ var _utils_admin__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../utils/admin */ "./resources/scripts/user-interface/utils/admin.js");
+/* harmony import */ var _utils_wp__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../utils/wp */ "./resources/scripts/user-interface/utils/wp.js");
 
-var AdminContext = react__WEBPACK_IMPORTED_MODULE_0___default().createContext();
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AdminContext);
+
+
+
+
+
+
+
+
+
+
+/**
+ * Head
+ */
+
+var Save = function Save() {
+  var _useAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_9__.useAtom)(_AdminAtoms__WEBPACK_IMPORTED_MODULE_5__.dataAtom),
+      _useAtom2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useAtom, 2),
+      data = _useAtom2[0],
+      setData = _useAtom2[1];
+
+  var _useAtom3 = (0,jotai__WEBPACK_IMPORTED_MODULE_9__.useAtom)(_AdminAtoms__WEBPACK_IMPORTED_MODULE_5__.selectedIndexAtom),
+      _useAtom4 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useAtom3, 1),
+      selectedIndex = _useAtom4[0];
+
+  var _useAtom5 = (0,jotai__WEBPACK_IMPORTED_MODULE_9__.useAtom)(_AdminAtoms__WEBPACK_IMPORTED_MODULE_5__.isBlockingAtom),
+      _useAtom6 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useAtom5, 2),
+      isBlocking = _useAtom6[0],
+      setIsBlocking = _useAtom6[1];
+
+  var _useState = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useState)((0,_utils_wp__WEBPACK_IMPORTED_MODULE_8__.__)('Save')),
+      _useState2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useState, 2),
+      buttonText = _useState2[0],
+      setButtonText = _useState2[1];
+  /**
+   * Handler
+   */
+
+
+  var handler = function handler() {
+    setButtonText((0,_utils_wp__WEBPACK_IMPORTED_MODULE_8__.__)('Saving'));
+
+    var save = function save() {
+      _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_4___default()({
+        url: intervention.route.admin.url,
+        method: 'POST',
+        data: {
+          data: middleware,
+          save: true
+        }
+      }).then(function (res) {
+        if (res !== null && res !== void 0 && res.data) {
+          var sorted = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_7__.sortDataByRoleKeys)(res.data, selectedIndex);
+          setData(sorted.data); // setIndex(sorted.index);
+
+          setButtonText((0,_utils_wp__WEBPACK_IMPORTED_MODULE_8__.__)('Save'));
+          setIsBlocking(false);
+        }
+      });
+    };
+
+    var escape = function escape() {
+      setButtonText((0,_utils_wp__WEBPACK_IMPORTED_MODULE_8__.__)('Save'));
+    };
+    /*
+    const rolesAsKeys = applied.reduce((carry, { roles }) => {
+      carry.push(roles.join('|'));
+      return carry;
+    }, []);
+    */
+
+    /**
+     * Convert to object for saving
+     *
+     * @returns {object}
+     */
+
+
+    var middleware = data.reduce(function (carry, _ref) {
+      var roles = _ref.roles,
+          components = _ref.components;
+      var removeImmutableComponents = Object.entries(components).reduce(function (carry, _ref2) {
+        var _ref3 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_ref2, 2),
+            k = _ref3[0],
+            _ref3$ = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_ref3[1], 2),
+            value = _ref3$[0],
+            immutable = _ref3$[1];
+
+        if (immutable !== true) {
+          carry[k] = [value, false];
+        }
+
+        return carry;
+      }, {});
+      /*
+      if (Object.keys(components).length > 0) {
+        carry[roles.join('|')] = removeImmutableComponents;
+      }
+      */
+
+      carry[roles.group.join('|')] = removeImmutableComponents;
+      return carry;
+    }, {});
+    /**
+     * Empty Role Group Found
+     *
+     * @returns {boolean}
+     */
+
+    var emptyRoleGroupFound = function emptyRoleGroupFound() {
+      return Object.keys(middleware).includes('');
+    };
+    /**
+     * Duplicate Role Group Found
+     *
+     * @returns {boolean}
+     */
+
+
+    var duplicateRoleGroupFound = function duplicateRoleGroupFound() {
+      var rolesAsKeys = data.reduce(function (carry, _ref4) {
+        var roles = _ref4.roles;
+        carry.push(roles.group.join('|'));
+        return carry;
+      }, []);
+      return (0,_utils_arr__WEBPACK_IMPORTED_MODULE_6__.arrayHasDuplicates)(rolesAsKeys);
+    };
+    /**
+     * If Empty Role Group Found
+     */
+
+
+    if (emptyRoleGroupFound()) {
+      var msg = (0,_utils_wp__WEBPACK_IMPORTED_MODULE_8__.__)('Empty role group found, please assign a role or delete the group before saving.');
+
+      window.alert(msg);
+      escape();
+      return;
+    }
+    /**
+     * If Duplicate Role Group Found
+     */
+
+
+    if (duplicateRoleGroupFound()) {
+      var _msg = (0,_utils_wp__WEBPACK_IMPORTED_MODULE_8__.__)('Found matching user groups, proceeding to save will merge groups.');
+
+      var proceed = window.confirm(_msg);
+      proceed ? save() : escape();
+      return;
+    }
+
+    save();
+  };
+  /**
+   * Render
+   */
+
+
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
+    className: "is-primary",
+    onClick: function onClick() {
+      return handler();
+    },
+    disabled: isBlocking === true
+  }, buttonText);
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Save);
+
+/***/ }),
+
+/***/ "./resources/scripts/user-interface/components/AdminAtoms.js":
+/*!*******************************************************************!*\
+  !*** ./resources/scripts/user-interface/components/AdminAtoms.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "dataAtom": () => (/* binding */ dataAtom),
+/* harmony export */   "selectedIndexAtom": () => (/* binding */ selectedIndexAtom),
+/* harmony export */   "isBlockingAtom": () => (/* binding */ isBlockingAtom),
+/* harmony export */   "pathAtom": () => (/* binding */ pathAtom),
+/* harmony export */   "rolesAtom": () => (/* binding */ rolesAtom),
+/* harmony export */   "componentsAtom": () => (/* binding */ componentsAtom)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
+/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ "./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js");
+/* harmony import */ var jotai__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! jotai */ "./node_modules/jotai/esm/index.js");
+/* harmony import */ var _utils_admin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/admin */ "./resources/scripts/user-interface/utils/admin.js");
+
+
+
+
+var template = [{
+  roles: [[], false],
+  components: []
+}];
+/**
+ * Data
+ *
+ * @description read/set tuple for setting `dataAtom`.
+ *
+ * @returns {array}
+ */
+
+var dataAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_3__.atom)(template, function (get, set, update) {
+  set(dataAtom, (0,_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__.default)(update));
+});
+/**
+ * Selected Index
+ *
+ * @description read/write tuple for setting `selectedIndex`.
+ *
+ * @returns {array}
+ */
+
+var selectedIndexAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_3__.atom)(0, function (get, set, update) {
+  set(selectedIndexAtom, update);
+});
+/**
+ * Is Blocking
+ *
+ * @description read/set tuple for setting `isBlockingAtom`.
+ *
+ * @returns {array}
+ */
+
+var isBlockingAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_3__.atom)(false, function (get, set, update) {
+  set(isBlockingAtom, update);
+});
+/**
+ * Path
+ *
+ * @description gets `selectedIndexAtom` components.
+ *
+ * @returns {array}
+ */
+
+var pathAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_3__.atom)('', function (get, set, update) {
+  set(pathAtom, update);
+});
+/**
+ * Derived: Roles
+ *
+ * @description gets `selectedIndexAtom` roles.
+ *
+ * @returns {object}
+ */
+
+var rolesAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_3__.atom)(function (get) {
+  return get(dataAtom)[get(selectedIndexAtom)].roles;
+});
+/**
+ * Derived: Components
+ *
+ * @description gets `selectedIndexAtom` components.
+ *
+ * @returns {array}
+ */
+// @link https://github.com/pmndrs/jotai/issues/352
+
+var updateComponentsAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_3__.atom)(null);
+var componentsAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_3__.atom)(function (get) {
+  return get(updateComponentsAtom) || get(dataAtom)[get(selectedIndexAtom)].components;
+}, function (get, set, update) {
+  // getters
+  var _update = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(update, 3),
+      action = _update[0],
+      key = _update[1],
+      _update$ = _update[2],
+      value = _update$ === void 0 ? true : _update$;
+
+  var comps = get(componentsAtom); // actions
+
+  var add = function add() {
+    return comps[key] = [value, false];
+  };
+
+  var del = function del() {
+    return (0,_utils_admin__WEBPACK_IMPORTED_MODULE_2__.objectHasKey)(comps, key) && comps[key][1] === false && delete comps[key];
+  }; // routing
+
+
+  action === 'toggle' && !(0,_utils_admin__WEBPACK_IMPORTED_MODULE_2__.objectHasKey)(comps, key) ? add() : del();
+  action === 'add' && add();
+  action === 'del' && del(); // setter
+
+  set(updateComponentsAtom, comps);
+  console.log({
+    comps: comps
+  });
+});
 
 /***/ }),
 
@@ -3255,60 +3172,24 @@ var WordPressContainer = function WordPressContainer(_ref) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "getRolesAsNiceName": () => (/* binding */ getRolesAsNiceName),
-/* harmony export */   "sortDataByRoleKeys": () => (/* binding */ sortDataByRoleKeys),
+/* harmony export */   "objectHasKey": () => (/* binding */ objectHasKey),
 /* harmony export */   "getInterventionKey": () => (/* binding */ getInterventionKey),
-/* harmony export */   "objHasKey": () => (/* binding */ objHasKey)
+/* harmony export */   "getValue": () => (/* binding */ getValue),
+/* harmony export */   "getRolesAsNiceName": () => (/* binding */ getRolesAsNiceName),
+/* harmony export */   "sortDataByRoleKeys": () => (/* binding */ sortDataByRoleKeys)
 /* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
+
+
 /**
- * Get Roles as Nicename
+ * Object Has Key
  *
- * @param {array} roles
- * @returns {string}
+ * @param {object} obj
+ * @param {string} k
+ * @returns {boolean}
  */
-var getRolesAsNiceName = function getRolesAsNiceName(roles) {
-  var joined = roles.join(', '); // const caps = joined.charAt(0).toUpperCase() + joined.slice(1);
-
-  var andPos = joined.lastIndexOf(',');
-  return andPos > 0 ? joined.substring(0, andPos) + ' and ' + joined.substring(andPos + 1) : joined;
-};
-/**
- * Sort Applied By Registered Roles Key
- *
- * @param {object} applied
- * @param {number} i
- * @returns {object}
- */
-
-var sortDataByRoleKeys = function sortDataByRoleKeys(data, i) {
-  var roleKeys = Object.keys(intervention.route.admin.data.roles);
-  var findIndex = data[i].roles.group.join();
-  data.sort(function (a, b) {
-    var indexA = roleKeys.indexOf(a.roles.group[0]);
-    var indexB = roleKeys.indexOf(b.roles.group[0]);
-
-    if (indexA > indexB) {
-      return 1;
-    }
-
-    if (indexA < indexB) {
-      return -1;
-    }
-
-    return 0;
-  });
-  var indexFound = data.reduce(function (carry, item, index) {
-    if (findIndex === item.roles.group.join()) {
-      carry = index;
-    }
-
-    return carry;
-  }, i);
-  var index = indexFound ? indexFound : 0;
-  return {
-    data: data,
-    index: index
-  };
+var objectHasKey = function objectHasKey(obj, k) {
+  return Object.prototype.hasOwnProperty.call(obj, k) && k !== '';
 };
 /**
  * Get Intervention Key
@@ -3319,23 +3200,88 @@ var sortDataByRoleKeys = function sortDataByRoleKeys(data, i) {
 
 var getInterventionKey = function getInterventionKey() {
   var k = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-
-  /**
-   * Replace component identifiers
-   */
+  // replace component identifiers
   var replace = [':hierachical', ':text', ':number', ':group', ':exemption', '/:route'];
   replace.forEach(function (item) {
     k = k.replaceAll(item, '');
-  });
-  /**
-   * Replace `/` with `.` to match Intervention
-   */
+  }); // replace `/` with `.` to match Intervention
 
   k = k.replaceAll('/', '.');
   return k;
 };
-var objHasKey = function objHasKey(obj, k) {
-  return Object.prototype.hasOwnProperty.call(obj, k) && k !== '';
+/**
+ * Get Value
+ *
+ * @param {object} components
+ * @param {string} key
+ * @returns {any}
+ */
+
+var getValue = function getValue(components, key) {
+  return Object.keys(components).includes(key) ? components[key] : [false, false];
+};
+/**
+ * Get Roles as Nicename
+ *
+ * @param {array} roles
+ * @returns {string}
+ */
+
+var getRolesAsNiceName = function getRolesAsNiceName(roles) {
+  var joined = roles.join(', '); // const caps = joined.charAt(0).toUpperCase() + joined.slice(1);
+
+  var andPos = joined.lastIndexOf(',');
+  return andPos > 0 ? joined.substring(0, andPos) + ' and ' + joined.substring(andPos + 1) : joined;
+};
+/**
+ * Sort Data By Role Keys
+ *
+ * @param {object} applied
+ * @param {number} i
+ * @returns {object}
+ */
+
+var sortDataByRoleKeys = function sortDataByRoleKeys(data, i) {
+  var roleKeys = Object.keys(intervention.route.admin.data.roles); // const findIndex = data[i].roles.join();
+  // sorting algorithm
+
+  data.sort(function (a, b) {
+    var _a$roles = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(a.roles, 1),
+        rolesA = _a$roles[0];
+
+    var _b$roles = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(b.roles, 1),
+        rolesB = _b$roles[0];
+
+    var indexA = roleKeys.indexOf(rolesA[0]);
+    var indexB = roleKeys.indexOf(rolesB[0]);
+
+    if (indexA > indexB) {
+      return 1;
+    }
+
+    if (indexA < indexB) {
+      return -1;
+    }
+
+    return 0;
+  }); // new index found
+  // relook this implementation
+
+  /*
+  const indexFound = data.reduce((carry, item, index) => {
+    const [roles] = item.roles;
+    if (findIndex === roles.join()) {
+      carry = index;
+    }
+    return carry;
+  }, i);
+   const index = indexFound ? indexFound : 0;
+  */
+  // return { data, index };
+
+  return {
+    data: data
+  };
 };
 
 /***/ }),
@@ -3537,6 +3483,638 @@ function createMemoryHistory(b){function h(d,f){void 0===f&&(f=null);return C((0
 C((0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({pathname:"/",search:"",hash:"",state:null,key:H()},"string"===typeof d?J(d):d)); true?D("/"===f.pathname.charAt(0),"Relative pathnames are not supported in createMemoryHistory({ initialEntries }) (invalid entry: "+JSON.stringify(d)+")"):0;return f}),m=Math.min(Math.max(null==w?p.length-1:w,0),p.length-1),u=r.Pop,t=p[m],v=F(),q=F();return{get index(){return m},get action(){return u},get location(){return t},createHref:function(d){return"string"===typeof d?
 d:I(d)},push:z,replace:A,go:y,back:function(){y(-1)},forward:function(){y(1)},listen:function(d){return v.push(d)},block:function(d){return q.push(d)}}};
 //# sourceMappingURL=index.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/jotai/esm/index.js":
+/*!*****************************************!*\
+  !*** ./node_modules/jotai/esm/index.js ***!
+  \*****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Provider": () => (/* binding */ Provider),
+/* harmony export */   "SECRET_INTERNAL_getScopeContext": () => (/* binding */ getScopeContext),
+/* harmony export */   "atom": () => (/* binding */ atom),
+/* harmony export */   "useAtom": () => (/* binding */ useAtom)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* provided dependency */ var process = __webpack_require__(/*! process/browser */ "./node_modules/process/browser.js");
+
+
+const SUSPENSE_PROMISE = Symbol();
+const isSuspensePromise = (promise) => !!promise[SUSPENSE_PROMISE];
+const isSuspensePromiseAlreadyCancelled = (suspensePromise) => !suspensePromise[SUSPENSE_PROMISE].c;
+const cancelSuspensePromise = (suspensePromise) => {
+  var _a, _b;
+  (_b = (_a = suspensePromise[SUSPENSE_PROMISE]).c) == null ? void 0 : _b.call(_a);
+};
+const isEqualSuspensePromise = (oldSuspensePromise, newSuspensePromise) => {
+  const oldOriginalPromise = oldSuspensePromise[SUSPENSE_PROMISE].o;
+  const newOriginalPromise = newSuspensePromise[SUSPENSE_PROMISE].o;
+  return oldOriginalPromise === newOriginalPromise || oldSuspensePromise === newOriginalPromise || isSuspensePromise(oldOriginalPromise) && isEqualSuspensePromise(oldOriginalPromise, newSuspensePromise);
+};
+const createSuspensePromise = (promise) => {
+  const objectToAttach = {
+    o: promise,
+    c: null
+  };
+  const suspensePromise = new Promise((resolve, reject) => {
+    objectToAttach.c = () => {
+      objectToAttach.c = null;
+      resolve();
+    };
+    promise.then(objectToAttach.c, reject);
+  });
+  suspensePromise[SUSPENSE_PROMISE] = objectToAttach;
+  return suspensePromise;
+};
+
+var __defProp$1 = Object.defineProperty;
+var __defProps$1 = Object.defineProperties;
+var __getOwnPropDescs$1 = Object.getOwnPropertyDescriptors;
+var __getOwnPropSymbols$1 = Object.getOwnPropertySymbols;
+var __hasOwnProp$1 = Object.prototype.hasOwnProperty;
+var __propIsEnum$1 = Object.prototype.propertyIsEnumerable;
+var __defNormalProp$1 = (obj, key, value) => key in obj ? __defProp$1(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __spreadValues$1 = (a, b) => {
+  for (var prop in b || (b = {}))
+    if (__hasOwnProp$1.call(b, prop))
+      __defNormalProp$1(a, prop, b[prop]);
+  if (__getOwnPropSymbols$1)
+    for (var prop of __getOwnPropSymbols$1(b)) {
+      if (__propIsEnum$1.call(b, prop))
+        __defNormalProp$1(a, prop, b[prop]);
+    }
+  return a;
+};
+var __spreadProps$1 = (a, b) => __defProps$1(a, __getOwnPropDescs$1(b));
+const hasInitialValue = (atom) => "init" in atom;
+const READ_ATOM = "r";
+const WRITE_ATOM = "w";
+const COMMIT_ATOM = "c";
+const SUBSCRIBE_ATOM = "s";
+const RESTORE_ATOMS = "h";
+const DEV_SUBSCRIBE_STATE = "n";
+const DEV_GET_MOUNTED_ATOMS = "l";
+const DEV_GET_ATOM_STATE = "a";
+const DEV_GET_MOUNTED = "m";
+const createStore = (initialValues) => {
+  const atomStateMap = /* @__PURE__ */ new WeakMap();
+  const mountedMap = /* @__PURE__ */ new WeakMap();
+  const pendingMap = /* @__PURE__ */ new Map();
+  let stateListeners;
+  let mountedAtoms;
+  if (typeof process === "object" && "development" !== "production") {
+    stateListeners = /* @__PURE__ */ new Set();
+    mountedAtoms = /* @__PURE__ */ new Set();
+  }
+  if (initialValues) {
+    for (const [atom, value] of initialValues) {
+      const atomState = { v: value, r: 0, d: /* @__PURE__ */ new Map() };
+      if (typeof process === "object" && "development" !== "production") {
+        Object.freeze(atomState);
+        if (!hasInitialValue(atom)) {
+          console.warn("Found initial value for derived atom which can cause unexpected behavior", atom);
+        }
+      }
+      atomStateMap.set(atom, atomState);
+    }
+  }
+  const getAtomState = (atom) => atomStateMap.get(atom);
+  const setAtomState = (atom, atomState) => {
+    if (typeof process === "object" && "development" !== "production") {
+      Object.freeze(atomState);
+    }
+    const prevAtomState = atomStateMap.get(atom);
+    atomStateMap.set(atom, atomState);
+    if (!pendingMap.has(atom)) {
+      pendingMap.set(atom, prevAtomState);
+    }
+  };
+  const getReadDependencies = (dependencies) => new Map(Array.from(dependencies).map((a) => {
+    var _a;
+    return [a, ((_a = getAtomState(a)) == null ? void 0 : _a.r) || 0];
+  }));
+  const setAtomValue = (atom, value, dependencies, suspensePromise) => {
+    const atomState = getAtomState(atom);
+    if (atomState) {
+      if (suspensePromise && (!("p" in atomState) || !isEqualSuspensePromise(atomState.p, suspensePromise))) {
+        return atomState;
+      }
+      if ("p" in atomState) {
+        cancelSuspensePromise(atomState.p);
+      }
+    }
+    const nextAtomState = {
+      v: value,
+      r: (atomState == null ? void 0 : atomState.r) || 0,
+      d: dependencies ? getReadDependencies(dependencies) : (atomState == null ? void 0 : atomState.d) || /* @__PURE__ */ new Map()
+    };
+    if (!atomState || !("v" in atomState) || !Object.is(atomState.v, value)) {
+      ++nextAtomState.r;
+      if (nextAtomState.d.has(atom)) {
+        nextAtomState.d.set(atom, nextAtomState.r);
+      }
+    }
+    setAtomState(atom, nextAtomState);
+    return nextAtomState;
+  };
+  const setAtomReadError = (atom, error, dependencies, suspensePromise) => {
+    const atomState = getAtomState(atom);
+    if (atomState) {
+      if (suspensePromise && (!("p" in atomState) || !isEqualSuspensePromise(atomState.p, suspensePromise))) {
+        return atomState;
+      }
+      if ("p" in atomState) {
+        cancelSuspensePromise(atomState.p);
+      }
+    }
+    const nextAtomState = {
+      e: error,
+      r: (atomState == null ? void 0 : atomState.r) || 0,
+      d: dependencies ? getReadDependencies(dependencies) : (atomState == null ? void 0 : atomState.d) || /* @__PURE__ */ new Map()
+    };
+    setAtomState(atom, nextAtomState);
+    return nextAtomState;
+  };
+  const setAtomSuspensePromise = (atom, suspensePromise, dependencies) => {
+    const atomState = getAtomState(atom);
+    if (atomState && "p" in atomState) {
+      if (isEqualSuspensePromise(atomState.p, suspensePromise)) {
+        return atomState;
+      }
+      cancelSuspensePromise(atomState.p);
+    }
+    const nextAtomState = {
+      p: suspensePromise,
+      r: (atomState == null ? void 0 : atomState.r) || 0,
+      d: dependencies ? getReadDependencies(dependencies) : (atomState == null ? void 0 : atomState.d) || /* @__PURE__ */ new Map()
+    };
+    setAtomState(atom, nextAtomState);
+    return nextAtomState;
+  };
+  const setAtomPromiseOrValue = (atom, promiseOrValue, dependencies) => {
+    if (promiseOrValue instanceof Promise) {
+      const suspensePromise = createSuspensePromise(promiseOrValue.then((value) => {
+        setAtomValue(atom, value, dependencies, suspensePromise);
+        flushPending();
+      }).catch((e) => {
+        if (e instanceof Promise) {
+          if (isSuspensePromise(e) && isSuspensePromiseAlreadyCancelled(e)) {
+            e.then(() => readAtomState(atom, true));
+          }
+          return e;
+        }
+        setAtomReadError(atom, e, dependencies, suspensePromise);
+        flushPending();
+      }));
+      return setAtomSuspensePromise(atom, suspensePromise, dependencies);
+    }
+    return setAtomValue(atom, promiseOrValue, dependencies);
+  };
+  const setAtomInvalidated = (atom) => {
+    const atomState = getAtomState(atom);
+    if (atomState) {
+      const nextAtomState = __spreadProps$1(__spreadValues$1({}, atomState), {
+        i: atomState.r
+      });
+      setAtomState(atom, nextAtomState);
+    } else if (typeof process === "object" && "development" !== "production") {
+      console.warn("[Bug] could not invalidate non existing atom", atom);
+    }
+  };
+  const readAtomState = (atom, force) => {
+    if (!force) {
+      const atomState = getAtomState(atom);
+      if (atomState) {
+        atomState.d.forEach((_, a) => {
+          if (a !== atom) {
+            if (!mountedMap.has(a)) {
+              readAtomState(a);
+            } else {
+              const aState = getAtomState(a);
+              if (aState && aState.r === aState.i) {
+                readAtomState(a);
+              }
+            }
+          }
+        });
+        if (Array.from(atomState.d.entries()).every(([a, r]) => {
+          const aState = getAtomState(a);
+          return aState && !("e" in aState) && !("p" in aState) && aState.r === r;
+        })) {
+          return atomState;
+        }
+      }
+    }
+    const dependencies = /* @__PURE__ */ new Set();
+    try {
+      const promiseOrValue = atom.read((a) => {
+        dependencies.add(a);
+        const aState = a === atom ? getAtomState(a) : readAtomState(a);
+        if (aState) {
+          if ("e" in aState) {
+            throw aState.e;
+          }
+          if ("p" in aState) {
+            throw aState.p;
+          }
+          return aState.v;
+        }
+        if (hasInitialValue(a)) {
+          return a.init;
+        }
+        throw new Error("no atom init");
+      });
+      return setAtomPromiseOrValue(atom, promiseOrValue, dependencies);
+    } catch (errorOrPromise) {
+      if (errorOrPromise instanceof Promise) {
+        const suspensePromise = createSuspensePromise(errorOrPromise);
+        return setAtomSuspensePromise(atom, suspensePromise, dependencies);
+      }
+      return setAtomReadError(atom, errorOrPromise, dependencies);
+    }
+  };
+  const readAtom = (readingAtom) => {
+    const atomState = readAtomState(readingAtom);
+    return atomState;
+  };
+  const addAtom = (addingAtom) => {
+    let mounted = mountedMap.get(addingAtom);
+    if (!mounted) {
+      mounted = mountAtom(addingAtom);
+    }
+    return mounted;
+  };
+  const canUnmountAtom = (atom, mounted) => !mounted.l.size && (!mounted.d.size || mounted.d.size === 1 && mounted.d.has(atom));
+  const delAtom = (deletingAtom) => {
+    const mounted = mountedMap.get(deletingAtom);
+    if (mounted && canUnmountAtom(deletingAtom, mounted)) {
+      unmountAtom(deletingAtom);
+    }
+  };
+  const invalidateDependents = (atom) => {
+    const mounted = mountedMap.get(atom);
+    mounted == null ? void 0 : mounted.d.forEach((dependent) => {
+      if (dependent !== atom) {
+        setAtomInvalidated(dependent);
+        invalidateDependents(dependent);
+      }
+    });
+  };
+  const writeAtomState = (atom, update) => {
+    const writeGetter = (a, options) => {
+      if (typeof options === "boolean") {
+        console.warn("[DEPRECATED] Please use { unstable_promise: true }");
+        options = { unstable_promise: options };
+      }
+      const aState = readAtomState(a);
+      if ("e" in aState) {
+        throw aState.e;
+      }
+      if ("p" in aState) {
+        if (options == null ? void 0 : options.unstable_promise) {
+          return aState.p.then(() => writeGetter(a, options));
+        }
+        if (typeof process === "object" && "development" !== "production") {
+          console.info("Reading pending atom state in write operation. We throw a promise for now.", a);
+        }
+        throw aState.p;
+      }
+      if ("v" in aState) {
+        return aState.v;
+      }
+      if (typeof process === "object" && "development" !== "production") {
+        console.warn("[Bug] no value found while reading atom in write operation. This is probably a bug.", a);
+      }
+      throw new Error("no value found");
+    };
+    const setter = (a, v) => {
+      let promiseOrVoid2;
+      if (a === atom) {
+        if (!hasInitialValue(a)) {
+          throw new Error("atom not writable");
+        }
+        setAtomPromiseOrValue(a, v);
+        invalidateDependents(a);
+        flushPending();
+      } else {
+        promiseOrVoid2 = writeAtomState(a, v);
+      }
+      return promiseOrVoid2;
+    };
+    const promiseOrVoid = atom.write(writeGetter, setter, update);
+    flushPending();
+    return promiseOrVoid;
+  };
+  const writeAtom = (writingAtom, update) => {
+    const promiseOrVoid = writeAtomState(writingAtom, update);
+    return promiseOrVoid;
+  };
+  const isActuallyWritableAtom = (atom) => !!atom.write;
+  const mountAtom = (atom, initialDependent) => {
+    const mounted = {
+      d: new Set(initialDependent && [initialDependent]),
+      l: /* @__PURE__ */ new Set()
+    };
+    mountedMap.set(atom, mounted);
+    if (typeof process === "object" && "development" !== "production") {
+      mountedAtoms.add(atom);
+    }
+    const atomState = readAtomState(atom);
+    atomState.d.forEach((_, a) => {
+      if (a !== atom) {
+        const aMounted = mountedMap.get(a);
+        if (aMounted) {
+          aMounted.d.add(atom);
+        } else {
+          mountAtom(a, atom);
+        }
+      }
+    });
+    if (isActuallyWritableAtom(atom) && atom.onMount) {
+      const setAtom = (update) => writeAtom(atom, update);
+      const onUnmount = atom.onMount(setAtom);
+      if (onUnmount) {
+        mounted.u = onUnmount;
+      }
+    }
+    return mounted;
+  };
+  const unmountAtom = (atom) => {
+    var _a;
+    const onUnmount = (_a = mountedMap.get(atom)) == null ? void 0 : _a.u;
+    if (onUnmount) {
+      onUnmount();
+    }
+    mountedMap.delete(atom);
+    if (typeof process === "object" && "development" !== "production") {
+      mountedAtoms.delete(atom);
+    }
+    const atomState = getAtomState(atom);
+    if (atomState) {
+      atomState.d.forEach((_, a) => {
+        if (a !== atom) {
+          const mounted = mountedMap.get(a);
+          if (mounted) {
+            mounted.d.delete(atom);
+            if (canUnmountAtom(a, mounted)) {
+              unmountAtom(a);
+            }
+          }
+        }
+      });
+    } else if (typeof process === "object" && "development" !== "production") {
+      console.warn("[Bug] could not find atom state to unmount", atom);
+    }
+  };
+  const mountDependencies = (atom, atomState, prevReadDependencies) => {
+    const dependencies = new Set(atomState.d.keys());
+    prevReadDependencies.forEach((_, a) => {
+      if (dependencies.has(a)) {
+        dependencies.delete(a);
+        return;
+      }
+      const mounted = mountedMap.get(a);
+      if (mounted) {
+        mounted.d.delete(atom);
+        if (canUnmountAtom(a, mounted)) {
+          unmountAtom(a);
+        }
+      }
+    });
+    dependencies.forEach((a) => {
+      const mounted = mountedMap.get(a);
+      if (mounted) {
+        mounted.d.add(atom);
+      } else {
+        mountAtom(a, atom);
+      }
+    });
+  };
+  const flushPending = () => {
+    const pending = Array.from(pendingMap);
+    pendingMap.clear();
+    pending.forEach(([atom, prevAtomState]) => {
+      const atomState = getAtomState(atom);
+      if (atomState && atomState.d !== (prevAtomState == null ? void 0 : prevAtomState.d)) {
+        mountDependencies(atom, atomState, (prevAtomState == null ? void 0 : prevAtomState.d) || /* @__PURE__ */ new Map());
+      }
+      const mounted = mountedMap.get(atom);
+      mounted == null ? void 0 : mounted.l.forEach((listener) => listener());
+      if (typeof process === "object" && "development" !== "production") {
+        stateListeners.forEach((l) => l(atom, !prevAtomState));
+      }
+    });
+  };
+  const commitAtom = (_atom) => {
+    flushPending();
+  };
+  const subscribeAtom = (atom, callback) => {
+    const mounted = addAtom(atom);
+    const listeners = mounted.l;
+    listeners.add(callback);
+    return () => {
+      listeners.delete(callback);
+      delAtom(atom);
+    };
+  };
+  const restoreAtoms = (values) => {
+    for (const [atom, value] of values) {
+      if (hasInitialValue(atom)) {
+        setAtomPromiseOrValue(atom, value);
+        invalidateDependents(atom);
+      }
+    }
+    flushPending();
+  };
+  if (typeof process === "object" && "development" !== "production") {
+    return {
+      [READ_ATOM]: readAtom,
+      [WRITE_ATOM]: writeAtom,
+      [COMMIT_ATOM]: commitAtom,
+      [SUBSCRIBE_ATOM]: subscribeAtom,
+      [RESTORE_ATOMS]: restoreAtoms,
+      [DEV_SUBSCRIBE_STATE]: (l) => {
+        stateListeners.add(l);
+        return () => {
+          stateListeners.delete(l);
+        };
+      },
+      [DEV_GET_MOUNTED_ATOMS]: () => mountedAtoms.values(),
+      [DEV_GET_ATOM_STATE]: (a) => atomStateMap.get(a),
+      [DEV_GET_MOUNTED]: (a) => mountedMap.get(a)
+    };
+  }
+  return {
+    [READ_ATOM]: readAtom,
+    [WRITE_ATOM]: writeAtom,
+    [COMMIT_ATOM]: commitAtom,
+    [SUBSCRIBE_ATOM]: subscribeAtom,
+    [RESTORE_ATOMS]: restoreAtoms
+  };
+};
+
+const createScopeContainer = (initialValues) => {
+  const store = createStore(initialValues);
+  return { s: store };
+};
+const ScopeContextMap = /* @__PURE__ */ new Map();
+const getScopeContext = (scope) => {
+  if (!ScopeContextMap.has(scope)) {
+    ScopeContextMap.set(scope, (0,react__WEBPACK_IMPORTED_MODULE_0__.createContext)(createScopeContainer()));
+  }
+  return ScopeContextMap.get(scope);
+};
+
+var __defProp = Object.defineProperty;
+var __defProps = Object.defineProperties;
+var __getOwnPropDescs = Object.getOwnPropertyDescriptors;
+var __getOwnPropSymbols = Object.getOwnPropertySymbols;
+var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __propIsEnum = Object.prototype.propertyIsEnumerable;
+var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __spreadValues = (a, b) => {
+  for (var prop in b || (b = {}))
+    if (__hasOwnProp.call(b, prop))
+      __defNormalProp(a, prop, b[prop]);
+  if (__getOwnPropSymbols)
+    for (var prop of __getOwnPropSymbols(b)) {
+      if (__propIsEnum.call(b, prop))
+        __defNormalProp(a, prop, b[prop]);
+    }
+  return a;
+};
+var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
+const Provider = ({
+  initialValues,
+  scope,
+  children
+}) => {
+  const scopeContainerRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
+  if (!scopeContainerRef.current) {
+    scopeContainerRef.current = createScopeContainer(initialValues);
+  }
+  if (typeof process === "object" && "development" !== "production" && "development" !== "test") {
+    useDebugState(scopeContainerRef.current);
+  }
+  const ScopeContainerContext = getScopeContext(scope);
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(ScopeContainerContext.Provider, {
+    value: scopeContainerRef.current
+  }, children);
+};
+const atomToPrintable = (atom) => atom.debugLabel || atom.toString();
+const stateToPrintable = ([store, atoms]) => Object.fromEntries(atoms.flatMap((atom) => {
+  var _a, _b;
+  const mounted = (_a = store[DEV_GET_MOUNTED]) == null ? void 0 : _a.call(store, atom);
+  if (!mounted) {
+    return [];
+  }
+  const dependents = mounted.d;
+  const atomState = ((_b = store[DEV_GET_ATOM_STATE]) == null ? void 0 : _b.call(store, atom)) || {};
+  return [
+    [
+      atomToPrintable(atom),
+      __spreadProps(__spreadValues(__spreadValues(__spreadValues({}, "e" in atomState && { error: atomState.e }), "p" in atomState && { promise: atomState.p }), "v" in atomState && { value: atomState.v }), {
+        dependents: Array.from(dependents).map(atomToPrintable)
+      })
+    ]
+  ];
+}));
+const useDebugState = (scopeContainer) => {
+  const store = scopeContainer.s;
+  const [atoms, setAtoms] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    var _a;
+    const callback = () => {
+      var _a2;
+      setAtoms(Array.from(((_a2 = store[DEV_GET_MOUNTED_ATOMS]) == null ? void 0 : _a2.call(store)) || []));
+    };
+    const unsubscribe = (_a = store[DEV_SUBSCRIBE_STATE]) == null ? void 0 : _a.call(store, callback);
+    callback();
+    return unsubscribe;
+  }, [store]);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useDebugValue)([store, atoms], stateToPrintable);
+};
+
+let keyCount = 0;
+function atom(read, write) {
+  const key = `atom${++keyCount}`;
+  const config = {
+    toString: () => key
+  };
+  if (typeof read === "function") {
+    config.read = read;
+  } else {
+    config.init = read;
+    config.read = (get) => get(config);
+    config.write = (get, set, update) => set(config, typeof update === "function" ? update(get(config)) : update);
+  }
+  if (write) {
+    config.write = write;
+  }
+  return config;
+}
+
+const isWritable = (atom) => !!atom.write;
+function useAtom(atom, scope) {
+  if ("scope" in atom) {
+    console.warn("atom.scope is deprecated. Please do useAtom(atom, scope) instead.");
+    scope = atom.scope;
+  }
+  const ScopeContext = getScopeContext(scope);
+  const store = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(ScopeContext).s;
+  const getAtomValue = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)(() => {
+    const atomState = store[READ_ATOM](atom);
+    if ("e" in atomState) {
+      throw atomState.e;
+    }
+    if ("p" in atomState) {
+      throw atomState.p;
+    }
+    if ("v" in atomState) {
+      return atomState.v;
+    }
+    throw new Error("no atom value");
+  }, [store, atom]);
+  const [[value, atomFromUseReducer], forceUpdate] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useReducer)((0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)((prev) => {
+    const nextValue = getAtomValue();
+    if (Object.is(prev[0], nextValue) && prev[1] === atom) {
+      return prev;
+    }
+    return [nextValue, atom];
+  }, [getAtomValue, atom]), void 0, () => {
+    const initialValue = getAtomValue();
+    return [initialValue, atom];
+  });
+  if (atomFromUseReducer !== atom) {
+    forceUpdate();
+  }
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    const unsubscribe = store[SUBSCRIBE_ATOM](atom, forceUpdate);
+    forceUpdate();
+    return unsubscribe;
+  }, [store, atom]);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    store[COMMIT_ATOM](atom);
+  });
+  const setAtom = (0,react__WEBPACK_IMPORTED_MODULE_0__.useCallback)((update) => {
+    if (isWritable(atom)) {
+      return store[WRITE_ATOM](atom, update);
+    } else {
+      throw new Error("not writable atom");
+    }
+  }, [store, atom]);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useDebugValue)(value);
+  return [value, setAtom];
+}
+
+
 
 
 /***/ }),
@@ -5830,6 +6408,200 @@ Prism.languages.js = Prism.languages.javascript;
 	};
 
 }());
+
+
+/***/ }),
+
+/***/ "./node_modules/process/browser.js":
+/*!*****************************************!*\
+  !*** ./node_modules/process/browser.js ***!
+  \*****************************************/
+/***/ ((module) => {
+
+// shim for using process in browser
+var process = module.exports = {};
+
+// cached from whatever global is present so that test runners that stub it
+// don't break things.  But we need to wrap it in a try catch in case it is
+// wrapped in strict mode code which doesn't define any globals.  It's inside a
+// function because try/catches deoptimize in certain engines.
+
+var cachedSetTimeout;
+var cachedClearTimeout;
+
+function defaultSetTimout() {
+    throw new Error('setTimeout has not been defined');
+}
+function defaultClearTimeout () {
+    throw new Error('clearTimeout has not been defined');
+}
+(function () {
+    try {
+        if (typeof setTimeout === 'function') {
+            cachedSetTimeout = setTimeout;
+        } else {
+            cachedSetTimeout = defaultSetTimout;
+        }
+    } catch (e) {
+        cachedSetTimeout = defaultSetTimout;
+    }
+    try {
+        if (typeof clearTimeout === 'function') {
+            cachedClearTimeout = clearTimeout;
+        } else {
+            cachedClearTimeout = defaultClearTimeout;
+        }
+    } catch (e) {
+        cachedClearTimeout = defaultClearTimeout;
+    }
+} ())
+function runTimeout(fun) {
+    if (cachedSetTimeout === setTimeout) {
+        //normal enviroments in sane situations
+        return setTimeout(fun, 0);
+    }
+    // if setTimeout wasn't available but was latter defined
+    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+        cachedSetTimeout = setTimeout;
+        return setTimeout(fun, 0);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedSetTimeout(fun, 0);
+    } catch(e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
+            return cachedSetTimeout.call(null, fun, 0);
+        } catch(e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+            return cachedSetTimeout.call(this, fun, 0);
+        }
+    }
+
+
+}
+function runClearTimeout(marker) {
+    if (cachedClearTimeout === clearTimeout) {
+        //normal enviroments in sane situations
+        return clearTimeout(marker);
+    }
+    // if clearTimeout wasn't available but was latter defined
+    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+        cachedClearTimeout = clearTimeout;
+        return clearTimeout(marker);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedClearTimeout(marker);
+    } catch (e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
+            return cachedClearTimeout.call(null, marker);
+        } catch (e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
+            return cachedClearTimeout.call(this, marker);
+        }
+    }
+
+
+
+}
+var queue = [];
+var draining = false;
+var currentQueue;
+var queueIndex = -1;
+
+function cleanUpNextTick() {
+    if (!draining || !currentQueue) {
+        return;
+    }
+    draining = false;
+    if (currentQueue.length) {
+        queue = currentQueue.concat(queue);
+    } else {
+        queueIndex = -1;
+    }
+    if (queue.length) {
+        drainQueue();
+    }
+}
+
+function drainQueue() {
+    if (draining) {
+        return;
+    }
+    var timeout = runTimeout(cleanUpNextTick);
+    draining = true;
+
+    var len = queue.length;
+    while(len) {
+        currentQueue = queue;
+        queue = [];
+        while (++queueIndex < len) {
+            if (currentQueue) {
+                currentQueue[queueIndex].run();
+            }
+        }
+        queueIndex = -1;
+        len = queue.length;
+    }
+    currentQueue = null;
+    draining = false;
+    runClearTimeout(timeout);
+}
+
+process.nextTick = function (fun) {
+    var args = new Array(arguments.length - 1);
+    if (arguments.length > 1) {
+        for (var i = 1; i < arguments.length; i++) {
+            args[i - 1] = arguments[i];
+        }
+    }
+    queue.push(new Item(fun, args));
+    if (queue.length === 1 && !draining) {
+        runTimeout(drainQueue);
+    }
+};
+
+// v8 likes predictible objects
+function Item(fun, array) {
+    this.fun = fun;
+    this.array = array;
+}
+Item.prototype.run = function () {
+    this.fun.apply(null, this.array);
+};
+process.title = 'browser';
+process.browser = true;
+process.env = {};
+process.argv = [];
+process.version = ''; // empty string to avoid regexp issues
+process.versions = {};
+
+function noop() {}
+
+process.on = noop;
+process.addListener = noop;
+process.once = noop;
+process.off = noop;
+process.removeListener = noop;
+process.removeAllListeners = noop;
+process.emit = noop;
+process.prependListener = noop;
+process.prependOnceListener = noop;
+
+process.listeners = function (name) { return [] }
+
+process.binding = function (name) {
+    throw new Error('process.binding is not supported');
+};
+
+process.cwd = function () { return '/' };
+process.chdir = function (dir) {
+    throw new Error('process.chdir is not supported');
+};
+process.umask = function() { return 0; };
 
 
 /***/ }),

@@ -1,23 +1,24 @@
 import React from 'react';
-import { useContext } from '@wordpress/element';
+import { useAtom } from 'jotai';
 import { Button } from '@wordpress/components';
-import AdminContext from '../AdminContext';
+import { selectedIndexAtom, dataAtom } from '../AdminAtoms';
 import { __ } from '../../utils/wp';
 
 /**
- * Role Group Edit
+ * Add Role Group
  *
- * @returns <Roles />
+ * @returns <AddRoleGroup />
  */
 const AddRoleGroup = () => {
-  const { data, setData, setIndex } = useContext(AdminContext);
+  const [data, setData] = useAtom(dataAtom);
+  const [, setSelectedIndex] = useAtom(selectedIndexAtom);
 
   const addRoleGroup = () => {
-    const roles = { group: ['administrator'], immutable: false };
+    const roles = [['administrator'], false];
     const template = { roles, components: [] };
     const addGroup = [...data, ...[template]];
     setData(addGroup);
-    setIndex(data.length);
+    setSelectedIndex(data.length);
   };
 
   /**

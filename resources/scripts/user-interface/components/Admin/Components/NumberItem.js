@@ -1,10 +1,12 @@
-import { useState, useEffect, useContext } from '@wordpress/element';
-import { TextControl, Button } from '@wordpress/components';
 import { TextItem } from './TextItem';
-import { Row, RowState } from './Row';
-import { getInterventionKey } from '../../../utils/admin';
 import { __ } from '../../../utils/wp';
 
+/**
+ * Is Number Item
+ *
+ * @param {string} k
+ * @returns {boolean}
+ */
 const isNumberItem = (k) => {
   return k.includes(':number');
 };
@@ -15,8 +17,6 @@ const isNumberItem = (k) => {
  * @param {object} { key: {string} key }
  * @returns <TextItem />
  */
-const NumberItem = ({ item: key }) => {
-  return <TextItem item={key} type="number" />;
-};
+const NumberItem = ({ item: key }) => <TextItem item={key} type="number" />;
 
 export { isNumberItem, NumberItem };

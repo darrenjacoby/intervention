@@ -1,14 +1,14 @@
 import React from 'react';
-import { useState, useEffect, useContext } from '@wordpress/element';
-import AdminContext from '../AdminContext';
-import ComponentsContext from './ComponentsContext';
+import { useAtom } from 'jotai';
+import { Breadcrumb } from './Components/Breadcrumb';
 import { isHierachical, Hierachical } from './Components/HierachicalItem';
 import { isBooleanItem, BooleanItem } from './Components/BooleanItem';
 import { isBooleanGroup, BooleanGroup } from './Components/BooleanGroup';
 import { isTextItem, TextItem } from './Components/TextItem';
 import { isNumberItem, NumberItem } from './Components/NumberItem';
 import { isRouteItem, RouteItem } from './Components/RouteItem';
-import { getInterventionKey, objHasKey } from '../../utils/admin';
+import { objectHasKey } from '../../utils/admin';
+import { pathAtom } from '../AdminAtoms';
 import { __ } from '../../utils/wp';
 
 const staticComponentsData = intervention.route.admin.data.components;
@@ -19,43 +19,7 @@ const staticComponentsData = intervention.route.admin.data.components;
  * @returns {<List />}
  */
 const Components = () => {
-  const { dataIndex } = useContext(AdminContext);
-  const [path, setPath] = useState('');
-  const [edited, setEdited] = useState([]);
-
-  useEffect(() => {
-    setEdited(dataIndex.components);
-  }, [dataIndex]);
-
-  useEffect(() => {
-    console.log({ edited });
-  }, [edited]);
-
-  /**
-   * Api
-   *
-   * @param {object} edited
-   * @returns
-   */
-  const api = () => {
-    const toggle = (key) => (!objHasKey(edited, key) ? add(key) : remove(key));
-    const add = (key, value = true) => (edited[key] = [value, false]);
-    const remove = (key) =>
-      objHasKey(edited, key) && edited[key][1] === false && delete edited[key];
-    const get = () => edited;
-    return Object.freeze({ toggle, add, remove, get });
-  };
-
-  /**
-   * Get Edited
-   *
-   * @param {string} k
-   * @returns {array} [ {boolean|string} value, {boolean} immutable ]
-   */
-  const getEdited = (k) => {
-    const key = getInterventionKey(k);
-    return Object.keys(edited).includes(key) ? edited[key] : [false, false];
-  };
+  const [path] = useAtom(pathAtom);
 
   /**
    * Get Static Components Data
@@ -67,7 +31,7 @@ const Components = () => {
     const get = () => {
       const paths = path.split('/');
       return paths.reduce((carry, item) => {
-        carry = objHasKey(carry, item) ? carry[item] : carry;
+        carry = objectHasKey(carry, item) ? carry[item] : carry;
         return carry;
       }, staticComponentsData);
     };
@@ -76,36 +40,11 @@ const Components = () => {
   };
 
   /**
-   * Breadcrumb
+   * Get First Path Key
    *
-   * @returns <Breadcrumb />
+   * @description required to determine `:route` items.
    */
-  const Breadcrumb = () => {
-    const paths = path.split('/');
-
-    const handler = (k) => {
-      const pos = path.indexOf(k) + k.length;
-      setPath(path.substring(0, pos));
-    };
-
-    return (
-      <div className="flex">
-        <div className="cursor-pointer" onClick={() => handler('')}>
-          {__('root')}
-        </div>
-
-        {paths.map((item) => (
-          <div
-            key={item}
-            className="cursor-pointer"
-            onClick={() => handler(item)}
-          >
-            {getInterventionKey(item)}
-          </div>
-        ))}
-      </div>
-    );
-  };
+  const getFirstPathKey = Object.keys(getStaticComponentsData(path))[0];
 
   /**
    * Routing
@@ -122,57 +61,40 @@ const Components = () => {
         {isBooleanItem(k) && <BooleanItem item={key} />}
         {isTextItem(k) && <TextItem item={key} />}
         {isNumberItem(k) && <NumberItem item={key} />}
-        {isBooleanGroup(k) && <BooleanGroup item={key} />}
+        {isBooleanGroup(k) && (
+          <BooleanGroup item={key} data={getStaticComponentsData(key)} />
+        )}
       </>
     );
   };
 
-  const firstPathKey = Object.keys(getStaticComponentsData(path))[0];
+  /**
+   * Route Item Group
+   *
+   * @returns <RouteGroup>
+   */
+  const RouteItemGroup = () => (
+    <RouteItem item={`${path}/${getFirstPathKey}`}>
+      {Object.keys(getStaticComponentsData(path)).map((key) => (
+        <Routing key={key} item={key} />
+      ))}
+    </RouteItem>
+  );
 
-  const RouteGroup = () => {
-    return (
-      <>
-        <RouteItem item={`${path}/${firstPathKey}`}>
-          {Object.keys(getStaticComponentsData(path)).map((key) => (
-            <Routing key={key} item={key} />
-          ))}
-        </RouteItem>
-      </>
-    );
-  };
-
-  /*
-  const Group = () => {
-    return (
-      <>
-        <Route item={firstPathKey}>
-          {Object.keys(getStaticComponentsData(path)).map((key) => (
-            <Routing key={key} item={key} />
-          ))}
-        </Route>
-      </>
-    );
-  };
-  */
-
+  /**
+   * Render
+   */
   return (
-    <ComponentsContext.Provider
-      value={{
-        edited,
-        getEdited,
-        setEdited,
-        setPath,
-        api,
-        getStaticComponentsData,
-      }}
-    >
+    <>
       <Breadcrumb />
-      {isRouteItem(firstPathKey) && <RouteGroup />}
-      {!isRouteItem(firstPathKey) &&
+
+      {isRouteItem(getFirstPathKey) && <RouteItemGroup />}
+
+      {!isRouteItem(getFirstPathKey) &&
         Object.keys(getStaticComponentsData(path)).map((key) => (
           <Routing key={key} item={key} />
         ))}
-    </ComponentsContext.Provider>
+    </>
   );
 };
 

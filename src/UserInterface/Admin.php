@@ -106,7 +106,6 @@ class Admin
          * [
          *      'roles' => [],
          *      'components' => [],
-         *      'immutable' => true|false,
          * ]
          */
         $render = [];
@@ -120,11 +119,10 @@ class Admin
                 unset($array['immutable']);
             }
 
+            $roles = explode('|', $role);
+
             $render[] = [
-                'roles' => [
-                    'group' => explode('|', $role),
-                    'immutable' => $immutable,
-                ],
+                'roles' => [$roles, $immutable],
                 'components' => $array,
             ];
         }

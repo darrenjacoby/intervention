@@ -277,10 +277,6 @@ ul#adminmenu > li.current > a.current::after {
     margin-left: 12px;
     margin-right: 12px;
 }
-.mx-\[3px\] {
-    margin-left: 3px;
-    margin-right: 3px;
-}
 .my-\[-1px\] {
     margin-top: -1px;
     margin-bottom: -1px;
@@ -315,9 +311,6 @@ ul#adminmenu > li.current > a.current::after {
 .-ml-10 {
     margin-left: -10px;
 }
-.mr-10 {
-    margin-right: 10px;
-}
 .mr-6 {
     margin-right: 6px;
 }
@@ -342,9 +335,6 @@ ul#adminmenu > li.current > a.current::after {
 .flex {
     display: flex;
 }
-.inline-flex {
-    display: inline-flex;
-}
 .hidden {
     display: none;
 }
@@ -354,14 +344,8 @@ ul#adminmenu > li.current > a.current::after {
 .h-full {
     height: 100%;
 }
-.h-\[49px\] {
-    height: 49px;
-}
 .h-\[50px\] {
     height: 50px;
-}
-.h-\[32px\] {
-    height: 32px;
 }
 .h-\[44px\] {
     height: 44px;
@@ -452,9 +436,6 @@ ul#adminmenu > li.current > a.current::after {
 .border-l {
     border-left-width: 1px;
 }
-.border-t {
-    border-top-width: 1px;
-}
 .border-r {
     border-right-width: 1px;
 }
@@ -521,10 +502,6 @@ ul#adminmenu > li.current > a.current::after {
 .px-\[4px\] {
     padding-left: 4px;
     padding-right: 4px;
-}
-.px-6 {
-    padding-left: 6px;
-    padding-right: 6px;
 }
 .px-\[6px\] {
     padding-left: 6px;
@@ -600,14 +577,14 @@ ul#adminmenu > li.current > a.current::after {
 .text-14 {
     font-size: 14px;
 }
+.text-12 {
+    font-size: 12px;
+}
 .text-13 {
     font-size: 13px;
 }
 .text-20 {
     font-size: 20px;
-}
-.text-12 {
-    font-size: 12px;
 }
 .text-23 {
     font-size: 23px;
@@ -678,9 +655,6 @@ ul#adminmenu > li.current > a.current::after {
 }
 .last\:mr-12:last-child {
     margin-right: 12px;
-}
-.last\:mr-0:last-child {
-    margin-right: 0;
 }
 .last\:-mb-1:last-child {
     margin-bottom: -1px;

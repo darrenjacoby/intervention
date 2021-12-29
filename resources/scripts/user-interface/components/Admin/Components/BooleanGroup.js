@@ -1,7 +1,8 @@
-import { useState, useEffect, useContext, useRef } from '@wordpress/element';
-import ComponentsContext from '../ComponentsContext';
+import { useAtom } from 'jotai';
+import { useState, useEffect, useRef } from '@wordpress/element';
 import { Row, RowState } from './Row';
-import { getInterventionKey } from '../../../utils/admin';
+import { componentsAtom } from '../../AdminAtoms';
+import { getInterventionKey, getValue } from '../../../utils/admin';
 import { __ } from '../../../utils/wp';
 
 /**
@@ -20,54 +21,61 @@ const isBooleanGroup = (k) => {
  * @param {object} { key: {string} key }
  * @returns <BooleanGroup />
  */
-const BooleanGroup = ({ item: parentKey }) => {
-  const { api, getEdited, setEdited, getStaticComponentsData } =
-    useContext(ComponentsContext);
-
-  const childDataKeys = Object.keys(getStaticComponentsData(parentKey));
-
-  const childDataFormatted = childDataKeys.reduce((carry, k) => {
-    carry.push(getInterventionKey(`${parentKey}/${k}`));
-    return carry;
-  }, []);
-
-  const initSelected = childDataFormatted.reduce((carry, k) => {
-    if (getEdited(k)[0]) {
-      carry.push(k);
-    }
-    return carry;
-  }, []);
-
-  const [parentValue, parentImmutable] = getEdited(parentKey);
-  const [selected, setSelected] = useState(
-    parentValue ? childDataFormatted : initSelected
+const BooleanGroup = ({ item: parentKey, data }) => {
+  const parentInterventionKey = getInterventionKey(parentKey);
+  const [components, setComponents] = useAtom(componentsAtom);
+  const [parentValue, parentImmutable] = getValue(
+    components,
+    parentInterventionKey
   );
   const firstUpdate = useRef(true);
 
   /**
-   * Parent On Effect Api
-   *
-   * @description group `api` calls for when parent is selected.
+   * State: Selected
    */
-  const parentOnEffectApi = () => {
-    selected.map((k) => api().remove(k));
-    api().add(getInterventionKey(parentKey));
+  const childData = Object.keys(data).reduce((carry, k) => {
+    const interventionKey = getInterventionKey(`${parentKey}/${k}`);
+    carry.push(interventionKey);
+    return carry;
+  }, []);
+
+  const selectedChildData = childData.reduce((carry, k) => {
+    const [value] = getValue(components, k);
+    return value ? [carry, k] : carry;
+  }, []);
+
+  const [selected, setSelected] = useState(
+    parentValue ? childData : selectedChildData
+  );
+
+  /**
+   * Parent On Tasks
+   *
+   * @description group `setComponent` calls for when parent is selected.
+   */
+  const parentOnTasks = () => {
+    selected.map((k) => {
+      setComponents(['del', k]);
+    });
+    setComponents(['add', parentInterventionKey]);
   };
 
   /**
-   * Parent Off Effect Api
+   * Parent Off Tasks
    *
-   * @description group `api` calls for when parent is deselected.
+   * @description group `setComponent` calls for when parent is deselected.
    */
-  const parentOffEffectApi = () => {
-    selected.map((k) => api().add(k));
-    api().remove(getInterventionKey(parentKey));
+  const parentOffTasks = () => {
+    selected.map((k) => {
+      setComponents(['add', k]);
+    });
+    setComponents(['del', parentInterventionKey]);
   };
 
   /**
    * Effect
    *
-   * @description after first update, watch `selected` for changes and run `api` calls.
+   * @description after first update, watch `selected` for changes and run `setComponent` calls.
    */
   useEffect(() => {
     if (firstUpdate.current) {
@@ -75,11 +83,8 @@ const BooleanGroup = ({ item: parentKey }) => {
       return;
     }
 
-    const parentOnState = childDataKeys.length === selected.length;
-    parentOnState ? parentOnEffectApi() : parentOffEffectApi();
-
-    setEdited(api().get());
-    // setParentOn(parentOnState);
+    const parentOnState = childData.length === selected.length;
+    parentOnState ? parentOnTasks() : parentOffTasks();
   }, [selected]);
 
   /**
@@ -94,7 +99,7 @@ const BooleanGroup = ({ item: parentKey }) => {
       }
 
       const selectedChange =
-        selected.length === childDataKeys.length ? [] : childDataFormatted;
+        selected.length === childData.length ? [] : childData;
       setSelected(selectedChange);
     };
 
@@ -102,7 +107,7 @@ const BooleanGroup = ({ item: parentKey }) => {
       <div onClick={() => handler()}>
         <Row>
           <RowState
-            state={selected.length === childDataKeys.length}
+            state={selected.length === childData.length}
             immutable={parentImmutable}
           />
           {getInterventionKey(parentKey)}
@@ -118,8 +123,9 @@ const BooleanGroup = ({ item: parentKey }) => {
    * @returns <BooleanItem />
    */
   const BooleanItem = ({ item: key }) => {
-    const state = selected.includes(getInterventionKey(key));
-    const [, immutable] = getEdited(key);
+    const interventionKey = getInterventionKey(key);
+    const state = selected.includes(interventionKey);
+    const [, immutable] = getValue(key);
 
     const handler = () => {
       if (parentImmutable || immutable) {
@@ -143,12 +149,15 @@ const BooleanGroup = ({ item: parentKey }) => {
     );
   };
 
+  /**
+   * Render
+   */
   return (
     <>
       <ParentItem />
 
       <div className="pl-48">
-        {childDataFormatted.map((k) => (
+        {childData.map((k) => (
           <BooleanItem key={k} item={k} />
         ))}
       </div>

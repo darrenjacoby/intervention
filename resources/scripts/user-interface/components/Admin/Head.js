@@ -1,99 +1,54 @@
 import React from 'react';
 import RoleGroups from './RoleGroups';
-import RoleGroupEdit from './RoleGroupEdit';
+// import RoleGroupEdit from './RoleGroupEdit';
 import AddRoleGroup from './AddRoleGroup';
-import ButtonSave from './ButtonSave';
+import Save from './Save';
 import { __ } from '../../utils/wp';
 
 /**
  * Head
+ *
+ * @returns <Head />
  */
-const Head = () => {
-  {
-    /*
-      <Toolbar>
-        <div className="flex flex-wrap items-center text-14 text-gray-90">
-          <span className="font-500 mr-10">{__('Admin')}</span>
-          <div className="w-1 h-[49px] bg-gray-5"></div>
-        </div>
-        <Button
-          className="is-primary"
-          onClick={() => handleSave()}
-          disabled={isBlocking === false}
-        >
-          {buttonText}
-        </Button>
-      </Toolbar>
-    */
-  }
-
-  return (
-    <div
-      className="
-        relative
-        n:sticky
-        n:top-0
-        n:md:top-[32px]
-        w-full
-        flex
-        justify-between
-        border-b
-        border-gray-5
-        bg-white
-        z-10"
-    >
-      {/*
-      <div className="flex items-center h-[48px]">
-        <span className="text-14 font-500 text-gray-90 mr-8">
-          {__('Admin')}
-        </span>
-      </div>
-
-      <div className="w-1 h-full bg-gray-5"></div>
-      */}
-
-      <div className="flex-1">
-        <div
-          className="
-            flex
-            items-center
-            justify-between
-            h-[50px]
-            pl-12
-            pr-16"
-        >
-          <div className="flex">
-            <RoleGroups />
-            <div className="w-1 h-[50px] bg-gray-5 mx-12"></div>
-            {/*<RoleGroupEdit />*/}
-          </div>
-
-          <div className="flex items-center">
-            <AddRoleGroup />
-            <div className="w-8"></div>
-            <ButtonSave />
-          </div>
+const Head = () => (
+  <div
+    className="
+      relative
+      n:sticky
+      n:top-0
+      n:md:top-[32px]
+      w-full
+      flex
+      justify-between
+      border-b
+      border-gray-5
+      bg-white
+      z-10"
+  >
+    <div className="flex-1">
+      <div
+        className="
+          flex
+          items-center
+          justify-between
+          h-[50px]
+          pl-12
+          pr-16"
+      >
+        <div className="flex">
+          <RoleGroups />
+          <div className="w-1 h-[50px] bg-gray-5 mx-12"></div>
+          {/*<RoleGroupEdit />*/}
         </div>
 
-        {/*
-        <div
-          className="
-            flex
-            items-center
-            justify-between
-            h-[50px]
-            pl-12
-            pr-16
-            text-13
-            border-t
-            border-gray-5"
-        >
-          <RoleGroupEdit />
+        <div className="flex items-center">
+          <AddRoleGroup />
+          <div className="w-8"></div>
+          <Save />
         </div>
-        */}
       </div>
     </div>
-  );
-};
+  </div>
+);
 
 export default Head;

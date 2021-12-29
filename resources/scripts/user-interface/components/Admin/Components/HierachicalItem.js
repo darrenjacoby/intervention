@@ -1,9 +1,15 @@
-import { useContext } from '@wordpress/element';
+import { useAtom } from 'jotai';
+import { pathAtom } from '../../AdminAtoms';
 import { Icon } from '@wordpress/components';
-import ComponentsContext from '../ComponentsContext';
 import { Row } from './Row';
 import { getInterventionKey } from '../../../utils/admin';
 
+/**
+ * Is Hierachical
+ *
+ * @param {string} k
+ * @returns {boolean}
+ */
 const isHierachical = (k) => {
   return k.includes(':hierachical');
 };
@@ -15,7 +21,7 @@ const isHierachical = (k) => {
  * @returns <HierachicalItem />
  */
 const Hierachical = ({ item: key }) => {
-  const { setPath } = useContext(ComponentsContext);
+  const [, setPath] = useAtom(pathAtom);
 
   return (
     <div onClick={() => setPath(key)}>

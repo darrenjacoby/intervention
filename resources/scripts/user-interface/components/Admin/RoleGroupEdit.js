@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useContext } from '@wordpress/element';
-import AdminContext from '../AdminContext';
+import AdminContext from '../_AdminContext';
 import { __ } from '../../utils/wp';
 
 /**

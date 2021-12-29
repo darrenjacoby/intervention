@@ -1,8 +1,10 @@
-import { useState, useEffect, useContext } from '@wordpress/element';
+import React from 'react';
+import { useState, useEffect } from '@wordpress/element';
+import { useAtom } from 'jotai';
 import { SelectControl, Button } from '@wordpress/components';
-import ComponentsContext from '../ComponentsContext';
 import { Row, RowState } from './Row';
-import { getInterventionKey } from '../../../utils/admin';
+import { componentsAtom } from '../../AdminAtoms';
+import { getInterventionKey, getValue } from '../../../utils/admin';
 import { __ } from '../../../utils/wp';
 
 /**
@@ -63,21 +65,22 @@ const isRouteItem = (k) => {
 };
 
 /**
- * Route
+ * Route Ittem
  *
  * @param {object} { key: {string} key }
- * @returns <HierachicalItem />
+ * @returns <RouteItem />
  */
 const RouteItem = ({ item: key, children }) => {
   const interventionKey = getInterventionKey(key);
-  const { api, edited, getEdited, setEdited } = useContext(ComponentsContext);
-  const [value, immutable] = getEdited(key);
+  const [components, setComponents] = useAtom(componentsAtom);
+  const [value, immutable] = getValue(components, key);
   const init = value === false ? '' : value;
   const [state, setState] = useState(init);
-  // const sanitizeKey = key.replace(':route', '');
 
   /**
    * Immutable Option
+   *
+   * @description only return the hard coded option.
    *
    * @param {string} value
    * @returns {array}
@@ -90,6 +93,8 @@ const RouteItem = ({ item: key, children }) => {
   /**
    * Excl Key From Options
    *
+   * @description remove routes that start with this `key`.
+   *
    * @param {array} options
    * @returns {array}
    */
@@ -101,6 +106,11 @@ const RouteItem = ({ item: key, children }) => {
       .filter(Boolean);
   };
 
+  /**
+   * Options
+   *
+   * @description resolve correct options.
+   */
   const options = immutable
     ? immutableOption(state)
     : exclKeyFromOptions(optionsAll);
@@ -109,14 +119,11 @@ const RouteItem = ({ item: key, children }) => {
    * Effect
    */
   useEffect(() => {
-    state !== ''
-      ? api().add(interventionKey, state)
-      : api().remove(interventionKey);
-    setEdited(api().get());
-
-    console.log({ state });
-    console.log({ interventionKey });
-    console.log({ edited });
+    if (state !== '') {
+      setComponents(['add', interventionKey, state]);
+    } else {
+      setComponents(['remove', interventionKey]);
+    }
   }, [state]);
 
   /**
@@ -139,9 +146,22 @@ const RouteItem = ({ item: key, children }) => {
     <>
       <Row item={key}>
         <RowState state={state} immutable={immutable} />
-        <div className="flex w-full items-center">
-          <div className="w-1/2">{getInterventionKey(key)}</div>
-          <div className="w-1/2 flex items-center border-l border-gray-2">
+        <div
+          className="
+            flex
+            w-full
+            items-center"
+        >
+          <div className="w-1/2">{interventionKey}</div>
+
+          <div
+            className="
+              w-1/2
+              flex
+              items-center
+              border-l
+              border-gray-2"
+          >
             <SelectControl
               label="Route"
               hideLabelFromVision={true}
@@ -150,6 +170,7 @@ const RouteItem = ({ item: key, children }) => {
               options={options}
               onChange={(route) => handler(route)}
             />
+
             {immutable === false && state !== '' && (
               <Button onClick={() => handler('')}>{__('Undo')}</Button>
             )}
