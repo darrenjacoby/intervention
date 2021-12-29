@@ -48,9 +48,10 @@ return [
         'tabs:group' => ['screen-options', 'help'],
         'title-link',
         'updates',
-        'all.list',
-        'all.pagination:text',
-        'all.search',
-        'all.subsets',
+        'all:hierachical' => [
+            'pagination:number',
+            'search',
+            'subsets',
+        ],
     ],
 ];

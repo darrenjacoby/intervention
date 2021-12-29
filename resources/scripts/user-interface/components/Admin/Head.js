@@ -35,7 +35,6 @@ const Head = () => {
         n:top-0
         n:md:top-[32px]
         w-full
-        h-[102px]
         flex
         justify-between
         border-b
@@ -66,12 +65,17 @@ const Head = () => {
           <div className="flex">
             <RoleGroups />
             <div className="w-1 h-[50px] bg-gray-5 mx-12"></div>
-            <AddRoleGroup />
+            {/*<RoleGroupEdit />*/}
           </div>
 
-          <ButtonSave />
+          <div className="flex items-center">
+            <AddRoleGroup />
+            <div className="w-8"></div>
+            <ButtonSave />
+          </div>
         </div>
 
+        {/*
         <div
           className="
             flex
@@ -86,6 +90,7 @@ const Head = () => {
         >
           <RoleGroupEdit />
         </div>
+        */}
       </div>
     </div>
   );

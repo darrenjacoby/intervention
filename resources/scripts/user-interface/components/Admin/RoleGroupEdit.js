@@ -15,13 +15,13 @@ const registeredRolesKeys = Object.keys(registeredRoles);
  * @returns <Roles />
  */
 const RoleGroupEdit = () => {
-  const { applied, setApplied, index, setIndex, setIsBlocking } =
+  const { data, setData, index, setIndex, setIsBlocking } =
     useContext(AdminContext);
 
   const [edit, setEdit] = useState(false);
 
   const isImmutableItem = () => {
-    return applied[index].immutable === true;
+    return data[index].roles.immutable === true;
   };
 
   /**
@@ -30,31 +30,32 @@ const RoleGroupEdit = () => {
    * @param {string} role
    */
   const toggleRoleInGroup = (role) => {
-    const add = (item) => [...item.roles, role];
-    const remove = (item) => item.roles.filter((item) => item !== role);
+    const add = (item) => [...item.roles.group, role];
+    const remove = (item) => item.roles.group.filter((item) => item !== role);
     const sortRoles = (sort) =>
       registeredRolesKeys.filter((v) => sort.includes(v));
 
-    const appliedIndexRole = applied.map((item, i) => {
+    const indexRole = data.map((item, i) => {
       if (i === index) {
-        item.roles = item.roles.includes(role) ? remove(item) : add(item);
-        item.roles = sortRoles(item.roles);
+        item.roles.group = item.roles.group.includes(role)
+          ? remove(item)
+          : add(item);
+        item.roles.group = sortRoles(item.roles.group);
       }
       return item;
     });
 
-    setApplied(appliedIndexRole);
+    setData(indexRole);
     setIsBlocking(true);
   };
 
   /**
    * Delete Role Group
    *
-   * @description Remove the role group `index` from `applied`.
+   * @description Remove the role group `index` from `data`.
    */
   const deleteRoleGroup = () => {
-    const indexHasComponents =
-      Object.keys(applied[index].components).length > 0;
+    const indexHasComponents = Object.keys(data[index].components).length > 0;
 
     if (indexHasComponents) {
       const proceed = window.confirm(
@@ -65,13 +66,13 @@ const RoleGroupEdit = () => {
       }
     }
 
-    const removeGroup = applied.filter((item, i) => {
+    const removeGroup = data.filter((item, i) => {
       return i !== index;
     });
 
     const newIndex = index === 0 ? index : index - 1;
 
-    setApplied(removeGroup);
+    setData(removeGroup);
     setIndex(newIndex);
     setIsBlocking(true);
   };
@@ -99,7 +100,7 @@ const RoleGroupEdit = () => {
             rounded
             px-[4px]
             ${
-              applied[index].roles.includes(key)
+              data[index].roles.group.includes(key)
                 ? 'text-primary-10 border-primary-10'
                 : 'text-gray-50 border-gray-2 hover:border-gray-5'
             }

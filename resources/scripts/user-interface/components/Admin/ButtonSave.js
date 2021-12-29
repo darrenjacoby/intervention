@@ -4,14 +4,14 @@ import { Button } from '@wordpress/components';
 import apiFetch from '@wordpress/api-fetch';
 import AdminContext from '../AdminContext';
 import { __ } from '../../utils/wp';
-import { sortAppliedByRoleKeys } from '../../utils/admin';
+import { sortDataByRoleKeys } from '../../utils/admin';
 import { arrayHasDuplicates } from '../../utils/arr';
 
 /**
  * Head
  */
 const Save = () => {
-  const { applied, setApplied, index, setIndex, isBlocking, setIsBlocking } =
+  const { data, setData, index, setIndex, isBlocking, setIsBlocking } =
     useContext(AdminContext);
 
   const [buttonText, setButtonText] = useState(__('Save'));
@@ -26,12 +26,12 @@ const Save = () => {
       apiFetch({
         url: intervention.route.admin.url,
         method: 'POST',
-        data: { applied: middleware, save: true },
+        data: { data: middleware, save: true },
       }).then((res) => {
         if (res?.data) {
-          const sorted = sortAppliedByRoleKeys(res.data, index);
-          setApplied(sorted.applied);
-          setIndex(sorted.index);
+          const sorted = sortDataByRoleKeys(res.data, index);
+          setData(sorted.data);
+          // setIndex(sorted.index);
           setButtonText(__('Save'));
           setIsBlocking(false);
         }
@@ -54,7 +54,7 @@ const Save = () => {
      *
      * @returns {object}
      */
-    const middleware = applied.reduce((carry, { roles, components }) => {
+    const middleware = data.reduce((carry, { roles, components }) => {
       const removeImmutableComponents = Object.entries(components).reduce(
         (carry, [k, [value, immutable]]) => {
           if (immutable !== true) {
@@ -71,7 +71,7 @@ const Save = () => {
       }
       */
 
-      carry[roles.join('|')] = removeImmutableComponents;
+      carry[roles.group.join('|')] = removeImmutableComponents;
       return carry;
     }, {});
 
@@ -90,8 +90,8 @@ const Save = () => {
      * @returns {boolean}
      */
     const duplicateRoleGroupFound = () => {
-      const rolesAsKeys = applied.reduce((carry, { roles }) => {
-        carry.push(roles.join('|'));
+      const rolesAsKeys = data.reduce((carry, { roles }) => {
+        carry.push(roles.group.join('|'));
         return carry;
       }, []);
 
@@ -123,7 +123,7 @@ const Save = () => {
     <Button
       className="is-primary"
       onClick={() => handleSave()}
-      disabled={isBlocking === false}
+      disabled={isBlocking === true}
     >
       {buttonText}
     </Button>

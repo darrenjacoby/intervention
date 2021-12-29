@@ -1,6 +1,6 @@
 import React from 'react';
 import { useContext } from '@wordpress/element';
-// import { Button } from '@wordpress/components';
+import { Button } from '@wordpress/components';
 import AdminContext from '../AdminContext';
 import { __ } from '../../utils/wp';
 
@@ -10,21 +10,14 @@ import { __ } from '../../utils/wp';
  * @returns <Roles />
  */
 const AddRoleGroup = () => {
-  const {
-    roleGroups,
-    components,
-    componentsEditing,
-    setRoleGroups,
-    setComponents,
-    setComponentsEditing,
-    setIndex,
-  } = useContext(AdminContext);
+  const { data, setData, setIndex } = useContext(AdminContext);
 
   const addRoleGroup = () => {
-    setRoleGroups([...roleGroups, [['administrator'], false]]);
-    setComponents([...components, []]);
-    // setComponentsEditing(...componentsEditing, ...[]);
-    setIndex(roleGroups.length);
+    const roles = { group: ['administrator'], immutable: false };
+    const template = { roles, components: [] };
+    const addGroup = [...data, ...[template]];
+    setData(addGroup);
+    setIndex(data.length);
   };
 
   /**
@@ -33,23 +26,9 @@ const AddRoleGroup = () => {
    * @returns <AddRoleGroup />
    */
   return (
-    <>
-      {/*
-      <a
-        href="#"
-        className="h-full flex items-center"
-        onClick={() => addRoleGroup()}
-      >
-        {__('Add')}
-      </a>
-      */}
-
-      <div className="flex items-center">
-        <a href="#" className="is-secondary" onClick={() => addRoleGroup()}>
-          {__('Add')}
-        </a>
-      </div>
-    </>
+    <Button className="is-secondary" onClick={() => addRoleGroup()}>
+      {__('Add Group')}
+    </Button>
   );
 };
 

@@ -47,6 +47,7 @@
   },
   "dependencies": {
     "history": "^5.0.1",
+    "jotai": "^1.4.9",
     "lodash.debounce": "^4.0.8",
     "lodash.isequal": "^4.5.0",
     "prismjs": "^1.24.1",

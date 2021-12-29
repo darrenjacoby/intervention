@@ -1,44 +1,12 @@
-import AdminContext from '../../AdminContext';
-import { useContext } from '@wordpress/element';
 import { __ } from '../../../utils/wp';
 
 /**
  * Row
  *
  * @param {object} param
- * @returns {<Edit />}
+ * @returns {<Row />}
  */
-const Row = ({ item: key, groupKey = false, children }) => {
-  const { isKeyApplied, isKeyImmutable } = useContext(AdminContext);
-
-  const isRowChecked = () => {
-    return groupKey
-      ? isKeyApplied(groupKey) || isKeyApplied(key)
-      : isKeyApplied(key);
-  };
-
-  /**
-   * Badge
-   *
-   * @returns
-   */
-  const Badge = () => (
-    <div
-      className="
-        w-[50px]
-        h-full
-        flex
-        items-center
-        justify-center
-        text-primary-10
-        border border-gray-5
-        font-600"
-    >
-      {isRowChecked() && <span className="">{__('R')}</span>}
-      {isKeyImmutable(key) && <span className="">{__('H')}</span>}
-    </div>
-  );
-
+const Row = ({ children }) => {
   return (
     <div
       className="
@@ -53,14 +21,46 @@ const Row = ({ item: key, groupKey = false, children }) => {
         truncate
         cursor-pointer
         flex
-        justify-between
         items-center
       "
     >
-      <Badge />
-      <div className="flex-1 px-[16px]">{children}</div>
+      {children}
     </div>
   );
 };
 
-export default Row;
+/**
+ * Row State
+ *
+ * @param {object} param
+ * @returns {<State />}
+ */
+const RowState = ({ state = false, immutable = false }) => {
+  const removed = () => {
+    return state === true;
+  };
+
+  const edited = () => {
+    return typeof state !== 'boolean' && state !== '';
+  };
+
+  return (
+    <div
+      className="
+        w-[50px]
+        h-full
+        flex
+        items-center
+        justify-center
+        text-primary-10
+        border border-gray-5
+        font-600"
+    >
+      {removed() && <span className="">{__('R')}</span>}
+      {edited() && <span className="">{__('E')}</span>}
+      {immutable && <span className="">{__('H')}</span>}
+    </div>
+  );
+};
+
+export { Row, RowState };

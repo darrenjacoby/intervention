@@ -17,8 +17,12 @@ namespace Sober\Intervention;
  */
 return [
     'dashboard:hierachical' => [
+        ':route',
+        'title:text',
+        'icon:icon',
         'home:hierachical' => [
-            'tabs' => ['screen-options', 'help'],
+            'dashboard.home:route',
+            'tabs:group' => ['screen-options', 'help'],
             'cols:edit',
             'welcome',
             'notices',
@@ -33,7 +37,9 @@ return [
             'site-health',
         ],
         'updates:hierachical' => [
-            'tabs' => ['help'],
+            ':route',
+            'title:text',
+            'tabs',
         ],
     ],
 ];

@@ -6,11 +6,11 @@
  */
 export const getRolesAsNiceName = (roles) => {
   const joined = roles.join(', ');
-  const caps = joined.charAt(0).toUpperCase() + joined.slice(1);
-  const andPos = caps.lastIndexOf(',');
+  // const caps = joined.charAt(0).toUpperCase() + joined.slice(1);
+  const andPos = joined.lastIndexOf(',');
   return andPos > 0
-    ? caps.substring(0, andPos) + ' and ' + caps.substring(andPos + 1)
-    : caps;
+    ? joined.substring(0, andPos) + ' and ' + joined.substring(andPos + 1)
+    : joined;
 };
 
 /**
@@ -20,13 +20,13 @@ export const getRolesAsNiceName = (roles) => {
  * @param {number} i
  * @returns {object}
  */
-export const sortAppliedByRoleKeys = (applied, i) => {
+export const sortDataByRoleKeys = (data, i) => {
   const roleKeys = Object.keys(intervention.route.admin.data.roles);
-  const findIndex = applied[i].roles.join();
+  const findIndex = data[i].roles.group.join();
 
-  applied.sort((a, b) => {
-    const indexA = roleKeys.indexOf(a.roles[0]);
-    const indexB = roleKeys.indexOf(b.roles[0]);
+  data.sort((a, b) => {
+    const indexA = roleKeys.indexOf(a.roles.group[0]);
+    const indexB = roleKeys.indexOf(b.roles.group[0]);
     if (indexA > indexB) {
       return 1;
     }
@@ -36,8 +36,8 @@ export const sortAppliedByRoleKeys = (applied, i) => {
     return 0;
   });
 
-  const indexFound = applied.reduce((carry, item, index) => {
-    if (findIndex === item.roles.join()) {
+  const indexFound = data.reduce((carry, item, index) => {
+    if (findIndex === item.roles.group.join()) {
       carry = index;
     }
     return carry;
@@ -45,7 +45,7 @@ export const sortAppliedByRoleKeys = (applied, i) => {
 
   const index = indexFound ? indexFound : 0;
 
-  return { applied, index };
+  return { data, index };
 };
 
 /**
@@ -55,9 +55,28 @@ export const sortAppliedByRoleKeys = (applied, i) => {
  * @returns {string}
  */
 export const getInterventionKey = (k = '') => {
+  /**
+   * Replace component identifiers
+   */
+  const replace = [
+    ':hierachical',
+    ':text',
+    ':number',
+    ':group',
+    ':exemption',
+    '/:route',
+  ];
+  replace.forEach((item) => {
+    k = k.replaceAll(item, '');
+  });
+
+  /**
+   * Replace `/` with `.` to match Intervention
+   */
   k = k.replaceAll('/', '.');
-  k = k.replaceAll(':hierachical', '');
-  k = k.replaceAll(':group', '');
-  k = k.replaceAll(':hierachical', '');
   return k;
+};
+
+export const objHasKey = (obj, k) => {
+  return Object.prototype.hasOwnProperty.call(obj, k) && k !== '';
 };

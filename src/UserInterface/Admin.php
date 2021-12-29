@@ -61,10 +61,12 @@ class Admin
 
         $components = Config::get('user-interface/components')->toArray();
         $components = Arr::transformEntriesToTrue($components);
+        $pagenow = Config::get('admin/pagenow')->keys()->toArray();
 
         return [
             'components' => $components,
             'roles' => $this->roles,
+            'pagenow' => $pagenow,
         ];
     }
 
@@ -108,20 +110,22 @@ class Admin
          * ]
          */
         $render = [];
-        foreach ($merged->toArray() as $k => $v) {
-            if (!is_array($v)) {
+        foreach ($merged->toArray() as $role => $array) {
+            if (!is_array($array)) {
                 return $render;
             }
 
-            $immutable = array_key_exists('immutable', $v) ? $v['immutable'] : false;
+            $immutable = array_key_exists('immutable', $array) ? $array['immutable'] : false;
             if ($immutable) {
-                unset($v['immutable']);
+                unset($array['immutable']);
             }
 
             $render[] = [
-                'roles' => explode('|', $k),
-                'components' => $v,
-                'immutable' => $immutable,
+                'roles' => [
+                    'group' => explode('|', $role),
+                    'immutable' => $immutable,
+                ],
+                'components' => $array,
             ];
         }
 
@@ -138,11 +142,11 @@ class Admin
      */
     public function request(\WP_REST_Request $request)
     {
-        $applied = $request->get_param('applied');
+        $data = $request->get_param('data');
         $save = $request->get_param('save');
 
         if ($save) {
-            update_option('intervention_admin', $applied);
+            update_option('intervention_admin', $data);
         }
 
         $response['data'] = $this->getResponse();
