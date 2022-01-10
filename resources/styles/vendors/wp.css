@@ -46,6 +46,13 @@ ul#adminmenu > li.current > a.current::after {
 }
 */
 
+.components-button.blank {
+  margin: 0 -2px;
+  padding: 0 2px;
+  color: theme('colors.primary');
+  text-decoration: underline;
+}
+
 .components-panel__body.is-opened {
   padding-bottom: 13px !important;
 }
@@ -94,8 +101,8 @@ ul#adminmenu > li.current > a.current::after {
   height: 49px;
 }
 
+/*
 .roles-button {
-  /* transition: border-color 0.05s ease-in-out; */
   box-shadow: inset 0 0 0 1px theme('colors.gray-2');
   transition: box-shadow 0.1s linear, color 0.1s linear;
 }
@@ -103,3 +110,4 @@ ul#adminmenu > li.current > a.current::after {
 .roles-button.is-active {
   box-shadow: inset 0 0 0 1px theme('colors.primary-10');
 }
+*/

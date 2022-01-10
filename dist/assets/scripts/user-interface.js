@@ -60,6 +60,55 @@ function _arrayWithoutHoles(arr) {
 
 /***/ }),
 
+/***/ "./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _asyncToGenerator)
+/* harmony export */ });
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
+  try {
+    var info = gen[key](arg);
+    var value = info.value;
+  } catch (error) {
+    reject(error);
+    return;
+  }
+
+  if (info.done) {
+    resolve(value);
+  } else {
+    Promise.resolve(value).then(_next, _throw);
+  }
+}
+
+function _asyncToGenerator(fn) {
+  return function () {
+    var self = this,
+        args = arguments;
+    return new Promise(function (resolve, reject) {
+      var gen = fn.apply(self, args);
+
+      function _next(value) {
+        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);
+      }
+
+      function _throw(err) {
+        asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);
+      }
+
+      _next(undefined);
+    });
+  };
+}
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime/helpers/esm/extends.js":
 /*!************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/esm/extends.js ***!
@@ -87,6 +136,27 @@ function _extends() {
   };
 
   return _extends.apply(this, arguments);
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/esm/inheritsLoose.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/inheritsLoose.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _inheritsLoose)
+/* harmony export */ });
+/* harmony import */ var _setPrototypeOf_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./setPrototypeOf.js */ "./node_modules/@babel/runtime/helpers/esm/setPrototypeOf.js");
+
+function _inheritsLoose(subClass, superClass) {
+  subClass.prototype = Object.create(superClass.prototype);
+  subClass.prototype.constructor = subClass;
+  (0,_setPrototypeOf_js__WEBPACK_IMPORTED_MODULE_0__.default)(subClass, superClass);
 }
 
 /***/ }),
@@ -185,6 +255,28 @@ function _nonIterableSpread() {
 
 /***/ }),
 
+/***/ "./node_modules/@babel/runtime/helpers/esm/setPrototypeOf.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/setPrototypeOf.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ _setPrototypeOf)
+/* harmony export */ });
+function _setPrototypeOf(o, p) {
+  _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+    o.__proto__ = p;
+    return o;
+  };
+
+  return _setPrototypeOf(o, p);
+}
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js":
 /*!******************************************************************!*\
   !*** ./node_modules/@babel/runtime/helpers/esm/slicedToArray.js ***!
@@ -259,203 +351,383 @@ function _unsupportedIterableToArray(o, minLen) {
 
 /***/ }),
 
-/***/ "./resources/scripts/user-interface/components/Admin.js":
-/*!**************************************************************!*\
-  !*** ./resources/scripts/user-interface/components/Admin.js ***!
-  \**************************************************************/
+/***/ "./resources/scripts/user-interface/atoms/admin.js":
+/*!*********************************************************!*\
+  !*** ./resources/scripts/user-interface/atoms/admin.js ***!
+  \*********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "queryAtom": () => (/* binding */ queryAtom),
+/* harmony export */   "dataAtom": () => (/* binding */ dataAtom),
+/* harmony export */   "selectedIndexAtom": () => (/* binding */ selectedIndexAtom),
+/* harmony export */   "pathAtom": () => (/* binding */ pathAtom),
+/* harmony export */   "isBlockingAtom": () => (/* binding */ isBlockingAtom),
+/* harmony export */   "selectedIndexDataAtom": () => (/* binding */ selectedIndexDataAtom),
+/* harmony export */   "selectedIndexDataComponentAtom": () => (/* binding */ selectedIndexDataComponentAtom),
+/* harmony export */   "selectedIndexDataRoleAtom": () => (/* binding */ selectedIndexDataRoleAtom),
+/* harmony export */   "selectedIndexPathAtom": () => (/* binding */ selectedIndexPathAtom)
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var jotai__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! jotai */ "./node_modules/jotai/esm/index.js");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
-/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _Page_Page__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Page/Page */ "./resources/scripts/user-interface/components/Page/Page.js");
-/* harmony import */ var _Page_Sidebar__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Page/Sidebar */ "./resources/scripts/user-interface/components/Page/Sidebar.js");
-/* harmony import */ var _Admin_Head__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Admin/Head */ "./resources/scripts/user-interface/components/Admin/Head.js");
-/* harmony import */ var _Admin_Components__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Admin/Components */ "./resources/scripts/user-interface/components/Admin/Components.js");
-/* harmony import */ var _AdminAtoms__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./AdminAtoms */ "./resources/scripts/user-interface/components/AdminAtoms.js");
-/* harmony import */ var _utils_admin__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../utils/admin */ "./resources/scripts/user-interface/utils/admin.js");
-/* harmony import */ var _utils_wp__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../utils/wp */ "./resources/scripts/user-interface/utils/wp.js");
+/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ "./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js");
+/* harmony import */ var jotai__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! jotai */ "./node_modules/jotai/esm/index.js");
+/* harmony import */ var deep_object_diff__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! deep-object-diff */ "./node_modules/deep-object-diff/dist/index.js");
+/* harmony import */ var deep_object_diff__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(deep_object_diff__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _utils_structures__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/structures */ "./resources/scripts/user-interface/utils/structures.js");
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_4___default().use(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_4___default().createNonceMiddleware(intervention.nonce));
+var registeredRolesKeys = Object.keys(intervention.route.admin.data.roles);
 /**
- * Admin
+ * Query
+ *
+ * @description write function for setting the original query.
  */
 
-var Admin = function Admin() {
-  var _useAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_12__.useAtom)(_AdminAtoms__WEBPACK_IMPORTED_MODULE_9__.dataAtom),
-      _useAtom2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useAtom, 2),
-      setData = _useAtom2[1];
-
-  var _useAtom3 = (0,jotai__WEBPACK_IMPORTED_MODULE_12__.useAtom)(_AdminAtoms__WEBPACK_IMPORTED_MODULE_9__.selectedIndexAtom),
-      _useAtom4 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useAtom3, 1),
-      selectedIndex = _useAtom4[0];
+var queryAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_4__.atom)(
+/**
+ * Initial
+ */
+[{
+  roles: [[], false],
+  components: []
+}],
+/**
+ * Write
+ *
+ * @param {function} get
+ * @param {function} set
+ * @param {function} update
+ */
+function (get, set, update) {
+  set(queryAtom, update);
   /**
-   * Get (change to react-query)
+   * Deep clone
    *
-   * @description
+   * @description important as we mutate `data` state and therefore should not pass by ref.
+   * @link https://www.samanthaming.com/tidbits/70-3-ways-to-clone-objects/#shallow-clone-vs-deep-clone
+   */
+
+  var deepClone = JSON.parse(JSON.stringify(update));
+  set(updateDataAtom, deepClone);
+});
+/**
+ * Data
+ *
+ * @description read function for setting `dataAtom`.
+ *
+ * @returns {array}
+ */
+
+var updateDataAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_4__.atom)(null);
+var dataAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_4__.atom)(
+/**
+ * Read
+ *
+ * @param {function} get
+ * @returns {array}
+ */
+function (get) {
+  return get(updateDataAtom) || get(queryAtom);
+},
+/**
+ * Write
+ *
+ * @param {function} get
+ * @param {function} set
+ * @param {function} update
+ */
+function (get, set, update) {
+  set(updateDataAtom, update);
+});
+/**
+ * Selected Index
+ *
+ * @description read/write tuple for setting `selectedIndex`.
+ *
+ * @returns {array}
+ */
+
+var selectedIndexAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_4__.atom)(
+/**
+ * Initial
+ */
+0,
+/**
+ * Write
+ *
+ * @param {function} get
+ * @param {function} set
+ * @param {function} update
+ */
+function (get, set, update) {
+  set(selectedIndexAtom, update);
+});
+/**
+ * Path
+ *
+ * @description read/write function for setting `path`.
+ *
+ * @returns {array}
+ */
+
+var updatePathAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_4__.atom)(null);
+var pathAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_4__.atom)(
+/**
+ * Read
+ *
+ * @param {function} get
+ */
+function (get) {
+  var init = Array(get(dataAtom).length);
+  return get(updatePathAtom) || init;
+},
+/**
+ * Write
+ *
+ * @param {function} get
+ * @param {function} set
+ * @param {function} update
+ */
+function (get, set, update) {
+  var updatePath = get(pathAtom);
+  updatePath[get(selectedIndexAtom)] = update;
+  set(updatePathAtom, (0,_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__.default)(updatePath));
+});
+/**
+ * Diff: Is Blocking
+ *
+ * @description read/set tuple for setting `isBlockingAtom`.
+ *
+ * @returns {array}
+ */
+
+var updateIsBlockingAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_4__.atom)(null);
+var isBlockingAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_4__.atom)(
+/**
+ * Read
+ *
+ * @param {function} get
+ * @returns {boolean}
+ */
+function (get) {
+  return get(updateIsBlockingAtom) || false;
+},
+/**
+ * Write
+ *
+ * @param {function} get
+ * @param {function} set
+ * @param {function} update
+ */
+function (get, set, update) {
+  var queryData = get(queryAtom);
+  var comparison = (0,deep_object_diff__WEBPACK_IMPORTED_MODULE_2__.diff)(queryData, update);
+  var changed = Object.keys(comparison).length > 0;
+  set(updateIsBlockingAtom, changed);
+});
+/**
+ * Diff: Selected Data Diff
+ *
+ * @description
+ *
+ * @returns {array}
+ */
+
+/*
+ export const selectedAppliedDiffAtom = atom((get) => {
+  const index = get(selectedIndexAtom);
+  const applied = get(appliedAtom)[index];
+  const savedData = get(dataAtom)[index]?.components;
+  const diff = detailedDiff(savedData, applied);
+  return {
+    additions:
+      Object.keys(diff.added).length + Object.keys(diff.updated).length,
+    deletions: Object.keys(diff.deleted).length,
+  };
+});
+*/
+
+/**
+ * Selected Index: Data
+ *
+ * @description read function for `data[selectedIndex]` state.
+ *
+ * @returns {array}
+ */
+
+var selectedIndexDataAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_4__.atom)(
+/**
+ * Read
+ *
+ * @param {function} get
+ * @returns {array}
+ */
+function (get) {
+  return get(dataAtom)[get(selectedIndexAtom)];
+});
+/**
+ * Selected Index/Data: Component
+ *
+ * @description write function for setting `data[selectedIndex]` components.
+ *
+ * @returns {array}
+ */
+
+var selectedIndexDataComponentAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_4__.atom)(
+/**
+ * Initial
+ */
+null,
+/**
+ * Write
+ *
+ * @param {function} get
+ * @param {function} set
+ * @param {function} update
+ */
+function (get, set, update) {
+  var _update = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(update, 3),
+      action = _update[0],
+      key = _update[1],
+      _update$ = _update[2],
+      value = _update$ === void 0 ? true : _update$;
+
+  var data = get(dataAtom);
+  var selectedIndex = get(selectedIndexAtom);
+  var state = Object.assign({}, data[selectedIndex].components);
+  /**
+   * Actions
+   *
+   * @description run `add` or `remove` on `selectedIndex`.
+   */
+
+  var add = function add() {
+    return state[key] = [value, false];
+  };
+
+  var del = function del() {
+    return (0,_utils_structures__WEBPACK_IMPORTED_MODULE_3__.objectHasKey)(state, key) && state[key][1] === false && delete state[key];
+  };
+
+  action === 'add' ? add() : del();
+  /**
+   * Setters
+   *
+   * @description set `dataAtom` components.
+   */
+
+  data[selectedIndex].components = state;
+  set(dataAtom, data);
+  set(isBlockingAtom, data);
+});
+/**
+ * Selected Index/Data: Role
+ *
+ * @description write function for setting `data[selectedIndex]` roles.
+ *
+ * @returns {array}
+ */
+
+var selectedIndexDataRoleAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_4__.atom)(
+/**
+ * Initial
+ */
+null,
+/**
+ * Write
+ *
+ * @param {function} get
+ * @param {function} set
+ * @param {function} update
+ */
+function (get, set, update) {
+  var data = get(dataAtom);
+  var selectedIndex = get(selectedIndexAtom);
+
+  var _data$selectedIndex$r = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(data[selectedIndex].roles, 1),
+      roles = _data$selectedIndex$r[0];
+  /**
+   * Actions
+   *
+   * @description run `add` or `remove` on `selectedIndex`.
    */
 
 
-  var get = function get() {
-    _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_4___default()({
-      method: 'POST',
-      url: intervention.route.admin.url
-    }).then(function (res) {
-      if (res !== null && res !== void 0 && res.data) {
-        var sorted = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_10__.sortDataByRoleKeys)(res.data, selectedIndex);
-        setData(sorted.data); // setIsBlocking(false);
-        // setIsLoaded(true);
-      }
+  var add = function add() {
+    return [].concat((0,_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__.default)(roles), [update]);
+  };
+
+  var remove = function remove() {
+    return roles.filter(function (item) {
+      return item !== update;
     });
   };
 
-  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
-    return get();
-  }, []); // useEffect(() => setDataIndex(data[selectedIndex]), [selectedIndex]);
-  // useEffect(() => console.log(dataIndex.components), [dataIndex]);
+  var sort = function sort(_sort) {
+    return registeredRolesKeys.filter(function (v) {
+      return _sort.includes(v);
+    });
+  };
 
+  var updated = roles.includes(update) ? remove() : add();
+  var save = sort(updated);
   /**
-   * Render
+   * Merge
+   *
+   * @description merge `selectedIndex` changes with `dataAtom`.
    */
 
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Page_Page__WEBPACK_IMPORTED_MODULE_5__.default, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
-    className: "w-full flex-1"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Admin_Head__WEBPACK_IMPORTED_MODULE_7__.default, null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Admin_Components__WEBPACK_IMPORTED_MODULE_8__.default, null)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Page_Sidebar__WEBPACK_IMPORTED_MODULE_6__.default, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Panel, {
-    className: "border-0 border-b border-gray-5"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
-    title: (0,_utils_wp__WEBPACK_IMPORTED_MODULE_11__.__)('Show'),
-    icon: _wordpress_element__WEBPACK_IMPORTED_MODULE_1__.more,
-    initialOpen: true,
-    className: "w-full"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RadioControl, {
-    selected: "all",
-    options: [{
-      label: (0,_utils_wp__WEBPACK_IMPORTED_MODULE_11__.__)('All'),
-      value: 'all'
-    }, {
-      label: (0,_utils_wp__WEBPACK_IMPORTED_MODULE_11__.__)('Applied'),
-      value: 'applied'
-    }],
-    onChange: function onChange(value) {
-      return console.log(value);
-    }
-  }))))));
-};
+  var merged = get(dataAtom).map(function (item, i) {
+    return i === selectedIndex ? {
+      roles: [save, false],
+      components: item.components
+    } : item;
+  });
+  /**
+   * Setters
+   *
+   * @description set `dataAtom` with newly created `merged` array.
+   */
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Admin);
-
-/***/ }),
-
-/***/ "./resources/scripts/user-interface/components/Admin/AddRoleGroup.js":
-/*!***************************************************************************!*\
-  !*** ./resources/scripts/user-interface/components/Admin/AddRoleGroup.js ***!
-  \***************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ "./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js");
-/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var jotai__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! jotai */ "./node_modules/jotai/esm/index.js");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _AdminAtoms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../AdminAtoms */ "./resources/scripts/user-interface/components/AdminAtoms.js");
-/* harmony import */ var _utils_wp__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../utils/wp */ "./resources/scripts/user-interface/utils/wp.js");
-
-
-
-
-
-
-
-
+  set(dataAtom, merged);
+});
 /**
- * Add Role Group
+ * Selected Path: Path
  *
- * @returns <AddRoleGroup />
+ * @description read function for getting `selectedIndex` `path`.
+ *
+ * @returns {array}
  */
 
-var AddRoleGroup = function AddRoleGroup() {
-  var _useAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_7__.useAtom)(_AdminAtoms__WEBPACK_IMPORTED_MODULE_5__.dataAtom),
-      _useAtom2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__.default)(_useAtom, 2),
-      data = _useAtom2[0],
-      setData = _useAtom2[1];
+var selectedIndexPathAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_4__.atom)(
+/**
+ * Read
+ *
+ * @param {funciton} get
+ * @returns {string}
+ */
+function (get) {
+  return get(pathAtom)[get(selectedIndexAtom)] || '';
+});
 
-  var _useAtom3 = (0,jotai__WEBPACK_IMPORTED_MODULE_7__.useAtom)(_AdminAtoms__WEBPACK_IMPORTED_MODULE_5__.selectedIndexAtom),
-      _useAtom4 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__.default)(_useAtom3, 2),
-      setSelectedIndex = _useAtom4[1];
-
-  var addRoleGroup = function addRoleGroup() {
-    var roles = [['administrator'], false];
-    var template = {
-      roles: roles,
-      components: []
-    };
-    var addGroup = [].concat((0,_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__.default)(data), [template]);
-    setData(addGroup);
-    setSelectedIndex(data.length);
-  };
-  /**
-   * Add Role Group
-   *
-   * @returns <AddRoleGroup />
-   */
-
-
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Button, {
-    className: "is-secondary",
-    onClick: function onClick() {
-      return addRoleGroup();
-    }
-  }, (0,_utils_wp__WEBPACK_IMPORTED_MODULE_6__.__)('Add Group'));
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AddRoleGroup);
 
 /***/ }),
 
-/***/ "./resources/scripts/user-interface/components/Admin/Components.js":
-/*!*************************************************************************!*\
-  !*** ./resources/scripts/user-interface/components/Admin/Components.js ***!
-  \*************************************************************************/
+/***/ "./resources/scripts/user-interface/interface/Admin.js":
+/*!*************************************************************!*\
+  !*** ./resources/scripts/user-interface/interface/Admin.js ***!
+  \*************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "Admin": () => (/* binding */ Admin)
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
@@ -463,16 +735,155 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var jotai__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! jotai */ "./node_modules/jotai/esm/index.js");
-/* harmony import */ var _Components_Breadcrumb__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Components/Breadcrumb */ "./resources/scripts/user-interface/components/Admin/Components/Breadcrumb.js");
-/* harmony import */ var _Components_HierachicalItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Components/HierachicalItem */ "./resources/scripts/user-interface/components/Admin/Components/HierachicalItem.js");
-/* harmony import */ var _Components_BooleanItem__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Components/BooleanItem */ "./resources/scripts/user-interface/components/Admin/Components/BooleanItem.js");
-/* harmony import */ var _Components_BooleanGroup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Components/BooleanGroup */ "./resources/scripts/user-interface/components/Admin/Components/BooleanGroup.js");
-/* harmony import */ var _Components_TextItem__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Components/TextItem */ "./resources/scripts/user-interface/components/Admin/Components/TextItem.js");
-/* harmony import */ var _Components_NumberItem__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Components/NumberItem */ "./resources/scripts/user-interface/components/Admin/Components/NumberItem.js");
-/* harmony import */ var _Components_RouteItem__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Components/RouteItem */ "./resources/scripts/user-interface/components/Admin/Components/RouteItem.js");
-/* harmony import */ var _utils_admin__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../utils/admin */ "./resources/scripts/user-interface/utils/admin.js");
-/* harmony import */ var _AdminAtoms__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../AdminAtoms */ "./resources/scripts/user-interface/components/AdminAtoms.js");
-/* harmony import */ var _utils_wp__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../utils/wp */ "./resources/scripts/user-interface/utils/wp.js");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_query__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-query */ "./node_modules/react-query/es/index.js");
+/* harmony import */ var _Page_Page__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Page/Page */ "./resources/scripts/user-interface/interface/Page/Page.js");
+/* harmony import */ var _Page_Sidebar__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Page/Sidebar */ "./resources/scripts/user-interface/interface/Page/Sidebar.js");
+/* harmony import */ var _Admin_Head__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Admin/Head */ "./resources/scripts/user-interface/interface/Admin/Head.js");
+/* harmony import */ var _Admin_Components__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Admin/Components */ "./resources/scripts/user-interface/interface/Admin/Components.js");
+/* harmony import */ var _Admin_ComponentsApplied__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Admin/ComponentsApplied */ "./resources/scripts/user-interface/interface/Admin/ComponentsApplied.js");
+/* harmony import */ var _atoms_admin__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../atoms/admin */ "./resources/scripts/user-interface/atoms/admin.js");
+/* harmony import */ var _queries__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../queries */ "./resources/scripts/user-interface/queries.js");
+/* harmony import */ var _utils_wp__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../utils/wp */ "./resources/scripts/user-interface/utils/wp.js");
+
+
+
+
+
+
+
+
+
+
+
+ // import { adminDataAtom } from './DataAtoms';
+
+
+
+
+/**
+ * Immutable Role Group
+ *
+ * @description
+ *
+ * @returns <ImmutableRoleGroup />
+ */
+
+/*
+const RoleGroupDiffs = () => {
+  const [selectedAppliedDiff] = useAtom(selectedAppliedDiffAtom);
+
+  return (
+    <div className="flex">
+      <div className="? h-[50px] flex items-center">
+        + {selectedAppliedDiff?.additions}
+      </div>
+      <div className="? h-[50px] flex items-center">
+        - {selectedAppliedDiff?.deletions}
+      </div>
+    </div>
+  );
+};
+*/
+
+/**
+ * Admin
+ */
+
+var Admin = function Admin() {
+  /**
+   * Query
+   */
+  var query = (0,react_query__WEBPACK_IMPORTED_MODULE_4__.useQuery)('admin', _queries__WEBPACK_IMPORTED_MODULE_11__.adminQuery, {
+    suspense: true
+  });
+  /**
+   * State
+   */
+
+  var _useAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_13__.useAtom)(_atoms_admin__WEBPACK_IMPORTED_MODULE_10__.queryAtom),
+      _useAtom2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useAtom, 2),
+      setQuery = _useAtom2[1];
+
+  var _useState = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useState)('all'),
+      _useState2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useState, 2),
+      view = _useState2[0],
+      setView = _useState2[1];
+  /**
+   * Effects
+   *
+   * @description set mutable `data` from `wordPressData` which is used for tracking diff purposes.
+   */
+
+
+  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    setQuery(query.data);
+  }, []);
+  /**
+   * Render
+   */
+
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Page_Page__WEBPACK_IMPORTED_MODULE_5__.Page, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Page_Sidebar__WEBPACK_IMPORTED_MODULE_6__.Sidebar, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Panel, {
+    className: "border-0 border-b border-gray-5"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+    title: (0,_utils_wp__WEBPACK_IMPORTED_MODULE_12__.__)('Show'),
+    icon: _wordpress_element__WEBPACK_IMPORTED_MODULE_1__.more,
+    initialOpen: true,
+    className: "w-full"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.RadioControl, {
+    selected: view,
+    options: [{
+      label: (0,_utils_wp__WEBPACK_IMPORTED_MODULE_12__.__)('All'),
+      value: 'all'
+    }, {
+      label: (0,_utils_wp__WEBPACK_IMPORTED_MODULE_12__.__)('Applied'),
+      value: 'applied'
+    }, {
+      label: (0,_utils_wp__WEBPACK_IMPORTED_MODULE_12__.__)('Editing'),
+      value: 'editing'
+    }],
+    onChange: function onChange(value) {
+      return setView(value);
+    }
+  }))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+    className: "w-full flex-1"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Admin_Head__WEBPACK_IMPORTED_MODULE_7__.Head, null), view === 'all' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Admin_Components__WEBPACK_IMPORTED_MODULE_8__.Components, null), view === 'applied' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Admin_ComponentsApplied__WEBPACK_IMPORTED_MODULE_9__.ComponentsApplied, null)));
+};
+
+
+
+/***/ }),
+
+/***/ "./resources/scripts/user-interface/interface/Admin/Components.js":
+/*!************************************************************************!*\
+  !*** ./resources/scripts/user-interface/interface/Admin/Components.js ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Components": () => (/* binding */ Components)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var jotai__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! jotai */ "./node_modules/jotai/esm/index.js");
+/* harmony import */ var _Components_Breadcrumb__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Components/Breadcrumb */ "./resources/scripts/user-interface/interface/Admin/Components/Breadcrumb.js");
+/* harmony import */ var _Components_HierachicalItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Components/HierachicalItem */ "./resources/scripts/user-interface/interface/Admin/Components/HierachicalItem.js");
+/* harmony import */ var _Components_BooleanItem__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Components/BooleanItem */ "./resources/scripts/user-interface/interface/Admin/Components/BooleanItem.js");
+/* harmony import */ var _Components_BooleanGroup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Components/BooleanGroup */ "./resources/scripts/user-interface/interface/Admin/Components/BooleanGroup.js");
+/* harmony import */ var _Components_TextItem__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Components/TextItem */ "./resources/scripts/user-interface/interface/Admin/Components/TextItem.js");
+/* harmony import */ var _Components_NumberItem__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Components/NumberItem */ "./resources/scripts/user-interface/interface/Admin/Components/NumberItem.js");
+/* harmony import */ var _Components_IconItem__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Components/IconItem */ "./resources/scripts/user-interface/interface/Admin/Components/IconItem.js");
+/* harmony import */ var _Components_RouteItem__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./Components/RouteItem */ "./resources/scripts/user-interface/interface/Admin/Components/RouteItem.js");
+/* harmony import */ var _atoms_admin__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../atoms/admin */ "./resources/scripts/user-interface/atoms/admin.js");
+/* harmony import */ var _utils_structures__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../utils/structures */ "./resources/scripts/user-interface/utils/structures.js");
+/* harmony import */ var _utils_wp__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../utils/wp */ "./resources/scripts/user-interface/utils/wp.js");
+
 
 
 
@@ -491,11 +902,11 @@ var staticComponentsData = intervention.route.admin.data.components;
 /**
  * Components
  *
- * @returns {<List />}
+ * @returns <Components />
  */
 
 var Components = function Components() {
-  var _useAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_13__.useAtom)(_AdminAtoms__WEBPACK_IMPORTED_MODULE_11__.pathAtom),
+  var _useAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_14__.useAtom)(_atoms_admin__WEBPACK_IMPORTED_MODULE_11__.selectedIndexPathAtom),
       _useAtom2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useAtom, 1),
       path = _useAtom2[0];
   /**
@@ -510,7 +921,7 @@ var Components = function Components() {
     var get = function get() {
       var paths = path.split('/');
       return paths.reduce(function (carry, item) {
-        carry = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_10__.objectHasKey)(carry, item) ? carry[item] : carry;
+        carry = (0,_utils_structures__WEBPACK_IMPORTED_MODULE_12__.objectHasKey)(carry, item) ? carry[item] : carry;
         return carry;
       }, staticComponentsData);
     };
@@ -543,9 +954,11 @@ var Components = function Components() {
       item: key
     }), (0,_Components_NumberItem__WEBPACK_IMPORTED_MODULE_8__.isNumberItem)(k) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Components_NumberItem__WEBPACK_IMPORTED_MODULE_8__.NumberItem, {
       item: key
+    }), (0,_Components_IconItem__WEBPACK_IMPORTED_MODULE_9__.isIconItem)(k) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Components_IconItem__WEBPACK_IMPORTED_MODULE_9__.IconItem, {
+      item: key
     }), (0,_Components_BooleanGroup__WEBPACK_IMPORTED_MODULE_6__.isBooleanGroup)(k) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Components_BooleanGroup__WEBPACK_IMPORTED_MODULE_6__.BooleanGroup, {
       item: key,
-      data: getStaticComponentsData(key)
+      staticData: getStaticComponentsData(key)
     }));
   };
   /**
@@ -556,7 +969,7 @@ var Components = function Components() {
 
 
   var RouteItemGroup = function RouteItemGroup() {
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Components_RouteItem__WEBPACK_IMPORTED_MODULE_9__.RouteItem, {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Components_RouteItem__WEBPACK_IMPORTED_MODULE_10__.RouteItem, {
       item: "".concat(path, "/").concat(getFirstPathKey)
     }, Object.keys(getStaticComponentsData(path)).map(function (key) {
       return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(Routing, {
@@ -570,7 +983,7 @@ var Components = function Components() {
    */
 
 
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Components_Breadcrumb__WEBPACK_IMPORTED_MODULE_3__.Breadcrumb, null), (0,_Components_RouteItem__WEBPACK_IMPORTED_MODULE_9__.isRouteItem)(getFirstPathKey) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(RouteItemGroup, null), !(0,_Components_RouteItem__WEBPACK_IMPORTED_MODULE_9__.isRouteItem)(getFirstPathKey) && Object.keys(getStaticComponentsData(path)).map(function (key) {
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Components_Breadcrumb__WEBPACK_IMPORTED_MODULE_3__.Breadcrumb, null), (0,_Components_RouteItem__WEBPACK_IMPORTED_MODULE_10__.isRouteItem)(getFirstPathKey) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(RouteItemGroup, null), !(0,_Components_RouteItem__WEBPACK_IMPORTED_MODULE_10__.isRouteItem)(getFirstPathKey) && Object.keys(getStaticComponentsData(path)).map(function (key) {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(Routing, {
       key: key,
       item: key
@@ -578,14 +991,14 @@ var Components = function Components() {
   }));
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Components);
+
 
 /***/ }),
 
-/***/ "./resources/scripts/user-interface/components/Admin/Components/BooleanGroup.js":
-/*!**************************************************************************************!*\
-  !*** ./resources/scripts/user-interface/components/Admin/Components/BooleanGroup.js ***!
-  \**************************************************************************************/
+/***/ "./resources/scripts/user-interface/interface/Admin/Components/BooleanGroup.js":
+/*!*************************************************************************************!*\
+  !*** ./resources/scripts/user-interface/interface/Admin/Components/BooleanGroup.js ***!
+  \*************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -598,11 +1011,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var jotai__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! jotai */ "./node_modules/jotai/esm/index.js");
-/* harmony import */ var _Row__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Row */ "./resources/scripts/user-interface/components/Admin/Components/Row.js");
-/* harmony import */ var _AdminAtoms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../AdminAtoms */ "./resources/scripts/user-interface/components/AdminAtoms.js");
-/* harmony import */ var _utils_admin__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../utils/admin */ "./resources/scripts/user-interface/utils/admin.js");
-/* harmony import */ var _utils_wp__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../utils/wp */ "./resources/scripts/user-interface/utils/wp.js");
+/* harmony import */ var jotai__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! jotai */ "./node_modules/jotai/esm/index.js");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _Row__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Row */ "./resources/scripts/user-interface/interface/Admin/Components/Row.js");
+/* harmony import */ var _atoms_admin__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../atoms/admin */ "./resources/scripts/user-interface/atoms/admin.js");
+/* harmony import */ var _utils_admin__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../utils/admin */ "./resources/scripts/user-interface/utils/admin.js");
+/* harmony import */ var _utils_wp__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../utils/wp */ "./resources/scripts/user-interface/utils/wp.js");
+
 
 
 
@@ -623,6 +1039,106 @@ var isBooleanGroup = function isBooleanGroup(k) {
   return k.includes(':group');
 };
 /**
+ * Parent Item
+ *
+ * @param {object} props
+ * @returns <ParentItem />
+ */
+
+
+var ParentItem = function ParentItem(_ref) {
+  var key = _ref.item,
+      immutable = _ref.immutable,
+      shared = _ref.shared;
+  var interventionKey = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_6__.getInterventionKey)(key);
+  /**
+   * Handler
+   *
+   * @returns
+   */
+
+  var handler = function handler() {
+    if (immutable) {
+      return;
+    }
+
+    var selectedChange = shared.selectedChildKeys.length === shared.childData.length ? [] : shared.childData;
+    shared.setSelectedChildKeys(selectedChange);
+  };
+  /**
+   * Render
+   */
+
+
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
+    className: "w-full",
+    onClick: function onClick() {
+      return handler();
+    }
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_Row__WEBPACK_IMPORTED_MODULE_4__.Row, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_Row__WEBPACK_IMPORTED_MODULE_4__.RowState, {
+    state: shared.selectedChildKeys.length === shared.childData.length,
+    immutable: immutable
+  }), interventionKey));
+};
+/**
+ * Child Item
+ *
+ * @param {string} key
+ * @returns <BooleanItem />
+ */
+
+
+var ChildItem = function ChildItem(_ref2) {
+  var key = _ref2.item,
+      shared = _ref2.shared;
+
+  var _useAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_8__.useAtom)(_atoms_admin__WEBPACK_IMPORTED_MODULE_5__.selectedIndexDataAtom),
+      _useAtom2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__.default)(_useAtom, 1),
+      data = _useAtom2[0];
+
+  var interventionKey = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_6__.getInterventionKey)(key);
+
+  var _getValue = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_6__.getValue)(data.components, interventionKey),
+      _getValue2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__.default)(_getValue, 2),
+      immutable = _getValue2[1];
+
+  var state = shared.selectedChildKeys.includes(interventionKey) || immutable;
+
+  var isImmutable = function isImmutable() {
+    return shared.parentImmutable || immutable;
+  };
+  /**
+   * Handler
+   *
+   * @returns
+   */
+
+
+  var handler = function handler() {
+    if (shared.parentImmutable || immutable) {
+      return;
+    }
+
+    var selectedExclItem = shared.selectedChildKeys.filter(function (k) {
+      return key !== k;
+    });
+    var selectedChange = shared.selectedChildKeys.includes(key) ? selectedExclItem : [].concat((0,_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__.default)(shared.selectedChildKeys), [key]);
+    shared.setSelectedChildKeys(selectedChange);
+  };
+
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
+    className: "w-full",
+    onClick: function onClick() {
+      return handler();
+    }
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_Row__WEBPACK_IMPORTED_MODULE_4__.Row, {
+    item: key
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_Row__WEBPACK_IMPORTED_MODULE_4__.RowState, {
+    state: state,
+    immutable: isImmutable()
+  }), key));
+};
+/**
  * Boolean Group
  *
  * @param {object} { key: {string} key }
@@ -630,68 +1146,83 @@ var isBooleanGroup = function isBooleanGroup(k) {
  */
 
 
-var BooleanGroup = function BooleanGroup(_ref) {
-  var parentKey = _ref.item,
-      data = _ref.data;
-  var parentInterventionKey = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_5__.getInterventionKey)(parentKey);
+var BooleanGroup = function BooleanGroup(_ref3) {
+  var parentKey = _ref3.item,
+      staticData = _ref3.staticData;
+  var parentInterventionKey = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_6__.getInterventionKey)(parentKey);
 
-  var _useAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_7__.useAtom)(_AdminAtoms__WEBPACK_IMPORTED_MODULE_4__.componentsAtom),
-      _useAtom2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__.default)(_useAtom, 2),
-      components = _useAtom2[0],
-      setComponents = _useAtom2[1];
+  var _useAtom3 = (0,jotai__WEBPACK_IMPORTED_MODULE_8__.useAtom)(_atoms_admin__WEBPACK_IMPORTED_MODULE_5__.selectedIndexDataAtom),
+      _useAtom4 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__.default)(_useAtom3, 1),
+      data = _useAtom4[0];
 
-  var _getValue = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_5__.getValue)(components, parentInterventionKey),
-      _getValue2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__.default)(_getValue, 2),
-      parentValue = _getValue2[0],
-      parentImmutable = _getValue2[1];
+  var _useAtom5 = (0,jotai__WEBPACK_IMPORTED_MODULE_8__.useAtom)(_atoms_admin__WEBPACK_IMPORTED_MODULE_5__.selectedIndexDataComponentAtom),
+      _useAtom6 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__.default)(_useAtom5, 2),
+      setComponent = _useAtom6[1];
+
+  var _getValue3 = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_6__.getValue)(data.components, parentInterventionKey),
+      _getValue4 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__.default)(_getValue3, 2),
+      parentValue = _getValue4[0],
+      parentImmutable = _getValue4[1];
 
   var firstUpdate = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useRef)(true);
   /**
    * State: Selected
    */
 
-  var childData = Object.keys(data).reduce(function (carry, k) {
-    var interventionKey = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_5__.getInterventionKey)("".concat(parentKey, "/").concat(k));
+  var childData = Object.keys(staticData).reduce(function (carry, k) {
+    var interventionKey = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_6__.getInterventionKey)("".concat(parentKey, "/").concat(k));
     carry.push(interventionKey);
     return carry;
   }, []);
   var selectedChildData = childData.reduce(function (carry, k) {
-    var _getValue3 = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_5__.getValue)(components, k),
-        _getValue4 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__.default)(_getValue3, 1),
-        value = _getValue4[0];
+    var _getValue5 = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_6__.getValue)(data.components, k),
+        _getValue6 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__.default)(_getValue5, 1),
+        value = _getValue6[0];
 
-    return value ? [carry, k] : carry;
+    return value ? [].concat((0,_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__.default)(carry), [k]) : carry;
   }, []);
 
   var _useState = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useState)(parentValue ? childData : selectedChildData),
       _useState2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__.default)(_useState, 2),
-      selected = _useState2[0],
-      setSelected = _useState2[1];
+      selectedChildKeys = _useState2[0],
+      setSelectedChildKeys = _useState2[1];
   /**
-   * Parent On Tasks
+   * Add All
    *
-   * @description group `setComponent` calls for when parent is selected.
+   * @description group `setApplied` calls for when parent is selected.
    */
 
 
-  var parentOnTasks = function parentOnTasks() {
-    selected.map(function (k) {
-      setComponents(['del', k]);
+  var addAll = function addAll() {
+    selectedChildKeys.map(function (k) {
+      var _getValue7 = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_6__.getValue)(data.components, k),
+          _getValue8 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__.default)(_getValue7, 2),
+          immutable = _getValue8[1];
+
+      if (immutable === false) {
+        setComponent(['del', k]);
+      }
     });
-    setComponents(['add', parentInterventionKey]);
+    setComponent(['add', parentInterventionKey]);
   };
   /**
-   * Parent Off Tasks
+   * Add Individual
    *
-   * @description group `setComponent` calls for when parent is deselected.
+   * @description group `setApplied` calls for when parent is deselected.
    */
 
 
-  var parentOffTasks = function parentOffTasks() {
-    selected.map(function (k) {
-      setComponents(['add', k]);
+  var addIndividual = function addIndividual() {
+    selectedChildKeys.map(function (k) {
+      var _getValue9 = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_6__.getValue)(data.components, k),
+          _getValue10 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__.default)(_getValue9, 2),
+          immutable = _getValue10[1];
+
+      if (immutable === false) {
+        setComponent(['add', k]);
+      }
     });
-    setComponents(['del', parentInterventionKey]);
+    setComponent(['del', parentInterventionKey]);
   };
   /**
    * Effect
@@ -706,85 +1237,32 @@ var BooleanGroup = function BooleanGroup(_ref) {
       return;
     }
 
-    var parentOnState = childData.length === selected.length;
-    parentOnState ? parentOnTasks() : parentOffTasks();
-  }, [selected]);
-  /**
-   * Parent Item
-   *
-   * @returns <ParentItem />
-   */
-
-  var ParentItem = function ParentItem() {
-    var handler = function handler() {
-      if (parentImmutable) {
-        return;
-      }
-
-      var selectedChange = selected.length === childData.length ? [] : childData;
-      setSelected(selectedChange);
-    };
-
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("div", {
-      onClick: function onClick() {
-        return handler();
-      }
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_Row__WEBPACK_IMPORTED_MODULE_3__.Row, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_Row__WEBPACK_IMPORTED_MODULE_3__.RowState, {
-      state: selected.length === childData.length,
-      immutable: parentImmutable
-    }), (0,_utils_admin__WEBPACK_IMPORTED_MODULE_5__.getInterventionKey)(parentKey)));
-  };
-  /**
-   * Boolean Item
-   *
-   * @param {string} key
-   * @returns <BooleanItem />
-   */
-
-
-  var BooleanItem = function BooleanItem(_ref2) {
-    var key = _ref2.item;
-    var interventionKey = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_5__.getInterventionKey)(key);
-    var state = selected.includes(interventionKey);
-
-    var _getValue5 = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_5__.getValue)(key),
-        _getValue6 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__.default)(_getValue5, 2),
-        immutable = _getValue6[1];
-
-    var handler = function handler() {
-      if (parentImmutable || immutable) {
-        return;
-      }
-
-      var selectedExclItem = selected.filter(function (k) {
-        return key !== k;
-      });
-      var selectedChange = selected.includes(key) ? selectedExclItem : [].concat((0,_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__.default)(selected), [key]);
-      setSelected(selectedChange);
-    };
-
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("div", {
-      onClick: function onClick() {
-        return handler();
-      }
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_Row__WEBPACK_IMPORTED_MODULE_3__.Row, {
-      item: key
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_Row__WEBPACK_IMPORTED_MODULE_3__.RowState, {
-      state: state,
-      immutable: parentImmutable || immutable
-    }), key));
-  };
+    var parentOnState = childData.length === selectedChildKeys.length;
+    parentOnState ? addAll() : addIndividual();
+  }, [selectedChildKeys]);
   /**
    * Render
    */
 
-
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(ParentItem, null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("div", {
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(ParentItem, {
+    item: parentKey,
+    immutable: parentImmutable,
+    shared: {
+      childData: childData,
+      selectedChildKeys: selectedChildKeys,
+      setSelectedChildKeys: setSelectedChildKeys
+    }
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("div", {
     className: "pl-48"
   }, childData.map(function (k) {
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(BooleanItem, {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(ChildItem, {
       key: k,
-      item: k
+      item: k,
+      shared: {
+        parentImmutable: parentImmutable,
+        selectedChildKeys: selectedChildKeys,
+        setSelectedChildKeys: setSelectedChildKeys
+      }
     });
   })));
 };
@@ -793,10 +1271,10 @@ var BooleanGroup = function BooleanGroup(_ref) {
 
 /***/ }),
 
-/***/ "./resources/scripts/user-interface/components/Admin/Components/BooleanItem.js":
-/*!*************************************************************************************!*\
-  !*** ./resources/scripts/user-interface/components/Admin/Components/BooleanItem.js ***!
-  \*************************************************************************************/
+/***/ "./resources/scripts/user-interface/interface/Admin/Components/BooleanItem.js":
+/*!************************************************************************************!*\
+  !*** ./resources/scripts/user-interface/interface/Admin/Components/BooleanItem.js ***!
+  \************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -808,10 +1286,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var jotai__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! jotai */ "./node_modules/jotai/esm/index.js");
-/* harmony import */ var _AdminAtoms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../AdminAtoms */ "./resources/scripts/user-interface/components/AdminAtoms.js");
-/* harmony import */ var _Row__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Row */ "./resources/scripts/user-interface/components/Admin/Components/Row.js");
-/* harmony import */ var _utils_admin__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../utils/admin */ "./resources/scripts/user-interface/utils/admin.js");
+/* harmony import */ var jotai__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! jotai */ "./node_modules/jotai/esm/index.js");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _atoms_admin__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../atoms/admin */ "./resources/scripts/user-interface/atoms/admin.js");
+/* harmony import */ var _Row__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Row */ "./resources/scripts/user-interface/interface/Admin/Components/Row.js");
+/* harmony import */ var _utils_admin__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../utils/admin */ "./resources/scripts/user-interface/utils/admin.js");
+/* harmony import */ var _utils_structures__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../utils/structures */ "./resources/scripts/user-interface/utils/structures.js");
+
+
 
 
 
@@ -839,14 +1322,17 @@ var isBooleanItem = function isBooleanItem(k) {
 
 var BooleanItem = function BooleanItem(_ref) {
   var key = _ref.item;
-  var interventionKey = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_4__.getInterventionKey)(key);
+  var interventionKey = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_5__.getInterventionKey)(key);
 
-  var _useAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_5__.useAtom)(_AdminAtoms__WEBPACK_IMPORTED_MODULE_2__.componentsAtom),
+  var _useAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_7__.useAtom)(_atoms_admin__WEBPACK_IMPORTED_MODULE_3__.selectedIndexDataComponentAtom),
       _useAtom2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useAtom, 2),
-      components = _useAtom2[0],
-      setComponents = _useAtom2[1];
+      setComponent = _useAtom2[1];
 
-  var _getValue = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_4__.getValue)(components, interventionKey),
+  var _useAtom3 = (0,jotai__WEBPACK_IMPORTED_MODULE_7__.useAtom)(_atoms_admin__WEBPACK_IMPORTED_MODULE_3__.selectedIndexDataAtom),
+      _useAtom4 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useAtom3, 1),
+      data = _useAtom4[0];
+
+  var _getValue = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_5__.getValue)(data.components, interventionKey),
       _getValue2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_getValue, 2),
       value = _getValue2[0],
       immutable = _getValue2[1];
@@ -865,7 +1351,8 @@ var BooleanItem = function BooleanItem(_ref) {
       return;
     }
 
-    setComponents(['toggle', interventionKey]);
+    var action = (0,_utils_structures__WEBPACK_IMPORTED_MODULE_6__.objectHasKey)(data.components, interventionKey) ? 'del' : 'add';
+    setComponent([action, interventionKey]);
     setState(!state);
   };
   /**
@@ -873,24 +1360,25 @@ var BooleanItem = function BooleanItem(_ref) {
    */
 
 
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+    className: "w-full",
     onClick: function onClick() {
       return handler();
     }
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Row__WEBPACK_IMPORTED_MODULE_3__.Row, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Row__WEBPACK_IMPORTED_MODULE_3__.RowState, {
-    state: value,
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Row__WEBPACK_IMPORTED_MODULE_4__.Row, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Row__WEBPACK_IMPORTED_MODULE_4__.RowState, {
+    state: state,
     immutable: immutable
-  }), (0,_utils_admin__WEBPACK_IMPORTED_MODULE_4__.getInterventionKey)(key)));
+  }), (0,_utils_admin__WEBPACK_IMPORTED_MODULE_5__.getInterventionKey)(key)));
 };
 
 
 
 /***/ }),
 
-/***/ "./resources/scripts/user-interface/components/Admin/Components/Breadcrumb.js":
-/*!************************************************************************************!*\
-  !*** ./resources/scripts/user-interface/components/Admin/Components/Breadcrumb.js ***!
-  \************************************************************************************/
+/***/ "./resources/scripts/user-interface/interface/Admin/Components/Breadcrumb.js":
+/*!***********************************************************************************!*\
+  !*** ./resources/scripts/user-interface/interface/Admin/Components/Breadcrumb.js ***!
+  \***********************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -903,10 +1391,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var jotai__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! jotai */ "./node_modules/jotai/esm/index.js");
-/* harmony import */ var _AdminAtoms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../AdminAtoms */ "./resources/scripts/user-interface/components/AdminAtoms.js");
-/* harmony import */ var _utils_admin__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../utils/admin */ "./resources/scripts/user-interface/utils/admin.js");
-/* harmony import */ var _utils_wp__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../utils/wp */ "./resources/scripts/user-interface/utils/wp.js");
+/* harmony import */ var jotai__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! jotai */ "./node_modules/jotai/esm/index.js");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _atoms_admin__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../atoms/admin */ "./resources/scripts/user-interface/atoms/admin.js");
+/* harmony import */ var _utils_admin__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../utils/admin */ "./resources/scripts/user-interface/utils/admin.js");
+/* harmony import */ var _utils_wp__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../utils/wp */ "./resources/scripts/user-interface/utils/wp.js");
+
 
 
 
@@ -921,17 +1412,30 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 var Breadcrumb = function Breadcrumb() {
-  var _useAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_6__.useAtom)(_AdminAtoms__WEBPACK_IMPORTED_MODULE_3__.pathAtom),
+  var _useAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_7__.useAtom)(_atoms_admin__WEBPACK_IMPORTED_MODULE_4__.pathAtom),
       _useAtom2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useAtom, 2),
-      path = _useAtom2[0],
       setPath = _useAtom2[1];
 
+  var _useAtom3 = (0,jotai__WEBPACK_IMPORTED_MODULE_7__.useAtom)(_atoms_admin__WEBPACK_IMPORTED_MODULE_4__.selectedIndexPathAtom),
+      _useAtom4 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useAtom3, 1),
+      path = _useAtom4[0];
+
   var paths = path.split('/');
+  /**
+   * Is Path
+   *
+   * @returns {boolean}
+   */
+
+  var isPath = function isPath() {
+    return paths[0] !== '';
+  };
   /**
    * Handler
    *
    * @param {string} k
    */
+
 
   var handler = function handler(k) {
     var pos = path.indexOf(k) + k.length;
@@ -943,20 +1447,20 @@ var Breadcrumb = function Breadcrumb() {
 
 
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
-    className: "flex"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
-    className: "cursor-pointer",
+    className: "flex items-center ? h-[50px]"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
+    className: "cursor-pointer flex items-center px-10 h-[50px] ?",
     onClick: function onClick() {
       return handler('');
     }
-  }, (0,_utils_wp__WEBPACK_IMPORTED_MODULE_5__.__)('root')), paths.map(function (item) {
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+  }, (0,_utils_wp__WEBPACK_IMPORTED_MODULE_6__.__)('admin')), isPath() && paths.map(function (item) {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
       key: item,
-      className: "cursor-pointer",
+      className: "cursor-pointer flex items-center px-10 h-[50px] ?",
       onClick: function onClick() {
         return handler(item);
       }
-    }, (0,_utils_admin__WEBPACK_IMPORTED_MODULE_4__.getInterventionKey)(item));
+    }, (0,_utils_admin__WEBPACK_IMPORTED_MODULE_5__.getInterventionKey)(item));
   }));
 };
 
@@ -964,10 +1468,10 @@ var Breadcrumb = function Breadcrumb() {
 
 /***/ }),
 
-/***/ "./resources/scripts/user-interface/components/Admin/Components/HierachicalItem.js":
-/*!*****************************************************************************************!*\
-  !*** ./resources/scripts/user-interface/components/Admin/Components/HierachicalItem.js ***!
-  \*****************************************************************************************/
+/***/ "./resources/scripts/user-interface/interface/Admin/Components/HierachicalItem.js":
+/*!****************************************************************************************!*\
+  !*** ./resources/scripts/user-interface/interface/Admin/Components/HierachicalItem.js ***!
+  \****************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -980,10 +1484,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var jotai__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! jotai */ "./node_modules/jotai/esm/index.js");
-/* harmony import */ var _AdminAtoms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../AdminAtoms */ "./resources/scripts/user-interface/components/AdminAtoms.js");
+/* harmony import */ var _atoms_admin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../atoms/admin */ "./resources/scripts/user-interface/atoms/admin.js");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _Row__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Row */ "./resources/scripts/user-interface/components/Admin/Components/Row.js");
+/* harmony import */ var _Row__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Row */ "./resources/scripts/user-interface/interface/Admin/Components/Row.js");
 /* harmony import */ var _utils_admin__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../utils/admin */ "./resources/scripts/user-interface/utils/admin.js");
 
 
@@ -1000,7 +1504,9 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 var isHierachical = function isHierachical(k) {
-  return k.includes(':hierachical');
+  return k.includes(':hierachical'); // console.log(k.match(/:hierachical/g));
+  // console.log((k.match(/:hierachical/g) || []).length);
+  // return (k.match(/:hierachical/g) || []).length === 1;
 };
 /**
  * Hierachical
@@ -1013,28 +1519,221 @@ var isHierachical = function isHierachical(k) {
 var Hierachical = function Hierachical(_ref) {
   var key = _ref.item;
 
-  var _useAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_6__.useAtom)(_AdminAtoms__WEBPACK_IMPORTED_MODULE_2__.pathAtom),
+  var _useAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_6__.useAtom)(_atoms_admin__WEBPACK_IMPORTED_MODULE_2__.pathAtom),
       _useAtom2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useAtom, 2),
       setPath = _useAtom2[1];
+  /**
+   * Handler
+   */
 
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
-    onClick: function onClick() {
-      return setPath(key);
+
+  var handler = function handler(event) {
+    event.preventDefault(); // history.pushState(null, null, `#${key}`);
+
+    setPath(key);
+  };
+  /**
+   * Render
+   */
+
+
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("a", {
+    className: " flex-1 text-13 lg:text-14 leading-none text-gray-50 border-gray-2 border-b h-[44px] truncate cursor-pointer flex items-center",
+    href: "#",
+    onClick: function onClick(event) {
+      return handler(event);
     }
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Row__WEBPACK_IMPORTED_MODULE_4__.Row, null, (0,_utils_admin__WEBPACK_IMPORTED_MODULE_5__.getInterventionKey)(key), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Icon, {
+  }, (0,_utils_admin__WEBPACK_IMPORTED_MODULE_5__.getInterventionKey)(key), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Icon, {
     className: " ml-4 flex items-center justify-center text-primary-10 text-16 p-0 border-2 ",
     icon: "arrow-right-alt"
-  })));
+  }));
 };
 
 
 
 /***/ }),
 
-/***/ "./resources/scripts/user-interface/components/Admin/Components/NumberItem.js":
-/*!************************************************************************************!*\
-  !*** ./resources/scripts/user-interface/components/Admin/Components/NumberItem.js ***!
-  \************************************************************************************/
+/***/ "./resources/scripts/user-interface/interface/Admin/Components/IconItem.js":
+/*!*********************************************************************************!*\
+  !*** ./resources/scripts/user-interface/interface/Admin/Components/IconItem.js ***!
+  \*********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "isIconItem": () => (/* binding */ isIconItem),
+/* harmony export */   "IconItem": () => (/* binding */ IconItem)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
+/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ "./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var jotai__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! jotai */ "./node_modules/jotai/esm/index.js");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _Row__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Row */ "./resources/scripts/user-interface/interface/Admin/Components/Row.js");
+/* harmony import */ var _atoms_admin__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../atoms/admin */ "./resources/scripts/user-interface/atoms/admin.js");
+/* harmony import */ var _utils_admin__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../utils/admin */ "./resources/scripts/user-interface/utils/admin.js");
+/* harmony import */ var _utils_wp__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../utils/wp */ "./resources/scripts/user-interface/utils/wp.js");
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * Options Select Control
+ */
+
+var optionsSelectControl = intervention.route.admin.data.dashicons.map(function (value) {
+  return {
+    label: value,
+    value: value
+  };
+});
+/**
+ * Options All
+ *
+ * @description create blank entry item and merge with `intervention.route.admin.data.dashicons`.
+ */
+
+var optionsAll = [{
+  label: '',
+  value: ''
+}].concat((0,_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__.default)(optionsSelectControl));
+/**
+ * Is Route
+ *
+ * @param {string} k
+ * @returns {boolean}
+ */
+
+var isIconItem = function isIconItem(k) {
+  return k.includes(':icon');
+};
+/**
+ * Icon Item
+ *
+ * @param {object} { key: {string} key }
+ * @returns <RouteItem />
+ */
+
+
+var IconItem = function IconItem(_ref) {
+  var key = _ref.item,
+      children = _ref.children;
+  var interventionKey = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_7__.getInterventionKey)(key);
+
+  var _useAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_9__.useAtom)(_atoms_admin__WEBPACK_IMPORTED_MODULE_6__.selectedIndexDataAtom),
+      _useAtom2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useAtom, 1),
+      data = _useAtom2[0];
+
+  var _useAtom3 = (0,jotai__WEBPACK_IMPORTED_MODULE_9__.useAtom)(_atoms_admin__WEBPACK_IMPORTED_MODULE_6__.selectedIndexDataComponentAtom),
+      _useAtom4 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useAtom3, 2),
+      setComponent = _useAtom4[1];
+
+  var _getValue = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_7__.getValue)(data.components, interventionKey),
+      _getValue2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_getValue, 2),
+      value = _getValue2[0],
+      immutable = _getValue2[1];
+
+  var init = value === false ? '' : value;
+
+  var _useState = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useState)(init),
+      _useState2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useState, 2),
+      state = _useState2[0],
+      setState = _useState2[1];
+  /**
+   * Immutable Option
+   *
+   * @description only return the hard coded option.
+   *
+   * @param {string} value
+   * @returns {array}
+   */
+
+
+  var immutableOption = function immutableOption(value) {
+    return [{
+      label: value,
+      value: value
+    }];
+  };
+  /**
+   * Options
+   *
+   * @description resolve correct options.
+   */
+
+
+  var options = immutable ? immutableOption(state) : optionsAll;
+  /**
+   * Handler
+   *
+   * @param {string} value
+   */
+
+  var handler = function handler(value) {
+    if (immutable) {
+      return;
+    }
+
+    if (value !== '') {
+      setComponent(['add', interventionKey, value]);
+    } else {
+      setComponent(['del', interventionKey]);
+    }
+
+    setState(value);
+  };
+  /**
+   * Render
+   */
+
+
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_Row__WEBPACK_IMPORTED_MODULE_5__.Row, {
+    item: key
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_Row__WEBPACK_IMPORTED_MODULE_5__.RowState, {
+    state: state,
+    immutable: immutable
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("div", {
+    className: " flex w-full items-center"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("div", {
+    className: "w-1/2"
+  }, interventionKey), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("div", {
+    className: " w-1/2 flex items-center border-l border-gray-2"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.SelectControl, {
+    label: "Route",
+    hideLabelFromVision: true,
+    value: state,
+    disabled: immutable,
+    options: options,
+    onChange: function onChange(route) {
+      return handler(route);
+    }
+  }), immutable === false && state !== '' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Button, {
+    onClick: function onClick() {
+      return handler('');
+    }
+  }, (0,_utils_wp__WEBPACK_IMPORTED_MODULE_8__.__)('Undo'))))), state === '' && children);
+};
+
+
+
+/***/ }),
+
+/***/ "./resources/scripts/user-interface/interface/Admin/Components/NumberItem.js":
+/*!***********************************************************************************!*\
+  !*** ./resources/scripts/user-interface/interface/Admin/Components/NumberItem.js ***!
+  \***********************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -1045,7 +1744,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _TextItem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TextItem */ "./resources/scripts/user-interface/components/Admin/Components/TextItem.js");
+/* harmony import */ var _TextItem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./TextItem */ "./resources/scripts/user-interface/interface/Admin/Components/TextItem.js");
 /* harmony import */ var _utils_wp__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../utils/wp */ "./resources/scripts/user-interface/utils/wp.js");
 
 
@@ -1080,10 +1779,10 @@ var NumberItem = function NumberItem(_ref) {
 
 /***/ }),
 
-/***/ "./resources/scripts/user-interface/components/Admin/Components/RouteItem.js":
-/*!***********************************************************************************!*\
-  !*** ./resources/scripts/user-interface/components/Admin/Components/RouteItem.js ***!
-  \***********************************************************************************/
+/***/ "./resources/scripts/user-interface/interface/Admin/Components/RouteItem.js":
+/*!**********************************************************************************!*\
+  !*** ./resources/scripts/user-interface/interface/Admin/Components/RouteItem.js ***!
+  \**********************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -1101,8 +1800,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jotai__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! jotai */ "./node_modules/jotai/esm/index.js");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _Row__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Row */ "./resources/scripts/user-interface/components/Admin/Components/Row.js");
-/* harmony import */ var _AdminAtoms__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../AdminAtoms */ "./resources/scripts/user-interface/components/AdminAtoms.js");
+/* harmony import */ var _Row__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Row */ "./resources/scripts/user-interface/interface/Admin/Components/Row.js");
+/* harmony import */ var _atoms_admin__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../atoms/admin */ "./resources/scripts/user-interface/atoms/admin.js");
 /* harmony import */ var _utils_admin__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../utils/admin */ "./resources/scripts/user-interface/utils/admin.js");
 /* harmony import */ var _utils_wp__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../utils/wp */ "./resources/scripts/user-interface/utils/wp.js");
 
@@ -1174,7 +1873,7 @@ var isRouteItem = function isRouteItem(k) {
   return k.includes(':route');
 };
 /**
- * Route Ittem
+ * Route Item
  *
  * @param {object} { key: {string} key }
  * @returns <RouteItem />
@@ -1186,12 +1885,15 @@ var RouteItem = function RouteItem(_ref) {
       children = _ref.children;
   var interventionKey = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_7__.getInterventionKey)(key);
 
-  var _useAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_9__.useAtom)(_AdminAtoms__WEBPACK_IMPORTED_MODULE_6__.componentsAtom),
-      _useAtom2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useAtom, 2),
-      components = _useAtom2[0],
-      setComponents = _useAtom2[1];
+  var _useAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_9__.useAtom)(_atoms_admin__WEBPACK_IMPORTED_MODULE_6__.selectedIndexDataAtom),
+      _useAtom2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useAtom, 1),
+      data = _useAtom2[0];
 
-  var _getValue = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_7__.getValue)(components, key),
+  var _useAtom3 = (0,jotai__WEBPACK_IMPORTED_MODULE_9__.useAtom)(_atoms_admin__WEBPACK_IMPORTED_MODULE_6__.selectedIndexDataComponentAtom),
+      _useAtom4 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useAtom3, 2),
+      setComponent = _useAtom4[1];
+
+  var _getValue = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_7__.getValue)(data.components, interventionKey),
       _getValue2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_getValue, 2),
       value = _getValue2[0],
       immutable = _getValue2[1];
@@ -1243,17 +1945,6 @@ var RouteItem = function RouteItem(_ref) {
 
   var options = immutable ? immutableOption(state) : exclKeyFromOptions(optionsAll);
   /**
-   * Effect
-   */
-
-  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useEffect)(function () {
-    if (state !== '') {
-      setComponents(['add', interventionKey, state]);
-    } else {
-      setComponents(['remove', interventionKey]);
-    }
-  }, [state]);
-  /**
    * Handler
    *
    * @param {string} value
@@ -1262,6 +1953,12 @@ var RouteItem = function RouteItem(_ref) {
   var handler = function handler(value) {
     if (immutable) {
       return;
+    }
+
+    if (value !== '') {
+      setComponent(['add', interventionKey, value]);
+    } else {
+      setComponent(['del', interventionKey]);
     }
 
     setState(value);
@@ -1302,10 +1999,10 @@ var RouteItem = function RouteItem(_ref) {
 
 /***/ }),
 
-/***/ "./resources/scripts/user-interface/components/Admin/Components/Row.js":
-/*!*****************************************************************************!*\
-  !*** ./resources/scripts/user-interface/components/Admin/Components/Row.js ***!
-  \*****************************************************************************/
+/***/ "./resources/scripts/user-interface/interface/Admin/Components/Row.js":
+/*!****************************************************************************!*\
+  !*** ./resources/scripts/user-interface/interface/Admin/Components/Row.js ***!
+  \****************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -1369,10 +2066,10 @@ var RowState = function RowState(_ref2) {
 
 /***/ }),
 
-/***/ "./resources/scripts/user-interface/components/Admin/Components/TextItem.js":
-/*!**********************************************************************************!*\
-  !*** ./resources/scripts/user-interface/components/Admin/Components/TextItem.js ***!
-  \**********************************************************************************/
+/***/ "./resources/scripts/user-interface/interface/Admin/Components/TextItem.js":
+/*!*********************************************************************************!*\
+  !*** ./resources/scripts/user-interface/interface/Admin/Components/TextItem.js ***!
+  \*********************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -1387,8 +2084,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var jotai__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! jotai */ "./node_modules/jotai/esm/index.js");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _Row__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Row */ "./resources/scripts/user-interface/components/Admin/Components/Row.js");
-/* harmony import */ var _AdminAtoms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../AdminAtoms */ "./resources/scripts/user-interface/components/AdminAtoms.js");
+/* harmony import */ var _Row__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Row */ "./resources/scripts/user-interface/interface/Admin/Components/Row.js");
+/* harmony import */ var _atoms_admin__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../atoms/admin */ "./resources/scripts/user-interface/atoms/admin.js");
 /* harmony import */ var _utils_admin__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../utils/admin */ "./resources/scripts/user-interface/utils/admin.js");
 /* harmony import */ var _utils_wp__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../utils/wp */ "./resources/scripts/user-interface/utils/wp.js");
 
@@ -1424,12 +2121,15 @@ var TextItem = function TextItem(_ref) {
       type = _ref$type === void 0 ? 'text' : _ref$type;
   var interventionKey = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_5__.getInterventionKey)(key);
 
-  var _useAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_7__.useAtom)(_AdminAtoms__WEBPACK_IMPORTED_MODULE_4__.componentsAtom),
-      _useAtom2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useAtom, 2),
-      components = _useAtom2[0],
-      setComponents = _useAtom2[1];
+  var _useAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_7__.useAtom)(_atoms_admin__WEBPACK_IMPORTED_MODULE_4__.selectedIndexDataAtom),
+      _useAtom2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useAtom, 1),
+      data = _useAtom2[0];
 
-  var _getValue = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_5__.getValue)(components, interventionKey),
+  var _useAtom3 = (0,jotai__WEBPACK_IMPORTED_MODULE_7__.useAtom)(_atoms_admin__WEBPACK_IMPORTED_MODULE_4__.selectedIndexDataComponentAtom),
+      _useAtom4 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useAtom3, 2),
+      setComponent = _useAtom4[1];
+
+  var _getValue = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_5__.getValue)(data.components, interventionKey),
       _getValue2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_getValue, 2),
       value = _getValue2[0],
       immutable = _getValue2[1];
@@ -1444,19 +2144,30 @@ var TextItem = function TextItem(_ref) {
    * Effect
    */
 
-
-  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+  /*
+  useEffect(() => {
     if (state !== '') {
-      setComponents(['add', interventionKey, state]);
+      setApplied(['add', interventionKey, state]);
     } else {
-      setComponents(['del', interventionKey]);
+      setApplied(['del', interventionKey]);
     }
   }, [state]);
+  */
+
+
+  var add = function add(value) {
+    setComponent(['add', interventionKey, value]);
+  };
+
+  var del = function del() {
+    setComponent(['del', interventionKey]);
+  };
   /**
    * Handler
    *
    * @param {string|number} value
    */
+
 
   var handler = function handler(value) {
     if (immutable) {
@@ -1467,6 +2178,7 @@ var TextItem = function TextItem(_ref) {
       value = value <= 0 ? '' : Number(value);
     }
 
+    value !== '' ? add(value) : del();
     setState(value);
   };
   /**
@@ -1489,7 +2201,7 @@ var TextItem = function TextItem(_ref) {
     label: false,
     hideLabelFromVision: false,
     value: state,
-    placeholder: '',
+    placeholder: (0,_utils_wp__WEBPACK_IMPORTED_MODULE_6__.__)((0,_utils_admin__WEBPACK_IMPORTED_MODULE_5__.getKeyParams)(key)),
     type: type,
     disabled: immutable,
     onChange: function onChange(value) {
@@ -1506,31 +2218,284 @@ var TextItem = function TextItem(_ref) {
 
 /***/ }),
 
-/***/ "./resources/scripts/user-interface/components/Admin/Head.js":
-/*!*******************************************************************!*\
-  !*** ./resources/scripts/user-interface/components/Admin/Head.js ***!
-  \*******************************************************************/
+/***/ "./resources/scripts/user-interface/interface/Admin/ComponentsApplied.js":
+/*!*******************************************************************************!*\
+  !*** ./resources/scripts/user-interface/interface/Admin/ComponentsApplied.js ***!
+  \*******************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "ComponentsApplied": () => (/* binding */ ComponentsApplied)
 /* harmony export */ });
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _RoleGroups__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./RoleGroups */ "./resources/scripts/user-interface/components/Admin/RoleGroups.js");
-/* harmony import */ var _AddRoleGroup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./AddRoleGroup */ "./resources/scripts/user-interface/components/Admin/AddRoleGroup.js");
-/* harmony import */ var _Save__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Save */ "./resources/scripts/user-interface/components/Admin/Save.js");
-/* harmony import */ var _utils_wp__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../utils/wp */ "./resources/scripts/user-interface/utils/wp.js");
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var jotai__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! jotai */ "./node_modules/jotai/esm/index.js");
+/* harmony import */ var _Components_HierachicalItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Components/HierachicalItem */ "./resources/scripts/user-interface/interface/Admin/Components/HierachicalItem.js");
+/* harmony import */ var _Components_BooleanItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Components/BooleanItem */ "./resources/scripts/user-interface/interface/Admin/Components/BooleanItem.js");
+/* harmony import */ var _Components_BooleanGroup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Components/BooleanGroup */ "./resources/scripts/user-interface/interface/Admin/Components/BooleanGroup.js");
+/* harmony import */ var _Components_TextItem__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Components/TextItem */ "./resources/scripts/user-interface/interface/Admin/Components/TextItem.js");
+/* harmony import */ var _Components_NumberItem__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Components/NumberItem */ "./resources/scripts/user-interface/interface/Admin/Components/NumberItem.js");
+/* harmony import */ var _Components_IconItem__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Components/IconItem */ "./resources/scripts/user-interface/interface/Admin/Components/IconItem.js");
+/* harmony import */ var _atoms_admin__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../atoms/admin */ "./resources/scripts/user-interface/atoms/admin.js");
+/* harmony import */ var _utils_admin__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../utils/admin */ "./resources/scripts/user-interface/utils/admin.js");
+/* harmony import */ var _utils_structures__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../utils/structures */ "./resources/scripts/user-interface/utils/structures.js");
+/* harmony import */ var _utils_wp__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../utils/wp */ "./resources/scripts/user-interface/utils/wp.js");
 
 
- // import RoleGroupEdit from './RoleGroupEdit';
 
 
 
+
+
+
+
+
+
+
+
+
+var staticComponentsData = intervention.route.admin.data.components;
+/**
+ * Get Static Components Data
+ *
+ * @param {string} path
+ * @returns {object} { {key} key: {boolean|object} value  }
+ */
+
+var getStaticComponentsData = function getStaticComponentsData() {
+  var path = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+
+  var get = function get() {
+    var paths = path.split('/');
+    return paths.reduce(function (carry, item) {
+      carry = (0,_utils_structures__WEBPACK_IMPORTED_MODULE_11__.objectHasKey)(carry, item) ? carry[item] : carry;
+      return carry;
+    }, staticComponentsData);
+  };
+
+  return path !== '' ? get() : staticComponentsData;
+};
+/**
+ * Is Item On
+ *
+ * @param {string} key
+ * @returns {boolean}
+ */
+
+
+var isItemOn = function isItemOn(key) {
+  var _useAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_13__.useAtom)(_atoms_admin__WEBPACK_IMPORTED_MODULE_9__.selectedIndexDataAtom),
+      _useAtom2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useAtom, 1),
+      data = _useAtom2[0];
+
+  return Object.keys(data.components).includes((0,_utils_admin__WEBPACK_IMPORTED_MODULE_10__.getInterventionKey)(key));
+};
+/**
+ * Is Applied Blank
+ *
+ * @param {string} key
+ * @returns {boolean}
+ */
+
+
+var isAppliedBlank = function isAppliedBlank() {
+  var _useAtom3 = (0,jotai__WEBPACK_IMPORTED_MODULE_13__.useAtom)(_atoms_admin__WEBPACK_IMPORTED_MODULE_9__.selectedIndexDataAtom),
+      _useAtom4 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useAtom3, 1),
+      data = _useAtom4[0];
+
+  return Object.keys(data.components).length === 0;
+};
+/**
+ * Is Hierachical Title
+ *
+ * @param {string} key
+ * @returns
+ */
+
+
+var isHierachicalTitle = function isHierachicalTitle(interventionKey) {
+  var _useAtom5 = (0,jotai__WEBPACK_IMPORTED_MODULE_13__.useAtom)(_atoms_admin__WEBPACK_IMPORTED_MODULE_9__.selectedIndexDataAtom),
+      _useAtom6 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useAtom5, 1),
+      data = _useAtom6[0];
+
+  var appliedKeys = Object.keys(data.components).some(function (k) {
+    return k.startsWith(interventionKey);
+  });
+  var top = interventionKey.split('.').length === 1;
+  return top && appliedKeys;
+};
+
+var AppliedBlank = function AppliedBlank() {
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("h1", null, "No applied components");
+};
+/**
+ * Components Applied
+ *
+ * @returns <ComponentsApplied />
+ */
+
+
+var ComponentsApplied = function ComponentsApplied() {
+  /**
+   * Get First Path Key
+   *
+   * @description required to determine `:route` items.
+   */
+  // const getFirstPathKey = Object.keys(getStaticComponentsData(''))[0];
+
+  /**
+   *
+   * @param {object} props
+   * @returns
+   */
+  var RoutingHierachical = function RoutingHierachical(_ref) {
+    var item = _ref.item;
+    var interventionKey = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_10__.getInterventionKey)(item);
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, isHierachicalTitle(interventionKey) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("h1", null, interventionKey), Object.keys(getStaticComponentsData(item)).map(function (key) {
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(Routing, {
+        key: key,
+        item: key,
+        path: item
+      });
+    }));
+  };
+  /**
+   *
+   * @param {*} param0
+   * @returns
+   */
+
+
+  var RoutingBooleanGroup = function RoutingBooleanGroup(_ref2) {
+    var groupKey = _ref2.item;
+    var childKeys = getStaticComponentsData(groupKey);
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, Object.keys(childKeys).map(function (key) {
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(Routing, {
+        key: key,
+        item: key,
+        path: groupKey
+      });
+    }));
+  };
+  /**
+   * Routing
+   *
+   * @param {object} item
+   * @returns <Routing />
+   */
+
+
+  var Routing = function Routing(_ref3) {
+    var k = _ref3.item,
+        _ref3$path = _ref3.path,
+        path = _ref3$path === void 0 ? '' : _ref3$path;
+    var key = path !== '' ? "".concat(path, "/").concat(k) : k;
+    /**
+     * Render
+     *
+     * @description hierachical items are routed to `<RoutingHierachical />`
+     */
+
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, (0,_Components_HierachicalItem__WEBPACK_IMPORTED_MODULE_3__.isHierachical)(k) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(RoutingHierachical, {
+      item: key
+    }), isItemOn(key) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, (0,_Components_BooleanItem__WEBPACK_IMPORTED_MODULE_4__.isBooleanItem)(k) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Components_BooleanItem__WEBPACK_IMPORTED_MODULE_4__.BooleanItem, {
+      item: key
+    }), (0,_Components_TextItem__WEBPACK_IMPORTED_MODULE_6__.isTextItem)(k) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Components_TextItem__WEBPACK_IMPORTED_MODULE_6__.TextItem, {
+      item: key
+    }), (0,_Components_NumberItem__WEBPACK_IMPORTED_MODULE_7__.isNumberItem)(k) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Components_NumberItem__WEBPACK_IMPORTED_MODULE_7__.NumberItem, {
+      item: key
+    }), (0,_Components_IconItem__WEBPACK_IMPORTED_MODULE_8__.isIconItem)(k) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Components_IconItem__WEBPACK_IMPORTED_MODULE_8__.IconItem, {
+      item: key
+    }), (0,_Components_BooleanGroup__WEBPACK_IMPORTED_MODULE_5__.isBooleanGroup)(k) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Components_BooleanItem__WEBPACK_IMPORTED_MODULE_4__.BooleanItem, {
+      item: key
+    })), (0,_Components_BooleanGroup__WEBPACK_IMPORTED_MODULE_5__.isBooleanGroup)(k) && !isItemOn(key) && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(RoutingBooleanGroup, {
+      item: key
+    }));
+  };
+  /**
+   * Render
+   */
+
+
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, isAppliedBlank() && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(AppliedBlank, null), Object.keys(getStaticComponentsData()).map(function (key) {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(Routing, {
+      key: key,
+      item: key
+    });
+  }));
+};
+
+
+
+/***/ }),
+
+/***/ "./resources/scripts/user-interface/interface/Admin/Head.js":
+/*!******************************************************************!*\
+  !*** ./resources/scripts/user-interface/interface/Admin/Head.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Head": () => (/* binding */ Head)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var jotai__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! jotai */ "./node_modules/jotai/esm/index.js");
+/* harmony import */ var _RoleGroups_RoleGroupDropdown__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./RoleGroups/RoleGroupDropdown */ "./resources/scripts/user-interface/interface/Admin/RoleGroups/RoleGroupDropdown.js");
+/* harmony import */ var _RoleGroups_RolesRoleGroup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./RoleGroups/RolesRoleGroup */ "./resources/scripts/user-interface/interface/Admin/RoleGroups/RolesRoleGroup.js");
+/* harmony import */ var _RoleGroups_NewRoleGroup__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./RoleGroups/NewRoleGroup */ "./resources/scripts/user-interface/interface/Admin/RoleGroups/NewRoleGroup.js");
+/* harmony import */ var _RoleGroups_DeleteRoleGroup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./RoleGroups/DeleteRoleGroup */ "./resources/scripts/user-interface/interface/Admin/RoleGroups/DeleteRoleGroup.js");
+/* harmony import */ var _Save__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Save */ "./resources/scripts/user-interface/interface/Admin/Save.js");
+/* harmony import */ var _atoms_admin__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../atoms/admin */ "./resources/scripts/user-interface/atoms/admin.js");
+/* harmony import */ var _utils_wp__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../utils/wp */ "./resources/scripts/user-interface/utils/wp.js");
+/* harmony import */ var _utils_admin__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../utils/admin */ "./resources/scripts/user-interface/utils/admin.js");
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * Immutable Role Group
+ *
+ * @description
+ *
+ * @returns <ImmutableRoleGroup />
+ */
+
+/*
+const RoleGroupDiffs = () => {
+  const [selectedAppliedDiff] = useAtom(selectedAppliedDiffAtom);
+
+  return (
+    <div className="flex">
+      <div className="? h-[50px] flex items-center">
+        + {selectedAppliedDiff?.additions}
+      </div>
+      <div className="? h-[50px] flex items-center">
+        - {selectedAppliedDiff?.deletions}
+      </div>
+    </div>
+  );
+};
+*/
 
 /**
  * Head
@@ -1539,49 +2504,214 @@ __webpack_require__.r(__webpack_exports__);
  */
 
 var Head = function Head() {
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: " relative n:sticky n:top-0 n:md:top-[32px] w-full flex justify-between border-b border-gray-5 bg-white z-10"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "flex-1"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: " flex items-center justify-between h-[50px] pl-12 pr-16"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "flex"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_RoleGroups__WEBPACK_IMPORTED_MODULE_2__.default, null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  var _useAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_11__.useAtom)(_atoms_admin__WEBPACK_IMPORTED_MODULE_8__.dataAtom),
+      _useAtom2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useAtom, 1),
+      data = _useAtom2[0];
+
+  var _useAtom3 = (0,jotai__WEBPACK_IMPORTED_MODULE_11__.useAtom)(_atoms_admin__WEBPACK_IMPORTED_MODULE_8__.selectedIndexAtom),
+      _useAtom4 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useAtom3, 1),
+      dangerousSelectedIndex = _useAtom4[0];
+
+  var selectedIndex = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_10__.safeSelectedIndex)(dangerousSelectedIndex, data);
+
+  var _data$selectedIndex$r = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(data[selectedIndex].roles, 2),
+      immutable = _data$selectedIndex$r[1];
+
+  var _useState = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useState)(false),
+      _useState2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useState, 2),
+      isEditing = _useState2[0],
+      setIsEditing = _useState2[1];
+
+  var _useState3 = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useState)(false),
+      _useState4 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useState3, 2),
+      isNew = _useState4[0],
+      setIsNew = _useState4[1];
+  /**
+   *
+   */
+
+
+  var reset = function reset() {
+    setIsNew(false);
+    setIsEditing(false);
+  };
+  /**
+   *
+   */
+
+
+  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    if (isNew === true) {
+      setIsEditing(true);
+    }
+  }, [isNew]);
+  /**
+   * Handler
+   *
+   * @param {object} event
+   */
+
+  var handler = function handler(event) {
+    event.preventDefault();
+    setIsEditing(!isEditing);
+  };
+  /**
+   * Render
+   */
+
+
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+    className: " relative sticky top-0 md:top-[32px] w-full bg-white z-10"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+    className: " flex items-center justify-between h-[50px] pl-12 pr-16 border-b border-gray-5"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+    className: "flex items-center text-14"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_RoleGroups_RoleGroupDropdown__WEBPACK_IMPORTED_MODULE_3__.RoleGroupDropdown, {
+    state: {
+      reset: reset
+    }
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
     className: "w-1 h-[50px] bg-gray-5 mx-12"
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }), !immutable && !isNew && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("a", {
+    href: "#",
+    onClick: function onClick(event) {
+      return handler(event);
+    }
+  }, (0,_utils_wp__WEBPACK_IMPORTED_MODULE_9__.__)('Edit')), immutable && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("span", {
+    className: "text-gray-50 flex items-center"
+  }, (0,_utils_wp__WEBPACK_IMPORTED_MODULE_9__.__)('Hardcoded'))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
     className: "flex items-center"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_AddRoleGroup__WEBPACK_IMPORTED_MODULE_3__.default, null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_RoleGroups_NewRoleGroup__WEBPACK_IMPORTED_MODULE_5__.NewRoleGroup, {
+    state: {
+      setIsNew: setIsNew
+    }
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
     className: "w-8"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Save__WEBPACK_IMPORTED_MODULE_4__.default, null)))));
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Save__WEBPACK_IMPORTED_MODULE_7__.Save, {
+    state: {
+      reset: reset
+    }
+  }))), isEditing && immutable === false && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+    className: " flex items-center h-[50px] pl-12 pr-16 border-b border-gray-5"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_RoleGroups_RolesRoleGroup__WEBPACK_IMPORTED_MODULE_4__.RolesRoleGroup, null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+    className: "w-1 h-[50px] bg-gray-5 mx-12"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_RoleGroups_DeleteRoleGroup__WEBPACK_IMPORTED_MODULE_6__.DeleteRoleGroup, null)));
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Head);
+
 
 /***/ }),
 
-/***/ "./resources/scripts/user-interface/components/Admin/RoleGroups.js":
-/*!*************************************************************************!*\
-  !*** ./resources/scripts/user-interface/components/Admin/RoleGroups.js ***!
-  \*************************************************************************/
+/***/ "./resources/scripts/user-interface/interface/Admin/RoleGroups/DeleteRoleGroup.js":
+/*!****************************************************************************************!*\
+  !*** ./resources/scripts/user-interface/interface/Admin/RoleGroups/DeleteRoleGroup.js ***!
+  \****************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "DeleteRoleGroup": () => (/* binding */ DeleteRoleGroup)
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var jotai__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! jotai */ "./node_modules/jotai/esm/index.js");
+/* harmony import */ var _atoms_admin__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../atoms/admin */ "./resources/scripts/user-interface/atoms/admin.js");
+/* harmony import */ var _utils_wp__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../utils/wp */ "./resources/scripts/user-interface/utils/wp.js");
+
+
+
+
+
+
+/**
+ * Delete Role Group
+ *
+ * @description
+ *
+ * @returns <DeleteRoleGroup />
+ */
+
+var DeleteRoleGroup = function DeleteRoleGroup() {
+  var _useAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_5__.useAtom)(_atoms_admin__WEBPACK_IMPORTED_MODULE_3__.dataAtom),
+      _useAtom2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useAtom, 2),
+      data = _useAtom2[0],
+      setData = _useAtom2[1];
+
+  var _useAtom3 = (0,jotai__WEBPACK_IMPORTED_MODULE_5__.useAtom)(_atoms_admin__WEBPACK_IMPORTED_MODULE_3__.selectedIndexDataAtom),
+      _useAtom4 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useAtom3, 1),
+      selectedIndexData = _useAtom4[0];
+
+  var _useAtom5 = (0,jotai__WEBPACK_IMPORTED_MODULE_5__.useAtom)(_atoms_admin__WEBPACK_IMPORTED_MODULE_3__.selectedIndexAtom),
+      _useAtom6 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useAtom5, 2),
+      selectedIndex = _useAtom6[0],
+      setSelectedIndex = _useAtom6[1];
+
+  var containsApplied = Object.keys(selectedIndexData.components).length > 0;
+  /**
+   *
+   * @returns
+   */
+
+  var del = function del() {
+    if (containsApplied) {
+      var proceed = window.confirm('Proceed? Deleted group settings will be lost.');
+
+      if (proceed === false) {
+        return;
+      }
+    }
+
+    var dataExclGroup = data.filter(function (item, i) {
+      return i !== selectedIndex;
+    });
+    var newIndex = selectedIndex === 0 ? selectedIndex : selectedIndex - 1;
+    setData(dataExclGroup);
+    setSelectedIndex(newIndex);
+  };
+  /**
+   * Render
+   */
+
+
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("a", {
+    href: "#",
+    className: " text-gray-50 no-underline active:text-red hover:text-red focus:text-red",
+    onClick: function onClick() {
+      return del();
+    }
+  }, (0,_utils_wp__WEBPACK_IMPORTED_MODULE_4__.__)('Delete'));
+};
+
+
+
+/***/ }),
+
+/***/ "./resources/scripts/user-interface/interface/Admin/RoleGroups/NewRoleGroup.js":
+/*!*************************************************************************************!*\
+  !*** ./resources/scripts/user-interface/interface/Admin/RoleGroups/NewRoleGroup.js ***!
+  \*************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "NewRoleGroup": () => (/* binding */ NewRoleGroup)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ "./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js");
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var jotai__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! jotai */ "./node_modules/jotai/esm/index.js");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _AdminAtoms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../AdminAtoms */ "./resources/scripts/user-interface/components/AdminAtoms.js");
-/* harmony import */ var _utils_wp__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../utils/wp */ "./resources/scripts/user-interface/utils/wp.js");
-/* harmony import */ var _utils_admin__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../utils/admin */ "./resources/scripts/user-interface/utils/admin.js");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _atoms_admin__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../atoms/admin */ "./resources/scripts/user-interface/atoms/admin.js");
+/* harmony import */ var _utils_wp__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../utils/wp */ "./resources/scripts/user-interface/utils/wp.js");
 
 
 
@@ -1591,15 +2721,106 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /**
+ * New Role Group
+ *
+ * @returns <AddRoleGroup />
+ */
+
+var NewRoleGroup = function NewRoleGroup(_ref) {
+  var state = _ref.state;
+
+  var _useAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_7__.useAtom)(_atoms_admin__WEBPACK_IMPORTED_MODULE_5__.dataAtom),
+      _useAtom2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__.default)(_useAtom, 2),
+      data = _useAtom2[0],
+      setData = _useAtom2[1];
+
+  var _useAtom3 = (0,jotai__WEBPACK_IMPORTED_MODULE_7__.useAtom)(_atoms_admin__WEBPACK_IMPORTED_MODULE_5__.selectedIndexAtom),
+      _useAtom4 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__.default)(_useAtom3, 2),
+      setSelectedIndex = _useAtom4[1];
+
+  var addRoleGroup = function addRoleGroup() {
+    var template = {
+      roles: [['administrator'], false],
+      components: []
+    };
+    var addGroup = [].concat((0,_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__.default)(data), [template]);
+    setData(addGroup);
+    setSelectedIndex(data.length);
+    state.setIsNew(true);
+  };
+  /**
+   * Add Role Group
+   *
+   * @returns <AddRoleGroup />
+   */
+
+
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Button, {
+    className: "is-secondary",
+    onClick: function onClick() {
+      return addRoleGroup();
+    }
+  }, (0,_utils_wp__WEBPACK_IMPORTED_MODULE_6__.__)('New Group'));
+};
+
+
+
+/***/ }),
+
+/***/ "./resources/scripts/user-interface/interface/Admin/RoleGroups/RoleGroupDropdown.js":
+/*!******************************************************************************************!*\
+  !*** ./resources/scripts/user-interface/interface/Admin/RoleGroups/RoleGroupDropdown.js ***!
+  \******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getRolesAsNiceName": () => (/* binding */ getRolesAsNiceName),
+/* harmony export */   "RoleGroupDropdown": () => (/* binding */ RoleGroupDropdown)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var jotai__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! jotai */ "./node_modules/jotai/esm/index.js");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _atoms_admin__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../atoms/admin */ "./resources/scripts/user-interface/atoms/admin.js");
+/* harmony import */ var _utils_wp__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../utils/wp */ "./resources/scripts/user-interface/utils/wp.js");
+
+
+
+
+
+
+
+/**
+ * Get Roles as Nicename
+ *
+ * @param {array} roles
+ * @returns {string}
+ */
+
+var getRolesAsNiceName = function getRolesAsNiceName(roles) {
+  var joined = roles.join(', '); // const caps = joined.charAt(0).toUpperCase() + joined.slice(1);
+
+  var andPos = joined.lastIndexOf(',');
+  return andPos > 0 ? joined.substring(0, andPos) + ' and ' + joined.substring(andPos + 1) : joined;
+};
+/**
  * Role Groups
  */
 
-var RoleGroups = function RoleGroups() {
-  var _useAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_7__.useAtom)(_AdminAtoms__WEBPACK_IMPORTED_MODULE_4__.dataAtom),
+var RoleGroupDropdown = function RoleGroupDropdown(_ref) {
+  var state = _ref.state;
+
+  var _useAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_6__.useAtom)(_atoms_admin__WEBPACK_IMPORTED_MODULE_4__.dataAtom),
       _useAtom2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useAtom, 1),
       data = _useAtom2[0];
 
-  var _useAtom3 = (0,jotai__WEBPACK_IMPORTED_MODULE_7__.useAtom)(_AdminAtoms__WEBPACK_IMPORTED_MODULE_4__.selectedIndexAtom),
+  var _useAtom3 = (0,jotai__WEBPACK_IMPORTED_MODULE_6__.useAtom)(_atoms_admin__WEBPACK_IMPORTED_MODULE_4__.selectedIndexAtom),
       _useAtom4 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useAtom3, 2),
       selectedIndex = _useAtom4[0],
       setSelectedIndex = _useAtom4[1];
@@ -1612,7 +2833,7 @@ var RoleGroups = function RoleGroups() {
     var _item$roles = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(item.roles, 1),
         roles = _item$roles[0];
 
-    var name = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_6__.getRolesAsNiceName)(roles);
+    var name = getRolesAsNiceName(roles);
     return {
       key: i,
       name: name
@@ -1626,6 +2847,7 @@ var RoleGroups = function RoleGroups() {
 
   var handler = function handler(selectedItem) {
     setSelectedIndex(selectedItem.key);
+    state.reset();
   };
   /**
    * Render
@@ -1641,46 +2863,38 @@ var RoleGroups = function RoleGroups() {
       return option.key === selectedIndex;
     }),
     options: options,
-    onChange: function onChange(_ref) {
-      var selectedItem = _ref.selectedItem;
+    onChange: function onChange(_ref2) {
+      var selectedItem = _ref2.selectedItem;
       return handler(selectedItem);
     }
   }));
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RoleGroups);
+
 
 /***/ }),
 
-/***/ "./resources/scripts/user-interface/components/Admin/Save.js":
-/*!*******************************************************************!*\
-  !*** ./resources/scripts/user-interface/components/Admin/Save.js ***!
-  \*******************************************************************/
+/***/ "./resources/scripts/user-interface/interface/Admin/RoleGroups/RolesRoleGroup.js":
+/*!***************************************************************************************!*\
+  !*** ./resources/scripts/user-interface/interface/Admin/RoleGroups/RolesRoleGroup.js ***!
+  \***************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "RolesRoleGroup": () => (/* binding */ RolesRoleGroup)
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var jotai__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! jotai */ "./node_modules/jotai/esm/index.js");
+/* harmony import */ var jotai__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! jotai */ "./node_modules/jotai/esm/index.js");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
-/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _AdminAtoms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../AdminAtoms */ "./resources/scripts/user-interface/components/AdminAtoms.js");
-/* harmony import */ var _utils_arr__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../utils/arr */ "./resources/scripts/user-interface/utils/arr.js");
-/* harmony import */ var _utils_admin__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../utils/admin */ "./resources/scripts/user-interface/utils/admin.js");
-/* harmony import */ var _utils_wp__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../utils/wp */ "./resources/scripts/user-interface/utils/wp.js");
-
-
-
-
+/* harmony import */ var _atoms_admin__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../atoms/admin */ "./resources/scripts/user-interface/atoms/admin.js");
+/* harmony import */ var _utils_wp__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../utils/wp */ "./resources/scripts/user-interface/utils/wp.js");
 
 
 
@@ -1689,752 +2903,91 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /**
- * Head
+ * Registered user roles from WordPress.
  */
 
-var Save = function Save() {
-  var _useAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_9__.useAtom)(_AdminAtoms__WEBPACK_IMPORTED_MODULE_5__.dataAtom),
-      _useAtom2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useAtom, 2),
-      data = _useAtom2[0],
-      setData = _useAtom2[1];
+var registeredRoles = intervention.route.admin.data.roles;
+/**
+ * Role Group Button Group
+ *
+ * @description Display role list using `registeredRoles` from WordPress.
+ *
+ * @return <RoleList>
+ */
 
-  var _useAtom3 = (0,jotai__WEBPACK_IMPORTED_MODULE_9__.useAtom)(_AdminAtoms__WEBPACK_IMPORTED_MODULE_5__.selectedIndexAtom),
-      _useAtom4 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useAtom3, 1),
-      selectedIndex = _useAtom4[0];
+var RolesRoleGroup = function RolesRoleGroup() {
+  var _useAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_6__.useAtom)(_atoms_admin__WEBPACK_IMPORTED_MODULE_4__.selectedIndexDataAtom),
+      _useAtom2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useAtom, 1),
+      data = _useAtom2[0];
 
-  var _useAtom5 = (0,jotai__WEBPACK_IMPORTED_MODULE_9__.useAtom)(_AdminAtoms__WEBPACK_IMPORTED_MODULE_5__.isBlockingAtom),
-      _useAtom6 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useAtom5, 2),
-      isBlocking = _useAtom6[0],
-      setIsBlocking = _useAtom6[1];
+  var _useAtom3 = (0,jotai__WEBPACK_IMPORTED_MODULE_6__.useAtom)(_atoms_admin__WEBPACK_IMPORTED_MODULE_4__.selectedIndexDataRoleAtom),
+      _useAtom4 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useAtom3, 2),
+      setRole = _useAtom4[1];
 
-  var _useState = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useState)((0,_utils_wp__WEBPACK_IMPORTED_MODULE_8__.__)('Save')),
-      _useState2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useState, 2),
-      buttonText = _useState2[0],
-      setButtonText = _useState2[1];
+  var _data$roles = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(data.roles, 1),
+      roles = _data$roles[0];
   /**
    * Handler
+   *
+   * @param {string} role
    */
 
 
-  var handler = function handler() {
-    setButtonText((0,_utils_wp__WEBPACK_IMPORTED_MODULE_8__.__)('Saving'));
-
-    var save = function save() {
-      _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_4___default()({
-        url: intervention.route.admin.url,
-        method: 'POST',
-        data: {
-          data: middleware,
-          save: true
-        }
-      }).then(function (res) {
-        if (res !== null && res !== void 0 && res.data) {
-          var sorted = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_7__.sortDataByRoleKeys)(res.data, selectedIndex);
-          setData(sorted.data); // setIndex(sorted.index);
-
-          setButtonText((0,_utils_wp__WEBPACK_IMPORTED_MODULE_8__.__)('Save'));
-          setIsBlocking(false);
-        }
-      });
-    };
-
-    var escape = function escape() {
-      setButtonText((0,_utils_wp__WEBPACK_IMPORTED_MODULE_8__.__)('Save'));
-    };
-    /*
-    const rolesAsKeys = applied.reduce((carry, { roles }) => {
-      carry.push(roles.join('|'));
-      return carry;
-    }, []);
-    */
-
-    /**
-     * Convert to object for saving
-     *
-     * @returns {object}
-     */
-
-
-    var middleware = data.reduce(function (carry, _ref) {
-      var roles = _ref.roles,
-          components = _ref.components;
-      var removeImmutableComponents = Object.entries(components).reduce(function (carry, _ref2) {
-        var _ref3 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_ref2, 2),
-            k = _ref3[0],
-            _ref3$ = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_ref3[1], 2),
-            value = _ref3$[0],
-            immutable = _ref3$[1];
-
-        if (immutable !== true) {
-          carry[k] = [value, false];
-        }
-
-        return carry;
-      }, {});
-      /*
-      if (Object.keys(components).length > 0) {
-        carry[roles.join('|')] = removeImmutableComponents;
-      }
-      */
-
-      carry[roles.group.join('|')] = removeImmutableComponents;
-      return carry;
-    }, {});
-    /**
-     * Empty Role Group Found
-     *
-     * @returns {boolean}
-     */
-
-    var emptyRoleGroupFound = function emptyRoleGroupFound() {
-      return Object.keys(middleware).includes('');
-    };
-    /**
-     * Duplicate Role Group Found
-     *
-     * @returns {boolean}
-     */
-
-
-    var duplicateRoleGroupFound = function duplicateRoleGroupFound() {
-      var rolesAsKeys = data.reduce(function (carry, _ref4) {
-        var roles = _ref4.roles;
-        carry.push(roles.group.join('|'));
-        return carry;
-      }, []);
-      return (0,_utils_arr__WEBPACK_IMPORTED_MODULE_6__.arrayHasDuplicates)(rolesAsKeys);
-    };
-    /**
-     * If Empty Role Group Found
-     */
-
-
-    if (emptyRoleGroupFound()) {
-      var msg = (0,_utils_wp__WEBPACK_IMPORTED_MODULE_8__.__)('Empty role group found, please assign a role or delete the group before saving.');
-
-      window.alert(msg);
-      escape();
-      return;
-    }
-    /**
-     * If Duplicate Role Group Found
-     */
-
-
-    if (duplicateRoleGroupFound()) {
-      var _msg = (0,_utils_wp__WEBPACK_IMPORTED_MODULE_8__.__)('Found matching user groups, proceeding to save will merge groups.');
-
-      var proceed = window.confirm(_msg);
-      proceed ? save() : escape();
-      return;
-    }
-
-    save();
+  var handler = function handler(role) {
+    setRole(role);
   };
   /**
    * Render
    */
 
 
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
-    className: "is-primary",
-    onClick: function onClick() {
-      return handler();
-    },
-    disabled: isBlocking === true
-  }, buttonText);
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ButtonGroup, null, Object.entries(registeredRoles).map(function (_ref) {
+    var _ref2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_ref, 2),
+        key = _ref2[0],
+        name = _ref2[1].name;
+
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
+      key: key,
+      className: "\n          ".concat(roles.includes(key) ? 'text-primary-10 border-primary-10 ?' : 'text-gray-50 border-gray-2 hover:border-gray-5', "\n        "),
+      onClick: function onClick() {
+        return handler(key);
+      }
+    }, key);
+  }));
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Save);
+
 
 /***/ }),
 
-/***/ "./resources/scripts/user-interface/components/AdminAtoms.js":
-/*!*******************************************************************!*\
-  !*** ./resources/scripts/user-interface/components/AdminAtoms.js ***!
-  \*******************************************************************/
+/***/ "./resources/scripts/user-interface/interface/Admin/Save.js":
+/*!******************************************************************!*\
+  !*** ./resources/scripts/user-interface/interface/Admin/Save.js ***!
+  \******************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "dataAtom": () => (/* binding */ dataAtom),
-/* harmony export */   "selectedIndexAtom": () => (/* binding */ selectedIndexAtom),
-/* harmony export */   "isBlockingAtom": () => (/* binding */ isBlockingAtom),
-/* harmony export */   "pathAtom": () => (/* binding */ pathAtom),
-/* harmony export */   "rolesAtom": () => (/* binding */ rolesAtom),
-/* harmony export */   "componentsAtom": () => (/* binding */ componentsAtom)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
-/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ "./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js");
-/* harmony import */ var jotai__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! jotai */ "./node_modules/jotai/esm/index.js");
-/* harmony import */ var _utils_admin__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/admin */ "./resources/scripts/user-interface/utils/admin.js");
-
-
-
-
-var template = [{
-  roles: [[], false],
-  components: []
-}];
-/**
- * Data
- *
- * @description read/set tuple for setting `dataAtom`.
- *
- * @returns {array}
- */
-
-var dataAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_3__.atom)(template, function (get, set, update) {
-  set(dataAtom, (0,_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__.default)(update));
-});
-/**
- * Selected Index
- *
- * @description read/write tuple for setting `selectedIndex`.
- *
- * @returns {array}
- */
-
-var selectedIndexAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_3__.atom)(0, function (get, set, update) {
-  set(selectedIndexAtom, update);
-});
-/**
- * Is Blocking
- *
- * @description read/set tuple for setting `isBlockingAtom`.
- *
- * @returns {array}
- */
-
-var isBlockingAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_3__.atom)(false, function (get, set, update) {
-  set(isBlockingAtom, update);
-});
-/**
- * Path
- *
- * @description gets `selectedIndexAtom` components.
- *
- * @returns {array}
- */
-
-var pathAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_3__.atom)('', function (get, set, update) {
-  set(pathAtom, update);
-});
-/**
- * Derived: Roles
- *
- * @description gets `selectedIndexAtom` roles.
- *
- * @returns {object}
- */
-
-var rolesAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_3__.atom)(function (get) {
-  return get(dataAtom)[get(selectedIndexAtom)].roles;
-});
-/**
- * Derived: Components
- *
- * @description gets `selectedIndexAtom` components.
- *
- * @returns {array}
- */
-// @link https://github.com/pmndrs/jotai/issues/352
-
-var updateComponentsAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_3__.atom)(null);
-var componentsAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_3__.atom)(function (get) {
-  return get(updateComponentsAtom) || get(dataAtom)[get(selectedIndexAtom)].components;
-}, function (get, set, update) {
-  // getters
-  var _update = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(update, 3),
-      action = _update[0],
-      key = _update[1],
-      _update$ = _update[2],
-      value = _update$ === void 0 ? true : _update$;
-
-  var comps = get(componentsAtom); // actions
-
-  var add = function add() {
-    return comps[key] = [value, false];
-  };
-
-  var del = function del() {
-    return (0,_utils_admin__WEBPACK_IMPORTED_MODULE_2__.objectHasKey)(comps, key) && comps[key][1] === false && delete comps[key];
-  }; // routing
-
-
-  action === 'toggle' && !(0,_utils_admin__WEBPACK_IMPORTED_MODULE_2__.objectHasKey)(comps, key) ? add() : del();
-  action === 'add' && add();
-  action === 'del' && del(); // setter
-
-  set(updateComponentsAtom, comps);
-  console.log({
-    comps: comps
-  });
-});
-
-/***/ }),
-
-/***/ "./resources/scripts/user-interface/components/App.js":
-/*!************************************************************!*\
-  !*** ./resources/scripts/user-interface/components/App.js ***!
-  \************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
-/* harmony import */ var _Page_WordPressContainer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Page/WordPressContainer */ "./resources/scripts/user-interface/components/Page/WordPressContainer.js");
-/* harmony import */ var _Head__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Head */ "./resources/scripts/user-interface/components/Head.js");
-/* harmony import */ var _Admin__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Admin */ "./resources/scripts/user-interface/components/Admin.js");
-/* harmony import */ var _Export__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Export */ "./resources/scripts/user-interface/components/Export.js");
-/* harmony import */ var _Application__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Application */ "./resources/scripts/user-interface/components/Application.js");
-
-
-
-
-
-
-
-
-/**
- * App
- */
-
-var App = function App() {
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)((react__WEBPACK_IMPORTED_MODULE_1___default().StrictMode), null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.HashRouter, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Page_WordPressContainer__WEBPACK_IMPORTED_MODULE_2__.default, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Head__WEBPACK_IMPORTED_MODULE_3__.default, null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Routes, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Admin__WEBPACK_IMPORTED_MODULE_4__.default, {
-    path: "/",
-    exact: true
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Application__WEBPACK_IMPORTED_MODULE_6__.default, {
-    path: "/application"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Export__WEBPACK_IMPORTED_MODULE_5__.default, {
-    path: "/export"
-  })))));
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (App);
-
-/***/ }),
-
-/***/ "./resources/scripts/user-interface/components/Application.js":
-/*!********************************************************************!*\
-  !*** ./resources/scripts/user-interface/components/Application.js ***!
-  \********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "Save": () => (/* binding */ Save),
+/* harmony export */   "setRoleKeyOrder": () => (/* binding */ setRoleKeyOrder)
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
-/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _Page_Page__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Page/Page */ "./resources/scripts/user-interface/components/Page/Page.js");
-/* harmony import */ var _Page_Sidebar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Page/Sidebar */ "./resources/scripts/user-interface/components/Page/Sidebar.js");
-/* harmony import */ var _Page_Toolbar__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Page/Toolbar */ "./resources/scripts/user-interface/components/Page/Toolbar.js");
-/* harmony import */ var _Page_Loader__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Page/Loader */ "./resources/scripts/user-interface/components/Page/Loader.js");
-/* harmony import */ var _Application_Notice__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Application/Notice */ "./resources/scripts/user-interface/components/Application/Notice.js");
-/* harmony import */ var _Application_Row__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Application/Row */ "./resources/scripts/user-interface/components/Application/Row.js");
-/* harmony import */ var _Application_RowEmpty__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./Application/RowEmpty */ "./resources/scripts/user-interface/components/Application/RowEmpty.js");
-/* harmony import */ var _utils_wp__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../utils/wp */ "./resources/scripts/user-interface/utils/wp.js");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default().use(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default().createNonceMiddleware(intervention.nonce));
-
-var Application = function Application() {
-  var storage = sessionStorage.getItem('intervention-tools-application-radio');
-
-  var _useState = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useState)(false),
-      _useState2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useState, 2),
-      init = _useState2[0],
-      setInit = _useState2[1];
-
-  var _useState3 = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useState)(storage ? storage : 'all'),
-      _useState4 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useState3, 2),
-      radio = _useState4[0],
-      setRadio = _useState4[1];
-
-  var _useState5 = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
-      _useState6 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useState5, 2),
-      data = _useState6[0],
-      setData = _useState6[1];
-
-  var _useState7 = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
-      _useState8 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useState7, 2),
-      list = _useState8[0],
-      setList = _useState8[1];
-
-  var _useState9 = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useState)(0),
-      _useState10 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useState9, 2),
-      diff = _useState10[0],
-      setDiff = _useState10[1];
-
-  var _useState11 = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useState)({
-    completed: [],
-    skipped: []
-  }),
-      _useState12 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useState11, 2),
-      imported = _useState12[0],
-      setImported = _useState12[1];
-
-  var _useState13 = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useState)((0,_utils_wp__WEBPACK_IMPORTED_MODULE_11__.__)('Import')),
-      _useState14 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useState13, 2),
-      buttonText = _useState14[0],
-      setButtonText = _useState14[1];
-  /**
-   * Init
-   */
-
-
-  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
-    /**
-     * Fetch the data from `Import.php`.
-     */
-    _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default()({
-      method: 'POST',
-      url: intervention.route.application.url
-    }).then(function (res) {
-      setData(res.items);
-      setDiff(res.diff);
-      setInit(true);
-    });
-  }, []);
-  /**
-   * Radio Filter
-   */
-
-  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
-    setList(filterList(radio));
-    sessionStorage.setItem('intervention-tools-application-radio', radio);
-  }, [data, radio]);
-  /**
-   * Filter List
-   */
-
-  var filterList = function filterList(filter) {
-    return data.filter(function (_ref) {
-      var intervention = _ref.intervention,
-          database = _ref.database;
-
-      if (filter === 'match') {
-        return intervention.value === database.value;
-      }
-
-      if (filter === 'mismatch') {
-        return intervention.value !== database.value;
-      }
-
-      return true;
-    });
-  };
-  /**
-   * Handle Import
-   */
-
-
-  var handleImport = function handleImport() {
-    setButtonText((0,_utils_wp__WEBPACK_IMPORTED_MODULE_11__.__)('Importing'));
-    _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_3___default()({
-      url: intervention.route.application.url,
-      method: 'POST',
-      data: {
-        "import": true
-      }
-    }).then(function (res) {
-      setData(res.items);
-      setDiff(res.diff);
-      setImported(res.imported);
-      setButtonText((0,_utils_wp__WEBPACK_IMPORTED_MODULE_11__.__)('Import'));
-    });
-  };
-  /**
-   * Render
-   */
-
-
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Page_Page__WEBPACK_IMPORTED_MODULE_4__.default, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Page_Sidebar__WEBPACK_IMPORTED_MODULE_5__.default, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Panel, {
-    className: "border-0 border-b border-gray-5"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
-    title: (0,_utils_wp__WEBPACK_IMPORTED_MODULE_11__.__)('Show'),
-    icon: _wordpress_element__WEBPACK_IMPORTED_MODULE_1__.more,
-    initialOpen: true,
-    className: "w-full"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.RadioControl, {
-    selected: radio,
-    options: [{
-      label: (0,_utils_wp__WEBPACK_IMPORTED_MODULE_11__.__)('All'),
-      value: 'all'
-    }, {
-      label: (0,_utils_wp__WEBPACK_IMPORTED_MODULE_11__.__)('Mismatch'),
-      value: 'mismatch'
-    }, {
-      label: (0,_utils_wp__WEBPACK_IMPORTED_MODULE_11__.__)('Match'),
-      value: 'match'
-    }],
-    onChange: function onChange(value) {
-      return setRadio(value);
-    }
-  }))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
-    className: "w-full flex-1"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Page_Toolbar__WEBPACK_IMPORTED_MODULE_6__.default, {
-    className: "flex"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", null, init && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Application_Notice__WEBPACK_IMPORTED_MODULE_8__.default, {
-    imported: imported,
-    diff: diff,
-    setRadio: setRadio
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
-    className: "is-primary",
-    onClick: function onClick() {
-      return handleImport();
-    },
-    disabled: diff === 0
-  }, buttonText)), !init && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Page_Loader__WEBPACK_IMPORTED_MODULE_7__.default, null), init && list.length === 0 && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Application_RowEmpty__WEBPACK_IMPORTED_MODULE_10__.default, null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
-    className: ""
-  }, list.map(function (_ref2) {
-    var intervention = _ref2.intervention,
-        database = _ref2.database;
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Application_Row__WEBPACK_IMPORTED_MODULE_9__.default, {
-      key: database.key,
-      intervention: intervention,
-      database: database
-    });
-  }))));
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Application);
-
-/***/ }),
-
-/***/ "./resources/scripts/user-interface/components/Application/Notice.js":
-/*!***************************************************************************!*\
-  !*** ./resources/scripts/user-interface/components/Application/Notice.js ***!
-  \***************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
-/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _Page_Notice__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Page/Notice */ "./resources/scripts/user-interface/components/Page/Notice.js");
-/* harmony import */ var _utils_wp__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils/wp */ "./resources/scripts/user-interface/utils/wp.js");
-
-
-
-
-/**
- * Import Notice
- *
- * @param {object} props
- */
-
-var ImportNotice = function ImportNotice(_ref) {
-  var imported = _ref.imported,
-      diff = _ref.diff,
-      setRadio = _ref.setRadio;
-  var match = (0,_utils_wp__WEBPACK_IMPORTED_MODULE_3__.__)('Intervention—Database match') + '.';
-  /**
-   * Handle Diffs Link
-   *
-   * @param {object} event
-   */
-
-  var handleDiffsLink = function handleDiffsLink(event) {
-    event.preventDefault();
-    setRadio('mismatch');
-  };
-  /**
-   * Skipped
-   */
-
-
-  if (imported.skipped.length > 0) {
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Page_Notice__WEBPACK_IMPORTED_MODULE_2__.default, null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.sprintf)((0,_utils_wp__WEBPACK_IMPORTED_MODULE_3__.__)('Imported %1$s and %2$s failed'), imported.completed.length, imported.skipped.length), '.');
-  }
-  /**
-   * Completed
-   */
-
-
-  if (imported.completed.length > 0) {
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Page_Notice__WEBPACK_IMPORTED_MODULE_2__.default, {
-      highlight: true
-    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.sprintf)((0,_utils_wp__WEBPACK_IMPORTED_MODULE_3__.__)('Imported %s'), imported.completed.length), ". ", match);
-  }
-  /**
-   * Diffs
-   */
-
-
-  if (diff > 0) {
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Page_Notice__WEBPACK_IMPORTED_MODULE_2__.default, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: "flex items-center"
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
-      className: "font-500 text-gray-90 mr-8"
-    }, (0,_utils_wp__WEBPACK_IMPORTED_MODULE_3__.__)('Application')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-      className: "w-1 h-[48px] bg-gray-5 mt-1 mr-8"
-    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-      className: "pl-4",
-      href: "#",
-      onClick: handleDiffsLink
-    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.sprintf)((0,_utils_wp__WEBPACK_IMPORTED_MODULE_3__.__)('%s mismatch'), diff))));
-  }
-  /**
-   * Matching
-   */
-
-
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Page_Notice__WEBPACK_IMPORTED_MODULE_2__.default, null, match);
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ImportNotice);
-
-/***/ }),
-
-/***/ "./resources/scripts/user-interface/components/Application/Row.js":
-/*!************************************************************************!*\
-  !*** ./resources/scripts/user-interface/components/Application/Row.js ***!
-  \************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Page_PseudoFade__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Page/PseudoFade */ "./resources/scripts/user-interface/components/Page/PseudoFade.js");
-
-
-/**
- * Row From To
- *
- * @param {object} props
- */
-
-var RowFromTo = function RowFromTo(_ref) {
-  var valueFrom = _ref.valueFrom,
-      valueTo = _ref.valueTo;
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, valueFrom !== '' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
-    className: "mr-[6px]"
-  }, String(valueFrom)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
-    className: " px-[6px] py-[2px] text-primary-10 rounded border border-primary-10"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
-    className: "mr-4 text-12"
-  }, String.fromCharCode(8594)), String(valueTo)));
-};
-/**
- * Row
- *
- * @param {object} props
- */
-
-
-var Row = function Row(_ref2) {
-  var intervention = _ref2.intervention,
-      database = _ref2.database;
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: " flex h-[44px] text-13 lg:text-14 leading-none text-gray-50 border-b border-gray-2 last:-mb-1"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: " relative w-1/2 px-[16px] pt-1 flex items-center truncate"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, intervention.key), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Page_PseudoFade__WEBPACK_IMPORTED_MODULE_1__.default, null)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: " relative w-1/2 pt-1 px-12 flex flex-wrap items-center border-l border-gray-2 truncate"
-  }, intervention.value !== database.value ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(RowFromTo, {
-    valueFrom: database.value,
-    valueTo: intervention.value
-  }) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, String(intervention.value)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Page_PseudoFade__WEBPACK_IMPORTED_MODULE_1__.default, null)));
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Row);
-
-/***/ }),
-
-/***/ "./resources/scripts/user-interface/components/Application/RowEmpty.js":
-/*!*****************************************************************************!*\
-  !*** ./resources/scripts/user-interface/components/Application/RowEmpty.js ***!
-  \*****************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _utils_wp__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utils/wp */ "./resources/scripts/user-interface/utils/wp.js");
-
-
-/**
- * Import Row Empty
- */
-
-var RowEmpty = function RowEmpty() {
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: " h-[44px] lg:h-[40px] px-16 flex items-center text-14 leading-none text-gray-50 last:border-0"
-  }, (0,_utils_wp__WEBPACK_IMPORTED_MODULE_1__.__)('Nothing found'), ".");
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RowEmpty);
-
-/***/ }),
-
-/***/ "./resources/scripts/user-interface/components/Export.js":
-/*!***************************************************************!*\
-  !*** ./resources/scripts/user-interface/components/Export.js ***!
-  \***************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
-/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ "./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+/* harmony import */ var jotai__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! jotai */ "./node_modules/jotai/esm/index.js");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
-/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _Page_Page__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Page/Page */ "./resources/scripts/user-interface/components/Page/Page.js");
-/* harmony import */ var _Page_CodeBlock__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Page/CodeBlock */ "./resources/scripts/user-interface/components/Page/CodeBlock.js");
-/* harmony import */ var _Page_Sidebar__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Page/Sidebar */ "./resources/scripts/user-interface/components/Page/Sidebar.js");
-/* harmony import */ var _Page_Toolbar__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Page/Toolbar */ "./resources/scripts/user-interface/components/Page/Toolbar.js");
-/* harmony import */ var _Page_ButtonCopy__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Page/ButtonCopy */ "./resources/scripts/user-interface/components/Page/ButtonCopy.js");
-/* harmony import */ var _Page_Loader__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./Page/Loader */ "./resources/scripts/user-interface/components/Page/Loader.js");
-/* harmony import */ var _utils_wp__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../utils/wp */ "./resources/scripts/user-interface/utils/wp.js");
+/* harmony import */ var react_query__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-query */ "./node_modules/react-query/es/index.js");
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _atoms_admin__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../atoms/admin */ "./resources/scripts/user-interface/atoms/admin.js");
+/* harmony import */ var _utils_structures__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../utils/structures */ "./resources/scripts/user-interface/utils/structures.js");
+/* harmony import */ var _utils_admin__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../utils/admin */ "./resources/scripts/user-interface/utils/admin.js");
+/* harmony import */ var _utils_wp__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../utils/wp */ "./resources/scripts/user-interface/utils/wp.js");
 
 
 
@@ -2448,791 +3001,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/**
- * Group List
- *
- * List of checkbox items which can be filtered.
- */
-
-var groupList = [{
-  id: 'theme',
-  title: 'Theme'
-}, {
-  id: 'plugins',
-  title: 'Plugins'
-}, {
-  id: 'general',
-  title: 'General'
-}, {
-  id: 'writing',
-  title: 'Writing'
-}, {
-  id: 'reading',
-  title: 'Reading'
-}, {
-  id: 'discussion',
-  title: 'Discussion'
-}, {
-  id: 'media',
-  title: 'Media'
-}, {
-  id: 'permalinks',
-  title: 'Permalinks'
-}, {
-  id: 'privacy',
-  title: 'Privacy'
-}];
-/**
- * WordPress Fetch Nonce
- */
-
-_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_4___default().use(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_4___default().createNonceMiddleware(intervention.nonce));
-/**
- * Fetch Get Checked Items
- *
- * Filter/reduce `checkedItems` to only get keys with state `true`.
- *
- * @param {Map} items
- * @returns {string}
- */
-
-var getListItems = function getListItems(checkedItems) {
-  var getKeysEqualToTrue = (0,_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__.default)(checkedItems.entries()).reduce(function (carry, item) {
-    var _item = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(item, 2),
-        k = _item[0],
-        v = _item[1];
-
-    if (v === true) {
-      carry.push(k);
-    }
-
-    return carry;
-  }, []);
-
-  return getKeysEqualToTrue;
-};
-/**
- * Set List
- *
- * Fetch `groupList` and set all keys to `true`, used for `toggle all`.
- *
- * @param {boolean} state
- * @returns {Map}
- */
-
-
-var setList = function setList() {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
-  var groupListMap = new Map();
-  groupList.map(function (item) {
-    Array.isArray(state) ? groupListMap.set(item.id, state.includes(item.id)) : groupListMap.set(item.id, state);
-  });
-  return groupListMap;
-};
-/**
- * List Has False
- *
- * Used for `toggle all` controls.
- *
- * @returns {boolean}
- */
-
-
-var listHasFalse = function listHasFalse(checkedItems) {
-  var valuesArray = Array.from(checkedItems.values());
-  return valuesArray.includes(false);
-};
-/**
- * Export
- */
-
-
-var Export = function Export() {
-  var storage = sessionStorage.getItem('intervention-tools-export-groups');
-
-  var _useState = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useState)({
-    items: storage ? setList(JSON.parse(storage)) : setList(true)
-  }),
-      _useState2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useState, 2),
-      checked = _useState2[0],
-      setChecked = _useState2[1];
-
-  var _useState3 = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useState)(false),
-      _useState4 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useState3, 2),
-      codeBlock = _useState4[0],
-      setCodeBlock = _useState4[1];
-
-  var _useState5 = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useState)(true),
-      _useState6 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useState5, 2),
-      loading = _useState6[0],
-      setLoading = _useState6[1];
-  /**
-   * Change`checked`
-   *
-   * Fetch new response from `UserInterface/Tools/Export.php`.
-   */
-
-
-  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useEffect)(function () {
-    setLoading(true);
-    var groups = getListItems(checked.items);
-    /**
-     * Fetch the code preview from `Export.php`.
-     */
-
-    _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_4___default()({
-      url: intervention.route["export"].url,
-      method: 'POST',
-      data: {
-        groups: groups
-      }
-    }).then(function (res) {
-      setCodeBlock(res);
-      setLoading(false);
-    });
-    /**
-     * Save session storage.
-     */
-
-    sessionStorage.setItem('intervention-tools-export-groups', JSON.stringify(groups));
-  }, [checked]);
-  /**
-   * Handle Change
-   *
-   * Change `checked.items` to new group states.
-   *
-   * @param {Map} group
-   * @param {boolean} state
-   */
-
-  var handleChange = function handleChange(group, state) {
-    setChecked({
-      items: checked.items.set(group, state)
-    });
-  };
-  /**
-   * Render
-   */
-
-
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_Page_Page__WEBPACK_IMPORTED_MODULE_5__.default, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_Page_Sidebar__WEBPACK_IMPORTED_MODULE_7__.default, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Panel, {
-    className: "border-0 border-b border-gray-5"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
-    title: (0,_utils_wp__WEBPACK_IMPORTED_MODULE_11__.__)('Application', 'intervention'),
-    icon: _wordpress_element__WEBPACK_IMPORTED_MODULE_2__.more,
-    initialOpen: true,
-    className: "w-full"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("div", {
-    className: "flex flex-wrap w-full"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("div", {
-    className: "w-1/2 md:w-1/4 lg:w-full xl:w-1/2 mb-8"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CheckboxControl, {
-    label: (0,_utils_wp__WEBPACK_IMPORTED_MODULE_11__.__)('Toggle All', 'intervention'),
-    checked: !listHasFalse(checked.items),
-    onChange: function onChange() {
-      return setChecked({
-        items: setList(listHasFalse(checked.items))
-      });
-    }
-  })), groupList.map(function (_ref) {
-    var _checked$items$get;
-
-    var id = _ref.id,
-        title = _ref.title;
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("div", {
-      key: id,
-      className: "w-1/2 md:w-1/4 lg:w-full xl:w-1/2 mb-8"
-    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CheckboxControl, {
-      label: (0,_utils_wp__WEBPACK_IMPORTED_MODULE_11__.__)(title),
-      checked: (_checked$items$get = checked.items.get(id)) !== null && _checked$items$get !== void 0 ? _checked$items$get : false,
-      onChange: function onChange(state) {
-        return handleChange(id, state);
-      }
-    }));
-  })))))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("div", {
-    className: "flex-1 w-1/2"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_Page_Toolbar__WEBPACK_IMPORTED_MODULE_8__.default, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("div", {
-    className: "flex flex-wrap items-center text-14 text-gray-90"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("span", {
-    className: "font-500 text-gray-90 mr-12"
-  }, (0,_utils_wp__WEBPACK_IMPORTED_MODULE_11__.__)('Export')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("div", {
-    className: "w-1 h-[48px] bg-gray-5 mt-1 mr-8"
-  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("a", {
-    href: "https://github.com/soberwp/intervention/blob/master/.github/application-export.md",
-    className: "pl-4"
-  }, (0,_utils_wp__WEBPACK_IMPORTED_MODULE_11__.__)('Help'))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_Page_ButtonCopy__WEBPACK_IMPORTED_MODULE_9__.default, {
-    textToCopy: codeBlock
-  })), codeBlock === false && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_Page_Loader__WEBPACK_IMPORTED_MODULE_10__.default, null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_Page_CodeBlock__WEBPACK_IMPORTED_MODULE_6__.default, {
-    loading: loading
-  }, codeBlock)));
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Export);
-
-/***/ }),
-
-/***/ "./resources/scripts/user-interface/components/Head.js":
-/*!*************************************************************!*\
-  !*** ./resources/scripts/user-interface/components/Head.js ***!
-  \*************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Head_Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Head/Header */ "./resources/scripts/user-interface/components/Head/Header.js");
-/* harmony import */ var _Head_Name__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Head/Name */ "./resources/scripts/user-interface/components/Head/Name.js");
-/* harmony import */ var _Head_NavLink__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Head/NavLink */ "./resources/scripts/user-interface/components/Head/NavLink.js");
-/* harmony import */ var _Head_OutboundLink__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Head/OutboundLink */ "./resources/scripts/user-interface/components/Head/OutboundLink.js");
-/* harmony import */ var _utils_wp__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils/wp */ "./resources/scripts/user-interface/utils/wp.js");
-
-
-
-
-
-
-/**
- * Head
- */
-
-var Head = function Head() {
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Head_Header__WEBPACK_IMPORTED_MODULE_1__.default, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "flex flex-wrap"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Head_Name__WEBPACK_IMPORTED_MODULE_2__.default, null, "Intervention"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "flex flex-wrap items-center"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Head_NavLink__WEBPACK_IMPORTED_MODULE_3__.default, {
-    to: "/"
-  }, (0,_utils_wp__WEBPACK_IMPORTED_MODULE_5__.__)('Admin')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Head_NavLink__WEBPACK_IMPORTED_MODULE_3__.default, {
-    to: "/application"
-  }, (0,_utils_wp__WEBPACK_IMPORTED_MODULE_5__.__)('Application')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Head_NavLink__WEBPACK_IMPORTED_MODULE_3__.default, {
-    to: "/export"
-  }, (0,_utils_wp__WEBPACK_IMPORTED_MODULE_5__.__)('Export')))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "hidden md:flex md:flex-wrap items-center"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Head_OutboundLink__WEBPACK_IMPORTED_MODULE_4__.default, {
-    href: "https://github.com/soberwp/intervention"
-  }, (0,_utils_wp__WEBPACK_IMPORTED_MODULE_5__.__)('Documentation')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "h-full flex items-center border-l border-gray-5 pl-12 ml-12 text-14 text-gray-50"
-  }, _utils_wp__WEBPACK_IMPORTED_MODULE_5__.version)));
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Head);
-
-/***/ }),
-
-/***/ "./resources/scripts/user-interface/components/Head/Header.js":
-/*!********************************************************************!*\
-  !*** ./resources/scripts/user-interface/components/Head/Header.js ***!
-  \********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-
-
-var Name = function Name(_ref) {
-  var children = _ref.children;
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: " flex justify-between h-[60px] py-0 px-16 z-30 bg-white border-b border-gray-5"
-  }, children);
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Name);
-
-/***/ }),
-
-/***/ "./resources/scripts/user-interface/components/Head/Name.js":
-/*!******************************************************************!*\
-  !*** ./resources/scripts/user-interface/components/Head/Name.js ***!
-  \******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-
-
-var Name = function Name(_ref) {
-  var children = _ref.children;
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: " flex items-center mr-[18px] font-600 text-20 text-gray-90"
-  }, children);
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Name);
-
-/***/ }),
-
-/***/ "./resources/scripts/user-interface/components/Head/NavLink.js":
-/*!*********************************************************************!*\
-  !*** ./resources/scripts/user-interface/components/Head/NavLink.js ***!
-  \*********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
-
-
-
-var NavLink = function NavLink(_ref) {
-  var to = _ref.to,
-      children = _ref.children;
-  var match = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_1__.useMatch)(to);
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.NavLink, {
-    to: to,
-    className: "\n        flex\n        items-center\n        h-[36px]\n        mx-[2px]\n        mt-2\n        px-[6px]\n        leading-none\n        no-underline\n        text-14\n        rounded\n        border\n        first:ml-0\n        hover:text-primary\n        active:shadow-none\n        focus:shadow-none\n        hover:shadow-none\n        ".concat(match ? 'font-500 text-primary-10 border-primary-10' : 'font-400 text-gray-60 border-white')
-  }, children);
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (NavLink);
-
-/***/ }),
-
-/***/ "./resources/scripts/user-interface/components/Head/OutboundLink.js":
-/*!**************************************************************************!*\
-  !*** ./resources/scripts/user-interface/components/Head/OutboundLink.js ***!
-  \**************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-
-
-// import { ExternalLink } from '@wordpress/components';
-var Outbound = function Outbound(_ref) {
-  var href = _ref.href,
-      children = _ref.children;
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-    href: href,
-    className: " flex items-center mx-4 h-full no-underline text-14 text-gray-50"
-  }, children);
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Outbound);
-
-/***/ }),
-
-/***/ "./resources/scripts/user-interface/components/Page/ButtonCopy.js":
-/*!************************************************************************!*\
-  !*** ./resources/scripts/user-interface/components/Page/ButtonCopy.js ***!
-  \************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react_copy_to_clipboard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-copy-to-clipboard */ "./node_modules/react-copy-to-clipboard/lib/index.js");
-/* harmony import */ var react_copy_to_clipboard__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_copy_to_clipboard__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _utils_wp__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../utils/wp */ "./resources/scripts/user-interface/utils/wp.js");
-
-
-
-
-
-
-/**
- * Button Copy
- *
- * @param {object} props
- */
-
-var ButtonCopy = function ButtonCopy(_ref) {
-  var textToCopy = _ref.textToCopy;
-
-  var _useState = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useState)((0,_utils_wp__WEBPACK_IMPORTED_MODULE_4__.__)('Copy')),
-      _useState2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useState, 2),
-      copied = _useState2[0],
-      setCopied = _useState2[1];
-
-  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
-    var timer = setTimeout(function () {
-      return setCopied((0,_utils_wp__WEBPACK_IMPORTED_MODULE_4__.__)('Copy'));
-    }, 5000);
-    return function () {
-      return clearTimeout(timer);
-    };
-  }, [copied]);
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(react_copy_to_clipboard__WEBPACK_IMPORTED_MODULE_3__.CopyToClipboard, {
-    text: textToCopy,
-    onCopy: function onCopy() {
-      return setCopied((0,_utils_wp__WEBPACK_IMPORTED_MODULE_4__.__)('Copied'));
-    }
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
-    className: "is-secondary"
-  }, copied));
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ButtonCopy);
-
-/***/ }),
-
-/***/ "./resources/scripts/user-interface/components/Page/CodeBlock.js":
-/*!***********************************************************************!*\
-  !*** ./resources/scripts/user-interface/components/Page/CodeBlock.js ***!
-  \***********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var prismjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! prismjs */ "./node_modules/prismjs/prism.js");
-/* harmony import */ var prismjs__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prismjs__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var prismjs_components_prism_markup_templating__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prismjs/components/prism-markup-templating */ "./node_modules/prismjs/components/prism-markup-templating.js");
-/* harmony import */ var prismjs_components_prism_markup_templating__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_markup_templating__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var prismjs_components_prism_php__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prismjs/components/prism-php */ "./node_modules/prismjs/components/prism-php.js");
-/* harmony import */ var prismjs_components_prism_php__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_php__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _PseudoFade__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./PseudoFade */ "./resources/scripts/user-interface/components/Page/PseudoFade.js");
-
-
-
-
-
-
-/**
- * Code Block
- *
- * @param {object} props
- */
-
-var CodeBlock = function CodeBlock(_ref) {
-  var loading = _ref.loading,
-      children = _ref.children;
-  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    return prismjs__WEBPACK_IMPORTED_MODULE_1___default().highlightAll();
-  });
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "\n        relative\n        py-20\n        px-16\n        transition-opacity\n        ".concat(loading ? 'opacity-75' : '', "\n      ")
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("pre", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("code", {
-    className: "language-php text-14"
-  }, children)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_PseudoFade__WEBPACK_IMPORTED_MODULE_4__.default, null));
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CodeBlock);
-
-/***/ }),
-
-/***/ "./resources/scripts/user-interface/components/Page/Loader.js":
-/*!********************************************************************!*\
-  !*** ./resources/scripts/user-interface/components/Page/Loader.js ***!
-  \********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
-/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
-
-
-/**
- * Loader
- */
-
-var Loader = function Loader() {
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "px-16 py-20"
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Spinner, null));
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Loader);
-
-/***/ }),
-
-/***/ "./resources/scripts/user-interface/components/Page/Notice.js":
-/*!********************************************************************!*\
-  !*** ./resources/scripts/user-interface/components/Page/Notice.js ***!
-  \********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-
-
-/**
- * Notice
- *
- * @param {object} props
- */
-var Notice = function Notice(_ref) {
-  var children = _ref.children,
-      highlight = _ref.highlight;
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "\n          w-full\n          min-h-[50px]\n          py-14\n          flex\n          items-center\n          ".concat(highlight ? 'border-l-[3px] border-primary pl-[13px] pr-16' : '', "\n      ")
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "m-0 text-14"
-  }, children)));
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Notice);
-
-/***/ }),
-
-/***/ "./resources/scripts/user-interface/components/Page/Page.js":
-/*!******************************************************************!*\
-  !*** ./resources/scripts/user-interface/components/Page/Page.js ***!
-  \******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-
-
-/**
- * Page
- *
- * @param {object} props
- */
-var Page = function Page(_ref) {
-  var children = _ref.children;
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "bg-white flex-1 flex flex-wrap w-full"
-  }, children);
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Page);
-
-/***/ }),
-
-/***/ "./resources/scripts/user-interface/components/Page/PseudoFade.js":
-/*!************************************************************************!*\
-  !*** ./resources/scripts/user-interface/components/Page/PseudoFade.js ***!
-  \************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-
-
-/**
- * Pseudo Fade
- */
-var PseudoFade = function PseudoFade() {
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: " absolute top-0 right-0 w-[40px] h-full bg-gradient-to-r from-transparent to-white"
-  });
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PseudoFade);
-
-/***/ }),
-
-/***/ "./resources/scripts/user-interface/components/Page/Sidebar.js":
-/*!*********************************************************************!*\
-  !*** ./resources/scripts/user-interface/components/Page/Sidebar.js ***!
-  \*********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-
-
-/**
- * Sidebar
- *
- * @param {object} props
- */
-var Sidebar = function Sidebar(_ref) {
-  var children = _ref.children;
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: " w-full lg:w-[240px] xl:w-[360px] 2xl:w-[480px] flex flex-col lg:border-l border-gray-5 lg:order-1"
-  }, children);
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Sidebar);
-
-/***/ }),
-
-/***/ "./resources/scripts/user-interface/components/Page/Toolbar.js":
-/*!*********************************************************************!*\
-  !*** ./resources/scripts/user-interface/components/Page/Toolbar.js ***!
-  \*********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-
-
-/**
- * Toolbar
- *
- * @param {object} props
- */
-var Toolbar = function Toolbar(_ref) {
-  var children = _ref.children;
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: " relative sticky top-0 md:top-[32px] w-full h-[50px] px-16 py-4 flex items-center justify-between border-b border-gray-5 bg-white z-10"
-  }, children);
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Toolbar);
-
-/***/ }),
-
-/***/ "./resources/scripts/user-interface/components/Page/WordPressContainer.js":
-/*!********************************************************************************!*\
-  !*** ./resources/scripts/user-interface/components/Page/WordPressContainer.js ***!
-  \********************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
-/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-
-
-/**
- * WordPress Container
- *
- * @param {object} props
- */
-var WordPressContainer = function WordPressContainer(_ref) {
-  var children = _ref.children;
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "relative -ml-10 md:-ml-20"
-  }, children);
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (WordPressContainer);
-
-/***/ }),
-
-/***/ "./resources/scripts/user-interface/utils/admin.js":
-/*!*********************************************************!*\
-  !*** ./resources/scripts/user-interface/utils/admin.js ***!
-  \*********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "objectHasKey": () => (/* binding */ objectHasKey),
-/* harmony export */   "getInterventionKey": () => (/* binding */ getInterventionKey),
-/* harmony export */   "getValue": () => (/* binding */ getValue),
-/* harmony export */   "getRolesAsNiceName": () => (/* binding */ getRolesAsNiceName),
-/* harmony export */   "sortDataByRoleKeys": () => (/* binding */ sortDataByRoleKeys)
-/* harmony export */ });
-/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
-
-
-/**
- * Object Has Key
- *
- * @param {object} obj
- * @param {string} k
- * @returns {boolean}
- */
-var objectHasKey = function objectHasKey(obj, k) {
-  return Object.prototype.hasOwnProperty.call(obj, k) && k !== '';
-};
-/**
- * Get Intervention Key
- *
- * @param {string} k
- * @returns {string}
- */
-
-var getInterventionKey = function getInterventionKey() {
-  var k = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-  // replace component identifiers
-  var replace = [':hierachical', ':text', ':number', ':group', ':exemption', '/:route'];
-  replace.forEach(function (item) {
-    k = k.replaceAll(item, '');
-  }); // replace `/` with `.` to match Intervention
-
-  k = k.replaceAll('/', '.');
-  return k;
-};
-/**
- * Get Value
- *
- * @param {object} components
- * @param {string} key
- * @returns {any}
- */
-
-var getValue = function getValue(components, key) {
-  return Object.keys(components).includes(key) ? components[key] : [false, false];
-};
-/**
- * Get Roles as Nicename
- *
- * @param {array} roles
- * @returns {string}
- */
-
-var getRolesAsNiceName = function getRolesAsNiceName(roles) {
-  var joined = roles.join(', '); // const caps = joined.charAt(0).toUpperCase() + joined.slice(1);
-
-  var andPos = joined.lastIndexOf(',');
-  return andPos > 0 ? joined.substring(0, andPos) + ' and ' + joined.substring(andPos + 1) : joined;
-};
 /**
  * Sort Data By Role Keys
  *
@@ -3241,9 +3009,10 @@ var getRolesAsNiceName = function getRolesAsNiceName(roles) {
  * @returns {object}
  */
 
-var sortDataByRoleKeys = function sortDataByRoleKeys(data, i) {
-  var roleKeys = Object.keys(intervention.route.admin.data.roles); // const findIndex = data[i].roles.join();
-  // sorting algorithm
+var setRoleKeyOrder = function setRoleKeyOrder(data) {
+  var i = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+  var roleKeys = Object.keys(intervention.route.admin.data.roles);
+  var findSelectedIndex = data[i].roles[0].join(); // sorting algorithm
 
   data.sort(function (a, b) {
     var _a$roles = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(a.roles, 1),
@@ -3267,38 +3036,1843 @@ var sortDataByRoleKeys = function sortDataByRoleKeys(data, i) {
   }); // new index found
   // relook this implementation
 
-  /*
-  const indexFound = data.reduce((carry, item, index) => {
-    const [roles] = item.roles;
-    if (findIndex === roles.join()) {
+  var selectedIndexFound = data.reduce(function (carry, item, index) {
+    if (findSelectedIndex === item.roles[0].join()) {
       carry = index;
     }
+
     return carry;
   }, i);
-   const index = indexFound ? indexFound : 0;
-  */
-  // return { data, index };
+  var selectedIndex = selectedIndexFound ? selectedIndexFound : 0; // console.log({ selectedIndex });
 
   return {
-    data: data
-  };
+    data: data,
+    selectedIndex: selectedIndex
+  }; // return { data };
 };
+/**
+ * Save
+ *
+ * @description save `admin` options to the WordPress database.
+ *
+ * @returns <Save />
+ */
+
+
+var Save = function Save(_ref) {
+  var state = _ref.state;
+
+  var _useAtom = (0,jotai__WEBPACK_IMPORTED_MODULE_10__.useAtom)(_atoms_admin__WEBPACK_IMPORTED_MODULE_6__.dataAtom),
+      _useAtom2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useAtom, 2),
+      data = _useAtom2[0],
+      setData = _useAtom2[1];
+
+  var _useAtom3 = (0,jotai__WEBPACK_IMPORTED_MODULE_10__.useAtom)(_atoms_admin__WEBPACK_IMPORTED_MODULE_6__.selectedIndexAtom),
+      _useAtom4 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useAtom3, 2),
+      dangerousSelectedIndex = _useAtom4[0],
+      setSelectedIndex = _useAtom4[1];
+
+  var _useAtom5 = (0,jotai__WEBPACK_IMPORTED_MODULE_10__.useAtom)(_atoms_admin__WEBPACK_IMPORTED_MODULE_6__.isBlockingAtom),
+      _useAtom6 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useAtom5, 1),
+      isBlocking = _useAtom6[0];
+
+  var _useState = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useState)((0,_utils_wp__WEBPACK_IMPORTED_MODULE_9__.__)('Save')),
+      _useState2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useState, 2),
+      buttonText = _useState2[0],
+      setButtonText = _useState2[1];
+  /**
+   * Prompt
+   */
+
+
+  (0,react_router_dom__WEBPACK_IMPORTED_MODULE_11__.usePrompt)('You have unsaved changes, are you sure you want to leave?', isBlocking);
+  /**
+   * Middleware
+   *
+   * @description remove immutable components before saving.
+   *
+   * @return {object}
+   */
+
+  var middleware = data.reduce(function (carry, _ref2) {
+    var roles = _ref2.roles,
+        components = _ref2.components;
+    var removeImmutableComponents = Object.entries(components).reduce(function (carry, _ref3) {
+      var _ref4 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_ref3, 2),
+          k = _ref4[0],
+          _ref4$ = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_ref4[1], 2),
+          value = _ref4$[0],
+          immutable = _ref4$[1];
+
+      if (immutable !== true) {
+        carry[k] = [value, false];
+      }
+
+      return carry;
+    }, {});
+    carry[roles[0].join('|')] = removeImmutableComponents;
+    return carry;
+  }, {});
+  /**
+   * Mutation
+   *
+   * @description save changes to database.
+   */
+
+  var mutation = (0,react_query__WEBPACK_IMPORTED_MODULE_4__.useMutation)(function () {
+    return _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_5___default()({
+      url: intervention.route.admin.url,
+      method: 'POST',
+      data: {
+        data: middleware,
+        save: true
+      }
+    }).then(function (res) {
+      var selectedIndex = (0,_utils_admin__WEBPACK_IMPORTED_MODULE_8__.safeSelectedIndex)(dangerousSelectedIndex, res.data);
+      var sorted = setRoleKeyOrder(res.data, selectedIndex);
+      setSelectedIndex(sorted.selectedIndex);
+      setData(sorted.data);
+      setButtonText((0,_utils_wp__WEBPACK_IMPORTED_MODULE_9__.__)('Save'));
+      state.reset();
+    });
+  });
+  /**
+   * Handler
+   */
+
+  var handler = function handler() {
+    setButtonText((0,_utils_wp__WEBPACK_IMPORTED_MODULE_9__.__)('Saving'));
+    /**
+     * Escape
+     */
+
+    var escape = function escape() {
+      setButtonText((0,_utils_wp__WEBPACK_IMPORTED_MODULE_9__.__)('Save'));
+    };
+    /**
+     * Empty Role Group Found
+     *
+     * @returns {boolean}
+     */
+
+
+    var emptyRoleGroupFound = function emptyRoleGroupFound() {
+      return Object.keys(middleware).includes('');
+    };
+    /**
+     * Duplicate Role Group Found
+     *
+     * @returns {boolean}
+     */
+
+
+    var duplicateRoleGroupFound = function duplicateRoleGroupFound() {
+      var rolesAsKeys = data.reduce(function (carry, _ref5) {
+        var roles = _ref5.roles;
+        carry.push(roles[0].join('|'));
+        return carry;
+      }, []);
+      return (0,_utils_structures__WEBPACK_IMPORTED_MODULE_7__.arrayHasDuplicates)(rolesAsKeys);
+    };
+    /**
+     * If Empty Role Group Found
+     */
+
+
+    if (emptyRoleGroupFound()) {
+      var msg = (0,_utils_wp__WEBPACK_IMPORTED_MODULE_9__.__)('Empty role group found, please assign a role or delete the group before saving.');
+
+      window.alert(msg);
+      escape();
+      return;
+    }
+    /**
+     * If Duplicate Role Group Found
+     */
+
+
+    if (duplicateRoleGroupFound()) {
+      var _msg = (0,_utils_wp__WEBPACK_IMPORTED_MODULE_9__.__)('Found matching user groups, proceeding to save will merge groups.');
+
+      var proceed = window.confirm(_msg);
+      proceed ? mutation.mutate() : escape();
+      return;
+    }
+
+    mutation.mutate();
+  };
+  /**
+   * Render
+   */
+
+
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Button, {
+    className: "is-primary",
+    onClick: function onClick() {
+      return handler();
+    },
+    disabled: isBlocking === false
+  }, buttonText);
+};
+
+
 
 /***/ }),
 
-/***/ "./resources/scripts/user-interface/utils/arr.js":
-/*!*******************************************************!*\
-  !*** ./resources/scripts/user-interface/utils/arr.js ***!
-  \*******************************************************/
+/***/ "./resources/scripts/user-interface/interface/App.js":
+/*!***********************************************************!*\
+  !*** ./resources/scripts/user-interface/interface/App.js ***!
+  \***********************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "arrayHasDuplicates": () => (/* binding */ arrayHasDuplicates)
+/* harmony export */   "App": () => (/* binding */ App)
 /* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ "./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/regenerator */ "@babel/runtime/regenerator");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
+/* harmony import */ var react_query__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-query */ "./node_modules/react-query/es/index.js");
+/* harmony import */ var _Head__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Head */ "./resources/scripts/user-interface/interface/Head.js");
+/* harmony import */ var _Admin__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Admin */ "./resources/scripts/user-interface/interface/Admin.js");
+/* harmony import */ var _Export__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Export */ "./resources/scripts/user-interface/interface/Export.js");
+/* harmony import */ var _Application__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Application */ "./resources/scripts/user-interface/interface/Application.js");
+/* harmony import */ var _Page_Loader__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Page/Loader */ "./resources/scripts/user-interface/interface/Page/Loader.js");
+/* harmony import */ var _queries__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../queries */ "./resources/scripts/user-interface/queries.js");
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * Query
+ *
+ * @description create query client for `react-query`.
+ *
+ * @link https://react-query.tanstack.com/reference/QueryClient
+ */
+
+var queryClient = new react_query__WEBPACK_IMPORTED_MODULE_4__.QueryClient();
+/**
+ * WordPress Container
+ *
+ * @description container to normalize WordPress styling.
+ *
+ * @param {object} props
+ * @returns <WordPressContainer />
+ */
+
+var WordPressContainer = function WordPressContainer(_ref) {
+  var children = _ref.children;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+    className: "relative -ml-10 md:-ml-20"
+  }, children);
+};
+/**
+ * App
+ *
+ * @description providers, suspension and routing for Intervention user interface.
+ *
+ * @returns <App />
+ */
+
+
+var App = function App() {
+  /**
+   * Prefetch
+   *
+   * @description prefetch queries for WordPress data.
+   */
+  var prefetch = /*#__PURE__*/function () {
+    var _ref2 = (0,_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__.default)( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default().mark(function _callee() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return queryClient.prefetchQuery('admin', _queries__WEBPACK_IMPORTED_MODULE_10__.adminQuery);
+
+            case 2:
+              _context.next = 4;
+              return queryClient.prefetchQuery('application', _queries__WEBPACK_IMPORTED_MODULE_10__.applicationQuery);
+
+            case 4:
+              _context.next = 6;
+              return queryClient.prefetchQuery('export', _queries__WEBPACK_IMPORTED_MODULE_10__.exportQuery);
+
+            case 6:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    return function prefetch() {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+
+  prefetch();
+  /**
+   * Render
+   */
+
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)((react__WEBPACK_IMPORTED_MODULE_3___default().StrictMode), null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.HashRouter, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(react_query__WEBPACK_IMPORTED_MODULE_4__.QueryClientProvider, {
+    client: queryClient
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(WordPressContainer, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Head__WEBPACK_IMPORTED_MODULE_5__.Head, null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Suspense, {
+    fallback: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Page_Loader__WEBPACK_IMPORTED_MODULE_9__.Loader, null)
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Routes, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Admin__WEBPACK_IMPORTED_MODULE_6__.Admin, {
+    path: "/",
+    exact: true
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Application__WEBPACK_IMPORTED_MODULE_8__.Application, {
+    path: "/application"
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Export__WEBPACK_IMPORTED_MODULE_7__.Export, {
+    path: "/export"
+  })))))));
+};
+
+
+
+/***/ }),
+
+/***/ "./resources/scripts/user-interface/interface/Application.js":
+/*!*******************************************************************!*\
+  !*** ./resources/scripts/user-interface/interface/Application.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Application": () => (/* binding */ Application)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_query__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-query */ "./node_modules/react-query/es/index.js");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _Page_Page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Page/Page */ "./resources/scripts/user-interface/interface/Page/Page.js");
+/* harmony import */ var _Page_Toolbar__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Page/Toolbar */ "./resources/scripts/user-interface/interface/Page/Toolbar.js");
+/* harmony import */ var _Page_Sidebar__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Page/Sidebar */ "./resources/scripts/user-interface/interface/Page/Sidebar.js");
+/* harmony import */ var _Application_ToolbarContentRender__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Application/ToolbarContentRender */ "./resources/scripts/user-interface/interface/Application/ToolbarContentRender.js");
+/* harmony import */ var _Application_Row__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./Application/Row */ "./resources/scripts/user-interface/interface/Application/Row.js");
+/* harmony import */ var _utils_wp__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../utils/wp */ "./resources/scripts/user-interface/utils/wp.js");
+/* harmony import */ var _queries__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../queries */ "./resources/scripts/user-interface/queries.js");
+/* harmony import */ var _sessions__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../sessions */ "./resources/scripts/user-interface/sessions.js");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_5___default().use(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_5___default().createNonceMiddleware(intervention.nonce));
+/**
+ * Application
+ *
+ * @description import application config to the WordPress database.
+ *
+ * @returns <Application />
+ */
+
+var Application = function Application() {
+  /**
+   * Query
+   */
+  var query = (0,react_query__WEBPACK_IMPORTED_MODULE_3__.useQuery)('application', _queries__WEBPACK_IMPORTED_MODULE_12__.applicationQuery, {
+    suspense: true
+  });
+  /**
+   * State
+   */
+
+  var session = (0,_sessions__WEBPACK_IMPORTED_MODULE_13__.applicationRadioSession)();
+
+  var _useState = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useState)(session ? session : 'all'),
+      _useState2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useState, 2),
+      radio = _useState2[0],
+      setRadio = _useState2[1];
+
+  var _useState3 = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useState)(query.data.items),
+      _useState4 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useState3, 2),
+      data = _useState4[0],
+      setData = _useState4[1];
+
+  var _useState5 = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useState)(query.data.diff),
+      _useState6 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useState5, 2),
+      diff = _useState6[0],
+      setDiff = _useState6[1];
+
+  var _useState7 = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useState)({
+    completed: [],
+    skipped: []
+  }),
+      _useState8 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useState7, 2),
+      imported = _useState8[0],
+      setImported = _useState8[1];
+  /**
+   * Mutation
+   *
+   * @description save changes to database.
+   */
+
+
+  var mutation = (0,react_query__WEBPACK_IMPORTED_MODULE_3__.useMutation)(function () {
+    return _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_5___default()({
+      url: intervention.route.application.url,
+      method: 'POST',
+      data: {
+        "import": true
+      }
+    }).then(function (res) {
+      setData(res.items);
+      setDiff(res.diff);
+      setImported(res.imported);
+    });
+  });
+  /**
+   * Effects
+   */
+
+  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    (0,_sessions__WEBPACK_IMPORTED_MODULE_13__.applicationRadioSession)(radio);
+  }, [radio]);
+  /**
+   * Rules
+   *
+   * @description filter `data` results to match radio selection.
+   *
+   * @return {array}
+   */
+
+  var rules = function rules(_ref) {
+    var intervention = _ref.intervention,
+        database = _ref.database;
+    if (radio === 'match') return intervention.value === database.value;
+    if (radio === 'mismatch') return intervention.value !== database.value;
+    return true;
+  };
+  /**
+   * Handler
+   */
+
+
+  var handler = function handler() {
+    return mutation.mutate();
+  };
+  /**
+   * Render
+   */
+
+
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Page_Page__WEBPACK_IMPORTED_MODULE_6__.Page, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Page_Sidebar__WEBPACK_IMPORTED_MODULE_8__.Sidebar, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Page_Sidebar__WEBPACK_IMPORTED_MODULE_8__.SidebarGroup, {
+    title: (0,_utils_wp__WEBPACK_IMPORTED_MODULE_11__.__)('Show')
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.RadioControl, {
+    selected: radio,
+    options: [{
+      label: (0,_utils_wp__WEBPACK_IMPORTED_MODULE_11__.__)('All'),
+      value: 'all'
+    }, {
+      label: (0,_utils_wp__WEBPACK_IMPORTED_MODULE_11__.__)('Mismatch'),
+      value: 'mismatch'
+    }, {
+      label: (0,_utils_wp__WEBPACK_IMPORTED_MODULE_11__.__)('Match'),
+      value: 'match'
+    }],
+    onChange: function onChange(value) {
+      return setRadio(value);
+    }
+  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+    className: "w-full flex-1"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Page_Toolbar__WEBPACK_IMPORTED_MODULE_7__.Toolbar, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Page_Toolbar__WEBPACK_IMPORTED_MODULE_7__.ToolbarFlex, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Page_Toolbar__WEBPACK_IMPORTED_MODULE_7__.ToolbarTitle, null, (0,_utils_wp__WEBPACK_IMPORTED_MODULE_11__.__)('Application')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Page_Toolbar__WEBPACK_IMPORTED_MODULE_7__.ToolbarContent, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Application_ToolbarContentRender__WEBPACK_IMPORTED_MODULE_9__.ToolbarContentRender, {
+    imported: imported,
+    diff: diff,
+    setRadio: setRadio
+  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Button, {
+    className: "is-primary",
+    onClick: function onClick() {
+      return handler();
+    },
+    disabled: diff === 0
+  }, mutation.isLoading ? (0,_utils_wp__WEBPACK_IMPORTED_MODULE_11__.__)('Importing') : (0,_utils_wp__WEBPACK_IMPORTED_MODULE_11__.__)('Import'))), query.isError && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, (0,_utils_wp__WEBPACK_IMPORTED_MODULE_11__.__)('Sorry, an error has occured while attempting to access database options'), "."), query.isSuccess && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.Fragment, null, data.filter(rules).length === 0 && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Application_Row__WEBPACK_IMPORTED_MODULE_10__.RowNotFound, null, (0,_utils_wp__WEBPACK_IMPORTED_MODULE_11__.__)('Nothing found'), "."), data.filter(rules).map(function (_ref2) {
+    var intervention = _ref2.intervention,
+        database = _ref2.database;
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Application_Row__WEBPACK_IMPORTED_MODULE_10__.Row, {
+      key: database.key
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Application_Row__WEBPACK_IMPORTED_MODULE_10__.RowKey, null, intervention.key), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Application_Row__WEBPACK_IMPORTED_MODULE_10__.RowValue, null, intervention.value !== database.value ? (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Application_Row__WEBPACK_IMPORTED_MODULE_10__.RowValueFromTo, {
+      from: database.value,
+      to: intervention.value
+    }) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("span", null, String(intervention.value))));
+  }))));
+};
+
+
+
+/***/ }),
+
+/***/ "./resources/scripts/user-interface/interface/Application/Row.js":
+/*!***********************************************************************!*\
+  !*** ./resources/scripts/user-interface/interface/Application/Row.js ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "RowNotFound": () => (/* binding */ RowNotFound),
+/* harmony export */   "Row": () => (/* binding */ Row),
+/* harmony export */   "RowKey": () => (/* binding */ RowKey),
+/* harmony export */   "RowValue": () => (/* binding */ RowValue),
+/* harmony export */   "RowValueFromTo": () => (/* binding */ RowValueFromTo)
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Page_PseudoFade__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Page/PseudoFade */ "./resources/scripts/user-interface/interface/Page/PseudoFade.js");
+
+
+/**
+ * Row Not Found
+ *
+ * @description layout for empty application row.
+ *
+ * @params {object} props
+ * @returns <RowNotFound />
+ */
+
+var RowNotFound = function RowNotFound(_ref) {
+  var children = _ref.children;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: " h-[44px] lg:h-[40px] px-16 flex items-center text-14 leading-none text-gray-50 last:border-0"
+  }, children);
+};
+/**
+ * Row
+ *
+ * @description layout for application row.
+ *
+ * @params {object} props
+ * @returns <Row />
+ */
+
+
+var Row = function Row(_ref2) {
+  var children = _ref2.children;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: " flex h-[44px] text-13 lg:text-14 leading-none text-gray-50 border-b border-gray-2 last:-mb-1"
+  }, children);
+};
+/**
+ * Row Key
+ *
+ * @description layout for application row key.
+ *
+ * @params {object} props
+ * @returns <RowKey />
+ */
+
+
+var RowKey = function RowKey(_ref3) {
+  var children = _ref3.children;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: " relative w-1/2 px-[16px] pt-1 flex items-center truncate"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, children), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Page_PseudoFade__WEBPACK_IMPORTED_MODULE_1__.PseudoFade, null));
+};
+/**
+ * Row Value
+ *
+ * @description layout for application row value.
+ *
+ * @params {object} props
+ * @returns <RowValue />
+ */
+
+
+var RowValue = function RowValue(_ref4) {
+  var children = _ref4.children;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: " relative w-1/2 pt-1 px-12 flex flex-wrap items-center border-l border-gray-2 truncate"
+  }, children);
+};
+/**
+ * Row Value From To
+ *
+ * @description layout for application row value `from` and `to`.
+ *
+ * @params {object} { from: {string}, to: {string} }
+ * @returns <RowValueFromTo />
+ */
+
+
+var RowValueFromTo = function RowValueFromTo(_ref5) {
+  var from = _ref5.from,
+      to = _ref5.to;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "flex items-center"
+  }, from !== '' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    className: "mr-[6px]"
+  }, String(from)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    className: " px-[6px] py-[2px] text-primary-10 rounded border border-primary-10"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    className: "mr-4 text-12"
+  }, String.fromCharCode(8594)), String(to)));
+};
+
+
+
+/***/ }),
+
+/***/ "./resources/scripts/user-interface/interface/Application/ToolbarContentRender.js":
+/*!****************************************************************************************!*\
+  !*** ./resources/scripts/user-interface/interface/Application/ToolbarContentRender.js ***!
+  \****************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ToolbarContentRender": () => (/* binding */ ToolbarContentRender)
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _utils_wp__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utils/wp */ "./resources/scripts/user-interface/utils/wp.js");
+
+
+
+
+/**
+ * Toolbar Content Render
+ *
+ * @description application messaging for toolbar content.
+ *
+ * @param {object} props
+ * @returns <ToolbarContentRender />
+ */
+
+var ToolbarContentRender = function ToolbarContentRender(_ref) {
+  var imported = _ref.imported,
+      diff = _ref.diff,
+      setRadio = _ref.setRadio;
+
+  /**
+   * Render: Imported with fails
+   */
+  if (imported.skipped.length > 0) {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.sprintf)((0,_utils_wp__WEBPACK_IMPORTED_MODULE_3__.__)('Imported %1$s and %2$s failed'), imported.completed.length, imported.skipped.length), '.');
+  }
+  /**
+   * Render: Imported
+   */
+
+
+  if (imported.completed.length > 0) {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.sprintf)((0,_utils_wp__WEBPACK_IMPORTED_MODULE_3__.__)('Imported %s'), imported.completed.length), ".");
+  }
+  /**
+   * Render: Diffs
+   */
+
+
+  if (diff > 0) {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+      className: "blank",
+      onClick: function onClick() {
+        return setRadio('mismatch');
+      }
+    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.sprintf)((0,_utils_wp__WEBPACK_IMPORTED_MODULE_3__.__)('%s mismatch'), diff)));
+  }
+  /**
+   * Render: Matching
+   */
+
+
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null);
+};
+
+
+
+/***/ }),
+
+/***/ "./resources/scripts/user-interface/interface/Export.js":
+/*!**************************************************************!*\
+  !*** ./resources/scripts/user-interface/interface/Export.js ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Export": () => (/* binding */ Export),
+/* harmony export */   "getCheckedItems": () => (/* binding */ getCheckedItems),
+/* harmony export */   "setCheckedItems": () => (/* binding */ setCheckedItems)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
+/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ "./node_modules/@babel/runtime/helpers/esm/toConsumableArray.js");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_query__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-query */ "./node_modules/react-query/es/index.js");
+/* harmony import */ var _Page_Page__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Page/Page */ "./resources/scripts/user-interface/interface/Page/Page.js");
+/* harmony import */ var _Page_Toolbar__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Page/Toolbar */ "./resources/scripts/user-interface/interface/Page/Toolbar.js");
+/* harmony import */ var _Page_Sidebar__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Page/Sidebar */ "./resources/scripts/user-interface/interface/Page/Sidebar.js");
+/* harmony import */ var _Export_ButtonCopy__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Export/ButtonCopy */ "./resources/scripts/user-interface/interface/Export/ButtonCopy.js");
+/* harmony import */ var _Export_CodeBlock__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Export/CodeBlock */ "./resources/scripts/user-interface/interface/Export/CodeBlock.js");
+/* harmony import */ var _utils_wp__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../utils/wp */ "./resources/scripts/user-interface/utils/wp.js");
+/* harmony import */ var _queries__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../queries */ "./resources/scripts/user-interface/queries.js");
+/* harmony import */ var _sessions__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../sessions */ "./resources/scripts/user-interface/sessions.js");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var staticExports = intervention.route["export"].data.exports;
+/**
+ * Get Checked items
+ *
+ * @description filter `checkedItems` to only get keys where state is `true`.
+ *
+ * @param {Map} items
+ * @returns {string}
+ */
+
+var getCheckedItems = function getCheckedItems(checkedItems) {
+  var getKeysEqualToTrue = (0,_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__.default)(checkedItems.entries()).reduce(function (carry, item) {
+    var _item = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(item, 2),
+        k = _item[0],
+        v = _item[1];
+
+    if (v === true) {
+      carry.push(k);
+    }
+
+    return carry;
+  }, []);
+
+  return getKeysEqualToTrue;
+};
+/**
+ * Set Checked Items
+ *
+ * @description set all keys to `true` for toggling all on.
+ *
+ * @param {boolean} state
+ * @returns {Map}
+ */
+
+
+var setCheckedItems = function setCheckedItems() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+  var groupListMap = new Map();
+  staticExports.map(function (item) {
+    Array.isArray(state) ? groupListMap.set(item.id, state.includes(item.id)) : groupListMap.set(item.id, state);
+  });
+  return groupListMap;
+};
+/**
+ * Group Contains False
+ *
+ * @description deetermine if `checkedItems` contains a false value.
+ *
+ * @returns {boolean}
+ */
+
+
+var groupContainsFalse = function groupContainsFalse(checkedItems) {
+  var valuesArray = Array.from(checkedItems.values());
+  return valuesArray.includes(false);
+};
+/**
+ * Export
+ *
+ * @description export WordPress database options to an Intervention config file.
+ *
+ * @returns <Export />
+ */
+
+
+var Export = function Export() {
+  /**
+   * Query
+   */
+  var query = (0,react_query__WEBPACK_IMPORTED_MODULE_4__.useQuery)('export', _queries__WEBPACK_IMPORTED_MODULE_11__.exportQuery, {
+    suspense: true
+  });
+  /**
+   * State
+   */
+
+  var _useState = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useState)({
+    items: (0,_sessions__WEBPACK_IMPORTED_MODULE_12__.exportSelectionSession)() ? setCheckedItems((0,_sessions__WEBPACK_IMPORTED_MODULE_12__.exportSelectionSession)()) : setCheckedItems(true)
+  }),
+      _useState2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useState, 2),
+      checked = _useState2[0],
+      setChecked = _useState2[1];
+  /**
+   * Effects
+   *
+   * Fetch new response from `UserInterface/Tools/Export.php`.
+   */
+
+
+  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.useEffect)(function () {
+    var groups = getCheckedItems(checked.items);
+    (0,_sessions__WEBPACK_IMPORTED_MODULE_12__.exportSelectionSession)(groups);
+    query.refetch();
+  }, [checked]);
+  /**
+   * Handler
+   *
+   * Change `checked.items` to new group states.
+   *
+   * @param {Map} group
+   * @param {boolean} state
+   */
+
+  var handler = function handler(group, state) {
+    setChecked({
+      items: checked.items.set(group, state)
+    });
+  };
+  /**
+   * Render
+   */
+
+
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_Page_Page__WEBPACK_IMPORTED_MODULE_5__.Page, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_Page_Sidebar__WEBPACK_IMPORTED_MODULE_7__.Sidebar, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_Page_Sidebar__WEBPACK_IMPORTED_MODULE_7__.SidebarGroup, {
+    title: (0,_utils_wp__WEBPACK_IMPORTED_MODULE_10__.__)('Application')
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_Page_Sidebar__WEBPACK_IMPORTED_MODULE_7__.SidebarCheckboxFlex, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_Page_Sidebar__WEBPACK_IMPORTED_MODULE_7__.SidebarCheckboxItem, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CheckboxControl, {
+    label: (0,_utils_wp__WEBPACK_IMPORTED_MODULE_10__.__)('Toggle All', 'intervention'),
+    checked: !groupContainsFalse(checked.items),
+    onChange: function onChange() {
+      return setChecked({
+        items: setCheckedItems(groupContainsFalse(checked.items))
+      });
+    }
+  })), staticExports.map(function (_ref) {
+    var _checked$items$get;
+
+    var id = _ref.id,
+        title = _ref.title;
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_Page_Sidebar__WEBPACK_IMPORTED_MODULE_7__.SidebarCheckboxItem, {
+      key: id
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.CheckboxControl, {
+      label: (0,_utils_wp__WEBPACK_IMPORTED_MODULE_10__.__)(title),
+      checked: (_checked$items$get = checked.items.get(id)) !== null && _checked$items$get !== void 0 ? _checked$items$get : false,
+      onChange: function onChange(state) {
+        return handler(id, state);
+      }
+    }));
+  })))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)("div", {
+    className: "flex-1 w-1/2"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_Page_Toolbar__WEBPACK_IMPORTED_MODULE_6__.Toolbar, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_Page_Toolbar__WEBPACK_IMPORTED_MODULE_6__.ToolbarTitle, null, (0,_utils_wp__WEBPACK_IMPORTED_MODULE_10__.__)('Export')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_Export_ButtonCopy__WEBPACK_IMPORTED_MODULE_8__.ButtonCopy, {
+    textToCopy: query.data
+  })), query.isError && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.Fragment, null, (0,_utils_wp__WEBPACK_IMPORTED_MODULE_10__.__)('Sorry, an error has occured while attempting to access database options'), "."), query.isSuccess && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_2__.createElement)(_Export_CodeBlock__WEBPACK_IMPORTED_MODULE_9__.CodeBlock, null, query.data)));
+};
+
+
+
+/***/ }),
+
+/***/ "./resources/scripts/user-interface/interface/Export/ButtonCopy.js":
+/*!*************************************************************************!*\
+  !*** ./resources/scripts/user-interface/interface/Export/ButtonCopy.js ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "ButtonCopy": () => (/* binding */ ButtonCopy)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_copy_to_clipboard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-copy-to-clipboard */ "./node_modules/react-copy-to-clipboard/lib/index.js");
+/* harmony import */ var react_copy_to_clipboard__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_copy_to_clipboard__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _utils_wp__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../utils/wp */ "./resources/scripts/user-interface/utils/wp.js");
+
+
+
+
+
+
+/**
+ * Button Copy
+ *
+ * @description copy button for export page.
+ *
+ * @param {object} props
+ * @returns <ButtonCopy />
+ */
+
+var ButtonCopy = function ButtonCopy(_ref) {
+  var textToCopy = _ref.textToCopy;
+
+  var _useState = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useState)((0,_utils_wp__WEBPACK_IMPORTED_MODULE_4__.__)('Copy')),
+      _useState2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useState, 2),
+      copied = _useState2[0],
+      setCopied = _useState2[1];
+  /**
+   * Effects
+   */
+
+
+  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    var timer = setTimeout(function () {
+      return setCopied((0,_utils_wp__WEBPACK_IMPORTED_MODULE_4__.__)('Copy'));
+    }, 5000);
+    return function () {
+      return clearTimeout(timer);
+    };
+  }, [copied]);
+  /**
+   * Render
+   */
+
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(react_copy_to_clipboard__WEBPACK_IMPORTED_MODULE_3__.CopyToClipboard, {
+    text: textToCopy,
+    onCopy: function onCopy() {
+      return setCopied((0,_utils_wp__WEBPACK_IMPORTED_MODULE_4__.__)('Copied'));
+    }
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+    className: "is-secondary"
+  }, copied));
+};
+
+
+
+/***/ }),
+
+/***/ "./resources/scripts/user-interface/interface/Export/CodeBlock.js":
+/*!************************************************************************!*\
+  !*** ./resources/scripts/user-interface/interface/Export/CodeBlock.js ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "CodeBlock": () => (/* binding */ CodeBlock)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/slicedToArray */ "./node_modules/@babel/runtime/helpers/esm/slicedToArray.js");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var prismjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prismjs */ "./node_modules/prismjs/prism.js");
+/* harmony import */ var prismjs__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prismjs__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var prismjs_components_prism_markup_templating__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prismjs/components/prism-markup-templating */ "./node_modules/prismjs/components/prism-markup-templating.js");
+/* harmony import */ var prismjs_components_prism_markup_templating__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_markup_templating__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var prismjs_components_prism_php__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! prismjs/components/prism-php */ "./node_modules/prismjs/components/prism-php.js");
+/* harmony import */ var prismjs_components_prism_php__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(prismjs_components_prism_php__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _Page_PseudoFade__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Page/PseudoFade */ "./resources/scripts/user-interface/interface/Page/PseudoFade.js");
+
+
+
+
+
+
+
+/**
+ * Code Block
+ *
+ * @description code block for export page.
+ *
+ * @param {object} props
+ * @returns <CodeBlock />
+ */
+
+var CodeBlock = function CodeBlock(_ref) {
+  var children = _ref.children;
+
+  var _useState = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useState)(false),
+      _useState2 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_0__.default)(_useState, 2),
+      isHighlighted = _useState2[0],
+      setIsHighlighted = _useState2[1];
+  /**
+   * Effects
+   */
+
+
+  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    prismjs__WEBPACK_IMPORTED_MODULE_2___default().highlightAll(); // hack to stop prism highlight jitter
+
+    setTimeout(function () {
+      return setIsHighlighted(true);
+    }, 15);
+  });
+  /**
+   * Render
+   */
+
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+    className: "\n        relative\n        py-20\n        px-16\n        ".concat(isHighlighted ? '' : 'opacity-0', "\n      ")
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("pre", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("code", {
+    className: "language-php text-14"
+  }, children)), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)(_Page_PseudoFade__WEBPACK_IMPORTED_MODULE_5__.PseudoFade, null));
+};
+
+
+
+/***/ }),
+
+/***/ "./resources/scripts/user-interface/interface/Head.js":
+/*!************************************************************!*\
+  !*** ./resources/scripts/user-interface/interface/Head.js ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Head": () => (/* binding */ Head)
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Head_Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Head/Header */ "./resources/scripts/user-interface/interface/Head/Header.js");
+/* harmony import */ var _Head_Name__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Head/Name */ "./resources/scripts/user-interface/interface/Head/Name.js");
+/* harmony import */ var _Head_NavLink__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Head/NavLink */ "./resources/scripts/user-interface/interface/Head/NavLink.js");
+/* harmony import */ var _Head_OutboundLink__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Head/OutboundLink */ "./resources/scripts/user-interface/interface/Head/OutboundLink.js");
+/* harmony import */ var _utils_wp__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils/wp */ "./resources/scripts/user-interface/utils/wp.js");
+
+
+
+
+
+
+/**
+ * Head
+ */
+
+var Head = function Head() {
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Head_Header__WEBPACK_IMPORTED_MODULE_1__.Header, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "flex flex-wrap"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Head_Name__WEBPACK_IMPORTED_MODULE_2__.Name, null, "Intervention"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "flex flex-wrap items-center"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Head_NavLink__WEBPACK_IMPORTED_MODULE_3__.NavLink, {
+    to: "/"
+  }, (0,_utils_wp__WEBPACK_IMPORTED_MODULE_5__.__)('Admin')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Head_NavLink__WEBPACK_IMPORTED_MODULE_3__.NavLink, {
+    to: "/application"
+  }, (0,_utils_wp__WEBPACK_IMPORTED_MODULE_5__.__)('Application')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Head_NavLink__WEBPACK_IMPORTED_MODULE_3__.NavLink, {
+    to: "/export"
+  }, (0,_utils_wp__WEBPACK_IMPORTED_MODULE_5__.__)('Export')))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "hidden md:flex md:flex-wrap items-center"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Head_OutboundLink__WEBPACK_IMPORTED_MODULE_4__.OutboundLink, {
+    href: "https://github.com/soberwp/intervention"
+  }, (0,_utils_wp__WEBPACK_IMPORTED_MODULE_5__.__)('Documentation')), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "h-full flex items-center border-l border-gray-5 pl-12 ml-12 text-14 text-gray-50"
+  }, _utils_wp__WEBPACK_IMPORTED_MODULE_5__.version)));
+};
+
+
+
+/***/ }),
+
+/***/ "./resources/scripts/user-interface/interface/Head/Header.js":
+/*!*******************************************************************!*\
+  !*** ./resources/scripts/user-interface/interface/Head/Header.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Header": () => (/* binding */ Header)
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var Header = function Header(_ref) {
+  var children = _ref.children;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: " flex justify-between h-[60px] py-0 px-16 z-30 bg-white border-b border-gray-5"
+  }, children);
+};
+
+
+
+/***/ }),
+
+/***/ "./resources/scripts/user-interface/interface/Head/Name.js":
+/*!*****************************************************************!*\
+  !*** ./resources/scripts/user-interface/interface/Head/Name.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Name": () => (/* binding */ Name)
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var Name = function Name(_ref) {
+  var children = _ref.children;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: " flex items-center mr-[18px] font-600 text-20 text-gray-90"
+  }, children);
+};
+
+
+
+/***/ }),
+
+/***/ "./resources/scripts/user-interface/interface/Head/NavLink.js":
+/*!********************************************************************!*\
+  !*** ./resources/scripts/user-interface/interface/Head/NavLink.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "NavLink": () => (/* binding */ NavLink)
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+
+
+
+var NavLink = function NavLink(_ref) {
+  var to = _ref.to,
+      children = _ref.children;
+  var match = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_1__.useMatch)(to);
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.NavLink, {
+    to: to,
+    title: children,
+    className: "\n        inline-block\n        text-center\n        h-[36px]\n        mx-[2px]\n        mt-2\n        px-[6px]\n        leading-none\n        no-underline\n        text-14\n        rounded\n        border\n        first:ml-0\n        hover:text-primary\n        active:shadow-none\n        focus:shadow-none\n        hover:shadow-none\n        text-bold-hack\n        ".concat(match ? 'font-500 text-primary-10 border-primary-10' : 'font-400 text-gray-60 border-white')
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+    className: "flex items-center h-full"
+  }, children));
+};
+
+
+
+/***/ }),
+
+/***/ "./resources/scripts/user-interface/interface/Head/OutboundLink.js":
+/*!*************************************************************************!*\
+  !*** ./resources/scripts/user-interface/interface/Head/OutboundLink.js ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "OutboundLink": () => (/* binding */ OutboundLink)
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+
+
+// import { ExternalLink } from '@wordpress/components';
+var OutboundLink = function OutboundLink(_ref) {
+  var href = _ref.href,
+      children = _ref.children;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
+    href: href,
+    target: "_blank",
+    rel: "noreferrer",
+    className: " flex items-center mx-4 h-full no-underline text-14 text-gray-50"
+  }, children);
+};
+
+
+
+/***/ }),
+
+/***/ "./resources/scripts/user-interface/interface/Page/Loader.js":
+/*!*******************************************************************!*\
+  !*** ./resources/scripts/user-interface/interface/Page/Loader.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Loader": () => (/* binding */ Loader)
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
+
+
+/**
+ * Loader
+ */
+
+var Loader = function Loader() {
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "px-16 py-20"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Spinner, null));
+};
+
+
+
+/***/ }),
+
+/***/ "./resources/scripts/user-interface/interface/Page/Page.js":
+/*!*****************************************************************!*\
+  !*** ./resources/scripts/user-interface/interface/Page/Page.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Page": () => (/* binding */ Page)
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/**
+ * Page
+ *
+ * @param {object} props
+ */
+var Page = function Page(_ref) {
+  var children = _ref.children;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "bg-white flex-1 flex flex-wrap w-full"
+  }, children);
+};
+
+
+
+/***/ }),
+
+/***/ "./resources/scripts/user-interface/interface/Page/PseudoFade.js":
+/*!***********************************************************************!*\
+  !*** ./resources/scripts/user-interface/interface/Page/PseudoFade.js ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "PseudoFade": () => (/* binding */ PseudoFade)
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/**
+ * Pseudo Fade
+ */
+var PseudoFade = function PseudoFade() {
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: " absolute top-0 right-0 w-[40px] h-full bg-gradient-to-r from-transparent to-white"
+  });
+};
+
+
+
+/***/ }),
+
+/***/ "./resources/scripts/user-interface/interface/Page/Sidebar.js":
+/*!********************************************************************!*\
+  !*** ./resources/scripts/user-interface/interface/Page/Sidebar.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Sidebar": () => (/* binding */ Sidebar),
+/* harmony export */   "SidebarGroup": () => (/* binding */ SidebarGroup),
+/* harmony export */   "SidebarCheckboxFlex": () => (/* binding */ SidebarCheckboxFlex),
+/* harmony export */   "SidebarCheckboxItem": () => (/* binding */ SidebarCheckboxItem)
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+/**
+ * Sidebar
+ *
+ * @description layout for page sidebar.
+ *
+ * @param {object} props
+ * @returns <Sidebar />
+ */
+
+var Sidebar = function Sidebar(_ref) {
+  var children = _ref.children;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: " w-full lg:w-[240px] xl:w-[360px] 2xl:w-[480px] flex flex-col lg:border-l border-gray-5 lg:order-1"
+  }, children);
+};
+/**
+ * Sidebar Group
+ *
+ * @description layout for sidebar group.
+ *
+ * @param {object} props
+ * @returns <SidebarGroup />
+ */
+
+
+var SidebarGroup = function SidebarGroup(_ref2) {
+  var children = _ref2.children,
+      title = _ref2.title;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.Panel, {
+    className: " border-0 border-b border-gray-5 "
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelBody, {
+    title: title,
+    icon: _wordpress_element__WEBPACK_IMPORTED_MODULE_0__.more,
+    initialOpen: true,
+    className: "w-full"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_1__.PanelRow, null, children)));
+};
+/**
+ * Sidebar Checkbox Flex
+ *
+ * @description layout for sidebar checkbox flex.
+ *
+ * @param {object} props
+ * @returns <SidebarCheckboxFlex />
+ */
+
+
+var SidebarCheckboxFlex = function SidebarCheckboxFlex(_ref3) {
+  var children = _ref3.children;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "w-full flex flex-wrap"
+  }, children);
+};
+/**
+ * Sidebar Checkbox Item
+ *
+ * @description layout for sidebar checkbox item.
+ *
+ * @param {object} props
+ * @returns <SidebarCheckboxItem />
+ */
+
+
+var SidebarCheckboxItem = function SidebarCheckboxItem(_ref4) {
+  var children = _ref4.children;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "w-1/2 md:w-1/4 lg:w-full xl:w-1/2 mb-8"
+  }, children);
+};
+
+
+
+/***/ }),
+
+/***/ "./resources/scripts/user-interface/interface/Page/Toolbar.js":
+/*!********************************************************************!*\
+  !*** ./resources/scripts/user-interface/interface/Page/Toolbar.js ***!
+  \********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Toolbar": () => (/* binding */ Toolbar),
+/* harmony export */   "ToolbarFlex": () => (/* binding */ ToolbarFlex),
+/* harmony export */   "ToolbarTitle": () => (/* binding */ ToolbarTitle),
+/* harmony export */   "ToolbarContent": () => (/* binding */ ToolbarContent)
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/**
+ * Toolbar
+ *
+ * @description layout for sticky toolbar.
+ *
+ * @param {object} props
+ * @returns <Toolbar />
+ */
+var Toolbar = function Toolbar(_ref) {
+  var children = _ref.children;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: " relative sticky top-0 md:top-[32px] w-full h-[50px] px-16 flex items-center justify-between border-b border-gray-5 bg-white z-10 "
+  }, children);
+};
+/**
+ * Toolbar Flex
+ *
+ * @description layout for toolbar flex.
+ *
+ * @param {object} props
+ * @returns <ToolbarFlex />
+ */
+
+
+var ToolbarFlex = function ToolbarFlex(_ref2) {
+  var children = _ref2.children;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "h-full flex"
+  }, children);
+};
+/**
+ * Toolbar Title
+ *
+ * @description layout for toolbar title.
+ *
+ * @param {object} props
+ * @returns <ToolbarTitle />
+ */
+
+
+var ToolbarTitle = function ToolbarTitle(_ref3) {
+  var children = _ref3.children;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "flex h-full"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: " flex items-center text-14 text-gray-90 font-500"
+  }, children), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: " ml-12 mr-8 w-1 h-full bg-gray-5"
+  }));
+};
+/**
+ * Toolbar Content
+ *
+ * @description layout for toolbar content.
+ *
+ * @param {object} props
+ * @returns <ToolbarContent />
+ */
+
+
+var ToolbarContent = function ToolbarContent(_ref4) {
+  var children = _ref4.children;
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "h-full flex items-center"
+  }, children);
+};
+
+
+
+/***/ }),
+
+/***/ "./resources/scripts/user-interface/queries.js":
+/*!*****************************************************!*\
+  !*** ./resources/scripts/user-interface/queries.js ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "adminQuery": () => (/* reexport safe */ _queries_admin__WEBPACK_IMPORTED_MODULE_0__.adminQuery),
+/* harmony export */   "applicationQuery": () => (/* reexport safe */ _queries_application__WEBPACK_IMPORTED_MODULE_1__.applicationQuery),
+/* harmony export */   "exportQuery": () => (/* reexport safe */ _queries_export__WEBPACK_IMPORTED_MODULE_2__.exportQuery)
+/* harmony export */ });
+/* harmony import */ var _queries_admin__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./queries/admin */ "./resources/scripts/user-interface/queries/admin.js");
+/* harmony import */ var _queries_application__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./queries/application */ "./resources/scripts/user-interface/queries/application.js");
+/* harmony import */ var _queries_export__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./queries/export */ "./resources/scripts/user-interface/queries/export.js");
+
+
+
+
+
+/***/ }),
+
+/***/ "./resources/scripts/user-interface/queries/admin.js":
+/*!***********************************************************!*\
+  !*** ./resources/scripts/user-interface/queries/admin.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "adminQuery": () => (/* binding */ adminQuery)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ "./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/regenerator */ "@babel/runtime/regenerator");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _interface_Admin_Save__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../interface/Admin/Save */ "./resources/scripts/user-interface/interface/Admin/Save.js");
+
+
+
+
+/**
+ * Admin Query
+ *
+ * @description query admin data.
+ *
+ * @returns {object}
+ */
+
+var adminQuery = /*#__PURE__*/function () {
+  var _ref = (0,_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__.default)( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee() {
+    var res, sorted;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            _context.next = 2;
+            return _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_2___default()({
+              url: intervention.route.admin.url,
+              method: 'POST'
+            });
+
+          case 2:
+            res = _context.sent;
+            sorted = (0,_interface_Admin_Save__WEBPACK_IMPORTED_MODULE_3__.setRoleKeyOrder)(res.data);
+            return _context.abrupt("return", sorted.data);
+
+          case 5:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee);
+  }));
+
+  return function adminQuery() {
+    return _ref.apply(this, arguments);
+  };
+}();
+
+
+
+/***/ }),
+
+/***/ "./resources/scripts/user-interface/queries/application.js":
+/*!*****************************************************************!*\
+  !*** ./resources/scripts/user-interface/queries/application.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "applicationQuery": () => (/* binding */ applicationQuery)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ "./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/regenerator */ "@babel/runtime/regenerator");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+/**
+ * Application Query
+ *
+ * @description query application data.
+ *
+ * @returns {object}
+ */
+
+var applicationQuery = /*#__PURE__*/function () {
+  var _ref = (0,_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__.default)( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee() {
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            _context.next = 2;
+            return _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_2___default()({
+              url: intervention.route.application.url,
+              method: 'POST'
+            });
+
+          case 2:
+            return _context.abrupt("return", _context.sent);
+
+          case 3:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee);
+  }));
+
+  return function applicationQuery() {
+    return _ref.apply(this, arguments);
+  };
+}();
+
+
+
+/***/ }),
+
+/***/ "./resources/scripts/user-interface/queries/export.js":
+/*!************************************************************!*\
+  !*** ./resources/scripts/user-interface/queries/export.js ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "exportQuery": () => (/* binding */ exportQuery)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ "./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/regenerator */ "@babel/runtime/regenerator");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/api-fetch */ "@wordpress/api-fetch");
+/* harmony import */ var _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _sessions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../sessions */ "./resources/scripts/user-interface/sessions.js");
+/* harmony import */ var _interface_Export__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../interface/Export */ "./resources/scripts/user-interface/interface/Export.js");
+
+
+
+
+
+/**
+ * Export Query
+ *
+ * @description query export data.
+ *
+ * @returns {object}
+ */
+
+var exportQuery = /*#__PURE__*/function () {
+  var _ref = (0,_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__.default)( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().mark(function _callee() {
+    var checked, groups;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_1___default().wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            checked = (0,_sessions__WEBPACK_IMPORTED_MODULE_3__.exportSelectionSession)() ? (0,_interface_Export__WEBPACK_IMPORTED_MODULE_4__.setCheckedItems)((0,_sessions__WEBPACK_IMPORTED_MODULE_3__.exportSelectionSession)()) : (0,_interface_Export__WEBPACK_IMPORTED_MODULE_4__.setCheckedItems)(true);
+            groups = (0,_interface_Export__WEBPACK_IMPORTED_MODULE_4__.getCheckedItems)(checked);
+            _context.next = 4;
+            return _wordpress_api_fetch__WEBPACK_IMPORTED_MODULE_2___default()({
+              url: intervention.route["export"].url,
+              method: 'POST',
+              data: {
+                groups: groups
+              }
+            });
+
+          case 4:
+            return _context.abrupt("return", _context.sent);
+
+          case 5:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee);
+  }));
+
+  return function exportQuery() {
+    return _ref.apply(this, arguments);
+  };
+}();
+
+
+
+/***/ }),
+
+/***/ "./resources/scripts/user-interface/sessions.js":
+/*!******************************************************!*\
+  !*** ./resources/scripts/user-interface/sessions.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "applicationRadioSession": () => (/* binding */ applicationRadioSession),
+/* harmony export */   "exportSelectionSession": () => (/* binding */ exportSelectionSession)
+/* harmony export */ });
+/**
+ * Application Radio Session
+ *
+ * @description write/read session storage for `intervention-application-radio`.
+ *
+ * @param {string} write
+ * @returns {null|string}
+ */
+var applicationRadioSession = function applicationRadioSession() {
+  var write = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+
+  if (write) {
+    sessionStorage.setItem('intervention-application-radio', write);
+    return;
+  }
+
+  return sessionStorage.getItem('intervention-application-radio');
+};
+/**
+ * Export Selection Session
+ *
+ * @description write/read session storage for `intervention-export-selection`.
+ *
+ * @param {array} write
+ * @returns {null|array}
+ */
+
+var exportSelectionSession = function exportSelectionSession() {
+  var write = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+
+  if (write) {
+    sessionStorage.setItem('intervention-export-selection', JSON.stringify(write));
+    return;
+  }
+
+  return JSON.parse(sessionStorage.getItem('intervention-export-selection'));
+};
+
+/***/ }),
+
+/***/ "./resources/scripts/user-interface/utils/admin.js":
+/*!*********************************************************!*\
+  !*** ./resources/scripts/user-interface/utils/admin.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getInterventionKey": () => (/* binding */ getInterventionKey),
+/* harmony export */   "getValue": () => (/* binding */ getValue),
+/* harmony export */   "getKeyParams": () => (/* binding */ getKeyParams),
+/* harmony export */   "safeSelectedIndex": () => (/* binding */ safeSelectedIndex)
+/* harmony export */ });
+/**
+ * Get Intervention Key
+ *
+ * @param {string} k
+ * @returns {string}
+ */
+var getInterventionKey = function getInterventionKey() {
+  var k = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+  // replace component identifiers
+  var replace = [':hierachical', ':text', ':number', ':group', ':exemption', ':icon', '/:route'];
+  replace.forEach(function (item) {
+    k = k.replaceAll(item, '');
+  }); // replace `/` with `.` to match Intervention
+
+  k = k.replaceAll('/', '.'); // remove <TextItem />, <NumberItem /> params between `[x]`
+
+  k = k.replace(/\[(.*?)\]/, '');
+  return k;
+};
+/**
+ * Get Value
+ *
+ * @param {object} data
+ * @param {string} key
+ * @returns {any}
+ */
+
+var getValue = function getValue(data, key) {
+  return Object.keys(data).includes(key) ? data[key] : [false, false];
+};
+/**
+ * Get Key Params
+ *
+ * @param {string} key
+ * @returns {string}
+ */
+
+var getKeyParams = function getKeyParams(k) {
+  // find `[x]`
+  var match = k.match(/\[(.*?)\]/); // remove `[` and `]`
+
+  return Array.isArray(match) ? match[0].slice(1, -1) : '';
+};
+/**
+ * Safe Selected Index
+ *
+ * @param {array} data
+ * @param {number} selectedIndex
+ * @returns {number}
+ */
+
+var safeSelectedIndex = function safeSelectedIndex(selectedIndex, data) {
+  var dataLength = data.length !== 0 ? data.length - 1 : data.length;
+  return selectedIndex > dataLength ? dataLength : selectedIndex;
+};
+
+/***/ }),
+
+/***/ "./resources/scripts/user-interface/utils/structures.js":
+/*!**************************************************************!*\
+  !*** ./resources/scripts/user-interface/utils/structures.js ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "arrayHasDuplicates": () => (/* binding */ arrayHasDuplicates),
+/* harmony export */   "objectHasKey": () => (/* binding */ objectHasKey)
+/* harmony export */ });
+/**
+ * Array Has Duplicates
+ *
+ * @param {array} obj
+ * @returns {boolean}
+ */
 var arrayHasDuplicates = function arrayHasDuplicates(array) {
   return new Set(array).size !== array.length;
+};
+/**
+ * Object Has Key
+ *
+ * @param {object} obj
+ * @param {string} k
+ * @returns {boolean}
+ */
+
+var objectHasKey = function objectHasKey(obj, k) {
+  return Object.prototype.hasOwnProperty.call(obj, k) && k !== '';
 };
 
 /***/ }),
@@ -3446,6 +5020,469 @@ function copy(text, options) {
 
 module.exports = copy;
 
+
+/***/ }),
+
+/***/ "./node_modules/deep-object-diff/dist/added/index.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/deep-object-diff/dist/added/index.js ***!
+  \***********************************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+  if (true) {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports, __webpack_require__(/*! ../utils */ "./node_modules/deep-object-diff/dist/utils/index.js")], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+		__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+		(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else { var mod; }
+})(this, function (module, exports, _utils) {
+  'use strict';
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+
+  function _defineProperty(obj, key, value) {
+    if (key in obj) {
+      Object.defineProperty(obj, key, {
+        value: value,
+        enumerable: true,
+        configurable: true,
+        writable: true
+      });
+    } else {
+      obj[key] = value;
+    }
+
+    return obj;
+  }
+
+  var _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  var addedDiff = function addedDiff(lhs, rhs) {
+
+    if (lhs === rhs || !(0, _utils.isObject)(lhs) || !(0, _utils.isObject)(rhs)) return {};
+
+    var l = (0, _utils.properObject)(lhs);
+    var r = (0, _utils.properObject)(rhs);
+
+    return Object.keys(r).reduce(function (acc, key) {
+      if (l.hasOwnProperty(key)) {
+        var difference = addedDiff(l[key], r[key]);
+
+        if ((0, _utils.isObject)(difference) && (0, _utils.isEmpty)(difference)) return acc;
+
+        return _extends({}, acc, _defineProperty({}, key, difference));
+      }
+
+      return _extends({}, acc, _defineProperty({}, key, r[key]));
+    }, {});
+  };
+
+  exports.default = addedDiff;
+  module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/deep-object-diff/dist/deleted/index.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/deep-object-diff/dist/deleted/index.js ***!
+  \*************************************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+  if (true) {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports, __webpack_require__(/*! ../utils */ "./node_modules/deep-object-diff/dist/utils/index.js")], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+		__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+		(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else { var mod; }
+})(this, function (module, exports, _utils) {
+  'use strict';
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+
+  function _defineProperty(obj, key, value) {
+    if (key in obj) {
+      Object.defineProperty(obj, key, {
+        value: value,
+        enumerable: true,
+        configurable: true,
+        writable: true
+      });
+    } else {
+      obj[key] = value;
+    }
+
+    return obj;
+  }
+
+  var _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  var deletedDiff = function deletedDiff(lhs, rhs) {
+    if (lhs === rhs || !(0, _utils.isObject)(lhs) || !(0, _utils.isObject)(rhs)) return {};
+
+    var l = (0, _utils.properObject)(lhs);
+    var r = (0, _utils.properObject)(rhs);
+
+    return Object.keys(l).reduce(function (acc, key) {
+      if (r.hasOwnProperty(key)) {
+        var difference = deletedDiff(l[key], r[key]);
+
+        if ((0, _utils.isObject)(difference) && (0, _utils.isEmpty)(difference)) return acc;
+
+        return _extends({}, acc, _defineProperty({}, key, difference));
+      }
+
+      return _extends({}, acc, _defineProperty({}, key, undefined));
+    }, {});
+  };
+
+  exports.default = deletedDiff;
+  module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/deep-object-diff/dist/detailed/index.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/deep-object-diff/dist/detailed/index.js ***!
+  \**************************************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+  if (true) {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports, __webpack_require__(/*! ../added */ "./node_modules/deep-object-diff/dist/added/index.js"), __webpack_require__(/*! ../deleted */ "./node_modules/deep-object-diff/dist/deleted/index.js"), __webpack_require__(/*! ../updated */ "./node_modules/deep-object-diff/dist/updated/index.js")], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+		__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+		(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else { var mod; }
+})(this, function (module, exports, _added, _deleted, _updated) {
+  'use strict';
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+
+  var _added2 = _interopRequireDefault(_added);
+
+  var _deleted2 = _interopRequireDefault(_deleted);
+
+  var _updated2 = _interopRequireDefault(_updated);
+
+  function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : {
+      default: obj
+    };
+  }
+
+  var detailedDiff = function detailedDiff(lhs, rhs) {
+    return {
+      added: (0, _added2.default)(lhs, rhs),
+      deleted: (0, _deleted2.default)(lhs, rhs),
+      updated: (0, _updated2.default)(lhs, rhs)
+    };
+  };
+
+  exports.default = detailedDiff;
+  module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/deep-object-diff/dist/diff/index.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/deep-object-diff/dist/diff/index.js ***!
+  \**********************************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+  if (true) {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports, __webpack_require__(/*! ../utils */ "./node_modules/deep-object-diff/dist/utils/index.js")], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+		__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+		(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else { var mod; }
+})(this, function (module, exports, _utils) {
+  'use strict';
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+
+  function _defineProperty(obj, key, value) {
+    if (key in obj) {
+      Object.defineProperty(obj, key, {
+        value: value,
+        enumerable: true,
+        configurable: true,
+        writable: true
+      });
+    } else {
+      obj[key] = value;
+    }
+
+    return obj;
+  }
+
+  var _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  var diff = function diff(lhs, rhs) {
+    if (lhs === rhs) return {}; // equal return no diff
+
+    if (!(0, _utils.isObject)(lhs) || !(0, _utils.isObject)(rhs)) return rhs; // return updated rhs
+
+    var l = (0, _utils.properObject)(lhs);
+    var r = (0, _utils.properObject)(rhs);
+
+    var deletedValues = Object.keys(l).reduce(function (acc, key) {
+      return r.hasOwnProperty(key) ? acc : _extends({}, acc, _defineProperty({}, key, undefined));
+    }, {});
+
+    if ((0, _utils.isDate)(l) || (0, _utils.isDate)(r)) {
+      if (l.valueOf() == r.valueOf()) return {};
+      return r;
+    }
+
+    return Object.keys(r).reduce(function (acc, key) {
+      if (!l.hasOwnProperty(key)) return _extends({}, acc, _defineProperty({}, key, r[key])); // return added r key
+
+      var difference = diff(l[key], r[key]);
+
+      if ((0, _utils.isObject)(difference) && (0, _utils.isEmpty)(difference) && !(0, _utils.isDate)(difference)) return acc; // return no diff
+
+      return _extends({}, acc, _defineProperty({}, key, difference)); // return updated key
+    }, deletedValues);
+  };
+
+  exports.default = diff;
+  module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/deep-object-diff/dist/index.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/deep-object-diff/dist/index.js ***!
+  \*****************************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+  if (true) {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, __webpack_require__(/*! ./diff */ "./node_modules/deep-object-diff/dist/diff/index.js"), __webpack_require__(/*! ./added */ "./node_modules/deep-object-diff/dist/added/index.js"), __webpack_require__(/*! ./deleted */ "./node_modules/deep-object-diff/dist/deleted/index.js"), __webpack_require__(/*! ./updated */ "./node_modules/deep-object-diff/dist/updated/index.js"), __webpack_require__(/*! ./detailed */ "./node_modules/deep-object-diff/dist/detailed/index.js")], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+		__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+		(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else { var mod; }
+})(this, function (exports, _diff, _added, _deleted, _updated, _detailed) {
+  'use strict';
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.detailedDiff = exports.updatedDiff = exports.deletedDiff = exports.diff = exports.addedDiff = undefined;
+
+  var _diff2 = _interopRequireDefault(_diff);
+
+  var _added2 = _interopRequireDefault(_added);
+
+  var _deleted2 = _interopRequireDefault(_deleted);
+
+  var _updated2 = _interopRequireDefault(_updated);
+
+  var _detailed2 = _interopRequireDefault(_detailed);
+
+  function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : {
+      default: obj
+    };
+  }
+
+  exports.addedDiff = _added2.default;
+  exports.diff = _diff2.default;
+  exports.deletedDiff = _deleted2.default;
+  exports.updatedDiff = _updated2.default;
+  exports.detailedDiff = _detailed2.default;
+});
+
+/***/ }),
+
+/***/ "./node_modules/deep-object-diff/dist/updated/index.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/deep-object-diff/dist/updated/index.js ***!
+  \*************************************************************/
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+  if (true) {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [module, exports, __webpack_require__(/*! ../utils */ "./node_modules/deep-object-diff/dist/utils/index.js")], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+		__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+		(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else { var mod; }
+})(this, function (module, exports, _utils) {
+  'use strict';
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+
+  function _defineProperty(obj, key, value) {
+    if (key in obj) {
+      Object.defineProperty(obj, key, {
+        value: value,
+        enumerable: true,
+        configurable: true,
+        writable: true
+      });
+    } else {
+      obj[key] = value;
+    }
+
+    return obj;
+  }
+
+  var _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  var updatedDiff = function updatedDiff(lhs, rhs) {
+
+    if (lhs === rhs) return {};
+
+    if (!(0, _utils.isObject)(lhs) || !(0, _utils.isObject)(rhs)) return rhs;
+
+    var l = (0, _utils.properObject)(lhs);
+    var r = (0, _utils.properObject)(rhs);
+
+    if ((0, _utils.isDate)(l) || (0, _utils.isDate)(r)) {
+      if (l.valueOf() == r.valueOf()) return {};
+      return r;
+    }
+
+    return Object.keys(r).reduce(function (acc, key) {
+
+      if (l.hasOwnProperty(key)) {
+        var difference = updatedDiff(l[key], r[key]);
+
+        if ((0, _utils.isObject)(difference) && (0, _utils.isEmpty)(difference) && !(0, _utils.isDate)(difference)) return acc;
+
+        return _extends({}, acc, _defineProperty({}, key, difference));
+      }
+
+      return acc;
+    }, {});
+  };
+
+  exports.default = updatedDiff;
+  module.exports = exports['default'];
+});
+
+/***/ }),
+
+/***/ "./node_modules/deep-object-diff/dist/utils/index.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/deep-object-diff/dist/utils/index.js ***!
+  \***********************************************************/
+/***/ (function(module, exports) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+  if (true) {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+		__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+		(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else { var mod; }
+})(this, function (exports) {
+  'use strict';
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+
+  var _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
+    return typeof obj;
+  } : function (obj) {
+    return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+  };
+
+  var isDate = exports.isDate = function isDate(d) {
+    return d instanceof Date;
+  };
+  var isEmpty = exports.isEmpty = function isEmpty(o) {
+    return Object.keys(o).length === 0;
+  };
+  var isObject = exports.isObject = function isObject(o) {
+    return o != null && (typeof o === 'undefined' ? 'undefined' : _typeof(o)) === 'object';
+  };
+  var properObject = exports.properObject = function properObject(o) {
+    return isObject(o) && !o.hasOwnProperty ? _extends({}, o) : o;
+  };
+});
 
 /***/ }),
 
@@ -6743,6 +8780,4575 @@ module.exports = CopyToClipboard;
 
 /***/ }),
 
+/***/ "./node_modules/react-query/es/core/focusManager.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/react-query/es/core/focusManager.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "FocusManager": () => (/* binding */ FocusManager),
+/* harmony export */   "focusManager": () => (/* binding */ focusManager)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inheritsLoose */ "./node_modules/@babel/runtime/helpers/esm/inheritsLoose.js");
+/* harmony import */ var _subscribable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./subscribable */ "./node_modules/react-query/es/core/subscribable.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils */ "./node_modules/react-query/es/core/utils.js");
+
+
+
+var FocusManager = /*#__PURE__*/function (_Subscribable) {
+  (0,_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_0__.default)(FocusManager, _Subscribable);
+
+  function FocusManager() {
+    var _this;
+
+    _this = _Subscribable.call(this) || this;
+
+    _this.setup = function (onFocus) {
+      var _window;
+
+      if (!_utils__WEBPACK_IMPORTED_MODULE_1__.isServer && ((_window = window) == null ? void 0 : _window.addEventListener)) {
+        var listener = function listener() {
+          return onFocus();
+        }; // Listen to visibillitychange and focus
+
+
+        window.addEventListener('visibilitychange', listener, false);
+        window.addEventListener('focus', listener, false);
+        return function () {
+          // Be sure to unsubscribe if a new handler is set
+          window.removeEventListener('visibilitychange', listener);
+          window.removeEventListener('focus', listener);
+        };
+      }
+    };
+
+    return _this;
+  }
+
+  var _proto = FocusManager.prototype;
+
+  _proto.onSubscribe = function onSubscribe() {
+    if (!this.cleanup) {
+      this.setEventListener(this.setup);
+    }
+  };
+
+  _proto.onUnsubscribe = function onUnsubscribe() {
+    if (!this.hasListeners()) {
+      var _this$cleanup;
+
+      (_this$cleanup = this.cleanup) == null ? void 0 : _this$cleanup.call(this);
+      this.cleanup = undefined;
+    }
+  };
+
+  _proto.setEventListener = function setEventListener(setup) {
+    var _this$cleanup2,
+        _this2 = this;
+
+    this.setup = setup;
+    (_this$cleanup2 = this.cleanup) == null ? void 0 : _this$cleanup2.call(this);
+    this.cleanup = setup(function (focused) {
+      if (typeof focused === 'boolean') {
+        _this2.setFocused(focused);
+      } else {
+        _this2.onFocus();
+      }
+    });
+  };
+
+  _proto.setFocused = function setFocused(focused) {
+    this.focused = focused;
+
+    if (focused) {
+      this.onFocus();
+    }
+  };
+
+  _proto.onFocus = function onFocus() {
+    this.listeners.forEach(function (listener) {
+      listener();
+    });
+  };
+
+  _proto.isFocused = function isFocused() {
+    if (typeof this.focused === 'boolean') {
+      return this.focused;
+    } // document global can be unavailable in react native
+
+
+    if (typeof document === 'undefined') {
+      return true;
+    }
+
+    return [undefined, 'visible', 'prerender'].includes(document.visibilityState);
+  };
+
+  return FocusManager;
+}(_subscribable__WEBPACK_IMPORTED_MODULE_2__.Subscribable);
+var focusManager = new FocusManager();
+
+/***/ }),
+
+/***/ "./node_modules/react-query/es/core/hydration.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/react-query/es/core/hydration.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "dehydrate": () => (/* binding */ dehydrate),
+/* harmony export */   "hydrate": () => (/* binding */ hydrate)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+
+
+// TYPES
+// FUNCTIONS
+function dehydrateMutation(mutation) {
+  return {
+    mutationKey: mutation.options.mutationKey,
+    state: mutation.state
+  };
+} // Most config is not dehydrated but instead meant to configure again when
+// consuming the de/rehydrated data, typically with useQuery on the client.
+// Sometimes it might make sense to prefetch data on the server and include
+// in the html-payload, but not consume it on the initial render.
+
+
+function dehydrateQuery(query) {
+  return {
+    state: query.state,
+    queryKey: query.queryKey,
+    queryHash: query.queryHash
+  };
+}
+
+function defaultShouldDehydrateMutation(mutation) {
+  return mutation.state.isPaused;
+}
+
+function defaultShouldDehydrateQuery(query) {
+  return query.state.status === 'success';
+}
+
+function dehydrate(client, options) {
+  var _options, _options2;
+
+  options = options || {};
+  var mutations = [];
+  var queries = [];
+
+  if (((_options = options) == null ? void 0 : _options.dehydrateMutations) !== false) {
+    var shouldDehydrateMutation = options.shouldDehydrateMutation || defaultShouldDehydrateMutation;
+    client.getMutationCache().getAll().forEach(function (mutation) {
+      if (shouldDehydrateMutation(mutation)) {
+        mutations.push(dehydrateMutation(mutation));
+      }
+    });
+  }
+
+  if (((_options2 = options) == null ? void 0 : _options2.dehydrateQueries) !== false) {
+    var shouldDehydrateQuery = options.shouldDehydrateQuery || defaultShouldDehydrateQuery;
+    client.getQueryCache().getAll().forEach(function (query) {
+      if (shouldDehydrateQuery(query)) {
+        queries.push(dehydrateQuery(query));
+      }
+    });
+  }
+
+  return {
+    mutations: mutations,
+    queries: queries
+  };
+}
+function hydrate(client, dehydratedState, options) {
+  if (typeof dehydratedState !== 'object' || dehydratedState === null) {
+    return;
+  }
+
+  var mutationCache = client.getMutationCache();
+  var queryCache = client.getQueryCache();
+  var mutations = dehydratedState.mutations || [];
+  var queries = dehydratedState.queries || [];
+  mutations.forEach(function (dehydratedMutation) {
+    var _options$defaultOptio;
+
+    mutationCache.build(client, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({}, options == null ? void 0 : (_options$defaultOptio = options.defaultOptions) == null ? void 0 : _options$defaultOptio.mutations, {
+      mutationKey: dehydratedMutation.mutationKey
+    }), dehydratedMutation.state);
+  });
+  queries.forEach(function (dehydratedQuery) {
+    var _options$defaultOptio2;
+
+    var query = queryCache.get(dehydratedQuery.queryHash); // Do not hydrate if an existing query exists with newer data
+
+    if (query) {
+      if (query.state.dataUpdatedAt < dehydratedQuery.state.dataUpdatedAt) {
+        query.setState(dehydratedQuery.state);
+      }
+
+      return;
+    } // Restore query
+
+
+    queryCache.build(client, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({}, options == null ? void 0 : (_options$defaultOptio2 = options.defaultOptions) == null ? void 0 : _options$defaultOptio2.queries, {
+      queryKey: dehydratedQuery.queryKey,
+      queryHash: dehydratedQuery.queryHash
+    }), dehydratedQuery.state);
+  });
+}
+
+/***/ }),
+
+/***/ "./node_modules/react-query/es/core/index.js":
+/*!***************************************************!*\
+  !*** ./node_modules/react-query/es/core/index.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "CancelledError": () => (/* reexport safe */ _retryer__WEBPACK_IMPORTED_MODULE_0__.CancelledError),
+/* harmony export */   "QueryCache": () => (/* reexport safe */ _queryCache__WEBPACK_IMPORTED_MODULE_1__.QueryCache),
+/* harmony export */   "QueryClient": () => (/* reexport safe */ _queryClient__WEBPACK_IMPORTED_MODULE_2__.QueryClient),
+/* harmony export */   "QueryObserver": () => (/* reexport safe */ _queryObserver__WEBPACK_IMPORTED_MODULE_3__.QueryObserver),
+/* harmony export */   "QueriesObserver": () => (/* reexport safe */ _queriesObserver__WEBPACK_IMPORTED_MODULE_4__.QueriesObserver),
+/* harmony export */   "InfiniteQueryObserver": () => (/* reexport safe */ _infiniteQueryObserver__WEBPACK_IMPORTED_MODULE_5__.InfiniteQueryObserver),
+/* harmony export */   "MutationCache": () => (/* reexport safe */ _mutationCache__WEBPACK_IMPORTED_MODULE_6__.MutationCache),
+/* harmony export */   "MutationObserver": () => (/* reexport safe */ _mutationObserver__WEBPACK_IMPORTED_MODULE_7__.MutationObserver),
+/* harmony export */   "setLogger": () => (/* reexport safe */ _logger__WEBPACK_IMPORTED_MODULE_8__.setLogger),
+/* harmony export */   "notifyManager": () => (/* reexport safe */ _notifyManager__WEBPACK_IMPORTED_MODULE_9__.notifyManager),
+/* harmony export */   "focusManager": () => (/* reexport safe */ _focusManager__WEBPACK_IMPORTED_MODULE_10__.focusManager),
+/* harmony export */   "onlineManager": () => (/* reexport safe */ _onlineManager__WEBPACK_IMPORTED_MODULE_11__.onlineManager),
+/* harmony export */   "hashQueryKey": () => (/* reexport safe */ _utils__WEBPACK_IMPORTED_MODULE_12__.hashQueryKey),
+/* harmony export */   "isError": () => (/* reexport safe */ _utils__WEBPACK_IMPORTED_MODULE_12__.isError),
+/* harmony export */   "isCancelledError": () => (/* reexport safe */ _retryer__WEBPACK_IMPORTED_MODULE_0__.isCancelledError),
+/* harmony export */   "dehydrate": () => (/* reexport safe */ _hydration__WEBPACK_IMPORTED_MODULE_13__.dehydrate),
+/* harmony export */   "hydrate": () => (/* reexport safe */ _hydration__WEBPACK_IMPORTED_MODULE_13__.hydrate)
+/* harmony export */ });
+/* harmony import */ var _retryer__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./retryer */ "./node_modules/react-query/es/core/retryer.js");
+/* harmony import */ var _queryCache__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./queryCache */ "./node_modules/react-query/es/core/queryCache.js");
+/* harmony import */ var _queryClient__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./queryClient */ "./node_modules/react-query/es/core/queryClient.js");
+/* harmony import */ var _queryObserver__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./queryObserver */ "./node_modules/react-query/es/core/queryObserver.js");
+/* harmony import */ var _queriesObserver__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./queriesObserver */ "./node_modules/react-query/es/core/queriesObserver.js");
+/* harmony import */ var _infiniteQueryObserver__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./infiniteQueryObserver */ "./node_modules/react-query/es/core/infiniteQueryObserver.js");
+/* harmony import */ var _mutationCache__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./mutationCache */ "./node_modules/react-query/es/core/mutationCache.js");
+/* harmony import */ var _mutationObserver__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./mutationObserver */ "./node_modules/react-query/es/core/mutationObserver.js");
+/* harmony import */ var _logger__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./logger */ "./node_modules/react-query/es/core/logger.js");
+/* harmony import */ var _notifyManager__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./notifyManager */ "./node_modules/react-query/es/core/notifyManager.js");
+/* harmony import */ var _focusManager__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./focusManager */ "./node_modules/react-query/es/core/focusManager.js");
+/* harmony import */ var _onlineManager__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./onlineManager */ "./node_modules/react-query/es/core/onlineManager.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./utils */ "./node_modules/react-query/es/core/utils.js");
+/* harmony import */ var _hydration__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./hydration */ "./node_modules/react-query/es/core/hydration.js");
+/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./types */ "./node_modules/react-query/es/core/types.js");
+/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_types__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony reexport (unknown) */ var __WEBPACK_REEXPORT_OBJECT__ = {};
+/* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in _types__WEBPACK_IMPORTED_MODULE_14__) if(["default","CancelledError","QueryCache","QueryClient","QueryObserver","QueriesObserver","InfiniteQueryObserver","MutationCache","MutationObserver","setLogger","notifyManager","focusManager","onlineManager","hashQueryKey","isError","isCancelledError","dehydrate","hydrate"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => _types__WEBPACK_IMPORTED_MODULE_14__[__WEBPACK_IMPORT_KEY__]
+/* harmony reexport (unknown) */ __webpack_require__.d(__webpack_exports__, __WEBPACK_REEXPORT_OBJECT__);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ // Types
+
+
+
+/***/ }),
+
+/***/ "./node_modules/react-query/es/core/infiniteQueryBehavior.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/react-query/es/core/infiniteQueryBehavior.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "infiniteQueryBehavior": () => (/* binding */ infiniteQueryBehavior),
+/* harmony export */   "getNextPageParam": () => (/* binding */ getNextPageParam),
+/* harmony export */   "getPreviousPageParam": () => (/* binding */ getPreviousPageParam),
+/* harmony export */   "hasNextPage": () => (/* binding */ hasNextPage),
+/* harmony export */   "hasPreviousPage": () => (/* binding */ hasPreviousPage)
+/* harmony export */ });
+/* harmony import */ var _retryer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./retryer */ "./node_modules/react-query/es/core/retryer.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./node_modules/react-query/es/core/utils.js");
+
+
+function infiniteQueryBehavior() {
+  return {
+    onFetch: function onFetch(context) {
+      context.fetchFn = function () {
+        var _context$fetchOptions, _context$fetchOptions2, _context$fetchOptions3, _context$fetchOptions4, _context$state$data, _context$state$data2;
+
+        var refetchPage = (_context$fetchOptions = context.fetchOptions) == null ? void 0 : (_context$fetchOptions2 = _context$fetchOptions.meta) == null ? void 0 : _context$fetchOptions2.refetchPage;
+        var fetchMore = (_context$fetchOptions3 = context.fetchOptions) == null ? void 0 : (_context$fetchOptions4 = _context$fetchOptions3.meta) == null ? void 0 : _context$fetchOptions4.fetchMore;
+        var pageParam = fetchMore == null ? void 0 : fetchMore.pageParam;
+        var isFetchingNextPage = (fetchMore == null ? void 0 : fetchMore.direction) === 'forward';
+        var isFetchingPreviousPage = (fetchMore == null ? void 0 : fetchMore.direction) === 'backward';
+        var oldPages = ((_context$state$data = context.state.data) == null ? void 0 : _context$state$data.pages) || [];
+        var oldPageParams = ((_context$state$data2 = context.state.data) == null ? void 0 : _context$state$data2.pageParams) || [];
+        var abortController = (0,_utils__WEBPACK_IMPORTED_MODULE_0__.getAbortController)();
+        var abortSignal = abortController == null ? void 0 : abortController.signal;
+        var newPageParams = oldPageParams;
+        var cancelled = false; // Get query function
+
+        var queryFn = context.options.queryFn || function () {
+          return Promise.reject('Missing queryFn');
+        };
+
+        var buildNewPages = function buildNewPages(pages, param, page, previous) {
+          newPageParams = previous ? [param].concat(newPageParams) : [].concat(newPageParams, [param]);
+          return previous ? [page].concat(pages) : [].concat(pages, [page]);
+        }; // Create function to fetch a page
+
+
+        var fetchPage = function fetchPage(pages, manual, param, previous) {
+          if (cancelled) {
+            return Promise.reject('Cancelled');
+          }
+
+          if (typeof param === 'undefined' && !manual && pages.length) {
+            return Promise.resolve(pages);
+          }
+
+          var queryFnContext = {
+            queryKey: context.queryKey,
+            signal: abortSignal,
+            pageParam: param,
+            meta: context.meta
+          };
+          var queryFnResult = queryFn(queryFnContext);
+          var promise = Promise.resolve(queryFnResult).then(function (page) {
+            return buildNewPages(pages, param, page, previous);
+          });
+
+          if ((0,_retryer__WEBPACK_IMPORTED_MODULE_1__.isCancelable)(queryFnResult)) {
+            var promiseAsAny = promise;
+            promiseAsAny.cancel = queryFnResult.cancel;
+          }
+
+          return promise;
+        };
+
+        var promise; // Fetch first page?
+
+        if (!oldPages.length) {
+          promise = fetchPage([]);
+        } // Fetch next page?
+        else if (isFetchingNextPage) {
+            var manual = typeof pageParam !== 'undefined';
+            var param = manual ? pageParam : getNextPageParam(context.options, oldPages);
+            promise = fetchPage(oldPages, manual, param);
+          } // Fetch previous page?
+          else if (isFetchingPreviousPage) {
+              var _manual = typeof pageParam !== 'undefined';
+
+              var _param = _manual ? pageParam : getPreviousPageParam(context.options, oldPages);
+
+              promise = fetchPage(oldPages, _manual, _param, true);
+            } // Refetch pages
+            else {
+                (function () {
+                  newPageParams = [];
+                  var manual = typeof context.options.getNextPageParam === 'undefined';
+                  var shouldFetchFirstPage = refetchPage && oldPages[0] ? refetchPage(oldPages[0], 0, oldPages) : true; // Fetch first page
+
+                  promise = shouldFetchFirstPage ? fetchPage([], manual, oldPageParams[0]) : Promise.resolve(buildNewPages([], oldPageParams[0], oldPages[0])); // Fetch remaining pages
+
+                  var _loop = function _loop(i) {
+                    promise = promise.then(function (pages) {
+                      var shouldFetchNextPage = refetchPage && oldPages[i] ? refetchPage(oldPages[i], i, oldPages) : true;
+
+                      if (shouldFetchNextPage) {
+                        var _param2 = manual ? oldPageParams[i] : getNextPageParam(context.options, pages);
+
+                        return fetchPage(pages, manual, _param2);
+                      }
+
+                      return Promise.resolve(buildNewPages(pages, oldPageParams[i], oldPages[i]));
+                    });
+                  };
+
+                  for (var i = 1; i < oldPages.length; i++) {
+                    _loop(i);
+                  }
+                })();
+              }
+
+        var finalPromise = promise.then(function (pages) {
+          return {
+            pages: pages,
+            pageParams: newPageParams
+          };
+        });
+        var finalPromiseAsAny = finalPromise;
+
+        finalPromiseAsAny.cancel = function () {
+          cancelled = true;
+          abortController == null ? void 0 : abortController.abort();
+
+          if ((0,_retryer__WEBPACK_IMPORTED_MODULE_1__.isCancelable)(promise)) {
+            promise.cancel();
+          }
+        };
+
+        return finalPromise;
+      };
+    }
+  };
+}
+function getNextPageParam(options, pages) {
+  return options.getNextPageParam == null ? void 0 : options.getNextPageParam(pages[pages.length - 1], pages);
+}
+function getPreviousPageParam(options, pages) {
+  return options.getPreviousPageParam == null ? void 0 : options.getPreviousPageParam(pages[0], pages);
+}
+/**
+ * Checks if there is a next page.
+ * Returns `undefined` if it cannot be determined.
+ */
+
+function hasNextPage(options, pages) {
+  if (options.getNextPageParam && Array.isArray(pages)) {
+    var nextPageParam = getNextPageParam(options, pages);
+    return typeof nextPageParam !== 'undefined' && nextPageParam !== null && nextPageParam !== false;
+  }
+}
+/**
+ * Checks if there is a previous page.
+ * Returns `undefined` if it cannot be determined.
+ */
+
+function hasPreviousPage(options, pages) {
+  if (options.getPreviousPageParam && Array.isArray(pages)) {
+    var previousPageParam = getPreviousPageParam(options, pages);
+    return typeof previousPageParam !== 'undefined' && previousPageParam !== null && previousPageParam !== false;
+  }
+}
+
+/***/ }),
+
+/***/ "./node_modules/react-query/es/core/infiniteQueryObserver.js":
+/*!*******************************************************************!*\
+  !*** ./node_modules/react-query/es/core/infiniteQueryObserver.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "InfiniteQueryObserver": () => (/* binding */ InfiniteQueryObserver)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inheritsLoose */ "./node_modules/@babel/runtime/helpers/esm/inheritsLoose.js");
+/* harmony import */ var _queryObserver__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./queryObserver */ "./node_modules/react-query/es/core/queryObserver.js");
+/* harmony import */ var _infiniteQueryBehavior__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./infiniteQueryBehavior */ "./node_modules/react-query/es/core/infiniteQueryBehavior.js");
+
+
+
+
+var InfiniteQueryObserver = /*#__PURE__*/function (_QueryObserver) {
+  (0,_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__.default)(InfiniteQueryObserver, _QueryObserver);
+
+  // Type override
+  // Type override
+  // Type override
+  // eslint-disable-next-line @typescript-eslint/no-useless-constructor
+  function InfiniteQueryObserver(client, options) {
+    return _QueryObserver.call(this, client, options) || this;
+  }
+
+  var _proto = InfiniteQueryObserver.prototype;
+
+  _proto.bindMethods = function bindMethods() {
+    _QueryObserver.prototype.bindMethods.call(this);
+
+    this.fetchNextPage = this.fetchNextPage.bind(this);
+    this.fetchPreviousPage = this.fetchPreviousPage.bind(this);
+  };
+
+  _proto.setOptions = function setOptions(options, notifyOptions) {
+    _QueryObserver.prototype.setOptions.call(this, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({}, options, {
+      behavior: (0,_infiniteQueryBehavior__WEBPACK_IMPORTED_MODULE_2__.infiniteQueryBehavior)()
+    }), notifyOptions);
+  };
+
+  _proto.getOptimisticResult = function getOptimisticResult(options) {
+    options.behavior = (0,_infiniteQueryBehavior__WEBPACK_IMPORTED_MODULE_2__.infiniteQueryBehavior)();
+    return _QueryObserver.prototype.getOptimisticResult.call(this, options);
+  };
+
+  _proto.fetchNextPage = function fetchNextPage(options) {
+    var _options$cancelRefetc;
+
+    return this.fetch({
+      // TODO consider removing `?? true` in future breaking change, to be consistent with `refetch` API (see https://github.com/tannerlinsley/react-query/issues/2617)
+      cancelRefetch: (_options$cancelRefetc = options == null ? void 0 : options.cancelRefetch) != null ? _options$cancelRefetc : true,
+      throwOnError: options == null ? void 0 : options.throwOnError,
+      meta: {
+        fetchMore: {
+          direction: 'forward',
+          pageParam: options == null ? void 0 : options.pageParam
+        }
+      }
+    });
+  };
+
+  _proto.fetchPreviousPage = function fetchPreviousPage(options) {
+    var _options$cancelRefetc2;
+
+    return this.fetch({
+      // TODO consider removing `?? true` in future breaking change, to be consistent with `refetch` API (see https://github.com/tannerlinsley/react-query/issues/2617)
+      cancelRefetch: (_options$cancelRefetc2 = options == null ? void 0 : options.cancelRefetch) != null ? _options$cancelRefetc2 : true,
+      throwOnError: options == null ? void 0 : options.throwOnError,
+      meta: {
+        fetchMore: {
+          direction: 'backward',
+          pageParam: options == null ? void 0 : options.pageParam
+        }
+      }
+    });
+  };
+
+  _proto.createResult = function createResult(query, options) {
+    var _state$data, _state$data2, _state$fetchMeta, _state$fetchMeta$fetc, _state$fetchMeta2, _state$fetchMeta2$fet;
+
+    var state = query.state;
+
+    var result = _QueryObserver.prototype.createResult.call(this, query, options);
+
+    return (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({}, result, {
+      fetchNextPage: this.fetchNextPage,
+      fetchPreviousPage: this.fetchPreviousPage,
+      hasNextPage: (0,_infiniteQueryBehavior__WEBPACK_IMPORTED_MODULE_2__.hasNextPage)(options, (_state$data = state.data) == null ? void 0 : _state$data.pages),
+      hasPreviousPage: (0,_infiniteQueryBehavior__WEBPACK_IMPORTED_MODULE_2__.hasPreviousPage)(options, (_state$data2 = state.data) == null ? void 0 : _state$data2.pages),
+      isFetchingNextPage: state.isFetching && ((_state$fetchMeta = state.fetchMeta) == null ? void 0 : (_state$fetchMeta$fetc = _state$fetchMeta.fetchMore) == null ? void 0 : _state$fetchMeta$fetc.direction) === 'forward',
+      isFetchingPreviousPage: state.isFetching && ((_state$fetchMeta2 = state.fetchMeta) == null ? void 0 : (_state$fetchMeta2$fet = _state$fetchMeta2.fetchMore) == null ? void 0 : _state$fetchMeta2$fet.direction) === 'backward'
+    });
+  };
+
+  return InfiniteQueryObserver;
+}(_queryObserver__WEBPACK_IMPORTED_MODULE_3__.QueryObserver);
+
+/***/ }),
+
+/***/ "./node_modules/react-query/es/core/logger.js":
+/*!****************************************************!*\
+  !*** ./node_modules/react-query/es/core/logger.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "getLogger": () => (/* binding */ getLogger),
+/* harmony export */   "setLogger": () => (/* binding */ setLogger)
+/* harmony export */ });
+// TYPES
+// FUNCTIONS
+var logger = console;
+function getLogger() {
+  return logger;
+}
+function setLogger(newLogger) {
+  logger = newLogger;
+}
+
+/***/ }),
+
+/***/ "./node_modules/react-query/es/core/mutation.js":
+/*!******************************************************!*\
+  !*** ./node_modules/react-query/es/core/mutation.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Mutation": () => (/* binding */ Mutation),
+/* harmony export */   "getDefaultState": () => (/* binding */ getDefaultState)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _logger__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./logger */ "./node_modules/react-query/es/core/logger.js");
+/* harmony import */ var _notifyManager__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./notifyManager */ "./node_modules/react-query/es/core/notifyManager.js");
+/* harmony import */ var _retryer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./retryer */ "./node_modules/react-query/es/core/retryer.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils */ "./node_modules/react-query/es/core/utils.js");
+
+
+
+
+ // TYPES
+
+// CLASS
+var Mutation = /*#__PURE__*/function () {
+  function Mutation(config) {
+    this.options = (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({}, config.defaultOptions, config.options);
+    this.mutationId = config.mutationId;
+    this.mutationCache = config.mutationCache;
+    this.observers = [];
+    this.state = config.state || getDefaultState();
+    this.meta = config.meta;
+  }
+
+  var _proto = Mutation.prototype;
+
+  _proto.setState = function setState(state) {
+    this.dispatch({
+      type: 'setState',
+      state: state
+    });
+  };
+
+  _proto.addObserver = function addObserver(observer) {
+    if (this.observers.indexOf(observer) === -1) {
+      this.observers.push(observer);
+    }
+  };
+
+  _proto.removeObserver = function removeObserver(observer) {
+    this.observers = this.observers.filter(function (x) {
+      return x !== observer;
+    });
+  };
+
+  _proto.cancel = function cancel() {
+    if (this.retryer) {
+      this.retryer.cancel();
+      return this.retryer.promise.then(_utils__WEBPACK_IMPORTED_MODULE_1__.noop).catch(_utils__WEBPACK_IMPORTED_MODULE_1__.noop);
+    }
+
+    return Promise.resolve();
+  };
+
+  _proto.continue = function _continue() {
+    if (this.retryer) {
+      this.retryer.continue();
+      return this.retryer.promise;
+    }
+
+    return this.execute();
+  };
+
+  _proto.execute = function execute() {
+    var _this = this;
+
+    var data;
+    var restored = this.state.status === 'loading';
+    var promise = Promise.resolve();
+
+    if (!restored) {
+      this.dispatch({
+        type: 'loading',
+        variables: this.options.variables
+      });
+      promise = promise.then(function () {
+        // Notify cache callback
+        _this.mutationCache.config.onMutate == null ? void 0 : _this.mutationCache.config.onMutate(_this.state.variables, _this);
+      }).then(function () {
+        return _this.options.onMutate == null ? void 0 : _this.options.onMutate(_this.state.variables);
+      }).then(function (context) {
+        if (context !== _this.state.context) {
+          _this.dispatch({
+            type: 'loading',
+            context: context,
+            variables: _this.state.variables
+          });
+        }
+      });
+    }
+
+    return promise.then(function () {
+      return _this.executeMutation();
+    }).then(function (result) {
+      data = result; // Notify cache callback
+
+      _this.mutationCache.config.onSuccess == null ? void 0 : _this.mutationCache.config.onSuccess(data, _this.state.variables, _this.state.context, _this);
+    }).then(function () {
+      return _this.options.onSuccess == null ? void 0 : _this.options.onSuccess(data, _this.state.variables, _this.state.context);
+    }).then(function () {
+      return _this.options.onSettled == null ? void 0 : _this.options.onSettled(data, null, _this.state.variables, _this.state.context);
+    }).then(function () {
+      _this.dispatch({
+        type: 'success',
+        data: data
+      });
+
+      return data;
+    }).catch(function (error) {
+      // Notify cache callback
+      _this.mutationCache.config.onError == null ? void 0 : _this.mutationCache.config.onError(error, _this.state.variables, _this.state.context, _this); // Log error
+
+      (0,_logger__WEBPACK_IMPORTED_MODULE_2__.getLogger)().error(error);
+      return Promise.resolve().then(function () {
+        return _this.options.onError == null ? void 0 : _this.options.onError(error, _this.state.variables, _this.state.context);
+      }).then(function () {
+        return _this.options.onSettled == null ? void 0 : _this.options.onSettled(undefined, error, _this.state.variables, _this.state.context);
+      }).then(function () {
+        _this.dispatch({
+          type: 'error',
+          error: error
+        });
+
+        throw error;
+      });
+    });
+  };
+
+  _proto.executeMutation = function executeMutation() {
+    var _this2 = this,
+        _this$options$retry;
+
+    this.retryer = new _retryer__WEBPACK_IMPORTED_MODULE_3__.Retryer({
+      fn: function fn() {
+        if (!_this2.options.mutationFn) {
+          return Promise.reject('No mutationFn found');
+        }
+
+        return _this2.options.mutationFn(_this2.state.variables);
+      },
+      onFail: function onFail() {
+        _this2.dispatch({
+          type: 'failed'
+        });
+      },
+      onPause: function onPause() {
+        _this2.dispatch({
+          type: 'pause'
+        });
+      },
+      onContinue: function onContinue() {
+        _this2.dispatch({
+          type: 'continue'
+        });
+      },
+      retry: (_this$options$retry = this.options.retry) != null ? _this$options$retry : 0,
+      retryDelay: this.options.retryDelay
+    });
+    return this.retryer.promise;
+  };
+
+  _proto.dispatch = function dispatch(action) {
+    var _this3 = this;
+
+    this.state = reducer(this.state, action);
+    _notifyManager__WEBPACK_IMPORTED_MODULE_4__.notifyManager.batch(function () {
+      _this3.observers.forEach(function (observer) {
+        observer.onMutationUpdate(action);
+      });
+
+      _this3.mutationCache.notify(_this3);
+    });
+  };
+
+  return Mutation;
+}();
+function getDefaultState() {
+  return {
+    context: undefined,
+    data: undefined,
+    error: null,
+    failureCount: 0,
+    isPaused: false,
+    status: 'idle',
+    variables: undefined
+  };
+}
+
+function reducer(state, action) {
+  switch (action.type) {
+    case 'failed':
+      return (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({}, state, {
+        failureCount: state.failureCount + 1
+      });
+
+    case 'pause':
+      return (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({}, state, {
+        isPaused: true
+      });
+
+    case 'continue':
+      return (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({}, state, {
+        isPaused: false
+      });
+
+    case 'loading':
+      return (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({}, state, {
+        context: action.context,
+        data: undefined,
+        error: null,
+        isPaused: false,
+        status: 'loading',
+        variables: action.variables
+      });
+
+    case 'success':
+      return (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({}, state, {
+        data: action.data,
+        error: null,
+        status: 'success',
+        isPaused: false
+      });
+
+    case 'error':
+      return (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({}, state, {
+        data: undefined,
+        error: action.error,
+        failureCount: state.failureCount + 1,
+        isPaused: false,
+        status: 'error'
+      });
+
+    case 'setState':
+      return (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({}, state, action.state);
+
+    default:
+      return state;
+  }
+}
+
+/***/ }),
+
+/***/ "./node_modules/react-query/es/core/mutationCache.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/react-query/es/core/mutationCache.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "MutationCache": () => (/* binding */ MutationCache)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inheritsLoose */ "./node_modules/@babel/runtime/helpers/esm/inheritsLoose.js");
+/* harmony import */ var _notifyManager__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./notifyManager */ "./node_modules/react-query/es/core/notifyManager.js");
+/* harmony import */ var _mutation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./mutation */ "./node_modules/react-query/es/core/mutation.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./utils */ "./node_modules/react-query/es/core/utils.js");
+/* harmony import */ var _subscribable__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./subscribable */ "./node_modules/react-query/es/core/subscribable.js");
+
+
+
+
+ // TYPES
+
+// CLASS
+var MutationCache = /*#__PURE__*/function (_Subscribable) {
+  (0,_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_0__.default)(MutationCache, _Subscribable);
+
+  function MutationCache(config) {
+    var _this;
+
+    _this = _Subscribable.call(this) || this;
+    _this.config = config || {};
+    _this.mutations = [];
+    _this.mutationId = 0;
+    return _this;
+  }
+
+  var _proto = MutationCache.prototype;
+
+  _proto.build = function build(client, options, state) {
+    var mutation = new _mutation__WEBPACK_IMPORTED_MODULE_1__.Mutation({
+      mutationCache: this,
+      mutationId: ++this.mutationId,
+      options: client.defaultMutationOptions(options),
+      state: state,
+      defaultOptions: options.mutationKey ? client.getMutationDefaults(options.mutationKey) : undefined,
+      meta: options.meta
+    });
+    this.add(mutation);
+    return mutation;
+  };
+
+  _proto.add = function add(mutation) {
+    this.mutations.push(mutation);
+    this.notify(mutation);
+  };
+
+  _proto.remove = function remove(mutation) {
+    this.mutations = this.mutations.filter(function (x) {
+      return x !== mutation;
+    });
+    mutation.cancel();
+    this.notify(mutation);
+  };
+
+  _proto.clear = function clear() {
+    var _this2 = this;
+
+    _notifyManager__WEBPACK_IMPORTED_MODULE_2__.notifyManager.batch(function () {
+      _this2.mutations.forEach(function (mutation) {
+        _this2.remove(mutation);
+      });
+    });
+  };
+
+  _proto.getAll = function getAll() {
+    return this.mutations;
+  };
+
+  _proto.find = function find(filters) {
+    if (typeof filters.exact === 'undefined') {
+      filters.exact = true;
+    }
+
+    return this.mutations.find(function (mutation) {
+      return (0,_utils__WEBPACK_IMPORTED_MODULE_3__.matchMutation)(filters, mutation);
+    });
+  };
+
+  _proto.findAll = function findAll(filters) {
+    return this.mutations.filter(function (mutation) {
+      return (0,_utils__WEBPACK_IMPORTED_MODULE_3__.matchMutation)(filters, mutation);
+    });
+  };
+
+  _proto.notify = function notify(mutation) {
+    var _this3 = this;
+
+    _notifyManager__WEBPACK_IMPORTED_MODULE_2__.notifyManager.batch(function () {
+      _this3.listeners.forEach(function (listener) {
+        listener(mutation);
+      });
+    });
+  };
+
+  _proto.onFocus = function onFocus() {
+    this.resumePausedMutations();
+  };
+
+  _proto.onOnline = function onOnline() {
+    this.resumePausedMutations();
+  };
+
+  _proto.resumePausedMutations = function resumePausedMutations() {
+    var pausedMutations = this.mutations.filter(function (x) {
+      return x.state.isPaused;
+    });
+    return _notifyManager__WEBPACK_IMPORTED_MODULE_2__.notifyManager.batch(function () {
+      return pausedMutations.reduce(function (promise, mutation) {
+        return promise.then(function () {
+          return mutation.continue().catch(_utils__WEBPACK_IMPORTED_MODULE_3__.noop);
+        });
+      }, Promise.resolve());
+    });
+  };
+
+  return MutationCache;
+}(_subscribable__WEBPACK_IMPORTED_MODULE_4__.Subscribable);
+
+/***/ }),
+
+/***/ "./node_modules/react-query/es/core/mutationObserver.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/react-query/es/core/mutationObserver.js ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "MutationObserver": () => (/* binding */ MutationObserver)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inheritsLoose */ "./node_modules/@babel/runtime/helpers/esm/inheritsLoose.js");
+/* harmony import */ var _mutation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./mutation */ "./node_modules/react-query/es/core/mutation.js");
+/* harmony import */ var _notifyManager__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./notifyManager */ "./node_modules/react-query/es/core/notifyManager.js");
+/* harmony import */ var _subscribable__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./subscribable */ "./node_modules/react-query/es/core/subscribable.js");
+
+
+
+
+
+// CLASS
+var MutationObserver = /*#__PURE__*/function (_Subscribable) {
+  (0,_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__.default)(MutationObserver, _Subscribable);
+
+  function MutationObserver(client, options) {
+    var _this;
+
+    _this = _Subscribable.call(this) || this;
+    _this.client = client;
+
+    _this.setOptions(options);
+
+    _this.bindMethods();
+
+    _this.updateResult();
+
+    return _this;
+  }
+
+  var _proto = MutationObserver.prototype;
+
+  _proto.bindMethods = function bindMethods() {
+    this.mutate = this.mutate.bind(this);
+    this.reset = this.reset.bind(this);
+  };
+
+  _proto.setOptions = function setOptions(options) {
+    this.options = this.client.defaultMutationOptions(options);
+  };
+
+  _proto.onUnsubscribe = function onUnsubscribe() {
+    if (!this.listeners.length) {
+      var _this$currentMutation;
+
+      (_this$currentMutation = this.currentMutation) == null ? void 0 : _this$currentMutation.removeObserver(this);
+    }
+  };
+
+  _proto.onMutationUpdate = function onMutationUpdate(action) {
+    this.updateResult(); // Determine which callbacks to trigger
+
+    var notifyOptions = {
+      listeners: true
+    };
+
+    if (action.type === 'success') {
+      notifyOptions.onSuccess = true;
+    } else if (action.type === 'error') {
+      notifyOptions.onError = true;
+    }
+
+    this.notify(notifyOptions);
+  };
+
+  _proto.getCurrentResult = function getCurrentResult() {
+    return this.currentResult;
+  };
+
+  _proto.reset = function reset() {
+    this.currentMutation = undefined;
+    this.updateResult();
+    this.notify({
+      listeners: true
+    });
+  };
+
+  _proto.mutate = function mutate(variables, options) {
+    this.mutateOptions = options;
+
+    if (this.currentMutation) {
+      this.currentMutation.removeObserver(this);
+    }
+
+    this.currentMutation = this.client.getMutationCache().build(this.client, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({}, this.options, {
+      variables: typeof variables !== 'undefined' ? variables : this.options.variables
+    }));
+    this.currentMutation.addObserver(this);
+    return this.currentMutation.execute();
+  };
+
+  _proto.updateResult = function updateResult() {
+    var state = this.currentMutation ? this.currentMutation.state : (0,_mutation__WEBPACK_IMPORTED_MODULE_2__.getDefaultState)();
+
+    var result = (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({}, state, {
+      isLoading: state.status === 'loading',
+      isSuccess: state.status === 'success',
+      isError: state.status === 'error',
+      isIdle: state.status === 'idle',
+      mutate: this.mutate,
+      reset: this.reset
+    });
+
+    this.currentResult = result;
+  };
+
+  _proto.notify = function notify(options) {
+    var _this2 = this;
+
+    _notifyManager__WEBPACK_IMPORTED_MODULE_3__.notifyManager.batch(function () {
+      // First trigger the mutate callbacks
+      if (_this2.mutateOptions) {
+        if (options.onSuccess) {
+          _this2.mutateOptions.onSuccess == null ? void 0 : _this2.mutateOptions.onSuccess(_this2.currentResult.data, _this2.currentResult.variables, _this2.currentResult.context);
+          _this2.mutateOptions.onSettled == null ? void 0 : _this2.mutateOptions.onSettled(_this2.currentResult.data, null, _this2.currentResult.variables, _this2.currentResult.context);
+        } else if (options.onError) {
+          _this2.mutateOptions.onError == null ? void 0 : _this2.mutateOptions.onError(_this2.currentResult.error, _this2.currentResult.variables, _this2.currentResult.context);
+          _this2.mutateOptions.onSettled == null ? void 0 : _this2.mutateOptions.onSettled(undefined, _this2.currentResult.error, _this2.currentResult.variables, _this2.currentResult.context);
+        }
+      } // Then trigger the listeners
+
+
+      if (options.listeners) {
+        _this2.listeners.forEach(function (listener) {
+          listener(_this2.currentResult);
+        });
+      }
+    });
+  };
+
+  return MutationObserver;
+}(_subscribable__WEBPACK_IMPORTED_MODULE_4__.Subscribable);
+
+/***/ }),
+
+/***/ "./node_modules/react-query/es/core/notifyManager.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/react-query/es/core/notifyManager.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "NotifyManager": () => (/* binding */ NotifyManager),
+/* harmony export */   "notifyManager": () => (/* binding */ notifyManager)
+/* harmony export */ });
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./node_modules/react-query/es/core/utils.js");
+ // TYPES
+
+// CLASS
+var NotifyManager = /*#__PURE__*/function () {
+  function NotifyManager() {
+    this.queue = [];
+    this.transactions = 0;
+
+    this.notifyFn = function (callback) {
+      callback();
+    };
+
+    this.batchNotifyFn = function (callback) {
+      callback();
+    };
+  }
+
+  var _proto = NotifyManager.prototype;
+
+  _proto.batch = function batch(callback) {
+    this.transactions++;
+    var result = callback();
+    this.transactions--;
+
+    if (!this.transactions) {
+      this.flush();
+    }
+
+    return result;
+  };
+
+  _proto.schedule = function schedule(callback) {
+    var _this = this;
+
+    if (this.transactions) {
+      this.queue.push(callback);
+    } else {
+      (0,_utils__WEBPACK_IMPORTED_MODULE_0__.scheduleMicrotask)(function () {
+        _this.notifyFn(callback);
+      });
+    }
+  }
+  /**
+   * All calls to the wrapped function will be batched.
+   */
+  ;
+
+  _proto.batchCalls = function batchCalls(callback) {
+    var _this2 = this;
+
+    return function () {
+      for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+        args[_key] = arguments[_key];
+      }
+
+      _this2.schedule(function () {
+        callback.apply(void 0, args);
+      });
+    };
+  };
+
+  _proto.flush = function flush() {
+    var _this3 = this;
+
+    var queue = this.queue;
+    this.queue = [];
+
+    if (queue.length) {
+      (0,_utils__WEBPACK_IMPORTED_MODULE_0__.scheduleMicrotask)(function () {
+        _this3.batchNotifyFn(function () {
+          queue.forEach(function (callback) {
+            _this3.notifyFn(callback);
+          });
+        });
+      });
+    }
+  }
+  /**
+   * Use this method to set a custom notify function.
+   * This can be used to for example wrap notifications with `React.act` while running tests.
+   */
+  ;
+
+  _proto.setNotifyFunction = function setNotifyFunction(fn) {
+    this.notifyFn = fn;
+  }
+  /**
+   * Use this method to set a custom function to batch notifications together into a single tick.
+   * By default React Query will use the batch function provided by ReactDOM or React Native.
+   */
+  ;
+
+  _proto.setBatchNotifyFunction = function setBatchNotifyFunction(fn) {
+    this.batchNotifyFn = fn;
+  };
+
+  return NotifyManager;
+}(); // SINGLETON
+
+var notifyManager = new NotifyManager();
+
+/***/ }),
+
+/***/ "./node_modules/react-query/es/core/onlineManager.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/react-query/es/core/onlineManager.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "OnlineManager": () => (/* binding */ OnlineManager),
+/* harmony export */   "onlineManager": () => (/* binding */ onlineManager)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inheritsLoose */ "./node_modules/@babel/runtime/helpers/esm/inheritsLoose.js");
+/* harmony import */ var _subscribable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./subscribable */ "./node_modules/react-query/es/core/subscribable.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils */ "./node_modules/react-query/es/core/utils.js");
+
+
+
+var OnlineManager = /*#__PURE__*/function (_Subscribable) {
+  (0,_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_0__.default)(OnlineManager, _Subscribable);
+
+  function OnlineManager() {
+    var _this;
+
+    _this = _Subscribable.call(this) || this;
+
+    _this.setup = function (onOnline) {
+      var _window;
+
+      if (!_utils__WEBPACK_IMPORTED_MODULE_1__.isServer && ((_window = window) == null ? void 0 : _window.addEventListener)) {
+        var listener = function listener() {
+          return onOnline();
+        }; // Listen to online
+
+
+        window.addEventListener('online', listener, false);
+        window.addEventListener('offline', listener, false);
+        return function () {
+          // Be sure to unsubscribe if a new handler is set
+          window.removeEventListener('online', listener);
+          window.removeEventListener('offline', listener);
+        };
+      }
+    };
+
+    return _this;
+  }
+
+  var _proto = OnlineManager.prototype;
+
+  _proto.onSubscribe = function onSubscribe() {
+    if (!this.cleanup) {
+      this.setEventListener(this.setup);
+    }
+  };
+
+  _proto.onUnsubscribe = function onUnsubscribe() {
+    if (!this.hasListeners()) {
+      var _this$cleanup;
+
+      (_this$cleanup = this.cleanup) == null ? void 0 : _this$cleanup.call(this);
+      this.cleanup = undefined;
+    }
+  };
+
+  _proto.setEventListener = function setEventListener(setup) {
+    var _this$cleanup2,
+        _this2 = this;
+
+    this.setup = setup;
+    (_this$cleanup2 = this.cleanup) == null ? void 0 : _this$cleanup2.call(this);
+    this.cleanup = setup(function (online) {
+      if (typeof online === 'boolean') {
+        _this2.setOnline(online);
+      } else {
+        _this2.onOnline();
+      }
+    });
+  };
+
+  _proto.setOnline = function setOnline(online) {
+    this.online = online;
+
+    if (online) {
+      this.onOnline();
+    }
+  };
+
+  _proto.onOnline = function onOnline() {
+    this.listeners.forEach(function (listener) {
+      listener();
+    });
+  };
+
+  _proto.isOnline = function isOnline() {
+    if (typeof this.online === 'boolean') {
+      return this.online;
+    }
+
+    if (typeof navigator === 'undefined' || typeof navigator.onLine === 'undefined') {
+      return true;
+    }
+
+    return navigator.onLine;
+  };
+
+  return OnlineManager;
+}(_subscribable__WEBPACK_IMPORTED_MODULE_2__.Subscribable);
+var onlineManager = new OnlineManager();
+
+/***/ }),
+
+/***/ "./node_modules/react-query/es/core/queriesObserver.js":
+/*!*************************************************************!*\
+  !*** ./node_modules/react-query/es/core/queriesObserver.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "QueriesObserver": () => (/* binding */ QueriesObserver)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inheritsLoose */ "./node_modules/@babel/runtime/helpers/esm/inheritsLoose.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./utils */ "./node_modules/react-query/es/core/utils.js");
+/* harmony import */ var _notifyManager__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./notifyManager */ "./node_modules/react-query/es/core/notifyManager.js");
+/* harmony import */ var _queryObserver__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./queryObserver */ "./node_modules/react-query/es/core/queryObserver.js");
+/* harmony import */ var _subscribable__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./subscribable */ "./node_modules/react-query/es/core/subscribable.js");
+
+
+
+
+
+var QueriesObserver = /*#__PURE__*/function (_Subscribable) {
+  (0,_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_0__.default)(QueriesObserver, _Subscribable);
+
+  function QueriesObserver(client, queries) {
+    var _this;
+
+    _this = _Subscribable.call(this) || this;
+    _this.client = client;
+    _this.queries = [];
+    _this.result = [];
+    _this.observers = [];
+    _this.observersMap = {};
+
+    if (queries) {
+      _this.setQueries(queries);
+    }
+
+    return _this;
+  }
+
+  var _proto = QueriesObserver.prototype;
+
+  _proto.onSubscribe = function onSubscribe() {
+    var _this2 = this;
+
+    if (this.listeners.length === 1) {
+      this.observers.forEach(function (observer) {
+        observer.subscribe(function (result) {
+          _this2.onUpdate(observer, result);
+        });
+      });
+    }
+  };
+
+  _proto.onUnsubscribe = function onUnsubscribe() {
+    if (!this.listeners.length) {
+      this.destroy();
+    }
+  };
+
+  _proto.destroy = function destroy() {
+    this.listeners = [];
+    this.observers.forEach(function (observer) {
+      observer.destroy();
+    });
+  };
+
+  _proto.setQueries = function setQueries(queries, notifyOptions) {
+    this.queries = queries;
+    this.updateObservers(notifyOptions);
+  };
+
+  _proto.getCurrentResult = function getCurrentResult() {
+    return this.result;
+  };
+
+  _proto.getOptimisticResult = function getOptimisticResult(queries) {
+    return this.findMatchingObservers(queries).map(function (match) {
+      return match.observer.getOptimisticResult(match.defaultedQueryOptions);
+    });
+  };
+
+  _proto.findMatchingObservers = function findMatchingObservers(queries) {
+    var _this3 = this;
+
+    var prevObservers = this.observers;
+    var defaultedQueryOptions = queries.map(function (options) {
+      return _this3.client.defaultQueryObserverOptions(options);
+    });
+    var matchingObservers = defaultedQueryOptions.flatMap(function (defaultedOptions) {
+      var match = prevObservers.find(function (observer) {
+        return observer.options.queryHash === defaultedOptions.queryHash;
+      });
+
+      if (match != null) {
+        return [{
+          defaultedQueryOptions: defaultedOptions,
+          observer: match
+        }];
+      }
+
+      return [];
+    });
+    var matchedQueryHashes = matchingObservers.map(function (match) {
+      return match.defaultedQueryOptions.queryHash;
+    });
+    var unmatchedQueries = defaultedQueryOptions.filter(function (defaultedOptions) {
+      return !matchedQueryHashes.includes(defaultedOptions.queryHash);
+    });
+    var unmatchedObservers = prevObservers.filter(function (prevObserver) {
+      return !matchingObservers.some(function (match) {
+        return match.observer === prevObserver;
+      });
+    });
+    var newOrReusedObservers = unmatchedQueries.map(function (options, index) {
+      if (options.keepPreviousData) {
+        // return previous data from one of the observers that no longer match
+        var previouslyUsedObserver = unmatchedObservers[index];
+
+        if (previouslyUsedObserver !== undefined) {
+          return {
+            defaultedQueryOptions: options,
+            observer: previouslyUsedObserver
+          };
+        }
+      }
+
+      return {
+        defaultedQueryOptions: options,
+        observer: _this3.getObserver(options)
+      };
+    });
+
+    var sortMatchesByOrderOfQueries = function sortMatchesByOrderOfQueries(a, b) {
+      return defaultedQueryOptions.indexOf(a.defaultedQueryOptions) - defaultedQueryOptions.indexOf(b.defaultedQueryOptions);
+    };
+
+    return matchingObservers.concat(newOrReusedObservers).sort(sortMatchesByOrderOfQueries);
+  };
+
+  _proto.getObserver = function getObserver(options) {
+    var defaultedOptions = this.client.defaultQueryObserverOptions(options);
+    var currentObserver = this.observersMap[defaultedOptions.queryHash];
+    return currentObserver != null ? currentObserver : new _queryObserver__WEBPACK_IMPORTED_MODULE_1__.QueryObserver(this.client, defaultedOptions);
+  };
+
+  _proto.updateObservers = function updateObservers(notifyOptions) {
+    var _this4 = this;
+
+    _notifyManager__WEBPACK_IMPORTED_MODULE_2__.notifyManager.batch(function () {
+      var prevObservers = _this4.observers;
+
+      var newObserverMatches = _this4.findMatchingObservers(_this4.queries); // set options for the new observers to notify of changes
+
+
+      newObserverMatches.forEach(function (match) {
+        return match.observer.setOptions(match.defaultedQueryOptions, notifyOptions);
+      });
+      var newObservers = newObserverMatches.map(function (match) {
+        return match.observer;
+      });
+      var newObserversMap = Object.fromEntries(newObservers.map(function (observer) {
+        return [observer.options.queryHash, observer];
+      }));
+      var newResult = newObservers.map(function (observer) {
+        return observer.getCurrentResult();
+      });
+      var hasIndexChange = newObservers.some(function (observer, index) {
+        return observer !== prevObservers[index];
+      });
+
+      if (prevObservers.length === newObservers.length && !hasIndexChange) {
+        return;
+      }
+
+      _this4.observers = newObservers;
+      _this4.observersMap = newObserversMap;
+      _this4.result = newResult;
+
+      if (!_this4.hasListeners()) {
+        return;
+      }
+
+      (0,_utils__WEBPACK_IMPORTED_MODULE_3__.difference)(prevObservers, newObservers).forEach(function (observer) {
+        observer.destroy();
+      });
+      (0,_utils__WEBPACK_IMPORTED_MODULE_3__.difference)(newObservers, prevObservers).forEach(function (observer) {
+        observer.subscribe(function (result) {
+          _this4.onUpdate(observer, result);
+        });
+      });
+
+      _this4.notify();
+    });
+  };
+
+  _proto.onUpdate = function onUpdate(observer, result) {
+    var index = this.observers.indexOf(observer);
+
+    if (index !== -1) {
+      this.result = (0,_utils__WEBPACK_IMPORTED_MODULE_3__.replaceAt)(this.result, index, result);
+      this.notify();
+    }
+  };
+
+  _proto.notify = function notify() {
+    var _this5 = this;
+
+    _notifyManager__WEBPACK_IMPORTED_MODULE_2__.notifyManager.batch(function () {
+      _this5.listeners.forEach(function (listener) {
+        listener(_this5.result);
+      });
+    });
+  };
+
+  return QueriesObserver;
+}(_subscribable__WEBPACK_IMPORTED_MODULE_4__.Subscribable);
+
+/***/ }),
+
+/***/ "./node_modules/react-query/es/core/query.js":
+/*!***************************************************!*\
+  !*** ./node_modules/react-query/es/core/query.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Query": () => (/* binding */ Query)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils */ "./node_modules/react-query/es/core/utils.js");
+/* harmony import */ var _notifyManager__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./notifyManager */ "./node_modules/react-query/es/core/notifyManager.js");
+/* harmony import */ var _logger__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./logger */ "./node_modules/react-query/es/core/logger.js");
+/* harmony import */ var _retryer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./retryer */ "./node_modules/react-query/es/core/retryer.js");
+
+
+
+
+ // TYPES
+
+// CLASS
+var Query = /*#__PURE__*/function () {
+  function Query(config) {
+    this.abortSignalConsumed = false;
+    this.hadObservers = false;
+    this.defaultOptions = config.defaultOptions;
+    this.setOptions(config.options);
+    this.observers = [];
+    this.cache = config.cache;
+    this.queryKey = config.queryKey;
+    this.queryHash = config.queryHash;
+    this.initialState = config.state || this.getDefaultState(this.options);
+    this.state = this.initialState;
+    this.meta = config.meta;
+    this.scheduleGc();
+  }
+
+  var _proto = Query.prototype;
+
+  _proto.setOptions = function setOptions(options) {
+    var _this$options$cacheTi;
+
+    this.options = (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({}, this.defaultOptions, options);
+    this.meta = options == null ? void 0 : options.meta; // Default to 5 minutes if not cache time is set
+
+    this.cacheTime = Math.max(this.cacheTime || 0, (_this$options$cacheTi = this.options.cacheTime) != null ? _this$options$cacheTi : 5 * 60 * 1000);
+  };
+
+  _proto.setDefaultOptions = function setDefaultOptions(options) {
+    this.defaultOptions = options;
+  };
+
+  _proto.scheduleGc = function scheduleGc() {
+    var _this = this;
+
+    this.clearGcTimeout();
+
+    if ((0,_utils__WEBPACK_IMPORTED_MODULE_1__.isValidTimeout)(this.cacheTime)) {
+      this.gcTimeout = setTimeout(function () {
+        _this.optionalRemove();
+      }, this.cacheTime);
+    }
+  };
+
+  _proto.clearGcTimeout = function clearGcTimeout() {
+    clearTimeout(this.gcTimeout);
+    this.gcTimeout = undefined;
+  };
+
+  _proto.optionalRemove = function optionalRemove() {
+    if (!this.observers.length) {
+      if (this.state.isFetching) {
+        if (this.hadObservers) {
+          this.scheduleGc();
+        }
+      } else {
+        this.cache.remove(this);
+      }
+    }
+  };
+
+  _proto.setData = function setData(updater, options) {
+    var _this$options$isDataE, _this$options;
+
+    var prevData = this.state.data; // Get the new data
+
+    var data = (0,_utils__WEBPACK_IMPORTED_MODULE_1__.functionalUpdate)(updater, prevData); // Use prev data if an isDataEqual function is defined and returns `true`
+
+    if ((_this$options$isDataE = (_this$options = this.options).isDataEqual) == null ? void 0 : _this$options$isDataE.call(_this$options, prevData, data)) {
+      data = prevData;
+    } else if (this.options.structuralSharing !== false) {
+      // Structurally share data between prev and new data if needed
+      data = (0,_utils__WEBPACK_IMPORTED_MODULE_1__.replaceEqualDeep)(prevData, data);
+    } // Set data and mark it as cached
+
+
+    this.dispatch({
+      data: data,
+      type: 'success',
+      dataUpdatedAt: options == null ? void 0 : options.updatedAt
+    });
+    return data;
+  };
+
+  _proto.setState = function setState(state, setStateOptions) {
+    this.dispatch({
+      type: 'setState',
+      state: state,
+      setStateOptions: setStateOptions
+    });
+  };
+
+  _proto.cancel = function cancel(options) {
+    var _this$retryer;
+
+    var promise = this.promise;
+    (_this$retryer = this.retryer) == null ? void 0 : _this$retryer.cancel(options);
+    return promise ? promise.then(_utils__WEBPACK_IMPORTED_MODULE_1__.noop).catch(_utils__WEBPACK_IMPORTED_MODULE_1__.noop) : Promise.resolve();
+  };
+
+  _proto.destroy = function destroy() {
+    this.clearGcTimeout();
+    this.cancel({
+      silent: true
+    });
+  };
+
+  _proto.reset = function reset() {
+    this.destroy();
+    this.setState(this.initialState);
+  };
+
+  _proto.isActive = function isActive() {
+    return this.observers.some(function (observer) {
+      return observer.options.enabled !== false;
+    });
+  };
+
+  _proto.isFetching = function isFetching() {
+    return this.state.isFetching;
+  };
+
+  _proto.isStale = function isStale() {
+    return this.state.isInvalidated || !this.state.dataUpdatedAt || this.observers.some(function (observer) {
+      return observer.getCurrentResult().isStale;
+    });
+  };
+
+  _proto.isStaleByTime = function isStaleByTime(staleTime) {
+    if (staleTime === void 0) {
+      staleTime = 0;
+    }
+
+    return this.state.isInvalidated || !this.state.dataUpdatedAt || !(0,_utils__WEBPACK_IMPORTED_MODULE_1__.timeUntilStale)(this.state.dataUpdatedAt, staleTime);
+  };
+
+  _proto.onFocus = function onFocus() {
+    var _this$retryer2;
+
+    var observer = this.observers.find(function (x) {
+      return x.shouldFetchOnWindowFocus();
+    });
+
+    if (observer) {
+      observer.refetch();
+    } // Continue fetch if currently paused
+
+
+    (_this$retryer2 = this.retryer) == null ? void 0 : _this$retryer2.continue();
+  };
+
+  _proto.onOnline = function onOnline() {
+    var _this$retryer3;
+
+    var observer = this.observers.find(function (x) {
+      return x.shouldFetchOnReconnect();
+    });
+
+    if (observer) {
+      observer.refetch();
+    } // Continue fetch if currently paused
+
+
+    (_this$retryer3 = this.retryer) == null ? void 0 : _this$retryer3.continue();
+  };
+
+  _proto.addObserver = function addObserver(observer) {
+    if (this.observers.indexOf(observer) === -1) {
+      this.observers.push(observer);
+      this.hadObservers = true; // Stop the query from being garbage collected
+
+      this.clearGcTimeout();
+      this.cache.notify({
+        type: 'observerAdded',
+        query: this,
+        observer: observer
+      });
+    }
+  };
+
+  _proto.removeObserver = function removeObserver(observer) {
+    if (this.observers.indexOf(observer) !== -1) {
+      this.observers = this.observers.filter(function (x) {
+        return x !== observer;
+      });
+
+      if (!this.observers.length) {
+        // If the transport layer does not support cancellation
+        // we'll let the query continue so the result can be cached
+        if (this.retryer) {
+          if (this.retryer.isTransportCancelable || this.abortSignalConsumed) {
+            this.retryer.cancel({
+              revert: true
+            });
+          } else {
+            this.retryer.cancelRetry();
+          }
+        }
+
+        if (this.cacheTime) {
+          this.scheduleGc();
+        } else {
+          this.cache.remove(this);
+        }
+      }
+
+      this.cache.notify({
+        type: 'observerRemoved',
+        query: this,
+        observer: observer
+      });
+    }
+  };
+
+  _proto.getObserversCount = function getObserversCount() {
+    return this.observers.length;
+  };
+
+  _proto.invalidate = function invalidate() {
+    if (!this.state.isInvalidated) {
+      this.dispatch({
+        type: 'invalidate'
+      });
+    }
+  };
+
+  _proto.fetch = function fetch(options, fetchOptions) {
+    var _this2 = this,
+        _this$options$behavio,
+        _context$fetchOptions,
+        _abortController$abor;
+
+    if (this.state.isFetching) {
+      if (this.state.dataUpdatedAt && (fetchOptions == null ? void 0 : fetchOptions.cancelRefetch)) {
+        // Silently cancel current fetch if the user wants to cancel refetches
+        this.cancel({
+          silent: true
+        });
+      } else if (this.promise) {
+        var _this$retryer4;
+
+        // make sure that retries that were potentially cancelled due to unmounts can continue
+        (_this$retryer4 = this.retryer) == null ? void 0 : _this$retryer4.continueRetry(); // Return current promise if we are already fetching
+
+        return this.promise;
+      }
+    } // Update config if passed, otherwise the config from the last execution is used
+
+
+    if (options) {
+      this.setOptions(options);
+    } // Use the options from the first observer with a query function if no function is found.
+    // This can happen when the query is hydrated or created with setQueryData.
+
+
+    if (!this.options.queryFn) {
+      var observer = this.observers.find(function (x) {
+        return x.options.queryFn;
+      });
+
+      if (observer) {
+        this.setOptions(observer.options);
+      }
+    }
+
+    var queryKey = (0,_utils__WEBPACK_IMPORTED_MODULE_1__.ensureQueryKeyArray)(this.queryKey);
+    var abortController = (0,_utils__WEBPACK_IMPORTED_MODULE_1__.getAbortController)(); // Create query function context
+
+    var queryFnContext = {
+      queryKey: queryKey,
+      pageParam: undefined,
+      meta: this.meta
+    };
+    Object.defineProperty(queryFnContext, 'signal', {
+      enumerable: true,
+      get: function get() {
+        if (abortController) {
+          _this2.abortSignalConsumed = true;
+          return abortController.signal;
+        }
+
+        return undefined;
+      }
+    }); // Create fetch function
+
+    var fetchFn = function fetchFn() {
+      if (!_this2.options.queryFn) {
+        return Promise.reject('Missing queryFn');
+      }
+
+      _this2.abortSignalConsumed = false;
+      return _this2.options.queryFn(queryFnContext);
+    }; // Trigger behavior hook
+
+
+    var context = {
+      fetchOptions: fetchOptions,
+      options: this.options,
+      queryKey: queryKey,
+      state: this.state,
+      fetchFn: fetchFn,
+      meta: this.meta
+    };
+
+    if ((_this$options$behavio = this.options.behavior) == null ? void 0 : _this$options$behavio.onFetch) {
+      var _this$options$behavio2;
+
+      (_this$options$behavio2 = this.options.behavior) == null ? void 0 : _this$options$behavio2.onFetch(context);
+    } // Store state in case the current fetch needs to be reverted
+
+
+    this.revertState = this.state; // Set to fetching state if not already in it
+
+    if (!this.state.isFetching || this.state.fetchMeta !== ((_context$fetchOptions = context.fetchOptions) == null ? void 0 : _context$fetchOptions.meta)) {
+      var _context$fetchOptions2;
+
+      this.dispatch({
+        type: 'fetch',
+        meta: (_context$fetchOptions2 = context.fetchOptions) == null ? void 0 : _context$fetchOptions2.meta
+      });
+    } // Try to fetch the data
+
+
+    this.retryer = new _retryer__WEBPACK_IMPORTED_MODULE_2__.Retryer({
+      fn: context.fetchFn,
+      abort: abortController == null ? void 0 : (_abortController$abor = abortController.abort) == null ? void 0 : _abortController$abor.bind(abortController),
+      onSuccess: function onSuccess(data) {
+        _this2.setData(data); // Notify cache callback
+
+
+        _this2.cache.config.onSuccess == null ? void 0 : _this2.cache.config.onSuccess(data, _this2); // Remove query after fetching if cache time is 0
+
+        if (_this2.cacheTime === 0) {
+          _this2.optionalRemove();
+        }
+      },
+      onError: function onError(error) {
+        // Optimistically update state if needed
+        if (!((0,_retryer__WEBPACK_IMPORTED_MODULE_2__.isCancelledError)(error) && error.silent)) {
+          _this2.dispatch({
+            type: 'error',
+            error: error
+          });
+        }
+
+        if (!(0,_retryer__WEBPACK_IMPORTED_MODULE_2__.isCancelledError)(error)) {
+          // Notify cache callback
+          _this2.cache.config.onError == null ? void 0 : _this2.cache.config.onError(error, _this2); // Log error
+
+          (0,_logger__WEBPACK_IMPORTED_MODULE_3__.getLogger)().error(error);
+        } // Remove query after fetching if cache time is 0
+
+
+        if (_this2.cacheTime === 0) {
+          _this2.optionalRemove();
+        }
+      },
+      onFail: function onFail() {
+        _this2.dispatch({
+          type: 'failed'
+        });
+      },
+      onPause: function onPause() {
+        _this2.dispatch({
+          type: 'pause'
+        });
+      },
+      onContinue: function onContinue() {
+        _this2.dispatch({
+          type: 'continue'
+        });
+      },
+      retry: context.options.retry,
+      retryDelay: context.options.retryDelay
+    });
+    this.promise = this.retryer.promise;
+    return this.promise;
+  };
+
+  _proto.dispatch = function dispatch(action) {
+    var _this3 = this;
+
+    this.state = this.reducer(this.state, action);
+    _notifyManager__WEBPACK_IMPORTED_MODULE_4__.notifyManager.batch(function () {
+      _this3.observers.forEach(function (observer) {
+        observer.onQueryUpdate(action);
+      });
+
+      _this3.cache.notify({
+        query: _this3,
+        type: 'queryUpdated',
+        action: action
+      });
+    });
+  };
+
+  _proto.getDefaultState = function getDefaultState(options) {
+    var data = typeof options.initialData === 'function' ? options.initialData() : options.initialData;
+    var hasInitialData = typeof options.initialData !== 'undefined';
+    var initialDataUpdatedAt = hasInitialData ? typeof options.initialDataUpdatedAt === 'function' ? options.initialDataUpdatedAt() : options.initialDataUpdatedAt : 0;
+    var hasData = typeof data !== 'undefined';
+    return {
+      data: data,
+      dataUpdateCount: 0,
+      dataUpdatedAt: hasData ? initialDataUpdatedAt != null ? initialDataUpdatedAt : Date.now() : 0,
+      error: null,
+      errorUpdateCount: 0,
+      errorUpdatedAt: 0,
+      fetchFailureCount: 0,
+      fetchMeta: null,
+      isFetching: false,
+      isInvalidated: false,
+      isPaused: false,
+      status: hasData ? 'success' : 'idle'
+    };
+  };
+
+  _proto.reducer = function reducer(state, action) {
+    var _action$meta, _action$dataUpdatedAt;
+
+    switch (action.type) {
+      case 'failed':
+        return (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({}, state, {
+          fetchFailureCount: state.fetchFailureCount + 1
+        });
+
+      case 'pause':
+        return (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({}, state, {
+          isPaused: true
+        });
+
+      case 'continue':
+        return (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({}, state, {
+          isPaused: false
+        });
+
+      case 'fetch':
+        return (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({}, state, {
+          fetchFailureCount: 0,
+          fetchMeta: (_action$meta = action.meta) != null ? _action$meta : null,
+          isFetching: true,
+          isPaused: false
+        }, !state.dataUpdatedAt && {
+          error: null,
+          status: 'loading'
+        });
+
+      case 'success':
+        return (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({}, state, {
+          data: action.data,
+          dataUpdateCount: state.dataUpdateCount + 1,
+          dataUpdatedAt: (_action$dataUpdatedAt = action.dataUpdatedAt) != null ? _action$dataUpdatedAt : Date.now(),
+          error: null,
+          fetchFailureCount: 0,
+          isFetching: false,
+          isInvalidated: false,
+          isPaused: false,
+          status: 'success'
+        });
+
+      case 'error':
+        var error = action.error;
+
+        if ((0,_retryer__WEBPACK_IMPORTED_MODULE_2__.isCancelledError)(error) && error.revert && this.revertState) {
+          return (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({}, this.revertState);
+        }
+
+        return (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({}, state, {
+          error: error,
+          errorUpdateCount: state.errorUpdateCount + 1,
+          errorUpdatedAt: Date.now(),
+          fetchFailureCount: state.fetchFailureCount + 1,
+          isFetching: false,
+          isPaused: false,
+          status: 'error'
+        });
+
+      case 'invalidate':
+        return (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({}, state, {
+          isInvalidated: true
+        });
+
+      case 'setState':
+        return (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({}, state, action.state);
+
+      default:
+        return state;
+    }
+  };
+
+  return Query;
+}();
+
+/***/ }),
+
+/***/ "./node_modules/react-query/es/core/queryCache.js":
+/*!********************************************************!*\
+  !*** ./node_modules/react-query/es/core/queryCache.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "QueryCache": () => (/* binding */ QueryCache)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inheritsLoose */ "./node_modules/@babel/runtime/helpers/esm/inheritsLoose.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./utils */ "./node_modules/react-query/es/core/utils.js");
+/* harmony import */ var _query__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./query */ "./node_modules/react-query/es/core/query.js");
+/* harmony import */ var _notifyManager__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./notifyManager */ "./node_modules/react-query/es/core/notifyManager.js");
+/* harmony import */ var _subscribable__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./subscribable */ "./node_modules/react-query/es/core/subscribable.js");
+
+
+
+
+
+// CLASS
+var QueryCache = /*#__PURE__*/function (_Subscribable) {
+  (0,_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_0__.default)(QueryCache, _Subscribable);
+
+  function QueryCache(config) {
+    var _this;
+
+    _this = _Subscribable.call(this) || this;
+    _this.config = config || {};
+    _this.queries = [];
+    _this.queriesMap = {};
+    return _this;
+  }
+
+  var _proto = QueryCache.prototype;
+
+  _proto.build = function build(client, options, state) {
+    var _options$queryHash;
+
+    var queryKey = options.queryKey;
+    var queryHash = (_options$queryHash = options.queryHash) != null ? _options$queryHash : (0,_utils__WEBPACK_IMPORTED_MODULE_1__.hashQueryKeyByOptions)(queryKey, options);
+    var query = this.get(queryHash);
+
+    if (!query) {
+      query = new _query__WEBPACK_IMPORTED_MODULE_2__.Query({
+        cache: this,
+        queryKey: queryKey,
+        queryHash: queryHash,
+        options: client.defaultQueryOptions(options),
+        state: state,
+        defaultOptions: client.getQueryDefaults(queryKey),
+        meta: options.meta
+      });
+      this.add(query);
+    }
+
+    return query;
+  };
+
+  _proto.add = function add(query) {
+    if (!this.queriesMap[query.queryHash]) {
+      this.queriesMap[query.queryHash] = query;
+      this.queries.push(query);
+      this.notify({
+        type: 'queryAdded',
+        query: query
+      });
+    }
+  };
+
+  _proto.remove = function remove(query) {
+    var queryInMap = this.queriesMap[query.queryHash];
+
+    if (queryInMap) {
+      query.destroy();
+      this.queries = this.queries.filter(function (x) {
+        return x !== query;
+      });
+
+      if (queryInMap === query) {
+        delete this.queriesMap[query.queryHash];
+      }
+
+      this.notify({
+        type: 'queryRemoved',
+        query: query
+      });
+    }
+  };
+
+  _proto.clear = function clear() {
+    var _this2 = this;
+
+    _notifyManager__WEBPACK_IMPORTED_MODULE_3__.notifyManager.batch(function () {
+      _this2.queries.forEach(function (query) {
+        _this2.remove(query);
+      });
+    });
+  };
+
+  _proto.get = function get(queryHash) {
+    return this.queriesMap[queryHash];
+  };
+
+  _proto.getAll = function getAll() {
+    return this.queries;
+  };
+
+  _proto.find = function find(arg1, arg2) {
+    var _parseFilterArgs = (0,_utils__WEBPACK_IMPORTED_MODULE_1__.parseFilterArgs)(arg1, arg2),
+        filters = _parseFilterArgs[0];
+
+    if (typeof filters.exact === 'undefined') {
+      filters.exact = true;
+    }
+
+    return this.queries.find(function (query) {
+      return (0,_utils__WEBPACK_IMPORTED_MODULE_1__.matchQuery)(filters, query);
+    });
+  };
+
+  _proto.findAll = function findAll(arg1, arg2) {
+    var _parseFilterArgs2 = (0,_utils__WEBPACK_IMPORTED_MODULE_1__.parseFilterArgs)(arg1, arg2),
+        filters = _parseFilterArgs2[0];
+
+    return Object.keys(filters).length > 0 ? this.queries.filter(function (query) {
+      return (0,_utils__WEBPACK_IMPORTED_MODULE_1__.matchQuery)(filters, query);
+    }) : this.queries;
+  };
+
+  _proto.notify = function notify(event) {
+    var _this3 = this;
+
+    _notifyManager__WEBPACK_IMPORTED_MODULE_3__.notifyManager.batch(function () {
+      _this3.listeners.forEach(function (listener) {
+        listener(event);
+      });
+    });
+  };
+
+  _proto.onFocus = function onFocus() {
+    var _this4 = this;
+
+    _notifyManager__WEBPACK_IMPORTED_MODULE_3__.notifyManager.batch(function () {
+      _this4.queries.forEach(function (query) {
+        query.onFocus();
+      });
+    });
+  };
+
+  _proto.onOnline = function onOnline() {
+    var _this5 = this;
+
+    _notifyManager__WEBPACK_IMPORTED_MODULE_3__.notifyManager.batch(function () {
+      _this5.queries.forEach(function (query) {
+        query.onOnline();
+      });
+    });
+  };
+
+  return QueryCache;
+}(_subscribable__WEBPACK_IMPORTED_MODULE_4__.Subscribable);
+
+/***/ }),
+
+/***/ "./node_modules/react-query/es/core/queryClient.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/react-query/es/core/queryClient.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "QueryClient": () => (/* binding */ QueryClient)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./utils */ "./node_modules/react-query/es/core/utils.js");
+/* harmony import */ var _queryCache__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./queryCache */ "./node_modules/react-query/es/core/queryCache.js");
+/* harmony import */ var _mutationCache__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./mutationCache */ "./node_modules/react-query/es/core/mutationCache.js");
+/* harmony import */ var _focusManager__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./focusManager */ "./node_modules/react-query/es/core/focusManager.js");
+/* harmony import */ var _onlineManager__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./onlineManager */ "./node_modules/react-query/es/core/onlineManager.js");
+/* harmony import */ var _notifyManager__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./notifyManager */ "./node_modules/react-query/es/core/notifyManager.js");
+/* harmony import */ var _infiniteQueryBehavior__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./infiniteQueryBehavior */ "./node_modules/react-query/es/core/infiniteQueryBehavior.js");
+
+
+
+
+
+
+
+
+// CLASS
+var QueryClient = /*#__PURE__*/function () {
+  function QueryClient(config) {
+    if (config === void 0) {
+      config = {};
+    }
+
+    this.queryCache = config.queryCache || new _queryCache__WEBPACK_IMPORTED_MODULE_1__.QueryCache();
+    this.mutationCache = config.mutationCache || new _mutationCache__WEBPACK_IMPORTED_MODULE_2__.MutationCache();
+    this.defaultOptions = config.defaultOptions || {};
+    this.queryDefaults = [];
+    this.mutationDefaults = [];
+  }
+
+  var _proto = QueryClient.prototype;
+
+  _proto.mount = function mount() {
+    var _this = this;
+
+    this.unsubscribeFocus = _focusManager__WEBPACK_IMPORTED_MODULE_3__.focusManager.subscribe(function () {
+      if (_focusManager__WEBPACK_IMPORTED_MODULE_3__.focusManager.isFocused() && _onlineManager__WEBPACK_IMPORTED_MODULE_4__.onlineManager.isOnline()) {
+        _this.mutationCache.onFocus();
+
+        _this.queryCache.onFocus();
+      }
+    });
+    this.unsubscribeOnline = _onlineManager__WEBPACK_IMPORTED_MODULE_4__.onlineManager.subscribe(function () {
+      if (_focusManager__WEBPACK_IMPORTED_MODULE_3__.focusManager.isFocused() && _onlineManager__WEBPACK_IMPORTED_MODULE_4__.onlineManager.isOnline()) {
+        _this.mutationCache.onOnline();
+
+        _this.queryCache.onOnline();
+      }
+    });
+  };
+
+  _proto.unmount = function unmount() {
+    var _this$unsubscribeFocu, _this$unsubscribeOnli;
+
+    (_this$unsubscribeFocu = this.unsubscribeFocus) == null ? void 0 : _this$unsubscribeFocu.call(this);
+    (_this$unsubscribeOnli = this.unsubscribeOnline) == null ? void 0 : _this$unsubscribeOnli.call(this);
+  };
+
+  _proto.isFetching = function isFetching(arg1, arg2) {
+    var _parseFilterArgs = (0,_utils__WEBPACK_IMPORTED_MODULE_5__.parseFilterArgs)(arg1, arg2),
+        filters = _parseFilterArgs[0];
+
+    filters.fetching = true;
+    return this.queryCache.findAll(filters).length;
+  };
+
+  _proto.isMutating = function isMutating(filters) {
+    return this.mutationCache.findAll((0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({}, filters, {
+      fetching: true
+    })).length;
+  };
+
+  _proto.getQueryData = function getQueryData(queryKey, filters) {
+    var _this$queryCache$find;
+
+    return (_this$queryCache$find = this.queryCache.find(queryKey, filters)) == null ? void 0 : _this$queryCache$find.state.data;
+  };
+
+  _proto.getQueriesData = function getQueriesData(queryKeyOrFilters) {
+    return this.getQueryCache().findAll(queryKeyOrFilters).map(function (_ref) {
+      var queryKey = _ref.queryKey,
+          state = _ref.state;
+      var data = state.data;
+      return [queryKey, data];
+    });
+  };
+
+  _proto.setQueryData = function setQueryData(queryKey, updater, options) {
+    var parsedOptions = (0,_utils__WEBPACK_IMPORTED_MODULE_5__.parseQueryArgs)(queryKey);
+    var defaultedOptions = this.defaultQueryOptions(parsedOptions);
+    return this.queryCache.build(this, defaultedOptions).setData(updater, options);
+  };
+
+  _proto.setQueriesData = function setQueriesData(queryKeyOrFilters, updater, options) {
+    var _this2 = this;
+
+    return _notifyManager__WEBPACK_IMPORTED_MODULE_6__.notifyManager.batch(function () {
+      return _this2.getQueryCache().findAll(queryKeyOrFilters).map(function (_ref2) {
+        var queryKey = _ref2.queryKey;
+        return [queryKey, _this2.setQueryData(queryKey, updater, options)];
+      });
+    });
+  };
+
+  _proto.getQueryState = function getQueryState(queryKey, filters) {
+    var _this$queryCache$find2;
+
+    return (_this$queryCache$find2 = this.queryCache.find(queryKey, filters)) == null ? void 0 : _this$queryCache$find2.state;
+  };
+
+  _proto.removeQueries = function removeQueries(arg1, arg2) {
+    var _parseFilterArgs2 = (0,_utils__WEBPACK_IMPORTED_MODULE_5__.parseFilterArgs)(arg1, arg2),
+        filters = _parseFilterArgs2[0];
+
+    var queryCache = this.queryCache;
+    _notifyManager__WEBPACK_IMPORTED_MODULE_6__.notifyManager.batch(function () {
+      queryCache.findAll(filters).forEach(function (query) {
+        queryCache.remove(query);
+      });
+    });
+  };
+
+  _proto.resetQueries = function resetQueries(arg1, arg2, arg3) {
+    var _this3 = this;
+
+    var _parseFilterArgs3 = (0,_utils__WEBPACK_IMPORTED_MODULE_5__.parseFilterArgs)(arg1, arg2, arg3),
+        filters = _parseFilterArgs3[0],
+        options = _parseFilterArgs3[1];
+
+    var queryCache = this.queryCache;
+
+    var refetchFilters = (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({}, filters, {
+      active: true
+    });
+
+    return _notifyManager__WEBPACK_IMPORTED_MODULE_6__.notifyManager.batch(function () {
+      queryCache.findAll(filters).forEach(function (query) {
+        query.reset();
+      });
+      return _this3.refetchQueries(refetchFilters, options);
+    });
+  };
+
+  _proto.cancelQueries = function cancelQueries(arg1, arg2, arg3) {
+    var _this4 = this;
+
+    var _parseFilterArgs4 = (0,_utils__WEBPACK_IMPORTED_MODULE_5__.parseFilterArgs)(arg1, arg2, arg3),
+        filters = _parseFilterArgs4[0],
+        _parseFilterArgs4$ = _parseFilterArgs4[1],
+        cancelOptions = _parseFilterArgs4$ === void 0 ? {} : _parseFilterArgs4$;
+
+    if (typeof cancelOptions.revert === 'undefined') {
+      cancelOptions.revert = true;
+    }
+
+    var promises = _notifyManager__WEBPACK_IMPORTED_MODULE_6__.notifyManager.batch(function () {
+      return _this4.queryCache.findAll(filters).map(function (query) {
+        return query.cancel(cancelOptions);
+      });
+    });
+    return Promise.all(promises).then(_utils__WEBPACK_IMPORTED_MODULE_5__.noop).catch(_utils__WEBPACK_IMPORTED_MODULE_5__.noop);
+  };
+
+  _proto.invalidateQueries = function invalidateQueries(arg1, arg2, arg3) {
+    var _ref3,
+        _filters$refetchActiv,
+        _filters$refetchInact,
+        _this5 = this;
+
+    var _parseFilterArgs5 = (0,_utils__WEBPACK_IMPORTED_MODULE_5__.parseFilterArgs)(arg1, arg2, arg3),
+        filters = _parseFilterArgs5[0],
+        options = _parseFilterArgs5[1];
+
+    var refetchFilters = (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({}, filters, {
+      // if filters.refetchActive is not provided and filters.active is explicitly false,
+      // e.g. invalidateQueries({ active: false }), we don't want to refetch active queries
+      active: (_ref3 = (_filters$refetchActiv = filters.refetchActive) != null ? _filters$refetchActiv : filters.active) != null ? _ref3 : true,
+      inactive: (_filters$refetchInact = filters.refetchInactive) != null ? _filters$refetchInact : false
+    });
+
+    return _notifyManager__WEBPACK_IMPORTED_MODULE_6__.notifyManager.batch(function () {
+      _this5.queryCache.findAll(filters).forEach(function (query) {
+        query.invalidate();
+      });
+
+      return _this5.refetchQueries(refetchFilters, options);
+    });
+  };
+
+  _proto.refetchQueries = function refetchQueries(arg1, arg2, arg3) {
+    var _this6 = this;
+
+    var _parseFilterArgs6 = (0,_utils__WEBPACK_IMPORTED_MODULE_5__.parseFilterArgs)(arg1, arg2, arg3),
+        filters = _parseFilterArgs6[0],
+        options = _parseFilterArgs6[1];
+
+    var promises = _notifyManager__WEBPACK_IMPORTED_MODULE_6__.notifyManager.batch(function () {
+      return _this6.queryCache.findAll(filters).map(function (query) {
+        return query.fetch(undefined, (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({}, options, {
+          meta: {
+            refetchPage: filters == null ? void 0 : filters.refetchPage
+          }
+        }));
+      });
+    });
+    var promise = Promise.all(promises).then(_utils__WEBPACK_IMPORTED_MODULE_5__.noop);
+
+    if (!(options == null ? void 0 : options.throwOnError)) {
+      promise = promise.catch(_utils__WEBPACK_IMPORTED_MODULE_5__.noop);
+    }
+
+    return promise;
+  };
+
+  _proto.fetchQuery = function fetchQuery(arg1, arg2, arg3) {
+    var parsedOptions = (0,_utils__WEBPACK_IMPORTED_MODULE_5__.parseQueryArgs)(arg1, arg2, arg3);
+    var defaultedOptions = this.defaultQueryOptions(parsedOptions); // https://github.com/tannerlinsley/react-query/issues/652
+
+    if (typeof defaultedOptions.retry === 'undefined') {
+      defaultedOptions.retry = false;
+    }
+
+    var query = this.queryCache.build(this, defaultedOptions);
+    return query.isStaleByTime(defaultedOptions.staleTime) ? query.fetch(defaultedOptions) : Promise.resolve(query.state.data);
+  };
+
+  _proto.prefetchQuery = function prefetchQuery(arg1, arg2, arg3) {
+    return this.fetchQuery(arg1, arg2, arg3).then(_utils__WEBPACK_IMPORTED_MODULE_5__.noop).catch(_utils__WEBPACK_IMPORTED_MODULE_5__.noop);
+  };
+
+  _proto.fetchInfiniteQuery = function fetchInfiniteQuery(arg1, arg2, arg3) {
+    var parsedOptions = (0,_utils__WEBPACK_IMPORTED_MODULE_5__.parseQueryArgs)(arg1, arg2, arg3);
+    parsedOptions.behavior = (0,_infiniteQueryBehavior__WEBPACK_IMPORTED_MODULE_7__.infiniteQueryBehavior)();
+    return this.fetchQuery(parsedOptions);
+  };
+
+  _proto.prefetchInfiniteQuery = function prefetchInfiniteQuery(arg1, arg2, arg3) {
+    return this.fetchInfiniteQuery(arg1, arg2, arg3).then(_utils__WEBPACK_IMPORTED_MODULE_5__.noop).catch(_utils__WEBPACK_IMPORTED_MODULE_5__.noop);
+  };
+
+  _proto.cancelMutations = function cancelMutations() {
+    var _this7 = this;
+
+    var promises = _notifyManager__WEBPACK_IMPORTED_MODULE_6__.notifyManager.batch(function () {
+      return _this7.mutationCache.getAll().map(function (mutation) {
+        return mutation.cancel();
+      });
+    });
+    return Promise.all(promises).then(_utils__WEBPACK_IMPORTED_MODULE_5__.noop).catch(_utils__WEBPACK_IMPORTED_MODULE_5__.noop);
+  };
+
+  _proto.resumePausedMutations = function resumePausedMutations() {
+    return this.getMutationCache().resumePausedMutations();
+  };
+
+  _proto.executeMutation = function executeMutation(options) {
+    return this.mutationCache.build(this, options).execute();
+  };
+
+  _proto.getQueryCache = function getQueryCache() {
+    return this.queryCache;
+  };
+
+  _proto.getMutationCache = function getMutationCache() {
+    return this.mutationCache;
+  };
+
+  _proto.getDefaultOptions = function getDefaultOptions() {
+    return this.defaultOptions;
+  };
+
+  _proto.setDefaultOptions = function setDefaultOptions(options) {
+    this.defaultOptions = options;
+  };
+
+  _proto.setQueryDefaults = function setQueryDefaults(queryKey, options) {
+    var result = this.queryDefaults.find(function (x) {
+      return (0,_utils__WEBPACK_IMPORTED_MODULE_5__.hashQueryKey)(queryKey) === (0,_utils__WEBPACK_IMPORTED_MODULE_5__.hashQueryKey)(x.queryKey);
+    });
+
+    if (result) {
+      result.defaultOptions = options;
+    } else {
+      this.queryDefaults.push({
+        queryKey: queryKey,
+        defaultOptions: options
+      });
+    }
+  };
+
+  _proto.getQueryDefaults = function getQueryDefaults(queryKey) {
+    var _this$queryDefaults$f;
+
+    return queryKey ? (_this$queryDefaults$f = this.queryDefaults.find(function (x) {
+      return (0,_utils__WEBPACK_IMPORTED_MODULE_5__.partialMatchKey)(queryKey, x.queryKey);
+    })) == null ? void 0 : _this$queryDefaults$f.defaultOptions : undefined;
+  };
+
+  _proto.setMutationDefaults = function setMutationDefaults(mutationKey, options) {
+    var result = this.mutationDefaults.find(function (x) {
+      return (0,_utils__WEBPACK_IMPORTED_MODULE_5__.hashQueryKey)(mutationKey) === (0,_utils__WEBPACK_IMPORTED_MODULE_5__.hashQueryKey)(x.mutationKey);
+    });
+
+    if (result) {
+      result.defaultOptions = options;
+    } else {
+      this.mutationDefaults.push({
+        mutationKey: mutationKey,
+        defaultOptions: options
+      });
+    }
+  };
+
+  _proto.getMutationDefaults = function getMutationDefaults(mutationKey) {
+    var _this$mutationDefault;
+
+    return mutationKey ? (_this$mutationDefault = this.mutationDefaults.find(function (x) {
+      return (0,_utils__WEBPACK_IMPORTED_MODULE_5__.partialMatchKey)(mutationKey, x.mutationKey);
+    })) == null ? void 0 : _this$mutationDefault.defaultOptions : undefined;
+  };
+
+  _proto.defaultQueryOptions = function defaultQueryOptions(options) {
+    if (options == null ? void 0 : options._defaulted) {
+      return options;
+    }
+
+    var defaultedOptions = (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({}, this.defaultOptions.queries, this.getQueryDefaults(options == null ? void 0 : options.queryKey), options, {
+      _defaulted: true
+    });
+
+    if (!defaultedOptions.queryHash && defaultedOptions.queryKey) {
+      defaultedOptions.queryHash = (0,_utils__WEBPACK_IMPORTED_MODULE_5__.hashQueryKeyByOptions)(defaultedOptions.queryKey, defaultedOptions);
+    }
+
+    return defaultedOptions;
+  };
+
+  _proto.defaultQueryObserverOptions = function defaultQueryObserverOptions(options) {
+    return this.defaultQueryOptions(options);
+  };
+
+  _proto.defaultMutationOptions = function defaultMutationOptions(options) {
+    if (options == null ? void 0 : options._defaulted) {
+      return options;
+    }
+
+    return (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({}, this.defaultOptions.mutations, this.getMutationDefaults(options == null ? void 0 : options.mutationKey), options, {
+      _defaulted: true
+    });
+  };
+
+  _proto.clear = function clear() {
+    this.queryCache.clear();
+    this.mutationCache.clear();
+  };
+
+  return QueryClient;
+}();
+
+/***/ }),
+
+/***/ "./node_modules/react-query/es/core/queryObserver.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/react-query/es/core/queryObserver.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "QueryObserver": () => (/* binding */ QueryObserver)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inheritsLoose */ "./node_modules/@babel/runtime/helpers/esm/inheritsLoose.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./utils */ "./node_modules/react-query/es/core/utils.js");
+/* harmony import */ var _notifyManager__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./notifyManager */ "./node_modules/react-query/es/core/notifyManager.js");
+/* harmony import */ var _focusManager__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./focusManager */ "./node_modules/react-query/es/core/focusManager.js");
+/* harmony import */ var _subscribable__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./subscribable */ "./node_modules/react-query/es/core/subscribable.js");
+/* harmony import */ var _logger__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./logger */ "./node_modules/react-query/es/core/logger.js");
+/* harmony import */ var _retryer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./retryer */ "./node_modules/react-query/es/core/retryer.js");
+
+
+
+
+
+
+
+
+var QueryObserver = /*#__PURE__*/function (_Subscribable) {
+  (0,_babel_runtime_helpers_esm_inheritsLoose__WEBPACK_IMPORTED_MODULE_1__.default)(QueryObserver, _Subscribable);
+
+  function QueryObserver(client, options) {
+    var _this;
+
+    _this = _Subscribable.call(this) || this;
+    _this.client = client;
+    _this.options = options;
+    _this.trackedProps = [];
+    _this.previousSelectError = null;
+
+    _this.bindMethods();
+
+    _this.setOptions(options);
+
+    return _this;
+  }
+
+  var _proto = QueryObserver.prototype;
+
+  _proto.bindMethods = function bindMethods() {
+    this.remove = this.remove.bind(this);
+    this.refetch = this.refetch.bind(this);
+  };
+
+  _proto.onSubscribe = function onSubscribe() {
+    if (this.listeners.length === 1) {
+      this.currentQuery.addObserver(this);
+
+      if (shouldFetchOnMount(this.currentQuery, this.options)) {
+        this.executeFetch();
+      }
+
+      this.updateTimers();
+    }
+  };
+
+  _proto.onUnsubscribe = function onUnsubscribe() {
+    if (!this.listeners.length) {
+      this.destroy();
+    }
+  };
+
+  _proto.shouldFetchOnReconnect = function shouldFetchOnReconnect() {
+    return _shouldFetchOnReconnect(this.currentQuery, this.options);
+  };
+
+  _proto.shouldFetchOnWindowFocus = function shouldFetchOnWindowFocus() {
+    return _shouldFetchOnWindowFocus(this.currentQuery, this.options);
+  };
+
+  _proto.destroy = function destroy() {
+    this.listeners = [];
+    this.clearTimers();
+    this.currentQuery.removeObserver(this);
+  };
+
+  _proto.setOptions = function setOptions(options, notifyOptions) {
+    var prevOptions = this.options;
+    var prevQuery = this.currentQuery;
+    this.options = this.client.defaultQueryObserverOptions(options);
+
+    if (typeof this.options.enabled !== 'undefined' && typeof this.options.enabled !== 'boolean') {
+      throw new Error('Expected enabled to be a boolean');
+    } // Keep previous query key if the user does not supply one
+
+
+    if (!this.options.queryKey) {
+      this.options.queryKey = prevOptions.queryKey;
+    }
+
+    this.updateQuery();
+    var mounted = this.hasListeners(); // Fetch if there are subscribers
+
+    if (mounted && shouldFetchOptionally(this.currentQuery, prevQuery, this.options, prevOptions)) {
+      this.executeFetch();
+    } // Update result
+
+
+    this.updateResult(notifyOptions); // Update stale interval if needed
+
+    if (mounted && (this.currentQuery !== prevQuery || this.options.enabled !== prevOptions.enabled || this.options.staleTime !== prevOptions.staleTime)) {
+      this.updateStaleTimeout();
+    }
+
+    var nextRefetchInterval = this.computeRefetchInterval(); // Update refetch interval if needed
+
+    if (mounted && (this.currentQuery !== prevQuery || this.options.enabled !== prevOptions.enabled || nextRefetchInterval !== this.currentRefetchInterval)) {
+      this.updateRefetchInterval(nextRefetchInterval);
+    }
+  };
+
+  _proto.getOptimisticResult = function getOptimisticResult(options) {
+    var defaultedOptions = this.client.defaultQueryObserverOptions(options);
+    var query = this.client.getQueryCache().build(this.client, defaultedOptions);
+    return this.createResult(query, defaultedOptions);
+  };
+
+  _proto.getCurrentResult = function getCurrentResult() {
+    return this.currentResult;
+  };
+
+  _proto.trackResult = function trackResult(result, defaultedOptions) {
+    var _this2 = this;
+
+    var trackedResult = {};
+
+    var trackProp = function trackProp(key) {
+      if (!_this2.trackedProps.includes(key)) {
+        _this2.trackedProps.push(key);
+      }
+    };
+
+    Object.keys(result).forEach(function (key) {
+      Object.defineProperty(trackedResult, key, {
+        configurable: false,
+        enumerable: true,
+        get: function get() {
+          trackProp(key);
+          return result[key];
+        }
+      });
+    });
+
+    if (defaultedOptions.useErrorBoundary || defaultedOptions.suspense) {
+      trackProp('error');
+    }
+
+    return trackedResult;
+  };
+
+  _proto.getNextResult = function getNextResult(options) {
+    var _this3 = this;
+
+    return new Promise(function (resolve, reject) {
+      var unsubscribe = _this3.subscribe(function (result) {
+        if (!result.isFetching) {
+          unsubscribe();
+
+          if (result.isError && (options == null ? void 0 : options.throwOnError)) {
+            reject(result.error);
+          } else {
+            resolve(result);
+          }
+        }
+      });
+    });
+  };
+
+  _proto.getCurrentQuery = function getCurrentQuery() {
+    return this.currentQuery;
+  };
+
+  _proto.remove = function remove() {
+    this.client.getQueryCache().remove(this.currentQuery);
+  };
+
+  _proto.refetch = function refetch(options) {
+    return this.fetch((0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({}, options, {
+      meta: {
+        refetchPage: options == null ? void 0 : options.refetchPage
+      }
+    }));
+  };
+
+  _proto.fetchOptimistic = function fetchOptimistic(options) {
+    var _this4 = this;
+
+    var defaultedOptions = this.client.defaultQueryObserverOptions(options);
+    var query = this.client.getQueryCache().build(this.client, defaultedOptions);
+    return query.fetch().then(function () {
+      return _this4.createResult(query, defaultedOptions);
+    });
+  };
+
+  _proto.fetch = function fetch(fetchOptions) {
+    var _this5 = this;
+
+    return this.executeFetch(fetchOptions).then(function () {
+      _this5.updateResult();
+
+      return _this5.currentResult;
+    });
+  };
+
+  _proto.executeFetch = function executeFetch(fetchOptions) {
+    // Make sure we reference the latest query as the current one might have been removed
+    this.updateQuery(); // Fetch
+
+    var promise = this.currentQuery.fetch(this.options, fetchOptions);
+
+    if (!(fetchOptions == null ? void 0 : fetchOptions.throwOnError)) {
+      promise = promise.catch(_utils__WEBPACK_IMPORTED_MODULE_2__.noop);
+    }
+
+    return promise;
+  };
+
+  _proto.updateStaleTimeout = function updateStaleTimeout() {
+    var _this6 = this;
+
+    this.clearStaleTimeout();
+
+    if (_utils__WEBPACK_IMPORTED_MODULE_2__.isServer || this.currentResult.isStale || !(0,_utils__WEBPACK_IMPORTED_MODULE_2__.isValidTimeout)(this.options.staleTime)) {
+      return;
+    }
+
+    var time = (0,_utils__WEBPACK_IMPORTED_MODULE_2__.timeUntilStale)(this.currentResult.dataUpdatedAt, this.options.staleTime); // The timeout is sometimes triggered 1 ms before the stale time expiration.
+    // To mitigate this issue we always add 1 ms to the timeout.
+
+    var timeout = time + 1;
+    this.staleTimeoutId = setTimeout(function () {
+      if (!_this6.currentResult.isStale) {
+        _this6.updateResult();
+      }
+    }, timeout);
+  };
+
+  _proto.computeRefetchInterval = function computeRefetchInterval() {
+    var _this$options$refetch;
+
+    return typeof this.options.refetchInterval === 'function' ? this.options.refetchInterval(this.currentResult.data, this.currentQuery) : (_this$options$refetch = this.options.refetchInterval) != null ? _this$options$refetch : false;
+  };
+
+  _proto.updateRefetchInterval = function updateRefetchInterval(nextInterval) {
+    var _this7 = this;
+
+    this.clearRefetchInterval();
+    this.currentRefetchInterval = nextInterval;
+
+    if (_utils__WEBPACK_IMPORTED_MODULE_2__.isServer || this.options.enabled === false || !(0,_utils__WEBPACK_IMPORTED_MODULE_2__.isValidTimeout)(this.currentRefetchInterval) || this.currentRefetchInterval === 0) {
+      return;
+    }
+
+    this.refetchIntervalId = setInterval(function () {
+      if (_this7.options.refetchIntervalInBackground || _focusManager__WEBPACK_IMPORTED_MODULE_3__.focusManager.isFocused()) {
+        _this7.executeFetch();
+      }
+    }, this.currentRefetchInterval);
+  };
+
+  _proto.updateTimers = function updateTimers() {
+    this.updateStaleTimeout();
+    this.updateRefetchInterval(this.computeRefetchInterval());
+  };
+
+  _proto.clearTimers = function clearTimers() {
+    this.clearStaleTimeout();
+    this.clearRefetchInterval();
+  };
+
+  _proto.clearStaleTimeout = function clearStaleTimeout() {
+    clearTimeout(this.staleTimeoutId);
+    this.staleTimeoutId = undefined;
+  };
+
+  _proto.clearRefetchInterval = function clearRefetchInterval() {
+    clearInterval(this.refetchIntervalId);
+    this.refetchIntervalId = undefined;
+  };
+
+  _proto.createResult = function createResult(query, options) {
+    var prevQuery = this.currentQuery;
+    var prevOptions = this.options;
+    var prevResult = this.currentResult;
+    var prevResultState = this.currentResultState;
+    var prevResultOptions = this.currentResultOptions;
+    var queryChange = query !== prevQuery;
+    var queryInitialState = queryChange ? query.state : this.currentQueryInitialState;
+    var prevQueryResult = queryChange ? this.currentResult : this.previousQueryResult;
+    var state = query.state;
+    var dataUpdatedAt = state.dataUpdatedAt,
+        error = state.error,
+        errorUpdatedAt = state.errorUpdatedAt,
+        isFetching = state.isFetching,
+        status = state.status;
+    var isPreviousData = false;
+    var isPlaceholderData = false;
+    var data; // Optimistically set result in fetching state if needed
+
+    if (options.optimisticResults) {
+      var mounted = this.hasListeners();
+      var fetchOnMount = !mounted && shouldFetchOnMount(query, options);
+      var fetchOptionally = mounted && shouldFetchOptionally(query, prevQuery, options, prevOptions);
+
+      if (fetchOnMount || fetchOptionally) {
+        isFetching = true;
+
+        if (!dataUpdatedAt) {
+          status = 'loading';
+        }
+      }
+    } // Keep previous data if needed
+
+
+    if (options.keepPreviousData && !state.dataUpdateCount && (prevQueryResult == null ? void 0 : prevQueryResult.isSuccess) && status !== 'error') {
+      data = prevQueryResult.data;
+      dataUpdatedAt = prevQueryResult.dataUpdatedAt;
+      status = prevQueryResult.status;
+      isPreviousData = true;
+    } // Select data if needed
+    else if (options.select && typeof state.data !== 'undefined') {
+        var _this$previousSelect;
+
+        // Memoize select result
+        if (prevResult && state.data === (prevResultState == null ? void 0 : prevResultState.data) && options.select === ((_this$previousSelect = this.previousSelect) == null ? void 0 : _this$previousSelect.fn) && !this.previousSelectError) {
+          data = this.previousSelect.result;
+        } else {
+          try {
+            data = options.select(state.data);
+            this.previousSelect = {
+              fn: options.select,
+              result: data
+            };
+
+            if (options.structuralSharing !== false) {
+              data = (0,_utils__WEBPACK_IMPORTED_MODULE_2__.replaceEqualDeep)(prevResult == null ? void 0 : prevResult.data, data);
+            }
+
+            this.previousSelectError = null;
+          } catch (selectError) {
+            (0,_logger__WEBPACK_IMPORTED_MODULE_4__.getLogger)().error(selectError);
+            error = selectError;
+            this.previousSelectError = selectError;
+            errorUpdatedAt = Date.now();
+            status = 'error';
+          }
+        }
+      } // Use query data
+      else {
+          data = state.data;
+        } // Show placeholder data if needed
+
+
+    if (typeof options.placeholderData !== 'undefined' && typeof data === 'undefined' && (status === 'loading' || status === 'idle')) {
+      var placeholderData; // Memoize placeholder data
+
+      if ((prevResult == null ? void 0 : prevResult.isPlaceholderData) && options.placeholderData === (prevResultOptions == null ? void 0 : prevResultOptions.placeholderData)) {
+        placeholderData = prevResult.data;
+      } else {
+        placeholderData = typeof options.placeholderData === 'function' ? options.placeholderData() : options.placeholderData;
+
+        if (options.select && typeof placeholderData !== 'undefined') {
+          try {
+            placeholderData = options.select(placeholderData);
+
+            if (options.structuralSharing !== false) {
+              placeholderData = (0,_utils__WEBPACK_IMPORTED_MODULE_2__.replaceEqualDeep)(prevResult == null ? void 0 : prevResult.data, placeholderData);
+            }
+
+            this.previousSelectError = null;
+          } catch (selectError) {
+            (0,_logger__WEBPACK_IMPORTED_MODULE_4__.getLogger)().error(selectError);
+            error = selectError;
+            this.previousSelectError = selectError;
+            errorUpdatedAt = Date.now();
+            status = 'error';
+          }
+        }
+      }
+
+      if (typeof placeholderData !== 'undefined') {
+        status = 'success';
+        data = placeholderData;
+        isPlaceholderData = true;
+      }
+    }
+
+    var result = {
+      status: status,
+      isLoading: status === 'loading',
+      isSuccess: status === 'success',
+      isError: status === 'error',
+      isIdle: status === 'idle',
+      data: data,
+      dataUpdatedAt: dataUpdatedAt,
+      error: error,
+      errorUpdatedAt: errorUpdatedAt,
+      failureCount: state.fetchFailureCount,
+      isFetched: state.dataUpdateCount > 0 || state.errorUpdateCount > 0,
+      isFetchedAfterMount: state.dataUpdateCount > queryInitialState.dataUpdateCount || state.errorUpdateCount > queryInitialState.errorUpdateCount,
+      isFetching: isFetching,
+      isRefetching: isFetching && status !== 'loading',
+      isLoadingError: status === 'error' && state.dataUpdatedAt === 0,
+      isPlaceholderData: isPlaceholderData,
+      isPreviousData: isPreviousData,
+      isRefetchError: status === 'error' && state.dataUpdatedAt !== 0,
+      isStale: isStale(query, options),
+      refetch: this.refetch,
+      remove: this.remove
+    };
+    return result;
+  };
+
+  _proto.shouldNotifyListeners = function shouldNotifyListeners(result, prevResult) {
+    if (!prevResult) {
+      return true;
+    }
+
+    var _this$options = this.options,
+        notifyOnChangeProps = _this$options.notifyOnChangeProps,
+        notifyOnChangePropsExclusions = _this$options.notifyOnChangePropsExclusions;
+
+    if (!notifyOnChangeProps && !notifyOnChangePropsExclusions) {
+      return true;
+    }
+
+    if (notifyOnChangeProps === 'tracked' && !this.trackedProps.length) {
+      return true;
+    }
+
+    var includedProps = notifyOnChangeProps === 'tracked' ? this.trackedProps : notifyOnChangeProps;
+    return Object.keys(result).some(function (key) {
+      var typedKey = key;
+      var changed = result[typedKey] !== prevResult[typedKey];
+      var isIncluded = includedProps == null ? void 0 : includedProps.some(function (x) {
+        return x === key;
+      });
+      var isExcluded = notifyOnChangePropsExclusions == null ? void 0 : notifyOnChangePropsExclusions.some(function (x) {
+        return x === key;
+      });
+      return changed && !isExcluded && (!includedProps || isIncluded);
+    });
+  };
+
+  _proto.updateResult = function updateResult(notifyOptions) {
+    var prevResult = this.currentResult;
+    this.currentResult = this.createResult(this.currentQuery, this.options);
+    this.currentResultState = this.currentQuery.state;
+    this.currentResultOptions = this.options; // Only notify if something has changed
+
+    if ((0,_utils__WEBPACK_IMPORTED_MODULE_2__.shallowEqualObjects)(this.currentResult, prevResult)) {
+      return;
+    } // Determine which callbacks to trigger
+
+
+    var defaultNotifyOptions = {
+      cache: true
+    };
+
+    if ((notifyOptions == null ? void 0 : notifyOptions.listeners) !== false && this.shouldNotifyListeners(this.currentResult, prevResult)) {
+      defaultNotifyOptions.listeners = true;
+    }
+
+    this.notify((0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({}, defaultNotifyOptions, notifyOptions));
+  };
+
+  _proto.updateQuery = function updateQuery() {
+    var query = this.client.getQueryCache().build(this.client, this.options);
+
+    if (query === this.currentQuery) {
+      return;
+    }
+
+    var prevQuery = this.currentQuery;
+    this.currentQuery = query;
+    this.currentQueryInitialState = query.state;
+    this.previousQueryResult = this.currentResult;
+
+    if (this.hasListeners()) {
+      prevQuery == null ? void 0 : prevQuery.removeObserver(this);
+      query.addObserver(this);
+    }
+  };
+
+  _proto.onQueryUpdate = function onQueryUpdate(action) {
+    var notifyOptions = {};
+
+    if (action.type === 'success') {
+      notifyOptions.onSuccess = true;
+    } else if (action.type === 'error' && !(0,_retryer__WEBPACK_IMPORTED_MODULE_5__.isCancelledError)(action.error)) {
+      notifyOptions.onError = true;
+    }
+
+    this.updateResult(notifyOptions);
+
+    if (this.hasListeners()) {
+      this.updateTimers();
+    }
+  };
+
+  _proto.notify = function notify(notifyOptions) {
+    var _this8 = this;
+
+    _notifyManager__WEBPACK_IMPORTED_MODULE_6__.notifyManager.batch(function () {
+      // First trigger the configuration callbacks
+      if (notifyOptions.onSuccess) {
+        _this8.options.onSuccess == null ? void 0 : _this8.options.onSuccess(_this8.currentResult.data);
+        _this8.options.onSettled == null ? void 0 : _this8.options.onSettled(_this8.currentResult.data, null);
+      } else if (notifyOptions.onError) {
+        _this8.options.onError == null ? void 0 : _this8.options.onError(_this8.currentResult.error);
+        _this8.options.onSettled == null ? void 0 : _this8.options.onSettled(undefined, _this8.currentResult.error);
+      } // Then trigger the listeners
+
+
+      if (notifyOptions.listeners) {
+        _this8.listeners.forEach(function (listener) {
+          listener(_this8.currentResult);
+        });
+      } // Then the cache listeners
+
+
+      if (notifyOptions.cache) {
+        _this8.client.getQueryCache().notify({
+          query: _this8.currentQuery,
+          type: 'observerResultsUpdated'
+        });
+      }
+    });
+  };
+
+  return QueryObserver;
+}(_subscribable__WEBPACK_IMPORTED_MODULE_7__.Subscribable);
+
+function shouldLoadOnMount(query, options) {
+  return options.enabled !== false && !query.state.dataUpdatedAt && !(query.state.status === 'error' && options.retryOnMount === false);
+}
+
+function shouldRefetchOnMount(query, options) {
+  return options.enabled !== false && query.state.dataUpdatedAt > 0 && (options.refetchOnMount === 'always' || options.refetchOnMount !== false && isStale(query, options));
+}
+
+function shouldFetchOnMount(query, options) {
+  return shouldLoadOnMount(query, options) || shouldRefetchOnMount(query, options);
+}
+
+function _shouldFetchOnReconnect(query, options) {
+  return options.enabled !== false && (options.refetchOnReconnect === 'always' || options.refetchOnReconnect !== false && isStale(query, options));
+}
+
+function _shouldFetchOnWindowFocus(query, options) {
+  return options.enabled !== false && (options.refetchOnWindowFocus === 'always' || options.refetchOnWindowFocus !== false && isStale(query, options));
+}
+
+function shouldFetchOptionally(query, prevQuery, options, prevOptions) {
+  return options.enabled !== false && (query !== prevQuery || prevOptions.enabled === false) && (!options.suspense || query.state.status !== 'error') && isStale(query, options);
+}
+
+function isStale(query, options) {
+  return query.isStaleByTime(options.staleTime);
+}
+
+/***/ }),
+
+/***/ "./node_modules/react-query/es/core/retryer.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/react-query/es/core/retryer.js ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "isCancelable": () => (/* binding */ isCancelable),
+/* harmony export */   "CancelledError": () => (/* binding */ CancelledError),
+/* harmony export */   "isCancelledError": () => (/* binding */ isCancelledError),
+/* harmony export */   "Retryer": () => (/* binding */ Retryer)
+/* harmony export */ });
+/* harmony import */ var _focusManager__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./focusManager */ "./node_modules/react-query/es/core/focusManager.js");
+/* harmony import */ var _onlineManager__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./onlineManager */ "./node_modules/react-query/es/core/onlineManager.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils */ "./node_modules/react-query/es/core/utils.js");
+
+
+
+
+function defaultRetryDelay(failureCount) {
+  return Math.min(1000 * Math.pow(2, failureCount), 30000);
+}
+
+function isCancelable(value) {
+  return typeof (value == null ? void 0 : value.cancel) === 'function';
+}
+var CancelledError = function CancelledError(options) {
+  this.revert = options == null ? void 0 : options.revert;
+  this.silent = options == null ? void 0 : options.silent;
+};
+function isCancelledError(value) {
+  return value instanceof CancelledError;
+} // CLASS
+
+var Retryer = function Retryer(config) {
+  var _this = this;
+
+  var cancelRetry = false;
+  var cancelFn;
+  var continueFn;
+  var promiseResolve;
+  var promiseReject;
+  this.abort = config.abort;
+
+  this.cancel = function (cancelOptions) {
+    return cancelFn == null ? void 0 : cancelFn(cancelOptions);
+  };
+
+  this.cancelRetry = function () {
+    cancelRetry = true;
+  };
+
+  this.continueRetry = function () {
+    cancelRetry = false;
+  };
+
+  this.continue = function () {
+    return continueFn == null ? void 0 : continueFn();
+  };
+
+  this.failureCount = 0;
+  this.isPaused = false;
+  this.isResolved = false;
+  this.isTransportCancelable = false;
+  this.promise = new Promise(function (outerResolve, outerReject) {
+    promiseResolve = outerResolve;
+    promiseReject = outerReject;
+  });
+
+  var resolve = function resolve(value) {
+    if (!_this.isResolved) {
+      _this.isResolved = true;
+      config.onSuccess == null ? void 0 : config.onSuccess(value);
+      continueFn == null ? void 0 : continueFn();
+      promiseResolve(value);
+    }
+  };
+
+  var reject = function reject(value) {
+    if (!_this.isResolved) {
+      _this.isResolved = true;
+      config.onError == null ? void 0 : config.onError(value);
+      continueFn == null ? void 0 : continueFn();
+      promiseReject(value);
+    }
+  };
+
+  var pause = function pause() {
+    return new Promise(function (continueResolve) {
+      continueFn = continueResolve;
+      _this.isPaused = true;
+      config.onPause == null ? void 0 : config.onPause();
+    }).then(function () {
+      continueFn = undefined;
+      _this.isPaused = false;
+      config.onContinue == null ? void 0 : config.onContinue();
+    });
+  }; // Create loop function
+
+
+  var run = function run() {
+    // Do nothing if already resolved
+    if (_this.isResolved) {
+      return;
+    }
+
+    var promiseOrValue; // Execute query
+
+    try {
+      promiseOrValue = config.fn();
+    } catch (error) {
+      promiseOrValue = Promise.reject(error);
+    } // Create callback to cancel this fetch
+
+
+    cancelFn = function cancelFn(cancelOptions) {
+      if (!_this.isResolved) {
+        reject(new CancelledError(cancelOptions));
+        _this.abort == null ? void 0 : _this.abort(); // Cancel transport if supported
+
+        if (isCancelable(promiseOrValue)) {
+          try {
+            promiseOrValue.cancel();
+          } catch (_unused) {}
+        }
+      }
+    }; // Check if the transport layer support cancellation
+
+
+    _this.isTransportCancelable = isCancelable(promiseOrValue);
+    Promise.resolve(promiseOrValue).then(resolve).catch(function (error) {
+      var _config$retry, _config$retryDelay;
+
+      // Stop if the fetch is already resolved
+      if (_this.isResolved) {
+        return;
+      } // Do we need to retry the request?
+
+
+      var retry = (_config$retry = config.retry) != null ? _config$retry : 3;
+      var retryDelay = (_config$retryDelay = config.retryDelay) != null ? _config$retryDelay : defaultRetryDelay;
+      var delay = typeof retryDelay === 'function' ? retryDelay(_this.failureCount, error) : retryDelay;
+      var shouldRetry = retry === true || typeof retry === 'number' && _this.failureCount < retry || typeof retry === 'function' && retry(_this.failureCount, error);
+
+      if (cancelRetry || !shouldRetry) {
+        // We are done if the query does not need to be retried
+        reject(error);
+        return;
+      }
+
+      _this.failureCount++; // Notify on fail
+
+      config.onFail == null ? void 0 : config.onFail(_this.failureCount, error); // Delay
+
+      (0,_utils__WEBPACK_IMPORTED_MODULE_0__.sleep)(delay) // Pause if the document is not visible or when the device is offline
+      .then(function () {
+        if (!_focusManager__WEBPACK_IMPORTED_MODULE_1__.focusManager.isFocused() || !_onlineManager__WEBPACK_IMPORTED_MODULE_2__.onlineManager.isOnline()) {
+          return pause();
+        }
+      }).then(function () {
+        if (cancelRetry) {
+          reject(error);
+        } else {
+          run();
+        }
+      });
+    });
+  }; // Start loop
+
+
+  run();
+};
+
+/***/ }),
+
+/***/ "./node_modules/react-query/es/core/subscribable.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/react-query/es/core/subscribable.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Subscribable": () => (/* binding */ Subscribable)
+/* harmony export */ });
+var Subscribable = /*#__PURE__*/function () {
+  function Subscribable() {
+    this.listeners = [];
+  }
+
+  var _proto = Subscribable.prototype;
+
+  _proto.subscribe = function subscribe(listener) {
+    var _this = this;
+
+    var callback = listener || function () {
+      return undefined;
+    };
+
+    this.listeners.push(callback);
+    this.onSubscribe();
+    return function () {
+      _this.listeners = _this.listeners.filter(function (x) {
+        return x !== callback;
+      });
+
+      _this.onUnsubscribe();
+    };
+  };
+
+  _proto.hasListeners = function hasListeners() {
+    return this.listeners.length > 0;
+  };
+
+  _proto.onSubscribe = function onSubscribe() {// Do nothing
+  };
+
+  _proto.onUnsubscribe = function onUnsubscribe() {// Do nothing
+  };
+
+  return Subscribable;
+}();
+
+/***/ }),
+
+/***/ "./node_modules/react-query/es/core/types.js":
+/*!***************************************************!*\
+  !*** ./node_modules/react-query/es/core/types.js ***!
+  \***************************************************/
+/***/ (() => {
+
+
+
+/***/ }),
+
+/***/ "./node_modules/react-query/es/core/utils.js":
+/*!***************************************************!*\
+  !*** ./node_modules/react-query/es/core/utils.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "isServer": () => (/* binding */ isServer),
+/* harmony export */   "noop": () => (/* binding */ noop),
+/* harmony export */   "functionalUpdate": () => (/* binding */ functionalUpdate),
+/* harmony export */   "isValidTimeout": () => (/* binding */ isValidTimeout),
+/* harmony export */   "ensureQueryKeyArray": () => (/* binding */ ensureQueryKeyArray),
+/* harmony export */   "difference": () => (/* binding */ difference),
+/* harmony export */   "replaceAt": () => (/* binding */ replaceAt),
+/* harmony export */   "timeUntilStale": () => (/* binding */ timeUntilStale),
+/* harmony export */   "parseQueryArgs": () => (/* binding */ parseQueryArgs),
+/* harmony export */   "parseMutationArgs": () => (/* binding */ parseMutationArgs),
+/* harmony export */   "parseFilterArgs": () => (/* binding */ parseFilterArgs),
+/* harmony export */   "parseMutationFilterArgs": () => (/* binding */ parseMutationFilterArgs),
+/* harmony export */   "mapQueryStatusFilter": () => (/* binding */ mapQueryStatusFilter),
+/* harmony export */   "matchQuery": () => (/* binding */ matchQuery),
+/* harmony export */   "matchMutation": () => (/* binding */ matchMutation),
+/* harmony export */   "hashQueryKeyByOptions": () => (/* binding */ hashQueryKeyByOptions),
+/* harmony export */   "hashQueryKey": () => (/* binding */ hashQueryKey),
+/* harmony export */   "stableValueHash": () => (/* binding */ stableValueHash),
+/* harmony export */   "partialMatchKey": () => (/* binding */ partialMatchKey),
+/* harmony export */   "partialDeepEqual": () => (/* binding */ partialDeepEqual),
+/* harmony export */   "replaceEqualDeep": () => (/* binding */ replaceEqualDeep),
+/* harmony export */   "shallowEqualObjects": () => (/* binding */ shallowEqualObjects),
+/* harmony export */   "isPlainObject": () => (/* binding */ isPlainObject),
+/* harmony export */   "isQueryKey": () => (/* binding */ isQueryKey),
+/* harmony export */   "isError": () => (/* binding */ isError),
+/* harmony export */   "sleep": () => (/* binding */ sleep),
+/* harmony export */   "scheduleMicrotask": () => (/* binding */ scheduleMicrotask),
+/* harmony export */   "getAbortController": () => (/* binding */ getAbortController)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+
+// TYPES
+// UTILS
+var isServer = typeof window === 'undefined';
+function noop() {
+  return undefined;
+}
+function functionalUpdate(updater, input) {
+  return typeof updater === 'function' ? updater(input) : updater;
+}
+function isValidTimeout(value) {
+  return typeof value === 'number' && value >= 0 && value !== Infinity;
+}
+function ensureQueryKeyArray(value) {
+  return Array.isArray(value) ? value : [value];
+}
+function difference(array1, array2) {
+  return array1.filter(function (x) {
+    return array2.indexOf(x) === -1;
+  });
+}
+function replaceAt(array, index, value) {
+  var copy = array.slice(0);
+  copy[index] = value;
+  return copy;
+}
+function timeUntilStale(updatedAt, staleTime) {
+  return Math.max(updatedAt + (staleTime || 0) - Date.now(), 0);
+}
+function parseQueryArgs(arg1, arg2, arg3) {
+  if (!isQueryKey(arg1)) {
+    return arg1;
+  }
+
+  if (typeof arg2 === 'function') {
+    return (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({}, arg3, {
+      queryKey: arg1,
+      queryFn: arg2
+    });
+  }
+
+  return (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({}, arg2, {
+    queryKey: arg1
+  });
+}
+function parseMutationArgs(arg1, arg2, arg3) {
+  if (isQueryKey(arg1)) {
+    if (typeof arg2 === 'function') {
+      return (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({}, arg3, {
+        mutationKey: arg1,
+        mutationFn: arg2
+      });
+    }
+
+    return (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({}, arg2, {
+      mutationKey: arg1
+    });
+  }
+
+  if (typeof arg1 === 'function') {
+    return (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({}, arg2, {
+      mutationFn: arg1
+    });
+  }
+
+  return (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({}, arg1);
+}
+function parseFilterArgs(arg1, arg2, arg3) {
+  return isQueryKey(arg1) ? [(0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({}, arg2, {
+    queryKey: arg1
+  }), arg3] : [arg1 || {}, arg2];
+}
+function parseMutationFilterArgs(arg1, arg2) {
+  return isQueryKey(arg1) ? (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({}, arg2, {
+    mutationKey: arg1
+  }) : arg1;
+}
+function mapQueryStatusFilter(active, inactive) {
+  if (active === true && inactive === true || active == null && inactive == null) {
+    return 'all';
+  } else if (active === false && inactive === false) {
+    return 'none';
+  } else {
+    // At this point, active|inactive can only be true|false or false|true
+    // so, when only one value is provided, the missing one has to be the negated value
+    var isActive = active != null ? active : !inactive;
+    return isActive ? 'active' : 'inactive';
+  }
+}
+function matchQuery(filters, query) {
+  var active = filters.active,
+      exact = filters.exact,
+      fetching = filters.fetching,
+      inactive = filters.inactive,
+      predicate = filters.predicate,
+      queryKey = filters.queryKey,
+      stale = filters.stale;
+
+  if (isQueryKey(queryKey)) {
+    if (exact) {
+      if (query.queryHash !== hashQueryKeyByOptions(queryKey, query.options)) {
+        return false;
+      }
+    } else if (!partialMatchKey(query.queryKey, queryKey)) {
+      return false;
+    }
+  }
+
+  var queryStatusFilter = mapQueryStatusFilter(active, inactive);
+
+  if (queryStatusFilter === 'none') {
+    return false;
+  } else if (queryStatusFilter !== 'all') {
+    var isActive = query.isActive();
+
+    if (queryStatusFilter === 'active' && !isActive) {
+      return false;
+    }
+
+    if (queryStatusFilter === 'inactive' && isActive) {
+      return false;
+    }
+  }
+
+  if (typeof stale === 'boolean' && query.isStale() !== stale) {
+    return false;
+  }
+
+  if (typeof fetching === 'boolean' && query.isFetching() !== fetching) {
+    return false;
+  }
+
+  if (predicate && !predicate(query)) {
+    return false;
+  }
+
+  return true;
+}
+function matchMutation(filters, mutation) {
+  var exact = filters.exact,
+      fetching = filters.fetching,
+      predicate = filters.predicate,
+      mutationKey = filters.mutationKey;
+
+  if (isQueryKey(mutationKey)) {
+    if (!mutation.options.mutationKey) {
+      return false;
+    }
+
+    if (exact) {
+      if (hashQueryKey(mutation.options.mutationKey) !== hashQueryKey(mutationKey)) {
+        return false;
+      }
+    } else if (!partialMatchKey(mutation.options.mutationKey, mutationKey)) {
+      return false;
+    }
+  }
+
+  if (typeof fetching === 'boolean' && mutation.state.status === 'loading' !== fetching) {
+    return false;
+  }
+
+  if (predicate && !predicate(mutation)) {
+    return false;
+  }
+
+  return true;
+}
+function hashQueryKeyByOptions(queryKey, options) {
+  var hashFn = (options == null ? void 0 : options.queryKeyHashFn) || hashQueryKey;
+  return hashFn(queryKey);
+}
+/**
+ * Default query keys hash function.
+ */
+
+function hashQueryKey(queryKey) {
+  var asArray = ensureQueryKeyArray(queryKey);
+  return stableValueHash(asArray);
+}
+/**
+ * Hashes the value into a stable hash.
+ */
+
+function stableValueHash(value) {
+  return JSON.stringify(value, function (_, val) {
+    return isPlainObject(val) ? Object.keys(val).sort().reduce(function (result, key) {
+      result[key] = val[key];
+      return result;
+    }, {}) : val;
+  });
+}
+/**
+ * Checks if key `b` partially matches with key `a`.
+ */
+
+function partialMatchKey(a, b) {
+  return partialDeepEqual(ensureQueryKeyArray(a), ensureQueryKeyArray(b));
+}
+/**
+ * Checks if `b` partially matches with `a`.
+ */
+
+function partialDeepEqual(a, b) {
+  if (a === b) {
+    return true;
+  }
+
+  if (typeof a !== typeof b) {
+    return false;
+  }
+
+  if (a && b && typeof a === 'object' && typeof b === 'object') {
+    return !Object.keys(b).some(function (key) {
+      return !partialDeepEqual(a[key], b[key]);
+    });
+  }
+
+  return false;
+}
+/**
+ * This function returns `a` if `b` is deeply equal.
+ * If not, it will replace any deeply equal children of `b` with those of `a`.
+ * This can be used for structural sharing between JSON values for example.
+ */
+
+function replaceEqualDeep(a, b) {
+  if (a === b) {
+    return a;
+  }
+
+  var array = Array.isArray(a) && Array.isArray(b);
+
+  if (array || isPlainObject(a) && isPlainObject(b)) {
+    var aSize = array ? a.length : Object.keys(a).length;
+    var bItems = array ? b : Object.keys(b);
+    var bSize = bItems.length;
+    var copy = array ? [] : {};
+    var equalItems = 0;
+
+    for (var i = 0; i < bSize; i++) {
+      var key = array ? i : bItems[i];
+      copy[key] = replaceEqualDeep(a[key], b[key]);
+
+      if (copy[key] === a[key]) {
+        equalItems++;
+      }
+    }
+
+    return aSize === bSize && equalItems === aSize ? a : copy;
+  }
+
+  return b;
+}
+/**
+ * Shallow compare objects. Only works with objects that always have the same properties.
+ */
+
+function shallowEqualObjects(a, b) {
+  if (a && !b || b && !a) {
+    return false;
+  }
+
+  for (var key in a) {
+    if (a[key] !== b[key]) {
+      return false;
+    }
+  }
+
+  return true;
+} // Copied from: https://github.com/jonschlinkert/is-plain-object
+
+function isPlainObject(o) {
+  if (!hasObjectPrototype(o)) {
+    return false;
+  } // If has modified constructor
+
+
+  var ctor = o.constructor;
+
+  if (typeof ctor === 'undefined') {
+    return true;
+  } // If has modified prototype
+
+
+  var prot = ctor.prototype;
+
+  if (!hasObjectPrototype(prot)) {
+    return false;
+  } // If constructor does not have an Object-specific method
+
+
+  if (!prot.hasOwnProperty('isPrototypeOf')) {
+    return false;
+  } // Most likely a plain Object
+
+
+  return true;
+}
+
+function hasObjectPrototype(o) {
+  return Object.prototype.toString.call(o) === '[object Object]';
+}
+
+function isQueryKey(value) {
+  return typeof value === 'string' || Array.isArray(value);
+}
+function isError(value) {
+  return value instanceof Error;
+}
+function sleep(timeout) {
+  return new Promise(function (resolve) {
+    setTimeout(resolve, timeout);
+  });
+}
+/**
+ * Schedules a microtask.
+ * This can be useful to schedule state updates after rendering.
+ */
+
+function scheduleMicrotask(callback) {
+  Promise.resolve().then(callback).catch(function (error) {
+    return setTimeout(function () {
+      throw error;
+    });
+  });
+}
+function getAbortController() {
+  if (typeof AbortController === 'function') {
+    return new AbortController();
+  }
+}
+
+/***/ }),
+
+/***/ "./node_modules/react-query/es/index.js":
+/*!**********************************************!*\
+  !*** ./node_modules/react-query/es/index.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./core */ "./node_modules/react-query/es/core/index.js");
+/* harmony reexport (unknown) */ var __WEBPACK_REEXPORT_OBJECT__ = {};
+/* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in _core__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== "default") __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => _core__WEBPACK_IMPORTED_MODULE_0__[__WEBPACK_IMPORT_KEY__]
+/* harmony reexport (unknown) */ __webpack_require__.d(__webpack_exports__, __WEBPACK_REEXPORT_OBJECT__);
+/* harmony import */ var _react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./react */ "./node_modules/react-query/es/react/index.js");
+/* harmony reexport (unknown) */ var __WEBPACK_REEXPORT_OBJECT__ = {};
+/* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in _react__WEBPACK_IMPORTED_MODULE_1__) if(["default","CancelledError","QueryCache","QueryClient","QueryObserver","QueriesObserver","InfiniteQueryObserver","MutationCache","MutationObserver","setLogger","notifyManager","focusManager","onlineManager","hashQueryKey","isError","isCancelledError","dehydrate","hydrate"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => _react__WEBPACK_IMPORTED_MODULE_1__[__WEBPACK_IMPORT_KEY__]
+/* harmony reexport (unknown) */ __webpack_require__.d(__webpack_exports__, __WEBPACK_REEXPORT_OBJECT__);
+
+
+
+/***/ }),
+
+/***/ "./node_modules/react-query/es/react/Hydrate.js":
+/*!******************************************************!*\
+  !*** ./node_modules/react-query/es/react/Hydrate.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "useHydrate": () => (/* binding */ useHydrate),
+/* harmony export */   "Hydrate": () => (/* binding */ Hydrate)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../core */ "./node_modules/react-query/es/core/hydration.js");
+/* harmony import */ var _QueryClientProvider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./QueryClientProvider */ "./node_modules/react-query/es/react/QueryClientProvider.js");
+
+
+
+function useHydrate(state, options) {
+  var queryClient = (0,_QueryClientProvider__WEBPACK_IMPORTED_MODULE_1__.useQueryClient)();
+  var optionsRef = react__WEBPACK_IMPORTED_MODULE_0___default().useRef(options);
+  optionsRef.current = options; // Running hydrate again with the same queries is safe,
+  // it wont overwrite or initialize existing queries,
+  // relying on useMemo here is only a performance optimization.
+  // hydrate can and should be run *during* render here for SSR to work properly
+
+  react__WEBPACK_IMPORTED_MODULE_0___default().useMemo(function () {
+    if (state) {
+      (0,_core__WEBPACK_IMPORTED_MODULE_2__.hydrate)(queryClient, state, optionsRef.current);
+    }
+  }, [queryClient, state]);
+}
+var Hydrate = function Hydrate(_ref) {
+  var children = _ref.children,
+      options = _ref.options,
+      state = _ref.state;
+  useHydrate(state, options);
+  return children;
+};
+
+/***/ }),
+
+/***/ "./node_modules/react-query/es/react/QueryClientProvider.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/react-query/es/react/QueryClientProvider.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "useQueryClient": () => (/* binding */ useQueryClient),
+/* harmony export */   "QueryClientProvider": () => (/* binding */ QueryClientProvider)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+var defaultContext = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createContext(undefined);
+var QueryClientSharingContext = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createContext(false); // if contextSharing is on, we share the first and at least one
+// instance of the context across the window
+// to ensure that if React Query is used across
+// different bundles or microfrontends they will
+// all use the same **instance** of context, regardless
+// of module scoping.
+
+function getQueryClientContext(contextSharing) {
+  if (contextSharing && typeof window !== 'undefined') {
+    if (!window.ReactQueryClientContext) {
+      window.ReactQueryClientContext = defaultContext;
+    }
+
+    return window.ReactQueryClientContext;
+  }
+
+  return defaultContext;
+}
+
+var useQueryClient = function useQueryClient() {
+  var queryClient = react__WEBPACK_IMPORTED_MODULE_0___default().useContext(getQueryClientContext(react__WEBPACK_IMPORTED_MODULE_0___default().useContext(QueryClientSharingContext)));
+
+  if (!queryClient) {
+    throw new Error('No QueryClient set, use QueryClientProvider to set one');
+  }
+
+  return queryClient;
+};
+var QueryClientProvider = function QueryClientProvider(_ref) {
+  var client = _ref.client,
+      _ref$contextSharing = _ref.contextSharing,
+      contextSharing = _ref$contextSharing === void 0 ? false : _ref$contextSharing,
+      children = _ref.children;
+  react__WEBPACK_IMPORTED_MODULE_0___default().useEffect(function () {
+    client.mount();
+    return function () {
+      client.unmount();
+    };
+  }, [client]);
+  var Context = getQueryClientContext(contextSharing);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(QueryClientSharingContext.Provider, {
+    value: contextSharing
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Context.Provider, {
+    value: client
+  }, children));
+};
+
+/***/ }),
+
+/***/ "./node_modules/react-query/es/react/QueryErrorResetBoundary.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/react-query/es/react/QueryErrorResetBoundary.js ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "useQueryErrorResetBoundary": () => (/* binding */ useQueryErrorResetBoundary),
+/* harmony export */   "QueryErrorResetBoundary": () => (/* binding */ QueryErrorResetBoundary)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+ // CONTEXT
+
+function createValue() {
+  var _isReset = false;
+  return {
+    clearReset: function clearReset() {
+      _isReset = false;
+    },
+    reset: function reset() {
+      _isReset = true;
+    },
+    isReset: function isReset() {
+      return _isReset;
+    }
+  };
+}
+
+var QueryErrorResetBoundaryContext = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createContext(createValue()); // HOOK
+
+var useQueryErrorResetBoundary = function useQueryErrorResetBoundary() {
+  return react__WEBPACK_IMPORTED_MODULE_0___default().useContext(QueryErrorResetBoundaryContext);
+}; // COMPONENT
+
+var QueryErrorResetBoundary = function QueryErrorResetBoundary(_ref) {
+  var children = _ref.children;
+  var value = react__WEBPACK_IMPORTED_MODULE_0___default().useMemo(function () {
+    return createValue();
+  }, []);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(QueryErrorResetBoundaryContext.Provider, {
+    value: value
+  }, typeof children === 'function' ? children(value) : children);
+};
+
+/***/ }),
+
+/***/ "./node_modules/react-query/es/react/index.js":
+/*!****************************************************!*\
+  !*** ./node_modules/react-query/es/react/index.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "QueryClientProvider": () => (/* reexport safe */ _QueryClientProvider__WEBPACK_IMPORTED_MODULE_2__.QueryClientProvider),
+/* harmony export */   "useQueryClient": () => (/* reexport safe */ _QueryClientProvider__WEBPACK_IMPORTED_MODULE_2__.useQueryClient),
+/* harmony export */   "QueryErrorResetBoundary": () => (/* reexport safe */ _QueryErrorResetBoundary__WEBPACK_IMPORTED_MODULE_3__.QueryErrorResetBoundary),
+/* harmony export */   "useQueryErrorResetBoundary": () => (/* reexport safe */ _QueryErrorResetBoundary__WEBPACK_IMPORTED_MODULE_3__.useQueryErrorResetBoundary),
+/* harmony export */   "useIsFetching": () => (/* reexport safe */ _useIsFetching__WEBPACK_IMPORTED_MODULE_4__.useIsFetching),
+/* harmony export */   "useIsMutating": () => (/* reexport safe */ _useIsMutating__WEBPACK_IMPORTED_MODULE_5__.useIsMutating),
+/* harmony export */   "useMutation": () => (/* reexport safe */ _useMutation__WEBPACK_IMPORTED_MODULE_6__.useMutation),
+/* harmony export */   "useQuery": () => (/* reexport safe */ _useQuery__WEBPACK_IMPORTED_MODULE_7__.useQuery),
+/* harmony export */   "useQueries": () => (/* reexport safe */ _useQueries__WEBPACK_IMPORTED_MODULE_8__.useQueries),
+/* harmony export */   "useInfiniteQuery": () => (/* reexport safe */ _useInfiniteQuery__WEBPACK_IMPORTED_MODULE_9__.useInfiniteQuery),
+/* harmony export */   "useHydrate": () => (/* reexport safe */ _Hydrate__WEBPACK_IMPORTED_MODULE_10__.useHydrate),
+/* harmony export */   "Hydrate": () => (/* reexport safe */ _Hydrate__WEBPACK_IMPORTED_MODULE_10__.Hydrate)
+/* harmony export */ });
+/* harmony import */ var _setBatchUpdatesFn__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./setBatchUpdatesFn */ "./node_modules/react-query/es/react/setBatchUpdatesFn.js");
+/* harmony import */ var _setLogger__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./setLogger */ "./node_modules/react-query/es/react/setLogger.js");
+/* harmony import */ var _QueryClientProvider__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./QueryClientProvider */ "./node_modules/react-query/es/react/QueryClientProvider.js");
+/* harmony import */ var _QueryErrorResetBoundary__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./QueryErrorResetBoundary */ "./node_modules/react-query/es/react/QueryErrorResetBoundary.js");
+/* harmony import */ var _useIsFetching__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./useIsFetching */ "./node_modules/react-query/es/react/useIsFetching.js");
+/* harmony import */ var _useIsMutating__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./useIsMutating */ "./node_modules/react-query/es/react/useIsMutating.js");
+/* harmony import */ var _useMutation__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./useMutation */ "./node_modules/react-query/es/react/useMutation.js");
+/* harmony import */ var _useQuery__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./useQuery */ "./node_modules/react-query/es/react/useQuery.js");
+/* harmony import */ var _useQueries__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./useQueries */ "./node_modules/react-query/es/react/useQueries.js");
+/* harmony import */ var _useInfiniteQuery__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./useInfiniteQuery */ "./node_modules/react-query/es/react/useInfiniteQuery.js");
+/* harmony import */ var _Hydrate__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./Hydrate */ "./node_modules/react-query/es/react/Hydrate.js");
+/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./types */ "./node_modules/react-query/es/react/types.js");
+/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_types__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony reexport (unknown) */ var __WEBPACK_REEXPORT_OBJECT__ = {};
+/* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in _types__WEBPACK_IMPORTED_MODULE_11__) if(["default","QueryClientProvider","useQueryClient","QueryErrorResetBoundary","useQueryErrorResetBoundary","useIsFetching","useIsMutating","useMutation","useQuery","useQueries","useInfiniteQuery","useHydrate","Hydrate"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => _types__WEBPACK_IMPORTED_MODULE_11__[__WEBPACK_IMPORT_KEY__]
+/* harmony reexport (unknown) */ __webpack_require__.d(__webpack_exports__, __WEBPACK_REEXPORT_OBJECT__);
+// Side effects
+
+
+
+
+
+
+
+
+
+
+ // Types
+
+
+
+/***/ }),
+
+/***/ "./node_modules/react-query/es/react/logger.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/react-query/es/react/logger.js ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "logger": () => (/* binding */ logger)
+/* harmony export */ });
+var logger = console;
+
+/***/ }),
+
+/***/ "./node_modules/react-query/es/react/reactBatchedUpdates.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/react-query/es/react/reactBatchedUpdates.js ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "unstable_batchedUpdates": () => (/* binding */ unstable_batchedUpdates)
+/* harmony export */ });
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-dom */ "react-dom");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_0__);
+
+var unstable_batchedUpdates = (react_dom__WEBPACK_IMPORTED_MODULE_0___default().unstable_batchedUpdates);
+
+/***/ }),
+
+/***/ "./node_modules/react-query/es/react/setBatchUpdatesFn.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/react-query/es/react/setBatchUpdatesFn.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core */ "./node_modules/react-query/es/core/notifyManager.js");
+/* harmony import */ var _reactBatchedUpdates__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./reactBatchedUpdates */ "./node_modules/react-query/es/react/reactBatchedUpdates.js");
+
+
+_core__WEBPACK_IMPORTED_MODULE_0__.notifyManager.setBatchNotifyFunction(_reactBatchedUpdates__WEBPACK_IMPORTED_MODULE_1__.unstable_batchedUpdates);
+
+/***/ }),
+
+/***/ "./node_modules/react-query/es/react/setLogger.js":
+/*!********************************************************!*\
+  !*** ./node_modules/react-query/es/react/setLogger.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core */ "./node_modules/react-query/es/core/logger.js");
+/* harmony import */ var _logger__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./logger */ "./node_modules/react-query/es/react/logger.js");
+
+
+(0,_core__WEBPACK_IMPORTED_MODULE_0__.setLogger)(_logger__WEBPACK_IMPORTED_MODULE_1__.logger);
+
+/***/ }),
+
+/***/ "./node_modules/react-query/es/react/types.js":
+/*!****************************************************!*\
+  !*** ./node_modules/react-query/es/react/types.js ***!
+  \****************************************************/
+/***/ (() => {
+
+
+
+/***/ }),
+
+/***/ "./node_modules/react-query/es/react/useBaseQuery.js":
+/*!***********************************************************!*\
+  !*** ./node_modules/react-query/es/react/useBaseQuery.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "useBaseQuery": () => (/* binding */ useBaseQuery)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _core_notifyManager__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../core/notifyManager */ "./node_modules/react-query/es/core/notifyManager.js");
+/* harmony import */ var _QueryErrorResetBoundary__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./QueryErrorResetBoundary */ "./node_modules/react-query/es/react/QueryErrorResetBoundary.js");
+/* harmony import */ var _QueryClientProvider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./QueryClientProvider */ "./node_modules/react-query/es/react/QueryClientProvider.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./utils */ "./node_modules/react-query/es/react/utils.js");
+
+
+
+
+
+function useBaseQuery(options, Observer) {
+  var mountedRef = react__WEBPACK_IMPORTED_MODULE_0___default().useRef(false);
+
+  var _React$useState = react__WEBPACK_IMPORTED_MODULE_0___default().useState(0),
+      forceUpdate = _React$useState[1];
+
+  var queryClient = (0,_QueryClientProvider__WEBPACK_IMPORTED_MODULE_1__.useQueryClient)();
+  var errorResetBoundary = (0,_QueryErrorResetBoundary__WEBPACK_IMPORTED_MODULE_2__.useQueryErrorResetBoundary)();
+  var defaultedOptions = queryClient.defaultQueryObserverOptions(options); // Make sure results are optimistically set in fetching state before subscribing or updating options
+
+  defaultedOptions.optimisticResults = true; // Include callbacks in batch renders
+
+  if (defaultedOptions.onError) {
+    defaultedOptions.onError = _core_notifyManager__WEBPACK_IMPORTED_MODULE_3__.notifyManager.batchCalls(defaultedOptions.onError);
+  }
+
+  if (defaultedOptions.onSuccess) {
+    defaultedOptions.onSuccess = _core_notifyManager__WEBPACK_IMPORTED_MODULE_3__.notifyManager.batchCalls(defaultedOptions.onSuccess);
+  }
+
+  if (defaultedOptions.onSettled) {
+    defaultedOptions.onSettled = _core_notifyManager__WEBPACK_IMPORTED_MODULE_3__.notifyManager.batchCalls(defaultedOptions.onSettled);
+  }
+
+  if (defaultedOptions.suspense) {
+    // Always set stale time when using suspense to prevent
+    // fetching again when directly mounting after suspending
+    if (typeof defaultedOptions.staleTime !== 'number') {
+      defaultedOptions.staleTime = 1000;
+    } // Set cache time to 1 if the option has been set to 0
+    // when using suspense to prevent infinite loop of fetches
+
+
+    if (defaultedOptions.cacheTime === 0) {
+      defaultedOptions.cacheTime = 1;
+    }
+  }
+
+  if (defaultedOptions.suspense || defaultedOptions.useErrorBoundary) {
+    // Prevent retrying failed query if the error boundary has not been reset yet
+    if (!errorResetBoundary.isReset()) {
+      defaultedOptions.retryOnMount = false;
+    }
+  }
+
+  var _React$useState2 = react__WEBPACK_IMPORTED_MODULE_0___default().useState(function () {
+    return new Observer(queryClient, defaultedOptions);
+  }),
+      observer = _React$useState2[0];
+
+  var result = observer.getOptimisticResult(defaultedOptions);
+  react__WEBPACK_IMPORTED_MODULE_0___default().useEffect(function () {
+    mountedRef.current = true;
+    errorResetBoundary.clearReset();
+    var unsubscribe = observer.subscribe(_core_notifyManager__WEBPACK_IMPORTED_MODULE_3__.notifyManager.batchCalls(function () {
+      if (mountedRef.current) {
+        forceUpdate(function (x) {
+          return x + 1;
+        });
+      }
+    })); // Update result to make sure we did not miss any query updates
+    // between creating the observer and subscribing to it.
+
+    observer.updateResult();
+    return function () {
+      mountedRef.current = false;
+      unsubscribe();
+    };
+  }, [errorResetBoundary, observer]);
+  react__WEBPACK_IMPORTED_MODULE_0___default().useEffect(function () {
+    // Do not notify on updates because of changes in the options because
+    // these changes should already be reflected in the optimistic result.
+    observer.setOptions(defaultedOptions, {
+      listeners: false
+    });
+  }, [defaultedOptions, observer]); // Handle suspense
+
+  if (defaultedOptions.suspense && result.isLoading) {
+    throw observer.fetchOptimistic(defaultedOptions).then(function (_ref) {
+      var data = _ref.data;
+      defaultedOptions.onSuccess == null ? void 0 : defaultedOptions.onSuccess(data);
+      defaultedOptions.onSettled == null ? void 0 : defaultedOptions.onSettled(data, null);
+    }).catch(function (error) {
+      errorResetBoundary.clearReset();
+      defaultedOptions.onError == null ? void 0 : defaultedOptions.onError(error);
+      defaultedOptions.onSettled == null ? void 0 : defaultedOptions.onSettled(undefined, error);
+    });
+  } // Handle error boundary
+
+
+  if (result.isError && !errorResetBoundary.isReset() && !result.isFetching && (0,_utils__WEBPACK_IMPORTED_MODULE_4__.shouldThrowError)(defaultedOptions.suspense, defaultedOptions.useErrorBoundary, result.error)) {
+    throw result.error;
+  } // Handle result property usage tracking
+
+
+  if (defaultedOptions.notifyOnChangeProps === 'tracked') {
+    result = observer.trackResult(result, defaultedOptions);
+  }
+
+  return result;
+}
+
+/***/ }),
+
+/***/ "./node_modules/react-query/es/react/useInfiniteQuery.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/react-query/es/react/useInfiniteQuery.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "useInfiniteQuery": () => (/* binding */ useInfiniteQuery)
+/* harmony export */ });
+/* harmony import */ var _core_infiniteQueryObserver__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../core/infiniteQueryObserver */ "./node_modules/react-query/es/core/infiniteQueryObserver.js");
+/* harmony import */ var _core_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/utils */ "./node_modules/react-query/es/core/utils.js");
+/* harmony import */ var _useBaseQuery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./useBaseQuery */ "./node_modules/react-query/es/react/useBaseQuery.js");
+
+
+ // HOOK
+
+function useInfiniteQuery(arg1, arg2, arg3) {
+  var options = (0,_core_utils__WEBPACK_IMPORTED_MODULE_0__.parseQueryArgs)(arg1, arg2, arg3);
+  return (0,_useBaseQuery__WEBPACK_IMPORTED_MODULE_1__.useBaseQuery)(options, _core_infiniteQueryObserver__WEBPACK_IMPORTED_MODULE_2__.InfiniteQueryObserver);
+}
+
+/***/ }),
+
+/***/ "./node_modules/react-query/es/react/useIsFetching.js":
+/*!************************************************************!*\
+  !*** ./node_modules/react-query/es/react/useIsFetching.js ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "useIsFetching": () => (/* binding */ useIsFetching)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _core_notifyManager__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../core/notifyManager */ "./node_modules/react-query/es/core/notifyManager.js");
+/* harmony import */ var _core_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../core/utils */ "./node_modules/react-query/es/core/utils.js");
+/* harmony import */ var _QueryClientProvider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./QueryClientProvider */ "./node_modules/react-query/es/react/QueryClientProvider.js");
+
+
+
+
+function useIsFetching(arg1, arg2) {
+  var mountedRef = react__WEBPACK_IMPORTED_MODULE_0___default().useRef(false);
+  var queryClient = (0,_QueryClientProvider__WEBPACK_IMPORTED_MODULE_1__.useQueryClient)();
+
+  var _parseFilterArgs = (0,_core_utils__WEBPACK_IMPORTED_MODULE_2__.parseFilterArgs)(arg1, arg2),
+      filters = _parseFilterArgs[0];
+
+  var _React$useState = react__WEBPACK_IMPORTED_MODULE_0___default().useState(queryClient.isFetching(filters)),
+      isFetching = _React$useState[0],
+      setIsFetching = _React$useState[1];
+
+  var filtersRef = react__WEBPACK_IMPORTED_MODULE_0___default().useRef(filters);
+  filtersRef.current = filters;
+  var isFetchingRef = react__WEBPACK_IMPORTED_MODULE_0___default().useRef(isFetching);
+  isFetchingRef.current = isFetching;
+  react__WEBPACK_IMPORTED_MODULE_0___default().useEffect(function () {
+    mountedRef.current = true;
+    var unsubscribe = queryClient.getQueryCache().subscribe(_core_notifyManager__WEBPACK_IMPORTED_MODULE_3__.notifyManager.batchCalls(function () {
+      if (mountedRef.current) {
+        var newIsFetching = queryClient.isFetching(filtersRef.current);
+
+        if (isFetchingRef.current !== newIsFetching) {
+          setIsFetching(newIsFetching);
+        }
+      }
+    }));
+    return function () {
+      mountedRef.current = false;
+      unsubscribe();
+    };
+  }, [queryClient]);
+  return isFetching;
+}
+
+/***/ }),
+
+/***/ "./node_modules/react-query/es/react/useIsMutating.js":
+/*!************************************************************!*\
+  !*** ./node_modules/react-query/es/react/useIsMutating.js ***!
+  \************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "useIsMutating": () => (/* binding */ useIsMutating)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _core_notifyManager__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../core/notifyManager */ "./node_modules/react-query/es/core/notifyManager.js");
+/* harmony import */ var _core_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../core/utils */ "./node_modules/react-query/es/core/utils.js");
+/* harmony import */ var _QueryClientProvider__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./QueryClientProvider */ "./node_modules/react-query/es/react/QueryClientProvider.js");
+
+
+
+
+function useIsMutating(arg1, arg2) {
+  var mountedRef = react__WEBPACK_IMPORTED_MODULE_0___default().useRef(false);
+  var filters = (0,_core_utils__WEBPACK_IMPORTED_MODULE_1__.parseMutationFilterArgs)(arg1, arg2);
+  var queryClient = (0,_QueryClientProvider__WEBPACK_IMPORTED_MODULE_2__.useQueryClient)();
+
+  var _React$useState = react__WEBPACK_IMPORTED_MODULE_0___default().useState(queryClient.isMutating(filters)),
+      isMutating = _React$useState[0],
+      setIsMutating = _React$useState[1];
+
+  var filtersRef = react__WEBPACK_IMPORTED_MODULE_0___default().useRef(filters);
+  filtersRef.current = filters;
+  var isMutatingRef = react__WEBPACK_IMPORTED_MODULE_0___default().useRef(isMutating);
+  isMutatingRef.current = isMutating;
+  react__WEBPACK_IMPORTED_MODULE_0___default().useEffect(function () {
+    mountedRef.current = true;
+    var unsubscribe = queryClient.getMutationCache().subscribe(_core_notifyManager__WEBPACK_IMPORTED_MODULE_3__.notifyManager.batchCalls(function () {
+      if (mountedRef.current) {
+        var newIsMutating = queryClient.isMutating(filtersRef.current);
+
+        if (isMutatingRef.current !== newIsMutating) {
+          setIsMutating(newIsMutating);
+        }
+      }
+    }));
+    return function () {
+      mountedRef.current = false;
+      unsubscribe();
+    };
+  }, [queryClient]);
+  return isMutating;
+}
+
+/***/ }),
+
+/***/ "./node_modules/react-query/es/react/useMutation.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/react-query/es/react/useMutation.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "useMutation": () => (/* binding */ useMutation)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _core_notifyManager__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../core/notifyManager */ "./node_modules/react-query/es/core/notifyManager.js");
+/* harmony import */ var _core_utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../core/utils */ "./node_modules/react-query/es/core/utils.js");
+/* harmony import */ var _core_mutationObserver__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../core/mutationObserver */ "./node_modules/react-query/es/core/mutationObserver.js");
+/* harmony import */ var _QueryClientProvider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./QueryClientProvider */ "./node_modules/react-query/es/react/QueryClientProvider.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./utils */ "./node_modules/react-query/es/react/utils.js");
+
+
+
+
+
+
+ // HOOK
+
+function useMutation(arg1, arg2, arg3) {
+  var mountedRef = react__WEBPACK_IMPORTED_MODULE_1___default().useRef(false);
+
+  var _React$useState = react__WEBPACK_IMPORTED_MODULE_1___default().useState(0),
+      forceUpdate = _React$useState[1];
+
+  var options = (0,_core_utils__WEBPACK_IMPORTED_MODULE_2__.parseMutationArgs)(arg1, arg2, arg3);
+  var queryClient = (0,_QueryClientProvider__WEBPACK_IMPORTED_MODULE_3__.useQueryClient)();
+  var obsRef = react__WEBPACK_IMPORTED_MODULE_1___default().useRef();
+
+  if (!obsRef.current) {
+    obsRef.current = new _core_mutationObserver__WEBPACK_IMPORTED_MODULE_4__.MutationObserver(queryClient, options);
+  } else {
+    obsRef.current.setOptions(options);
+  }
+
+  var currentResult = obsRef.current.getCurrentResult();
+  react__WEBPACK_IMPORTED_MODULE_1___default().useEffect(function () {
+    mountedRef.current = true;
+    var unsubscribe = obsRef.current.subscribe(_core_notifyManager__WEBPACK_IMPORTED_MODULE_5__.notifyManager.batchCalls(function () {
+      if (mountedRef.current) {
+        forceUpdate(function (x) {
+          return x + 1;
+        });
+      }
+    }));
+    return function () {
+      mountedRef.current = false;
+      unsubscribe();
+    };
+  }, []);
+  var mutate = react__WEBPACK_IMPORTED_MODULE_1___default().useCallback(function (variables, mutateOptions) {
+    obsRef.current.mutate(variables, mutateOptions).catch(_core_utils__WEBPACK_IMPORTED_MODULE_2__.noop);
+  }, []);
+
+  if (currentResult.error && (0,_utils__WEBPACK_IMPORTED_MODULE_6__.shouldThrowError)(undefined, obsRef.current.options.useErrorBoundary, currentResult.error)) {
+    throw currentResult.error;
+  }
+
+  return (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__.default)({}, currentResult, {
+    mutate: mutate,
+    mutateAsync: currentResult.mutate
+  });
+}
+
+/***/ }),
+
+/***/ "./node_modules/react-query/es/react/useQueries.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/react-query/es/react/useQueries.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "useQueries": () => (/* binding */ useQueries)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _core_notifyManager__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../core/notifyManager */ "./node_modules/react-query/es/core/notifyManager.js");
+/* harmony import */ var _core_queriesObserver__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../core/queriesObserver */ "./node_modules/react-query/es/core/queriesObserver.js");
+/* harmony import */ var _QueryClientProvider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./QueryClientProvider */ "./node_modules/react-query/es/react/QueryClientProvider.js");
+
+
+
+
+function useQueries(queries) {
+  var mountedRef = react__WEBPACK_IMPORTED_MODULE_0___default().useRef(false);
+
+  var _React$useState = react__WEBPACK_IMPORTED_MODULE_0___default().useState(0),
+      forceUpdate = _React$useState[1];
+
+  var queryClient = (0,_QueryClientProvider__WEBPACK_IMPORTED_MODULE_1__.useQueryClient)();
+  var defaultedQueries = (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(function () {
+    return queries.map(function (options) {
+      var defaultedOptions = queryClient.defaultQueryObserverOptions(options); // Make sure the results are already in fetching state before subscribing or updating options
+
+      defaultedOptions.optimisticResults = true;
+      return defaultedOptions;
+    });
+  }, [queries, queryClient]);
+
+  var _React$useState2 = react__WEBPACK_IMPORTED_MODULE_0___default().useState(function () {
+    return new _core_queriesObserver__WEBPACK_IMPORTED_MODULE_2__.QueriesObserver(queryClient, defaultedQueries);
+  }),
+      observer = _React$useState2[0];
+
+  var result = observer.getOptimisticResult(defaultedQueries);
+  react__WEBPACK_IMPORTED_MODULE_0___default().useEffect(function () {
+    mountedRef.current = true;
+    var unsubscribe = observer.subscribe(_core_notifyManager__WEBPACK_IMPORTED_MODULE_3__.notifyManager.batchCalls(function () {
+      if (mountedRef.current) {
+        forceUpdate(function (x) {
+          return x + 1;
+        });
+      }
+    }));
+    return function () {
+      mountedRef.current = false;
+      unsubscribe();
+    };
+  }, [observer]);
+  react__WEBPACK_IMPORTED_MODULE_0___default().useEffect(function () {
+    // Do not notify on updates because of changes in the options because
+    // these changes should already be reflected in the optimistic result.
+    observer.setQueries(defaultedQueries, {
+      listeners: false
+    });
+  }, [defaultedQueries, observer]);
+  return result;
+}
+
+/***/ }),
+
+/***/ "./node_modules/react-query/es/react/useQuery.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/react-query/es/react/useQuery.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "useQuery": () => (/* binding */ useQuery)
+/* harmony export */ });
+/* harmony import */ var _core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../core */ "./node_modules/react-query/es/core/queryObserver.js");
+/* harmony import */ var _core_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/utils */ "./node_modules/react-query/es/core/utils.js");
+/* harmony import */ var _useBaseQuery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./useBaseQuery */ "./node_modules/react-query/es/react/useBaseQuery.js");
+
+
+ // HOOK
+
+function useQuery(arg1, arg2, arg3) {
+  var parsedOptions = (0,_core_utils__WEBPACK_IMPORTED_MODULE_0__.parseQueryArgs)(arg1, arg2, arg3);
+  return (0,_useBaseQuery__WEBPACK_IMPORTED_MODULE_1__.useBaseQuery)(parsedOptions, _core__WEBPACK_IMPORTED_MODULE_2__.QueryObserver);
+}
+
+/***/ }),
+
+/***/ "./node_modules/react-query/es/react/utils.js":
+/*!****************************************************!*\
+  !*** ./node_modules/react-query/es/react/utils.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "shouldThrowError": () => (/* binding */ shouldThrowError)
+/* harmony export */ });
+function shouldThrowError(suspense, _useErrorBoundary, error) {
+  // Allow useErrorBoundary function to override throwing behavior on a per-error basis
+  if (typeof _useErrorBoundary === 'function') {
+    return _useErrorBoundary(error);
+  } // Allow useErrorBoundary to override suspense's throwing behavior
+
+
+  if (typeof _useErrorBoundary === 'boolean') return _useErrorBoundary; // If suspense is enabled default to throwing errors
+
+  return !!suspense;
+}
+
+/***/ }),
+
 /***/ "./node_modules/react-router-dom/index.js":
 /*!************************************************!*\
   !*** ./node_modules/react-router-dom/index.js ***!
@@ -8101,6 +14707,28 @@ module.exports = window["React"];
 
 /***/ }),
 
+/***/ "react-dom":
+/*!***************************!*\
+  !*** external "ReactDOM" ***!
+  \***************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = window["ReactDOM"];
+
+/***/ }),
+
+/***/ "@babel/runtime/regenerator":
+/*!*************************************!*\
+  !*** external "regeneratorRuntime" ***!
+  \*************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = window["regeneratorRuntime"];
+
+/***/ }),
+
 /***/ "@wordpress/api-fetch":
 /*!**********************************!*\
   !*** external ["wp","apiFetch"] ***!
@@ -8165,7 +14793,7 @@ module.exports = window["wp"]["i18n"];
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
 /******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
@@ -8235,12 +14863,12 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _user_interface_components_App__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./user-interface/components/App */ "./resources/scripts/user-interface/components/App.js");
+/* harmony import */ var _user_interface_interface_App__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./user-interface/interface/App */ "./resources/scripts/user-interface/interface/App.js");
 
 
 
 window.addEventListener('load', function () {
-  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.render)((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_user_interface_components_App__WEBPACK_IMPORTED_MODULE_1__.default, null), document.getElementById('intervention'));
+  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.render)((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_user_interface_interface_App__WEBPACK_IMPORTED_MODULE_1__.App, null), document.getElementById('intervention'));
 });
 })();
 

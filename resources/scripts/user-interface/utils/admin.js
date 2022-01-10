@@ -1,15 +1,4 @@
 /**
- * Object Has Key
- *
- * @param {object} obj
- * @param {string} k
- * @returns {boolean}
- */
-export const objectHasKey = (obj, k) => {
-  return Object.prototype.hasOwnProperty.call(obj, k) && k !== '';
-};
-
-/**
  * Get Intervention Key
  *
  * @param {string} k
@@ -23,6 +12,7 @@ export const getInterventionKey = (k = '') => {
     ':number',
     ':group',
     ':exemption',
+    ':icon',
     '/:route',
   ];
   replace.forEach((item) => {
@@ -31,78 +21,45 @@ export const getInterventionKey = (k = '') => {
 
   // replace `/` with `.` to match Intervention
   k = k.replaceAll('/', '.');
+
+  // remove <TextItem />, <NumberItem /> params between `[x]`
+  k = k.replace(/\[(.*?)\]/, '');
+
   return k;
 };
 
 /**
  * Get Value
  *
- * @param {object} components
+ * @param {object} data
  * @param {string} key
  * @returns {any}
  */
-export const getValue = (components, key) => {
-  return Object.keys(components).includes(key)
-    ? components[key]
-    : [false, false];
+export const getValue = (data, key) => {
+  return Object.keys(data).includes(key) ? data[key] : [false, false];
 };
 
 /**
- * Get Roles as Nicename
+ * Get Key Params
  *
- * @param {array} roles
+ * @param {string} key
  * @returns {string}
  */
-export const getRolesAsNiceName = (roles) => {
-  const joined = roles.join(', ');
-  // const caps = joined.charAt(0).toUpperCase() + joined.slice(1);
-  const andPos = joined.lastIndexOf(',');
-  return andPos > 0
-    ? joined.substring(0, andPos) + ' and ' + joined.substring(andPos + 1)
-    : joined;
+export const getKeyParams = (k) => {
+  // find `[x]`
+  const match = k.match(/\[(.*?)\]/);
+  // remove `[` and `]`
+  return Array.isArray(match) ? match[0].slice(1, -1) : '';
 };
 
 /**
- * Sort Data By Role Keys
+ * Safe Selected Index
  *
- * @param {object} applied
- * @param {number} i
- * @returns {object}
+ * @param {array} data
+ * @param {number} selectedIndex
+ * @returns {number}
  */
-export const sortDataByRoleKeys = (data, i) => {
-  const roleKeys = Object.keys(intervention.route.admin.data.roles);
-  // const findIndex = data[i].roles.join();
-
-  // sorting algorithm
-  data.sort((a, b) => {
-    const [rolesA] = a.roles;
-    const [rolesB] = b.roles;
-    const indexA = roleKeys.indexOf(rolesA[0]);
-    const indexB = roleKeys.indexOf(rolesB[0]);
-
-    if (indexA > indexB) {
-      return 1;
-    }
-    if (indexA < indexB) {
-      return -1;
-    }
-    return 0;
-  });
-
-  // new index found
-  // relook this implementation
-  /*
-  const indexFound = data.reduce((carry, item, index) => {
-    const [roles] = item.roles;
-    if (findIndex === roles.join()) {
-      carry = index;
-    }
-    return carry;
-  }, i);
-
-  const index = indexFound ? indexFound : 0;
-  */
-
-  // return { data, index };
-  return { data };
+export const safeSelectedIndex = (selectedIndex, data) => {
+  const dataLength = data.length !== 0 ? data.length - 1 : data.length;
+  return selectedIndex > dataLength ? dataLength : selectedIndex;
 };

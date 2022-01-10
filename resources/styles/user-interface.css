@@ -1,5 +1,6 @@
 @import 'config';
 @import 'font-faces';
+@import 'components/text-bold-hack';
 @import 'components/toolbar';
 @import 'vendors/prism';
 @import 'vendors/wp';

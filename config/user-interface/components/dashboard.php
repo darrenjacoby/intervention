@@ -18,10 +18,11 @@ namespace Sober\Intervention;
 return [
     'dashboard:hierachical' => [
         ':route',
-        'title:text',
-        'icon:icon',
+        'title:text[Dashboard]',
+        'icon:icon[dashboard]',
         'home:hierachical' => [
-            'dashboard.home:route',
+            ':route',
+            'title:text[Home]',
             'tabs:group' => ['screen-options', 'help'],
             'cols:edit',
             'welcome',
@@ -38,7 +39,7 @@ return [
         ],
         'updates:hierachical' => [
             ':route',
-            'title:text',
+            'title:text[WordPress Updates]',
             'tabs',
         ],
     ],

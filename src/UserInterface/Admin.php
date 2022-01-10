@@ -62,11 +62,13 @@ class Admin
         $components = Config::get('user-interface/components')->toArray();
         $components = Arr::transformEntriesToTrue($components);
         $pagenow = Config::get('admin/pagenow')->keys()->toArray();
+        $dashicons = Config::get('admin/dashicons')->values()->toArray();
 
         return [
             'components' => $components,
             'roles' => $this->roles,
             'pagenow' => $pagenow,
+            'dashicons' => $dashicons,
         ];
     }
 

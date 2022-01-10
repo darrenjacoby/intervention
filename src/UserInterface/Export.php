@@ -53,7 +53,13 @@ class Export
         $theme_name = get_option('stylesheet');
         $theme = file_exists(get_stylesheet_directory() . '/config') ? $theme_name . '/config' : $theme_name;
 
-        return ['theme' => $theme];
+        // group list config
+        $exports = Config::get('user-interface/exports')->toArray();
+
+        return [
+            'theme' => $theme,
+            'exports' => $exports,
+        ];
     }
 
     /**

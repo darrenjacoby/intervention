@@ -49,7 +49,7 @@ return [
         'title-link',
         'updates',
         'all:hierachical' => [
-            'pagination:number',
+            'pagination:number[20]',
             'search',
             'subsets',
         ],

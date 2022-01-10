@@ -3,61 +3,210 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "X-Generator: babel-plugin-makepot\n"
 
-#: resources/scripts/user-interface/components/Admin.js:64
-msgid "Show"
-msgstr ""
-
-#: resources/scripts/user-interface/components/Admin.js:73
+#: resources/scripts/user-interface/components/Application.js:103
+#: resources/scripts/user-interface/interface/Admin.js:88
+#: resources/scripts/user-interface/interface/Application.js:105
 msgid "All"
 msgstr ""
 
-#: resources/scripts/user-interface/components/Admin.js:74
+#: resources/scripts/user-interface/components/Application.js:104
+#: resources/scripts/user-interface/interface/Application.js:106
+msgid "Mismatch"
+msgstr ""
+
+#: resources/scripts/user-interface/components/Application.js:105
+#: resources/scripts/user-interface/interface/Application.js:107
+msgid "Match"
+msgstr ""
+
+#: resources/scripts/user-interface/components/Application.js:119
+#: resources/scripts/user-interface/components/Export.js:145
+#: resources/scripts/user-interface/interface/Application.js:117
+#: resources/scripts/user-interface/interface/Application.js:118
+#: resources/scripts/user-interface/interface/Application.js:112
+#: resources/scripts/user-interface/interface/Application.js:111
+#: resources/scripts/user-interface/interface/Export.js:127
+#: resources/scripts/user-interface/interface/Export.js:126
+#: resources/scripts/user-interface/interface/Application.js:122
+#: resources/scripts/user-interface/interface/Application.js:126
+#: resources/scripts/user-interface/interface/Export.js:131
+#: resources/scripts/user-interface/interface/Export.js:129
+#: resources/scripts/user-interface/interface/Export.js:128
+#: resources/scripts/user-interface/interface/Application.js:127
+#: resources/scripts/user-interface/interface/Application.js:124
+#: resources/scripts/user-interface/interface/Application.js:123
+#: resources/scripts/user-interface/interface/Export.js:133
+#: resources/scripts/user-interface/interface/Application.js:121
+#: resources/scripts/user-interface/interface/Export.js:141
+#: resources/scripts/user-interface/interface/Export.js:143
+#: resources/scripts/user-interface/interface/Application.js:119
+#: resources/scripts/user-interface/interface/Application.js:114
+#: resources/scripts/user-interface/interface/Application.js:116
+#: resources/scripts/user-interface/interface/Application.js:120
+#: resources/scripts/user-interface/interface/Export.js:140
+#: resources/scripts/user-interface/interface/Export.js:145
+#: resources/scripts/user-interface/interface/Head.js:18
+msgid "Application"
+msgstr ""
+
+#: resources/scripts/user-interface/components/Application.js:135
+#: resources/scripts/user-interface/interface/Application.js:132
+msgid "Importing"
+msgstr ""
+
+#: resources/scripts/user-interface/components/Application.js:135
+#: resources/scripts/user-interface/interface/Application.js:132
+msgid "Import"
+msgstr ""
+
+#: resources/scripts/user-interface/components/Application.js:94
+#: resources/scripts/user-interface/interface/Admin.js:79
+#: resources/scripts/user-interface/interface/Application.js:101
+msgid "Show"
+msgstr ""
+
+#: resources/scripts/user-interface/components/Application/ImportedToolbar.js:27
+#: resources/scripts/user-interface/interface/Application/ImportedToolbar.js:27
+#: resources/scripts/user-interface/interface/Application/ImportedToolbarContent.js:30
+#: resources/scripts/user-interface/interface/Application/ToolbarContentRender.js:21
+msgid "Imported %1$s and %2$s failed"
+msgstr ""
+
+#: resources/scripts/user-interface/components/Application/ImportedToolbar.js:40
+#: resources/scripts/user-interface/interface/Application/ImportedToolbar.js:40
+#: resources/scripts/user-interface/interface/Application/ImportedToolbarContent.js:43
+#: resources/scripts/user-interface/interface/Application/ToolbarContentRender.js:34
+msgid "Imported %s"
+msgstr ""
+
+#: resources/scripts/user-interface/components/Application/ImportedToolbar.js:54
+#: resources/scripts/user-interface/interface/Application/ImportedToolbar.js:54
+#: resources/scripts/user-interface/interface/Application/ImportedToolbarContent.js:57
+#: resources/scripts/user-interface/interface/Application/ToolbarContentRender.js:44
+msgid "%s mismatch"
+msgstr ""
+
+#: resources/scripts/user-interface/components/Export.js:154
+#: resources/scripts/user-interface/interface/Export.js:131
+msgid "Toggle All"
+msgstr ""
+
+#: resources/scripts/user-interface/components/Export.js:186
+#: resources/scripts/user-interface/interface/Export.js:157
+#: resources/scripts/user-interface/interface/Export.js:156
+#: resources/scripts/user-interface/interface/Export.js:161
+#: resources/scripts/user-interface/interface/Export.js:171
+#: resources/scripts/user-interface/interface/Export.js:170
+#: resources/scripts/user-interface/interface/Export.js:169
+#: resources/scripts/user-interface/interface/Export.js:174
+#: resources/scripts/user-interface/interface/Export.js:182
+#: resources/scripts/user-interface/interface/Export.js:184
+#: resources/scripts/user-interface/interface/Export.js:181
+#: resources/scripts/user-interface/interface/Export.js:186
+#: resources/scripts/user-interface/interface/Head.js:19
+msgid "Export"
+msgstr ""
+
+#: resources/scripts/user-interface/interface/Admin.js:89
 msgid "Applied"
 msgstr ""
 
-#: resources/scripts/user-interface/components/Admin/AddRoleGroup.js:31
-msgid "Add Group"
+#: resources/scripts/user-interface/interface/Admin.js:90
+msgid "Editing"
 msgstr ""
 
-#: resources/scripts/user-interface/components/Admin/ButtonSave.js:107
-#: resources/scripts/user-interface/components/Admin/Save.js:107
+#: resources/scripts/user-interface/interface/Admin/Components/Breadcrumb.js:44
+msgid "admin"
+msgstr ""
+
+#: resources/scripts/user-interface/interface/Admin/Components/IconItem.js:124
+#: resources/scripts/user-interface/interface/Admin/Components/RouteItem.js:174
+#: resources/scripts/user-interface/interface/Admin/Components/TextItem.js:110
+msgid "Undo"
+msgstr ""
+
+#: resources/scripts/user-interface/interface/Admin/Components/Row.js:59
+msgid "R"
+msgstr ""
+
+#: resources/scripts/user-interface/interface/Admin/Components/Row.js:60
+msgid "E"
+msgstr ""
+
+#: resources/scripts/user-interface/interface/Admin/Components/Row.js:61
+msgid "H"
+msgstr ""
+
+#: resources/scripts/user-interface/interface/Admin/Head.js:111
+msgid "Edit"
+msgstr ""
+
+#: resources/scripts/user-interface/interface/Admin/Head.js:116
+msgid "Hardcoded"
+msgstr ""
+
+#: resources/scripts/user-interface/interface/Admin/RoleGroups/DeleteRoleGroup.js:61
+msgid "Delete"
+msgstr ""
+
+#: resources/scripts/user-interface/interface/Admin/RoleGroups/NewRoleGroup.js:31
+msgid "New Group"
+msgstr ""
+
+#: resources/scripts/user-interface/interface/Admin/Save.js:123
+msgid "Saving"
+msgstr ""
+
+#: resources/scripts/user-interface/interface/Admin/Save.js:129
+msgid "Save"
+msgstr ""
+
+#: resources/scripts/user-interface/interface/Admin/Save.js:159
 msgid ""
 "Empty role group found, please assign a role or delete the group before "
 "saving."
 msgstr ""
 
-#: resources/scripts/user-interface/components/Admin/ButtonSave.js:119
-#: resources/scripts/user-interface/components/Admin/Save.js:119
+#: resources/scripts/user-interface/interface/Admin/Save.js:171
 msgid "Found matching user groups, proceeding to save will merge groups."
 msgstr ""
 
-#: resources/scripts/user-interface/components/Admin/ButtonSave.js:25
-#: resources/scripts/user-interface/components/Admin/Save.js:25
-msgid "Saving"
+#: resources/scripts/user-interface/interface/Application.js:138
+#: resources/scripts/user-interface/interface/Application.js:139
+#: resources/scripts/user-interface/interface/Application.js:133
+#: resources/scripts/user-interface/interface/Application.js:132
+#: resources/scripts/user-interface/interface/Export.js:163
+msgid "Sorry, an error has occured while attempting to access database options"
 msgstr ""
 
-#: resources/scripts/user-interface/components/Admin/ButtonSave.js:44
-#: resources/scripts/user-interface/components/Admin/Save.js:44
-msgid "Save"
+#: resources/scripts/user-interface/interface/Application.js:148
+#: resources/scripts/user-interface/interface/Application.js:149
+#: resources/scripts/user-interface/interface/Application.js:143
+#: resources/scripts/user-interface/interface/Application.js:142
+#: resources/scripts/user-interface/interface/Application/RowEmpty.js:20
+msgid "Nothing found"
 msgstr ""
 
-#: resources/scripts/user-interface/components/Admin/Components/Breadcrumb.js:32
-msgid "root"
+#: resources/scripts/user-interface/interface/Export/ButtonCopy.js:21
+#: resources/scripts/user-interface/interface/Export/ButtonCopy.js:19
+#: resources/scripts/user-interface/interface/Export/ButtonCopy.js:16
+#: resources/scripts/user-interface/interface/Export/ButtonCopy.js:15
+#: resources/scripts/user-interface/interface/Page/ButtonCopy.js:15
+msgid "Copy"
 msgstr ""
 
-#: resources/scripts/user-interface/components/Admin/Components/RouteItem.js:175
-#: resources/scripts/user-interface/components/Admin/Components/TextItem.js:92
-msgid "Undo"
+#: resources/scripts/user-interface/interface/Export/ButtonCopy.js:29
+#: resources/scripts/user-interface/interface/Export/ButtonCopy.js:27
+#: resources/scripts/user-interface/interface/Export/ButtonCopy.js:21
+#: resources/scripts/user-interface/interface/Export/ButtonCopy.js:20
+#: resources/scripts/user-interface/interface/Page/ButtonCopy.js:20
+msgid "Copied"
 msgstr ""
 
-#: resources/scripts/user-interface/components/Admin/RoleGroupEdit.js:134
-msgid "Delete"
+#: resources/scripts/user-interface/interface/Head.js:17
+msgid "Admin"
 msgstr ""
 
-#: resources/scripts/user-interface/components/Admin/RoleGroupEdit.js:153
-msgid "Edit"
-msgstr ""
-
-#: resources/scripts/user-interface/components/Admin/RoleGroupEdit.js:166
-msgid "Hardcoded"
+#: resources/scripts/user-interface/interface/Head.js:25
+msgid "Documentation"
 msgstr ""
