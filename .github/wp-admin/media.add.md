@@ -45,7 +45,7 @@ Remove from menu and enforce a page redirect;
 
 return [
     'wp-admin.$role|$username' => [
-        'media.ad' => 'posts',
+        'media.add' => 'posts',
     ],
 ];
 ```
