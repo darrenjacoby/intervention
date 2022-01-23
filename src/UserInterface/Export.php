@@ -2,8 +2,8 @@
 
 namespace Sober\Intervention\UserInterface;
 
-use Brick\VarExporter\VarExporter as Exporter;
 use Sober\Intervention\Support\Arr;
+use Sober\Intervention\Support\CodeExporter;
 use Sober\Intervention\Support\Config;
 use Sober\Intervention\Support\Middleware\WordPressToIntervention;
 use Sober\Intervention\Support\Str;
@@ -265,7 +265,7 @@ class Export
             unset($render['wp-admin']);
         }
 
-        $render_exporter = Exporter::export($render, Exporter::ADD_RETURN | Exporter::TRAILING_COMMA_IN_ARRAY);
+        $render_exporter = CodeExporter::export($render);
         return rest_ensure_response($render_exporter);
     }
 

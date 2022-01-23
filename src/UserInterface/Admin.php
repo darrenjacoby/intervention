@@ -2,7 +2,6 @@
 
 namespace Sober\Intervention\UserInterface;
 
-use Brick\VarExporter\VarExporter as Exporter;
 use Sober\Intervention\Support\Arr;
 use Sober\Intervention\Support\Config;
 
