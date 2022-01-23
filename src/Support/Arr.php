@@ -2,7 +2,7 @@
 
 namespace Sober\Intervention\Support;
 
-use Illuminate\Support\Collection;
+use Sober\Intervention\Illuminate\Support\Collection;
 
 /**
  * Array

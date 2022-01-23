@@ -29,7 +29,8 @@ define('INTERVENTION_TEXT_DOMAIN', 'intervention');
  * Support for Bedrock/Composer
  */
 if (!class_exists('Sober\Intervention\Intervention')) {
-    include file_exists($composer = __DIR__ . '/vendor/autoload.php') ? $composer : __DIR__ . '/dist/autoload.php';
+    include __DIR__ . '/build/vendor/autoload.php';
+    // include file_exists($composer = __DIR__ . '/vendor/autoload.php') ? $composer : __DIR__ . '/build/vendor/autoload.php';
 }
 
 /**

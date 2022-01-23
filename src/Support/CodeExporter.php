@@ -2,7 +2,7 @@
 
 namespace Sober\Intervention\Support;
 
-use Brick\VarExporter\VarExporter;
+use Sober\Intervention\Brick\VarExporter\VarExporter;
 
 class CodeExporter
 {

@@ -21,7 +21,6 @@
   },
   "require-dev": {
     "composer/installers": "^2.0",
-    "phing/phing": "^2.16.4",
     "symplify/easy-coding-standard": "dev-main"
   },
   "autoload": {
@@ -31,11 +30,14 @@
   },
   "scripts": {
     "build": [
-      "vendor/bin/phing",
-      "npm run build:production"
+      "npm run build:production",
+      "php-scoper add-prefix"
     ],
     "build:assets": [
       "npm run build:production"
+    ],
+    "build:php": [
+      "php-scoper add-prefix"
     ],
     "lint": [
       "vendor/bin/ecs check"
