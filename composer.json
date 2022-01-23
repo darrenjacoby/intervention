@@ -31,13 +31,13 @@
   "scripts": {
     "build": [
       "npm run build:production",
-      "php-scoper add-prefix"
+      "./scoper.sh"
     ],
     "build:assets": [
       "npm run build:production"
     ],
     "build:php": [
-      "php-scoper add-prefix"
+      "./scoper.sh"
     ],
     "lint": [
       "vendor/bin/ecs check"
