@@ -2,9 +2,9 @@
 
 namespace Sober\Intervention\Admin\Support;
 
+use function Sober\Intervention\mix;
 use Sober\Intervention\Support\Arr;
 use Sober\Intervention\Support\Composer;
-use function Sober\Intervention\mix;
 
 /**
  * Support/BlockEditor
@@ -46,7 +46,7 @@ class BlockEditor
         ]);
 
         $compose = $compose->has('add.blocks')->add('add.blocks.', [
-            'text', 'media', 'design', 'widgets', 'theme', 'embeds'
+            'text', 'media', 'design', 'widgets', 'theme', 'embeds',
         ]);
 
         $this->config = $compose->get();
@@ -70,12 +70,12 @@ class BlockEditor
         }
 
         $wp_edit = 'wp-edit-post';
-        
+
         if ($GLOBALS['pagenow'] === 'widgets.php') {
             $wp_edit = 'wp-edit-widgets';
         }
 
-        wp_enqueue_script('intervention/scripts/block-editor', mix('dist/assets/scripts/block-editor.js'), ['wp-blocks', 'wp-dom-ready', $wp_edit]);
+        wp_enqueue_script('intervention/scripts/block-editor', mix('assets/scripts/block-editor.js'), ['wp-blocks', 'wp-dom-ready', $wp_edit]);
         wp_localize_script('intervention/scripts/block-editor', 'interventionBlockEditor', $this->editor);
     }
 
@@ -138,7 +138,7 @@ class BlockEditor
                     flex-direction: row;
                     justify-content: flex-start;
                     align-content: items-center;
-                    width: 100%; 
+                    width: 100%;
                     border-radius: 0;
                     padding: 10px 16px;
                     border: 0 !important;

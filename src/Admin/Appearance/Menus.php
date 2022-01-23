@@ -2,10 +2,10 @@
 
 namespace Sober\Intervention\Admin\Appearance;
 
+use function Sober\Intervention\mix;
 use Sober\Intervention\Admin\SharedApi;
 use Sober\Intervention\Support\Arr;
 use Sober\Intervention\Support\Composer;
-use function Sober\Intervention\mix;
 
 /**
  * Appearance/Menus
@@ -219,7 +219,7 @@ class Menus
                 ->forget('appearance.menus.max-depth');
         }
 
-        wp_register_script('intervention/scripts/appearance-menus', mix('dist/assets/scripts/appearance-menus.js'));
+        wp_register_script('intervention/scripts/appearance-menus', mix('assets/scripts/appearance-menus.js'));
         wp_localize_script('intervention/scripts/appearance-menus', 'interventionAppearanceMenus', $menus->toArray());
         wp_enqueue_script('intervention/scripts/appearance-menus');
     }
