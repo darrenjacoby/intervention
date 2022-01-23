@@ -21,7 +21,8 @@
   },
   "require-dev": {
     "composer/installers": "^2.0",
-    "symplify/easy-coding-standard": "dev-main"
+    "symplify/easy-coding-standard": "dev-main",
+    "bamarni/composer-bin-plugin": "^1.4"
   },
   "autoload": {
     "psr-4": {
@@ -30,20 +31,20 @@
   },
   "scripts": {
     "build": [
-      "npm run build:production",
+      "@build:assets",
+      "@build:php"
+    ],
+    "lint:php": [
+      "vendor/bin/ecs check --fix"
+    ],
+    "build:php": [
       "./scoper.sh"
     ],
     "build:assets": [
       "npm run build:production"
     ],
-    "build:php": [
-      "./scoper.sh"
-    ],
-    "lint": [
-      "vendor/bin/ecs check"
-    ],
-    "lint:fix": [
-      "vendor/bin/ecs check --fix"
+    "watch": [
+      "npm run start"
     ]
   },
   "support": {

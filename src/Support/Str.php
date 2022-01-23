@@ -2,8 +2,6 @@
 
 namespace Sober\Intervention\Support;
 
-use Sober\Intervention\Illuminate\Support\Collection;
-
 /**
  * String
  *
@@ -39,7 +37,7 @@ class Str
      */
     public static function explode($delimiter, $value, $limit = PHP_INT_MAX)
     {
-        return collect(explode($delimiter, $value, $limit));
+        return Arr::collect(explode($delimiter, $value, $limit));
     }
 
     /**

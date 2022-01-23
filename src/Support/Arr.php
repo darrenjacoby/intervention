@@ -62,7 +62,7 @@ class Arr
      */
     public static function collect($array)
     {
-        return collect($array);
+        return new Collection($array);
     }
 
     /**
@@ -320,7 +320,7 @@ class Arr
      */
     public static function sortArrayByOrderArray($array, $orderArray)
     {
-        $ordered = array();
+        $ordered = [];
         foreach ($orderArray as $key) {
             if (array_key_exists($key, $array)) {
                 $ordered[$key] = $array[$key];
