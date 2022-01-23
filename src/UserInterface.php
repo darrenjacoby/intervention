@@ -155,7 +155,7 @@ class UserInterface
             /**
              * Register script.
              */
-            wp_register_script('intervention-scripts-user-interface', mix('dist/assets/scripts/user-interface.js'), ['wp-i18n', 'wp-components', 'wp-element', 'wp-api-fetch']);
+            wp_register_script('intervention-scripts-user-interface', mix('assets/scripts/user-interface.js'), ['wp-i18n', 'wp-components', 'wp-element', 'wp-api-fetch']);
 
             /**
              * Localization for our script.
@@ -190,7 +190,7 @@ class UserInterface
             /**
              * Register styles.
              */
-            wp_register_style('intervention/styles/user-interface', mix('dist/assets/styles/user-interface.css'), ['wp-components']);
+            wp_register_style('intervention/styles/user-interface', mix('assets/styles/user-interface.css'), ['wp-components']);
             wp_enqueue_style('intervention/styles/user-interface');
         });
     }

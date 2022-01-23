@@ -1,17 +1,18 @@
 <?php
 /**
  * Lavarel mix WordPress function
- * 
+ *
  * @link https://github.com/mindkomm/theme-lib-mix/blob/master/mix.php
  */
 namespace Sober\Intervention;
 
 /**
  * Mix
- * 
+ *
  * @return string
  */
-function mix($path, $manifest_directory = 'dist/assets') {
+function mix($path, $manifest_directory = 'assets')
+{
     // path to `mix-manifest.json`
     $manifest_path = INTERVENTION_DIR . '/' . $manifest_directory . '/mix-manifest.json';
 
