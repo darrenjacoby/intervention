@@ -32,6 +32,23 @@ const Toolbar = ({ children }) => {
 };
 
 /**
+ * Toolbar Divider
+ *
+ * @returns
+ */
+const ToolbarDivider = () => {
+  return (
+    <div
+      className="
+      mx-8
+      w-1
+      h-full
+      bg-gray-2"
+    ></div>
+  );
+};
+
+/**
  * Toolbar Flex
  *
  * @description layout for toolbar flex.
@@ -40,7 +57,7 @@ const Toolbar = ({ children }) => {
  * @returns <ToolbarFlex />
  */
 const ToolbarFlex = ({ children }) => {
-  return <div className="h-full flex">{children}</div>;
+  return <div className="w-full h-full flex">{children}</div>;
 };
 
 /**
@@ -71,7 +88,7 @@ const ToolbarTitle = ({ children }) => {
           mr-8
           w-1
           h-full
-          bg-gray-5"
+          bg-gray-2"
       ></div>
     </div>
   );
@@ -86,7 +103,11 @@ const ToolbarTitle = ({ children }) => {
  * @returns <ToolbarContent />
  */
 const ToolbarContent = ({ children }) => {
-  return <div className="h-full flex items-center">{children}</div>;
+  return (
+    <div className="h-full flex items-center text-gray-70 text-13 lg:text-14">
+      {children}
+    </div>
+  );
 };
 
-export { Toolbar, ToolbarFlex, ToolbarTitle, ToolbarContent };
+export { Toolbar, ToolbarDivider, ToolbarFlex, ToolbarTitle, ToolbarContent };

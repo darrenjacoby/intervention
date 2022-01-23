@@ -32,7 +32,7 @@ const CodeBlock = ({ children }) => {
       className={`
         relative
         py-20
-        px-16
+        pl-16
         ${isHighlighted ? '' : 'opacity-0'}
       `}
     >

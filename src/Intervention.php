@@ -24,7 +24,7 @@ class Intervention
      *
      * @param array $config
      */
-    public function __construct($config = false)
+    public function __construct($config = false, $is_config_file = false)
     {
         if (!$config) {
             return;
@@ -34,7 +34,9 @@ class Intervention
             ->group('wp-admin')
             ->get();
 
-        UserInterfaceAdmin::set($admin);
+        if ($is_config_file) {
+            UserInterfaceAdmin::set($admin);
+        }
 
         Config::get('admin/routing')->map(function ($class, $k) use ($admin) {
             $this->initRoleFromConfigFile($admin, $class, $k);

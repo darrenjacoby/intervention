@@ -2,6 +2,7 @@
 
 namespace Sober\Intervention\UserInterface;
 
+use Sober\Intervention\Support\Middleware\InterventionToWordPress;
 use Sober\Intervention\Support\Middleware\WordPressToIntervention;
 
 /**
@@ -92,7 +93,8 @@ class Application
              * Import to database if `import === true` and intervention and database values are not equal.
              */
             if ($import && ($item['intervention_v'] !== $database_v_transformed)) {
-                $status = update_option($database_k, $item['intervention_v']);
+                $intervention_v = InterventionToWordPress::transform($item['intervention_k'], $item['intervention_v']);
+                $status = update_option($database_k, $intervention_v);
                 $status = $status === true ? 'completed' : 'skipped';
                 $response['imported'][$status][] = $item['intervention_k'];
 

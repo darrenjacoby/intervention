@@ -6,6 +6,7 @@ use Brick\VarExporter\VarExporter as Exporter;
 use Sober\Intervention\Support\Arr;
 use Sober\Intervention\Support\Config;
 use Sober\Intervention\Support\Middleware\WordPressToIntervention;
+use Sober\Intervention\Support\Str;
 
 /**
  * Export
@@ -26,7 +27,10 @@ use Sober\Intervention\Support\Middleware\WordPressToIntervention;
  */
 class Export
 {
-    protected $config;
+    protected $selected = [];
+    protected $application_settings_database = [];
+    protected $config_file_admin = [];
+    protected $admin_components_order_keys = [];
 
     /**
      * Initialize
@@ -36,30 +40,192 @@ class Export
     public function __construct()
     {
         /**
-         * Fetch config to database mapping.
+         * Intervention keys to database keys settings.
          */
-        $this->config = Arr::collect(Config::get('application/settings-database'));
+        $this->application_settings_database = Config::get('application/settings-database');
+
+        /**
+         * Config file `wp-admin` options array excluding `wp-admin` prefix from keys, required for localized and query admin data.
+         */
+        $this->config_file_admin = Arr::collect(\Sober\Intervention\getConfigFile() ?? [])
+            ->filter(function ($v, $k) {
+                return Str::startsWith($k, 'wp-admin.');
+            })
+            ->reduce(function ($carry, $v, $k) {
+                $key_no_prefix = Str::replace('wp-admin.', '', $k);
+                $carry[$key_no_prefix] = $v;
+                return $carry;
+            }, []);
+
+        /**
+         * Components order keys for rendering `wp-admin` user interface.
+         */
+        $this->admin_components_order_keys = Config::get('user-interface/export/components-order-keys')->all();
+    }
+
+    /**
+     * Get Localized Admin Data
+     *
+     * @return array
+     */
+    public function getLocalizedAdminData()
+    {
+        /**
+         * Get only items starting with `wp-admin`, remove `wp-admin` prefix and return values
+         */
+        $config = Arr::collect($this->config_file_admin)->keys();
+
+        /**
+         * Get database options or an empty array.
+         */
+        $database = Arr::collect(get_option('intervention_admin') ?? [])->keys();
+
+        /**
+         * Get all admin options by merging the config file with the database
+         */
+        $admin = $config->merge($database)->unique()->all();
+
+        /**
+         * Format title function used for rendering purposes.
+         */
+        function format_title($array)
+        {
+            return Arr::collect($array)->map(function ($role) {
+                return ucwords($role);
+            })->join('/');
+        }
+
+        /**
+         * Format array for `Export.js` to consume, roles must be passed as an array for render sorting purposes.
+         */
+        return Arr::collect($admin)->map(function ($v) {
+            $roles_arr = explode('|', $v);
+
+            return [
+                'key' => $v,
+                'title' => format_title($roles_arr),
+                'roles' => [$roles_arr],
+            ];
+        })->values();
     }
 
     /**
      * Get Localized Data
      *
-     * Register options page scripts and styles.
+     * Application and Admin sidebar group arrays.
      *
-     * @link https://developer.wordpress.org/reference/functions/wp_localize_script/
+     * @return array
      */
     public function getLocalizedData()
     {
-        $theme_name = get_option('stylesheet');
-        $theme = file_exists(get_stylesheet_directory() . '/config') ? $theme_name . '/config' : $theme_name;
-
-        // group list config
-        $exports = Config::get('user-interface/exports')->toArray();
+        $application = Config::get('user-interface/export/application-selection')->toArray();
+        $admin = $this->getLocalizedAdminData();
 
         return [
-            'theme' => $theme,
-            'exports' => $exports,
+            'application' => $application,
+            'admin' => $admin,
         ];
+    }
+
+    /**
+     * Get Query Application Data
+     *
+     * Get and format application request data.
+     *
+     * @return array
+     */
+    public function getQueryApplicationData()
+    {
+        /**
+         * Filter `selected` from `$this->application_settings_database`.
+         */
+        $application = $this->application_settings_database->filter(function ($v, $k) {
+            $key_arr = explode('.', $k);
+            return $this->selected->contains($key_arr[0]);
+        });
+
+        /**
+         * Get key/option value from the WordPress database or the `pre_option` filter.
+         */
+        $application = $application->map(function ($v, $k) {
+            return get_option($v);
+        });
+
+        /**
+         * Get sanitized `plugin => []` from WordPress function `get_plugins()`.
+         */
+        if ($this->selected->contains('plugins')) {
+            $plugins = $this->getPluginsData();
+
+            if (count($plugins) > 0) {
+                $application->prepend($plugins, 'plugins');
+            }
+        }
+
+        /**
+         * Get `theme => string` from WordPress function `get_stylesheet()`
+         */
+        if ($this->selected->contains('theme')) {
+            $application->prepend(get_stylesheet(), 'theme');
+        }
+
+        /**
+         * Transform ugly WordPress values with the expected Intervention config.
+         */
+        $application = $application->map(function ($v, $k) {
+            return WordPressToIntervention::transform($k, $v);
+        });
+
+        /**
+         * Extract first keys into separate arrays.
+         *
+         * `['general.site-title' => $x]` to `['general' => ['site-title' => $x]]`
+         */
+        return Arr::multidimensionalFirstKey($application);
+    }
+
+    /**
+     * Get Query Admin Data
+     *
+     * Get and format admin request data.
+     *
+     * @return array
+     */
+    public function getQueryAdminData()
+    {
+        /**
+         * Get database options.
+         */
+        $database = get_option('intervention_admin');
+
+        /**
+         * Get config file options
+         */
+        $config = Arr::transformEntriesToTrue($this->config_file_admin);
+
+        /**
+         * Merge database and config file
+         */
+        $admin = Arr::collect($database)->mergeRecursive($config);
+
+        /**
+         * Filter `$this->selected`.
+         */
+        $admin = $admin->filter(function ($v, $k) {
+            return $this->selected->contains($k);
+        });
+
+        /**
+         * Sort by `$this->admin_components_order_keys`
+         */
+        $admin = $admin->map(function ($v, $k) {
+            return Arr::sortArrayByOrderArray($v, $this->admin_components_order_keys);
+        });
+
+        /**
+         * Return
+         */
+        return $admin->all();
     }
 
     /**
@@ -73,62 +239,33 @@ class Export
     public function request(\WP_REST_Request $request)
     {
         /**
-         * Collect param `groups` from the incoming REST route request.
+         * Set `$this->selected` from `$request`.
          */
-        $groups = Arr::collect($request->get_param('groups') ?? []);
+        $this->selected = Arr::collect($request->get_param('selected') ?? []);
 
         /**
-         * Filter selected groups from `$this->config`.
+         * Query application and admin data
          */
-        $config = $this->config->filter(function ($v, $k) use ($groups) {
-            $key_arr = explode('.', $k);
-            return $groups->contains($key_arr[0]);
-        });
+        $application = $this->getQueryApplicationData();
+        $admin = $this->getQueryAdminData();
 
         /**
-         * Get key/option value from the WordPress database or the `pre_option` filter.
+         * Render
          */
-        $config = $config->map(function ($v, $k) {
-            return get_option($v);
-        });
+        $render = [
+            'application' => $application,
+            'wp-admin' => $admin,
+        ];
 
-        /**
-         * Get sanitized `plugin => []` from WordPress function `get_plugins()`.
-         */
-        if ($groups->contains('plugins')) {
-            $plugins = $this->getPluginsData();
-
-            if (count($plugins) > 0) {
-                $config->prepend($plugins, 'plugins');
-            }
+        if (empty($application)) {
+            unset($render['application']);
         }
 
-        /**
-         * Get `theme => string` from WordPress function `get_stylesheet()`
-         */
-        if ($groups->contains('theme')) {
-            $config->prepend(get_stylesheet(), 'theme');
+        if (empty($admin)) {
+            unset($render['wp-admin']);
         }
 
-        /**
-         * Transform ugly WordPress values with the expected Intervention config.
-         */
-        $config = $config->map(function ($v, $k) {
-            return WordPressToIntervention::transform($k, $v);
-        });
-
-        /**
-         * Extract first keys into separate arrays.
-         *
-         * `['general.site-title' => $x]` to `['general' => ['site-title' => $x]]`
-         */
-        $config = Arr::multidimensionalFirstKey($config);
-
-        /**
-         * Setup code preview by passing it through `Brick\VarExporter`.
-         */
-        $render_application = ['application' => $config];
-        $render_exporter = "<?php\r\n\r\nreturn " . Exporter::export($render_application);
+        $render_exporter = Exporter::export($render, Exporter::ADD_RETURN | Exporter::TRAILING_COMMA_IN_ARRAY);
         return rest_ensure_response($render_exporter);
     }
 
@@ -146,10 +283,16 @@ class Export
      */
     protected function getPluginsData()
     {
+        /**
+         * Require function `get_plugins()`
+         */
         if (!function_exists('get_plugins')) {
             require_once ABSPATH . 'wp-admin/includes/plugin.php';
         }
 
+        /**
+         * Get Plugins
+         */
         $plugins = get_plugins();
 
         if (count($plugins) === 0) {
@@ -158,7 +301,10 @@ class Export
 
         $plugins = Arr::collect($plugins)->keys();
 
-        $plugins = $plugins->reduce(function ($carry, $k) {
+        /**
+         * Return plugins code for the code block.
+         */
+        return $plugins->reduce(function ($carry, $k) {
             /**
              * Store state to be used for value when returning.
              */
@@ -178,7 +324,5 @@ class Export
 
             return $carry;
         }, []);
-
-        return $plugins;
     }
 }

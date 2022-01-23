@@ -164,6 +164,39 @@ class Arr
     }
 
     /**
+     * Transform Entries From True
+     *
+     * Recursively transform multidimensional associative array true entries to null
+     *
+     * @link https://stackoverflow.com/questions/7490105/array-walk-recursive-modify-both-keys-and-values/57622225#57622225
+     *
+     * @param array $array
+     * @return array
+     */
+    public static function transformEntriesFromTrue($array)
+    {
+        return static::transform($array, function ($k, $value) {
+            // check for [0 => 'key'] and make sure the value is not an array
+            $all_entries_are_true = false;
+
+            // check if value is array
+            if (is_array($value)) {
+                $value_arr = static::collect($value);
+
+                $all_entries_are_true = $value_arr->every(function ($v, $k) {
+                    return $v === true;
+                });
+
+                if ($all_entries_are_true) {
+                    $value = $value_arr->keys()->all();
+                }
+            }
+
+            return [$k, $value];
+        });
+    }
+
+    /**
      * Transform
      *
      * Recursively transform multidimensional associative array using a callback filter.
@@ -272,5 +305,28 @@ class Arr
 
             return $carry;
         }, []);
+    }
+
+    /**
+     * Sort Array By Order Array
+     *
+     * Order an array based on an order array containing all the keys. Used for `Export.php` admin export.
+     *
+     * @link https://stackoverflow.com/questions/348410/sort-an-array-by-keys-based-on-another-array
+     *
+     * @param array $array
+     * @param array $orderArray
+     * @return array
+     */
+    public static function sortArrayByOrderArray($array, $orderArray)
+    {
+        $ordered = array();
+        foreach ($orderArray as $key) {
+            if (array_key_exists($key, $array)) {
+                $ordered[$key] = $array[$key];
+                unset($array[$key]);
+            }
+        }
+        return $ordered + $array;
     }
 }

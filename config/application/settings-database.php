@@ -1,7 +1,7 @@
 <?php
 /**
  * Return array of key to WordPress database options key.
- * 
+ *
  * @see Application/OptionsApi
  */
 namespace Sober\Intervention;

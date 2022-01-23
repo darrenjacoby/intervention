@@ -7,10 +7,25 @@ import {
 } from '../../../atoms/admin';
 import { __ } from '../../../utils/wp';
 
+const registeredRolesKeys = Object.keys(intervention.route.admin.data.roles);
+
 /**
- * Registered user roles from WordPress.
+ * Get Aliased Roles
+ *
+ * @description get aliased roles.
+ *
+ * @param {array} roles
+ * @returns {array}
  */
-const registeredRoles = intervention.route.admin.data.roles;
+const getAliasedRoles = (roles) => {
+  const getAll = () => registeredRolesKeys.filter((v) => v);
+  const getAllNotAdmin = () =>
+    registeredRolesKeys.filter((v) => v !== 'administrator');
+
+  if (roles.includes('all')) return getAll();
+  if (roles.includes('all-not-administrator')) return getAllNotAdmin();
+  return roles;
+};
 
 /**
  * Role Group Button Group
@@ -23,6 +38,7 @@ const RolesRoleGroup = () => {
   const [data] = useAtom(selectedIndexDataAtom);
   const [, setRole] = useAtom(selectedIndexDataRoleAtom);
   const [roles] = data.roles;
+  const rolesRender = getAliasedRoles(roles);
 
   /**
    * Handler
@@ -38,15 +54,11 @@ const RolesRoleGroup = () => {
    */
   return (
     <ButtonGroup>
-      {Object.entries(registeredRoles).map(([key, { name }]) => (
+      {registeredRolesKeys.map((key) => (
         <Button
           key={key}
           className={`
-          ${
-            roles.includes(key)
-              ? 'text-primary-10 border-primary-10 ?'
-              : 'text-gray-50 border-gray-2 hover:border-gray-5'
-          }
+          ${rolesRender.includes(key) ? 'is-active' : ''}
         `}
           onClick={() => handler(key)}
         >

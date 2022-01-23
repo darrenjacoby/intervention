@@ -57,8 +57,8 @@ class UserColorSchemeCustomProps
              */
             if ($this->scheme->name === 'Default') {
                 $colors = [
-                    '--wp-admin-theme-color: #007cba;',
-                    '--wp-admin-theme-color-darker-10: #006ba1;',
+                    '--wp-admin-theme-color: #2271b1;',
+                    '--wp-admin-theme-color-darker-10: #2271b1;',
                     '--wp-admin-theme-color-darker-20: #005a87;',
                 ];
             }

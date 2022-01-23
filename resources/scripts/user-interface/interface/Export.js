@@ -1,6 +1,6 @@
 import { useState, useEffect } from '@wordpress/element';
-import { CheckboxControl } from '@wordpress/components';
 import { useQuery } from 'react-query';
+import { CheckboxControl } from '@wordpress/components';
 import { Page } from './Page/Page';
 import { Toolbar, ToolbarTitle } from './Page/Toolbar';
 import {
@@ -11,64 +11,56 @@ import {
 } from './Page/Sidebar';
 import { ButtonCopy } from './Export/ButtonCopy';
 import { CodeBlock } from './Export/CodeBlock';
-import { __ } from '../utils/wp';
 import { exportQuery } from '../queries';
 import { exportSelectionSession } from '../sessions';
+import { sortRolesKeys } from './Admin/Save';
+import { __ } from '../utils/wp';
 
-const staticExports = intervention.route.export.data.exports;
-
-/**
- * Get Checked items
- *
- * @description filter `checkedItems` to only get keys where state is `true`.
- *
- * @param {Map} items
- * @returns {string}
- */
-const getCheckedItems = (checkedItems) => {
-  const getKeysEqualToTrue = [...checkedItems.entries()].reduce(
-    (carry, item) => {
-      const [k, v] = item;
-      if (v === true) {
-        carry.push(k);
-      }
-      return carry;
-    },
-    []
-  );
-  return getKeysEqualToTrue;
-};
+const staticExports = intervention.route.export.data;
+const staticExportsAdminSorted = sortRolesKeys(staticExports.admin);
 
 /**
- * Set Checked Items
+ * State Factory
  *
- * @description set all keys to `true` for toggling all on.
+ * @description create state object from a `staticExports` group.
  *
+ * @param {object} group
  * @param {boolean} state
- * @returns {Map}
+ * @returns {object}
  */
-const setCheckedItems = (state = true) => {
-  const groupListMap = new Map();
-
-  staticExports.map((item) => {
-    Array.isArray(state)
-      ? groupListMap.set(item.id, state.includes(item.id))
-      : groupListMap.set(item.id, state);
-  });
-
-  return groupListMap;
+const stateFactory = (group, state = false) => {
+  return group.reduce((carry, item) => {
+    carry[item.key] = state ? state.includes(item.key) : true;
+    return carry;
+  }, {});
 };
 
 /**
- * Group Contains False
+ * Get Keys Equal To True
  *
- * @description deetermine if `checkedItems` contains a false value.
+ * @description filter group items object to only get keys where state is `true`.
+ *
+ * @param {object} group
+ * @returns {array}
+ */
+const getKeysEqualToTrue = (group) => {
+  return Object.entries(group).reduce((carry, [k, v]) => {
+    if (v === true) {
+      carry.push(k);
+    }
+    return carry;
+  }, []);
+};
+
+/**
+ * Is All Checked
+ *
+ * @description deetermine if a group contains a false value.
  *
  * @returns {boolean}
  */
-const groupContainsFalse = (checkedItems) => {
-  const valuesArray = Array.from(checkedItems.values());
-  return valuesArray.includes(false);
+const isAllChecked = (group) => {
+  return Object.values(group).includes(false);
 };
 
 /**
@@ -86,36 +78,62 @@ const Export = () => {
     suspense: true,
   });
 
+  const applicationKeys = Object.keys(stateFactory(staticExports.application));
+  const session = exportSelectionSession() || applicationKeys;
+
   /**
    * State
    */
-  const [checked, setChecked] = useState({
-    items: exportSelectionSession()
-      ? setCheckedItems(exportSelectionSession())
-      : setCheckedItems(true),
-  });
+  const [application, setApplication] = useState(
+    stateFactory(staticExports.application, session)
+  );
+
+  const [admin, setAdmin] = useState(
+    stateFactory(staticExportsAdminSorted, session)
+  );
 
   /**
    * Effects
    *
-   * Fetch new response from `UserInterface/Tools/Export.php`.
+   * @description merge groups, update session storage and refetch query from `UserInterface/Tools/Export.php`.
    */
   useEffect(() => {
-    const groups = getCheckedItems(checked.items);
-    exportSelectionSession(groups);
+    const selected = [
+      ...getKeysEqualToTrue(application),
+      ...getKeysEqualToTrue(admin),
+    ];
+    exportSelectionSession(selected);
     query.refetch();
-  }, [checked]);
+  }, [application, admin]);
 
   /**
-   * Handler
+   * Write
    *
-   * Change `checked.items` to new group states.
+   * @description write state for group item checkbox.
    *
-   * @param {Map} group
-   * @param {boolean} state
+   * @param {object} group
+   * @param {object} item
    */
-  const handler = (group, state) => {
-    setChecked({ items: checked.items.set(group, state) });
+  const write = (group, { key, state }) => {
+    return Object.entries(group).reduce((carry, [k, v]) => {
+      carry[k] = key === k ? state : v;
+      return carry;
+    }, {});
+  };
+
+  /**
+   * Write All
+   *
+   * @description write state for group toggle all checkbox.
+   *
+   * @param {object} group
+   */
+  const writeAll = (group) => {
+    const state = isAllChecked(group);
+    return Object.entries(group).reduce((carry, [k]) => {
+      carry[k] = state;
+      return carry;
+    }, {});
   };
 
   /**
@@ -129,21 +147,40 @@ const Export = () => {
             <SidebarCheckboxItem>
               <CheckboxControl
                 label={__('Toggle All', 'intervention')}
-                checked={!groupContainsFalse(checked.items)}
-                onChange={() =>
-                  setChecked({
-                    items: setCheckedItems(groupContainsFalse(checked.items)),
-                  })
-                }
+                checked={!isAllChecked(application)}
+                onChange={() => setApplication(writeAll(application))}
               />
             </SidebarCheckboxItem>
 
-            {staticExports.map(({ id, title }) => (
-              <SidebarCheckboxItem key={id}>
+            {staticExports.application.map(({ key, title }) => (
+              <SidebarCheckboxItem key={key}>
                 <CheckboxControl
                   label={__(title)}
-                  checked={checked.items.get(id) ?? false}
-                  onChange={(state) => handler(id, state)}
+                  checked={application[key] ?? false}
+                  onChange={(state) =>
+                    setApplication(write(application, { key, state }))
+                  }
+                />
+              </SidebarCheckboxItem>
+            ))}
+          </SidebarCheckboxFlex>
+        </SidebarGroup>
+
+        <SidebarGroup title={__('Admin')}>
+          <SidebarCheckboxFlex>
+            <SidebarCheckboxItem>
+              <CheckboxControl
+                label={__('Toggle All', 'intervention')}
+                checked={!isAllChecked(admin)}
+                onChange={() => setAdmin(writeAll(admin))}
+              />
+            </SidebarCheckboxItem>
+            {staticExportsAdminSorted.map(({ key, title }) => (
+              <SidebarCheckboxItem key={key}>
+                <CheckboxControl
+                  label={__(title)}
+                  checked={admin[key] ?? false}
+                  onChange={(state) => setAdmin(write(admin, { key, state }))}
                 />
               </SidebarCheckboxItem>
             ))}
@@ -158,14 +195,7 @@ const Export = () => {
           <ButtonCopy textToCopy={query.data} />
         </Toolbar>
 
-        {query.isError && (
-          <>
-            {__(
-              'Sorry, an error has occured while attempting to access database options'
-            )}
-            .
-          </>
-        )}
+        {query.isError && <>{__('Sorry, an error has occured')}.</>}
 
         {query.isSuccess && <CodeBlock>{query.data}</CodeBlock>}
       </div>
@@ -173,4 +203,4 @@ const Export = () => {
   );
 };
 
-export { Export, getCheckedItems, setCheckedItems };
+export { Export };

@@ -5,9 +5,14 @@ import { useAtom } from 'jotai';
 import { Button } from '@wordpress/components';
 import { useMutation } from 'react-query';
 import apiFetch from '@wordpress/api-fetch';
-import { dataAtom, selectedIndexAtom, isBlockingAtom } from '../../atoms/admin';
-import { arrayHasDuplicates } from '../../utils/structures';
-import { safeSelectedIndex } from '../../utils/admin';
+import {
+  queryAtom,
+  dataAtom,
+  selectedIndexAtom,
+  pathAtom,
+  isBlockingAtom,
+} from '../../atoms/admin';
+import { arrayHasDuplicates, objectHasKey } from '../../utils/structures';
 import { __ } from '../../utils/wp';
 
 /**
@@ -17,11 +22,9 @@ import { __ } from '../../utils/wp';
  * @param {number} i
  * @returns {object}
  */
-const setRoleKeyOrder = (data, i = 0) => {
+const sortRolesKeys = (data) => {
   const roleKeys = Object.keys(intervention.route.admin.data.roles);
-  const findSelectedIndex = data[i].roles[0].join();
 
-  // sorting algorithm
   data.sort((a, b) => {
     const [rolesA] = a.roles;
     const [rolesB] = b.roles;
@@ -31,26 +34,44 @@ const setRoleKeyOrder = (data, i = 0) => {
     if (indexA > indexB) {
       return 1;
     }
+
     if (indexA < indexB) {
       return -1;
     }
+
     return 0;
   });
 
-  // new index found
-  // relook this implementation
+  return data;
+};
+
+/**
+ * Set Role Key Order
+ *
+ * @param {object} data
+ * @param {string} findSelectedIndex
+ *
+ * @returns {object}
+ */
+const setRoleKeyOrder = (data, findSelectedIndex) => {
+  /**
+   * Order By Role Keys
+   */
+  data = sortRolesKeys(data);
+
+  /**
+   * Find Selected Index
+   */
   const selectedIndexFound = data.reduce((carry, item, index) => {
     if (findSelectedIndex === item.roles[0].join()) {
       carry = index;
     }
     return carry;
-  }, i);
+  }, 0);
 
   const selectedIndex = selectedIndexFound ? selectedIndexFound : 0;
-  // console.log({ selectedIndex });
 
   return { data, selectedIndex };
-  // return { data };
 };
 
 /**
@@ -60,9 +81,11 @@ const setRoleKeyOrder = (data, i = 0) => {
  *
  * @returns <Save />
  */
-const Save = ({ state }) => {
+const Save = ({ stateHead }) => {
+  const [, setQuery] = useAtom(queryAtom);
   const [data, setData] = useAtom(dataAtom);
   const [dangerousSelectedIndex, setSelectedIndex] = useAtom(selectedIndexAtom);
+  const [path, setPath] = useAtom(pathAtom);
   const [isBlocking] = useAtom(isBlockingAtom);
   const [buttonText, setButtonText] = useState(__('Save'));
 
@@ -81,20 +104,42 @@ const Save = ({ state }) => {
    *
    * @return {object}
    */
-  const middleware = data.reduce((carry, { roles, components }) => {
-    const removeImmutableComponents = Object.entries(components).reduce(
-      (carry, [k, [value, immutable]]) => {
-        if (immutable !== true) {
-          carry[k] = [value, false];
-        }
-        return carry;
-      },
-      {}
-    );
+  const middleware = () =>
+    data.reduce((carry, { roles, components }) => {
+      /**
+       * Remove Immutable Components + Option
+       */
+      const removeImmutableComponents = Object.entries(components).reduce(
+        (carry, [k, [value, immutable]]) => {
+          if (immutable !== true) {
+            // carry[k] = [value, false];
+            carry[k] = value;
+          }
+          return carry;
+        },
+        {}
+      );
 
-    carry[roles[0].join('|')] = removeImmutableComponents;
-    return carry;
-  }, {});
+      /**
+       * Merge Matching Roles
+       */
+      const [rolesArray] = roles;
+      const rolesString = rolesArray.join('|');
+
+      if (objectHasKey(carry, rolesString)) {
+        carry[rolesString] = {
+          ...carry[rolesString],
+          ...removeImmutableComponents,
+        };
+      } else {
+        carry[rolesString] = removeImmutableComponents;
+      }
+
+      /**
+       * Return
+       */
+      return carry;
+    }, {});
 
   /**
    * Mutation
@@ -102,18 +147,27 @@ const Save = ({ state }) => {
    * @description save changes to database.
    */
   const mutation = useMutation(() => {
-    return apiFetch({
-      url: intervention.route.admin.url,
-      method: 'POST',
-      data: { data: middleware, save: true },
-    }).then((res) => {
-      const selectedIndex = safeSelectedIndex(dangerousSelectedIndex, res.data);
-      const sorted = setRoleKeyOrder(res.data, selectedIndex);
-      setSelectedIndex(sorted.selectedIndex);
-      setData(sorted.data);
-      setButtonText(__('Save'));
-      state.reset();
-    });
+    // save some data from the current role group to restore state if a merge takes place.
+    const savedRoleString = data[dangerousSelectedIndex].roles[0].join();
+    const savedPath = path[dangerousSelectedIndex];
+
+    // post to the api with sanitized `middleware` and action `save`.
+    return (
+      apiFetch({
+        url: intervention.route.admin.url,
+        method: 'POST',
+        data: { data: middleware(), save: true },
+      })
+        // the order that the atoms are updated matters as some updates require prior values.
+        .then((res) => {
+          const sorted = setRoleKeyOrder(res.data, savedRoleString);
+          setSelectedIndex(sorted.selectedIndex);
+          setQuery(sorted.data);
+          setPath(savedPath);
+          setButtonText(__('Save'));
+          stateHead.reset();
+        })
+    );
   });
 
   /**
@@ -135,7 +189,7 @@ const Save = ({ state }) => {
      * @returns {boolean}
      */
     const emptyRoleGroupFound = () => {
-      return Object.keys(middleware).includes('');
+      return Object.keys(middleware()).includes('');
     };
 
     /**
@@ -193,4 +247,4 @@ const Save = ({ state }) => {
   );
 };
 
-export { Save, setRoleKeyOrder };
+export { Save, setRoleKeyOrder, sortRolesKeys };

@@ -1,7 +1,7 @@
 import { useAtom } from 'jotai';
-import { useState, useEffect } from '@wordpress/element';
+import { useState } from '@wordpress/element';
 import { TextControl, Button } from '@wordpress/components';
-import { Row, RowState } from './Row';
+import { Row, RowKey, RowValue, RowValueUndo, RowState } from './Row';
 import {
   selectedIndexDataAtom,
   selectedIndexDataComponentAtom,
@@ -38,17 +38,8 @@ const TextItem = ({ item: key, type = 'text' }) => {
   const [state, setState] = useState(init);
 
   /**
-   * Effect
+   * Tasks
    */
-  /*
-  useEffect(() => {
-    if (state !== '') {
-      setApplied(['add', interventionKey, state]);
-    } else {
-      setApplied(['del', interventionKey]);
-    }
-  }, [state]);
-*/
   const add = (value) => {
     setComponent(['add', interventionKey, value]);
   };
@@ -81,36 +72,25 @@ const TextItem = ({ item: key, type = 'text' }) => {
   return (
     <Row item={key}>
       <RowState state={state} immutable={immutable} />
-      <div
-        className="
-          flex
-          w-full
-          items-center"
-      >
-        <div className="w-1/2">{interventionKey}</div>
-
-        <div
-          className="
-            w-1/2
-            flex
-            items-center
-            border-l
-            border-gray-2"
-        >
-          <TextControl
-            label={false}
-            hideLabelFromVision={false}
-            value={state}
-            placeholder={__(getKeyParams(key))}
-            type={type}
-            disabled={immutable}
-            onChange={(value) => handler(value)}
-          />
-          {immutable === false && state !== '' && (
-            <Button onClick={() => handler('')}>{__('Undo')}</Button>
-          )}
-        </div>
-      </div>
+      <RowKey>{interventionKey}</RowKey>
+      <RowValue>
+        <TextControl
+          label={false}
+          hideLabelFromVision={false}
+          value={state}
+          placeholder={__(getKeyParams(key))}
+          type={type}
+          disabled={immutable}
+          onChange={(value) => handler(value)}
+        />
+        {immutable === false && state !== '' && (
+          <RowValueUndo>
+            <Button className="is-secondary" onClick={() => handler('')}>
+              {__('Undo')}
+            </Button>
+          </RowValueUndo>
+        )}
+      </RowValue>
     </Row>
   );
 };

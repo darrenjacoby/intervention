@@ -9,7 +9,7 @@ import { __ } from '../../../utils/wp';
  *
  * @returns <AddRoleGroup />
  */
-const NewRoleGroup = ({ state }) => {
+const NewRoleGroup = ({ stateHead }) => {
   const [data, setData] = useAtom(dataAtom);
   const [, setSelectedIndex] = useAtom(selectedIndexAtom);
 
@@ -18,7 +18,7 @@ const NewRoleGroup = ({ state }) => {
     const addGroup = [...data, ...[template]];
     setData(addGroup);
     setSelectedIndex(data.length);
-    state.setIsNew(true);
+    stateHead.setIsNew(true);
   };
 
   /**
@@ -28,7 +28,7 @@ const NewRoleGroup = ({ state }) => {
    */
   return (
     <Button className="is-secondary" onClick={() => addRoleGroup()}>
-      {__('New Group')}
+      {__('New')}
     </Button>
   );
 };

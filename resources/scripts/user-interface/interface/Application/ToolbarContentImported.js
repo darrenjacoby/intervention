@@ -1,5 +1,4 @@
 import { sprintf } from '@wordpress/i18n';
-import { Button } from '@wordpress/components';
 import { __ } from '../../utils/wp';
 
 /**
@@ -10,9 +9,9 @@ import { __ } from '../../utils/wp';
  * @param {object} props
  * @returns <ToolbarContentRender />
  */
-const ToolbarContentRender = ({ imported, diff, setRadio }) => {
+const ToolbarContentImported = ({ imported, diff, setRadio }) => {
   /**
-   * Render: Imported with fails
+   * Imported with fails
    */
   if (imported.skipped.length > 0) {
     return (
@@ -28,29 +27,16 @@ const ToolbarContentRender = ({ imported, diff, setRadio }) => {
   }
 
   /**
-   * Render: Imported
+   * Imported
    */
   if (imported.completed.length > 0) {
     return <>{sprintf(__('Imported %s'), imported.completed.length)}.</>;
   }
 
   /**
-   * Render: Diffs
-   */
-  if (diff > 0) {
-    return (
-      <>
-        <Button className="blank" onClick={() => setRadio('mismatch')}>
-          {sprintf(__('%s mismatch'), diff)}
-        </Button>
-      </>
-    );
-  }
-
-  /**
-   * Render: Matching
+   * Matching
    */
   return <></>;
 };
 
-export { ToolbarContentRender };
+export { ToolbarContentImported };

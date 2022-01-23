@@ -89,11 +89,13 @@ const Components = () => {
   return (
     <>
       <Breadcrumb />
-      {isRouteItem(getFirstPathKey) && <RouteItemGroup />}
-      {!isRouteItem(getFirstPathKey) &&
-        Object.keys(getStaticComponentsData(path)).map((key) => (
-          <Routing key={key} item={key} />
-        ))}
+      <div className="border-gray-2 border-b mb-[-1px]">
+        {isRouteItem(getFirstPathKey) && <RouteItemGroup />}
+        {!isRouteItem(getFirstPathKey) &&
+          Object.keys(getStaticComponentsData(path)).map((key) => (
+            <Routing key={key} item={key} />
+          ))}
+      </div>
     </>
   );
 };

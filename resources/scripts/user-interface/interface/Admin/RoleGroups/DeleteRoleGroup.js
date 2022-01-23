@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from '@wordpress/components';
 import { useAtom } from 'jotai';
 import {
   dataAtom,
@@ -48,18 +49,9 @@ const DeleteRoleGroup = () => {
    * Render
    */
   return (
-    <a
-      href="#"
-      className="
-        text-gray-50
-        no-underline
-        active:text-red
-        hover:text-red
-        focus:text-red"
-      onClick={() => del()}
-    >
+    <Button className="blank is-warning" onClick={() => del()}>
       {__('Delete')}
-    </a>
+    </Button>
   );
 };
 

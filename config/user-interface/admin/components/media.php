@@ -18,11 +18,11 @@ namespace Sober\Intervention;
 return [
     'media:hierachical' => [
         ':route',
-        'title:text[Media Library]',
+        'title:text[Media]',
         'icon:icon[media]',
         'all:hierachical' => [
             ':route',
-            'title:text[Home]',
+            'title:text[Media Library]',
             'title-link',
             'tabs:group' => ['screen-options', 'help'],
             'pagination:number',

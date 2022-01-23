@@ -14,8 +14,6 @@ import { __ } from '../../utils/wp';
 
 const staticComponentsData = intervention.route.admin.data.components;
 
-console.log({ staticComponentsData });
-
 /**
  * Components
  *

@@ -12,8 +12,7 @@ const RowNotFound = ({ children }) => {
   return (
     <div
       className="
-        h-[44px]
-        lg:h-[40px]
+        h-[42px]
         px-16
         flex
         items-center
@@ -69,13 +68,21 @@ const RowKey = ({ children }) => {
         relative
         w-1/2
         px-[16px]
-        pt-1
         flex
         items-center
         truncate"
     >
-      <span>{children}</span>
-      <PseudoFade />
+      <div
+        className="
+          inset-0
+          absolute
+          flex
+          items-center
+          px-16"
+      >
+        <span className="leading-none">{children}</span>
+        <PseudoFade />
+      </div>
     </div>
   );
 };
@@ -92,18 +99,24 @@ const RowValue = ({ children }) => {
   return (
     <div
       className="
-          relative
-          w-1/2
-          pt-1
-          px-12
-          flex
-          flex-wrap
-          items-center
-          border-l
-          border-gray-2
-          truncate"
+        relative
+        w-1/2
+        px-12
+        border-l
+        border-gray-2
+        truncate"
     >
-      {children}
+      <div
+        className="
+          inset-0
+          absolute
+          flex
+          items-center
+          px-12"
+      >
+        <span className="leading-none">{children}</span>
+        <PseudoFade />
+      </div>
     </div>
   );
 };
@@ -119,16 +132,16 @@ const RowValue = ({ children }) => {
 const RowValueFromTo = ({ from, to }) => {
   return (
     <div className="flex items-center">
-      {from !== '' && <span className="mr-[6px]">{String(from)}</span>}
+      {from !== '' && <span className="mr-4">{String(from)}</span>}
 
       <span
         className="
-          px-[6px]
-          py-[2px]
+          px-4
+          py-[3px]
           text-primary-10
           rounded
           border
-          border-primary-10"
+          border-primary"
       >
         <span className="mr-4 text-12">{String.fromCharCode(8594)}</span>
         {String(to)}

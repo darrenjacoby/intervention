@@ -1,8 +1,8 @@
 import React from 'react';
 import { useState } from '@wordpress/element';
 import { useAtom } from 'jotai';
-import { SelectControl, Button } from '@wordpress/components';
-import { Row, RowState } from './Row';
+import { CustomSelectControl, Button } from '@wordpress/components';
+import { Row, RowKey, RowValue, RowValueUndo, RowState } from './Row';
 import {
   selectedIndexDataAtom,
   selectedIndexDataComponentAtom,
@@ -46,8 +46,8 @@ const routingOptions = intervention.route.admin.data.pagenow
  * @description format `routingOptions` for WordPress `<SelectControl>` component.
  */
 const routingOptionsSelectControl = routingOptions.map((value) => {
-  const label = getOptionLabel(value);
-  return { label, value };
+  const name = getOptionLabel(value);
+  return { key: name, name, value };
 });
 
 /**
@@ -55,7 +55,10 @@ const routingOptionsSelectControl = routingOptions.map((value) => {
  *
  * @description create blank entry item and merge with `routingOptionsSelectControl`.
  */
-const optionsAll = [{ label: '', value: '' }, ...routingOptionsSelectControl];
+const optionsAll = [
+  { key: '', name: '', value: '' },
+  ...routingOptionsSelectControl,
+];
 
 /**
  * Is Route
@@ -124,16 +127,16 @@ const RouteItem = ({ item: key, children }) => {
    *
    * @param {string} value
    */
-  const handler = (value) => {
+  const handler = (selected) => {
     if (immutable) {
       return;
     }
 
-    if (value !== '') {
-      setComponent(['add', interventionKey, value]);
-    } else {
-      setComponent(['del', interventionKey]);
-    }
+    const value = selected !== '' ? selected.selectedItem.key : '';
+
+    value !== ''
+      ? setComponent(['add', interventionKey, value])
+      : setComponent(['del', interventionKey]);
 
     setState(value);
   };
@@ -145,36 +148,26 @@ const RouteItem = ({ item: key, children }) => {
     <>
       <Row item={key}>
         <RowState state={state} immutable={immutable} />
-        <div
-          className="
-            flex
-            w-full
-            items-center"
-        >
-          <div className="w-1/2">{interventionKey}</div>
+        <RowKey>{interventionKey}</RowKey>
+        <RowValue>
+          <CustomSelectControl
+            className="row"
+            label="Route"
+            hideLabelFromVision={true}
+            value={options.find((option) => option.key === state)}
+            disabled={immutable}
+            options={options}
+            onChange={(route) => handler(route)}
+          />
 
-          <div
-            className="
-              w-1/2
-              flex
-              items-center
-              border-l
-              border-gray-2"
-          >
-            <SelectControl
-              label="Route"
-              hideLabelFromVision={true}
-              value={state}
-              disabled={immutable}
-              options={options}
-              onChange={(route) => handler(route)}
-            />
-
-            {immutable === false && state !== '' && (
-              <Button onClick={() => handler('')}>{__('Undo')}</Button>
-            )}
-          </div>
-        </div>
+          {immutable === false && state !== '' && (
+            <RowValueUndo>
+              <Button className="is-secondary" onClick={() => handler('')}>
+                {__('Undo')}
+              </Button>
+            </RowValueUndo>
+          )}
+        </RowValue>
       </Row>
 
       {state === '' && children}

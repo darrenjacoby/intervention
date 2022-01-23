@@ -1,7 +1,7 @@
 import { useAtom } from 'jotai';
-import { pathAtom } from '../../../atoms/admin';
-import { Button, Icon } from '@wordpress/components';
-import { Row } from './Row';
+import { pathAtom, selectedIndexDataAtom } from '../../../atoms/admin';
+import { Button } from '@wordpress/components';
+import { Row, RowIn } from './Row';
 import { getInterventionKey } from '../../../utils/admin';
 
 /**
@@ -12,10 +12,53 @@ import { getInterventionKey } from '../../../utils/admin';
  */
 const isHierachical = (k) => {
   return k.includes(':hierachical');
-  // console.log(k.match(/:hierachical/g));
-  // console.log((k.match(/:hierachical/g) || []).length);
   // return (k.match(/:hierachical/g) || []).length === 1;
 };
+
+/**
+ * Hierachical Applied
+ *
+ * @param {object} props
+ * @returns <HierachicalApplied>
+ */
+const HierachicalApplied = ({ count }) => {
+  return (
+    <>
+      {count !== 0 && (
+        <div
+          className="
+            min-w-[48px]
+            h-full
+            flex
+            items-center
+            justify-center
+            text-14
+            text-primary-10
+            leading-none
+            border-l
+            border-gray-2"
+        >
+          {count}
+        </div>
+      )}
+    </>
+  );
+};
+
+/*
+min-w-[22px]
+min-h-[22px]
+flex
+items-center
+justify-center
+leading-none
+text-primary-10
+border
+border-primary
+rounded-full
+text-13
+mr-16
+*/
 
 /**
  * Hierachical
@@ -25,13 +68,25 @@ const isHierachical = (k) => {
  */
 const Hierachical = ({ item: key }) => {
   const [, setPath] = useAtom(pathAtom);
+  const [data] = useAtom(selectedIndexDataAtom);
+
+  /**
+   * Get Applied Count
+   */
+  const getAppliedCount = () => {
+    const components = Object.keys(data.components);
+    if (components.length) {
+      const componentsForKey = components.filter((k) => {
+        return k.startsWith(getInterventionKey(key));
+      });
+      return componentsForKey.length;
+    }
+  };
 
   /**
    * Handler
    */
-  const handler = (event) => {
-    event.preventDefault();
-    // history.pushState(null, null, `#${key}`);
+  const handler = () => {
     setPath(key);
   };
 
@@ -39,38 +94,26 @@ const Hierachical = ({ item: key }) => {
    * Render
    */
   return (
-    <a
-      className="
-        flex-1
-        text-13
-        lg:text-14
-        leading-none
-        text-gray-50
-        border-gray-2
-        border-b
-        h-[44px]
-        truncate
-        cursor-pointer
-        flex
-        items-center"
-      href="#"
-      onClick={(event) => handler(event)}
-    >
-      {getInterventionKey(key)}
-      <Icon
-        className="
-            ml-4
+    <Row isButton={true}>
+      <Button onClick={() => handler()}>
+        <RowIn isHierachical={true}>{getInterventionKey(key)}</RowIn>
+        <HierachicalApplied count={getAppliedCount()} />
+        {/*
+        <Icon
+          className="
+            w-[44px]
             flex
             items-center
             justify-center
-            text-primary-10
             text-16
+            text-gray-20
             p-0
-            border-2
           "
-        icon="arrow-right-alt"
-      />
-    </a>
+          icon="arrow-right-alt2"
+        />
+        */}
+      </Button>
+    </Row>
   );
 };
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useAtom } from 'jotai';
-import { Button } from '@wordpress/components';
+import { ButtonGroup, Button, Icon } from '@wordpress/components';
+// import { ToolbarTitle } from '../../Page/Toolbar';
 import { pathAtom, selectedIndexPathAtom } from '../../../atoms/admin';
 import { getInterventionKey } from '../../../utils/admin';
 import { __ } from '../../../utils/wp';
@@ -36,24 +37,43 @@ const Breadcrumb = () => {
    * Render
    */
   return (
-    <div className="flex items-center ? h-[50px]">
-      <Button
-        className="cursor-pointer flex items-center px-10 h-[50px] ?"
-        onClick={() => handler('')}
-      >
-        {__('admin')}
-      </Button>
-
-      {isPath() &&
-        paths.map((item) => (
+    <div
+      className="
+        relative
+        w-full
+        h-[50px]
+        flex
+        border-b
+        border-gray-5
+        pl-16"
+    >
+      {/*<ToolbarTitle>Browse</ToolbarTitle>*/}
+      <div className="flex border-r border-gray-2">
+        <div className="h-full flex items-center pr-[8px]">
           <Button
-            key={item}
-            className="cursor-pointer flex items-center px-10 h-[50px] ?"
-            onClick={() => handler(item)}
+            className="text-14 is-secondary px-[10px]"
+            onClick={() => handler('')}
           >
-            {getInterventionKey(item)}
+            {__('/')}
           </Button>
-        ))}
+        </div>
+
+        {isPath() &&
+          paths.map((item) => (
+            <div key={item} className="relative pr-[8px] pl-[10px]">
+              <div className="toolbar-divider"></div>
+              <div className="h-full flex items-center">
+                <Button
+                  key={item}
+                  className="text-14 blank"
+                  onClick={() => handler(item)}
+                >
+                  {getInterventionKey(item)}
+                </Button>
+              </div>
+            </div>
+          ))}
+      </div>
     </div>
   );
 };

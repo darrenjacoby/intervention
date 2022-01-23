@@ -43,7 +43,7 @@ class Admin
      */
     public function __construct()
     {
-        $this->getResponse();
+        $this->getQuery();
     }
 
     /**
@@ -59,14 +59,14 @@ class Admin
         $all_roles = $wp_roles->roles;
         $this->roles = apply_filters('editable_roles', $all_roles);
 
-        $components = Config::get('user-interface/components')->toArray();
+        $components = Config::get('user-interface/admin/components')->toArray();
         $components = Arr::transformEntriesToTrue($components);
         $pagenow = Config::get('admin/pagenow')->keys()->toArray();
         $dashicons = Config::get('admin/dashicons')->values()->toArray();
 
         return [
-            'components' => $components,
             'roles' => $this->roles,
+            'components' => $components,
             'pagenow' => $pagenow,
             'dashicons' => $dashicons,
         ];
@@ -77,7 +77,7 @@ class Admin
      *
      * Middleware for merging `$self::config_file` and `get_option('intervention_admin')` before passing to UI.
      */
-    public function getResponse()
+    public function getQuery()
     {
         /**
          * get config file as
@@ -149,7 +149,7 @@ class Admin
             update_option('intervention_admin', $data);
         }
 
-        $response['data'] = $this->getResponse();
+        $response['data'] = $this->getQuery();
         return rest_ensure_response($response);
     }
 }

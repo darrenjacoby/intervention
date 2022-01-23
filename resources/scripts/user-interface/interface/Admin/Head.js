@@ -1,6 +1,14 @@
 import React from 'react';
 import { useState, useEffect } from '@wordpress/element';
+import { Button } from '@wordpress/components';
 import { useAtom } from 'jotai';
+import {
+  Toolbar,
+  ToolbarDivider,
+  ToolbarFlex,
+  ToolbarTitle,
+  ToolbarContent,
+} from '../Page/Toolbar';
 import { RoleGroupDropdown } from './RoleGroups/RoleGroupDropdown';
 import { RolesRoleGroup } from './RoleGroups/RolesRoleGroup';
 import { NewRoleGroup } from './RoleGroups/NewRoleGroup';
@@ -12,7 +20,6 @@ import {
   selectedAppliedDiffAtom,
 } from '../../atoms/admin';
 import { __ } from '../../utils/wp';
-import { safeSelectedIndex } from '../../utils/admin';
 
 /**
  * Immutable Role Group
@@ -45,14 +52,13 @@ const RoleGroupDiffs = () => {
  */
 const Head = () => {
   const [data] = useAtom(dataAtom);
-  const [dangerousSelectedIndex] = useAtom(selectedIndexAtom);
-  const selectedIndex = safeSelectedIndex(dangerousSelectedIndex, data);
+  const [selectedIndex] = useAtom(selectedIndexAtom);
   const [, immutable] = data[selectedIndex].roles;
   const [isEditing, setIsEditing] = useState(false);
   const [isNew, setIsNew] = useState(false);
 
   /**
-   *
+   * Reset
    */
   const reset = () => {
     setIsNew(false);
@@ -60,7 +66,7 @@ const Head = () => {
   };
 
   /**
-   *
+   * Effect
    */
   useEffect(() => {
     if (isNew === true) {
@@ -73,8 +79,7 @@ const Head = () => {
    *
    * @param {object} event
    */
-  const handler = (event) => {
-    event.preventDefault();
+  const handler = () => {
     setIsEditing(!isEditing);
   };
 
@@ -82,67 +87,77 @@ const Head = () => {
    * Render
    */
   return (
-    <div
-      className="
-        relative
-        sticky
-        top-0
-        md:top-[32px]
-        w-full
-        bg-white
-        z-10"
-    >
-      <div
-        className="
-          flex
-          items-center
-          justify-between
-          h-[50px]
-          pl-12
-          pr-16
-          border-b
-          border-gray-5"
-      >
-        <div className="flex items-center text-14">
-          <RoleGroupDropdown state={{ reset }} />
-          <div className="w-1 h-[50px] bg-gray-5 mx-12"></div>
-          {!immutable && !isNew && (
-            <a href="#" onClick={(event) => handler(event)}>
-              {__('Edit')}
-            </a>
-          )}
-          {immutable && (
-            <span className="text-gray-50 flex items-center">
-              {__('Hardcoded')}
-            </span>
-          )}
-          {/*<RoleGroupDiffs />*/}
-        </div>
+    <>
+      <Toolbar>
+        <ToolbarFlex>
+          <div className="flex items-center">
+            <RoleGroupDropdown stateHead={{ reset }} />
+          </div>
+          <ToolbarContent>
+            {immutable && (
+              <>
+                <div
+                  className="
+                  ml-12
+                  mr-8
+                  w-1
+                  h-full
+                  bg-gray-5"
+                ></div>
+                <span className="text-gray-50 flex items-center mr-12">
+                  {__('Hardcoded')}
+                </span>
+              </>
+            )}
+          </ToolbarContent>
 
-        <div className="flex items-center">
-          <NewRoleGroup state={{ setIsNew }} />
-          <div className="w-8"></div>
-          <Save state={{ reset }} />
-        </div>
-      </div>
+          {/*<RoleGroupDiffs />*/}
+        </ToolbarFlex>
+
+        <ToolbarContent>
+          {!immutable && !isNew && (
+            <>
+              <Button className="is-secondary" onClick={() => handler()}>
+                {__('Edit')}
+              </Button>
+              <div className="w-8"></div>
+            </>
+          )}
+          <NewRoleGroup stateHead={{ setIsNew }} />
+          <ToolbarDivider />
+          <Save stateHead={{ reset }} />
+        </ToolbarContent>
+      </Toolbar>
 
       {isEditing && immutable === false && (
         <div
           className="
+            relative
+            sticky
+            top-0
+            md:top-[32px]
+            w-full
+            h-[50px]
+            px-16
             flex
             items-center
-            h-[50px]
-            pl-12
-            pr-16
+            justify-between
             border-b
-            border-gray-5"
+            border-gray-5
+            bg-white"
         >
-          <RolesRoleGroup />
-          <div className="w-1 h-[50px] bg-gray-5 mx-12"></div>
-          <DeleteRoleGroup />
+          <ToolbarFlex>
+            <ToolbarTitle>
+              <RolesRoleGroup />
+            </ToolbarTitle>
+
+            <ToolbarContent>
+              <DeleteRoleGroup />
+            </ToolbarContent>
+          </ToolbarFlex>
         </div>
       )}
-    </div>
+    </>
   );
 };
 

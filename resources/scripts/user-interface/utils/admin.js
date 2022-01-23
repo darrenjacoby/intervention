@@ -59,7 +59,9 @@ export const getKeyParams = (k) => {
  * @param {number} selectedIndex
  * @returns {number}
  */
+/*
 export const safeSelectedIndex = (selectedIndex, data) => {
   const dataLength = data.length !== 0 ? data.length - 1 : data.length;
   return selectedIndex > dataLength ? dataLength : selectedIndex;
 };
+*/

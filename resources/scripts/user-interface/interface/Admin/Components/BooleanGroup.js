@@ -1,7 +1,7 @@
 import { useAtom } from 'jotai';
 import { useState, useEffect, useRef } from '@wordpress/element';
 import { Button } from '@wordpress/components';
-import { Row, RowState } from './Row';
+import { Row, RowIn, RowInset, RowState } from './Row';
 import {
   selectedIndexDataAtom,
   selectedIndexDataComponentAtom,
@@ -49,15 +49,15 @@ const ParentItem = ({ item: key, immutable, shared }) => {
    * Render
    */
   return (
-    <Button className="w-full" onClick={() => handler()}>
-      <Row>
+    <Row isButton={true}>
+      <Button onClick={() => handler()}>
         <RowState
           state={shared.selectedChildKeys.length === shared.childData.length}
           immutable={immutable}
         />
-        {interventionKey}
-      </Row>
-    </Button>
+        <RowIn>{interventionKey}</RowIn>
+      </Button>
+    </Row>
   );
 };
 
@@ -92,12 +92,12 @@ const ChildItem = ({ item: key, shared }) => {
   };
 
   return (
-    <Button className="w-full" onClick={() => handler()}>
-      <Row item={key}>
+    <Row item={key} isButton={true}>
+      <Button onClick={() => handler()}>
         <RowState state={state} immutable={isImmutable()} />
-        {key}
-      </Row>
-    </Button>
+        <RowIn>{key}</RowIn>
+      </Button>
+    </Row>
   );
 };
 
@@ -156,12 +156,16 @@ const BooleanGroup = ({ item: parentKey, staticData }) => {
    * @description group `setApplied` calls for when parent is deselected.
    */
   const addIndividual = () => {
+    // delete existing items
+    childData.map((k) => setComponent(['del', k]));
+    // add items in selected child keys
     selectedChildKeys.map((k) => {
       const [, immutable] = getValue(data.components, k);
       if (immutable === false) {
         setComponent(['add', k]);
       }
     });
+    // remove parent item key
     setComponent(['del', parentInterventionKey]);
   };
 
@@ -190,7 +194,7 @@ const BooleanGroup = ({ item: parentKey, staticData }) => {
         immutable={parentImmutable}
         shared={{ childData, selectedChildKeys, setSelectedChildKeys }}
       />
-      <div className="pl-48">
+      <RowInset>
         {childData.map((k) => (
           <ChildItem
             key={k}
@@ -202,7 +206,7 @@ const BooleanGroup = ({ item: parentKey, staticData }) => {
             }}
           />
         ))}
-      </div>
+      </RowInset>
     </>
   );
 };

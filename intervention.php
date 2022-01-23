@@ -42,7 +42,7 @@ include __DIR__ . '/mix.php';
  *
  * @return array
  */
-function get()
+function getConfigFile()
 {
     $theme = get_stylesheet_directory();
 
@@ -63,8 +63,19 @@ function get()
     return $read === 1 ? false : $read;
 }
 
+function getDatabase()
+{
+    $option = get_option('intervention_admin');
+    $read = [];
+    foreach ($option as $role => $array) {
+        $read['wp-admin.' . $role] = $array;
+    }
+    return $read;
+}
+
 /**
  * Initialize
  */
-new Intervention(get());
+new Intervention(getConfigFile(), true);
+new Intervention(getDatabase());
 new UserInterface();

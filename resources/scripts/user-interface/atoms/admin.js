@@ -1,19 +1,33 @@
 import { atom } from 'jotai';
 import { diff, detailedDiff } from 'deep-object-diff';
 import { objectHasKey } from '../utils/structures';
+import { adminSelectedIndexSession, adminPathSession } from '../sessions';
 
 const registeredRolesKeys = Object.keys(intervention.route.admin.data.roles);
+const allNotAdminRoleKeys = registeredRolesKeys.filter(
+  (v) => v !== 'administrator'
+);
+/*
+const sortRegisteredRoleKeys = [
+  ...['all, all-not-administrator'],
+  ...registeredRolesKeys,
+];
+*/
 
 /**
  * Query
  *
  * @description write function for setting the original query.
  */
+const initQuery = [{ roles: [[], false], components: [] }];
+const updateQueryAtom = atom(null);
 const queryAtom = atom(
   /**
    * Initial
    */
-  [{ roles: [[], false], components: [] }],
+  (get) => {
+    return get(updateQueryAtom) || initQuery;
+  },
   /**
    * Write
    *
@@ -22,15 +36,39 @@ const queryAtom = atom(
    * @param {function} update
    */
   (get, set, update) => {
-    set(queryAtom, update);
+    /**
+     * Middleware
+     *
+     * @description add array to components value for immutable/mutable interface option.
+     *
+     * @returns {object}
+     */
+    const middleware = () =>
+      update.reduce((carry, { roles, components }, i) => {
+        const immutableConfigArray = Object.entries(components).reduce(
+          (c, [k, value]) => {
+            c[k] = Array.isArray(value) ? value : [value, false];
+            return c;
+          },
+          {}
+        );
+
+        carry[i] = { roles, components: immutableConfigArray };
+
+        return carry;
+      }, []);
+
+    const transformedUpdate = middleware();
+    set(updateQueryAtom, transformedUpdate);
+
     /**
      * Deep clone
      *
      * @description important as we mutate `data` state and therefore should not pass by ref.
      * @link https://www.samanthaming.com/tidbits/70-3-ways-to-clone-objects/#shallow-clone-vs-deep-clone
      */
-    const deepClone = JSON.parse(JSON.stringify(update));
-    set(updateDataAtom, deepClone);
+    const deepClone = JSON.parse(JSON.stringify(transformedUpdate));
+    set(dataAtom, deepClone);
   }
 );
 
@@ -61,6 +99,7 @@ const dataAtom = atom(
    */
   (get, set, update) => {
     set(updateDataAtom, update);
+    set(isBlockingAtom, update);
   }
 );
 
@@ -71,11 +110,18 @@ const dataAtom = atom(
  *
  * @returns {array}
  */
+const updateSelectedIndexAtom = atom(null);
 const selectedIndexAtom = atom(
   /**
    * Initial
    */
-  0,
+  (get) => {
+    const query = get(queryAtom);
+    const session = adminSelectedIndexSession();
+    const isInit = get(updateSelectedIndexAtom) === null;
+    const init = isInit && session < query.length ? session : 0;
+    return get(updateSelectedIndexAtom) || init;
+  },
   /**
    * Write
    *
@@ -84,7 +130,8 @@ const selectedIndexAtom = atom(
    * @param {function} update
    */
   (get, set, update) => {
-    set(selectedIndexAtom, update);
+    adminSelectedIndexSession(update);
+    set(updateSelectedIndexAtom, update);
   }
 );
 
@@ -104,7 +151,8 @@ const pathAtom = atom(
    */
   (get) => {
     const init = Array(get(dataAtom).length);
-    return get(updatePathAtom) || init;
+    const session = adminPathSession();
+    return get(updatePathAtom) || session || init;
   },
   /**
    * Write
@@ -117,6 +165,7 @@ const pathAtom = atom(
     const updatePath = get(pathAtom);
     updatePath[get(selectedIndexAtom)] = update;
     set(updatePathAtom, [...updatePath]);
+    adminPathSession([...updatePath]);
   }
 );
 
@@ -235,7 +284,6 @@ const selectedIndexDataComponentAtom = atom(
      */
     data[selectedIndex].components = state;
     set(dataAtom, data);
-    set(isBlockingAtom, data);
   }
 );
 
@@ -246,6 +294,12 @@ const selectedIndexDataComponentAtom = atom(
  *
  * @returns {array}
  */
+const getRolesFromAlias = (roles) => {
+  if (roles.includes('all')) return registeredRolesKeys;
+  if (roles.includes('all-not-administrator')) return allNotAdminRoleKeys;
+  return roles;
+};
+
 const selectedIndexDataRoleAtom = atom(
   /**
    * Initial
@@ -261,7 +315,8 @@ const selectedIndexDataRoleAtom = atom(
   (get, set, update) => {
     const data = get(dataAtom);
     const selectedIndex = get(selectedIndexAtom);
-    const [roles] = data[selectedIndex].roles;
+    const [getRoles] = data[selectedIndex].roles;
+    const roles = getRolesFromAlias(getRoles);
 
     /**
      * Actions
@@ -271,8 +326,20 @@ const selectedIndexDataRoleAtom = atom(
     const add = () => [...roles, update];
     const remove = () => roles.filter((item) => item !== update);
     const sort = (sort) => registeredRolesKeys.filter((v) => sort.includes(v));
+    const aliases = (roles) => {
+      if (roles.length === registeredRolesKeys.length) {
+        return ['all'];
+      }
+
+      if (allNotAdminRoleKeys.every((v) => roles.includes(v))) {
+        return ['all-not-administrator'];
+      }
+
+      return roles;
+    };
+
     const updated = roles.includes(update) ? remove() : add();
-    const save = sort(updated);
+    const save = aliases(sort(updated));
 
     /**
      * Merge

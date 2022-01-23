@@ -6,6 +6,7 @@ import { isBooleanGroup } from './Components/BooleanGroup';
 import { isTextItem, TextItem } from './Components/TextItem';
 import { isNumberItem, NumberItem } from './Components/NumberItem';
 import { isIconItem, IconItem } from './Components/IconItem';
+import { isRouteItem, RouteItem } from './Components/RouteItem';
 import { selectedIndexDataAtom } from '../../atoms/admin';
 import { getInterventionKey } from '../../utils/admin';
 import { objectHasKey } from '../../utils/structures';
@@ -95,7 +96,23 @@ const ComponentsApplied = () => {
 
     return (
       <>
-        {isHierachicalTitle(interventionKey) && <h1>{interventionKey}</h1>}
+        {isHierachicalTitle(interventionKey) && (
+          <h2
+            className="
+              text-16
+              m-0
+              h-[50px]
+              flex
+              items-center
+              px-16
+              text-gray-50
+              font-400
+              border-t
+              border-gray-2"
+          >
+            {interventionKey}
+          </h2>
+        )}
         {Object.keys(getStaticComponentsData(item)).map((key) => (
           <Routing key={key} item={key} path={item} />
         ))}
@@ -143,6 +160,7 @@ const ComponentsApplied = () => {
             {isNumberItem(k) && <NumberItem item={key} />}
             {isIconItem(k) && <IconItem item={key} />}
             {isBooleanGroup(k) && <BooleanItem item={key} />}
+            {isRouteItem(k) && <RouteItem item={key} />}
           </>
         )}
         {isBooleanGroup(k) && !isItemOn(key) && (
@@ -161,12 +179,12 @@ const ComponentsApplied = () => {
    * Render
    */
   return (
-    <>
+    <div className="border-gray-2 border-b mt-[-1px] mb-[-1px]">
       {isAppliedBlank() && <AppliedBlank />}
       {Object.keys(getStaticComponentsData()).map((key) => (
         <Routing key={key} item={key} />
       ))}
-    </>
+    </div>
   );
 };
 

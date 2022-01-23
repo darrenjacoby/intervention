@@ -28,7 +28,7 @@ const NavLink = ({ to, children }) => {
         ${
           match
             ? 'font-500 text-primary-10 border-primary-10'
-            : 'font-400 text-gray-60 border-white'
+            : 'font-400 text-gray-70 border-white'
         }`}
     >
       <span className="flex items-center h-full">{children}</span>

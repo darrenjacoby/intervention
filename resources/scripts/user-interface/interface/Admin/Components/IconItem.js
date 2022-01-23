@@ -1,8 +1,8 @@
 import React from 'react';
 import { useState, useEffect } from '@wordpress/element';
 import { useAtom } from 'jotai';
-import { SelectControl, Button } from '@wordpress/components';
-import { Row, RowState } from './Row';
+import { CustomSelectControl, Button } from '@wordpress/components';
+import { Row, RowKey, RowValue, RowValueUndo, RowState } from './Row';
 import {
   selectedIndexDataAtom,
   selectedIndexDataComponentAtom,
@@ -15,7 +15,7 @@ import { __ } from '../../../utils/wp';
  */
 const optionsSelectControl = intervention.route.admin.data.dashicons.map(
   (value) => {
-    return { label: value, value };
+    return { key: value, name: value, value };
   }
 );
 
@@ -24,7 +24,7 @@ const optionsSelectControl = intervention.route.admin.data.dashicons.map(
  *
  * @description create blank entry item and merge with `intervention.route.admin.data.dashicons`.
  */
-const optionsAll = [{ label: '', value: '' }, ...optionsSelectControl];
+const optionsAll = [{ key: '', name: '', value: '' }, ...optionsSelectControl];
 
 /**
  * Is Route
@@ -79,11 +79,9 @@ const IconItem = ({ item: key, children }) => {
       return;
     }
 
-    if (value !== '') {
-      setComponent(['add', interventionKey, value]);
-    } else {
-      setComponent(['del', interventionKey]);
-    }
+    value !== ''
+      ? setComponent(['add', interventionKey, value])
+      : setComponent(['del', interventionKey]);
 
     setState(value);
   };
@@ -95,39 +93,26 @@ const IconItem = ({ item: key, children }) => {
     <>
       <Row item={key}>
         <RowState state={state} immutable={immutable} />
-        <div
-          className="
-            flex
-            w-full
-            items-center"
-        >
-          <div className="w-1/2">{interventionKey}</div>
+        <RowKey>{interventionKey}</RowKey>
+        <RowValue>
+          <CustomSelectControl
+            label="Route"
+            hideLabelFromVision={true}
+            value={options.find((option) => option.key === state)}
+            disabled={immutable}
+            options={options}
+            onChange={(route) => handler(route)}
+          />
 
-          <div
-            className="
-              w-1/2
-              flex
-              items-center
-              border-l
-              border-gray-2"
-          >
-            <SelectControl
-              label="Route"
-              hideLabelFromVision={true}
-              value={state}
-              disabled={immutable}
-              options={options}
-              onChange={(route) => handler(route)}
-            />
-
-            {immutable === false && state !== '' && (
-              <Button onClick={() => handler('')}>{__('Undo')}</Button>
-            )}
-          </div>
-        </div>
+          {immutable === false && state !== '' && (
+            <RowValueUndo>
+              <Button className="is-secondary" onClick={() => handler('')}>
+                {__('Undo')}
+              </Button>
+            </RowValueUndo>
+          )}
+        </RowValue>
       </Row>
-
-      {state === '' && children}
     </>
   );
 };

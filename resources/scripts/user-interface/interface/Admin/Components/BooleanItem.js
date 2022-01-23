@@ -5,7 +5,7 @@ import {
   selectedIndexDataAtom,
   selectedIndexDataComponentAtom,
 } from '../../../atoms/admin';
-import { Row, RowState } from './Row';
+import { Row, RowIn, RowState } from './Row';
 import { getInterventionKey, getValue } from '../../../utils/admin';
 import { objectHasKey } from '../../../utils/structures';
 
@@ -52,12 +52,12 @@ const BooleanItem = ({ item: key }) => {
    * Render
    */
   return (
-    <Button className="w-full" onClick={() => handler()}>
-      <Row>
+    <Row isButton={true}>
+      <Button onClick={() => handler()}>
         <RowState state={state} immutable={immutable} />
-        {getInterventionKey(key)}
-      </Row>
-    </Button>
+        <RowIn>{getInterventionKey(key)}</RowIn>
+      </Button>
+    </Row>
   );
 };
 

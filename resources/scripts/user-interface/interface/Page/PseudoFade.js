@@ -7,9 +7,9 @@ const PseudoFade = () => {
       className="
         absolute
         top-0
+        bottom-[1px]
         right-0
         w-[40px]
-        h-full
         bg-gradient-to-r
         from-transparent
         to-white"

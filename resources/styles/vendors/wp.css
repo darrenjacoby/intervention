@@ -6,10 +6,6 @@ body {
   height: 26px;
   padding: 2px 16px;
   border-top: 1px solid theme('colors.gray-5');
-
-  /* height: auto; */
-
-  /* border: 1px solid theme('colors.primary'); */
 }
 
 #wpbody-content {
@@ -36,53 +32,81 @@ ul#adminmenu > li.current > a.current::after {
   border-right-color: white;
 }
 
-/*
-.components-panel__body-toggle.components-button {
-  font-size: 14px;
+input,
+select {
+  margin: 0;
 }
 
+/**
+ * <Button />
+ */
 .components-button {
-  font-size: 14px;
+  color: theme('colors.gray-50');
 }
-*/
 
 .components-button.blank {
   margin: 0 -2px;
   padding: 0 2px;
-  color: theme('colors.primary');
+  color: theme('colors.primary-10');
   text-decoration: underline;
+
+  &:hover {
+    color: theme('colors.primary-10');
+  }
+
+  &:last-of-type:focus {
+    color: theme('colors.primary-10');
+  }
 }
 
-.components-panel__body.is-opened {
-  padding-bottom: 13px !important;
+.components-button.blank.is-warning {
+  /* color: theme('colors.gray-30'); */
+  color: theme('colors.gray-50');
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: theme('colors.red');
+  }
+
+  &:focus:not(:disabled) {
+    box-shadow: 0 0 0 var(--wp-admin-border-width-focus) theme('colors.red');
+  }
 }
 
-.components-button.is-deletion {
-  color: theme('colors.gray-40');
-  font-size: 14px;
-  white-space: nowrap;
-  background: transparent;
-
-  /*
-  box-shadow: inset 0 0 0 1px theme('colors.gray-5');
-  transition: box-shadow 0.1s linear, color 0.1s linear;
-  */
-}
-
-.components-button.is-deletion:active,
-.components-button.is-deletion:focus,
-.components-button.is-deletion:hover {
-  color: theme('colors.red');
-
-  /* box-shadow: inset 0 0 0 1px theme('colors.red'); */
+.components-button.is-tertiary {
+  margin: 0 -1px;
+  padding: 6px 4px;
 }
 
 /*
-.components-panel__body.is-opened > .components-panel__body-title {
-  margin-bottom: 0;
+.components-button.is-tertiary.is-underline {
+  text-decoration: underline;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
 }
 */
 
+.components-button.is-secondary:active:not(:disabled),
+.components-button.is-tertiary:active:not(:disabled) {
+  background-color: theme('colors.white');
+
+  /* box-shadow: inset 0 0 0 1px var(--wp-admin-theme-color); */
+}
+
+/*
+.components-button.is-secondary:focus:hover:not(:disabled),
+.components-button.is-tertiary:focus:hover:not(:disabled) {
+  box-shadow: 0 0 0 2px var(--wp-admin-theme-color);
+}
+*/
+
+/**
+ * <Panel />
+ */
 .components-tab-panel__tabs {
   border-bottom: 1px solid theme('colors.gray-5');
 }
@@ -92,22 +116,178 @@ ul#adminmenu > li.current > a.current::after {
   border-bottom: 1px solid theme('colors.gray-5');
 }
 
+/* keep line the same with toolbar */
+.components-panel + .components-panel {
+  margin-top: 0;
+}
+
 .components-panel,
 .components-panel__body-toggle {
   min-height: 49px;
+}
+
+.components-panel__body.is-opened {
+  padding-bottom: 13px !important;
 }
 
 .components-tab-panel__tabs-item {
   height: 49px;
 }
 
-/*
-.roles-button {
-  box-shadow: inset 0 0 0 1px theme('colors.gray-2');
-  transition: box-shadow 0.1s linear, color 0.1s linear;
+/**
+ * <CustomSelectControl />
+ */
+.components-custom-select-control {
+  width: 100%;
 }
 
-.roles-button.is-active {
-  box-shadow: inset 0 0 0 1px theme('colors.primary-10');
+.components-button.components-custom-select-control__button.is-small {
+  width: 100%;
+  height: 36px;
+  min-height: 30px;
+}
+
+.components-custom-select-control__button.components-custom-select-control__button {
+  color: theme('colors.gray-70');
+  font-size: theme('fontSize.14');
+  border: 1px solid theme('colors.gray-30');
+
+  /* border: 1px solid theme('colors.gray-5'); */
+}
+
+.components-custom-select-control__menu {
+  margin: 4px 0;
+  font-size: theme('fontSize.14');
+  border-color: theme('colors.gray-30');
+
+  /* border-color: theme('colors.gray-5'); */
+}
+
+.components-custom-select-control__item {
+  min-height: 36px;
+  margin: 0;
+  padding: 4px 8px;
+  color: theme('colors.gray-70');
+  font-weight: theme('fontWeight.400');
+  font-family: theme('fontFamily.sans');
+
+  &:focus,
+  &:hover,
+  &.is-highlighted {
+    background-color: theme('colors.gray-2');
+  }
+}
+
+/*
+.components-custom-select-control__item:hover,
+.components-custom-select-control__item:focus,
+.components-custom-select-control__item.is-highlighted {
+  background-color: theme('colors.gray-2');
 }
 */
+
+.components-custom-select-control__item-icon {
+  width: 24px;
+  height: 18px;
+  margin-right: -8px !important;
+}
+
+/**
+ * <ButtonGroup />
+ */
+.components-button-group .components-button {
+  color: theme('colors.gray-70');
+  box-shadow: inset 0 0 0 1px theme('colors.gray-30');
+  transition: box-shadow 0s;
+
+  &.is-active {
+    position: relative;
+    color: theme('colors.primary-10');
+  }
+
+  &.is-active:not(:focus) {
+    box-shadow: inset 0 0 0 1px theme('colors.primary');
+  }
+}
+
+/*
+.components-button-group .components-button.breadcrumb {
+  font-size: theme('fontSize.14');
+}
+*/
+
+.components-button-group .components-button.breadcrumb:hover,
+.components-button-group .components-button.breadcrumb:focus {
+  color: theme('colors.primary-10');
+}
+
+.components-button-group .components-button:only-child {
+  border-radius: 2px;
+}
+
+/*
+.components-button-group:focus-within .divider {
+  opacity: 0;
+}
+*/
+
+.components-button-group .components-button.breadcrumb:focus .divider,
+.components-button-group .components-button.breadcrumb:focus + button .divider {
+  opacity: 0;
+}
+
+/*
+.components-button-group .components-button:focus:not(:disabled) {
+  box-shadow: inset 0 0 0 1px theme('colors.gray-5');
+}
+
+.components-button-group .components-button.is-active:focus:not(:disabled) {
+  box-shadow: inset 0 0 0 1px theme('colors.primary');
+}
+*/
+
+/**
+ * <Row />
+ */
+.row .components-base-control,
+.row .components-custom-select-control,
+.row .components-text-control__input {
+  width: 100%;
+  max-width: 280px;
+  line-height: 0;
+}
+
+.row .components-base-control .components-base-control__field {
+  margin-bottom: 0;
+}
+
+.row-value .components-button,
+.row-value .components-button.components-custom-select-control__button.is-small {
+  height: 30px;
+}
+
+.row-button .components-button {
+  position: relative;
+  flex: 1;
+  height: inherit;
+  padding: 0;
+  color: inherit;
+  font-size: theme('fontSize.14');
+  border-radius: 0;
+
+  &:hover {
+    color: theme('colors.primary-10');
+  }
+
+  &:focus {
+    z-index: 1;
+  }
+}
+
+.rolegroup-dropdown .components-button.components-custom-select-control__button.is-small {
+  width: 100%;
+  min-width: 184px;
+  color: theme('colors.gray-90');
+
+  /* font-weight: theme('fontWeight.500'); */
+}
