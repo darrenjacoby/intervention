@@ -1,4 +1,4 @@
-vendor
 composer.lock
 node_modules
+vendor-bin
 _

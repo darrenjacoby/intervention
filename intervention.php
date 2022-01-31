@@ -14,6 +14,8 @@ GitHub Branch: master
  */
 namespace Jacoby\Intervention;
 
+use Jacoby\Intervention\Intervention;
+
 /**
  * Restrict direct access
  */

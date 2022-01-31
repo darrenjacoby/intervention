@@ -11,11 +11,9 @@ echo "# Running Composer..."
 
 composer update --prefer-lowest --with-all-dependencies
 
-composer bin php-scoper require --dev humbug/php-scoper
-
 echo "# Running Scoper..."
 
-vendor/bin/php-scoper add-prefix --force
+php-scoper add-prefix --force
 
 echo "# Build Housekeeping..."
 
