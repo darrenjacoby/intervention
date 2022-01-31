@@ -5,19 +5,14 @@
  */
 const Page = ({ children }) => {
   return (
-    <div className="bg-white lg:flex-1 flex flex-wrap w-full">
-      {/*<div className="mx-16 sm:mx-[28px]">*/}
-      {/*
-      <h1
-        className="
-          pt-[9px]
-          pb-4
-          text-23
-          font-400"
-      >
-        {title}
-      </h1>
-      */}
+    <div
+      className="
+        bg-white
+        lg:flex-1
+        flex
+        flex-wrap
+        w-full"
+    >
       {children}
     </div>
   );
