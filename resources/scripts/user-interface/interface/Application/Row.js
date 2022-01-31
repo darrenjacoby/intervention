@@ -40,8 +40,7 @@ const Row = ({ children }) => {
       className="
         flex
         h-[44px]
-        text-13
-        lg:text-14
+        text-14
         leading-none
         text-gray-50
         border-b

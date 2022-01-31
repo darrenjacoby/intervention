@@ -1,8 +1,14 @@
-import React from 'react';
-import { useState, useEffect } from '@wordpress/element';
 import { useAtom } from 'jotai';
+import { useState } from '@wordpress/element';
 import { CustomSelectControl, Button } from '@wordpress/components';
-import { Row, RowKey, RowValue, RowValueUndo, RowState } from './Row';
+import {
+  Row,
+  RowKey,
+  RowValue,
+  RowValueUndo,
+  RowValueUndoIn,
+  RowState,
+} from './Row';
 import {
   selectedIndexDataAtom,
   selectedIndexDataComponentAtom,
@@ -75,10 +81,6 @@ const IconItem = ({ item: key, children }) => {
    * @param {string} value
    */
   const handler = (value) => {
-    if (immutable) {
-      return;
-    }
-
     value !== ''
       ? setComponent(['add', interventionKey, value])
       : setComponent(['del', interventionKey]);
@@ -91,15 +93,14 @@ const IconItem = ({ item: key, children }) => {
    */
   return (
     <>
-      <Row item={key}>
-        <RowState state={state} immutable={immutable} />
+      <Row item={key} immutable={immutable}>
+        <RowState state={state} />
         <RowKey>{interventionKey}</RowKey>
         <RowValue>
           <CustomSelectControl
             label="Route"
             hideLabelFromVision={true}
             value={options.find((option) => option.key === state)}
-            disabled={immutable}
             options={options}
             onChange={(route) => handler(route)}
           />
@@ -107,7 +108,7 @@ const IconItem = ({ item: key, children }) => {
           {immutable === false && state !== '' && (
             <RowValueUndo>
               <Button className="is-secondary" onClick={() => handler('')}>
-                {__('Undo')}
+                <RowValueUndoIn />
               </Button>
             </RowValueUndo>
           )}

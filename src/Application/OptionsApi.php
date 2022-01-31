@@ -1,10 +1,10 @@
 <?php
 
-namespace Sober\Intervention\Application;
+namespace Jacoby\Intervention\Application;
 
-use Sober\Intervention\Support\Config;
-use Sober\Intervention\Support\Middleware\InterventionToWordPress;
-use Sober\Intervention\UserInterface\Application as UserInterfaceApplication;
+use Jacoby\Intervention\Support\Config;
+use Jacoby\Intervention\Support\Middleware\InterventionToWordPress;
+use Jacoby\Intervention\UserInterface\Application as UserInterfaceApplication;
 
 /**
  * Application/OptionsApi
@@ -21,7 +21,7 @@ class OptionsApi
      * Interface
      *
      * @param string $config
-     * @return Sober\Intervention\Application\OptionsApi
+     * @return Jacoby\Intervention\Application\OptionsApi
      */
     public static function set($config = false)
     {

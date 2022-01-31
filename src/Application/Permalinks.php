@@ -1,9 +1,9 @@
 <?php
 
-namespace Sober\Intervention\Application;
+namespace Jacoby\Intervention\Application;
 
-use Sober\Intervention\Application\OptionsApi;
-use Sober\Intervention\Support\Arr;
+use Jacoby\Intervention\Application\OptionsApi;
+use Jacoby\Intervention\Support\Arr;
 
 /**
  * Permalinks
@@ -68,8 +68,8 @@ class Permalinks
 
         if ($this->config->has('permalinks.search-base')) {
             $search_base = $this->config->get('permalinks.search-base') === true ?
-                'search' :
-                $this->config->get('permalinks.search-base');
+            'search' :
+            $this->config->get('permalinks.search-base');
 
             add_action('template_redirect', function () use ($search_base) {
                 if (is_search() && !empty($_GET['s'])) {

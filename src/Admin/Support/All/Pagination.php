@@ -1,9 +1,9 @@
 <?php
 
-namespace Sober\Intervention\Admin\Support\All;
+namespace Jacoby\Intervention\Admin\Support\All;
 
-use Sober\Intervention\Support\Arr;
-use Sober\Intervention\Support\Str;
+use Jacoby\Intervention\Support\Arr;
+use Jacoby\Intervention\Support\Str;
 
 /**
  * Support/All/Pagination
@@ -24,7 +24,7 @@ class Pagination
      * Interface
      *
      * @param string $key
-     * @return Sober\Intervention\Admin\Support\All\Pagination
+     * @return Jacoby\Intervention\Admin\Support\All\Pagination
      */
     public static function set($key = false)
     {

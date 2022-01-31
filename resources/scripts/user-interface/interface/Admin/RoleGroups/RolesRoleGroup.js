@@ -1,4 +1,3 @@
-import React from 'react';
 import { useAtom } from 'jotai';
 import { ButtonGroup, Button } from '@wordpress/components';
 import {

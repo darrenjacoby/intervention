@@ -10,7 +10,7 @@ import { __, version } from '../utils/wp';
 const Head = () => {
   return (
     <Header>
-      <div className="flex flex-wrap">
+      <div className="w-full md:w-auto flex flex-wrap">
         <Name>Intervention</Name>
 
         <div className="flex flex-wrap items-center">

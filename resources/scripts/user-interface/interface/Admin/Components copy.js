@@ -1,15 +1,16 @@
-import React from 'react';
 import { useAtom } from 'jotai';
 import { Breadcrumb } from './Components/Breadcrumb';
 import { isHierachical, Hierachical } from './Components/HierachicalItem';
 import { isBooleanItem, BooleanItem } from './Components/BooleanItem';
-import { isBooleanGroup, BooleanGroup } from './Components/BooleanGroup';
 import { isTextItem, TextItem } from './Components/TextItem';
 import { isNumberItem, NumberItem } from './Components/NumberItem';
 import { isIconItem, IconItem } from './Components/IconItem';
 import { isRouteItem, RouteItem } from './Components/RouteItem';
-import { selectedPathAtom } from '../../atoms/admin';
-import { objectHasKey } from '../../utils/admin';
+import { isSelectItem, SelectItem } from './Components/SelectItem';
+import { isOrderByItem, OrderByItem } from '../../../../../_/OrderByItem';
+import { isBooleanGroup, BooleanGroup } from './Components/BooleanGroup';
+import { selectedIndexPathAtom } from '../../atoms/admin';
+import { objectHasKey } from '../../utils/structures';
 import { __ } from '../../utils/wp';
 
 const staticComponentsData = intervention.route.admin.data.components;
@@ -20,7 +21,7 @@ const staticComponentsData = intervention.route.admin.data.components;
  * @returns <Components />
  */
 const Components = () => {
-  const [path] = useAtom(selectedPathAtom);
+  const [path] = useAtom(selectedIndexPathAtom);
 
   /**
    * Get Static Components Data
@@ -63,8 +64,14 @@ const Components = () => {
         {isTextItem(k) && <TextItem item={key} />}
         {isNumberItem(k) && <NumberItem item={key} />}
         {isIconItem(k) && <IconItem item={key} />}
+        {isSelectItem(k) && (
+          <SelectItem item={key} staticData={getStaticComponentsData(key)} />
+        )}
+        {isOrderByItem(k) && (
+          <OrderByItem item={key} staticData={getStaticComponentsData(key)} />
+        )}
         {isBooleanGroup(k) && (
-          <BooleanGroup item={key} data={getStaticComponentsData(key)} />
+          <BooleanGroup item={key} staticData={getStaticComponentsData(key)} />
         )}
       </>
     );
@@ -89,12 +96,13 @@ const Components = () => {
   return (
     <>
       <Breadcrumb />
-
-      {isRouteItem(getFirstPathKey) && <RouteItemGroup />}
-      {!isRouteItem(getFirstPathKey) &&
-        Object.keys(getStaticComponentsData(path)).map((key) => (
-          <Routing key={key} item={key} />
-        ))}
+      <div className="border-gray-2 border-b mb-[-1px]">
+        {isRouteItem(getFirstPathKey) && <RouteItemGroup />}
+        {!isRouteItem(getFirstPathKey) &&
+          Object.keys(getStaticComponentsData(path)).map((key) => (
+            <Routing key={key} item={key} />
+          ))}
+      </div>
     </>
   );
 };

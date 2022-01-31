@@ -1,9 +1,9 @@
 <?php
 
-namespace Sober\Intervention\Admin;
+namespace Jacoby\Intervention\Admin;
 
-use Sober\Intervention\Support\Arr;
-use Sober\Intervention\Support\Composer;
+use Jacoby\Intervention\Support\Arr;
+use Jacoby\Intervention\Support\Composer;
 
 /**
  * Login

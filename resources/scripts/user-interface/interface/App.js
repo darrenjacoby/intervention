@@ -1,7 +1,7 @@
 import React from 'react';
+import { QueryClient, QueryClientProvider } from 'react-query';
 import { HashRouter, Routes } from 'react-router-dom';
 import { Suspense } from '@wordpress/element';
-import { QueryClient, QueryClientProvider } from 'react-query';
 import { Head } from './Head';
 import { Admin } from './Admin';
 import { Export } from './Export';

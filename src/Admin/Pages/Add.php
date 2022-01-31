@@ -1,12 +1,12 @@
 <?php
 
-namespace Sober\Intervention\Admin\Pages;
+namespace Jacoby\Intervention\Admin\Pages;
 
-use Sober\Intervention\Admin\SharedApi;
-use Sober\Intervention\Admin\Support\BlockEditor;
-use Sober\Intervention\Admin\Support\PostComponents;
-use Sober\Intervention\Support\Arr;
-use Sober\Intervention\Support\Composer;
+use Jacoby\Intervention\Admin\SharedApi;
+use Jacoby\Intervention\Admin\Support\BlockEditor;
+use Jacoby\Intervention\Admin\Support\PostComponents;
+use Jacoby\Intervention\Support\Arr;
+use Jacoby\Intervention\Support\Composer;
 
 /**
  * Pages/Add

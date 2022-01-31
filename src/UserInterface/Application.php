@@ -1,9 +1,9 @@
 <?php
 
-namespace Sober\Intervention\UserInterface;
+namespace Jacoby\Intervention\UserInterface;
 
-use Sober\Intervention\Support\Middleware\InterventionToWordPress;
-use Sober\Intervention\Support\Middleware\WordPressToIntervention;
+use Jacoby\Intervention\Support\Middleware\InterventionToWordPress;
+use Jacoby\Intervention\Support\Middleware\WordPressToIntervention;
 
 /**
  * Import

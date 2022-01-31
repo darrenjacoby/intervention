@@ -1,8 +1,8 @@
 <?php
 
-namespace Sober\Intervention\Support;
+namespace Jacoby\Intervention\Support;
 
-use Sober\Intervention\Brick\VarExporter\VarExporter;
+use Jacoby\Intervention\Brick\VarExporter\VarExporter;
 
 class CodeExporter
 {

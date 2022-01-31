@@ -1,8 +1,14 @@
-import React from 'react';
-import { useState } from '@wordpress/element';
 import { useAtom } from 'jotai';
-import { CustomSelectControl, Button } from '@wordpress/components';
-import { Row, RowKey, RowValue, RowValueUndo, RowState } from './Row';
+import { useState } from '@wordpress/element';
+import { CustomSelectControl, Button, Icon } from '@wordpress/components';
+import {
+  Row,
+  RowKey,
+  RowValue,
+  RowValueUndo,
+  RowValueUndoIn,
+  RowState,
+} from './Row';
 import {
   selectedIndexDataAtom,
   selectedIndexDataComponentAtom,
@@ -128,11 +134,7 @@ const RouteItem = ({ item: key, children }) => {
    * @param {string} value
    */
   const handler = (selected) => {
-    if (immutable) {
-      return;
-    }
-
-    const value = selected !== '' ? selected.selectedItem.key : '';
+    const value = selected !== '' ? selected.selectedItem.value : '';
 
     value !== ''
       ? setComponent(['add', interventionKey, value])
@@ -146,16 +148,15 @@ const RouteItem = ({ item: key, children }) => {
    */
   return (
     <>
-      <Row item={key}>
-        <RowState state={state} immutable={immutable} />
+      <Row item={key} immutable={immutable}>
+        <RowState state={state} />
         <RowKey>{interventionKey}</RowKey>
         <RowValue>
           <CustomSelectControl
             className="row"
             label="Route"
             hideLabelFromVision={true}
-            value={options.find((option) => option.key === state)}
-            disabled={immutable}
+            value={options.find((option) => option.value === state)}
             options={options}
             onChange={(route) => handler(route)}
           />
@@ -163,7 +164,7 @@ const RouteItem = ({ item: key, children }) => {
           {immutable === false && state !== '' && (
             <RowValueUndo>
               <Button className="is-secondary" onClick={() => handler('')}>
-                {__('Undo')}
+                <RowValueUndoIn />
               </Button>
             </RowValueUndo>
           )}

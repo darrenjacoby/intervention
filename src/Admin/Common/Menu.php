@@ -1,11 +1,10 @@
 <?php
 
-namespace Sober\Intervention\Admin\Common;
+namespace Jacoby\Intervention\Admin\Common;
 
-use Sober\Intervention\Admin\Support\Maps;
-use Sober\Intervention\Support\Arr;
-use Sober\Intervention\Support\Composer;
-use Sober\Intervention\Support\Config;
+use Jacoby\Intervention\Support\Arr;
+use Jacoby\Intervention\Support\Composer;
+use Jacoby\Intervention\Support\Config;
 
 /**
  * Common/Menu
@@ -66,9 +65,9 @@ class Menu
         if ($this->config->has('common.menu.icons')) {
             echo '
                 <style>
-                    body:not(.folded) #adminmenu div.wp-menu-image {width:12px;} 
-                    body:not(.folded) #adminmenu div.wp-menu-image:before {content:""!important;} 
-                    body:not(.folded) #adminmenu .collapse-button-icon {display: none;} 
+                    body:not(.folded) #adminmenu div.wp-menu-image {width:12px;}
+                    body:not(.folded) #adminmenu div.wp-menu-image:before {content:""!important;}
+                    body:not(.folded) #adminmenu .collapse-button-icon {display: none;}
                     body:not(.folded) #collapse-button .collapse-button-label {padding-left:12px;}
                     body:not(.folded) #adminmenu div.wp-menu-name {padding-left: 12px;}
                 </style>';
@@ -100,7 +99,7 @@ class Menu
             }
             return $item;
         })
-        ->toArray();
+            ->toArray();
 
         add_filter('custom_menu_order', '__return_true');
 

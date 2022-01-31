@@ -1,7 +1,7 @@
 import { useAtom } from 'jotai';
-import { pathAtom, selectedIndexDataAtom } from '../../../atoms/admin';
 import { Button } from '@wordpress/components';
 import { Row, RowIn } from './Row';
+import { pathAtom, selectedIndexDataAtom } from '../../../atoms/admin';
 import { getInterventionKey } from '../../../utils/admin';
 
 /**
@@ -24,7 +24,7 @@ const isHierachical = (k) => {
 const HierachicalApplied = ({ count }) => {
   return (
     <>
-      {count !== 0 && (
+      {count !== 0 && count !== null && (
         <div
           className="
             min-w-[48px]
@@ -56,7 +56,6 @@ text-primary-10
 border
 border-primary
 rounded-full
-text-13
 mr-16
 */
 
@@ -98,20 +97,6 @@ const Hierachical = ({ item: key }) => {
       <Button onClick={() => handler()}>
         <RowIn isHierachical={true}>{getInterventionKey(key)}</RowIn>
         <HierachicalApplied count={getAppliedCount()} />
-        {/*
-        <Icon
-          className="
-            w-[44px]
-            flex
-            items-center
-            justify-center
-            text-16
-            text-gray-20
-            p-0
-          "
-          icon="arrow-right-alt2"
-        />
-        */}
       </Button>
     </Row>
   );

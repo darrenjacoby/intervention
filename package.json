@@ -47,6 +47,8 @@
     "stylelint-webpack-plugin": "^3.0.1"
   },
   "dependencies": {
+    "@dnd-kit/core": "^5.0.1",
+    "@dnd-kit/sortable": "^6.0.0",
     "deep-object-diff": "^1.1.0",
     "history": "^5.0.1",
     "jotai": "^1.4.9",

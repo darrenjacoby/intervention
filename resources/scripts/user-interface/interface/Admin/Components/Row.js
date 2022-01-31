@@ -1,3 +1,4 @@
+import { Disabled, Icon } from '@wordpress/components';
 import { PseudoFade } from '../../Page/PseudoFade';
 import { __ } from '../../../utils/wp';
 
@@ -9,28 +10,28 @@ import { __ } from '../../../utils/wp';
  * @param {object} param
  * @returns <Row />
  */
-const Row = ({ children, isButton = false }) => {
+const Row = ({ immutable, children, isButton = false }) => {
+  const disabled = <Disabled className="w-full flex">{children}</Disabled>;
+
   return (
     <div
       className={`
         row
         relative
-        h-[44px]
+        min-h-[44px]
         px-1
         flex-1
         flex
-        text-13
-        lg:text-14
+        text-14
         text-gray-50
         leading-none
         border-t
         border-gray-2
-        cursor-pointer
         first:border-0
-        ${isButton ? 'row-button' : ''}
+        ${isButton ? 'focus-within:text-primary-10 row-button' : ''}
       `}
     >
-      {children}
+      {immutable ? disabled : <>{children}</>}
     </div>
   );
 };
@@ -54,11 +55,11 @@ const RowIn = ({ children, isHierachical = false }) => {
     >
       <div
         className={`
-          inset-0
           absolute
+          inset-0
+          pr-8
           flex
           items-center
-          pr-8
           ${isHierachical ? 'pl-16' : 'pl-8'}
         `}
       >
@@ -82,14 +83,17 @@ const RowKey = ({ children }) => {
     <div
       className="
         relative
-        w-1/2
+        w-[35%]
+        h-[44px]
         px-8
         pt-1
         flex
         items-center
-        truncate"
+        truncate
+        lg:w-1/2"
     >
       {children}
+      <PseudoFade />
     </div>
   );
 };
@@ -122,7 +126,7 @@ const RowValue = ({ children }) => {
       className="
         row-value
         relative
-        w-1/2
+        flex-1
         px-12
         flex
         items-center
@@ -134,8 +138,39 @@ const RowValue = ({ children }) => {
   );
 };
 
+/**
+ * Row Value Undo
+ *
+ * @returns <RowValueUndo>
+ */
 const RowValueUndo = ({ children }) => {
-  return <div className="pl-6">{children}</div>;
+  return (
+    <div className="pl-6 h-[44px] flex items-center self-start">{children}</div>
+  );
+};
+
+/**
+ * Row Value Undo In
+ *
+ * @returns <RowValueUndoContent>
+ */
+const RowValueUndoIn = () => {
+  return (
+    <>
+      <span className="hidden lg:block">{__('Undo')}</span>
+      <Icon
+        className="
+          w-12
+          flex
+          items-center
+          justify-center
+          text-16
+          lg:hidden
+        "
+        icon="undo"
+      />
+    </>
+  );
 };
 
 /**
@@ -146,7 +181,7 @@ const RowValueUndo = ({ children }) => {
  * @param {object} param
  * @returns <RowState />
  */
-const RowState = ({ state = false, immutable = false }) => {
+const RowState = ({ state = false }) => {
   /**
    * Tasks
    */
@@ -162,24 +197,50 @@ const RowState = ({ state = false, immutable = false }) => {
    * Render
    */
   return (
-    <div
-      className="
-        min-w-[48px]
-        h-[43px]
-        flex
-        items-center
-        justify-center
-        border-r
-        border-gray-2
-        z-0"
-    >
-      <div className="text-primary-10 font-600">
-        {removed() && <span className="">{__('R')}</span>}
-        {edited() && <span className="">{__('E')}</span>}
-        {immutable && <span className="">{__('H')}</span>}
-      </div>
-    </div>
+    <Disabled.Consumer>
+      {(isDisabled) => (
+        <div
+          className="
+            min-w-[48px]
+            border-r
+            border-gray-2
+            z-0"
+        >
+          <div className="h-[44px] flex items-center justify-center">
+            {!isDisabled && (
+              <>
+                {removed() && <Icon icon="saved" />}
+                {edited() && <Icon icon="editor-textcolor" />}
+              </>
+            )}
+
+            {isDisabled && <Icon icon="editor-code" />}
+          </div>
+        </div>
+      )}
+    </Disabled.Consumer>
   );
 };
 
-export { Row, RowIn, RowInset, RowKey, RowValue, RowValueUndo, RowState };
+/**
+ * Row Disabled
+ *
+ * @returns <RowDisabled />
+ */
+/*
+const RowDisabled = ({ state, children }) => {
+  const immutable = <Disabled className="w-full flex">{children}</Disabled>;
+  return state ? immutable : <></>;
+};
+*/
+
+export {
+  Row,
+  RowIn,
+  RowInset,
+  RowKey,
+  RowValue,
+  RowValueUndo,
+  RowValueUndoIn,
+  RowState,
+};

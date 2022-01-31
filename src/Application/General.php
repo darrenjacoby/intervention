@@ -1,10 +1,10 @@
 <?php
 
-namespace Sober\Intervention\Application;
+namespace Jacoby\Intervention\Application;
 
-use Sober\Intervention\Application\OptionsApi;
-use Sober\Intervention\Support\Arr;
-use Sober\Intervention\Support\Str;
+use Jacoby\Intervention\Application\OptionsApi;
+use Jacoby\Intervention\Support\Arr;
+use Jacoby\Intervention\Support\Str;
 
 /**
  * General

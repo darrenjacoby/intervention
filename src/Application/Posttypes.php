@@ -1,14 +1,14 @@
 <?php
 
-namespace Sober\Intervention\Application;
+namespace Jacoby\Intervention\Application;
 
-use Sober\Intervention\Application\Support\Posttypes\Labels;
-use Sober\Intervention\Application\Support\Posttypes\Register;
-use Sober\Intervention\Application\Support\Posttypes\Remove;
-use Sober\Intervention\Application\Support\Posttypes\Update;
-use Sober\Intervention\Support\Arr;
-use Sober\Intervention\Support\Composer;
-use Sober\Intervention\Support\Str;
+use Jacoby\Intervention\Application\Support\Posttypes\Labels;
+use Jacoby\Intervention\Application\Support\Posttypes\Register;
+use Jacoby\Intervention\Application\Support\Posttypes\Remove;
+use Jacoby\Intervention\Application\Support\Posttypes\Update;
+use Jacoby\Intervention\Support\Arr;
+use Jacoby\Intervention\Support\Composer;
+use Jacoby\Intervention\Support\Str;
 
 /**
  * Posttypes

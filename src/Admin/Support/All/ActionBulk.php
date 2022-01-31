@@ -1,9 +1,9 @@
 <?php
 
-namespace Sober\Intervention\Admin\Support\All;
+namespace Jacoby\Intervention\Admin\Support\All;
 
-use Sober\Intervention\Support\Arr;
-use Sober\Intervention\Support\Str;
+use Jacoby\Intervention\Support\Arr;
+use Jacoby\Intervention\Support\Str;
 
 /**
  * Support/All/ActionBulk
@@ -23,7 +23,7 @@ class ActionBulk
      * Interface
      *
      * @param string $key
-     * @return Sober\Intervention\Admin\Support\All\ActionBulk
+     * @return Jacoby\Intervention\Admin\Support\All\ActionBulk
      */
     public static function set($key = false)
     {

@@ -1,7 +1,6 @@
-import React from 'react';
 import { useAtom } from 'jotai';
-import { Button } from '@wordpress/components';
-import { selectedIndexAtom, dataAtom } from '../../../atoms/admin';
+import { Button, Icon } from '@wordpress/components';
+import { selectedIndexAtom, dataAtom, pathAtom } from '../../../atoms/admin';
 import { __ } from '../../../utils/wp';
 
 /**
@@ -11,13 +10,18 @@ import { __ } from '../../../utils/wp';
  */
 const NewRoleGroup = ({ stateHead }) => {
   const [data, setData] = useAtom(dataAtom);
+  const [, setPath] = useAtom(pathAtom);
   const [, setSelectedIndex] = useAtom(selectedIndexAtom);
 
   const addRoleGroup = () => {
-    const template = { roles: [['administrator'], false], components: [] };
+    const template = {
+      roles: [['none'], false],
+      components: [],
+    };
     const addGroup = [...data, ...[template]];
     setData(addGroup);
     setSelectedIndex(data.length);
+    setPath('');
     stateHead.setIsNew(true);
   };
 
@@ -28,7 +32,18 @@ const NewRoleGroup = ({ stateHead }) => {
    */
   return (
     <Button className="is-secondary" onClick={() => addRoleGroup()}>
-      {__('New')}
+      <span className="hidden lg:inline">{__('New')}</span>
+      <Icon
+        className="
+            flex
+            items-center
+            justify-center
+            text-16
+            w-12
+            lg:hidden
+          "
+        icon="plus-alt2"
+      />
     </Button>
   );
 };

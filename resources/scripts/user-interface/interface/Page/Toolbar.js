@@ -6,16 +6,15 @@
  * @param {object} props
  * @returns <Toolbar />
  */
-const Toolbar = ({ children }) => {
+const Toolbar = ({ children, autoHeight = false }) => {
   return (
     <div
-      className="
+      className={`
         relative
         sticky
         top-0
         md:top-[32px]
         w-full
-        h-[50px]
         px-16
         flex
         items-center
@@ -24,7 +23,8 @@ const Toolbar = ({ children }) => {
         border-gray-5
         bg-white
         z-10
-      "
+        ${autoHeight === true ? 'pt-16 pb-12 lg:py-0 lg:h-[50px]' : 'h-[50px]'}
+      `}
     >
       {children}
     </div>
@@ -104,7 +104,15 @@ const ToolbarTitle = ({ children }) => {
  */
 const ToolbarContent = ({ children }) => {
   return (
-    <div className="h-full flex items-center text-gray-70 text-13 lg:text-14">
+    <div
+      className="
+        h-full
+        flex
+        items-center
+        text-gray-70
+        text-13
+        lg:text-14"
+    >
       {children}
     </div>
   );

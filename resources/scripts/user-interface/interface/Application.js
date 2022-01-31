@@ -1,8 +1,6 @@
-import React from 'react';
-import { useState, useEffect } from '@wordpress/element';
 import { useQuery, useMutation } from 'react-query';
-import { RadioControl } from '@wordpress/components';
-import { Button } from '@wordpress/components';
+import { useState, useEffect } from '@wordpress/element';
+import { RadioControl, Button } from '@wordpress/components';
 import apiFetch from '@wordpress/api-fetch';
 import { sprintf } from '@wordpress/i18n';
 import { Page } from './Page/Page';
@@ -24,7 +22,7 @@ import {
 } from './Application/Row';
 import { __ } from '../utils/wp';
 import { applicationQuery } from '../queries';
-import { applicationRadioSession } from '../sessions';
+import { applicationShowSession } from '../sessions';
 
 apiFetch.use(apiFetch.createNonceMiddleware(intervention.nonce));
 
@@ -46,8 +44,8 @@ const Application = () => {
   /**
    * State
    */
-  const session = applicationRadioSession();
-  const [radio, setRadio] = useState(session ? session : 'all');
+  const session = applicationShowSession();
+  const [show, setShow] = useState(session ? session : 'all');
   const [data, setData] = useState(query.data.items);
   const [diff, setDiff] = useState(query.data.diff);
   const [imported, setImported] = useState({ completed: [], skipped: [] });
@@ -73,19 +71,19 @@ const Application = () => {
    * Effects
    */
   useEffect(() => {
-    applicationRadioSession(radio);
-  }, [radio]);
+    applicationShowSession(show);
+  }, [show]);
 
   /**
-   * Show
+   * Show Determination
    *
-   * @description filter `data` results to match radio selection.
+   * @description filter `data` results to match show selection.
    *
    * @return {array}
    */
-  const show = ({ intervention, database }) => {
-    if (radio === 'match') return intervention.value === database.value;
-    if (radio === 'mismatch') return intervention.value !== database.value;
+  const showDetermination = ({ intervention, database }) => {
+    if (show === 'match') return intervention.value === database.value;
+    if (show === 'mismatch') return intervention.value !== database.value;
     return true;
   };
 
@@ -102,13 +100,13 @@ const Application = () => {
       <Sidebar>
         <SidebarGroup title={__('Show')}>
           <RadioControl
-            selected={radio}
+            selected={show}
             options={[
               { label: __('All'), value: 'all' },
               { label: __('Mismatch'), value: 'mismatch' },
               { label: __('Match'), value: 'match' },
             ]}
-            onChange={(value) => setRadio(value)}
+            onChange={(value) => setShow(value)}
           />
         </SidebarGroup>
       </Sidebar>
@@ -127,7 +125,7 @@ const Application = () => {
               <>
                 <Button
                   className="is-secondary"
-                  onClick={() => setRadio('mismatch')}
+                  onClick={() => setShow('mismatch')}
                 >
                   {sprintf(__('Mismatch (%s)'), diff)}
                 </Button>
@@ -149,25 +147,27 @@ const Application = () => {
 
         {query.isSuccess && (
           <>
-            {data.filter(show).length === 0 && (
+            {data.filter(showDetermination).length === 0 && (
               <RowNotFound>{__('Nothing found')}.</RowNotFound>
             )}
 
-            {data.filter(show).map(({ intervention, database }) => (
-              <Row key={database.key}>
-                <RowKey>{intervention.key}</RowKey>
-                <RowValue>
-                  {intervention.value !== database.value ? (
-                    <RowValueFromTo
-                      from={database.value}
-                      to={intervention.value}
-                    />
-                  ) : (
-                    <span>{String(intervention.value)}</span>
-                  )}
-                </RowValue>
-              </Row>
-            ))}
+            {data
+              .filter(showDetermination)
+              .map(({ intervention, database }) => (
+                <Row key={database.key}>
+                  <RowKey>{intervention.key}</RowKey>
+                  <RowValue>
+                    {intervention.value !== database.value ? (
+                      <RowValueFromTo
+                        from={database.value}
+                        to={intervention.value}
+                      />
+                    ) : (
+                      <span>{String(intervention.value)}</span>
+                    )}
+                  </RowValue>
+                </Row>
+              ))}
           </>
         )}
       </div>

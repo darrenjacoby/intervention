@@ -1,10 +1,10 @@
 <?php
 
-namespace Sober\Intervention\Admin\Support\All;
+namespace Jacoby\Intervention\Admin\Support\All;
 
-use Sober\Intervention\Support\Arr;
-use Sober\Intervention\Support\Composer;
-use Sober\Intervention\Support\Str;
+use Jacoby\Intervention\Support\Arr;
+use Jacoby\Intervention\Support\Composer;
+use Jacoby\Intervention\Support\Str;
 
 /**
  * Support/All/Subsets
@@ -26,7 +26,7 @@ class Subsets
      * Interface
      *
      * @param string $key
-     * @return Sober\Intervention\Admin\Support\Subsets
+     * @return Jacoby\Intervention\Admin\Support\Subsets
      */
     public static function set($key = false)
     {

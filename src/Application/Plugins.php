@@ -1,10 +1,11 @@
 <?php
 
-namespace Sober\Intervention\Application;
+namespace Jacoby\Intervention\Application;
 
-use Sober\Intervention\Support\Arr;
-use Sober\Intervention\Support\Composer;
-use Sober\Intervention\Support\Str;
+use Jacoby\Intervention\Admin;
+use Jacoby\Intervention\Support\Arr;
+use Jacoby\Intervention\Support\Composer;
+use Jacoby\Intervention\Support\Str;
 
 /**
  * Plugins
@@ -47,6 +48,8 @@ class Plugins
     protected function hook()
     {
         add_action('admin_init', [$this, 'options']);
+
+        $this->admin();
     }
 
     /**
@@ -72,5 +75,18 @@ class Plugins
                 deactivate_plugins($item);
             }
         }
+    }
+
+    /**
+     * Admin
+     */
+    public function admin()
+    {
+        if (!$this->config) {
+            return;
+        }
+
+        Admin::set('plugins.all.actions.activate', true);
+        Admin::set('plugins.all.actions.deactivate', true);
     }
 }

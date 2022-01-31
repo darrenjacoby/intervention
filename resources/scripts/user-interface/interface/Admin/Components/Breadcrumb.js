@@ -1,6 +1,5 @@
-import React from 'react';
 import { useAtom } from 'jotai';
-import { ButtonGroup, Button, Icon } from '@wordpress/components';
+import { Button } from '@wordpress/components';
 // import { ToolbarTitle } from '../../Page/Toolbar';
 import { pathAtom, selectedIndexPathAtom } from '../../../atoms/admin';
 import { getInterventionKey } from '../../../utils/admin';
@@ -49,23 +48,26 @@ const Breadcrumb = () => {
     >
       {/*<ToolbarTitle>Browse</ToolbarTitle>*/}
       <div className="flex border-r border-gray-2">
-        <div className="h-full flex items-center pr-[8px]">
-          <Button
-            className="text-14 is-secondary px-[10px]"
-            onClick={() => handler('')}
-          >
-            {__('/')}
+        <div
+          className="
+            h-full
+            flex
+            items-center
+            pr-[8px]"
+        >
+          <Button className="text-14  is-blank" onClick={() => handler('')}>
+            {__('admin')}
           </Button>
         </div>
 
         {isPath() &&
           paths.map((item) => (
             <div key={item} className="relative pr-[8px] pl-[10px]">
-              <div className="toolbar-divider"></div>
+              <div className="breadcrumb-divider"></div>
               <div className="h-full flex items-center">
                 <Button
                   key={item}
-                  className="text-14 blank"
+                  className="text-14 is-blank"
                   onClick={() => handler(item)}
                 >
                   {getInterventionKey(item)}

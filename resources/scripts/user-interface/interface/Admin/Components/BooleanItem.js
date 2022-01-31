@@ -1,11 +1,11 @@
 import { useAtom } from 'jotai';
 import { useState } from '@wordpress/element';
 import { Button } from '@wordpress/components';
+import { Row, RowIn, RowState } from './Row';
 import {
   selectedIndexDataAtom,
   selectedIndexDataComponentAtom,
 } from '../../../atoms/admin';
-import { Row, RowIn, RowState } from './Row';
 import { getInterventionKey, getValue } from '../../../utils/admin';
 import { objectHasKey } from '../../../utils/structures';
 
@@ -36,10 +36,6 @@ const BooleanItem = ({ item: key }) => {
    * Handler
    */
   const handler = () => {
-    if (immutable) {
-      return;
-    }
-
     const action = objectHasKey(data.components, interventionKey)
       ? 'del'
       : 'add';
@@ -52,9 +48,9 @@ const BooleanItem = ({ item: key }) => {
    * Render
    */
   return (
-    <Row isButton={true}>
+    <Row immutable={immutable} isButton={true}>
       <Button onClick={() => handler()}>
-        <RowState state={state} immutable={immutable} />
+        <RowState state={state} />
         <RowIn>{getInterventionKey(key)}</RowIn>
       </Button>
     </Row>

@@ -9,14 +9,15 @@ const NavLink = ({ to, children }) => {
       title={children}
       className={`
         inline-block
-        text-center
         h-[36px]
         mx-[2px]
         mt-2
-        px-[6px]
+        px-4
+        lg:px-[6px]
         leading-none
         no-underline
         text-14
+        text-center
         rounded
         border
         first:ml-0

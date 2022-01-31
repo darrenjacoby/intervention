@@ -1,9 +1,9 @@
 <?php
 
-namespace Sober\Intervention;
+namespace Jacoby\Intervention;
 
-use Sober\Intervention\Support\Arr;
-use Sober\Intervention\Support\Config;
+use Jacoby\Intervention\Support\Arr;
+use Jacoby\Intervention\Support\Config;
 
 /**
  * Application

@@ -1,9 +1,9 @@
 <?php
 
-namespace Sober\Intervention\Admin\Support\All;
+namespace Jacoby\Intervention\Admin\Support\All;
 
-use Sober\Intervention\Support\Config;
-use Sober\Intervention\Support\Str;
+use Jacoby\Intervention\Support\Config;
+use Jacoby\Intervention\Support\Str;
 
 /**
  * Support/All/Search
@@ -23,7 +23,7 @@ class Search
      * Interface
      *
      * @param string $key
-     * @return Sober\Intervention\Admin\Support\All\Search
+     * @return Jacoby\Intervention\Admin\Support\All\Search
      */
     public static function set($key = false)
     {

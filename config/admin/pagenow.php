@@ -1,7 +1,7 @@
 <?php
 /**
  * Return array of key to WordPress pagenow.
- * 
+ *
  * @see Admin/Common/Menu
  * @see Admin/SharedApi/SharedApi
  * @see Admin/Support/Menu
@@ -11,7 +11,7 @@
  * @see Admin/Support/All/Search
  * @see Admin/Support/All/Count
  */
-namespace Sober\Intervention;
+namespace Jacoby\Intervention;
 
 return [
     'dashboard' => 'index.php',

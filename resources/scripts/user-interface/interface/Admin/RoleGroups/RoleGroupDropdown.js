@@ -1,4 +1,3 @@
-import React from 'react';
 import { useAtom } from 'jotai';
 import { CustomSelectControl } from '@wordpress/components';
 import { dataAtom, selectedIndexAtom } from '../../../atoms/admin';
@@ -30,6 +29,8 @@ const RoleGroupDropdown = ({ stateHead }) => {
 
   /**
    * Select Control Options
+   *
+   * @returns {array} options
    */
   const options = data.map((item, i) => {
     const [roles] = item.roles;
@@ -47,6 +48,9 @@ const RoleGroupDropdown = ({ stateHead }) => {
     stateHead.reset();
   };
 
+  const value = options.find((option) => option.key === selectedIndex);
+  const valueNone = { key: selectedIndex, name: 'none' };
+
   /**
    * Render
    */
@@ -54,7 +58,7 @@ const RoleGroupDropdown = ({ stateHead }) => {
     <CustomSelectControl
       label="Route"
       hideLabelFromVision={true}
-      value={options.find((option) => option.key === selectedIndex)}
+      value={value.name !== '' ? value : valueNone}
       options={options}
       onChange={({ selectedItem }) => handler(selectedItem)}
       className="rolegroup-dropdown"

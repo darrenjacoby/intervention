@@ -12,7 +12,7 @@ License URI: https://opensource.org/licenses/MIT
 GitHub Plugin URI: soberwp/intervention
 GitHub Branch: master
  */
-namespace Sober\Intervention;
+namespace Jacoby\Intervention;
 
 /**
  * Restrict direct access
@@ -28,7 +28,7 @@ define('INTERVENTION_TEXT_DOMAIN', 'intervention');
 /**
  * Support for Bedrock/Composer
  */
-if (!class_exists('Sober\Intervention\Intervention')) {
+if (!class_exists('Jacoby\Intervention\Intervention')) {
     if (is_file(__DIR__ . '/vendor/autoload.php')) {
         require_once __DIR__ . '/vendor/autoload.php';
     }

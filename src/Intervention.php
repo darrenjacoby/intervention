@@ -1,12 +1,12 @@
 <?php
 
-namespace Sober\Intervention;
+namespace Jacoby\Intervention;
 
-use Sober\Intervention\Support\Arr;
-use Sober\Intervention\Support\Composer;
-use Sober\Intervention\Support\Config;
-use Sober\Intervention\Support\Str;
-use Sober\Intervention\UserInterface\Admin as UserInterfaceAdmin;
+use Jacoby\Intervention\Support\Arr;
+use Jacoby\Intervention\Support\Composer;
+use Jacoby\Intervention\Support\Config;
+use Jacoby\Intervention\Support\Str;
+use Jacoby\Intervention\UserInterface\Admin as UserInterfaceAdmin;
 
 /**
  * Intervention

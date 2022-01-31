@@ -1,5 +1,30 @@
 import { more } from '@wordpress/element';
+import { useState, useEffect } from '@wordpress/element';
 import { Panel, PanelBody, PanelRow } from '@wordpress/components';
+
+/**
+ * Use Window Dimensions
+ *
+ * @description get window dimensions to collapse panels on mobile.
+ *
+ * @returns {function} useWindowDimensions
+ */
+const useWindowDimensions = () => {
+  const [windowDimensions, setWindowDimensions] = useState({
+    width: window.innerWidth,
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowDimensions({ width: window.innerWidth });
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return windowDimensions;
+};
 
 /**
  * Sidebar
@@ -37,6 +62,8 @@ const Sidebar = ({ children }) => {
  * @returns <SidebarGroup />
  */
 const SidebarGroup = ({ children, title }) => {
+  const { width } = useWindowDimensions();
+
   return (
     <Panel
       className="
@@ -48,7 +75,7 @@ const SidebarGroup = ({ children, title }) => {
       <PanelBody
         title={title}
         icon={more}
-        initialOpen={true}
+        initialOpen={width >= 960 ? true : false}
         className="w-full"
       >
         <PanelRow>{children}</PanelRow>

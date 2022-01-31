@@ -2,6 +2,20 @@ import apiFetch from '@wordpress/api-fetch';
 import { exportSelectionSession } from '../sessions';
 
 /**
+ * Export Admin Options
+ *
+ * @description query export data.
+ *
+ * @returns {object}
+ */
+const exportAdminOptions = async () => {
+  return await apiFetch({
+    url: intervention.route.exportAdminOptions.url,
+    method: 'POST',
+  });
+};
+
+/**
  * Export Query
  *
  * @description query export data.
@@ -16,4 +30,4 @@ const exportQuery = async () => {
   });
 };
 
-export { exportQuery };
+export { exportAdminOptions, exportQuery };

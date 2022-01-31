@@ -4,7 +4,7 @@
  *
  * @link https://github.com/mindkomm/theme-lib-mix/blob/master/mix.php
  */
-namespace Sober\Intervention;
+namespace Jacoby\Intervention;
 
 /**
  * Mix

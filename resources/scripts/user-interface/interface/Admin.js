@@ -1,8 +1,7 @@
-import React from 'react';
-import { useState, useEffect } from '@wordpress/element';
-import { useAtom } from 'jotai';
-import { RadioControl } from '@wordpress/components';
 import { useQuery } from 'react-query';
+import { useAtom } from 'jotai';
+import { useState, useEffect } from '@wordpress/element';
+import { RadioControl } from '@wordpress/components';
 import { Page } from './Page/Page';
 import { Sidebar, SidebarGroup } from './Page/Sidebar';
 import { Head } from './Admin/Head';
@@ -10,6 +9,7 @@ import { Components } from './Admin/Components';
 import { ComponentsApplied } from './Admin/ComponentsApplied';
 import { adminQuery } from '../queries';
 import { queryAtom } from '../atoms/admin';
+import { adminShowSession } from '../sessions';
 import { __ } from '../utils/wp';
 
 /**
@@ -53,8 +53,9 @@ const Admin = () => {
   /**
    * State
    */
+  const session = adminShowSession();
   const [, setQuery] = useAtom(queryAtom);
-  const [view, setView] = useState('all');
+  const [show, setShow] = useState(session ? session : 'all');
 
   /**
    * Effects
@@ -69,6 +70,10 @@ const Admin = () => {
     };
   }, []);
 
+  useEffect(() => {
+    adminShowSession(show);
+  }, [show]);
+
   /**
    * Render
    */
@@ -77,12 +82,12 @@ const Admin = () => {
       <Sidebar>
         <SidebarGroup title={__('Show')}>
           <RadioControl
-            selected={view}
+            selected={show}
             options={[
               { label: __('All'), value: 'all' },
               { label: __('Applied'), value: 'applied' },
             ]}
-            onChange={(value) => setView(value)}
+            onChange={(value) => setShow(value)}
           />
         </SidebarGroup>
       </Sidebar>
@@ -91,8 +96,8 @@ const Admin = () => {
         <Head />
         {query.isSuccess && (
           <>
-            {view === 'all' && <Components />}
-            {view === 'applied' && <ComponentsApplied />}
+            {show === 'all' && <Components />}
+            {show === 'applied' && <ComponentsApplied />}
           </>
         )}
       </div>

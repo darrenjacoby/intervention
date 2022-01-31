@@ -1,11 +1,11 @@
 <?php
 
-namespace Sober\Intervention\Admin\Posts\Categories;
+namespace Jacoby\Intervention\Admin\Posts\Categories;
 
-use Sober\Intervention\Admin\SharedApi;
-use Sober\Intervention\Admin\Support\Menu;
-use Sober\Intervention\Support\Arr;
-use Sober\Intervention\Support\Composer;
+use Jacoby\Intervention\Admin\SharedApi;
+use Jacoby\Intervention\Admin\Support\Menu;
+use Jacoby\Intervention\Support\Arr;
+use Jacoby\Intervention\Support\Composer;
 
 /**
  * Posts/Categories/All

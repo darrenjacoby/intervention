@@ -5,7 +5,7 @@
  * @see Intervention
  * @see UserInterface
  */
-namespace Sober\Intervention;
+namespace Jacoby\Intervention;
 
 /**
  * Comments

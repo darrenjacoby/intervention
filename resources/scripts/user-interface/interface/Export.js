@@ -1,5 +1,5 @@
-import { useState, useEffect } from '@wordpress/element';
 import { useQuery } from 'react-query';
+import { useState, useEffect } from '@wordpress/element';
 import { CheckboxControl } from '@wordpress/components';
 import { Page } from './Page/Page';
 import { Toolbar, ToolbarTitle } from './Page/Toolbar';
@@ -11,13 +11,13 @@ import {
 } from './Page/Sidebar';
 import { ButtonCopy } from './Export/ButtonCopy';
 import { CodeBlock } from './Export/CodeBlock';
-import { exportQuery } from '../queries';
+import { exportAdminOptions, exportQuery } from '../queries';
 import { exportSelectionSession } from '../sessions';
 import { sortRolesKeys } from './Admin/Save';
 import { __ } from '../utils/wp';
 
 const staticExports = intervention.route.export.data;
-const staticExportsAdminSorted = sortRolesKeys(staticExports.admin);
+// const staticExportsAdminSorted = sortRolesKeys(staticExports.admin);
 
 /**
  * State Factory
@@ -74,10 +74,19 @@ const Export = () => {
   /**
    * Query
    */
+  const queryAdminOptions = useQuery(
+    'export-admin-options',
+    exportAdminOptions,
+    {
+      suspense: true,
+    }
+  );
+
   const query = useQuery('export', exportQuery, {
     suspense: true,
   });
 
+  const staticExportsAdminSorted = sortRolesKeys(queryAdminOptions.data) ?? [];
   const applicationKeys = Object.keys(stateFactory(staticExports.application));
   const session = exportSelectionSession() || applicationKeys;
 

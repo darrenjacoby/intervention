@@ -1,9 +1,9 @@
 <?php
 
-namespace Sober\Intervention\Admin\Support;
+namespace Jacoby\Intervention\Admin\Support;
 
-use Sober\Intervention\Support\Config;
-use Sober\Intervention\Support\Str;
+use Jacoby\Intervention\Support\Config;
+use Jacoby\Intervention\Support\Str;
 
 /**
  * Support/Title
@@ -23,7 +23,7 @@ class Title
      * Interface
      *
      * @param string $key
-     * @return Sober\Intervention\Admin\Support\Page
+     * @return Jacoby\Intervention\Admin\Support\Page
      */
     public static function set($key = false)
     {

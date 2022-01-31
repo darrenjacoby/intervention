@@ -1,12 +1,10 @@
-import React from 'react';
-import { useState, useEffect } from '@wordpress/element';
-import { Button } from '@wordpress/components';
 import { useAtom } from 'jotai';
+import { useState, useEffect } from '@wordpress/element';
+import { Button, Icon } from '@wordpress/components';
 import {
   Toolbar,
   ToolbarDivider,
   ToolbarFlex,
-  ToolbarTitle,
   ToolbarContent,
 } from '../Page/Toolbar';
 import { RoleGroupDropdown } from './RoleGroups/RoleGroupDropdown';
@@ -14,11 +12,7 @@ import { RolesRoleGroup } from './RoleGroups/RolesRoleGroup';
 import { NewRoleGroup } from './RoleGroups/NewRoleGroup';
 import { DeleteRoleGroup } from './RoleGroups/DeleteRoleGroup';
 import { Save } from './Save';
-import {
-  dataAtom,
-  selectedIndexAtom,
-  selectedAppliedDiffAtom,
-} from '../../atoms/admin';
+import { dataAtom, selectedIndexAtom } from '../../atoms/admin';
 import { __ } from '../../utils/wp';
 
 /**
@@ -91,7 +85,7 @@ const Head = () => {
       <Toolbar>
         <ToolbarFlex>
           <div className="flex items-center">
-            <RoleGroupDropdown stateHead={{ reset }} />
+            <RoleGroupDropdown stateHead={{ setIsNew, reset }} />
           </div>
           <ToolbarContent>
             {immutable && (
@@ -104,7 +98,7 @@ const Head = () => {
                   h-full
                   bg-gray-5"
                 ></div>
-                <span className="text-gray-50 flex items-center mr-12">
+                <span className="hidden lg:flex text-gray-50 items-center mr-12 text-13">
                   {__('Hardcoded')}
                 </span>
               </>
@@ -118,7 +112,18 @@ const Head = () => {
           {!immutable && !isNew && (
             <>
               <Button className="is-secondary" onClick={() => handler()}>
-                {__('Edit')}
+                <span className="hidden lg:inline">{__('Edit')}</span>
+                <Icon
+                  className="
+                    flex
+                    items-center
+                    justify-center
+                    text-16
+                    w-12
+                    lg:hidden
+                  "
+                  icon="edit"
+                />
               </Button>
               <div className="w-8"></div>
             </>
@@ -130,32 +135,36 @@ const Head = () => {
       </Toolbar>
 
       {isEditing && immutable === false && (
-        <div
-          className="
-            relative
-            sticky
-            top-0
-            md:top-[32px]
-            w-full
-            h-[50px]
-            px-16
-            flex
-            items-center
-            justify-between
-            border-b
-            border-gray-5
-            bg-white"
-        >
-          <ToolbarFlex>
-            <ToolbarTitle>
-              <RolesRoleGroup />
-            </ToolbarTitle>
+        <Toolbar autoHeight={true}>
+          <div className="w-full h-full flex flex-wrap">
+            <div className="w-full lg:w-auto flex h-full">
+              <div
+                className="
+                  flex
+                  items-center
+                  text-14
+                  text-gray-90
+                  font-500"
+              >
+                <RolesRoleGroup />
+              </div>
 
-            <ToolbarContent>
+              <div
+                className="
+                  hidden
+                  lg:block
+                  ml-12
+                  mr-8
+                  w-1
+                  h-full
+                  bg-gray-2"
+              ></div>
+            </div>
+            <div className="h-full flex items-center text-gray-70 text-13 lg:text-14">
               <DeleteRoleGroup />
-            </ToolbarContent>
-          </ToolbarFlex>
-        </div>
+            </div>
+          </div>
+        </Toolbar>
       )}
     </>
   );

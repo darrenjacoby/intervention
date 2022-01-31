@@ -13,6 +13,8 @@ export const getInterventionKey = (k = '') => {
     ':group',
     ':exemption',
     ':icon',
+    ':select',
+    ':orderby',
     '/:route',
   ];
   replace.forEach((item) => {
@@ -50,6 +52,40 @@ export const getKeyParams = (k) => {
   const match = k.match(/\[(.*?)\]/);
   // remove `[` and `]`
   return Array.isArray(match) ? match[0].slice(1, -1) : '';
+};
+
+/**
+ * Get Custom Select Option Name
+ *
+ * @param {string} value
+ * @returns {string}
+ */
+export const getCustomSelectOptionName = (value) => {
+  return value
+    .replaceAll('-', ' ')
+    .split('.')
+    .map((str) => {
+      return str
+        .split(' ')
+        .map((word) => word[0].toUpperCase() + word.substring(1))
+        .join(' ');
+    })
+    .join('/');
+};
+
+/**
+ * Get Custom Select Options Array
+ *
+ * @param {array} array
+ * @returns {array}
+ */
+export const getCustomSelectOptionsArray = (array) => {
+  const config = array.map((value) => {
+    const name = getCustomSelectOptionName(value);
+    return { key: value, name, value };
+  });
+
+  return [{ key: '', name: '', value: '' }, ...config];
 };
 
 /**

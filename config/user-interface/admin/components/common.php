@@ -5,7 +5,7 @@
  * @see Intervention
  * @see UserInterface
  */
-namespace Sober\Intervention;
+namespace Jacoby\Intervention;
 
 /**
  * Common
@@ -45,6 +45,7 @@ return [
         ],
         'footer:group' => ['credit', 'version'],
         'menu:group' => ['collapse', 'icons', 'nags'],
+        // 'menu.order:orderby' => ['dashboard', 'pages', 'posts', 'separator1', 'users', 'comments', 'separator2', 'media', 'appearance', 'plugins', 'tools', 'settings'],
         'tabs:group' => ['screen-options', 'help'],
         'title-link',
         'updates',

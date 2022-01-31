@@ -5,7 +5,7 @@
  * @see Intervention
  * @see UserInterface
  */
-namespace Sober\Intervention;
+namespace Jacoby\Intervention;
 
 /**
  * Dashboard
@@ -40,7 +40,7 @@ return [
         'updates:hierachical' => [
             ':route',
             'title:text[WordPress Updates]',
-            'tabs',
+            'tabs.help',
         ],
     ],
 ];

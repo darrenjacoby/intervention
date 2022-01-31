@@ -34,10 +34,6 @@ const ParentItem = ({ item: key, immutable, shared }) => {
    * @returns
    */
   const handler = () => {
-    if (immutable) {
-      return;
-    }
-
     const selectedChange =
       shared.selectedChildKeys.length === shared.childData.length
         ? []
@@ -49,11 +45,10 @@ const ParentItem = ({ item: key, immutable, shared }) => {
    * Render
    */
   return (
-    <Row isButton={true}>
+    <Row immutable={immutable} isButton={true}>
       <Button onClick={() => handler()}>
         <RowState
           state={shared.selectedChildKeys.length === shared.childData.length}
-          immutable={immutable}
         />
         <RowIn>{interventionKey}</RowIn>
       </Button>
@@ -72,18 +67,14 @@ const ChildItem = ({ item: key, shared }) => {
   const interventionKey = getInterventionKey(key);
   const [, immutable] = getValue(data.components, interventionKey);
   const state = shared.selectedChildKeys.includes(interventionKey) || immutable;
-
   const isImmutable = () => shared.parentImmutable || immutable;
+
   /**
    * Handler
    *
    * @returns
    */
   const handler = () => {
-    if (shared.parentImmutable || immutable) {
-      return;
-    }
-
     const selectedExclItem = shared.selectedChildKeys.filter((k) => key !== k);
     const selectedChange = shared.selectedChildKeys.includes(key)
       ? selectedExclItem
@@ -92,9 +83,9 @@ const ChildItem = ({ item: key, shared }) => {
   };
 
   return (
-    <Row item={key} isButton={true}>
+    <Row item={key} immutable={isImmutable()} isButton={true}>
       <Button onClick={() => handler()}>
-        <RowState state={state} immutable={isImmutable()} />
+        <RowState state={state} />
         <RowIn>{key}</RowIn>
       </Button>
     </Row>
@@ -115,7 +106,7 @@ const BooleanGroup = ({ item: parentKey, staticData }) => {
     data.components,
     parentInterventionKey
   );
-  const firstUpdate = useRef(true);
+  const firstRender = useRef(true);
 
   /**
    * State: Selected
@@ -175,8 +166,8 @@ const BooleanGroup = ({ item: parentKey, staticData }) => {
    * @description after first update, watch `selected` for changes and run `setComponent` calls.
    */
   useEffect(() => {
-    if (firstUpdate.current) {
-      firstUpdate.current = false;
+    if (firstRender.current) {
+      firstRender.current = false;
       return;
     }
 

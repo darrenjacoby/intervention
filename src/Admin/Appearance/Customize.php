@@ -1,10 +1,10 @@
 <?php
 
-namespace Sober\Intervention\Admin\Appearance;
+namespace Jacoby\Intervention\Admin\Appearance;
 
-use Sober\Intervention\Admin\SharedApi;
-use Sober\Intervention\Support\Arr;
-use Sober\Intervention\Support\Composer;
+use Jacoby\Intervention\Admin\SharedApi;
+use Jacoby\Intervention\Support\Arr;
+use Jacoby\Intervention\Support\Composer;
 
 /**
  * Appearance/Customize
@@ -177,9 +177,9 @@ class Customize
         }
 
         /*
-        if ($this->config->has('appearance.customize.widgets')) {
-            $wp_customize->remove_panel('widgets');
-        }
-        */
+    if ($this->config->has('appearance.customize.widgets')) {
+    $wp_customize->remove_panel('widgets');
+    }
+     */
     }
 }

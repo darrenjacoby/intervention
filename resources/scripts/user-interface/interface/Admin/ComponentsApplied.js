@@ -1,4 +1,3 @@
-import React from 'react';
 import { useAtom } from 'jotai';
 import { isHierachical } from './Components/HierachicalItem';
 import { isBooleanItem, BooleanItem } from './Components/BooleanItem';
@@ -44,12 +43,12 @@ const isItemOn = (key) => {
 };
 
 /**
- * Is Applied Blank
+ * Is Applied Not Found
  *
  * @param {string} key
  * @returns {boolean}
  */
-const isAppliedBlank = () => {
+const isAppliedNotFound = () => {
   const [data] = useAtom(selectedIndexDataAtom);
   return Object.keys(data.components).length === 0;
 };
@@ -69,8 +68,24 @@ const isHierachicalTitle = (interventionKey) => {
   return top && appliedKeys;
 };
 
-const AppliedBlank = () => {
-  return <h1>No applied components</h1>;
+const AppliedNotFound = ({ children }) => {
+  return (
+    <h2
+      className="
+        text-16
+        m-0
+        h-[50px]
+        flex
+        items-center
+        px-16
+        text-gray-50
+        font-400
+        border-t
+        border-gray-2"
+    >
+      {children}
+    </h2>
+  );
 };
 
 /**
@@ -180,7 +195,9 @@ const ComponentsApplied = () => {
    */
   return (
     <div className="border-gray-2 border-b mt-[-1px] mb-[-1px]">
-      {isAppliedBlank() && <AppliedBlank />}
+      {isAppliedNotFound() && (
+        <AppliedNotFound>{__('Nothing found')}.</AppliedNotFound>
+      )}
       {Object.keys(getStaticComponentsData()).map((key) => (
         <Routing key={key} item={key} />
       ))}

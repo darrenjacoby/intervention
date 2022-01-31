@@ -1,13 +1,13 @@
-import React from 'react';
 import { useAtom } from 'jotai';
 import { Breadcrumb } from './Components/Breadcrumb';
 import { isHierachical, Hierachical } from './Components/HierachicalItem';
 import { isBooleanItem, BooleanItem } from './Components/BooleanItem';
-import { isBooleanGroup, BooleanGroup } from './Components/BooleanGroup';
 import { isTextItem, TextItem } from './Components/TextItem';
 import { isNumberItem, NumberItem } from './Components/NumberItem';
 import { isIconItem, IconItem } from './Components/IconItem';
 import { isRouteItem, RouteItem } from './Components/RouteItem';
+import { isSelectItem, SelectItem } from './Components/SelectItem';
+import { isBooleanGroup, BooleanGroup } from './Components/BooleanGroup';
 import { selectedIndexPathAtom } from '../../atoms/admin';
 import { objectHasKey } from '../../utils/structures';
 import { __ } from '../../utils/wp';
@@ -63,6 +63,9 @@ const Components = () => {
         {isTextItem(k) && <TextItem item={key} />}
         {isNumberItem(k) && <NumberItem item={key} />}
         {isIconItem(k) && <IconItem item={key} />}
+        {isSelectItem(k) && (
+          <SelectItem item={key} staticData={getStaticComponentsData(key)} />
+        )}
         {isBooleanGroup(k) && (
           <BooleanGroup item={key} staticData={getStaticComponentsData(key)} />
         )}

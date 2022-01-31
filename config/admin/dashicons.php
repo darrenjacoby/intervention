@@ -4,7 +4,7 @@
  *
  * @see UserInterface
  */
-namespace Sober\Intervention;
+namespace Jacoby\Intervention;
 
 return [
     'menu',

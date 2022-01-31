@@ -1,8 +1,8 @@
 <?php
 
-namespace Sober\Intervention\Support;
+namespace Jacoby\Intervention\Support;
 
-use Sober\Intervention\Illuminate\Support\Collection;
+use Jacoby\Intervention\Illuminate\Support\Collection;
 
 /**
  * Array

@@ -1,11 +1,17 @@
 @import 'config';
 @import 'font-faces';
+@import 'components/breadcrumb';
+@import 'components/button-group';
+@import 'components/button';
+@import 'components/dashicons';
+@import 'components/panel';
+@import 'components/prism';
+@import 'components/role-group';
+@import 'components/row';
+@import 'components/select';
+@import 'components/text';
 @import 'components/text-bold-hack';
-@import 'components/toolbar';
-@import 'vendors/prism';
+
+/* @import 'vendors/prism'; */
 @import 'vendors/wp';
 @import 'tailwindcss/utilities';
-
-.\? {
-  border: 4px solid theme('colors.primary');
-}

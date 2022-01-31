@@ -1,11 +1,11 @@
 <?php
 /**
  * Return array of key to Intervention class for routing.
- * 
+ *
  * @see Intervention
  * @see Application
  */
-namespace Sober\Intervention;
+namespace Jacoby\Intervention;
 
 return [
     'login' => 'Admin\Login',

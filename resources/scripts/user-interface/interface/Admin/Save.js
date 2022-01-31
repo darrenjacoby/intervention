@@ -1,9 +1,8 @@
-import React from 'react';
-import { usePrompt } from 'react-router-dom';
-import { useState } from '@wordpress/element';
-import { useAtom } from 'jotai';
-import { Button } from '@wordpress/components';
 import { useMutation } from 'react-query';
+import { usePrompt } from 'react-router-dom';
+import { useAtom } from 'jotai';
+import { useState } from '@wordpress/element';
+import { Button } from '@wordpress/components';
 import apiFetch from '@wordpress/api-fetch';
 import {
   queryAtom,

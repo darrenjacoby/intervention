@@ -1,11 +1,11 @@
 <?php
 
-namespace Sober\Intervention\Admin\Users;
+namespace Jacoby\Intervention\Admin\Users;
 
-use Sober\Intervention\Admin\SharedApi;
-use Sober\Intervention\Admin\Support\Title;
-use Sober\Intervention\Support\Arr;
-use Sober\Intervention\Support\Composer;
+use Jacoby\Intervention\Admin\SharedApi;
+use Jacoby\Intervention\Admin\Support\Title;
+use Jacoby\Intervention\Support\Arr;
+use Jacoby\Intervention\Support\Composer;
 
 /**
  * Users/All

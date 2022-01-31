@@ -1,10 +1,10 @@
 <?php
 
-namespace Sober\Intervention\Application\Media;
+namespace Jacoby\Intervention\Application\Media;
 
-use Sober\Intervention\Application\OptionsApi;
-use Sober\Intervention\Support\Arr;
-use Sober\Intervention\Support\Composer;
+use Jacoby\Intervention\Application\OptionsApi;
+use Jacoby\Intervention\Support\Arr;
+use Jacoby\Intervention\Support\Composer;
 
 /**
  * Media/Sizes

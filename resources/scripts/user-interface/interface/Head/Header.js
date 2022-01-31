@@ -2,11 +2,11 @@ const Header = ({ children }) => {
   return (
     <div
       className="
-        flex
-        justify-between
         h-[60px]
         py-0
         px-16
+        flex
+        justify-between
         z-30
         bg-white
         border-b

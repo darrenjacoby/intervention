@@ -1,12 +1,12 @@
 <?php
 
-namespace Sober\Intervention\Admin\Common\All;
+namespace Jacoby\Intervention\Admin\Common\All;
 
-use Sober\Intervention\Admin\Support\All\Lists\Actions as ListActions;
-use Sober\Intervention\Admin\Support\All\Lists\Columns as ListColumns;
-use Sober\Intervention\Admin\Support\All\Lists\Count as ListCount;
-use Sober\Intervention\Support\Arr;
-use Sober\Intervention\Support\Composer;
+use Jacoby\Intervention\Admin\Support\All\Lists\Actions as ListActions;
+use Jacoby\Intervention\Admin\Support\All\Lists\Columns as ListColumns;
+use Jacoby\Intervention\Admin\Support\All\Lists\Count as ListCount;
+use Jacoby\Intervention\Support\Arr;
+use Jacoby\Intervention\Support\Composer;
 
 /**
  * Common/All/Lists

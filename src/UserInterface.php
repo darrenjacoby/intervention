@@ -1,12 +1,12 @@
 <?php
 
-namespace Sober\Intervention;
+namespace Jacoby\Intervention;
 
-use Sober\Intervention\UserInterface\Admin;
-use Sober\Intervention\UserInterface\Application;
-use Sober\Intervention\UserInterface\Export;
-use Sober\Intervention\UserInterface\Support\RegisterPage;
-use Sober\Intervention\UserInterface\Support\UserColorSchemeCustomProps;
+use Jacoby\Intervention\UserInterface\Admin;
+use Jacoby\Intervention\UserInterface\Application;
+use Jacoby\Intervention\UserInterface\Export;
+use Jacoby\Intervention\UserInterface\Support\RegisterPage;
+use Jacoby\Intervention\UserInterface\Support\UserColorSchemeCustomProps;
 
 /**
  * UserInterface
@@ -109,6 +109,11 @@ class UserInterface
                 ['callback' => [$this->routeApplication, 'request']],
             ));
 
+            register_rest_route('intervention/v2', '/exportAdminOptions', array_merge(
+                $core,
+                ['callback' => [$this->routeExport, 'requestAdminOptions']],
+            ));
+
             register_rest_route('intervention/v2', '/export', array_merge(
                 $core,
                 ['callback' => [$this->routeExport, 'request']],
@@ -169,6 +174,9 @@ class UserInterface
                     ],
                     'application' => [
                         'url' => esc_url_raw(rest_url('intervention/v2/application')),
+                    ],
+                    'exportAdminOptions' => [
+                        'url' => esc_url_raw(rest_url('intervention/v2/exportAdminOptions')),
                     ],
                     'export' => [
                         'url' => esc_url_raw(rest_url('intervention/v2/export')),

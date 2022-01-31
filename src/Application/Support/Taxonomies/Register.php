@@ -1,10 +1,10 @@
 <?php
 
-namespace Sober\Intervention\Application\Support\Taxonomies;
+namespace Jacoby\Intervention\Application\Support\Taxonomies;
 
-use Sober\Intervention\Application\Support\Taxonomies\Labels;
-use Sober\Intervention\Support\Arr;
-use Sober\Intervention\Support\Str;
+use Jacoby\Intervention\Application\Support\Taxonomies\Labels;
+use Jacoby\Intervention\Support\Arr;
+use Jacoby\Intervention\Support\Str;
 
 /**
  * Support/Taxonomies/Register
@@ -27,7 +27,7 @@ class Register
      *
      * @param string $taxonomy
      * @param string|array $config
-     * @return Sober\Intervention\Application\Support\Posttypes\Register
+     * @return Jacoby\Intervention\Application\Support\Posttypes\Register
      */
     public static function set($taxonomy = 'category', $config = false)
     {
@@ -76,8 +76,8 @@ class Register
     public function setLinks()
     {
         $links = $this->config->has('links') ?
-            $this->config->pull('links') :
-            'post';
+        $this->config->pull('links') :
+        'post';
 
         $this->links = is_string($links) ? [$links] : $links;
     }

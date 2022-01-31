@@ -1,8 +1,8 @@
 <?php
 
-namespace Sober\Intervention\Support\Middleware;
+namespace Jacoby\Intervention\Support\Middleware;
 
-use Sober\Intervention\Support\Str;
+use Jacoby\Intervention\Support\Str;
 
 /**
  * Middleware/InterventionToWordPress

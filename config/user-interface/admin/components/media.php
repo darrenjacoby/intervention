@@ -5,7 +5,7 @@
  * @see Intervention
  * @see UserInterface
  */
-namespace Sober\Intervention;
+namespace Jacoby\Intervention;
 
 /**
  * Media
@@ -27,12 +27,12 @@ return [
             'tabs:group' => ['screen-options', 'help'],
             'pagination:number',
             'search',
-            'mode:select' => ['grid', 'list'],
+            'mode:select[Mode]' => ['grid', 'list'],
             // 'mode' => (string) 'grid' or 'list',
             'filter:group' => ['type', 'date'],
             'actions',
-            'list.cols' => ['author', 'uploaded-to', 'comments', 'date'],
-            'list.actions' => ['edit', 'delete', 'view'],
+            'list.cols:group' => ['author', 'uploaded-to', 'comments', 'date'],
+            'list.actions:group' => ['edit', 'delete', 'view'],
             'list.count',
         ],
         'add:hierachical' => [

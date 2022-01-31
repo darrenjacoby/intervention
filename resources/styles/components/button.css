@@ -1,0 +1,50 @@
+/**
+ * <Button />
+ */
+.components-button {
+  color: theme('colors.gray-50');
+}
+
+.components-button:disabled,
+.components-button[aria-disabled='true'] {
+  opacity: 1;
+}
+
+.components-button.is-blank {
+  margin: 0 -2px;
+  padding: 0 2px;
+  color: theme('colors.primary-10');
+  text-decoration: underline;
+
+  &:hover {
+    color: theme('colors.primary-10');
+  }
+
+  &:last-of-type:focus {
+    color: theme('colors.primary-10');
+  }
+}
+
+.components-button.is-blank.is-warning {
+  color: theme('colors.gray-50');
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: theme('colors.red');
+  }
+
+  &:focus:not(:disabled) {
+    box-shadow: 0 0 0 var(--wp-admin-border-width-focus) theme('colors.red');
+  }
+}
+
+.components-button.is-tertiary {
+  margin: 0 -1px;
+  padding: 6px 4px;
+}
+
+.components-button.is-secondary:active:not(:disabled),
+.components-button.is-tertiary:active:not(:disabled) {
+  background-color: theme('colors.white');
+}

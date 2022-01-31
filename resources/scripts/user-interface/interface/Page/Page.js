@@ -5,7 +5,7 @@
  */
 const Page = ({ children }) => {
   return (
-    <div className="bg-white flex-1 flex flex-wrap w-full">
+    <div className="bg-white lg:flex-1 flex flex-wrap w-full">
       {/*<div className="mx-16 sm:mx-[28px]">*/}
       {/*
       <h1

@@ -1,6 +1,6 @@
 <?php
 
-namespace Sober\Intervention;
+namespace Jacoby\Intervention;
 
 $common = require_once 'components/common.php';
 $dashboard = require_once 'components/dashboard.php';

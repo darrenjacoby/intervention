@@ -4,7 +4,7 @@
  *
  * @see Application/OptionsApi
  */
-namespace Sober\Intervention;
+namespace Jacoby\Intervention;
 
 return [
     'general.site-title' => 'blogname',

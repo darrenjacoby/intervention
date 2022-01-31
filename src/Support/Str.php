@@ -1,6 +1,6 @@
 <?php
 
-namespace Sober\Intervention\Support;
+namespace Jacoby\Intervention\Support;
 
 /**
  * String

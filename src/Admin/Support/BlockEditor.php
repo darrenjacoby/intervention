@@ -1,10 +1,10 @@
 <?php
 
-namespace Sober\Intervention\Admin\Support;
+namespace Jacoby\Intervention\Admin\Support;
 
-use function Sober\Intervention\mix;
-use Sober\Intervention\Support\Arr;
-use Sober\Intervention\Support\Composer;
+use function Jacoby\Intervention\mix;
+use Jacoby\Intervention\Support\Arr;
+use Jacoby\Intervention\Support\Composer;
 
 /**
  * Support/BlockEditor
@@ -25,7 +25,7 @@ class BlockEditor
      * Interface
      *
      * @param array $config
-     * @return Sober\Intervention\Admin\Support\BlockEditor
+     * @return Jacoby\Intervention\Admin\Support\BlockEditor
      */
     public static function set($config = false)
     {

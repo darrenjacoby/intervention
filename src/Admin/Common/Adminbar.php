@@ -1,10 +1,10 @@
 <?php
 
-namespace Sober\Intervention\Admin\Common;
+namespace Jacoby\Intervention\Admin\Common;
 
-use Sober\Intervention\Support\Arr;
-use Sober\Intervention\Support\Composer;
-use Sober\Intervention\Support\Str;
+use Jacoby\Intervention\Support\Arr;
+use Jacoby\Intervention\Support\Composer;
+use Jacoby\Intervention\Support\Str;
 
 /**
  * Common/Adminbar
@@ -85,7 +85,7 @@ class Adminbar
             add_action('admin_head', function () {
                 echo '
                 <style>
-                    #wpadminbar #wp-admin-bar-my-account a::before, 
+                    #wpadminbar #wp-admin-bar-my-account a::before,
                     #wpadminbar #wp-admin-bar-my-account.with-avatar > a img,
                     #wpadminbar #wp-admin-bar-my-account.without-avatar > a img {display: none}
                 </style>';

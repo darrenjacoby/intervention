@@ -5,7 +5,7 @@ declare (strict_types = 1);
 use Isolated\Symfony\Component\Finder\Finder;
 
 return [
-    'prefix' => 'Sober\Intervention',
+    'prefix' => 'Jacoby\Intervention',
 
     // https://github.com/humbug/php-scoper#finders-and-paths
     'finders' => [
@@ -27,7 +27,7 @@ return [
         ]),
     ],
     'whitelist' => [
-        'Sober\Intervention\*',
+        'Jacoby\Intervention\*',
     ],
     'patchers' => [
         function ($file_path, $prefix, $contents) {
@@ -42,11 +42,11 @@ return [
              * collections and php-scoper.
              */
             if (strpos($file_path, 'vendor/illuminate/collections/helpers.php')) {
-                $contents = str_replace('namespace Sober\\Intervention', 'namespace Sober\\Intervention\\Illuminate\\Support', $contents);
+                $contents = str_replace('namespace Jacoby\\Intervention', 'namespace Jacoby\\Intervention\\Illuminate\\Support', $contents);
             }
 
             if (strpos($file_path, 'vendor/illuminate/collections/Traits/EnumeratesValues.php')) {
-                $contents = str_replace('data_get(', '\\Sober\\Intervention\\Illuminate\\Support\data_get(', $contents);
+                $contents = str_replace('data_get(', '\\Jacoby\\Intervention\\Illuminate\\Support\data_get(', $contents);
             }
             return $contents;
         },

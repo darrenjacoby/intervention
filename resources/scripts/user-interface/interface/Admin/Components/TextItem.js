@@ -1,7 +1,14 @@
 import { useAtom } from 'jotai';
 import { useState } from '@wordpress/element';
 import { TextControl, Button } from '@wordpress/components';
-import { Row, RowKey, RowValue, RowValueUndo, RowState } from './Row';
+import {
+  Row,
+  RowKey,
+  RowValue,
+  RowValueUndo,
+  RowValueUndoIn,
+  RowState,
+} from './Row';
 import {
   selectedIndexDataAtom,
   selectedIndexDataComponentAtom,
@@ -54,10 +61,6 @@ const TextItem = ({ item: key, type = 'text' }) => {
    * @param {string|number} value
    */
   const handler = (value) => {
-    if (immutable) {
-      return;
-    }
-
     if (type === 'number') {
       value = value <= 0 ? '' : Number(value);
     }
@@ -70,8 +73,8 @@ const TextItem = ({ item: key, type = 'text' }) => {
    * Render
    */
   return (
-    <Row item={key}>
-      <RowState state={state} immutable={immutable} />
+    <Row item={key} immutable={immutable}>
+      <RowState state={state} />
       <RowKey>{interventionKey}</RowKey>
       <RowValue>
         <TextControl
@@ -80,13 +83,12 @@ const TextItem = ({ item: key, type = 'text' }) => {
           value={state}
           placeholder={__(getKeyParams(key))}
           type={type}
-          disabled={immutable}
           onChange={(value) => handler(value)}
         />
         {immutable === false && state !== '' && (
           <RowValueUndo>
             <Button className="is-secondary" onClick={() => handler('')}>
-              {__('Undo')}
+              <RowValueUndoIn />
             </Button>
           </RowValueUndo>
         )}
