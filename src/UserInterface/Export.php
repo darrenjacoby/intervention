@@ -160,7 +160,7 @@ class Export
         /**
          * Merge database and config file
          */
-        $admin = Arr::collect($database)->mergeRecursive($config);
+        $admin = $database ? Arr::collect($database)->mergeRecursive($config) : Arr::collect($config);
 
         /**
          * Filter `$this->selected`.
@@ -200,7 +200,10 @@ class Export
         /**
          * Get database options or an empty array.
          */
-        $database = Arr::collect(get_option('intervention_admin') ?? [])->keys();
+        $database = [];
+        if (get_option('intervention_admin')) {
+            $database = Arr::collect(get_option('intervention_admin'))->keys();
+        }
 
         /**
          * Get all admin options by merging the config file with the database

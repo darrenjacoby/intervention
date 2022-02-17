@@ -21,8 +21,9 @@ const DeleteRoleGroup = () => {
   const containsApplied = Object.keys(selectedIndexData.components).length > 0;
 
   /**
+   * Delete
    *
-   * @returns
+   * @returns null
    */
   const del = () => {
     if (containsApplied) {

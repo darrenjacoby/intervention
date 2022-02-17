@@ -1,5 +1,5 @@
 import { useAtom } from 'jotai';
-import { CustomSelectControl } from '@wordpress/components';
+import { Disabled, CustomSelectControl } from '@wordpress/components';
 import { dataAtom, selectedIndexAtom } from '../../../atoms/admin';
 import { __ } from '../../../utils/wp';
 
@@ -49,20 +49,40 @@ const RoleGroupDropdown = ({ stateHead }) => {
   };
 
   const value = options.find((option) => option.key === selectedIndex);
-  const valueNone = { key: selectedIndex, name: 'none' };
+  const valueNone = { key: selectedIndex, name: 'select user roles' };
+
+  const Dropdown = () => {
+    return (
+      <CustomSelectControl
+        label="Route"
+        hideLabelFromVision={true}
+        value={value.name !== '' ? value : valueNone}
+        options={options}
+        onChange={({ selectedItem }) => handler(selectedItem)}
+        className="rolegroup-dropdown"
+      />
+    );
+  };
 
   /**
    * Render
    */
   return (
-    <CustomSelectControl
-      label="Route"
-      hideLabelFromVision={true}
-      value={value.name !== '' ? value : valueNone}
-      options={options}
-      onChange={({ selectedItem }) => handler(selectedItem)}
-      className="rolegroup-dropdown"
-    />
+    <>
+      {stateHead.isNoData && (
+        <Disabled className="rolegroup-dropdown-disabled">
+          <Dropdown />
+        </Disabled>
+      )}
+
+      {stateHead.isNoData === false && value.name === '' && (
+        <div className="rolegroup-dropdown-disabled">
+          <Dropdown />
+        </div>
+      )}
+
+      {stateHead.isNoData === false && value.name !== '' && <Dropdown />}
+    </>
   );
 };
 

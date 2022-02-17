@@ -22,8 +22,11 @@ const Toolbar = ({ children, autoHeight = false }) => {
         border-b
         border-gray-5
         bg-white
-        z-10
-        ${autoHeight === true ? 'pt-16 pb-12 lg:py-0 lg:h-[50px]' : 'h-[50px]'}
+        ${
+          autoHeight === true
+            ? 'pt-16 pb-12 lg:py-0 lg:h-[50px]'
+            : 'h-[50px] z-10'
+        }
       `}
     >
       {children}

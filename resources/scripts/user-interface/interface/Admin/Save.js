@@ -74,6 +74,16 @@ const setRoleKeyOrder = (data, findSelectedIndex) => {
 };
 
 /**
+ * Is No Middleware Data
+ *
+ * @param {object} data
+ * @returns {boolean}
+ */
+const isNoMiddlewareData = (data) => {
+  return Object.keys(data).length === 1 && Object.keys(data).includes('');
+};
+
+/**
  * Save
  *
  * @description save `admin` options to the WordPress database.
@@ -81,8 +91,8 @@ const setRoleKeyOrder = (data, findSelectedIndex) => {
  * @returns <Save />
  */
 const Save = ({ stateHead }) => {
-  const [, setQuery] = useAtom(queryAtom);
-  const [data, setData] = useAtom(dataAtom);
+  const [queryData, setQuery] = useAtom(queryAtom);
+  const [data] = useAtom(dataAtom);
   const [dangerousSelectedIndex, setSelectedIndex] = useAtom(selectedIndexAtom);
   const [path, setPath] = useAtom(pathAtom);
   const [isBlocking] = useAtom(isBlockingAtom);
@@ -99,9 +109,15 @@ const Save = ({ stateHead }) => {
   /**
    * Middleware
    *
-   * @description remove immutable components before saving.
+   * @description remove immutable components before saving and merge matching roles.
    *
    * @return {object}
+   *   {
+   *      $role: {
+   *            roles: [ $roles, $immutable (true|false) ]},
+   *            components: { $component: true|false }
+   *        }
+   *    }
    */
   const middleware = () =>
     data.reduce((carry, { roles, components }) => {
@@ -147,15 +163,22 @@ const Save = ({ stateHead }) => {
    */
   const mutation = useMutation(() => {
     // save some data from the current role group to restore state if a merge takes place.
+    console.log({
+      dangerousSelectedIndex: data[dangerousSelectedIndex].roles[0].join(),
+    });
     const savedRoleString = data[dangerousSelectedIndex].roles[0].join();
     const savedPath = path[dangerousSelectedIndex];
+    const middlewareData = middleware();
+    const sanitizedMiddlewareData = isNoMiddlewareData(middlewareData)
+      ? ''
+      : middlewareData;
 
     // post to the api with sanitized `middleware` and action `save`.
     return (
       apiFetch({
         url: intervention.route.admin.url,
         method: 'POST',
-        data: { data: middleware(), save: true },
+        data: { data: sanitizedMiddlewareData, save: true },
       })
         // the order that the atoms are updated matters as some updates require prior values.
         .then((res) => {
@@ -164,7 +187,10 @@ const Save = ({ stateHead }) => {
           setQuery(sorted.data);
           setPath(savedPath);
           setButtonText(__('Save'));
-          stateHead.reset();
+
+          if (isNoMiddlewareData(middlewareData) === false) {
+            stateHead.reset();
+          }
         })
     );
   });
@@ -188,7 +214,10 @@ const Save = ({ stateHead }) => {
      * @returns {boolean}
      */
     const emptyRoleGroupFound = () => {
-      return Object.keys(middleware()).includes('');
+      return (
+        Object.keys(middleware()).includes('') &&
+        Object.keys(middleware()).length > 1
+      );
     };
 
     /**

@@ -8,7 +8,7 @@ import {
   ToolbarContent,
 } from '../Page/Toolbar';
 import { RoleGroupDropdown } from './RoleGroups/RoleGroupDropdown';
-import { RolesRoleGroup } from './RoleGroups/RolesRoleGroup';
+import { EditRoleGroup } from './RoleGroups/EditRoleGroup';
 import { NewRoleGroup } from './RoleGroups/NewRoleGroup';
 import { DeleteRoleGroup } from './RoleGroups/DeleteRoleGroup';
 import { Save } from './Save';
@@ -50,6 +50,9 @@ const Head = () => {
   const [, immutable] = data[selectedIndex].roles;
   const [isEditing, setIsEditing] = useState(false);
   const [isNew, setIsNew] = useState(false);
+  const [isNoData, setIsNoData] = useState(false);
+
+  console.log({ DATA: data });
 
   /**
    * Reset
@@ -60,7 +63,23 @@ const Head = () => {
   };
 
   /**
-   * Effect
+   * Effect: No Data
+   */
+  useEffect(() => {
+    // check for `data` length
+    // check for first item `roles` `[0]`(1), first `roles` item `[0]`(2), and finally the role array `[0]`(2)
+    // check for first item `components` length
+    const state = data.length === 1 && data[0].roles[0][0] === '';
+    /*
+    if (isNoData === true && isNoData !== state) {
+      setIsEditing(true);
+    }
+    */
+    setIsNoData(state);
+  }, [data]);
+
+  /**
+   * Effect: Is Editing
    */
   useEffect(() => {
     if (isNew === true) {
@@ -78,63 +97,79 @@ const Head = () => {
   };
 
   /**
+   * Render Editing
+   *
+   * @returns {boolean}
+   */
+  const renderEditing = () => {
+    return (isNoData === true || isEditing === true) && immutable === false;
+  };
+
+  /**
    * Render
    */
   return (
     <>
       <Toolbar>
         <ToolbarFlex>
-          <div className="flex items-center">
-            <RoleGroupDropdown stateHead={{ setIsNew, reset }} />
-          </div>
-          <ToolbarContent>
-            {immutable && (
-              <>
-                <div
-                  className="
-                  ml-12
-                  mr-8
-                  w-1
-                  h-full
-                  bg-gray-5"
-                ></div>
-                <span className="hidden lg:flex text-gray-50 items-center mr-12 text-13">
-                  {__('Hardcoded')}
-                </span>
-              </>
-            )}
-          </ToolbarContent>
+          <>
+            <div className="flex items-center">
+              <RoleGroupDropdown stateHead={{ setIsNew, reset, isNoData }} />
+            </div>
+            <ToolbarContent>
+              {immutable && (
+                <>
+                  <div
+                    className="
+                      ml-12
+                      mr-8
+                      w-1
+                      h-full
+                      bg-gray-5"
+                  ></div>
+                  <span className="hidden lg:flex text-gray-50 items-center mr-12 text-13">
+                    {__('Hardcoded')}
+                  </span>
+                </>
+              )}
+            </ToolbarContent>
+          </>
 
           {/*<RoleGroupDiffs />*/}
         </ToolbarFlex>
 
         <ToolbarContent>
-          {!immutable && !isNew && (
+          {isNoData === false && (
             <>
-              <Button className="is-secondary" onClick={() => handler()}>
-                <span className="hidden lg:inline">{__('Edit')}</span>
-                <Icon
-                  className="
-                    flex
-                    items-center
-                    justify-center
-                    text-16
-                    w-12
-                    lg:hidden
-                  "
-                  icon="edit"
-                />
-              </Button>
-              <div className="w-8"></div>
+              {!immutable && !isNew && (
+                <>
+                  <Button className="is-secondary" onClick={() => handler()}>
+                    <span className="hidden lg:inline">{__('Edit')}</span>
+                    <Icon
+                      className="
+                        flex
+                        items-center
+                        justify-center
+                        text-16
+                        w-12
+                        lg:hidden
+                      "
+                      icon="edit"
+                    />
+                  </Button>
+                  <div className="w-8"></div>
+                </>
+              )}
+
+              <NewRoleGroup stateHead={{ setIsNew, isNoData }} />
             </>
           )}
-          <NewRoleGroup stateHead={{ setIsNew }} />
           <ToolbarDivider />
           <Save stateHead={{ reset }} />
         </ToolbarContent>
       </Toolbar>
 
-      {isEditing && immutable === false && (
+      {renderEditing() && (
         <Toolbar autoHeight={true}>
           <div className="w-full h-full flex flex-wrap">
             <div className="w-full lg:w-auto flex h-full">
@@ -146,7 +181,7 @@ const Head = () => {
                   text-gray-90
                   font-500"
               >
-                <RolesRoleGroup />
+                <EditRoleGroup />
               </div>
 
               <div
@@ -160,9 +195,19 @@ const Head = () => {
                   bg-gray-2"
               ></div>
             </div>
-            <div className="h-full flex items-center text-gray-70 text-13 lg:text-14">
-              <DeleteRoleGroup />
-            </div>
+            {isNoData === false && (
+              <div
+                className="
+                  h-full
+                  flex
+                  items-center
+                  text-gray-70
+                  text-13
+                  lg:text-14"
+              >
+                <DeleteRoleGroup />
+              </div>
+            )}
           </div>
         </Toolbar>
       )}

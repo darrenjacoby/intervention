@@ -50,6 +50,8 @@ const Admin = () => {
     // refetchOnReconnect: false,
   });
 
+  console.log({ query: query });
+
   /**
    * State
    */
@@ -63,7 +65,14 @@ const Admin = () => {
    * @description set mutable `data` from `wordPressData` which is used for tracking diff purposes.
    */
   useEffect(() => {
+    /*
+    console.log({ query: query.status });
+    if (query.isSuccess) {
+      setQuery(query.data);
+    }
+    */
     setQuery(query.data);
+
     // refetch on unmount to ensure query has the latest data
     return () => {
       query.refetch();
@@ -93,9 +102,9 @@ const Admin = () => {
       </Sidebar>
 
       <div className="w-full flex-1">
-        <Head />
         {query.isSuccess && (
           <>
+            <Head />
             {show === 'all' && <Components />}
             {show === 'applied' && <ComponentsApplied />}
           </>

@@ -8,7 +8,7 @@ import { __ } from '../../../utils/wp';
  *
  * @returns <AddRoleGroup />
  */
-const NewRoleGroup = ({ stateHead }) => {
+const NewRoleGroup = ({ stateHead, noData }) => {
   const [data, setData] = useAtom(dataAtom);
   const [, setPath] = useAtom(pathAtom);
   const [, setSelectedIndex] = useAtom(selectedIndexAtom);
@@ -16,11 +16,12 @@ const NewRoleGroup = ({ stateHead }) => {
   const addRoleGroup = () => {
     const template = {
       roles: [['none'], false],
-      components: [],
+      components: {},
     };
-    const addGroup = [...data, ...[template]];
+    const addGroup =
+      stateHead.noData === true ? [...[template]] : [...data, ...[template]];
     setData(addGroup);
-    setSelectedIndex(data.length);
+    setSelectedIndex(addGroup.length - 1);
     setPath('');
     stateHead.setIsNew(true);
   };

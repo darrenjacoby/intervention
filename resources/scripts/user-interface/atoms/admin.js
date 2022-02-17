@@ -19,7 +19,7 @@ const sortRegisteredRoleKeys = [
  *
  * @description write function for setting the original query.
  */
-const initQuery = [{ roles: [[], false], components: [] }];
+const initQuery = [{ roles: [[''], false], components: {} }];
 const updateQueryAtom = atom(null);
 const queryAtom = atom(
   /**
@@ -59,7 +59,13 @@ const queryAtom = atom(
       }, []);
 
     const transformedUpdate = middleware();
-    set(updateQueryAtom, transformedUpdate);
+
+    /**
+     * If the array is empty, fallback to `initQuery`.
+     */
+    const safeTransformedUpdate =
+      transformedUpdate.length === 0 ? initQuery : transformedUpdate;
+    set(updateQueryAtom, safeTransformedUpdate);
 
     /**
      * Deep clone
@@ -98,6 +104,10 @@ const dataAtom = atom(
    * @param {function} update
    */
   (get, set, update) => {
+    if (update.length === 0) {
+      update = initQuery;
+    }
+
     set(updateDataAtom, update);
     set(isBlockingAtom, update);
   }

@@ -86,7 +86,10 @@ const Export = () => {
     suspense: true,
   });
 
-  const staticExportsAdminSorted = sortRolesKeys(queryAdminOptions.data) ?? [];
+  const staticExportsAdminSorted =
+    queryAdminOptions.data.length !== 0
+      ? sortRolesKeys(queryAdminOptions.data)
+      : [];
   const applicationKeys = Object.keys(stateFactory(staticExports.application));
   const session = exportSelectionSession() || applicationKeys;
 
@@ -175,26 +178,28 @@ const Export = () => {
           </SidebarCheckboxFlex>
         </SidebarGroup>
 
-        <SidebarGroup title={__('Admin')}>
-          <SidebarCheckboxFlex>
-            <SidebarCheckboxItem>
-              <CheckboxControl
-                label={__('Toggle All', 'intervention')}
-                checked={!isAllChecked(admin)}
-                onChange={() => setAdmin(writeAll(admin))}
-              />
-            </SidebarCheckboxItem>
-            {staticExportsAdminSorted.map(({ key, title }) => (
-              <SidebarCheckboxItem key={key}>
+        {staticExportsAdminSorted.length > 0 && (
+          <SidebarGroup title={__('Admin')}>
+            <SidebarCheckboxFlex>
+              <SidebarCheckboxItem>
                 <CheckboxControl
-                  label={__(title)}
-                  checked={admin[key] ?? false}
-                  onChange={(state) => setAdmin(write(admin, { key, state }))}
+                  label={__('Toggle All', 'intervention')}
+                  checked={!isAllChecked(admin)}
+                  onChange={() => setAdmin(writeAll(admin))}
                 />
               </SidebarCheckboxItem>
-            ))}
-          </SidebarCheckboxFlex>
-        </SidebarGroup>
+              {staticExportsAdminSorted.map(({ key, title }) => (
+                <SidebarCheckboxItem key={key}>
+                  <CheckboxControl
+                    label={__(title)}
+                    checked={admin[key] ?? false}
+                    onChange={(state) => setAdmin(write(admin, { key, state }))}
+                  />
+                </SidebarCheckboxItem>
+              ))}
+            </SidebarCheckboxFlex>
+          </SidebarGroup>
+        )}
       </Sidebar>
 
       {/* bugfix: w-full strangely wraps the sidebar on smaller screens, w-1/2 stops prismjs doing that */}

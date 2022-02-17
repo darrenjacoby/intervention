@@ -73,8 +73,10 @@ function getDatabase()
 {
     $option = get_option('intervention_admin');
     $read = [];
-    foreach ($option as $role => $array) {
-        $read['wp-admin.' . $role] = $array;
+    if ($option) {
+        foreach ($option as $role => $array) {
+            $read['wp-admin.' . $role] = $array;
+        }
     }
     return $read;
 }

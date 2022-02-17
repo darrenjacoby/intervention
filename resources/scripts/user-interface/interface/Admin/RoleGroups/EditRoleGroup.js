@@ -27,13 +27,13 @@ const getAliasedRoles = (roles) => {
 };
 
 /**
- * Role Group Button Group
+ * Edit Role Group
  *
  * @description Display role list using `registeredRoles` from WordPress.
  *
- * @return <RoleList>
+ * @return <EditRoleGroup>
  */
-const RolesRoleGroup = () => {
+const EditRoleGroup = () => {
   const [data] = useAtom(selectedIndexDataAtom);
   const [, setRole] = useAtom(selectedIndexDataRoleAtom);
   const [roles] = data.roles;
@@ -68,4 +68,4 @@ const RolesRoleGroup = () => {
   );
 };
 
-export { RolesRoleGroup };
+export { EditRoleGroup };

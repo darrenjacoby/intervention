@@ -24,7 +24,7 @@ const isHierachical = (k) => {
 const HierachicalApplied = ({ count }) => {
   return (
     <>
-      {count !== 0 && count !== null && (
+      {count !== 0 && count !== null && count !== undefined && (
         <div
           className="
             min-w-[48px]
