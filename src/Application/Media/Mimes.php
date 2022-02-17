@@ -50,6 +50,7 @@ class Mimes
     protected function hook()
     {
         add_action('upload_mimes', [$this, 'mimes']);
+        add_filter('wp_check_filetype_and_ext', [$this, 'checkFileType'], 10, 4);
     }
 
     /**
@@ -80,5 +81,29 @@ class Mimes
         }
 
         return $mimes->toArray();
+    }
+
+    /**
+     * Check Filetype
+     *
+     * Bug with WordPress 4.7+
+     *
+     * @link https://css-tricks.com/snippets/wordpress/allow-svg-through-wordpress-media-uploader/
+     * @link https://github.com/soberwp/intervention/issues/105
+     * @link https://developer.wordpress.org/reference/functions/wp_check_filetype_and_ext/
+     *
+     * @param array $data
+     * @param string $file
+     * @param string $filename
+     * @param string $mimes
+     */
+    public function checkFileType($data, $file, $filename, $mimes)
+    {
+        $wp_filetype = wp_check_filetype($filename, $mimes);
+        return [
+            'ext' => $wp_filetype['ext'],
+            'type' => $wp_filetype['type'],
+            'proper_filename' => $data['proper_filename'],
+        ];
     }
 }
