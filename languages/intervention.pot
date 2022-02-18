@@ -3,18 +3,14 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "X-Generator: babel-plugin-makepot\n"
 
-#: resources/scripts/user-interface/interface/Admin/Head.js:148
-msgid "Hardcoded"
+#: resources/scripts/user-interface/interface/Admin.js:85
+msgid "Show"
 msgstr ""
 
-#: resources/scripts/user-interface/interface/Admin/Head.js:161
-msgid "Edit"
+#: resources/scripts/user-interface/interface/Admin.js:89
+msgid "All"
 msgstr ""
 
-#: resources/scripts/user-interface/interface/Admin/Head.js:75
-msgid "New Role Group"
-msgstr ""
-
-#: resources/scripts/user-interface/interface/Admin/Head.js:83
-msgid "Less, But Better"
+#: resources/scripts/user-interface/interface/Admin.js:90
+msgid "Applied"
 msgstr ""

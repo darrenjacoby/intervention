@@ -2,10 +2,10 @@
 
 namespace Jacoby\Intervention\Admin\Appearance;
 
-use function Jacoby\Intervention\mix;
 use Jacoby\Intervention\Admin\SharedApi;
 use Jacoby\Intervention\Support\Arr;
 use Jacoby\Intervention\Support\Composer;
+use function Jacoby\Intervention\mix;
 
 /**
  * Appearance/Menus

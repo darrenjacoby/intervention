@@ -2,9 +2,9 @@
 
 namespace Jacoby\Intervention\Admin\Support;
 
-use function Jacoby\Intervention\mix;
 use Jacoby\Intervention\Support\Arr;
 use Jacoby\Intervention\Support\Composer;
+use function Jacoby\Intervention\mix;
 
 /**
  * Support/BlockEditor
