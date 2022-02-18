@@ -297,7 +297,7 @@ class Arr
              */
             if (count($key_arr) > 1) {
                 $key_first = array_shift($key_arr);
-                $key_next = join($key_arr, '.');
+                $key_next = join('.', $key_arr);
                 $carry[$key_first][$key_next] = $v;
             } else {
                 $carry[$k] = $v;

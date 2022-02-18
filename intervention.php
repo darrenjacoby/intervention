@@ -71,7 +71,7 @@ function getConfigFile()
 
 function getDatabase()
 {
-    $option = get_option('intervention_admin');
+    $option = get_option('intervention_admin', []);
     $read = [];
     if ($option) {
         foreach ($option as $role => $array) {
