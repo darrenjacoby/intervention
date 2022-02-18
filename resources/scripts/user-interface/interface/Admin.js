@@ -8,7 +8,7 @@ import { Head } from './Admin/Head';
 import { Components } from './Admin/Components';
 import { ComponentsApplied } from './Admin/ComponentsApplied';
 import { adminQuery } from '../queries';
-import { queryAtom } from '../atoms/admin';
+import { queryAtom, dataAtom } from '../atoms/admin';
 import { adminShowSession } from '../sessions';
 import { __ } from '../utils/wp';
 
@@ -50,13 +50,12 @@ const Admin = () => {
     // refetchOnReconnect: false,
   });
 
-  console.log({ query: query });
-
   /**
    * State
    */
   const session = adminShowSession();
   const [, setQuery] = useAtom(queryAtom);
+  const [data] = useAtom(dataAtom);
   const [show, setShow] = useState(session ? session : 'all');
 
   /**
@@ -65,12 +64,6 @@ const Admin = () => {
    * @description set mutable `data` from `wordPressData` which is used for tracking diff purposes.
    */
   useEffect(() => {
-    /*
-    console.log({ query: query.status });
-    if (query.isSuccess) {
-      setQuery(query.data);
-    }
-    */
     setQuery(query.data);
 
     // refetch on unmount to ensure query has the latest data
@@ -102,9 +95,10 @@ const Admin = () => {
       </Sidebar>
 
       <div className="w-full flex-1">
-        {query.isSuccess && (
+        <Head />
+
+        {Boolean(data.length) && (
           <>
-            <Head />
             {show === 'all' && <Components />}
             {show === 'applied' && <ComponentsApplied />}
           </>

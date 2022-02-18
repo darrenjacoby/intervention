@@ -69,19 +69,13 @@ const RoleGroupDropdown = ({ stateHead }) => {
    */
   return (
     <>
-      {stateHead.isNoData && (
-        <Disabled className="rolegroup-dropdown-disabled">
-          <Dropdown />
-        </Disabled>
-      )}
-
-      {stateHead.isNoData === false && value.name === '' && (
+      {value.name === '' && (
         <div className="rolegroup-dropdown-disabled">
           <Dropdown />
         </div>
       )}
 
-      {stateHead.isNoData === false && value.name !== '' && <Dropdown />}
+      {value.name !== '' && <Dropdown />}
     </>
   );
 };

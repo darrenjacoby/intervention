@@ -72,12 +72,12 @@
         },
         "installation-source": "dist",
         "autoload": {
-            "psr-4": {
-                "Jacoby\\Intervention\\Illuminate\\Support\\": ""
-            },
             "files": [
                 "helpers.php"
-            ]
+            ],
+            "psr-4": {
+                "Jacoby\\Intervention\\Illuminate\\Support\\": ""
+            }
         },
         "notification-url": "https://packagist.org/downloads/",
         "license": [

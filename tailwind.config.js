@@ -1,6 +1,5 @@
 module.exports = {
-  mode: 'jit',
-  purge: ['./resources/scripts/user-interface/**/*.js'],
+  content: ['./resources/scripts/user-interface/**/*.js'],
   /**
    * WordPress wp-admin tailwind theme.
    */

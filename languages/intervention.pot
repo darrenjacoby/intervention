@@ -3,40 +3,18 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "X-Generator: babel-plugin-makepot\n"
 
-#: resources/scripts/user-interface/interface/Admin.js:92
-msgid "Show"
-msgstr ""
-
-#: resources/scripts/user-interface/interface/Admin.js:96
-msgid "All"
-msgstr ""
-
-#: resources/scripts/user-interface/interface/Admin.js:97
-msgid "Applied"
-msgstr ""
-
-#: resources/scripts/user-interface/interface/Admin/Head.js:131
+#: resources/scripts/user-interface/interface/Admin/Head.js:148
 msgid "Hardcoded"
 msgstr ""
 
-#: resources/scripts/user-interface/interface/Admin/Head.js:147
+#: resources/scripts/user-interface/interface/Admin/Head.js:161
 msgid "Edit"
 msgstr ""
 
-#: resources/scripts/user-interface/interface/Admin/Save.js:202
-msgid "Saving"
+#: resources/scripts/user-interface/interface/Admin/Head.js:75
+msgid "New Role Group"
 msgstr ""
 
-#: resources/scripts/user-interface/interface/Admin/Save.js:208
-msgid "Save"
-msgstr ""
-
-#: resources/scripts/user-interface/interface/Admin/Save.js:241
-msgid ""
-"Empty role group found, please assign a role or delete the group before "
-"saving."
-msgstr ""
-
-#: resources/scripts/user-interface/interface/Admin/Save.js:253
-msgid "Found matching user groups, proceeding to save will merge groups."
+#: resources/scripts/user-interface/interface/Admin/Head.js:83
+msgid "Less, But Better"
 msgstr ""

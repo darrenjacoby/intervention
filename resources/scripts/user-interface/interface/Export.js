@@ -79,6 +79,7 @@ const Export = () => {
     exportAdminOptions,
     {
       suspense: true,
+      refetchOnMount: true,
     }
   );
 

@@ -7,19 +7,14 @@ const registeredRolesKeys = Object.keys(intervention.route.admin.data.roles);
 const allNotAdminRoleKeys = registeredRolesKeys.filter(
   (v) => v !== 'administrator'
 );
-/*
-const sortRegisteredRoleKeys = [
-  ...['all, all-not-administrator'],
-  ...registeredRolesKeys,
-];
-*/
 
 /**
  * Query
  *
  * @description write function for setting the original query.
  */
-const initQuery = [{ roles: [[''], false], components: {} }];
+// const initQuery = [{ roles: [[''], false], components: {} }];
+const initQuery = [];
 const updateQueryAtom = atom(null);
 const queryAtom = atom(
   /**
@@ -58,14 +53,16 @@ const queryAtom = atom(
         return carry;
       }, []);
 
-    const transformedUpdate = middleware();
+    const transformedUpdate = update.length !== 0 ? middleware() : [];
 
     /**
      * If the array is empty, fallback to `initQuery`.
      */
+    /*
     const safeTransformedUpdate =
       transformedUpdate.length === 0 ? initQuery : transformedUpdate;
-    set(updateQueryAtom, safeTransformedUpdate);
+      */
+    set(updateQueryAtom, transformedUpdate);
 
     /**
      * Deep clone
