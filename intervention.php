@@ -9,8 +9,6 @@ Author: Darren Jacoby
 Author URI: https://github.com/darrenjacoby
 License: MIT License
 License URI: https://opensource.org/licenses/MIT
-GitHub Plugin URI: soberwp/intervention
-GitHub Branch: master
  */
 namespace Jacoby\Intervention;
 
