@@ -12,7 +12,9 @@ License URI: https://opensource.org/licenses/MIT
 GitHub Plugin URI: soberwp/intervention
 GitHub Branch: master
  */
-namespace Sober\Intervention;
+namespace Jacoby\Intervention;
+
+use Jacoby\Intervention\Intervention;
 
 /**
  * Restrict direct access
@@ -28,8 +30,12 @@ define('INTERVENTION_TEXT_DOMAIN', 'intervention');
 /**
  * Support for Bedrock/Composer
  */
-if (!class_exists('Sober\Intervention\Intervention')) {
-    include file_exists($composer = __DIR__ . '/vendor/autoload.php') ? $composer : __DIR__ . '/dist/autoload.php';
+if (!class_exists('Jacoby\Intervention\Intervention')) {
+    if (is_file(__DIR__ . '/vendor/autoload.php')) {
+        require_once __DIR__ . '/vendor/autoload.php';
+    }
+
+    // include file_exists($composer = __DIR__ . '/vendor/autoload.php') ? $composer : __DIR__ . '/build/vendor/autoload.php';
 }
 
 /**
@@ -42,7 +48,7 @@ include __DIR__ . '/mix.php';
  *
  * @return array
  */
-function get()
+function getConfigFile()
 {
     $theme = get_stylesheet_directory();
 
@@ -51,7 +57,7 @@ function get()
     $theme . '/intervention.php';
 
     $config = has_filter('sober/intervention/return') ?
-    apply_filters('sober/intervention/return', rtrim($default)) :
+    apply_filters('sober/intervention/return', rtrim($path)) :
     $default;
 
     if (!file_exists($config)) {
@@ -63,8 +69,21 @@ function get()
     return $read === 1 ? false : $read;
 }
 
+function getDatabase()
+{
+    $option = get_option('intervention_admin', []);
+    $read = [];
+    if ($option) {
+        foreach ($option as $role => $array) {
+            $read['wp-admin.' . $role] = $array;
+        }
+    }
+    return $read;
+}
+
 /**
  * Initialize
  */
-new Intervention(get());
+new Intervention(getConfigFile(), true);
+new Intervention(getDatabase());
 new UserInterface();

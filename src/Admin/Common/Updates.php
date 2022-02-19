@@ -1,9 +1,9 @@
 <?php
 
-namespace Sober\Intervention\Admin\Common;
+namespace Jacoby\Intervention\Admin\Common;
 
-use Sober\Intervention\Admin\Support\Menu;
-use Sober\Intervention\Support\Arr;
+use Jacoby\Intervention\Admin\Support\Menu;
+use Jacoby\Intervention\Support\Arr;
 
 /**
  * Common/Updates

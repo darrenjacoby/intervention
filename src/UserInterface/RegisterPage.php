@@ -1,6 +1,6 @@
 <?php
 
-namespace Sober\Intervention\UserInterface;
+namespace Jacoby\Intervention\UserInterface;
 
 /**
  * UserInterface/RegisterPage

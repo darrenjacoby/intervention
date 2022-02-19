@@ -3,26 +3,14 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "X-Generator: babel-plugin-makepot\n"
 
-#: resources/scripts/user-interface/components/Page/ImportNotice.js:11
-msgid "Intervention and the database match"
-msgstr ""
-
-#: resources/scripts/user-interface/components/Page/ImportNotice.js:30
-msgid "Imported %1$s and %2$s failed"
-msgstr ""
-
-#: resources/scripts/user-interface/components/Page/ImportNotice.js:45
-msgid "Imported %s"
-msgstr ""
-
-#: resources/scripts/user-interface/components/Page/ImportNotice.js:65
-msgid "Found %s differences between Intervention and the database"
-msgstr ""
-
-#: resources/scripts/user-interface/components/Page/ImportNotice.js:70
+#: resources/scripts/user-interface/interface/Admin.js:85
 msgid "Show"
 msgstr ""
 
-#: resources/scripts/user-interface/components/Page/ImportRowEmpty.js:20
-msgid "Nothing found"
+#: resources/scripts/user-interface/interface/Admin.js:89
+msgid "All"
+msgstr ""
+
+#: resources/scripts/user-interface/interface/Admin.js:90
+msgid "Applied"
 msgstr ""

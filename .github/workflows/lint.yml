@@ -11,4 +11,4 @@ jobs:
         with:
           php-version: 7.4
       - uses: ramsey/composer-install@v1
-      - run: composer lint
+      - run: composer lint:php

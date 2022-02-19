@@ -1,11 +1,11 @@
 <?php
 
-namespace Sober\Intervention\Admin\Appearance;
+namespace Jacoby\Intervention\Admin\Appearance;
 
-use Sober\Intervention\Admin\SharedApi;
-use Sober\Intervention\Support\Arr;
-use Sober\Intervention\Support\Composer;
-use function Sober\Intervention\mix;
+use Jacoby\Intervention\Admin\SharedApi;
+use Jacoby\Intervention\Support\Arr;
+use Jacoby\Intervention\Support\Composer;
+use function Jacoby\Intervention\mix;
 
 /**
  * Appearance/Menus
@@ -219,7 +219,7 @@ class Menus
                 ->forget('appearance.menus.max-depth');
         }
 
-        wp_register_script('intervention/scripts/appearance-menus', mix('dist/assets/scripts/appearance-menus.js'));
+        wp_register_script('intervention/scripts/appearance-menus', mix('assets/scripts/appearance-menus.js'));
         wp_localize_script('intervention/scripts/appearance-menus', 'interventionAppearanceMenus', $menus->toArray());
         wp_enqueue_script('intervention/scripts/appearance-menus');
     }

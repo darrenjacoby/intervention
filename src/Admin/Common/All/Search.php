@@ -1,10 +1,10 @@
 <?php
 
-namespace Sober\Intervention\Admin\Common\All;
+namespace Jacoby\Intervention\Admin\Common\All;
 
-use Sober\Intervention\Admin\Support\All\Search as SearchSupport;
-use Sober\Intervention\Support\Arr;
-use Sober\Intervention\Support\Composer;
+use Jacoby\Intervention\Admin\Support\All\Search as SearchSupport;
+use Jacoby\Intervention\Support\Arr;
+use Jacoby\Intervention\Support\Composer;
 
 /**
  * Common/All/Search

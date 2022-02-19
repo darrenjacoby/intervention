@@ -1,9 +1,8 @@
 <?php
 
-namespace Sober\Intervention\Application\Support\Posttypes;
+namespace Jacoby\Intervention\Application\Support\Posttypes;
 
-use Sober\Intervention\Support\Arr;
-use Sober\Intervention\Support\Composer;
+use Jacoby\Intervention\Support\Arr;
 
 /**
  * Support/Posttypes/Register
@@ -25,7 +24,7 @@ class Register
      *
      * @param string $posttype
      * @param string|array $config
-     * @return Sober\Intervention\Application\Support\Posttypes\Register
+     * @return Jacoby\Intervention\Application\Support\Posttypes\Register
      */
     public static function set($posttype = 'post', $config = false)
     {
@@ -71,13 +70,13 @@ class Register
     /*
     public function setSupports()
     {
-        if ($this->config->has('supports')) {
-            $supports = Arr::transformKeysToDashcase($this->config->get('supports'));
-            $keys = Arr::collect($supports)->keys()->toArray();
-            $this->config->put('supports', $keys);
-        }
+    if ($this->config->has('supports')) {
+    $supports = Arr::transformKeysToDashcase($this->config->get('supports'));
+    $keys = Arr::collect($supports)->keys()->toArray();
+    $this->config->put('supports', $keys);
     }
-    */
+    }
+     */
 
     /**
      * Set Template
@@ -89,15 +88,15 @@ class Register
     /*
     public function setTemplate()
     {
-        if ($this->config->has('template')) {
-            $template = $this->config->pull('template');
-            $template = Arr::transform($template, function ($k, $v) {
-                return $v === true ? [0, $k] : [$k, $v];
-            });
-            $this->config->put('template', $template);
-        }
+    if ($this->config->has('template')) {
+    $template = $this->config->pull('template');
+    $template = Arr::transform($template, function ($k, $v) {
+    return $v === true ? [0, $k] : [$k, $v];
+    });
+    $this->config->put('template', $template);
     }
-    */
+    }
+     */
 
     /**
      * Set Taxonomies
@@ -109,19 +108,19 @@ class Register
     /*
     public function setTaxonomies()
     {
-        $taxonomies = $this->config->has('taxonomies') ?
-            $this->config->pull('taxonomies') :
-            false;
+    $taxonomies = $this->config->has('taxonomies') ?
+    $this->config->pull('taxonomies') :
+    false;
 
-        if ($taxonomies) {
-            $taxonomies = is_string($taxonomies) ?
-                [$taxonomies] :
-                Arr::collect($taxonomies)->keys()->toArray();
+    if ($taxonomies) {
+    $taxonomies = is_string($taxonomies) ?
+    [$taxonomies] :
+    Arr::collect($taxonomies)->keys()->toArray();
 
-            $this->config->put('taxonomies', $taxonomies);
-        }
+    $this->config->put('taxonomies', $taxonomies);
     }
-    */
+    }
+     */
 
     /**
      * Register

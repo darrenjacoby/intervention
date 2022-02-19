@@ -184,10 +184,10 @@ Return `application`.
 return [
     'application' => [
         'general' => [
-            'tagline' => 'Intervention',
-            'wp-address' => 'https://soberwp.com/wp',
-            'site-address' => 'https://soberwp.com',
-            'admin-email' => 'example@soberwp.com',
+            'tagline' => 'Intervention Example',
+            'wp-address' => 'https://example.com/wp',
+            'site-address' => 'https://example.com',
+            'admin-email' => 'example@example.com',
             'membership' => false,
             'default-role' => 'editor',
             'language' => 'en_US',

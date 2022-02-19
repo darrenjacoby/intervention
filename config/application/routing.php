@@ -5,7 +5,7 @@
  * @see Intervention
  * @see Application
  */
-namespace Sober\Intervention;
+namespace Jacoby\Intervention;
 
 return [
     'posttypes' => 'Application\Posttypes',

@@ -1,6 +1,6 @@
 <?php
 
-namespace Sober\Intervention\Support;
+namespace Jacoby\Intervention\Support;
 
 /**
  * Composer
@@ -68,8 +68,8 @@ class Composer
             ->map(function ($item) use ($prefix) {
                 if (!$this->config->get($prefix . $item)) {
                     $value = !is_bool($this->config->get($this->key)) ?
-                        $this->config->get($this->key) :
-                        true;
+                    $this->config->get($this->key) :
+                    true;
                     $this->config->put($prefix . $item, $value);
                 }
             });

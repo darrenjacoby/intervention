@@ -1,10 +1,10 @@
 <?php
 /**
  * Return array of key to WordPress menu positions.
- * 
+ *
  * @see Admin/Support/Menu
  */
-namespace Sober\Intervention;
+namespace Jacoby\Intervention;
 
 return [
     'dashboard' => 2,

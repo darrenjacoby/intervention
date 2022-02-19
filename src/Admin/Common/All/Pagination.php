@@ -1,10 +1,10 @@
 <?php
 
-namespace Sober\Intervention\Admin\Common\All;
+namespace Jacoby\Intervention\Admin\Common\All;
 
-use Sober\Intervention\Admin\Support\All\Pagination as PaginationSupport;
-use Sober\Intervention\Admin\Support\Tabs;
-use Sober\Intervention\Support\Arr;
+use Jacoby\Intervention\Admin\Support\All\Pagination as PaginationSupport;
+use Jacoby\Intervention\Admin\Support\Tabs;
+use Jacoby\Intervention\Support\Arr;
 
 /**
  * Common/All/Pagination

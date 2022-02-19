@@ -1,8 +1,8 @@
 <?php
 
-namespace Sober\Intervention\Application\Support\Taxonomies;
+namespace Jacoby\Intervention\Application\Support\Taxonomies;
 
-use Sober\Intervention\Support\Arr;
+use Jacoby\Intervention\Support\Arr;
 
 /**
  * Support/Taxonomies/Remove
@@ -22,7 +22,7 @@ class Remove
      * Interface
      *
      * @param string $taxonomy
-     * @return Sober\Intervention\Application\Support\Taxonomy\Register
+     * @return Jacoby\Intervention\Application\Support\Taxonomy\Register
      */
     public static function set($taxonomy = 'category')
     {

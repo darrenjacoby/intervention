@@ -1,10 +1,10 @@
 <?php
 
-namespace Sober\Intervention\Admin\Comments;
+namespace Jacoby\Intervention\Admin\Comments;
 
-use Sober\Intervention\Admin\SharedApi;
-use Sober\Intervention\Support\Arr;
-use Sober\Intervention\Support\Composer;
+use Jacoby\Intervention\Admin\SharedApi;
+use Jacoby\Intervention\Support\Arr;
+use Jacoby\Intervention\Support\Composer;
 
 /**
  * Comments/All

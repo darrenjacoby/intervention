@@ -1,10 +1,10 @@
 <?php
 
-namespace Sober\Intervention\Admin\Support;
+namespace Jacoby\Intervention\Admin\Support;
 
-use Sober\Intervention\Support\Arr;
-use Sober\Intervention\Support\Config;
-use Sober\Intervention\Support\Str;
+use Jacoby\Intervention\Support\Arr;
+use Jacoby\Intervention\Support\Config;
+use Jacoby\Intervention\Support\Str;
 
 /**
  * Support/Tabs
@@ -63,7 +63,7 @@ class Tabs
      * Interface
      *
      * @param string $key
-     * @return Sober\Intervention\Admin\Support\Tabs
+     * @return Jacoby\Intervention\Admin\Support\Tabs
      */
     public static function set($key = false)
     {

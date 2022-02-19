@@ -1,10 +1,10 @@
 <?php
 
-namespace Sober\Intervention\Application;
+namespace Jacoby\Intervention\Application;
 
-use Sober\Intervention\Application\Posttypes;
-use Sober\Intervention\Support\Arr;
-use Sober\Intervention\Support\Composer;
+use Jacoby\Intervention\Application\Posttypes;
+use Jacoby\Intervention\Support\Arr;
+use Jacoby\Intervention\Support\Composer;
 
 /**
  * Posts

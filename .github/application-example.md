@@ -14,7 +14,7 @@ return [
             'package' => true,
             'package.links' => 'documentation',
         ],
-        'theme' => 'soberwp',
+        'theme' => 'theme-name',
         'menus' =>[
             'primary_navigation' => false,
             'main' => true,
@@ -24,13 +24,13 @@ return [
             'regenerate-thumbnails' => true,
         ],
         'general' => [
-            'site-title' => 'soberwp',
-            'tagline' => 'Tools for WordPress',
-            'wp-address' => 'https://soberwp.com/wp',
-            'site-address' => 'https://soberwp.com',
-            'admin-email' => 'example@soberwp.com',
-            'email-from' => 'app@soberwp.com'
-            'email-from-name' => 'soberwp'
+            'site-title' => 'example',
+            'tagline' => 'Intervention Example',
+            'wp-address' => 'https://example.com/wp',
+            'site-address' => 'https://example.com',
+            'admin-email' => 'example@example.com',
+            'email-from' => 'app@example.com'
+            'email-from-name' => 'example'
             'membership' => true,
             'default-role' => 'editor',
             'language' => 'en_US',
@@ -43,9 +43,9 @@ return [
             'emoji' => false,
             'default-category' => 10,
             'default-post-format' => 'standard',
-            'post-via-email.server' => 'mail.soberwp.com',
+            'post-via-email.server' => 'mail.example.com',
             'post-via-email.port' => 100,
-            'post-via-email.login' => 'example@soberwp.com',
+            'post-via-email.login' => 'example@example.com',
             'post-via-email.pass' => 'secret',
             'post-via-email.default-category' => 10,
             'update-services' => 'http://rpc.pingomatic.com/',

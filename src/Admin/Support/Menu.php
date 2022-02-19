@@ -1,9 +1,9 @@
 <?php
 
-namespace Sober\Intervention\Admin\Support;
+namespace Jacoby\Intervention\Admin\Support;
 
-use Sober\Intervention\Support\Config;
-use Sober\Intervention\Support\Str;
+use Jacoby\Intervention\Support\Config;
+use Jacoby\Intervention\Support\Str;
 
 /**
  * Support/Menu
@@ -26,7 +26,7 @@ class Menu
      * Interface
      *
      * @param string $key
-     * @return Sober\Intervention\Admin\Support\Menu
+     * @return Jacoby\Intervention\Admin\Support\Menu
      */
     public static function set($key = false)
     {

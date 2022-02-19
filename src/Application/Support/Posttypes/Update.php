@@ -1,8 +1,8 @@
 <?php
 
-namespace Sober\Intervention\Application\Support\Posttypes;
+namespace Jacoby\Intervention\Application\Support\Posttypes;
 
-use Sober\Intervention\Support\Arr;
+use Jacoby\Intervention\Support\Arr;
 
 /**
  * Support/Posttypes/Update
@@ -23,7 +23,7 @@ class Update
      *
      * @param string $posttype
      * @param string|array $config
-     * @return Sober\Intervention\Application\Support\Posttypes\Register
+     * @return Jacoby\Intervention\Application\Support\Posttypes\Register
      */
     public static function set($posttype = 'post', $config = false)
     {
@@ -101,12 +101,12 @@ class Update
          */
         /*
         if ($this->config->has('template')) {
-            $template = $this->config->pull('template');
-            $object->template = Arr::transform($template, function ($k, $v) {
-                return $v === true ? [0, $k] : [$k, $v];
-            });
+        $template = $this->config->pull('template');
+        $object->template = Arr::transform($template, function ($k, $v) {
+        return $v === true ? [0, $k] : [$k, $v];
+        });
         }
-        */
+         */
 
         // Set remaining `$object->{$key}` overrides from `$this->config`
         $this->config->map(function ($value, $key) use ($object) {

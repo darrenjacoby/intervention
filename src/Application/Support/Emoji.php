@@ -1,6 +1,6 @@
 <?php
 
-namespace Sober\Intervention\Application\Support;
+namespace Jacoby\Intervention\Application\Support;
 
 /**
  * Support/Emoji

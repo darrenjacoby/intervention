@@ -21,29 +21,33 @@
   },
   "require-dev": {
     "composer/installers": "^2.0",
-    "phing/phing": "^2.16.4",
     "symplify/easy-coding-standard": "dev-main"
   },
   "autoload": {
     "psr-4": {
-      "Sober\\Intervention\\": "src/"
+      "Jacoby\\Intervention\\": "src/"
     }
   },
   "scripts": {
     "build": [
-      "vendor/bin/phing",
-      "npm run build:production"
+      "@build:assets",
+      "@build:php"
+    ],
+    "lint:php": [
+      "vendor/bin/ecs check --fix"
+    ],
+    "build:php": [
+      "./scoper.sh"
     ],
     "build:assets": [
       "npm run build:production"
     ],
-    "lint": [
-      "vendor/bin/ecs check"
-    ],
-    "lint:fix": [
-      "vendor/bin/ecs check --fix"
+    "watch": [
+      "npm run start"
     ]
   },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
   "support": {
     "issues": "https://github.com/soberwp/intervention/issues"
   }

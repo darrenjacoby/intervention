@@ -1,8 +1,8 @@
 <?php
 
-namespace Sober\Intervention\Application\Support\Posttypes;
+namespace Jacoby\Intervention\Application\Support\Posttypes;
 
-use Sober\Intervention\Support\Arr;
+use Jacoby\Intervention\Support\Arr;
 
 /**
  * Support/Posttypes/RemoveAttachment

@@ -1,9 +1,9 @@
 <?php
 
-namespace Sober\Intervention\Application;
+namespace Jacoby\Intervention\Application;
 
-use Sober\Intervention\Admin;
-use Sober\Intervention\Support\Arr;
+use Jacoby\Intervention\Admin;
+use Jacoby\Intervention\Support\Arr;
 
 /**
  * Theme
@@ -44,7 +44,7 @@ class Theme
     protected function hook()
     {
         add_action('init', [$this, 'options']);
-        
+
         $this->admin();
     }
 

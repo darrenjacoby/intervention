@@ -1,0 +1,8 @@
+.text-bold-hack::before {
+  display: block;
+  height: 0;
+  overflow: hidden;
+  font-weight: 500;
+  visibility: hidden;
+  content: attr(title);
+}

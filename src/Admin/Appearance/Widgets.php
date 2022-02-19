@@ -1,11 +1,11 @@
 <?php
 
-namespace Sober\Intervention\Admin\Appearance;
+namespace Jacoby\Intervention\Admin\Appearance;
 
-use Sober\Intervention\Admin\SharedApi;
-use Sober\Intervention\Admin\Support\BlockEditor;
-use Sober\Intervention\Support\Arr;
-use Sober\Intervention\Support\Composer;
+use Jacoby\Intervention\Admin\SharedApi;
+use Jacoby\Intervention\Admin\Support\BlockEditor;
+use Jacoby\Intervention\Support\Arr;
+use Jacoby\Intervention\Support\Composer;
 
 /**
  * Appearance/Widgets
@@ -81,7 +81,7 @@ class Widgets
      * Interface
      *
      * @param array $posttypes
-     * @return Sober\Intervention\Admin\Appearance\Widgets
+     * @return Jacoby\Intervention\Admin\Appearance\Widgets
      */
     public static function set($config = false)
     {

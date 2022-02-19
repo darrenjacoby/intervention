@@ -1,8 +1,8 @@
 <?php
 
-namespace Sober\Intervention\Admin\Support;
+namespace Jacoby\Intervention\Admin\Support;
 
-use Sober\Intervention\Support\Arr;
+use Jacoby\Intervention\Support\Arr;
 
 /**
  * Support/PostComponents
@@ -21,7 +21,7 @@ class PostComponents
      * Interface
      *
      * @param array $posttypes
-     * @return Sober\Intervention\Admin\Support\PostComponents
+     * @return Jacoby\Intervention\Admin\Support\PostComponents
      */
     public static function set($posttypes = false)
     {

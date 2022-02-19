@@ -1,8 +1,8 @@
 <?php
 
-namespace Sober\Intervention\Support;
+namespace Jacoby\Intervention\Support;
 
-use Sober\Intervention\Support\Arr;
+use Jacoby\Intervention\Support\Arr;
 
 /**
  * Config
@@ -24,7 +24,7 @@ class Config
     {
         $file = INTERVENTION_DIR . '/config/' . $file . '.php';
 
-        $arr = file_exists($file) ? require($file) : [ ];
+        $arr = file_exists($file) ? require $file : [];
 
         return Arr::collect($arr);
     }
