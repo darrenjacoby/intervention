@@ -14,7 +14,7 @@ $ wp plugin activate intervention
 [WP-CLI](http://wp-cli.org/)
 
 ```shell
-$ wp plugin install https://github.com/soberwp/intervention/archive/master.zip --activate
+$ wp plugin install https://github.com/darrenjacoby/intervention/archive/master.zip --activate
 ```
 
 #### Requirements
