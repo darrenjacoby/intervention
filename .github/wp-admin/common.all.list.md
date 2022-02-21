@@ -4,7 +4,7 @@ Remove wp-admin all/index item list components.
 
 ### Options;
 
-* Parent items remove child items. 
+- Parent items remove child items.
 
 ```php
 <?php
@@ -21,4 +21,4 @@ return [
 
 ### Bug?
 
-* **[Please open an issue](https://github.com/soberwp/intervention/issues/new?title=[wp-admin.common.all.list]&labels=bug&assignees=darrenjacoby)**
+- **[Please open an issue](https://github.com/darrenjacoby/intervention/issues/new?title=[wp-admin.common.all.list]&labels=bug&assignees=darrenjacoby)**

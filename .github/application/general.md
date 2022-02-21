@@ -73,4 +73,4 @@ The language must be installed and available in order for `'language' => (string
 
 ### Bug?
 
-- **[Please open an issue](https://github.com/soberwp/intervention/issues/new?title=[application.general]&labels=bug&assignees=darrenjacoby)**
+- **[Please open an issue](https://github.com/darrenjacoby/intervention/issues/new?title=[application.general]&labels=bug&assignees=darrenjacoby)**

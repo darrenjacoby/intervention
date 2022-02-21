@@ -16,4 +16,4 @@ return [
 
 ### Bug?
 
-* **[Please open an issue](https://github.com/soberwp/intervention/issues/new?title=[wp-admin.common.all.search]&labels=bug&assignees=darrenjacoby)**
+- **[Please open an issue](https://github.com/darrenjacoby/intervention/issues/new?title=[wp-admin.common.all.search]&labels=bug&assignees=darrenjacoby)**

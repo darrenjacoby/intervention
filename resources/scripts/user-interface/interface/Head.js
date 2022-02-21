@@ -21,7 +21,7 @@ const Head = () => {
       </div>
 
       <div className="hidden md:flex md:flex-wrap items-center">
-        <OutboundLink href="https://github.com/soberwp/intervention">
+        <OutboundLink href="https://github.com/darrenjacoby/intervention">
           {__('Documentation')}
         </OutboundLink>
 

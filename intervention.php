@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Intervention
-Plugin URI: https://github.com/soberwp/intervention
+Plugin URI: https://github.com/darrenjacoby/intervention
 Description: Easily customize wp-admin and configure application options.
 Text Domain: intervention
 Version: 2.0.0-rc.4

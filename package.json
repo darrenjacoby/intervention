@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/soberwp/intervention.git"
+    "url": "git+https://github.com/darrenjacoby/intervention.git"
   },
   "keywords": [
     "wordpress",
@@ -24,9 +24,9 @@
   "author": "Darren Jacoby",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/soberwp/intervention/issues"
+    "url": "https://github.com/darrenjacoby/intervention/issues"
   },
-  "homepage": "https://github.com/soberwp/intervention#readme",
+  "homepage": "https://github.com/darrenjacoby/intervention#readme",
   "devDependencies": {
     "@wordpress/babel-plugin-makepot": "^4.2.0",
     "@wordpress/babel-preset-default": "^6.3.1",

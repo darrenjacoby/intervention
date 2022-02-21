@@ -45,9 +45,9 @@ return [
 
 ### Further Reading;
 
-* `menus.$name`
-    * [https://developer.wordpress.org/reference/functions/register_nav_menus/](https://developer.wordpress.org/reference/functions/register_nav_menus/)
+- `menus.$name`
+  - [https://developer.wordpress.org/reference/functions/register_nav_menus/](https://developer.wordpress.org/reference/functions/register_nav_menus/)
 
 ### Bug?
 
-* **[Please open an issue](https://github.com/soberwp/intervention/issues/new?title=[application.menus]&labels=bug&assignees=darrenjacoby)**
+- **[Please open an issue](https://github.com/darrenjacoby/intervention/issues/new?title=[application.menus]&labels=bug&assignees=darrenjacoby)**

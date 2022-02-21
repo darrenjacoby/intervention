@@ -89,7 +89,7 @@ class Mimes
      * Bug with WordPress 4.7+
      *
      * @link https://css-tricks.com/snippets/wordpress/allow-svg-through-wordpress-media-uploader/
-     * @link https://github.com/soberwp/intervention/issues/105
+     * @link https://github.com/darrenjacoby/intervention/issues/105
      * @link https://developer.wordpress.org/reference/functions/wp_check_filetype_and_ext/
      *
      * @param array $data

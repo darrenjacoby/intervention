@@ -32,9 +32,9 @@ return [
         'emoji' => false,
         'default-category' => 10,
         'default-post-format' => 'standard',
-        'post-via-email.server' => 'mail.soberwp.com',
+        'post-via-email.server' => 'mail.example.com',
         'post-via-email.port' => 100,
-        'post-via-email.login' => 'example@soberwp.com',
+        'post-via-email.login' => 'example@example.com',
         'post-via-email.pass' => 'secret',
         'post-via-email.default-category' => 10,
         'update-services' => 'http://rpc.pingomatic.com/',
@@ -44,11 +44,11 @@ return [
 
 ### Further Reading;
 
-* **Option Reference**
-    * [https://codex.wordpress.org/Option_Reference#Writing](https://codex.wordpress.org/Option_Reference#Writing)
-* `writing.default-post-format`
-    * [https://wordpress.org/support/article/post-formats/](https://wordpress.org/support/article/post-formats/)
+- **Option Reference**
+  - [https://codex.wordpress.org/Option_Reference#Writing](https://codex.wordpress.org/Option_Reference#Writing)
+- `writing.default-post-format`
+  - [https://wordpress.org/support/article/post-formats/](https://wordpress.org/support/article/post-formats/)
 
 ### Bug?
 
-* **[Please open an issue](https://github.com/soberwp/intervention/issues/new?title=[application.writing]&labels=bug&assignees=darrenjacoby)**
+- **[Please open an issue](https://github.com/darrenjacoby/intervention/issues/new?title=[application.writing]&labels=bug&assignees=darrenjacoby)**

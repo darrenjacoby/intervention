@@ -7,14 +7,14 @@ Easily customize [wp-admin](#admin) and configure [application](#application) op
 [Composer/Bedrock](https://roots.io/bedrock/)
 
 ```shell
-$ composer require soberwp/intervention:dev-main
+$ composer require darrenjacoby/intervention:dev-main
 $ wp plugin activate intervention
 ```
 
 [WP-CLI](http://wp-cli.org/)
 
 ```shell
-$ wp plugin install https://github.com/soberwp/intervention/archive/master.zip --activate
+$ wp plugin install https://github.com/darrenjacoby/intervention/archive/master.zip --activate
 ```
 
 #### Requirements

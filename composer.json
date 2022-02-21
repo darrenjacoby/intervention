@@ -1,11 +1,11 @@
 {
-  "name": "soberwp/intervention",
+  "name": "jacoby/intervention",
   "type": "wordpress-plugin",
   "description": "WordPress plugin containing modules to cleanup and customize wp-admin.",
   "keywords": [
     "wordpress"
   ],
-  "homepage": "https://github.com/soberwp",
+  "homepage": "https://github.com/darrenjacoby",
   "license": "MIT",
   "authors": [
     {
@@ -49,6 +49,6 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "support": {
-    "issues": "https://github.com/soberwp/intervention/issues"
+    "issues": "https://github.com/darrenjacoby/intervention/issues"
   }
 }

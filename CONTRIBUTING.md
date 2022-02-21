@@ -3,7 +3,7 @@
 ## Onboarding
 
 ```shell
-$ git clone git@github.com:soberwp/intervention.git
+$ git clone git@github.com:darrenjacoby/intervention.git
 $ composer install
 ```
 

@@ -32,15 +32,15 @@ return [
 ];
 ```
 
-* Setting `'permalinks.search-base' => true` will change the default WordPress search permalink structure from `?s={query}` to `/search/{query}`
+- Setting `'permalinks.search-base' => true` will change the default WordPress search permalink structure from `?s={query}` to `/search/{query}`
 
 ### Further Reading;
 
-* `permalinks.structure`
-    * [https://wordpress.org/support/article/using-permalinks/#structure-tags](https://wordpress.org/support/article/using-permalinks/#structure-tags)
-* `permalinks.category-base` and `permalinks.tag-base`
-    * [https://wordpress.org/support/article/using-permalinks/#category-base-and-tag-base](https://wordpress.org/support/article/using-permalinks/#category-base-and-tag-base)
+- `permalinks.structure`
+  - [https://wordpress.org/support/article/using-permalinks/#structure-tags](https://wordpress.org/support/article/using-permalinks/#structure-tags)
+- `permalinks.category-base` and `permalinks.tag-base`
+  - [https://wordpress.org/support/article/using-permalinks/#category-base-and-tag-base](https://wordpress.org/support/article/using-permalinks/#category-base-and-tag-base)
 
 ### Bug?
 
-* **[Please open an issue](https://github.com/soberwp/intervention/issues/new?title=[application.permalinks]&labels=bug&assignees=darrenjacoby)**
+- **[Please open an issue](https://github.com/darrenjacoby/intervention/issues/new?title=[application.permalinks]&labels=bug&assignees=darrenjacoby)**

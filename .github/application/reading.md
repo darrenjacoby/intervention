@@ -38,9 +38,9 @@ return [
 
 ### Further Reading;
 
-* **Option Reference**
-    * [https://codex.wordpress.org/Option_Reference#Reading](https://codex.wordpress.org/Option_Reference#Reading)
+- **Option Reference**
+  - [https://codex.wordpress.org/Option_Reference#Reading](https://codex.wordpress.org/Option_Reference#Reading)
 
 ### Bug?
 
-* **[Please open an issue](https://github.com/soberwp/intervention/issues/new?title=[application.reading]&labels=bug&assignees=darrenjacoby)**
+- **[Please open an issue](https://github.com/darrenjacoby/intervention/issues/new?title=[application.reading]&labels=bug&assignees=darrenjacoby)**

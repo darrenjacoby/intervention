@@ -22,10 +22,10 @@ return [
 <?php
 
 return [
-    'application.theme' => 'soberwp',
+    'application.theme' => 'sage',
 ];
 ```
 
 ### Bug?
 
-* **[Please open an issue](https://github.com/soberwp/intervention/issues/new?title=[application.theme]&labels=bug&assignees=darrenjacoby)**
+- **[Please open an issue](https://github.com/darrenjacoby/intervention/issues/new?title=[application.theme]&labels=bug&assignees=darrenjacoby)**

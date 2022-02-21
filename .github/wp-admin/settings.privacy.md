@@ -4,8 +4,8 @@ Remove settings privacy components.
 
 ### Options;
 
-* Parent items remove child items. 
-* For concise documentation, `option.[x, y]` has been abbreviated from `option.x, option.y`.
+- Parent items remove child items.
+- For concise documentation, `option.[x, y]` has been abbreviated from `option.x, option.y`.
 
 ```php
 <?php
@@ -23,7 +23,7 @@ return [
 ];
 ```
 
-* [Route options](../route-options.md)
+- [Route options](../route-options.md)
 
 ### Remove;
 
@@ -51,8 +51,8 @@ return [
 ];
 ```
 
-* [Route options](../route-options.md)
+- [Route options](../route-options.md)
 
 ### Bug?
 
-* **[Please open an issue](https://github.com/soberwp/intervention/issues/new?title=[wp-admin.settings.privacy]&labels=bug&assignees=darrenjacoby)**
+- **[Please open an issue](https://github.com/darrenjacoby/intervention/issues/new?title=[wp-admin.settings.privacy]&labels=bug&assignees=darrenjacoby)**
