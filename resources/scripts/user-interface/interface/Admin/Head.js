@@ -190,10 +190,11 @@ const HeadOn = ({ stateHead }) => {
  *
  * @returns <HeadEditing />
  */
-const HeadEditing = () => {
+const HeadEditing = ({ stateHead }) => {
   const [data] = useAtom(dataAtom);
   const [selectedIndex] = useAtom(selectedIndexAtom);
   const [, immutable] = data[selectedIndex].roles;
+  const { setIsNew } = stateHead;
 
   const EditRoleGroupLayout = ({ children }) => (
     <div
@@ -252,7 +253,7 @@ const HeadEditing = () => {
             </div>
 
             <DeleteRoleGroupLayout>
-              <DeleteRoleGroup />
+              <DeleteRoleGroup stateHead={{ setIsNew }} />
             </DeleteRoleGroupLayout>
           </div>
         </Toolbar>
@@ -292,7 +293,7 @@ const Head = () => {
   const HeadData = () => (
     <>
       <HeadOn stateHead={{ isNew, setIsNew, isEditing, setIsEditing }} />
-      {Boolean(isEditing === true) && <HeadEditing />}
+      {Boolean(isEditing === true) && <HeadEditing stateHead={{ setIsNew }} />}
     </>
   );
 

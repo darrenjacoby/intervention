@@ -14,7 +14,7 @@ import { __ } from '../../../utils/wp';
  *
  * @returns <DeleteRoleGroup />
  */
-const DeleteRoleGroup = () => {
+const DeleteRoleGroup = ({ stateHead }) => {
   const [data, setData] = useAtom(dataAtom);
   const [selectedIndexData] = useAtom(selectedIndexDataAtom);
   const [selectedIndex, setSelectedIndex] = useAtom(selectedIndexAtom);
@@ -43,6 +43,7 @@ const DeleteRoleGroup = () => {
 
     setData(dataExclGroup);
     setSelectedIndex(newIndex);
+    stateHead.setIsNew(false);
   };
 
   /**
