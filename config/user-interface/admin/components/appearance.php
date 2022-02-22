@@ -45,7 +45,7 @@ return [
             'homepage',
             'menus:group' => ['locations', 'add'],
             'widgets',
-            'footer.devices',
+            'footer',
         ],
         'widgets:hierachical' => [
             ':route',

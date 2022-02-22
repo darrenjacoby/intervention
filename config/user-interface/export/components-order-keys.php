@@ -132,7 +132,7 @@ return [
     'dashboard.home.tabs',
     'dashboard.home.tabs.screen-options',
     'dashboard.home.tabs.help',
-    'dashboard.home.cols:edit',
+    'dashboard.home.cols',
     'dashboard.home.welcome',
     'dashboard.home.notices',
     'dashboard.home.activity',

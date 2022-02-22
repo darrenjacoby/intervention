@@ -1,6 +1,6 @@
 import { useAtom } from 'jotai';
 import { useState } from '@wordpress/element';
-import { CustomSelectControl, Button, Icon } from '@wordpress/components';
+import { CustomSelectControl, Button } from '@wordpress/components';
 import {
   Row,
   RowKey,
@@ -86,8 +86,9 @@ const RouteItem = ({ item: key, children }) => {
   const interventionKey = getInterventionKey(key);
   const [data] = useAtom(selectedIndexDataAtom);
   const [, setComponent] = useAtom(selectedIndexDataComponentAtom);
-  const [value, immutable] = getValue(data.components, interventionKey);
-  const init = value === false ? '' : value;
+  const [v, immutable] = getValue(data.components, interventionKey);
+  const value = v === true ? 'dashboard.home' : v;
+  const init = v === false ? '' : value;
   const [state, setState] = useState(init);
 
   /**
@@ -99,8 +100,8 @@ const RouteItem = ({ item: key, children }) => {
    * @returns {array}
    */
   const immutableOption = (value) => {
-    const label = getOptionLabel(value);
-    return [{ label, value }];
+    const name = getOptionLabel(value);
+    return [{ key: name, name, value }];
   };
 
   /**

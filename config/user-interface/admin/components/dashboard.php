@@ -24,7 +24,7 @@ return [
             ':route',
             'title:text[Home]',
             'tabs:group' => ['screen-options', 'help'],
-            'cols:edit',
+            'cols:number',
             'welcome',
             'notices',
             'activity',
