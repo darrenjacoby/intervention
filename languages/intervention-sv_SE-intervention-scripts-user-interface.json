@@ -8,12 +8,13 @@
         "lang": "nl_NL",
         "plural-forms": "nplurals=2; plural=(n != 1);"
       },
-      "Tools": ["Verktyg"],
+      "Admin": ["Admin"],
+      "Application": ["Applikation"],
       "Export": ["Exportera"],
       "Import": ["Importera"],
+      "Importing": ["Importerar"],
       "Copy": ["Kopiera"],
       "Copied": ["Kopieras"],
-      "Application": ["Applikation"],
       "Toggle All": ["Växla All"],
       "Theme": ["Teman"],
       "Plugins": ["Tillägg"],
@@ -24,25 +25,22 @@
       "Media": ["Media"],
       "Permalinks": ["Permalänkar"],
       "Privacy": ["Integritet"],
-      "Why": ["Varför"],
-      "Export the database to an %s config file": [
-        "Exportera databasen till en %s konfigurationsfil"
-      ],
       "All": ["Allt"],
       "Mismatch": ["Mismatch"],
       "Match": ["Match"],
       "Show": ["Show"],
-      "Found %s differences between Intervention and the database": [
-        "Hittade %s skillnader mellan intervention och databasen"
-      ],
-      "Intervention and the database match": [
-        "Intervention och databasmatchning"
-      ],
       "Imported %1$s and %2$s failed": [
         "Importerade %1$s och %2$s misslyckades"
       ],
       "Imported %s": ["Importerade %s"],
-      "Nothing found": ["Inget hittat"]
+      "Nothing found": ["Inget hittat"],
+      "Hardcoded": ["Hardcoded"],
+      "Edit": ["Edit"],
+      "New Role Group": ["Ny Rollgrupp"],
+      "New": ["Ny"],
+      "Delete": ["Radera"],
+      "Save": ["Spara"],
+      "Documentation": ["Dokumentation"]
     }
   }
 }

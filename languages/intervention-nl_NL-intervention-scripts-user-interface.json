@@ -8,12 +8,13 @@
         "lang": "nl_NL",
         "plural-forms": "nplurals=2; plural=(n != 1);"
       },
-      "Tools": ["Gereedschap"],
+      "Admin": ["Admin"],
+      "Application": ["Applicatie"],
       "Export": ["Exporteren"],
       "Import": ["Importeren"],
+      "Importing": ["Importeren"],
       "Copy": ["Kopiëren"],
       "Copied": ["Gekopieerd"],
-      "Application": ["Applicatie"],
       "Toggle All": ["Alles in"],
       "Theme": ["Thema"],
       "Plugins": ["Plugins"],
@@ -24,23 +25,20 @@
       "Media": ["Media"],
       "Permalinks": ["Permalinks"],
       "Privacy": ["Privacy"],
-      "Why": ["Waarom"],
-      "Export the database to an %s config file": [
-        "Exporteer de database naar een %s configuratiebestand"
-      ],
       "All": ["Alle"],
       "Mismatch": ["Komt Overeen"],
       "Match": ["Bij Elkaar Passen"],
       "Show": ["Toon"],
-      "Found %s differences between Intervention and the database": [
-        "%s verschillen gevonden tussen interventie en de database"
-      ],
-      "Intervention and the database match": [
-        "Intervention en de database match"
-      ],
       "Imported %1$s and %2$s failed": ["Geïmporteerd %1$s en %2$s mislukt"],
       "Imported %s": ["%s geïmporteerd"],
-      "Nothing found": ["Niets gevonden"]
+      "Nothing found": ["Niets gevonden"],
+      "Hardcoded": ["Hardcoded"],
+      "Edit": ["Bewerk"],
+      "New Role Group": ["Nieuwe Rolgroep"],
+      "New": ["Nieuw"],
+      "Delete": ["Verwijderen"],
+      "Save": ["Opslaan"],
+      "Documentation": ["Documentatie"]
     }
   }
 }
