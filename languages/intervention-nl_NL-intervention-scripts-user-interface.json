@@ -32,7 +32,7 @@
       "Imported %1$s and %2$s failed": ["Geïmporteerd %1$s en %2$s mislukt"],
       "Imported %s": ["%s geïmporteerd"],
       "Nothing found": ["Niets gevonden"],
-      "Hardcoded": ["Hardcoded"],
+      "Hardcoded": ["Hardgecodeerd"],
       "Edit": ["Bewerk"],
       "New Role Group": ["Nieuwe Rolgroep"],
       "New": ["Nieuw"],
