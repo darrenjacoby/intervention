@@ -2,7 +2,7 @@
 
 Easily customize [wp-admin](#admin) and configure [application](#application) options.
 
-**New:** Intervention now ships with a full user interface for setting [wp-admin](#admin) options and exporting [application](#application) options. The user interface can be found under menu item Tools->Intervention. 
+**New:** Intervention now ships with a full user interface for setting [wp-admin](#admin) options and exporting [application](#application) options. The user interface can be found under menu item Tools/Intervention. 
 
 ## Installation
 
