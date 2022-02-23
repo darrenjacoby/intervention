@@ -2,6 +2,8 @@
 
 Easily customize [wp-admin](#admin) and configure [application](#application) options.
 
+*New:* Intervention now ships with a full user interface for setting [wp-admin](#admin) options and exporting [application](#application) options. The user interface can be found under menu item Tools->Intervention. 
+
 ## Installation
 
 [Composer/Bedrock](https://roots.io/bedrock/)
@@ -254,7 +256,7 @@ Includes support for github-updater to track updates through wp-admin.
 
 - ✅ Export database values to Intervention config file.
 - ✅ Save to database manual option (`update_option` vs `pre_option`).
-- (WIP) Intervention wp-admin interface.
+- ✅ Intervention wp-admin interface.
 - Better support for the block editor.
 - Support `wp-admin` custom post types.
 
