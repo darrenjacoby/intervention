@@ -4,7 +4,7 @@ Plugin Name: Intervention
 Plugin URI: https://github.com/darrenjacoby/intervention
 Description: Easily customize wp-admin and configure application options.
 Text Domain: intervention
-Version: 2.0.0
+Version: 2.0.0-rc.5
 Author: Darren Jacoby
 Author URI: https://github.com/darrenjacoby
 License: MIT License
