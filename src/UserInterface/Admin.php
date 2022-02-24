@@ -86,13 +86,15 @@ class Admin
          * ]
          *
          */
-        $roles_components = Arr::multidimensionalFirstKey(self::$configfile);
         $config_file = [];
-        foreach ($roles_components as $role => $components) {
-            $config_file[$role]['immutable'] = true;
+        if (self::$configfile) {
+            $roles_components = Arr::multidimensionalFirstKey(self::$configfile);
+            foreach ($roles_components as $role => $components) {
+                $config_file[$role]['immutable'] = true;
 
-            foreach ($components as $key => $value) {
-                $config_file[$role][$key] = [$value, true];
+                foreach ($components as $key => $value) {
+                    $config_file[$role][$key] = [$value, true];
+                }
             }
         }
 
