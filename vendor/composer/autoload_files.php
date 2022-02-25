@@ -6,5 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    '60799491728b879e74601d83e38b2cad' => $vendorDir . '/illuminate/collections/helpers.php',
+    'a60799491728b879e74601d83e38b2cad' => $vendorDir . '/illuminate/collections/helpers.php',
 );

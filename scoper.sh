@@ -37,6 +37,11 @@ mv build/vendor vendor
 
 rm -r -f build
 
+# https://github.com/humbug/php-scoper/issues/298#issuecomment-525700081
+#!/usr/bin/env bash
+PHP=`which php`
+$PHP ./scoper.fix.php
+
 cat << "EOF"
    /  _/___  / /____  ______   _____  ____  / /_(_)___  ____ 
    / // __ \/ __/ _ \/ ___/ | / / _ \/ __ \/ __/ / __ \/ __ \
