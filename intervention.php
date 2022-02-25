@@ -28,13 +28,11 @@ define('INTERVENTION_TEXT_DOMAIN', 'intervention');
 /**
  * Support for Bedrock/Composer
  */
-if (!class_exists('Jacoby\Intervention\Intervention')) {
-    if (is_file(__DIR__ . '/vendor/autoload.php')) {
-        require_once __DIR__ . '/vendor/autoload.php';
-    }
-
-    // include file_exists($composer = __DIR__ . '/vendor/autoload.php') ? $composer : __DIR__ . '/build/vendor/autoload.php';
+if (is_file(__DIR__ . '/vendor/autoload.php')) {
+    require_once __DIR__ . '/vendor/autoload.php';
 }
+
+// include file_exists($composer = __DIR__ . '/vendor/autoload.php') ? $composer : __DIR__ . '/build/vendor/autoload.php';
 
 /**
  * WordPress/Laravel mix function
