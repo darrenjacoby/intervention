@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitcdbf38015f102bff7800948876a4ec2b
+class ComposerStaticInit4da9fb46454507733cf005cb3e1ab19e
 {
     public static $files = array (
         '60799491728b879e74601d83e38b2cad' => __DIR__ . '/..' . '/illuminate/collections/helpers.php',
@@ -58,8 +58,8 @@ class ComposerStaticInitcdbf38015f102bff7800948876a4ec2b
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitcdbf38015f102bff7800948876a4ec2b::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitcdbf38015f102bff7800948876a4ec2b::$prefixDirsPsr4;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit4da9fb46454507733cf005cb3e1ab19e::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit4da9fb46454507733cf005cb3e1ab19e::$prefixDirsPsr4;
 
         }, null, ClassLoader::class);
     }
