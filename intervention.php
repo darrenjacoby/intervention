@@ -53,7 +53,7 @@ function getConfigFile()
     $theme . '/intervention.php';
 
     $config = has_filter('sober/intervention/return') ?
-    apply_filters('sober/intervention/return', rtrim($path)) :
+    apply_filters('sober/intervention/return', rtrim($default)) :
     $default;
 
     if (!file_exists($config)) {
