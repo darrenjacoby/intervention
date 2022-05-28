@@ -11,6 +11,20 @@ Less, but better.
 == Description ==
 Easily remove the superfluous, customising and simplifying the WordPress admin for each unique use case. Authors will appreciate a clearer, more intentional editing experience while developers spend less time on hooks, filters and support requests. 
 
+== Features ==
+
+In addition to being able to remove most visual elements from the WordPress admin, Intervention also enables the following options;
+
+* Export a PHP config file of your database options to place under version control.
+* Import a PHP config file to your database, useful for fast setup.
+* Remove WordPress comments site-wide.
+* Remove WordPress and plugin update notifications.
+* Remove post types, including WordPress defaults such as `post` or `attachment`.
+* Remove WordPress default image sizes, such as `medium`.
+* Remove emojis site-wide.
+
+Full feature list: https://github.com/darrenjacoby/intervention
+
 == Installation ==
 = Requirements =
 * WordPress version 5.0 and later; tested only in last stable version.
