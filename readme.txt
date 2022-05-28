@@ -1,9 +1,12 @@
 === Intervention ===
 Contributors: darrenjacoby
 Donate link: https://paypal.me/darrenjacoby
-Tags: admin, dashboard, wp-admin, minimal, intervention
+Tags: wp-admin, admin, version control, settings, options, minimal
 Requires at least: 5.0
 Tested up to: 6.0
+Requires PHP: 7.0
+License: MIT
+License URI: https://github.com/darrenjacoby/intervention/blob/main/LICENSE.md
 Stable tag: 2.0.0
 
 Less, but better.
@@ -42,7 +45,7 @@ Install via WordPress, or;
 * Release
 
 = License =
-GPL
+MIT
 
 = Translations =
 English, German, Dutch, Swedish.
