@@ -109,7 +109,7 @@ class OptionsApi
             <script>
                 jQuery(window).on("load", function() {
                     setTimeout(function() {
-                        jQuery("' . $elem . '").prop("disabled", true);
+                        jQuery("' . esc_html($elem) . '").prop("disabled", true);
                     }, 1);
                 });
             </script>';

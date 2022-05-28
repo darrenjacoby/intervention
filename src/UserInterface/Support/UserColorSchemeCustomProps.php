@@ -127,7 +127,7 @@ class UserColorSchemeCustomProps
                 ];
             }
 
-            echo "<style id=\"wp-admin-user-color-scheme\">:root {\n" . join(PHP_EOL, $colors) . "\n}</style>";
+            echo "<style id=\"wp-admin-user-color-scheme\">:root {\n" . esc_html(join(PHP_EOL, $colors)) . "\n}</style>";
         });
     }
 }
