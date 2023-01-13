@@ -57,7 +57,7 @@ class Writing
         add_action('admin_head-options-writing.php', [$this->api, 'disableKeys']);
 
         if ($this->config->get('writing.emoji') === false) {
-            Emoji::remove();
+            add_action('init', [$this, 'emoji']);
         }
     }
 
@@ -76,5 +76,13 @@ class Writing
             'writing.post-via-email.default-category',
             'writing.update-services',
         ]);
+    }
+
+    /**
+     * Emoji remove
+     */
+    public function emoji()
+    {
+        Emoji::remove();
     }
 }
