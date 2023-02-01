@@ -16,7 +16,7 @@
   ],
   "require": {
     "php": "^7.4|^8.0",
-    "illuminate/collections": "^8.51",
+    "illuminate/collections": "^9.50",
     "brick/varexporter": "^0.3.5"
   },
   "require-dev": {
