@@ -59,10 +59,13 @@ class Permalinks
         ]);
 
         if ($this->config->has('permalinks.structure')) {
-            $structure = $this->config->has('permalinks.structure');
+            $structure = $this->config->get('permalinks.structure');
+
             if (get_option('permalink_structure') !== $structure) {
-                $this->api->save('permalinks.structure', $this->config->get('permalinks.structure'));
-                flush_rewrite_rules();
+                $this->api->save('permalinks.structure', $structure);
+
+                $GLOBALS['wp_rewrite']->permalink_structure = $structure;
+                $GLOBALS['wp_rewrite']->flush_rules();
             }
         }
 
