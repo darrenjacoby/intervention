@@ -81,8 +81,7 @@ class Permalinks
     public function head()
     {
         if ($this->config->has('settings.permalinks.common')) {
-            echo
-                '<script>
+            echo '<script>
                 jQuery(document).ready(function() {
                     jQuery("#permalink_structure").parents("table").prev().remove();
                     jQuery("#permalink_structure").parents("table").remove();
@@ -91,8 +90,7 @@ class Permalinks
         }
 
         if ($this->config->has('settings.permalinks.optional')) {
-            echo
-                '<script>
+            echo '<script>
                 jQuery(document).ready(function() {
                     jQuery("#category_base").parents("table").prev().prev().remove();
                     jQuery("#category_base").parents("table").prev().remove();

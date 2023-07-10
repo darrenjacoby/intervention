@@ -84,8 +84,7 @@ class Reading
         }
 
         if ($this->config->has('settings.reading.front-page.posts')) {
-            echo
-                '<script>
+            echo '<script>
                 jQuery(document).ready(function() {
                     jQuery("#front-static-pages input[value=posts").parents("p").remove();
                     jQuery("#front-static-pages label[for=page_for_posts").parents("li").remove();

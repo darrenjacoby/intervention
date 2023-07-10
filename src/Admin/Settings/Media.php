@@ -76,8 +76,7 @@ class Media
     public function head()
     {
         if ($this->config->has('settings.media.sizes')) {
-            echo
-                '<script>
+            echo '<script>
                 jQuery(document).ready(function() {
                     jQuery("#thumbnail_size_w").parents("table").prev().prev().remove();
                     jQuery("#thumbnail_size_w").parents("table").prev().remove();
@@ -87,8 +86,7 @@ class Media
         }
 
         if ($this->config->has('settings.media.sizes.thumbnail')) {
-            echo
-                '<script>
+            echo '<script>
                 jQuery(document).ready(function() {
                     jQuery("#thumbnail_size_w").parents("tr").remove();
                 });
@@ -96,8 +94,7 @@ class Media
         }
 
         if ($this->config->has('settings.media.sizes.medium')) {
-            echo
-                '<script>
+            echo '<script>
                 jQuery(document).ready(function() {
                     jQuery("#medium_size_w").parents("tr").remove();
                 });
@@ -105,8 +102,7 @@ class Media
         }
 
         if ($this->config->has('settings.media.sizes.large')) {
-            echo
-                '<script>
+            echo '<script>
                 jQuery(document).ready(function() {
                     jQuery("#large_size_w").parents("tr").remove();
                 });
@@ -114,8 +110,7 @@ class Media
         }
 
         if ($this->config->has('settings.media.uploads')) {
-            echo
-                '<script>
+            echo '<script>
                 jQuery(document).ready(function() {
                     jQuery("#uploads_use_yearmonth_folders").parents("table").prev().remove();
                     jQuery("#uploads_use_yearmonth_folders").parents("table").remove();
