@@ -252,14 +252,6 @@ Includes support for github-updater to track updates through wp-admin.
 
 - [Download](https://github.com/afragen/github-updater)
 
-## Roadmap
-
-- ✅ Export database values to Intervention config file.
-- ✅ Save to database manual option (`update_option` vs `pre_option`).
-- ✅ Intervention wp-admin interface.
-- Better support for the block editor.
-- Support `wp-admin` custom post types.
-
 **Have a suggestion, or want to track new releases? [@withjacoby](https://twitter.com/withjacoby)**
 
 If you would like to buy me a coffee, [paypal.me/darrenjacoby](https://paypal.me/darrenjacoby)
