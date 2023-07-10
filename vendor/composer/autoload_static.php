@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit5d6ceaf3d51454b408fc3ed973042e6d
+class ComposerStaticInit922a7b8c32158dc77c1dc6b51a979d85
 {
     public static $files = array (
         '60799491728b879e74601d83e38b2cad' => __DIR__ . '/..' . '/illuminate/collections/helpers.php',
@@ -63,9 +63,9 @@ class ComposerStaticInit5d6ceaf3d51454b408fc3ed973042e6d
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit5d6ceaf3d51454b408fc3ed973042e6d::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit5d6ceaf3d51454b408fc3ed973042e6d::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit5d6ceaf3d51454b408fc3ed973042e6d::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit922a7b8c32158dc77c1dc6b51a979d85::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit922a7b8c32158dc77c1dc6b51a979d85::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit922a7b8c32158dc77c1dc6b51a979d85::$classMap;
 
         }, null, ClassLoader::class);
     }
