@@ -231,10 +231,6 @@ return [
 - [Remove attachments](.github/application/posts.md#remove)
 - [Enable custom media/mime types](.github/application/media.md#mime-types)
 
-## Updating
-
-- **[Guide to upgrade from version 1.x.x to 2.x.x](.github/upgrading.md)**
-
 #### Composer
 
 - Change the composer.json version to ^2.0.0\*\*<br>
