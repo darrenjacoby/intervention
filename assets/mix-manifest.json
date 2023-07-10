@@ -1,13 +1,13 @@
 {
-    "/scripts/block-editor.js": "/scripts/block-editor.js?id=5bb8848fed39eabeaddd",
-    "/scripts/block-editor.asset.php": "/scripts/block-editor.asset.php?id=11e1e5bd64680db8f0c8",
-    "/scripts/appearance-menus.js": "/scripts/appearance-menus.js?id=8705f37cabd7ac240451",
-    "/scripts/appearance-menus.asset.php": "/scripts/appearance-menus.asset.php?id=64bbbff395f2e8ec1b26",
-    "/scripts/user-interface.js": "/scripts/user-interface.js?id=23a30836ac6bd264d801",
-    "/scripts/user-interface.asset.php": "/scripts/user-interface.asset.php?id=733210b0bdd4ad730729",
-    "/styles/user-interface.css": "/styles/user-interface.css?id=6df8a8791d349d74722f",
-    "/fonts/JetBrainsMono-Bold.woff2": "/fonts/JetBrainsMono-Bold.woff2?id=8788e76253ca319c4a2a",
-    "/fonts/JetBrainsMono-Medium.woff2": "/fonts/JetBrainsMono-Medium.woff2?id=7b82fc7f09daa7ed2124",
-    "/fonts/JetBrainsMono-Regular.woff2": "/fonts/JetBrainsMono-Regular.woff2?id=90a0a9a74ab55a88bd82",
-    "/fonts/JetBrainsMono-SemiBold.woff2": "/fonts/JetBrainsMono-SemiBold.woff2?id=5e8ab27eff648d7c7750"
+    "/scripts/block-editor.js": "/scripts/block-editor.js?id=b1ddd78b3e98a97ce0e1ffdaf4a76f28",
+    "/scripts/block-editor.asset.php": "/scripts/block-editor.asset.php?id=87707d81e6dc09e5083734fdf5e11db1",
+    "/scripts/appearance-menus.js": "/scripts/appearance-menus.js?id=8705f37cabd7ac240451b0c938d3fc7e",
+    "/scripts/appearance-menus.asset.php": "/scripts/appearance-menus.asset.php?id=4af9ab9ac8c59d84e9753a3482f382f9",
+    "/scripts/user-interface.js": "/scripts/user-interface.js?id=9f8f4b9027435d7243bb78829fe3942f",
+    "/scripts/user-interface.asset.php": "/scripts/user-interface.asset.php?id=52953dfacfbc7b60083523ba8baaee3f",
+    "/styles/user-interface.css": "/styles/user-interface.css?id=e41bfa1e8797e153e6e3e6533b0a1e19",
+    "/fonts/JetBrainsMono-Bold.woff2": "/fonts/JetBrainsMono-Bold.woff2?id=8788e76253ca319c4a2aa75bfa2d756c",
+    "/fonts/JetBrainsMono-Medium.woff2": "/fonts/JetBrainsMono-Medium.woff2?id=7b82fc7f09daa7ed2124442a16f701fa",
+    "/fonts/JetBrainsMono-Regular.woff2": "/fonts/JetBrainsMono-Regular.woff2?id=90a0a9a74ab55a88bd82383e9430cc33",
+    "/fonts/JetBrainsMono-SemiBold.woff2": "/fonts/JetBrainsMono-SemiBold.woff2?id=5e8ab27eff648d7c7750a77b0ea99a24"
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import { HashRouter, Routes } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import { Suspense } from '@wordpress/element';
 import { Head } from './Head';
 import { Admin } from './Admin';
@@ -61,9 +61,9 @@ const App = () => {
             <Head />
             <Suspense fallback={<Loader />}>
               <Routes>
-                <Admin path="/" exact />
-                <Application path="/application" />
-                <Export path="/export" />
+                <Route path="/" exact element={<Admin />} />
+                <Route path="/application" element={<Application />} />
+                <Route path="/export" element={<Export />} />
               </Routes>
             </Suspense>
           </WordPressContainer>

@@ -1,5 +1,4 @@
 import { useQuery, useMutation } from 'react-query';
-import { usePrompt } from 'react-router-dom';
 import { useAtom } from 'jotai';
 import { useState } from '@wordpress/element';
 import { Button } from '@wordpress/components';
@@ -106,10 +105,12 @@ const Save = ({ stateHead }) => {
   /**
    * Prompt
    */
+  /*
   usePrompt(
     'You have unsaved changes, are you sure you want to leave?',
     isBlocking
   );
+  */
 
   /**
    * Middleware
