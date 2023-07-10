@@ -39,10 +39,15 @@ final class VarExporter
      */
     public const NO_CLOSURES = 1 << 6;
     /**
-     * Formats numeric arrays containing only scalar values on a single line.
+     * Formats lists (0-based numeric arrays) containing only scalar values on a single line.
      * Types considered scalar here are int, bool, float, string and null.
+     * This option is a subset of INLINE_ARRAY, and has no effect when INLINE_ARRAY is used.
      */
-    public const INLINE_NUMERIC_SCALAR_ARRAY = 1 << 7;
+    public const INLINE_SCALAR_LIST = 1 << 7;
+    /**
+     * @deprecated Please use INLINE_SCALAR_LIST instead.
+     */
+    public const INLINE_NUMERIC_SCALAR_ARRAY = self::INLINE_SCALAR_LIST;
     /**
      * Export static vars defined via `use` as variables.
      */
@@ -51,6 +56,14 @@ final class VarExporter
      * Add a trailing comma after the last item of non-inline arrays.
      */
     public const TRAILING_COMMA_IN_ARRAY = 1 << 9;
+    /**
+     * Disallows exporting enums.
+     */
+    public const NO_ENUMS = 1 << 10;
+    /**
+     * Formats all arrays on a single line.
+     */
+    public const INLINE_ARRAY = 1 << 11;
     /**
      * @param mixed $var       The variable to export.
      * @param int   $options   A bitmask of options. Possible values are `VarExporter::*` constants.

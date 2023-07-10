@@ -14,7 +14,7 @@ interface ContextualBindingBuilder
     /**
      * Define the implementation for the contextual binding.
      *
-     * @param  \Closure|string  $implementation
+     * @param  \Closure|string|array  $implementation
      * @return void
      */
     public function give($implementation);
@@ -25,4 +25,12 @@ interface ContextualBindingBuilder
      * @return void
      */
     public function giveTagged($tag);
+    /**
+     * Specify the configuration item to bind as a primitive.
+     *
+     * @param  string  $key
+     * @param  mixed  $default
+     * @return void
+     */
+    public function giveConfig($key, $default = null);
 }

@@ -19,7 +19,7 @@ class Exit_ extends Expr
      */
     public function __construct(Expr $expr = null, array $attributes = [])
     {
-        parent::__construct($attributes);
+        $this->attributes = $attributes;
         $this->expr = $expr;
     }
     public function getSubNodeNames() : array

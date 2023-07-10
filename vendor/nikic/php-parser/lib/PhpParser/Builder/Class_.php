@@ -5,6 +5,7 @@ namespace Jacoby\Intervention\PhpParser\Builder;
 
 use Jacoby\Intervention\PhpParser;
 use Jacoby\Intervention\PhpParser\BuilderHelpers;
+use Jacoby\Intervention\PhpParser\Node;
 use Jacoby\Intervention\PhpParser\Node\Name;
 use Jacoby\Intervention\PhpParser\Node\Stmt;
 class Class_ extends Declaration
@@ -17,6 +18,8 @@ class Class_ extends Declaration
     protected $constants = [];
     protected $properties = [];
     protected $methods = [];
+    /** @var Node\AttributeGroup[] */
+    protected $attributeGroups = [];
     /**
      * Creates a class builder.
      *
@@ -59,7 +62,7 @@ class Class_ extends Declaration
      */
     public function makeAbstract()
     {
-        $this->flags = BuilderHelpers::addModifier($this->flags, Stmt\Class_::MODIFIER_ABSTRACT);
+        $this->flags = BuilderHelpers::addClassModifier($this->flags, Stmt\Class_::MODIFIER_ABSTRACT);
         return $this;
     }
     /**
@@ -69,7 +72,12 @@ class Class_ extends Declaration
      */
     public function makeFinal()
     {
-        $this->flags = BuilderHelpers::addModifier($this->flags, Stmt\Class_::MODIFIER_FINAL);
+        $this->flags = BuilderHelpers::addClassModifier($this->flags, Stmt\Class_::MODIFIER_FINAL);
+        return $this;
+    }
+    public function makeReadonly()
+    {
+        $this->flags = BuilderHelpers::addClassModifier($this->flags, Stmt\Class_::MODIFIER_READONLY);
         return $this;
     }
     /**
@@ -91,12 +99,24 @@ class Class_ extends Declaration
         return $this;
     }
     /**
+     * Adds an attribute group.
+     *
+     * @param Node\Attribute|Node\AttributeGroup $attribute
+     *
+     * @return $this The builder instance (for fluid interface)
+     */
+    public function addAttribute($attribute)
+    {
+        $this->attributeGroups[] = BuilderHelpers::normalizeAttribute($attribute);
+        return $this;
+    }
+    /**
      * Returns the built class node.
      *
      * @return Stmt\Class_ The built class node
      */
     public function getNode() : PhpParser\Node
     {
-        return new Stmt\Class_($this->name, ['flags' => $this->flags, 'extends' => $this->extends, 'implements' => $this->implements, 'stmts' => \array_merge($this->uses, $this->constants, $this->properties, $this->methods)], $this->attributes);
+        return new Stmt\Class_($this->name, ['flags' => $this->flags, 'extends' => $this->extends, 'implements' => $this->implements, 'stmts' => \array_merge($this->uses, $this->constants, $this->properties, $this->methods), 'attrGroups' => $this->attributeGroups], $this->attributes);
     }
 }

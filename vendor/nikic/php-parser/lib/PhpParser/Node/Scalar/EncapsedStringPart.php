@@ -16,7 +16,7 @@ class EncapsedStringPart extends Scalar
      */
     public function __construct(string $value, array $attributes = [])
     {
-        parent::__construct($attributes);
+        $this->attributes = $attributes;
         $this->value = $value;
     }
     public function getSubNodeNames() : array

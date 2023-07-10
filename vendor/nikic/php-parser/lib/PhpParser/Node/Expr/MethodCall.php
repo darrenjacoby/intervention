@@ -6,25 +6,26 @@ namespace Jacoby\Intervention\PhpParser\Node\Expr;
 use Jacoby\Intervention\PhpParser\Node\Arg;
 use Jacoby\Intervention\PhpParser\Node\Expr;
 use Jacoby\Intervention\PhpParser\Node\Identifier;
-class MethodCall extends Expr
+use Jacoby\Intervention\PhpParser\Node\VariadicPlaceholder;
+class MethodCall extends CallLike
 {
     /** @var Expr Variable holding object */
     public $var;
     /** @var Identifier|Expr Method name */
     public $name;
-    /** @var Arg[] Arguments */
+    /** @var array<Arg|VariadicPlaceholder> Arguments */
     public $args;
     /**
      * Constructs a function call node.
      *
-     * @param Expr                   $var        Variable holding object
-     * @param string|Identifier|Expr $name       Method name
-     * @param Arg[]                  $args       Arguments
-     * @param array                  $attributes Additional attributes
+     * @param Expr                           $var        Variable holding object
+     * @param string|Identifier|Expr         $name       Method name
+     * @param array<Arg|VariadicPlaceholder> $args       Arguments
+     * @param array                          $attributes Additional attributes
      */
     public function __construct(Expr $var, $name, array $args = [], array $attributes = [])
     {
-        parent::__construct($attributes);
+        $this->attributes = $attributes;
         $this->var = $var;
         $this->name = \is_string($name) ? new Identifier($name) : $name;
         $this->args = $args;
@@ -36,5 +37,9 @@ class MethodCall extends Expr
     public function getType() : string
     {
         return 'Expr_MethodCall';
+    }
+    public function getRawArgs() : array
+    {
+        return $this->args;
     }
 }

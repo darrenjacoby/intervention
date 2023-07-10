@@ -3,9 +3,12 @@
 declare (strict_types=1);
 namespace Jacoby\Intervention\PhpParser\Node;
 
+use Jacoby\Intervention\PhpParser\Node\VariadicPlaceholder;
 use Jacoby\Intervention\PhpParser\NodeAbstract;
 class Arg extends NodeAbstract
 {
+    /** @var Identifier|null Parameter name (for named parameters) */
+    public $name;
     /** @var Expr Value to pass */
     public $value;
     /** @var bool Whether to pass by ref */
@@ -19,17 +22,19 @@ class Arg extends NodeAbstract
      * @param bool  $byRef      Whether to pass by ref
      * @param bool  $unpack     Whether to unpack the argument
      * @param array $attributes Additional attributes
+     * @param Identifier|null $name Parameter name (for named parameters)
      */
-    public function __construct(Expr $value, bool $byRef = \false, bool $unpack = \false, array $attributes = [])
+    public function __construct(Expr $value, bool $byRef = \false, bool $unpack = \false, array $attributes = [], Identifier $name = null)
     {
-        parent::__construct($attributes);
+        $this->attributes = $attributes;
+        $this->name = $name;
         $this->value = $value;
         $this->byRef = $byRef;
         $this->unpack = $unpack;
     }
     public function getSubNodeNames() : array
     {
-        return ['value', 'byRef', 'unpack'];
+        return ['name', 'value', 'byRef', 'unpack'];
     }
     public function getType() : string
     {

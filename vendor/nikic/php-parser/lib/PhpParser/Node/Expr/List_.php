@@ -16,7 +16,7 @@ class List_ extends Expr
      */
     public function __construct(array $items, array $attributes = [])
     {
-        parent::__construct($attributes);
+        $this->attributes = $attributes;
         $this->items = $items;
     }
     public function getSubNodeNames() : array

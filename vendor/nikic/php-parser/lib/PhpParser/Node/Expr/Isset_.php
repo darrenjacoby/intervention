@@ -16,7 +16,7 @@ class Isset_ extends Expr
      */
     public function __construct(array $vars, array $attributes = [])
     {
-        parent::__construct($attributes);
+        $this->attributes = $attributes;
         $this->vars = $vars;
     }
     public function getSubNodeNames() : array

@@ -20,7 +20,7 @@ class Instanceof_ extends Expr
      */
     public function __construct(Expr $expr, $class, array $attributes = [])
     {
-        parent::__construct($attributes);
+        $this->attributes = $attributes;
         $this->expr = $expr;
         $this->class = $class;
     }

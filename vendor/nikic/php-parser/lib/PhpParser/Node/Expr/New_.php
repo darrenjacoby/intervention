@@ -4,23 +4,25 @@ declare (strict_types=1);
 namespace Jacoby\Intervention\PhpParser\Node\Expr;
 
 use Jacoby\Intervention\PhpParser\Node;
+use Jacoby\Intervention\PhpParser\Node\Arg;
 use Jacoby\Intervention\PhpParser\Node\Expr;
-class New_ extends Expr
+use Jacoby\Intervention\PhpParser\Node\VariadicPlaceholder;
+class New_ extends CallLike
 {
     /** @var Node\Name|Expr|Node\Stmt\Class_ Class name */
     public $class;
-    /** @var Node\Arg[] Arguments */
+    /** @var array<Arg|VariadicPlaceholder> Arguments */
     public $args;
     /**
      * Constructs a function call node.
      *
      * @param Node\Name|Expr|Node\Stmt\Class_ $class      Class name (or class node for anonymous classes)
-     * @param Node\Arg[]                      $args       Arguments
+     * @param array<Arg|VariadicPlaceholder>  $args       Arguments
      * @param array                           $attributes Additional attributes
      */
     public function __construct($class, array $args = [], array $attributes = [])
     {
-        parent::__construct($attributes);
+        $this->attributes = $attributes;
         $this->class = $class;
         $this->args = $args;
     }
@@ -31,5 +33,9 @@ class New_ extends Expr
     public function getType() : string
     {
         return 'Expr_New';
+    }
+    public function getRawArgs() : array
+    {
+        return $this->args;
     }
 }

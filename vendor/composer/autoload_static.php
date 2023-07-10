@@ -4,10 +4,10 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit64f76d2decd4837af9b69b606d083c30
+class ComposerStaticInit3bda6073947b859b25243025b348285d
 {
     public static $files = array (
-        'a60799491728b879e74601d83e38b2cad' => __DIR__ . '/..' . '/illuminate/collections/helpers.php',
+        '60799491728b879e74601d83e38b2cad' => __DIR__ . '/..' . '/illuminate/collections/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -39,7 +39,8 @@ class ComposerStaticInit64f76d2decd4837af9b69b606d083c30
         'Jacoby\\Intervention\\Illuminate\\Support\\' => 
         array (
             0 => __DIR__ . '/..' . '/illuminate/collections',
-            1 => __DIR__ . '/..' . '/illuminate/macroable',
+            1 => __DIR__ . '/..' . '/illuminate/conditionable',
+            2 => __DIR__ . '/..' . '/illuminate/macroable',
         ),
         'Jacoby\\Intervention\\Illuminate\\Contracts\\' => 
         array (
@@ -55,11 +56,16 @@ class ComposerStaticInit64f76d2decd4837af9b69b606d083c30
         ),
     );
 
+    public static $classMap = array (
+        'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+    );
+
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit64f76d2decd4837af9b69b606d083c30::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit64f76d2decd4837af9b69b606d083c30::$prefixDirsPsr4;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit3bda6073947b859b25243025b348285d::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit3bda6073947b859b25243025b348285d::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit3bda6073947b859b25243025b348285d::$classMap;
 
         }, null, ClassLoader::class);
     }

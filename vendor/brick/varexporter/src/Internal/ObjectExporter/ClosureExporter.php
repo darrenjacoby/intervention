@@ -35,7 +35,7 @@ class ClosureExporter extends ObjectExporter
     /**
      * {@inheritDoc}
      */
-    public function export($object, \ReflectionObject $reflectionObject, array $path, array $parentIds) : array
+    public function export(object $object, \ReflectionObject $reflectionObject, array $path, array $parentIds) : array
     {
         \assert($object instanceof Closure);
         $reflectionFunction = new \ReflectionFunction($object);

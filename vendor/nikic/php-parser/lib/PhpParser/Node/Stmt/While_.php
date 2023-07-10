@@ -19,7 +19,7 @@ class While_ extends Node\Stmt
      */
     public function __construct(Node\Expr $cond, array $stmts = [], array $attributes = [])
     {
-        parent::__construct($attributes);
+        $this->attributes = $attributes;
         $this->cond = $cond;
         $this->stmts = $stmts;
     }

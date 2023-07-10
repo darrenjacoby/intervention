@@ -2,6 +2,7 @@
 
 namespace Jacoby\Intervention\Illuminate\Support;
 
+use ArgumentCountError;
 use ArrayAccess;
 use Jacoby\Intervention\Illuminate\Support\Traits\Macroable;
 use InvalidArgumentException;
@@ -22,7 +23,7 @@ class Arr
      * Add an element to an array using "dot" notation if it doesn't exist.
      *
      * @param  array  $array
-     * @param  string  $key
+     * @param  string|int|float  $key
      * @param  mixed  $value
      * @return array
      */
@@ -103,10 +104,24 @@ class Arr
         return $results;
     }
     /**
+     * Convert a flatten "dot" notation array into an expanded array.
+     *
+     * @param  iterable  $array
+     * @return array
+     */
+    public static function undot($array)
+    {
+        $results = [];
+        foreach ($array as $key => $value) {
+            static::set($results, $key, $value);
+        }
+        return $results;
+    }
+    /**
      * Get all of the given array except for a specified array of keys.
      *
      * @param  array  $array
-     * @param  array|string  $keys
+     * @param  array|string|int|float  $keys
      * @return array
      */
     public static function except($array, $keys)
@@ -128,6 +143,9 @@ class Arr
         }
         if ($array instanceof ArrayAccess) {
             return $array->offsetExists($key);
+        }
+        if (\is_float($key)) {
+            $key = (string) $key;
         }
         return \array_key_exists($key, $array);
     }
@@ -198,7 +216,7 @@ class Arr
      * Remove one or many array items from a given array using "dot" notation.
      *
      * @param  array  $array
-     * @param  array|string  $keys
+     * @param  array|string|int|float  $keys
      * @return void
      */
     public static function forget(&$array, $keys)
@@ -219,7 +237,7 @@ class Arr
             $array =& $original;
             while (\count($parts) > 1) {
                 $part = \array_shift($parts);
-                if (isset($array[$part]) && \is_array($array[$part])) {
+                if (isset($array[$part]) && static::accessible($array[$part])) {
                     $array =& $array[$part];
                 } else {
                     continue 2;
@@ -247,7 +265,7 @@ class Arr
         if (static::exists($array, $key)) {
             return $array[$key];
         }
-        if (\strpos($key, '.') === \false) {
+        if (!\str_contains($key, '.')) {
             return $array[$key] ?? value($default);
         }
         foreach (\explode('.', $key) as $segment) {
@@ -323,8 +341,65 @@ class Arr
      */
     public static function isAssoc(array $array)
     {
-        $keys = \array_keys($array);
-        return \array_keys($keys) !== $keys;
+        return !\array_is_list($array);
+    }
+    /**
+     * Determines if an array is a list.
+     *
+     * An array is a "list" if all array keys are sequential integers starting from 0 with no gaps in between.
+     *
+     * @param  array  $array
+     * @return bool
+     */
+    public static function isList($array)
+    {
+        return \array_is_list($array);
+    }
+    /**
+     * Join all items using a string. The final items can use a separate glue string.
+     *
+     * @param  array  $array
+     * @param  string  $glue
+     * @param  string  $finalGlue
+     * @return string
+     */
+    public static function join($array, $glue, $finalGlue = '')
+    {
+        if ($finalGlue === '') {
+            return \implode($glue, $array);
+        }
+        if (\count($array) === 0) {
+            return '';
+        }
+        if (\count($array) === 1) {
+            return \end($array);
+        }
+        $finalItem = \array_pop($array);
+        return \implode($glue, $array) . $finalGlue . $finalItem;
+    }
+    /**
+     * Key an associative array by a field or using a callback.
+     *
+     * @param  array  $array
+     * @param  callable|array|string  $keyBy
+     * @return array
+     */
+    public static function keyBy($array, $keyBy)
+    {
+        return Collection::make($array)->keyBy($keyBy)->all();
+    }
+    /**
+     * Prepend the key names of an associative array.
+     *
+     * @param  array  $array
+     * @param  string  $prependWith
+     * @return array
+     */
+    public static function prependKeysWith($array, $prependWith)
+    {
+        return Collection::make($array)->mapWithKeys(function ($item, $key) use($prependWith) {
+            return [$prependWith . $key => $item];
+        })->all();
     }
     /**
      * Get a subset of the items from the given array.
@@ -380,6 +455,48 @@ class Arr
         return [$value, $key];
     }
     /**
+     * Run a map over each of the items in the array.
+     *
+     * @param  array  $array
+     * @param  callable  $callback
+     * @return array
+     */
+    public static function map(array $array, callable $callback)
+    {
+        $keys = \array_keys($array);
+        try {
+            $items = \array_map($callback, $array, $keys);
+        } catch (ArgumentCountError) {
+            $items = \array_map($callback, $array);
+        }
+        return \array_combine($keys, $items);
+    }
+    /**
+     * Run an associative map over each of the items.
+     *
+     * The callback should return an associative array with a single key/value pair.
+     *
+     * @template TKey
+     * @template TValue
+     * @template TMapWithKeysKey of array-key
+     * @template TMapWithKeysValue
+     *
+     * @param  array<TKey, TValue>  $array
+     * @param  callable(TValue, TKey): array<TMapWithKeysKey, TMapWithKeysValue>  $callback
+     * @return array
+     */
+    public static function mapWithKeys(array $array, callable $callback)
+    {
+        $result = [];
+        foreach ($array as $key => $value) {
+            $assoc = $callback($value, $key);
+            foreach ($assoc as $mapKey => $mapValue) {
+                $result[$mapKey] = $mapValue;
+            }
+        }
+        return $result;
+    }
+    /**
      * Push an item onto the beginning of an array.
      *
      * @param  array  $array
@@ -400,7 +517,7 @@ class Arr
      * Get a value from the array, and remove it.
      *
      * @param  array  $array
-     * @param  string  $key
+     * @param  string|int  $key
      * @param  mixed  $default
      * @return mixed
      */
@@ -425,7 +542,7 @@ class Arr
      *
      * @param  array  $array
      * @param  int|null  $number
-     * @param  bool|false  $preserveKeys
+     * @param  bool  $preserveKeys
      * @return mixed
      *
      * @throws \InvalidArgumentException
@@ -462,7 +579,7 @@ class Arr
      * If no key is given to the method, the entire array will be replaced.
      *
      * @param  array  $array
-     * @param  string|null  $key
+     * @param  string|int|null  $key
      * @param  mixed  $value
      * @return array
      */
@@ -518,6 +635,17 @@ class Arr
         return Collection::make($array)->sortBy($callback)->all();
     }
     /**
+     * Sort the array in descending order using the given callback or "dot" notation.
+     *
+     * @param  array  $array
+     * @param  callable|array|string|null  $callback
+     * @return array
+     */
+    public static function sortDesc($array, $callback = null)
+    {
+        return Collection::make($array)->sortByDesc($callback)->all();
+    }
+    /**
      * Recursively sort an array by keys and values.
      *
      * @param  array  $array
@@ -532,12 +660,23 @@ class Arr
                 $value = static::sortRecursive($value, $options, $descending);
             }
         }
-        if (static::isAssoc($array)) {
+        if (!\array_is_list($array)) {
             $descending ? \krsort($array, $options) : \ksort($array, $options);
         } else {
             $descending ? \rsort($array, $options) : \sort($array, $options);
         }
         return $array;
+    }
+    /**
+     * Recursively sort an array by keys and values in descending order.
+     *
+     * @param  array  $array
+     * @param  int  $options
+     * @return array
+     */
+    public function sortRecursiveDesc($array, $options = \SORT_REGULAR)
+    {
+        return $this->sortRecursive($array, $options, \true);
     }
     /**
      * Conditionally compile classes from an array into a CSS class list.
@@ -559,6 +698,25 @@ class Arr
         return \implode(' ', $classes);
     }
     /**
+     * Conditionally compile styles from an array into a style list.
+     *
+     * @param  array  $array
+     * @return string
+     */
+    public static function toCssStyles($array)
+    {
+        $styleList = static::wrap($array);
+        $styles = [];
+        foreach ($styleList as $class => $constraint) {
+            if (\is_numeric($class)) {
+                $styles[] = Str::finish($constraint, ';');
+            } elseif ($constraint) {
+                $styles[] = Str::finish($class, ';');
+            }
+        }
+        return \implode(' ', $styles);
+    }
+    /**
      * Filter the array using the given callback.
      *
      * @param  array  $array
@@ -568,6 +726,16 @@ class Arr
     public static function where($array, callable $callback)
     {
         return \array_filter($array, $callback, \ARRAY_FILTER_USE_BOTH);
+    }
+    /**
+     * Filter items where the value is not null.
+     *
+     * @param  array  $array
+     * @return array
+     */
+    public static function whereNotNull($array)
+    {
+        return static::where($array, fn($value) => !\is_null($value));
     }
     /**
      * If the given value is not an array and not null, wrap it in one.

@@ -17,7 +17,7 @@ class ConstFetch extends Expr
      */
     public function __construct(Name $name, array $attributes = [])
     {
-        parent::__construct($attributes);
+        $this->attributes = $attributes;
         $this->name = $name;
     }
     public function getSubNodeNames() : array

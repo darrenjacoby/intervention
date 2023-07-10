@@ -16,12 +16,13 @@
   ],
   "require": {
     "php": "^7.4|^8.0",
-    "illuminate/collections": "^8.51",
-    "brick/varexporter": "^0.3.5"
+    "illuminate/collections": "^10.14",
+    "brick/varexporter": "^0.3.8"
   },
   "require-dev": {
     "composer/installers": "^2.0",
-    "symplify/easy-coding-standard": "dev-main"
+    "symplify/easy-coding-standard": "dev-main",
+    "humbug/php-scoper": "^0.18.3"
   },
   "autoload": {
     "psr-4": {
@@ -50,5 +51,10 @@
   "prefer-stable": true,
   "support": {
     "issues": "https://github.com/darrenjacoby/intervention/issues"
+  },
+  "config": {
+    "allow-plugins": {
+      "composer/installers": true
+    }
   }
 }

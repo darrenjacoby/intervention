@@ -3,8 +3,7 @@
 declare (strict_types=1);
 namespace Jacoby\Intervention\PhpParser\Node;
 
-use Jacoby\Intervention\PhpParser\NodeAbstract;
-class NullableType extends NodeAbstract
+class NullableType extends ComplexType
 {
     /** @var Identifier|Name Type */
     public $type;
@@ -16,7 +15,7 @@ class NullableType extends NodeAbstract
      */
     public function __construct($type, array $attributes = [])
     {
-        parent::__construct($attributes);
+        $this->attributes = $attributes;
         $this->type = \is_string($type) ? new Identifier($type) : $type;
     }
     public function getSubNodeNames() : array

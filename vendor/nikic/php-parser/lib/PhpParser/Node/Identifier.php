@@ -20,7 +20,7 @@ class Identifier extends NodeAbstract
      */
     public function __construct(string $name, array $attributes = [])
     {
-        parent::__construct($attributes);
+        $this->attributes = $attributes;
         $this->name = $name;
     }
     public function getSubNodeNames() : array

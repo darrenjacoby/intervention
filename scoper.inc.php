@@ -26,7 +26,7 @@ return [
             'composer.json',
         ]),
     ],
-    'whitelist' => [
+    'exclude-namespaces' => [
         'Jacoby\Intervention\*',
     ],
     'patchers' => [

@@ -16,7 +16,7 @@ class Else_ extends Node\Stmt
      */
     public function __construct(array $stmts = [], array $attributes = [])
     {
-        parent::__construct($attributes);
+        $this->attributes = $attributes;
         $this->stmts = $stmts;
     }
     public function getSubNodeNames() : array

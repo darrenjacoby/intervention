@@ -11,17 +11,17 @@ class Array_ extends Expr
     // array() syntax
     const KIND_SHORT = 2;
     // [] syntax
-    /** @var ArrayItem[] Items */
+    /** @var (ArrayItem|null)[] Items */
     public $items;
     /**
      * Constructs an array node.
      *
-     * @param ArrayItem[] $items      Items of the array
+     * @param (ArrayItem|null)[] $items      Items of the array
      * @param array       $attributes Additional attributes
      */
     public function __construct(array $items = [], array $attributes = [])
     {
-        parent::__construct($attributes);
+        $this->attributes = $attributes;
         $this->items = $items;
     }
     public function getSubNodeNames() : array

@@ -2,6 +2,7 @@
 
 namespace Jacoby\Intervention\Illuminate\Contracts\Database\Eloquent;
 
+use Jacoby\Intervention\Illuminate\Database\Eloquent\Model;
 interface CastsInboundAttributes
 {
     /**
@@ -13,5 +14,5 @@ interface CastsInboundAttributes
      * @param  array  $attributes
      * @return mixed
      */
-    public function set($model, string $key, $value, array $attributes);
+    public function set(Model $model, string $key, mixed $value, array $attributes);
 }

@@ -9,21 +9,21 @@ class Catch_ extends Node\Stmt
 {
     /** @var Node\Name[] Types of exceptions to catch */
     public $types;
-    /** @var Expr\Variable Variable for exception */
+    /** @var Expr\Variable|null Variable for exception */
     public $var;
     /** @var Node\Stmt[] Statements */
     public $stmts;
     /**
      * Constructs a catch node.
      *
-     * @param Node\Name[]   $types      Types of exceptions to catch
-     * @param Expr\Variable $var        Variable for exception
-     * @param Node\Stmt[]   $stmts      Statements
-     * @param array         $attributes Additional attributes
+     * @param Node\Name[]           $types      Types of exceptions to catch
+     * @param Expr\Variable|null    $var        Variable for exception
+     * @param Node\Stmt[]           $stmts      Statements
+     * @param array                 $attributes Additional attributes
      */
-    public function __construct(array $types, Expr\Variable $var, array $stmts = [], array $attributes = [])
+    public function __construct(array $types, Expr\Variable $var = null, array $stmts = [], array $attributes = [])
     {
-        parent::__construct($attributes);
+        $this->attributes = $attributes;
         $this->types = $types;
         $this->var = $var;
         $this->stmts = $stmts;

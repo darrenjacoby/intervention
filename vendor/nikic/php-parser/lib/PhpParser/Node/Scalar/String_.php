@@ -23,12 +23,22 @@ class String_ extends Scalar
      */
     public function __construct(string $value, array $attributes = [])
     {
-        parent::__construct($attributes);
+        $this->attributes = $attributes;
         $this->value = $value;
     }
     public function getSubNodeNames() : array
     {
         return ['value'];
+    }
+    /**
+     * @param bool $parseUnicodeEscape Whether to parse PHP 7 \u escapes
+     */
+    public static function fromString(string $str, array $attributes = [], bool $parseUnicodeEscape = \true) : self
+    {
+        $attributes['kind'] = $str[0] === "'" || $str[1] === "'" && ($str[0] === 'b' || $str[0] === 'B') ? Scalar\String_::KIND_SINGLE_QUOTED : Scalar\String_::KIND_DOUBLE_QUOTED;
+        $attributes['rawValue'] = $str;
+        $string = self::parse($str, $parseUnicodeEscape);
+        return new self($string, $attributes);
     }
     /**
      * @internal
@@ -77,7 +87,7 @@ class String_ extends Scalar
             if (isset(self::$replacements[$str])) {
                 return self::$replacements[$str];
             } elseif ('x' === $str[0] || 'X' === $str[0]) {
-                return \chr(\hexdec($str));
+                return \chr(\hexdec(\substr($str, 1)));
             } elseif ('u' === $str[0]) {
                 return self::codePointToUtf8(\hexdec($matches[2]));
             } else {
@@ -107,27 +117,6 @@ class String_ extends Scalar
             return \chr(($num >> 18) + 0xf0) . \chr(($num >> 12 & 0x3f) + 0x80) . \chr(($num >> 6 & 0x3f) + 0x80) . \chr(($num & 0x3f) + 0x80);
         }
         throw new Error('Invalid UTF-8 codepoint escape sequence: Codepoint too large');
-    }
-    /**
-     * @internal
-     *
-     * Parses a constant doc string.
-     *
-     * @param string $startToken Doc string start token content (<<<SMTHG)
-     * @param string $str        String token content
-     * @param bool $parseUnicodeEscape Whether to parse PHP 7 \u escapes
-     *
-     * @return string Parsed string
-     */
-    public static function parseDocString(string $startToken, string $str, bool $parseUnicodeEscape = \true) : string
-    {
-        // strip last newline (thanks tokenizer for sticking it into the string!)
-        $str = \preg_replace('~(\\r\\n|\\n|\\r)\\z~', '', $str);
-        // nowdoc string
-        if (\false !== \strpos($startToken, '\'')) {
-            return $str;
-        }
-        return self::parseEscapeSequences($str, null, $parseUnicodeEscape);
     }
     public function getType() : string
     {

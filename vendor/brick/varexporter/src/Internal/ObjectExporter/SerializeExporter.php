@@ -21,7 +21,7 @@ class SerializeExporter extends ObjectExporter
     /**
      * {@inheritDoc}
      */
-    public function export($object, \ReflectionObject $reflectionObject, array $path, array $parentIds) : array
+    public function export(object $object, \ReflectionObject $reflectionObject, array $path, array $parentIds) : array
     {
         $lines = $this->getCreateObjectCode($reflectionObject);
         $lines[] = '';

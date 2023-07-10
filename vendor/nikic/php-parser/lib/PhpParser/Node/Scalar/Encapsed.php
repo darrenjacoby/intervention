@@ -17,7 +17,7 @@ class Encapsed extends Scalar
      */
     public function __construct(array $parts, array $attributes = [])
     {
-        parent::__construct($attributes);
+        $this->attributes = $attributes;
         $this->parts = $parts;
     }
     public function getSubNodeNames() : array

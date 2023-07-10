@@ -16,7 +16,7 @@ class Echo_ extends Node\Stmt
      */
     public function __construct(array $exprs, array $attributes = [])
     {
-        parent::__construct($attributes);
+        $this->attributes = $attributes;
         $this->exprs = $exprs;
     }
     public function getSubNodeNames() : array

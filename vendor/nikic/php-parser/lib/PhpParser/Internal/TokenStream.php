@@ -34,7 +34,7 @@ class TokenStream
      */
     public function haveParens(int $startPos, int $endPos) : bool
     {
-        return $this->haveTokenImmediativelyBefore($startPos, '(') && $this->haveTokenImmediatelyAfter($endPos, ')');
+        return $this->haveTokenImmediatelyBefore($startPos, '(') && $this->haveTokenImmediatelyAfter($endPos, ')');
     }
     /**
      * Whether the given position is immediately surrounded by braces.
@@ -46,7 +46,7 @@ class TokenStream
      */
     public function haveBraces(int $startPos, int $endPos) : bool
     {
-        return $this->haveTokenImmediativelyBefore($startPos, '{') && $this->haveTokenImmediatelyAfter($endPos, '}');
+        return ($this->haveTokenImmediatelyBefore($startPos, '{') || $this->haveTokenImmediatelyBefore($startPos, \T_CURLY_OPEN)) && $this->haveTokenImmediatelyAfter($endPos, '}');
     }
     /**
      * Check whether the position is directly preceded by a certain token type.
@@ -58,7 +58,7 @@ class TokenStream
      *
      * @return bool Whether the expected token was found
      */
-    public function haveTokenImmediativelyBefore(int $pos, $expectedTokenType) : bool
+    public function haveTokenImmediatelyBefore(int $pos, $expectedTokenType) : bool
     {
         $tokens = $this->tokens;
         $pos--;
@@ -160,7 +160,7 @@ class TokenStream
         }
         return $pos;
     }
-    public function findRight($pos, $findTokenType)
+    public function findRight(int $pos, $findTokenType)
     {
         $tokens = $this->tokens;
         for ($count = \count($tokens); $pos < $count; $pos++) {
@@ -170,6 +170,32 @@ class TokenStream
             }
         }
         return -1;
+    }
+    /**
+     * Whether the given position range contains a certain token type.
+     *
+     * @param int $startPos Starting position (inclusive)
+     * @param int $endPos Ending position (exclusive)
+     * @param int|string $tokenType Token type to look for
+     * @return bool Whether the token occurs in the given range
+     */
+    public function haveTokenInRange(int $startPos, int $endPos, $tokenType)
+    {
+        $tokens = $this->tokens;
+        for ($pos = $startPos; $pos < $endPos; $pos++) {
+            if ($tokens[$pos][0] === $tokenType) {
+                return \true;
+            }
+        }
+        return \false;
+    }
+    public function haveBracesInRange(int $startPos, int $endPos)
+    {
+        return $this->haveTokenInRange($startPos, $endPos, '{') || $this->haveTokenInRange($startPos, $endPos, \T_CURLY_OPEN) || $this->haveTokenInRange($startPos, $endPos, '}');
+    }
+    public function haveTagInRange(int $startPos, int $endPos) : bool
+    {
+        return $this->haveTokenInRange($startPos, $endPos, \T_OPEN_TAG) || $this->haveTokenInRange($startPos, $endPos, \T_CLOSE_TAG);
     }
     /**
      * Get indentation before token position.

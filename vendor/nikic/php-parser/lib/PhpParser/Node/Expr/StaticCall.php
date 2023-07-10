@@ -4,27 +4,29 @@ declare (strict_types=1);
 namespace Jacoby\Intervention\PhpParser\Node\Expr;
 
 use Jacoby\Intervention\PhpParser\Node;
+use Jacoby\Intervention\PhpParser\Node\Arg;
 use Jacoby\Intervention\PhpParser\Node\Expr;
 use Jacoby\Intervention\PhpParser\Node\Identifier;
-class StaticCall extends Expr
+use Jacoby\Intervention\PhpParser\Node\VariadicPlaceholder;
+class StaticCall extends CallLike
 {
     /** @var Node\Name|Expr Class name */
     public $class;
-    /** @var string|Identifier|Expr Method name */
+    /** @var Identifier|Expr Method name */
     public $name;
-    /** @var Node\Arg[] Arguments */
+    /** @var array<Arg|VariadicPlaceholder> Arguments */
     public $args;
     /**
      * Constructs a static method call node.
      *
-     * @param Node\Name|Expr         $class      Class name
-     * @param string|Identifier|Expr $name       Method name
-     * @param Node\Arg[]             $args       Arguments
-     * @param array                  $attributes Additional attributes
+     * @param Node\Name|Expr                 $class      Class name
+     * @param string|Identifier|Expr         $name       Method name
+     * @param array<Arg|VariadicPlaceholder> $args       Arguments
+     * @param array                          $attributes Additional attributes
      */
     public function __construct($class, $name, array $args = [], array $attributes = [])
     {
-        parent::__construct($attributes);
+        $this->attributes = $attributes;
         $this->class = $class;
         $this->name = \is_string($name) ? new Identifier($name) : $name;
         $this->args = $args;
@@ -36,5 +38,9 @@ class StaticCall extends Expr
     public function getType() : string
     {
         return 'Expr_StaticCall';
+    }
+    public function getRawArgs() : array
+    {
+        return $this->args;
     }
 }

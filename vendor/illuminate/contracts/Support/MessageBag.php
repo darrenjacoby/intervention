@@ -2,7 +2,8 @@
 
 namespace Jacoby\Intervention\Illuminate\Contracts\Support;
 
-interface MessageBag extends Arrayable
+use Countable;
+interface MessageBag extends Arrayable, Countable
 {
     /**
      * Get the keys present in the message bag.
@@ -56,6 +57,13 @@ interface MessageBag extends Arrayable
      */
     public function all($format = null);
     /**
+     * Remove a message from the bag.
+     *
+     * @param  string  $key
+     * @return $this
+     */
+    public function forget($key);
+    /**
      * Get the raw messages in the container.
      *
      * @return array
@@ -86,10 +94,4 @@ interface MessageBag extends Arrayable
      * @return bool
      */
     public function isNotEmpty();
-    /**
-     * Get the number of messages in the container.
-     *
-     * @return int
-     */
-    public function count();
 }

@@ -6,7 +6,7 @@ namespace Jacoby\Intervention\PhpParser\Node\Stmt;
 use Jacoby\Intervention\PhpParser\Node;
 class Case_ extends Node\Stmt
 {
-    /** @var null|Node\Expr $cond Condition (null for default) */
+    /** @var null|Node\Expr Condition (null for default) */
     public $cond;
     /** @var Node\Stmt[] Statements */
     public $stmts;
@@ -19,7 +19,7 @@ class Case_ extends Node\Stmt
      */
     public function __construct($cond, array $stmts = [], array $attributes = [])
     {
-        parent::__construct($attributes);
+        $this->attributes = $attributes;
         $this->cond = $cond;
         $this->stmts = $stmts;
     }

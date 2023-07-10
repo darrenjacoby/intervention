@@ -26,7 +26,7 @@ class For_ extends Node\Stmt
      */
     public function __construct(array $subNodes = [], array $attributes = [])
     {
-        parent::__construct($attributes);
+        $this->attributes = $attributes;
         $this->init = $subNodes['init'] ?? [];
         $this->cond = $subNodes['cond'] ?? [];
         $this->loop = $subNodes['loop'] ?? [];

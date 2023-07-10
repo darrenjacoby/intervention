@@ -39,7 +39,6 @@ trait Macroable
         $methods = (new ReflectionClass($mixin))->getMethods(ReflectionMethod::IS_PUBLIC | ReflectionMethod::IS_PROTECTED);
         foreach ($methods as $method) {
             if ($replace || !static::hasMacro($method->name)) {
-                $method->setAccessible(\true);
                 static::macro($method->name, $method->invoke($mixin));
             }
         }
@@ -53,6 +52,15 @@ trait Macroable
     public static function hasMacro($name)
     {
         return isset(static::$macros[$name]);
+    }
+    /**
+     * Flush the existing macros.
+     *
+     * @return void
+     */
+    public static function flushMacros()
+    {
+        static::$macros = [];
     }
     /**
      * Dynamically handle calls to the class.
@@ -70,7 +78,7 @@ trait Macroable
         }
         $macro = static::$macros[$method];
         if ($macro instanceof Closure) {
-            return \call_user_func_array(Closure::bind($macro, null, static::class), $parameters);
+            $macro = $macro->bindTo(null, static::class);
         }
         return $macro(...$parameters);
     }
@@ -90,7 +98,7 @@ trait Macroable
         }
         $macro = static::$macros[$method];
         if ($macro instanceof Closure) {
-            return \call_user_func_array($macro->bindTo($this, static::class), $parameters);
+            $macro = $macro->bindTo($this, static::class);
         }
         return $macro(...$parameters);
     }

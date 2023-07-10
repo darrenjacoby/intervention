@@ -16,7 +16,7 @@ abstract class Cast extends Expr
      */
     public function __construct(Expr $expr, array $attributes = [])
     {
-        parent::__construct($attributes);
+        $this->attributes = $attributes;
         $this->expr = $expr;
     }
     public function getSubNodeNames() : array

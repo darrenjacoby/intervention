@@ -11,7 +11,7 @@ abstract class BinaryOp extends Expr
     /** @var Expr The right hand side expression */
     public $right;
     /**
-     * Constructs a bitwise and node.
+     * Constructs a binary operator node.
      *
      * @param Expr  $left       The left hand side expression
      * @param Expr  $right      The right hand side expression
@@ -19,7 +19,7 @@ abstract class BinaryOp extends Expr
      */
     public function __construct(Expr $left, Expr $right, array $attributes = [])
     {
-        parent::__construct($attributes);
+        $this->attributes = $attributes;
         $this->left = $left;
         $this->right = $right;
     }

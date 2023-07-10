@@ -16,7 +16,7 @@ class PostDec extends Expr
      */
     public function __construct(Expr $var, array $attributes = [])
     {
-        parent::__construct($attributes);
+        $this->attributes = $attributes;
         $this->var = $var;
     }
     public function getSubNodeNames() : array

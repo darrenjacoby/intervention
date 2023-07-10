@@ -1,7 +1,4 @@
 #!/bin/bash
-#
-# composer global require humbug/php-scoper
-#
 echo "# Removing the vendor folder..."
 
 rm -r -f vendor
@@ -9,38 +6,18 @@ rm composer.lock
 
 echo "# Running Composer..."
 
-composer update --prefer-lowest --with-all-dependencies
+composer update
 
 echo "# Running Scoper..."
 
-php-scoper add-prefix --force
-
-echo "# Build Housekeeping..."
-
-cd build
-
-composer update nothing --no-dev
-
-composer dump-autoload
-
-rm -r composer.json
-
-rm -r composer.lock
-
-cd ../
+vendor/bin/php-scoper add-prefix --force
 
 echo "# Importing Build..."
 
 rm -r -f vendor
-
 mv build/vendor vendor
-
 rm -r -f build
-
-# https://github.com/humbug/php-scoper/issues/298#issuecomment-525700081
-#!/usr/bin/env bash
-PHP=`which php`
-$PHP ./scoper.fix.php
+composer update --no-dev
 
 cat << "EOF"
    /  _/___  / /____  ______   _____  ____  / /_(_)___  ____ 

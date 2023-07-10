@@ -65,7 +65,7 @@ class JsonDecoder
         if (!isset($value['text'])) {
             throw new \RuntimeException('Comment must have text');
         }
-        return new $className($value['text'], $value['line'] ?? -1, $value['filePos'] ?? -1, $value['tokenPos'] ?? -1);
+        return new $className($value['text'], $value['line'] ?? -1, $value['filePos'] ?? -1, $value['tokenPos'] ?? -1, $value['endLine'] ?? -1, $value['endFilePos'] ?? -1, $value['endTokenPos'] ?? -1);
     }
     private function reflectionClassFromNodeType(string $nodeType) : \ReflectionClass
     {
