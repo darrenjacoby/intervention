@@ -3,11 +3,10 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import { Suspense } from '@wordpress/element';
 import { Head } from './Head';
-import { Admin } from './Admin';
 import { Export } from './Export';
-import { Application } from './Application';
+import { Import } from './Import';
 import { Loader } from './Page/Loader';
-import { adminQuery, applicationQuery, exportQuery } from '../queries';
+import { importQuery, exportQuery } from '../queries';
 
 /**
  * Query
@@ -44,8 +43,7 @@ const App = () => {
    * @description prefetch queries for WordPress data.
    */
   const prefetch = async () => {
-    await queryClient.prefetchQuery('admin', adminQuery);
-    await queryClient.prefetchQuery('application', applicationQuery);
+    await queryClient.prefetchQuery('import', importQuery);
     await queryClient.prefetchQuery('export', exportQuery);
   };
   prefetch();
@@ -61,8 +59,7 @@ const App = () => {
             <Head />
             <Suspense fallback={<Loader />}>
               <Routes>
-                <Route path="/" exact element={<Admin />} />
-                <Route path="/application" element={<Application />} />
+                <Route path="/" exact element={<Import />} />
                 <Route path="/export" element={<Export />} />
               </Routes>
             </Suspense>

@@ -14,8 +14,7 @@ const Head = () => {
         <Name>Intervention</Name>
 
         <div className="flex flex-wrap items-center">
-          <NavLink to="/">{__('Admin')}</NavLink>
-          <NavLink to="/application">{__('Application')}</NavLink>
+          <NavLink to="/">{__('Import')}</NavLink>
           <NavLink to="/export">{__('Export')}</NavLink>
         </div>
       </div>

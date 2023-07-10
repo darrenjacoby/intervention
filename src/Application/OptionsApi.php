@@ -4,7 +4,7 @@ namespace Jacoby\Intervention\Application;
 
 use Jacoby\Intervention\Support\Config;
 use Jacoby\Intervention\Support\Middleware\InterventionToWordPress;
-use Jacoby\Intervention\UserInterface\Application as UserInterfaceApplication;
+use Jacoby\Intervention\UserInterface\Import as UserInterfaceImport;
 
 /**
  * Application/OptionsApi
@@ -72,7 +72,7 @@ class OptionsApi
                 return $intervention_v_transformed;
             });
 
-            UserInterfaceApplication::save($database_k, $key, $value);
+            UserInterfaceImport::save($database_k, $key, $value);
         }
     }
 

@@ -11,13 +11,11 @@ import {
 } from './Page/Sidebar';
 import { ButtonCopy } from './Export/ButtonCopy';
 import { CodeBlock } from './Export/CodeBlock';
-import { exportAdminOptions, exportQuery } from '../queries';
-import { exportSelectionSession } from '../sessions';
-import { sortRolesKeys } from './Admin/Save';
+import { exportQuery } from '../queries';
+import { exportSessionStorage } from '../sessions';
 import { __ } from '../utils/wp';
 
 const staticExports = intervention.route.export.data;
-// const staticExportsAdminSorted = sortRolesKeys(staticExports.admin);
 
 /**
  * State Factory
@@ -74,25 +72,12 @@ const Export = () => {
   /**
    * Query
    */
-  const queryAdminOptions = useQuery(
-    'export-admin-options',
-    exportAdminOptions,
-    {
-      suspense: true,
-      refetchOnMount: true,
-    }
-  );
-
   const query = useQuery('export', exportQuery, {
     suspense: true,
   });
 
-  const staticExportsAdminSorted =
-    queryAdminOptions.data.length !== 0
-      ? sortRolesKeys(queryAdminOptions.data)
-      : [];
   const applicationKeys = Object.keys(stateFactory(staticExports.application));
-  const session = exportSelectionSession() || applicationKeys;
+  const session = exportSessionStorage() || applicationKeys;
 
   /**
    * State
@@ -101,23 +86,16 @@ const Export = () => {
     stateFactory(staticExports.application, session)
   );
 
-  const [admin, setAdmin] = useState(
-    stateFactory(staticExportsAdminSorted, session)
-  );
-
   /**
    * Effects
    *
    * @description merge groups, update session storage and refetch query from `UserInterface/Tools/Export.php`.
    */
   useEffect(() => {
-    const selected = [
-      ...getKeysEqualToTrue(application),
-      ...getKeysEqualToTrue(admin),
-    ];
-    exportSelectionSession(selected);
+    const selected = getKeysEqualToTrue(application);
+    exportSessionStorage(selected);
     query.refetch();
-  }, [application, admin]);
+  }, [application]);
 
   /**
    * Write
@@ -178,35 +156,12 @@ const Export = () => {
             ))}
           </SidebarCheckboxFlex>
         </SidebarGroup>
-
-        {staticExportsAdminSorted.length > 0 && (
-          <SidebarGroup title={__('Admin')}>
-            <SidebarCheckboxFlex>
-              <SidebarCheckboxItem>
-                <CheckboxControl
-                  label={__('Toggle All', 'intervention')}
-                  checked={!isAllChecked(admin)}
-                  onChange={() => setAdmin(writeAll(admin))}
-                />
-              </SidebarCheckboxItem>
-              {staticExportsAdminSorted.map(({ key, title }) => (
-                <SidebarCheckboxItem key={key}>
-                  <CheckboxControl
-                    label={__(title)}
-                    checked={admin[key] ?? false}
-                    onChange={(state) => setAdmin(write(admin, { key, state }))}
-                  />
-                </SidebarCheckboxItem>
-              ))}
-            </SidebarCheckboxFlex>
-          </SidebarGroup>
-        )}
       </Sidebar>
 
       {/* bugfix: w-full strangely wraps the sidebar on smaller screens, w-1/2 stops prismjs doing that */}
       <div className="flex-1 w-1/2">
         <Toolbar>
-          <ToolbarTitle>{__('Export')}</ToolbarTitle>
+          <ToolbarTitle>{__('Exporter')}</ToolbarTitle>
           <ButtonCopy textToCopy={query.data} />
         </Toolbar>
 

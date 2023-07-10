@@ -1,12 +1,12 @@
 /**
- * Export Selection Session
+ * Export Session Storage
  *
  * @description write/read session storage for `intervention-export-selection`.
  *
  * @param {array} write
  * @returns {null|array}
  */
-const exportSelectionSession = (write = false) => {
+const exportSessionStorage = (write = false) => {
   if (write !== false) {
     sessionStorage.setItem(
       'intervention-export-selection',
@@ -18,4 +18,4 @@ const exportSelectionSession = (write = false) => {
   return JSON.parse(sessionStorage.getItem('intervention-export-selection'));
 };
 
-export { exportSelectionSession };
+export { exportSessionStorage };

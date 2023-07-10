@@ -2,8 +2,7 @@
 
 namespace Jacoby\Intervention;
 
-use Jacoby\Intervention\UserInterface\Admin;
-use Jacoby\Intervention\UserInterface\Application;
+use Jacoby\Intervention\UserInterface\Import;
 use Jacoby\Intervention\UserInterface\Export;
 use Jacoby\Intervention\UserInterface\Support\RegisterPage;
 use Jacoby\Intervention\UserInterface\Support\UserColorSchemeCustomProps;
@@ -26,9 +25,8 @@ class UserInterface
      */
     public function __construct()
     {
-        $this->routeAdmin = new Admin();
         $this->routeExport = new Export();
-        $this->routeApplication = new Application();
+        $this->routeImport = new Import();
 
         /**
          * Register custom `wp-admin` page.
@@ -99,19 +97,9 @@ class UserInterface
                 },
             ];
 
-            register_rest_route('intervention/v2', '/admin', array_merge(
+            register_rest_route('intervention/v2', '/import', array_merge(
                 $core,
-                ['callback' => [$this->routeAdmin, 'request']],
-            ));
-
-            register_rest_route('intervention/v2', '/application', array_merge(
-                $core,
-                ['callback' => [$this->routeApplication, 'request']],
-            ));
-
-            register_rest_route('intervention/v2', '/exportAdminOptions', array_merge(
-                $core,
-                ['callback' => [$this->routeExport, 'requestAdminOptions']],
+                ['callback' => [$this->routeImport, 'request']],
             ));
 
             register_rest_route('intervention/v2', '/export', array_merge(
@@ -168,15 +156,8 @@ class UserInterface
             wp_localize_script('intervention-scripts-user-interface', 'intervention', [
                 'nonce' => wp_create_nonce('wp_rest'),
                 'route' => [
-                    'admin' => [
-                        'url' => esc_url_raw(rest_url('intervention/v2/admin')),
-                        'data' => $this->routeAdmin->getLocalizedData(),
-                    ],
-                    'application' => [
-                        'url' => esc_url_raw(rest_url('intervention/v2/application')),
-                    ],
-                    'exportAdminOptions' => [
-                        'url' => esc_url_raw(rest_url('intervention/v2/exportAdminOptions')),
+                    'import' => [
+                        'url' => esc_url_raw(rest_url('intervention/v2/import')),
                     ],
                     'export' => [
                         'url' => esc_url_raw(rest_url('intervention/v2/export')),

@@ -3,136 +3,42 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "X-Generator: babel-plugin-makepot\n"
 
-#: resources/scripts/user-interface/interface/Admin.js:85
-#: resources/scripts/user-interface/interface/Application.js:101
+#: resources/scripts/user-interface/interface/Import.js:101
 msgid "Show"
 msgstr ""
 
-#: resources/scripts/user-interface/interface/Admin.js:89
-#: resources/scripts/user-interface/interface/Application.js:105
+#: resources/scripts/user-interface/interface/Import.js:105
 msgid "All"
 msgstr ""
 
-#: resources/scripts/user-interface/interface/Admin.js:90
-msgid "Applied"
-msgstr ""
-
-#: resources/scripts/user-interface/interface/Admin/Components/Breadcrumb.js:59
-msgid "admin"
-msgstr ""
-
-#: resources/scripts/user-interface/interface/Admin/Components/Row.js:160
-msgid "Undo"
-msgstr ""
-
-#: resources/scripts/user-interface/interface/Admin/ComponentsApplied.js:199
-#: resources/scripts/user-interface/interface/Application.js:151
-msgid "Nothing found"
-msgstr ""
-
-#: resources/scripts/user-interface/interface/Admin/Head.js:148
-msgid "Hardcoded"
-msgstr ""
-
-#: resources/scripts/user-interface/interface/Admin/Head.js:161
-msgid "Edit"
-msgstr ""
-
-#: resources/scripts/user-interface/interface/Admin/Head.js:75
-msgid "New Role Group"
-msgstr ""
-
-#: resources/scripts/user-interface/interface/Admin/Head.js:83
-msgid "Less, But Better"
-msgstr ""
-
-#: resources/scripts/user-interface/interface/Admin/Head/DeleteRoleGroup.js:54
-msgid "Delete"
-msgstr ""
-
-#: resources/scripts/user-interface/interface/Admin/Head/NewRoleGroup.js:35
-msgid "New"
-msgstr ""
-
-#: resources/scripts/user-interface/interface/Admin/Save.js:208
-msgid "Saving"
-msgstr ""
-
-#: resources/scripts/user-interface/interface/Admin/Save.js:214
-msgid "Save"
-msgstr ""
-
-#: resources/scripts/user-interface/interface/Admin/Save.js:244
-msgid ""
-"Empty role group found, please assign a role or delete the group before "
-"saving."
-msgstr ""
-
-#: resources/scripts/user-interface/interface/Admin/Save.js:256
-msgid "Found matching user groups, proceeding to save will merge groups."
-msgstr ""
-
-#: resources/scripts/user-interface/interface/Application.js:106
+#: resources/scripts/user-interface/interface/Import.js:106
 msgid "Mismatch"
 msgstr ""
 
-#: resources/scripts/user-interface/interface/Application.js:107
+#: resources/scripts/user-interface/interface/Import.js:107
 msgid "Match"
 msgstr ""
 
-#: resources/scripts/user-interface/interface/Application.js:117
-#: resources/scripts/user-interface/interface/Export.js:158
-#: resources/scripts/user-interface/interface/Head.js:18
-msgid "Application"
+#: resources/scripts/user-interface/interface/Import.js:117
+msgid "Importer"
 msgstr ""
 
-#: resources/scripts/user-interface/interface/Application.js:130
+#: resources/scripts/user-interface/interface/Import.js:130
 msgid "Mismatch (%s)"
 msgstr ""
 
-#: resources/scripts/user-interface/interface/Application.js:141
+#: resources/scripts/user-interface/interface/Import.js:141
 msgid "Importing"
 msgstr ""
 
-#: resources/scripts/user-interface/interface/Application.js:141
+#: resources/scripts/user-interface/interface/Import.js:141
 msgid "Import"
 msgstr ""
 
-#: resources/scripts/user-interface/interface/Application.js:146
-#: resources/scripts/user-interface/interface/Export.js:213
+#: resources/scripts/user-interface/interface/Import.js:146
 msgid "Sorry, an error has occured"
 msgstr ""
 
-#: resources/scripts/user-interface/interface/Application/ToolbarContentImported.js:20
-msgid "Imported %1$s and %2$s failed"
-msgstr ""
-
-#: resources/scripts/user-interface/interface/Application/ToolbarContentImported.js:33
-msgid "Imported %s"
-msgstr ""
-
-#: resources/scripts/user-interface/interface/Export.js:183
-#: resources/scripts/user-interface/interface/Head.js:17
-msgid "Admin"
-msgstr ""
-
-#: resources/scripts/user-interface/interface/Export.js:187
-msgid "Toggle All"
-msgstr ""
-
-#: resources/scripts/user-interface/interface/Export.js:209
-#: resources/scripts/user-interface/interface/Head.js:19
-msgid "Export"
-msgstr ""
-
-#: resources/scripts/user-interface/interface/Export/ButtonCopy.js:21
-msgid "Copy"
-msgstr ""
-
-#: resources/scripts/user-interface/interface/Export/ButtonCopy.js:29
-msgid "Copied"
-msgstr ""
-
-#: resources/scripts/user-interface/interface/Head.js:25
-msgid "Documentation"
+#: resources/scripts/user-interface/interface/Import.js:151
+msgid "Nothing found"
 msgstr ""

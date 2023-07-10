@@ -29,8 +29,6 @@ class Export
 {
     protected $selected = [];
     protected $application_settings_database = [];
-    protected $config_file_admin = [];
-    protected $admin_components_order_keys = [];
 
     /**
      * Initialize
@@ -43,41 +41,21 @@ class Export
          * Intervention keys to database keys settings.
          */
         $this->application_settings_database = Config::get('application/settings-database');
-
-        /**
-         * Config file `wp-admin` options array excluding `wp-admin` prefix from keys, required for localized and query admin data.
-         */
-        $this->config_file_admin = Arr::collect(\Jacoby\Intervention\getConfigFile() ?? [])
-            ->filter(function ($v, $k) {
-                return Str::startsWith($k, 'wp-admin.');
-            })
-            ->reduce(function ($carry, $v, $k) {
-                $key_no_prefix = Str::replace('wp-admin.', '', $k);
-                $carry[$key_no_prefix] = $v;
-                return $carry;
-            }, []);
-
-        /**
-         * Components order keys for rendering `wp-admin` user interface.
-         */
-        $this->admin_components_order_keys = Config::get('user-interface/export/components-order-keys')->all();
     }
 
     /**
      * Get Localized Data
      *
-     * Application and Admin sidebar group arrays.
+     * Application sidebar group arrays.
      *
      * @return array
      */
     public function getLocalizedData()
     {
-        $application = Config::get('user-interface/export/application-selection')->toArray();
-        // $admin = $this->getLocalizedAdminData();
+        $application = Config::get('user-interface/application-selection')->toArray();
 
         return [
             'application' => $application,
-            // 'admin' => $admin,
         ];
     }
 
@@ -139,109 +117,6 @@ class Export
     }
 
     /**
-     * Get Query Admin Data
-     *
-     * Get and format admin request data.
-     *
-     * @return array
-     */
-    public function getQueryAdminData()
-    {
-        /**
-         * Get database options.
-         */
-        $database = get_option('intervention_admin');
-
-        /**
-         * Get config file options
-         */
-        $config = Arr::transformEntriesToTrue($this->config_file_admin);
-
-        /**
-         * Merge database and config file
-         */
-        $admin = $database ? Arr::collect($database)->mergeRecursive($config) : Arr::collect($config);
-
-        /**
-         * Filter `$this->selected`.
-         */
-        $admin = $admin->filter(function ($v, $k) {
-            return $this->selected->contains($k);
-        });
-
-        /**
-         * Sort by `$this->admin_components_order_keys`
-         */
-        $admin = $admin->map(function ($v, $k) {
-            return Arr::sortArrayByOrderArray($v, $this->admin_components_order_keys);
-        });
-
-        /**
-         * Return
-         */
-        return $admin->all();
-    }
-
-    /**
-     * Request Admin Options
-     *
-     * @param \WP_REST_Request
-     * @return function rest_ensure_response()
-     *
-     * @link https://developer.wordpress.org/reference/functions/rest_ensure_response/
-     */
-    public function requestAdminOptions(\WP_REST_Request $request)
-    {
-        /**
-         * Get only items starting with `wp-admin`, remove `wp-admin` prefix and return values
-         */
-        $config = Arr::collect($this->config_file_admin)->keys();
-
-        /**
-         * Get database options or an empty array.
-         */
-        $database = [];
-        if (get_option('intervention_admin')) {
-            $database = Arr::collect(get_option('intervention_admin'))->keys();
-        }
-
-        /**
-         * Get all admin options by merging the config file with the database
-         */
-        $admin = $config->merge($database)->unique()->all();
-
-        /**
-         * Format title function used for rendering purposes.
-         */
-        function format_title($array)
-        {
-            return Arr::collect($array)->map(function ($role) {
-                if ($role === 'all-not-administrator') {
-                    return Arr::collect(explode('-', $role))->map(function ($word) {
-                        return ucwords($word);
-                    })->join(' ');
-                }
-                return ucwords($role);
-            })->join('/');
-        }
-
-        /**
-         * Format array for `Export.js` to consume, roles must be passed as an array for render sorting purposes.
-         */
-        $render = Arr::collect($admin)->map(function ($v) {
-            $roles_arr = explode('|', $v);
-
-            return [
-                'key' => $v,
-                'title' => format_title($roles_arr),
-                'roles' => [$roles_arr],
-            ];
-        })->values();
-
-        return rest_ensure_response($render);
-    }
-
-    /**
      * Request
      *
      * @param \WP_REST_Request
@@ -257,25 +132,19 @@ class Export
         $this->selected = Arr::collect($request->get_param('selected') ?? []);
 
         /**
-         * Query application and admin data
+         * Query application data
          */
         $application = $this->getQueryApplicationData();
-        $admin = $this->getQueryAdminData();
 
         /**
          * Render
          */
         $render = [
             'application' => $application,
-            'wp-admin' => $admin,
         ];
 
         if (empty($application)) {
             unset($render['application']);
-        }
-
-        if (empty($admin)) {
-            unset($render['wp-admin']);
         }
 
         $render_exporter = CodeExporter::export($render);

@@ -2,9 +2,9 @@ import { sprintf } from '@wordpress/i18n';
 import { __ } from '../../utils/wp';
 
 /**
- * Toolbar Content Render
+ * Toolbar Content Imported
  *
- * @description application messaging for toolbar content.
+ * @description imported messaging for toolbar content.
  *
  * @param {object} props
  * @returns <ToolbarContentRender />

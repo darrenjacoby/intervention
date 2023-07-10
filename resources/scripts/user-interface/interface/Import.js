@@ -12,39 +12,39 @@ import {
   ToolbarContent,
 } from './Page/Toolbar';
 import { Sidebar, SidebarGroup } from './Page/Sidebar';
-import { ToolbarContentImported } from './Application/ToolbarContentImported';
+import { ToolbarContentImported } from './Import/ToolbarContentImported';
 import {
   RowNotFound,
   Row,
   RowKey,
   RowValue,
   RowValueFromTo,
-} from './Application/Row';
+} from './Import/Row';
 import { __ } from '../utils/wp';
-import { applicationQuery } from '../queries';
-import { applicationShowSession } from '../sessions';
+import { importQuery } from '../queries';
+import { importSessionStorage } from '../sessions';
 
 apiFetch.use(apiFetch.createNonceMiddleware(intervention.nonce));
 
 /**
- * Application
+ * Import
  *
- * @description import application config to the WordPress database.
+ * @description import application config to the WordPress DB.
  *
- * @returns <Application />
+ * @returns <Import />
  */
-const Application = () => {
+const Import = () => {
   /**
    * Query
    */
-  const query = useQuery('application', applicationQuery, {
+  const query = useQuery('import', importQuery, {
     suspense: true,
   });
 
   /**
    * State
    */
-  const session = applicationShowSession();
+  const session = importSessionStorage();
   const [show, setShow] = useState(session ? session : 'all');
   const [data, setData] = useState(query.data.items);
   const [diff, setDiff] = useState(query.data.diff);
@@ -57,7 +57,7 @@ const Application = () => {
    */
   const mutation = useMutation(() => {
     return apiFetch({
-      url: intervention.route.application.url,
+      url: intervention.route.import.url,
       method: 'POST',
       data: { import: true },
     }).then((res) => {
@@ -71,7 +71,7 @@ const Application = () => {
    * Effects
    */
   useEffect(() => {
-    applicationShowSession(show);
+    importSessionStorage(show);
   }, [show]);
 
   /**
@@ -114,7 +114,7 @@ const Application = () => {
       <div className="w-full flex-1">
         <Toolbar>
           <ToolbarFlex>
-            <ToolbarTitle>{__('Application')}</ToolbarTitle>
+            <ToolbarTitle>{__('Importer')}</ToolbarTitle>
             <ToolbarContent>
               <ToolbarContentImported imported={imported} />
             </ToolbarContent>
@@ -175,4 +175,4 @@ const Application = () => {
   );
 };
 
-export { Application };
+export { Import };

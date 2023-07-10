@@ -19,7 +19,7 @@ use Jacoby\Intervention\Support\Middleware\WordPressToIntervention;
  * @link https://developer.wordpress.org/reference/functions/wp_localize_script/
  * @link https://github.com/brick/varexporter
  */
-class Application
+class Import
 {
     public static $store = [];
 
