@@ -40,20 +40,6 @@ interface Application extends Container
      */
     public function databasePath($path = '');
     /**
-     * Get the path to the language files.
-     *
-     * @param  string  $path
-     * @return string
-     */
-    public function langPath($path = '');
-    /**
-     * Get the path to the public directory.
-     *
-     * @param  string  $path
-     * @return string
-     */
-    public function publicPath($path = '');
-    /**
      * Get the path to the resources directory.
      *
      * @param  string  $path
@@ -63,14 +49,13 @@ interface Application extends Container
     /**
      * Get the path to the storage directory.
      *
-     * @param  string  $path
      * @return string
      */
-    public function storagePath($path = '');
+    public function storagePath();
     /**
      * Get or check the current application environment.
      *
-     * @param  string|array  ...$environments
+     * @param  string|array  $environments
      * @return string|bool
      */
     public function environment(...$environments);
@@ -86,18 +71,6 @@ interface Application extends Container
      * @return bool
      */
     public function runningUnitTests();
-    /**
-     * Determine if the application is running with debug mode enabled.
-     *
-     * @return bool
-     */
-    public function hasDebugModeEnabled();
-    /**
-     * Get an instance of the maintenance mode manager implementation.
-     *
-     * @return \Illuminate\Contracts\Foundation\MaintenanceMode
-     */
-    public function maintenanceMode();
     /**
      * Determine if the application is currently down for maintenance.
      *
@@ -206,13 +179,6 @@ interface Application extends Container
      * @return bool
      */
     public function shouldSkipMiddleware();
-    /**
-     * Register a terminating callback with the application.
-     *
-     * @param  callable|string  $callback
-     * @return \Illuminate\Contracts\Foundation\Application
-     */
-    public function terminating($callback);
     /**
      * Terminate the application.
      *

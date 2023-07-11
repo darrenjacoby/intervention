@@ -2,7 +2,6 @@
 
 namespace Jacoby\Intervention\Illuminate\Contracts\Validation;
 
-use Jacoby\Intervention\Illuminate\Validation\Validator;
 interface ValidatorAwareRule
 {
     /**
@@ -11,5 +10,5 @@ interface ValidatorAwareRule
      * @param  \Illuminate\Validation\Validator  $validator
      * @return $this
      */
-    public function setValidator(Validator $validator);
+    public function setValidator($validator);
 }

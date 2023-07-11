@@ -39,6 +39,7 @@ trait Macroable
         $methods = (new ReflectionClass($mixin))->getMethods(ReflectionMethod::IS_PUBLIC | ReflectionMethod::IS_PROTECTED);
         foreach ($methods as $method) {
             if ($replace || !static::hasMacro($method->name)) {
+                $method->setAccessible(\true);
                 static::macro($method->name, $method->invoke($mixin));
             }
         }
