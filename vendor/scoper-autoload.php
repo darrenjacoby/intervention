@@ -28,7 +28,7 @@ if (!function_exists('humbug_phpscoper_expose_class')) {
         }
     }
 }
-humbug_phpscoper_expose_class('ComposerAutoloaderInit922a7b8c32158dc77c1dc6b51a979d85', 'Jacoby\Intervention\ComposerAutoloaderInit922a7b8c32158dc77c1dc6b51a979d85');
+humbug_phpscoper_expose_class('ComposerAutoloaderInitd4a5f02b228dd443119617f44d2b1c81', 'Jacoby\Intervention\ComposerAutoloaderInitd4a5f02b228dd443119617f44d2b1c81');
 humbug_phpscoper_expose_class('ComposerAutoloaderInit0662bd2375e89ce1b76f8b27abc63cee', 'Jacoby\Intervention\ComposerAutoloaderInit0662bd2375e89ce1b76f8b27abc63cee');
 humbug_phpscoper_expose_class('PhpToken', 'Jacoby\Intervention\PhpToken');
 humbug_phpscoper_expose_class('ValueError', 'Jacoby\Intervention\ValueError');

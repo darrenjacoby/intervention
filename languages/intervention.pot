@@ -3,42 +3,80 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "X-Generator: babel-plugin-makepot\n"
 
-#: resources/scripts/user-interface/interface/Import.js:101
-msgid "Show"
+#: resources/scripts/user-interface/interface/Export.js:169
+msgid "Application"
 msgstr ""
 
-#: resources/scripts/user-interface/interface/Import.js:105
-msgid "All"
+#: resources/scripts/user-interface/interface/Export.js:173
+msgid "Toggle All"
 msgstr ""
 
-#: resources/scripts/user-interface/interface/Import.js:106
-msgid "Mismatch"
+#: resources/scripts/user-interface/interface/Export.js:197
+msgid "Exporter"
 msgstr ""
 
-#: resources/scripts/user-interface/interface/Import.js:107
-msgid "Match"
-msgstr ""
-
-#: resources/scripts/user-interface/interface/Import.js:117
-msgid "Importer"
-msgstr ""
-
-#: resources/scripts/user-interface/interface/Import.js:130
-msgid "Mismatch (%s)"
-msgstr ""
-
-#: resources/scripts/user-interface/interface/Import.js:141
-msgid "Importing"
-msgstr ""
-
-#: resources/scripts/user-interface/interface/Import.js:141
-msgid "Import"
-msgstr ""
-
-#: resources/scripts/user-interface/interface/Import.js:146
+#: resources/scripts/user-interface/interface/Export.js:201
+#: resources/scripts/user-interface/interface/Import.js:177
 msgid "Sorry, an error has occured"
 msgstr ""
 
-#: resources/scripts/user-interface/interface/Import.js:151
+#: resources/scripts/user-interface/interface/Export/ButtonCopy.js:21
+msgid "Copy"
+msgstr ""
+
+#: resources/scripts/user-interface/interface/Export/ButtonCopy.js:29
+msgid "Copied"
+msgstr ""
+
+#: resources/scripts/user-interface/interface/Head.js:17
+#: resources/scripts/user-interface/interface/Import.js:172
+msgid "Import"
+msgstr ""
+
+#: resources/scripts/user-interface/interface/Head.js:18
+msgid "Export"
+msgstr ""
+
+#: resources/scripts/user-interface/interface/Head.js:24
+msgid "Documentation"
+msgstr ""
+
+#: resources/scripts/user-interface/interface/Import.js:132
+msgid "Show"
+msgstr ""
+
+#: resources/scripts/user-interface/interface/Import.js:136
+msgid "All"
+msgstr ""
+
+#: resources/scripts/user-interface/interface/Import.js:137
+msgid "Mismatch"
+msgstr ""
+
+#: resources/scripts/user-interface/interface/Import.js:138
+msgid "Match"
+msgstr ""
+
+#: resources/scripts/user-interface/interface/Import.js:148
+msgid "Importer"
+msgstr ""
+
+#: resources/scripts/user-interface/interface/Import.js:161
+msgid "Mismatch (%s)"
+msgstr ""
+
+#: resources/scripts/user-interface/interface/Import.js:172
+msgid "Importing"
+msgstr ""
+
+#: resources/scripts/user-interface/interface/Import.js:182
 msgid "Nothing found"
+msgstr ""
+
+#: resources/scripts/user-interface/interface/Import/ToolbarContentImported.js:20
+msgid "Imported %1$s and %2$s failed"
+msgstr ""
+
+#: resources/scripts/user-interface/interface/Import/ToolbarContentImported.js:33
+msgid "Imported %s"
 msgstr ""
