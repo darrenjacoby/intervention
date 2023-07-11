@@ -22,7 +22,7 @@
   "require-dev": {
     "composer/installers": "^2.0",
     "symplify/easy-coding-standard": "^11.5",
-    "humbug/php-scoper": "^0.16.2"
+    "humbug/php-scoper": "^0.17.5"
   },
   "autoload": {
     "psr-4": {
