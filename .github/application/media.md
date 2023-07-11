@@ -75,8 +75,9 @@ return [
 
 #### Mime Types
 
-To enable custom mimes, a string of the mime type will need to be passed. 
-* Intervention has built in support for `svg` and `svgz`, so you can simply pass in `true`.
+To enable custom mimes, a string of the mime type will need to be passed.
+
+- Intervention has built in support for `svg` and `svgz`, so you can simply pass in `true`.
 
 **Enabling custom mimes;**
 
@@ -94,11 +95,11 @@ return [
 
 ### Further Reading;
 
-* `mimes.$name`
-    * [https://wpengine.com/support/mime-types-wordpress/](https://wpengine.com/support/mime-types-wordpress/)
-* `sizes.$name`
-    * [https://developer.wordpress.org/reference/functions/add_image_size/](https://developer.wordpress.org/reference/functions/add_image_size/)
+- `mimes.$name`
+  - [https://wpengine.com/support/mime-types-wordpress/](https://wpengine.com/support/mime-types-wordpress/)
+- `sizes.$name`
+  - [https://developer.wordpress.org/reference/functions/add_image_size/](https://developer.wordpress.org/reference/functions/add_image_size/)
 
 ### Bug?
 
-* **[Please open an issue](https://github.com/soberwp/intervention/issues/new?title=[application.media]&labels=bug&assignees=darrenjacoby)**
+- **[Please open an issue](https://github.com/darrenjacoby/intervention/issues/new?title=[application.media]&labels=bug&assignees=darrenjacoby)**

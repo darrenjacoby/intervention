@@ -1,12 +1,12 @@
 <?php
 
-namespace Sober\Intervention\Admin\Common;
+namespace Jacoby\Intervention\Admin\Common;
 
-use Sober\Intervention\Admin\Appearance\Widgets;
-use Sober\Intervention\Admin\Support\BlockEditor;
-use Sober\Intervention\Admin\Support\PostComponents;
-use Sober\Intervention\Support\Arr;
-use Sober\Intervention\Support\Composer;
+use Jacoby\Intervention\Admin\Appearance\Widgets;
+use Jacoby\Intervention\Admin\Support\BlockEditor;
+use Jacoby\Intervention\Admin\Support\PostComponents;
+use Jacoby\Intervention\Support\Arr;
+use Jacoby\Intervention\Support\Composer;
 
 /**
  * Common/Editor

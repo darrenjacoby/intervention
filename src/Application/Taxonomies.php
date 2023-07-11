@@ -1,12 +1,12 @@
 <?php
 
-namespace Sober\Intervention\Application;
+namespace Jacoby\Intervention\Application;
 
-use Sober\Intervention\Application\Support\Taxonomies\Register;
-use Sober\Intervention\Application\Support\Taxonomies\Remove;
-use Sober\Intervention\Support\Arr;
-use Sober\Intervention\Support\Composer;
-use Sober\Intervention\Support\Str;
+use Jacoby\Intervention\Application\Support\Taxonomies\Register;
+use Jacoby\Intervention\Application\Support\Taxonomies\Remove;
+use Jacoby\Intervention\Support\Arr;
+use Jacoby\Intervention\Support\Composer;
+use Jacoby\Intervention\Support\Str;
 
 /**
  * Taxonomies

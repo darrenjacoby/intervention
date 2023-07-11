@@ -1,10 +1,10 @@
 <?php
 
-namespace Sober\Intervention\Application\Support\Posttypes;
+namespace Jacoby\Intervention\Application\Support\Posttypes;
 
-use Sober\Intervention\Admin;
-use Sober\Intervention\Application;
-use Sober\Intervention\Support\Arr;
+use Jacoby\Intervention\Admin;
+use Jacoby\Intervention\Application;
+use Jacoby\Intervention\Support\Arr;
 
 /**
  * Support/Posttypes/Remove
@@ -24,7 +24,7 @@ class Remove
      * Interface
      *
      * @param string $posttype
-     * @return Sober\Intervention\Application\Support\Posttypes\Register
+     * @return Jacoby\Intervention\Application\Support\Posttypes\Register
      */
     public static function set($posttype = 'post')
     {

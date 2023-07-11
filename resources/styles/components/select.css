@@ -1,0 +1,49 @@
+/**
+ * <CustomSelectControl />
+ */
+.components-custom-select-control {
+  width: 100%;
+}
+
+.components-button.components-custom-select-control__button.is-small {
+  width: 100%;
+  height: 36px;
+  min-height: 30px;
+}
+
+.components-custom-select-control__button.components-custom-select-control__button {
+  color: theme('colors.gray-70');
+  font-size: theme('fontSize.14');
+  border: 1px solid theme('colors.gray-30');
+}
+
+.components-custom-select-control__menu {
+  margin: 4px 0;
+  font-size: theme('fontSize.14');
+  border-color: theme('colors.gray-30');
+}
+
+.components-custom-select-control__item {
+  min-height: 36px;
+  margin: 0;
+  padding: 4px 8px;
+  color: theme('colors.gray-70');
+  font-weight: theme('fontWeight.400');
+  font-family: theme('fontFamily.sans');
+
+  &:focus,
+  &:hover,
+  &.is-highlighted {
+    background-color: theme('colors.gray-2');
+  }
+}
+
+.components-custom-select-control__item-icon {
+  width: 24px;
+  height: 18px;
+  margin-right: -8px !important;
+}
+
+.components-custom-select-control__menu li:first-child svg {
+  display: none;
+}

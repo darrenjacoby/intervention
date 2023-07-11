@@ -8,12 +8,13 @@
         "lang": "de_DE",
         "plural-forms": "nplurals=2; plural=(n != 1);"
       },
-      "Tools": ["Werkzeuge"],
+      "Admin": ["Admin"],
+      "Application": ["Antrag"],
       "Export": ["Export"],
       "Import": ["Import"],
+      "Importing": ["Importieren"],
       "Copy": ["Kopie"],
       "Copied": ["Kopiert"],
-      "Application": ["Antrag"],
       "Toggle All": ["Alle Umschalten"],
       "Theme": ["Thema"],
       "Plugins": ["Plugins"],
@@ -24,25 +25,22 @@
       "Media": ["Medien"],
       "Permalinks": ["Permalinks"],
       "Privacy": ["Datenschutz"],
-      "Why": ["Warum"],
-      "Export the database to an %s config file": [
-        "Exportieren Sie die Datenbank in eine %s Konfigurationsdatei"
-      ],
       "All": ["Alle"],
       "Mismatch": ["Mismatch"],
       "Match": ["Match"],
       "Show": ["Zeigen"],
-      "Found %s differences between Intervention and the database": [
-        "%s Unterschiede zwischen Intervention und der Datenbank gefunden"
-      ],
-      "Intervention and the database match": [
-        "Intervention und Datenbankabgleich"
-      ],
       "Imported %1$s and %2$s failed": [
         "Import von %1$s und %2$s fehlgeschlagen"
       ],
       "Imported %s": ["Importiert %s"],
-      "Nothing found": ["Nichts gefunden"]
+      "Nothing found": ["Nichts gefunden"],
+      "Hardcoded": ["Fest Codiert"],
+      "Edit": ["Bearbeiten"],
+      "New Role Group": ["Neue Rollengruppe"],
+      "New": ["Neu"],
+      "Delete": ["Löschen"],
+      "Save": ["Speichern"],
+      "Documentation": ["Dokumentation"]
     }
   }
 }

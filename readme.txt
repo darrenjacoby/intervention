@@ -1,41 +1,57 @@
 === Intervention ===
 Contributors: darrenjacoby
 Donate link: https://paypal.me/darrenjacoby
-Tags: wp-admin, version control, settings, options
+Tags: wp-admin, admin, version control, settings, options, minimal
 Requires at least: 5.0
-Tested up to: 5.9.0
+Tested up to: 6.0
 Requires PHP: 7.0
 License: MIT
-License URI: https://github.com/soberwp/intervention/blob/main/LICENSE.md
+License URI: https://github.com/darrenjacoby/intervention/blob/main/LICENSE.md
+Stable tag: 2.0.0
 
-Easily customize wp-admin and configure application options.
+Less, but better.
 
 == Description ==
+Easily remove the superfluous, customising and simplifying the WordPress admin for each unique use case. Authors will appreciate a clearer, more intentional editing experience while developers spend less time on hooks, filters and support requests. 
 
-Easily customize wp-admin and configure application options.
+== Features ==
 
-### Composer
+In addition to being able to remove most visual elements from the WordPress admin, Intervention also enables the following options;
 
-`composer require soberwp/intervention`
+* Export a PHP config file of your database options to place under version control.
+* Import a PHP config file to your database, useful for fast setup.
+* Remove WordPress comments site-wide.
+* Remove WordPress and plugin update notifications.
+* Remove post types, including WordPress defaults such as `post` or `attachment`.
+* Remove WordPress default image sizes, such as `medium`.
+* Remove emojis site-wide.
 
-### Contributing
-
-See the [contributing guidelines](https://github.com/soberwp/intervention/blob/main/CONTRIBUTING.md).
+Full feature list: https://github.com/darrenjacoby/intervention
 
 == Installation ==
+= Requirements =
+* WordPress version 5.0 and later; tested only in last stable version.
+* PHP 7.4, newer PHP versions will work faster. Tested only from version 7.4.
 
-See the [installation instructions](https://github.com/soberwp/intervention#installation).
+Install via WordPress, or;
 
-== Frequently Asked Questions ==
-
-= I found a bug. How do I report it? =
-
-[https://github.com/soberwp/intervention/issues](https://github.com/soberwp/intervention/issues)
-
-= Can I use this plugin with Composer? =
-
-[https://packagist.org/packages/soberwp/intervention](https://packagist.org/packages/soberwp/intervention)
+* Unzip the Intervention download.
+* Upload the files to `/wp-content/plugins/`.
+* Enable plugin Intervention under `Plugins/Installed Plugins`.
+* Using user role `administrator`, browse to `Tools/Intervention` and begin configure Intervention.
 
 == Changelog ==
+= 2.0.0 (28/05/2022) =
+* Release
 
-[See the changelog](https://github.com/soberwp/intervention/blob/main/CHANGELOG.md)
+= License =
+MIT
+
+= Translations =
+English, German, Dutch, Swedish.
+
+= Development =
+Building in public over at https://github.com/darrenjacoby/intervention
+
+= Support =
+Support the future development by contributing at https://paypal.me/darrenjacoby

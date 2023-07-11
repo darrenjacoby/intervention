@@ -1,9 +1,9 @@
 <?php
 
-namespace Sober\Intervention\Application\Support;
+namespace Jacoby\Intervention\Application\Support;
 
-use Sober\Intervention\Admin;
-use Sober\Intervention\Admin\Support\BlockEditor;
+use Jacoby\Intervention\Admin;
+use Jacoby\Intervention\Admin\Support\BlockEditor;
 
 /**
  * Support/Comments

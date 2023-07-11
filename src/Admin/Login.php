@@ -1,9 +1,9 @@
 <?php
 
-namespace Sober\Intervention\Admin;
+namespace Jacoby\Intervention\Admin;
 
-use Sober\Intervention\Support\Arr;
-use Sober\Intervention\Support\Composer;
+use Jacoby\Intervention\Support\Arr;
+use Jacoby\Intervention\Support\Composer;
 
 /**
  * Login
@@ -67,7 +67,7 @@ class Login
                 <style>#login h1 a {
                     width: 100px;
                     height: 100px;
-                    background-image: url(' . $this->config->get('login.logo') . ');
+                    background-image: url(' . esc_url($this->config->get('login.logo')) . ');
                     background-position: center center;
                     background-size: 100px auto;
                 }</style>';

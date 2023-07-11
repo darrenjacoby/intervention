@@ -1,9 +1,9 @@
 <?php
 
-namespace Sober\Intervention\Application\Support\Posttypes;
+namespace Jacoby\Intervention\Application\Support\Posttypes;
 
-use Sober\Intervention\Support\Arr;
-use Sober\Intervention\Support\Str;
+use Jacoby\Intervention\Support\Arr;
+use Jacoby\Intervention\Support\Str;
 
 /**
  * Support/Posttypes/Labels
@@ -25,7 +25,7 @@ class Labels
      * @param string $one
      * @param string $many
      * @param string|array $config
-     * @return Sober\Intervention\Application\Support\Posttypes\Labels
+     * @return Jacoby\Intervention\Application\Support\Posttypes\Labels
      */
     public static function set($one, $many = false, $config = false)
     {
@@ -51,8 +51,8 @@ class Labels
     public function builder()
     {
         $featured_image = $this->config->has('featured_image') ?
-            $this->config->get('featured_image') :
-            'Featured image';
+        $this->config->get('featured_image') :
+        'Featured image';
 
         $this->labels = Arr::collect([
             'name' => _x($this->many, 'Post type general name', THEME_TEXT_DOMAIN),

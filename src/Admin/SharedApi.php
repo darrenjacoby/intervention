@@ -1,20 +1,20 @@
 <?php
 
-namespace Sober\Intervention\Admin;
+namespace Jacoby\Intervention\Admin;
 
-use Sober\Intervention\Admin\Support\All\ActionBulk;
-use Sober\Intervention\Admin\Support\All\Lists\Actions as ListActions;
-use Sober\Intervention\Admin\Support\All\Lists\Columns as ListColumns;
-use Sober\Intervention\Admin\Support\All\Lists\Count as ListCount;
-use Sober\Intervention\Admin\Support\All\Pagination;
-use Sober\Intervention\Admin\Support\All\Search;
-use Sober\Intervention\Admin\Support\All\Subsets;
-use Sober\Intervention\Admin\Support\Menu;
-use Sober\Intervention\Admin\Support\Router;
-use Sober\Intervention\Admin\Support\Tabs;
-use Sober\Intervention\Admin\Support\Title;
-use Sober\Intervention\Support\Composer;
-use Sober\Intervention\Support\Config;
+use Jacoby\Intervention\Admin\Support\All\ActionBulk;
+use Jacoby\Intervention\Admin\Support\All\Lists\Actions as ListActions;
+use Jacoby\Intervention\Admin\Support\All\Lists\Columns as ListColumns;
+use Jacoby\Intervention\Admin\Support\All\Lists\Count as ListCount;
+use Jacoby\Intervention\Admin\Support\All\Pagination;
+use Jacoby\Intervention\Admin\Support\All\Search;
+use Jacoby\Intervention\Admin\Support\All\Subsets;
+use Jacoby\Intervention\Admin\Support\Menu;
+use Jacoby\Intervention\Admin\Support\Router;
+use Jacoby\Intervention\Admin\Support\Tabs;
+use Jacoby\Intervention\Admin\Support\Title;
+use Jacoby\Intervention\Support\Composer;
+use Jacoby\Intervention\Support\Config;
 
 /**
  * Shared API
@@ -49,7 +49,7 @@ class SharedApi
      * Interface
      *
      * @param string $key
-     * @return Sober\Intervention\Admin\Support\SharedApi
+     * @return Jacoby\Intervention\Admin\Support\SharedApi
      */
     public static function set($key = false, $config = false)
     {
@@ -71,7 +71,7 @@ class SharedApi
     /**
      * Router
      *
-     * @see Sober\Intervention\Admin\Support\Router
+     * @see Jacoby\Intervention\Admin\Support\Router
      */
     public function router()
     {
@@ -83,7 +83,7 @@ class SharedApi
     /**
      * Icon
      *
-     * @see Sober\Intervention\Admin\Support\Menu
+     * @see Jacoby\Intervention\Admin\Support\Menu
      */
     public function icon()
     {
@@ -95,7 +95,7 @@ class SharedApi
     /**
      * Menu
      *
-     * @see Sober\Intervention\Admin\Support\Menu
+     * @see Jacoby\Intervention\Admin\Support\Menu
      */
     public function menu()
     {
@@ -107,7 +107,7 @@ class SharedApi
     /**
      * Title
      *
-     * @see Sober\Intervention\Admin\Support\Title
+     * @see Jacoby\Intervention\Admin\Support\Title
      */
     public function title()
     {
@@ -129,7 +129,7 @@ class SharedApi
     /**
      * Tabs
      *
-     * @see Sober\Intervention\Admin\Support\Tabs
+     * @see Jacoby\Intervention\Admin\Support\Tabs
      */
     public function tabs()
     {
@@ -142,8 +142,8 @@ class SharedApi
     /**
      * Pagination
      *
-     * @see Sober\Intervention\Admin\Support\All\Pagination
-     * @see Sober\Intervention\Admin\Support\Tabs
+     * @see Jacoby\Intervention\Admin\Support\All\Pagination
+     * @see Jacoby\Intervention\Admin\Support\Tabs
      */
     public function pagination()
     {
@@ -156,7 +156,7 @@ class SharedApi
     /**
      * Subsets
      *
-     * @see Sober\Intervention\Admin\Support\All\Subsets
+     * @see Jacoby\Intervention\Admin\Support\All\Subsets
      */
     public function subsets()
     {
@@ -170,9 +170,9 @@ class SharedApi
     /**
      * Lists
      *
-     * @see Sober\Intervention\Admin\Support\All\Lists\Actions
-     * @see Sober\Intervention\Admin\Support\All\Lists\Columns
-     * @see Sober\Intervention\Admin\Support\All\Lists\Count
+     * @see Jacoby\Intervention\Admin\Support\All\Lists\Actions
+     * @see Jacoby\Intervention\Admin\Support\All\Lists\Columns
+     * @see Jacoby\Intervention\Admin\Support\All\Lists\Count
      *
      * @param boolean $checkbox
      */
@@ -202,7 +202,7 @@ class SharedApi
     /**
      * Action Bulk
      *
-     * @see Sober\Intervention\Admin\Support\All\ActionBulk
+     * @see Jacoby\Intervention\Admin\Support\All\ActionBulk
      */
     public function actionBulk()
     {
@@ -214,7 +214,7 @@ class SharedApi
     /**
      * Search
      *
-     * @see Sober\Intervention\Admin\Support\All\Search
+     * @see Jacoby\Intervention\Admin\Support\All\Search
      */
     public function search()
     {

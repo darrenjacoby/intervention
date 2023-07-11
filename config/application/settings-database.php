@@ -1,10 +1,10 @@
 <?php
 /**
  * Return array of key to WordPress database options key.
- * 
+ *
  * @see Application/OptionsApi
  */
-namespace Sober\Intervention;
+namespace Jacoby\Intervention;
 
 return [
     'general.site-title' => 'blogname',

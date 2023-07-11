@@ -42,7 +42,7 @@ return [
 
 ### Note;
 
-Intervention uses [activate_plugin()](https://developer.wordpress.org/reference/functions/activate_plugin/), which requires a path to the plugin file. 
+Intervention uses [activate_plugin()](https://developer.wordpress.org/reference/functions/activate_plugin/), which requires a path to the plugin file.
 
 Intervention matches folder name to the plugin file name, `'disable-comments' => true` becomes `'disable-comments/disable-comments.php' => true`
 
@@ -60,4 +60,4 @@ return [
 
 ### Bug?
 
-* **[Please open an issue](https://github.com/soberwp/intervention/issues/new?title=[application.plugins]&labels=bug&assignees=darrenjacoby)**
+- **[Please open an issue](https://github.com/darrenjacoby/intervention/issues/new?title=[application.plugins]&labels=bug&assignees=darrenjacoby)**

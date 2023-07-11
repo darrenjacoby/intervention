@@ -14,7 +14,7 @@ $ wp plugin activate intervention
 [WP-CLI](http://wp-cli.org/)
 
 ```shell
-$ wp plugin install https://github.com/soberwp/intervention/archive/master.zip --activate
+$ wp plugin install https://github.com/darrenjacoby/intervention/archive/master.zip --activate
 ```
 
 #### Requirements
@@ -23,7 +23,7 @@ $ wp plugin install https://github.com/soberwp/intervention/archive/master.zip -
 
 ## Usage
 
-Create `config/intervention.php` for Sage 10, `resources/intervention.php` for Sage 9, or `intervention.php` inside your theme root folder and return an array.
+Create `config/intervention.php` for Sage 10, or `intervention.php` inside your theme root folder and return an array.
 
 ```php
 <?php
@@ -184,10 +184,10 @@ Return `application`.
 return [
     'application' => [
         'general' => [
-            'tagline' => 'Intervention',
-            'wp-address' => 'https://soberwp.com/wp',
-            'site-address' => 'https://soberwp.com',
-            'admin-email' => 'example@soberwp.com',
+            'tagline' => 'Intervention Example',
+            'wp-address' => 'https://example.com/wp',
+            'site-address' => 'https://example.com',
+            'admin-email' => 'example@example.com',
             'membership' => false,
             'default-role' => 'editor',
             'language' => 'en_US',
@@ -231,10 +231,6 @@ return [
 - [Remove attachments](.github/application/posts.md#remove)
 - [Enable custom media/mime types](.github/application/media.md#mime-types)
 
-## Updating
-
-- **[Guide to upgrade from version 1.x.x to 2.x.x](.github/upgrading.md)**
-
 #### Composer
 
 - Change the composer.json version to ^2.0.0\*\*<br>
@@ -250,14 +246,7 @@ Includes support for github-updater to track updates through wp-admin.
 
 - [Download](https://github.com/afragen/github-updater)
 
-## Roadmap
+### Support
 
-- ✅ Export database values to Intervention config file.
-- ✅ Save to database manual option (`update_option` vs `pre_option`).
-- (WIP) Intervention wp-admin interface.
-- Better support for the block editor.
-- Support `wp-admin` custom post types.
-
-**Have a suggestion, or want to track new releases? [@withjacoby](https://twitter.com/withjacoby)**
-
-If you would like to buy me a coffee, [paypal.me/darrenjacoby](https://paypal.me/darrenjacoby)
+- Twitter: [@withjacoby](https://twitter.com/withjacoby)
+- Paypal: [paypal.me/darrenjacoby](https://paypal.me/darrenjacoby)

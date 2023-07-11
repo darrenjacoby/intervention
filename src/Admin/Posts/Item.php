@@ -1,9 +1,9 @@
 <?php
 
-namespace Sober\Intervention\Admin\Posts;
+namespace Jacoby\Intervention\Admin\Posts;
 
-use Sober\Intervention\Support\Arr;
-use Sober\Intervention\Support\Composer;
+use Jacoby\Intervention\Support\Arr;
+use Jacoby\Intervention\Support\Composer;
 
 /**
  * Posts/Item
@@ -90,9 +90,9 @@ class Item
 
         /*
         $compose = $compose->has('posts.item.tabs')->add('posts.item.tabs.', [
-            'screen-options', 'help',
+        'screen-options', 'help',
         ]);
-        */
+         */
 
         $config = Composer::set($compose->get())
             ->group('posts.item')

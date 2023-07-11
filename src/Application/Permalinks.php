@@ -1,9 +1,9 @@
 <?php
 
-namespace Sober\Intervention\Application;
+namespace Jacoby\Intervention\Application;
 
-use Sober\Intervention\Application\OptionsApi;
-use Sober\Intervention\Support\Arr;
+use Jacoby\Intervention\Application\OptionsApi;
+use Jacoby\Intervention\Support\Arr;
 
 /**
  * Permalinks
@@ -59,17 +59,20 @@ class Permalinks
         ]);
 
         if ($this->config->has('permalinks.structure')) {
-            $structure = $this->config->has('permalinks.structure');
+            $structure = $this->config->get('permalinks.structure');
+
             if (get_option('permalink_structure') !== $structure) {
-                $this->api->save('permalinks.structure', $this->config->get('permalinks.structure'));
-                flush_rewrite_rules();
+                $this->api->save('permalinks.structure', $structure);
+
+                $GLOBALS['wp_rewrite']->permalink_structure = $structure;
+                $GLOBALS['wp_rewrite']->flush_rules();
             }
         }
 
         if ($this->config->has('permalinks.search-base')) {
             $search_base = $this->config->get('permalinks.search-base') === true ?
-                'search' :
-                $this->config->get('permalinks.search-base');
+            'search' :
+            $this->config->get('permalinks.search-base');
 
             add_action('template_redirect', function () use ($search_base) {
                 if (is_search() && !empty($_GET['s'])) {

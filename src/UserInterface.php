@@ -1,11 +1,11 @@
 <?php
 
-namespace Sober\Intervention;
+namespace Jacoby\Intervention;
 
-use Sober\Intervention\UserInterface\RegisterPage;
-use Sober\Intervention\UserInterface\Tools\Export;
-use Sober\Intervention\UserInterface\Tools\Import;
-use Sober\Intervention\UserInterface\UserColorSchemeCustomProps;
+use Jacoby\Intervention\UserInterface\Import;
+use Jacoby\Intervention\UserInterface\Export;
+use Jacoby\Intervention\UserInterface\Support\RegisterPage;
+use Jacoby\Intervention\UserInterface\Support\UserColorSchemeCustomProps;
 
 /**
  * UserInterface
@@ -97,14 +97,14 @@ class UserInterface
                 },
             ];
 
-            register_rest_route('intervention/v2', '/export', array_merge(
-                $core,
-                ['callback' => [$this->routeExport, 'request']],
-            ));
-
             register_rest_route('intervention/v2', '/import', array_merge(
                 $core,
                 ['callback' => [$this->routeImport, 'request']],
+            ));
+
+            register_rest_route('intervention/v2', '/export', array_merge(
+                $core,
+                ['callback' => [$this->routeExport, 'request']],
             ));
         });
     }
@@ -148,7 +148,7 @@ class UserInterface
             /**
              * Register script.
              */
-            wp_register_script('intervention-scripts-user-interface', mix('dist/assets/scripts/user-interface.js'), ['wp-i18n', 'wp-components', 'wp-element', 'wp-api-fetch']);
+            wp_register_script('intervention-scripts-user-interface', mix('assets/scripts/user-interface.js'), ['wp-i18n', 'wp-components', 'wp-element', 'wp-api-fetch']);
 
             /**
              * Localization for our script.
@@ -156,12 +156,12 @@ class UserInterface
             wp_localize_script('intervention-scripts-user-interface', 'intervention', [
                 'nonce' => wp_create_nonce('wp_rest'),
                 'route' => [
+                    'import' => [
+                        'url' => esc_url_raw(rest_url('intervention/v2/import')),
+                    ],
                     'export' => [
                         'url' => esc_url_raw(rest_url('intervention/v2/export')),
                         'data' => $this->routeExport->getLocalizedData(),
-                    ],
-                    'import' => [
-                        'url' => esc_url_raw(rest_url('intervention/v2/import')),
                     ],
                 ],
             ]);
@@ -179,7 +179,7 @@ class UserInterface
             /**
              * Register styles.
              */
-            wp_register_style('intervention/styles/user-interface', mix('dist/assets/styles/user-interface.css'), ['wp-components']);
+            wp_register_style('intervention/styles/user-interface', mix('assets/styles/user-interface.css'), ['wp-components']);
             wp_enqueue_style('intervention/styles/user-interface');
         });
     }

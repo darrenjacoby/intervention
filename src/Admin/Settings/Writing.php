@@ -1,10 +1,10 @@
 <?php
 
-namespace Sober\Intervention\Admin\Settings;
+namespace Jacoby\Intervention\Admin\Settings;
 
-use Sober\Intervention\Admin\SharedApi;
-use Sober\Intervention\Support\Arr;
-use Sober\Intervention\Support\Composer;
+use Jacoby\Intervention\Admin\SharedApi;
+use Jacoby\Intervention\Support\Arr;
+use Jacoby\Intervention\Support\Composer;
 
 /**
  * Settings/Writing
@@ -90,8 +90,7 @@ class Writing
         }
 
         if ($this->config->has('settings.writing.post-via-email')) {
-            echo
-                '<script>
+            echo '<script>
                 jQuery(document).ready(function() {
                     jQuery("#mailserver_url").parents("table").prev().prev().remove();
                     jQuery("#mailserver_url").parents("table").prev().remove();
@@ -101,8 +100,7 @@ class Writing
         }
 
         if ($this->config->has('settings.writing.update-services')) {
-            echo
-                '<script>
+            echo '<script>
                 jQuery(document).ready(function() {
                     jQuery("#ping_sites").prev().prev().remove();
                     jQuery("#ping_sites").prev().remove();

@@ -35,14 +35,14 @@ return [
 
 return [
     'application.general' => [
-        'site-title' => 'soberwp',
-        'tagline' => 'Tools for WordPress',
-        'wp-address' => 'https://soberwp.com/wp',
-        'site-address' => 'https://soberwp.com',
-        'admin-email' => 'example@soberwp.com',
+        'site-title' => 'example',
+        'tagline' => 'Intervention Example',
+        'wp-address' => 'https://example.com/wp',
+        'site-address' => 'https://example.com',
+        'admin-email' => 'example@example.com',
         'admin-email.verification' => 6 * MONTH_IN_SECONDS,
-        'email-from' => 'app@soberwp.com'
-        'email-from-name' => 'soberwp'
+        'email-from' => 'app@example.com'
+        'email-from-name' => 'example'
         'membership' => true,
         'default-role' => 'editor',
         'language' => 'en_US',
@@ -60,17 +60,17 @@ The language must be installed and available in order for `'language' => (string
 
 ### Further Reading;
 
-* **Option Reference**
-    * [https://codex.wordpress.org/Option_Reference#General](https://codex.wordpress.org/Option_Reference#Reading)
-* `general.timezone`
-    * [WordPress accepted timezones gist](https://gist.github.com/mj1856/f0eaa302d56cd7b3dd3e)
-* `general.date-format`
-    * [https://www.php.net/manual/en/datetime.formats.date.php](https://www.php.net/manual/en/datetime.formats.date.php)
-* `general.time-format`
-    * [https://www.php.net/manual/en/datetime.formats.time.php](https://www.php.net/manual/en/datetime.formats.time.php)
-* `general.week-starts`
-    * [https://www.php.net/manual/en/datetime.formats.relative.php](https://www.php.net/manual/en/datetime.formats.relative.php)
+- **Option Reference**
+  - [https://codex.wordpress.org/Option_Reference#General](https://codex.wordpress.org/Option_Reference#Reading)
+- `general.timezone`
+  - [WordPress accepted timezones gist](https://gist.github.com/mj1856/f0eaa302d56cd7b3dd3e)
+- `general.date-format`
+  - [https://www.php.net/manual/en/datetime.formats.date.php](https://www.php.net/manual/en/datetime.formats.date.php)
+- `general.time-format`
+  - [https://www.php.net/manual/en/datetime.formats.time.php](https://www.php.net/manual/en/datetime.formats.time.php)
+- `general.week-starts`
+  - [https://www.php.net/manual/en/datetime.formats.relative.php](https://www.php.net/manual/en/datetime.formats.relative.php)
 
 ### Bug?
 
-* **[Please open an issue](https://github.com/soberwp/intervention/issues/new?title=[application.general]&labels=bug&assignees=darrenjacoby)**
+- **[Please open an issue](https://github.com/darrenjacoby/intervention/issues/new?title=[application.general]&labels=bug&assignees=darrenjacoby)**

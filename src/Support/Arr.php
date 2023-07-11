@@ -1,8 +1,8 @@
 <?php
 
-namespace Sober\Intervention\Support;
+namespace Jacoby\Intervention\Support;
 
-use Illuminate\Support\Collection;
+use Jacoby\Intervention\Illuminate\Support\Collection;
 
 /**
  * Array
@@ -62,7 +62,7 @@ class Arr
      */
     public static function collect($array)
     {
-        return collect($array);
+        return new Collection($array);
     }
 
     /**
@@ -160,6 +160,39 @@ class Arr
         return static::transform($array, function ($k, $v) {
             // check for [0 => 'key'] and make sure the value is not an array
             return is_numeric($k) && !is_array($v) ? [$v, true] : [$k, $v];
+        });
+    }
+
+    /**
+     * Transform Entries From True
+     *
+     * Recursively transform multidimensional associative array true entries to null
+     *
+     * @link https://stackoverflow.com/questions/7490105/array-walk-recursive-modify-both-keys-and-values/57622225#57622225
+     *
+     * @param array $array
+     * @return array
+     */
+    public static function transformEntriesFromTrue($array)
+    {
+        return static::transform($array, function ($k, $value) {
+            // check for [0 => 'key'] and make sure the value is not an array
+            $all_entries_are_true = false;
+
+            // check if value is array
+            if (is_array($value)) {
+                $value_arr = static::collect($value);
+
+                $all_entries_are_true = $value_arr->every(function ($v, $k) {
+                    return $v === true;
+                });
+
+                if ($all_entries_are_true) {
+                    $value = $value_arr->keys()->all();
+                }
+            }
+
+            return [$k, $value];
         });
     }
 
@@ -264,7 +297,7 @@ class Arr
              */
             if (count($key_arr) > 1) {
                 $key_first = array_shift($key_arr);
-                $key_next = implode('.', $key_arr);
+                $key_next = join('.', $key_arr);
                 $carry[$key_first][$key_next] = $v;
             } else {
                 $carry[$k] = $v;
@@ -272,5 +305,28 @@ class Arr
 
             return $carry;
         }, []);
+    }
+
+    /**
+     * Sort Array By Order Array
+     *
+     * Order an array based on an order array containing all the keys. Used for `Export.php` admin export.
+     *
+     * @link https://stackoverflow.com/questions/348410/sort-an-array-by-keys-based-on-another-array
+     *
+     * @param array $array
+     * @param array $orderArray
+     * @return array
+     */
+    public static function sortArrayByOrderArray($array, $orderArray)
+    {
+        $ordered = [];
+        foreach ($orderArray as $key) {
+            if (array_key_exists($key, $array)) {
+                $ordered[$key] = $array[$key];
+                unset($array[$key]);
+            }
+        }
+        return $ordered + $array;
     }
 }

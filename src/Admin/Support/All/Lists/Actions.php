@@ -1,9 +1,9 @@
 <?php
 
-namespace Sober\Intervention\Admin\Support\All\Lists;
+namespace Jacoby\Intervention\Admin\Support\All\Lists;
 
-use Sober\Intervention\Support\Arr;
-use Sober\Intervention\Support\Composer;
+use Jacoby\Intervention\Support\Arr;
+use Jacoby\Intervention\Support\Composer;
 
 /**
  * Support/All/Lists/Actions
@@ -29,7 +29,7 @@ class Actions
      * Interface
      *
      * @param string $key
-     * @return Sober\Intervention\Admin\Support\All\Lists\Actions
+     * @return Jacoby\Intervention\Admin\Support\All\Lists\Actions
      */
     public static function set($key = false)
     {

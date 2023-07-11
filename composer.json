@@ -1,11 +1,11 @@
 {
-  "name": "soberwp/intervention",
+  "name": "jacoby/intervention",
   "type": "wordpress-plugin",
   "description": "WordPress plugin containing modules to cleanup and customize wp-admin.",
   "keywords": [
     "wordpress"
   ],
-  "homepage": "https://github.com/soberwp",
+  "homepage": "https://github.com/darrenjacoby",
   "license": "MIT",
   "authors": [
     {
@@ -16,35 +16,45 @@
   ],
   "require": {
     "php": "^7.4|^8.0",
-    "illuminate/collections": "^8.51",
-    "brick/varexporter": "^0.3.5"
+    "illuminate/collections": "^8.83.27",
+    "brick/varexporter": "^0.3.8"
   },
   "require-dev": {
     "composer/installers": "^2.0",
-    "phing/phing": "^2.16.4",
-    "symplify/easy-coding-standard": "dev-main"
+    "symplify/easy-coding-standard": "^11.5",
+    "humbug/php-scoper": "^0.17.5"
   },
   "autoload": {
     "psr-4": {
-      "Sober\\Intervention\\": "src/"
+      "Jacoby\\Intervention\\": "src/"
     }
   },
   "scripts": {
     "build": [
-      "vendor/bin/phing",
-      "npm run build:production"
+      "@build:assets",
+      "@build:php"
+    ],
+    "lint:php": [
+      "vendor/bin/ecs check --fix"
+    ],
+    "build:php": [
+      "./scoper.sh"
     ],
     "build:assets": [
       "npm run build:production"
     ],
-    "lint": [
-      "vendor/bin/ecs check"
-    ],
-    "lint:fix": [
-      "vendor/bin/ecs check --fix"
+    "watch": [
+      "npm run start"
     ]
   },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
   "support": {
-    "issues": "https://github.com/soberwp/intervention/issues"
+    "issues": "https://github.com/darrenjacoby/intervention/issues"
+  },
+  "config": {
+    "allow-plugins": {
+      "composer/installers": true
+    }
   }
 }

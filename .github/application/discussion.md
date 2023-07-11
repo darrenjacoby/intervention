@@ -85,9 +85,9 @@ return [
 
 ### Further Reading;
 
-* **Option Reference**
-    * [https://codex.wordpress.org/Option_Reference#Discussion](https://codex.wordpress.org/Option_Reference#Discussion)
+- **Option Reference**
+  - [https://codex.wordpress.org/Option_Reference#Discussion](https://codex.wordpress.org/Option_Reference#Discussion)
 
 ### Bug?
 
-* **[Please open an issue](https://github.com/soberwp/intervention/issues/new?title=[application.discussion]&labels=bug&assignees=darrenjacoby)**
+- **[Please open an issue](https://github.com/darrenjacoby/intervention/issues/new?title=[application.discussion]&labels=bug&assignees=darrenjacoby)**

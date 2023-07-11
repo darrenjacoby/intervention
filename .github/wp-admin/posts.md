@@ -17,12 +17,12 @@ return [
 ];
 ```
 
-* [Route options](../route-options.md)
-* [Dashicon options](https://developer.wordpress.org/resource/dashicons/#editor-customchar)
+- [Route options](../route-options.md)
+- [Dashicon options](https://developer.wordpress.org/resource/dashicons/#editor-customchar)
 
 ### Remove;
 
-* [Remove the post type on an application level](../application/posttype)
+- [Remove the post type on an application level](../application/posttype)
 
 Remove from menu;
 
@@ -48,8 +48,8 @@ return [
 ];
 ```
 
-* [Route options](../route-options.md)
+- [Route options](../route-options.md)
 
 ### Bug?
 
-* **[Please open an issue](https://github.com/soberwp/intervention/issues/new?title=[wp-admin.posts]&labels=bug&assignees=darrenjacoby)**
+- **[Please open an issue](https://github.com/darrenjacoby/intervention/issues/new?title=[wp-admin.posts]&labels=bug&assignees=darrenjacoby)**

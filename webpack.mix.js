@@ -5,7 +5,7 @@ const StylelintPlugin = require('stylelint-webpack-plugin');
 
 require('laravel-mix-tailwind');
 
-mix.setPublicPath('./dist/assets');
+mix.setPublicPath('./assets');
 mix.setResourceRoot('../');
 
 mix.webpackConfig({
@@ -53,6 +53,6 @@ mix.js('./resources/scripts/admin/block-editor.js', 'scripts');
 mix.js('./resources/scripts/admin/appearance-menus.js', 'scripts');
 mix.js('./resources/scripts/user-interface.js', 'scripts');
 
-mix.copyDirectory('resources/fonts', './dist/assets/fonts');
+mix.copyDirectory('resources/fonts', './assets/fonts');
 
 mix.version();

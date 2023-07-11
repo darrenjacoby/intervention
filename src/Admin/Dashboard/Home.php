@@ -1,10 +1,10 @@
 <?php
 
-namespace Sober\Intervention\Admin\Dashboard;
+namespace Jacoby\Intervention\Admin\Dashboard;
 
-use Sober\Intervention\Admin\SharedApi;
-use Sober\Intervention\Support\Arr;
-use Sober\Intervention\Support\Composer;
+use Jacoby\Intervention\Admin\SharedApi;
+use Jacoby\Intervention\Support\Arr;
+use Jacoby\Intervention\Support\Composer;
 
 /**
  * Dashboard/Home
@@ -105,11 +105,11 @@ class Home
             $width = (100 / $num);
 
             // Columns
-            echo '<style>.postbox-container {min-width: ' . $width . '% !important;}</style>';
-            echo '<style>#wpbody-content #dashboard-widgets #postbox-container-1 {width: ' . $width . ' !important;}</style>';
-            echo '<style>@media only screen and (max-width: 1499px) and (min-width: 800px) {#wpbody-content #dashboard-widgets .postbox-container {width: ' . $width . '%}</style>';
-            echo '<style>@media only screen and (max-width: 1499px) and (min-width: 800px) {#wpbody-content #dashboard-widgets #postbox-container-2, #wpbody-content #dashboard-widgets #postbox-container-3, #wpbody-content #dashboard-widgets #postbox-container-4 {width: ' . $width . '% !important}}</style>';
-            echo '<style>@media only screen and (max-width: 1800px) and (min-width: 1500px) {#wpbody-content #dashboard-widgets .postbox-container {width: ' . $width . '%;}</style>';
+            echo '<style>.postbox-container {min-width: ' . esc_html($width) . '% !important;}</style>';
+            echo '<style>#wpbody-content #dashboard-widgets #postbox-container-1 {width: ' . esc_html($width) . ' !important;}</style>';
+            echo '<style>@media only screen and (max-width: 1499px) and (min-width: 800px) {#wpbody-content #dashboard-widgets .postbox-container {width: ' . esc_html($width) . '%}</style>';
+            echo '<style>@media only screen and (max-width: 1499px) and (min-width: 800px) {#wpbody-content #dashboard-widgets #postbox-container-2, #wpbody-content #dashboard-widgets #postbox-container-3, #wpbody-content #dashboard-widgets #postbox-container-4 {width: ' . esc_attr($width) . '% !important}}</style>';
+            echo '<style>@media only screen and (max-width: 1800px) and (min-width: 1500px) {#wpbody-content #dashboard-widgets .postbox-container {width: ' . esc_html($width) . '%;}</style>';
 
             // Sortable areas
             echo '<style>.meta-box-sortables.ui-sortable.empty-container::after {display: none !important;}</style>';

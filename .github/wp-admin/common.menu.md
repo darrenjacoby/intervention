@@ -4,7 +4,7 @@ Remove wp-admin left hand side menu components.
 
 ### Options;
 
-* Parent items remove child items. 
+- Parent items remove child items.
 
 ```php
 <?php
@@ -54,16 +54,16 @@ return [
             'plugins',
             'tools',
             'settings',
-            // for custom pages, reference the page filename. 
+            // for custom pages, reference the page filename.
             'edit.php?post_type=acf-field-group.php', // advanced custom fields
         ],
     ],
 ];
 ```
 
-* WordPress has two menu separators by default, named `separator1` and `separator2`.
-* [Further reading](https://developer.wordpress.org/reference/hooks/menu_order/)
+- WordPress has two menu separators by default, named `separator1` and `separator2`.
+- [Further reading](https://developer.wordpress.org/reference/hooks/menu_order/)
 
 ### Bug?
 
-* **[Please open an issue](https://github.com/soberwp/intervention/issues/new?title=[wp-admin.common.menu]&labels=bug&assignees=darrenjacoby)**
+- **[Please open an issue](https://github.com/darrenjacoby/intervention/issues/new?title=[wp-admin.common.menu]&labels=bug&assignees=darrenjacoby)**

@@ -1,6 +1,5 @@
 module.exports = {
-  mode: 'jit',
-  purge: ['./resources/scripts/user-interface/**/*.js'],
+  content: ['./resources/scripts/user-interface/**/*.js'],
   /**
    * WordPress wp-admin tailwind theme.
    */
@@ -76,11 +75,10 @@ module.exports = {
       'gray-50': '#646970',
       'gray-60': '#50575e',
       'gray-70': '#3c434a',
-      'gray-100': '#1d2327',
-      'yellow-0': '#fcf9e8',
-      'green-0': '#edfaef',
-      'green-5': '#b8e6bf',
-      'red-10': '#ffabaf',
+      'gray-80': '#2c3338',
+      'gray-90': '#1d2327',
+      'gray-100': '#101517',
+      red: '#710d0d',
       white: '#fff',
       black: '#000',
       transparent: 'transparent',
@@ -93,6 +91,7 @@ module.exports = {
       1: '1px',
       2: '2px',
       4: '4px',
+      6: '6px',
       8: '8px',
       10: '10px',
       12: '12px',
@@ -115,6 +114,10 @@ module.exports = {
     borderRadius: {
       DEFAULT: '2px',
       4: '4px',
+      full: '9999px',
+    },
+    boxShadow: {
+      inner: 'inset 0 0 1px 0 rgba(0, 0, 0, 0.35)',
     },
   },
 };

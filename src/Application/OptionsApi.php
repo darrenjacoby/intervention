@@ -1,10 +1,10 @@
 <?php
 
-namespace Sober\Intervention\Application;
+namespace Jacoby\Intervention\Application;
 
-use Sober\Intervention\Support\Config;
-use Sober\Intervention\Support\Middleware\InterventionToWordPress;
-use Sober\Intervention\UserInterface\Tools\Import;
+use Jacoby\Intervention\Support\Config;
+use Jacoby\Intervention\Support\Middleware\InterventionToWordPress;
+use Jacoby\Intervention\UserInterface\Import as UserInterfaceImport;
 
 /**
  * Application/OptionsApi
@@ -21,7 +21,7 @@ class OptionsApi
      * Interface
      *
      * @param string $config
-     * @return Sober\Intervention\Application\OptionsApi
+     * @return Jacoby\Intervention\Application\OptionsApi
      */
     public static function set($config = false)
     {
@@ -72,7 +72,7 @@ class OptionsApi
                 return $intervention_v_transformed;
             });
 
-            Import::save($database_k, $key, $value);
+            UserInterfaceImport::save($database_k, $key, $value);
         }
     }
 
@@ -109,7 +109,7 @@ class OptionsApi
             <script>
                 jQuery(window).on("load", function() {
                     setTimeout(function() {
-                        jQuery("' . $elem . '").prop("disabled", true);
+                        jQuery("' . esc_html($elem) . '").prop("disabled", true);
                     }, 1);
                 });
             </script>';

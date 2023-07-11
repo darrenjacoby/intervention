@@ -1,10 +1,10 @@
 <?php
 
-namespace Sober\Intervention\Admin\Settings;
+namespace Jacoby\Intervention\Admin\Settings;
 
-use Sober\Intervention\Admin\SharedApi;
-use Sober\Intervention\Support\Arr;
-use Sober\Intervention\Support\Composer;
+use Jacoby\Intervention\Admin\SharedApi;
+use Jacoby\Intervention\Support\Arr;
+use Jacoby\Intervention\Support\Composer;
 
 /**
  * Settings/Reading
@@ -84,8 +84,7 @@ class Reading
         }
 
         if ($this->config->has('settings.reading.front-page.posts')) {
-            echo
-                '<script>
+            echo '<script>
                 jQuery(document).ready(function() {
                     jQuery("#front-static-pages input[value=posts").parents("p").remove();
                     jQuery("#front-static-pages label[for=page_for_posts").parents("li").remove();

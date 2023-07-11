@@ -17,8 +17,8 @@ return [
 ];
 ```
 
-* [`$route` options](../route-options.md)
-* [`$dashicon` options](https://developer.wordpress.org/resource/dashicons/#editor-customchar)
+- [`$route` options](../route-options.md)
+- [`$dashicon` options](https://developer.wordpress.org/resource/dashicons/#editor-customchar)
 
 ### Remove;
 
@@ -46,8 +46,8 @@ return [
 ];
 ```
 
-* [Route options](../route-options.md)
+- [Route options](../route-options.md)
 
 ### Bug?
 
-* **[Please open an issue](https://github.com/soberwp/intervention/issues/new?title=[wp-admin.comments]&labels=bug&assignees=darrenjacoby)**
+- **[Please open an issue](https://github.com/darrenjacoby/intervention/issues/new?title=[wp-admin.comments]&labels=bug&assignees=darrenjacoby)**

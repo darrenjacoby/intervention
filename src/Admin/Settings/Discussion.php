@@ -1,10 +1,10 @@
 <?php
 
-namespace Sober\Intervention\Admin\Settings;
+namespace Jacoby\Intervention\Admin\Settings;
 
-use Sober\Intervention\Admin\SharedApi;
-use Sober\Intervention\Support\Arr;
-use Sober\Intervention\Support\Composer;
+use Jacoby\Intervention\Admin\SharedApi;
+use Jacoby\Intervention\Support\Arr;
+use Jacoby\Intervention\Support\Composer;
 
 /**
  * Settings/Discussion
@@ -109,8 +109,7 @@ class Discussion
         }
 
         if ($this->config->has('settings.discussion.post.ping-flag')) {
-            echo
-                '<script>
+            echo '<script>
                 jQuery(document).ready(function() {
                     var $item = jQuery("#default_pingback_flag").parents("label");
                     $item.next().remove(); // remove <br>
@@ -120,8 +119,7 @@ class Discussion
         }
 
         if ($this->config->has('settings.discussion.post.ping-status')) {
-            echo
-                '<script>
+            echo '<script>
                 jQuery(document).ready(function() {
                     var $item = jQuery("#default_ping_status").parents("label");
                     $item.next().remove(); // remove <br>
@@ -131,8 +129,7 @@ class Discussion
         }
 
         if ($this->config->has('settings.discussion.post.comments')) {
-            echo
-                '<script>
+            echo '<script>
                 jQuery(document).ready(function() {
                     var $item = jQuery("#default_comment_status").parents("label");
                     $item.next().remove(); // remove <br>
@@ -147,8 +144,7 @@ class Discussion
         }
 
         if ($this->config->has('settings.discussion.comments.name-email')) {
-            echo
-                '<script>
+            echo '<script>
                 jQuery(document).ready(function() {
                     var $item = jQuery("#require_name_email").parents("label");
                     $item.next().remove(); // remove <br>
@@ -158,8 +154,7 @@ class Discussion
         }
 
         if ($this->config->has('settings.discussion.comments.registration')) {
-            echo
-                '<script>
+            echo '<script>
                 jQuery(document).ready(function() {
                     var $item = jQuery("#comment_registration").parents("label");
                     $item.next().remove(); // remove <br>
@@ -169,8 +164,7 @@ class Discussion
         }
 
         if ($this->config->has('settings.discussion.comments.close')) {
-            echo
-                '<script>
+            echo '<script>
                 jQuery(document).ready(function() {
                     jQuery("#close_comments_for_old_posts").parents("label").remove();
                     var $item = jQuery("#close_comments_days_old").parents("label");
@@ -181,8 +175,7 @@ class Discussion
         }
 
         if ($this->config->has('settings.discussion.comments.cookies')) {
-            echo
-                '<script>
+            echo '<script>
                 jQuery(document).ready(function() {
                     var $item = jQuery("#show_comments_cookies_opt_in").parents("label");
                     $item.next().remove(); // remove <br>
@@ -192,8 +185,7 @@ class Discussion
         }
 
         if ($this->config->has('settings.discussion.comments.thread')) {
-            echo
-                '<script>
+            echo '<script>
                 jQuery(document).ready(function() {
                     jQuery("#thread_comments").parents("label").remove();
                     var $item = jQuery("#thread_comments_depth").parents("label");
@@ -204,8 +196,7 @@ class Discussion
         }
 
         if ($this->config->has('settings.discussion.comments.pages')) {
-            echo
-                '<script>
+            echo '<script>
                 jQuery(document).ready(function() {
                     jQuery("#page_comments, #comments_per_page").parents("label").remove();
                     var $item = jQuery("#default_comments_page").parents("label");
@@ -216,8 +207,7 @@ class Discussion
         }
 
         if ($this->config->has('settings.discussion.comments.order')) {
-            echo
-                '<script>
+            echo '<script>
                 jQuery(document).ready(function() {
                     var $item = jQuery("#comment_order").parents("label");
                     $item.next().remove(); // remove <br>
@@ -232,8 +222,7 @@ class Discussion
         }
 
         if ($this->config->has('settings.discussion.emails.comment')) {
-            echo
-                '<script>
+            echo '<script>
                 jQuery(document).ready(function() {
                     var $item = jQuery("#comments_notify").parents("label");
                     $item.next().remove(); // remove <br>
@@ -252,8 +241,7 @@ class Discussion
         }
 
         if ($this->config->has('settings.discussion.moderation.approve.manual')) {
-            echo
-                '<script>
+            echo '<script>
                 jQuery(document).ready(function() {
                     var $item = jQuery("#comment_moderation").parents("label");
                     $item.next().remove(); // remove <br>
@@ -276,8 +264,7 @@ class Discussion
         }
 
         if ($this->config->has('settings.discussion.moderation.queue.keys')) {
-            echo
-                '<script>
+            echo '<script>
                 jQuery(document).ready(function() {
                     var $item = jQuery("#moderation_keys").parents("p");
                     $item.prev().remove(); // remove previous <p> description
@@ -293,8 +280,7 @@ class Discussion
 
         // Avatars
         if ($this->config->has('settings.discussion.avatars')) {
-            echo
-                '<script>
+            echo '<script>
                 jQuery(document).ready(function() {
                     jQuery("#show_avatars").parents("table").prev().prev().remove();
                     jQuery("#show_avatars").parents("table").prev().remove();

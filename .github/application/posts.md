@@ -36,7 +36,7 @@ return [
 ];
 ```
 
-The standard custom posttype configuration can be passed in. 
+The standard custom posttype configuration can be passed in.
 
 ```php
 <?php
@@ -57,7 +57,7 @@ return [
 ];
 ```
 
-* To enable better consistency with Intervention, options with `-` will be convereted to `_` for WordPress to consume.
+- To enable better consistency with Intervention, options with `-` will be convereted to `_` for WordPress to consume.
 
 #### Remove
 
@@ -72,7 +72,7 @@ return [
 ];
 ```
 
-* Removing a default posttype will also remove any relevant options from `wp-admin`.
+- Removing a default posttype will also remove any relevant options from `wp-admin`.
 
 #### Update
 
@@ -94,7 +94,7 @@ return [
 ];
 ```
 
-If you are only changing one option, consider using dot notation for a cleaner config. 
+If you are only changing one option, consider using dot notation for a cleaner config.
 
 ```php
 <?php
@@ -108,7 +108,7 @@ return [
 
 ### Note;
 
-* You can also use `posttypes` versus shorthand `posts`.
+- You can also use `posttypes` versus shorthand `posts`.
 
 ```php
 <?php
@@ -122,9 +122,9 @@ return [
 
 ### Further Reading;
 
-* `posts.$name`
-    * [https://developer.wordpress.org/reference/functions/register_post_type/](https://developer.wordpress.org/reference/functions/register_post_type/)
+- `posts.$name`
+  - [https://developer.wordpress.org/reference/functions/register_post_type/](https://developer.wordpress.org/reference/functions/register_post_type/)
 
 ### Bug?
 
-* **[Please open an issue](https://github.com/soberwp/intervention/issues/new?title=[application.posts]&labels=bug&assignees=darrenjacoby)**
+- **[Please open an issue](https://github.com/darrenjacoby/intervention/issues/new?title=[application.posts]&labels=bug&assignees=darrenjacoby)**
