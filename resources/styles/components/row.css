@@ -4,34 +4,34 @@
 .row .components-base-control,
 .row .components-custom-select-control,
 .row .components-text-control__input {
-  width: 100%;
-  max-width: 280px;
-  line-height: 0;
+	width: 100%;
+	max-width: 280px;
+	line-height: 0;
 }
 
 .row .components-base-control .components-base-control__field {
-  margin-bottom: 0;
+	margin-bottom: 0;
 }
 
 .row-value .components-button,
 .row-value .components-button.components-custom-select-control__button.is-small {
-  height: 30px;
+	height: 30px;
 }
 
 .row-button .components-button {
-  position: relative;
-  flex: 1;
-  height: inherit;
-  padding: 0;
-  color: inherit;
-  font-size: theme('fontSize.14');
-  border-radius: 0;
+	position: relative;
+	flex: 1;
+	height: inherit;
+	padding: 0;
+	color: inherit;
+	font-size: theme('fontSize.14');
+	border-radius: 0;
 
-  &:hover {
-    color: theme('colors.primary-10');
-  }
+	&:hover {
+		color: theme('colors.primary-10');
+	}
 
-  &:focus {
-    z-index: 1;
-  }
+	&:focus {
+		z-index: 1;
+	}
 }

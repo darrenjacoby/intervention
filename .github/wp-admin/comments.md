@@ -8,12 +8,12 @@ Update, remove or redirect the comments menu item.
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'comments',
-        'comments' => (string) $route,
-        'comments.title' => (string) $title,
-        'comments.icon' => (string) $dashicon,
-    ],
+	'wp-admin.$role|$username' => [
+		'comments',
+		'comments' => (string) $route,
+		'comments.title' => (string) $title,
+		'comments.icon' => (string) $dashicon,
+	],
 ];
 ```
 
@@ -28,9 +28,9 @@ Remove from menu;
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'comments',
-    ],
+	'wp-admin.$role|$username' => [
+		'comments',
+	],
 ];
 ```
 
@@ -40,9 +40,9 @@ Remove from menu and enforce a page redirect;
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'comments' => 'posts',
-    ],
+	'wp-admin.$role|$username' => [
+		'comments' => 'posts',
+	],
 ];
 ```
 

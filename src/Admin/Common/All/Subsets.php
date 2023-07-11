@@ -20,32 +20,32 @@ use Jacoby\Intervention\Support\Composer;
  */
 class Subsets
 {
-    protected $config;
+	protected $config;
 
-    /**
-     * Initialize
-     *
-     * @param array $config
-     */
-    public function __construct($config = false)
-    {
-        $compose = Composer::set(Arr::normalizeTrue($config));
+	/**
+	 * Initialize
+	 *
+	 * @param array $config
+	 */
+	public function __construct($config = false)
+	{
+		$compose = Composer::set(Arr::normalizeTrue($config));
 
-        $compose = $compose->has('common.all')->add('common.all.', [
-            'list',
-        ]);
+		$compose = $compose->has('common.all')->add('common.all.', [
+			'list',
+		]);
 
-        $this->config = $compose->get();
-        $this->hook();
-    }
+		$this->config = $compose->get();
+		$this->hook();
+	}
 
-    /**
-     * Hook
-     */
-    protected function hook()
-    {
-        if ($this->config->get('common.all.subsets')) {
-            SubsetsSupport::set('all')->remove(['*.all.subsets']);
-        }
-    }
+	/**
+	 * Hook
+	 */
+	protected function hook()
+	{
+		if ($this->config->get('common.all.subsets')) {
+			SubsetsSupport::set('all')->remove(['*.all.subsets']);
+		}
+	}
 }

@@ -25,42 +25,42 @@ use Jacoby\Intervention\Support\Composer;
  */
 class PluginEditor
 {
-    protected $config;
+	protected $config;
 
-    /**
-     * Initialize
-     *
-     * @param array $config
-     */
-    public function __construct($config = false)
-    {
-        $compose = Composer::set(Arr::normalizeTrue($config));
+	/**
+	 * Initialize
+	 *
+	 * @param array $config
+	 */
+	public function __construct($config = false)
+	{
+		$compose = Composer::set(Arr::normalizeTrue($config));
 
-        $compose = $compose->has('plugins.plugin-editor.all')->add('plugins.plugin-editor.', [
-            'tabs', 'pagination', 'add', 'search', 'subsets', 'actions', 'list',
-        ]);
+		$compose = $compose->has('plugins.plugin-editor.all')->add('plugins.plugin-editor.', [
+			'tabs', 'pagination', 'add', 'search', 'subsets', 'actions', 'list',
+		]);
 
-        $compose = $compose->has('plugins.plugin-editor.title')->add('plugins.plugin-editor.title.', [
-            'menu', 'page',
-        ]);
+		$compose = $compose->has('plugins.plugin-editor.title')->add('plugins.plugin-editor.title.', [
+			'menu', 'page',
+		]);
 
-        $compose = $compose->has('plugins.plugin-editor.tabs')->add('plugins.plugin-editor.tabs.', [
-            'screen-options', 'help',
-        ]);
+		$compose = $compose->has('plugins.plugin-editor.tabs')->add('plugins.plugin-editor.tabs.', [
+			'screen-options', 'help',
+		]);
 
-        $this->config = $compose->get();
-        $this->hook();
-    }
+		$this->config = $compose->get();
+		$this->hook();
+	}
 
-    /**
-     * Hook
-     */
-    protected function hook()
-    {
-        $shared = SharedApi::set('plugins.plugin-editor', $this->config);
-        $shared->router();
-        $shared->menu();
-        $shared->title();
-        $shared->tabs();
-    }
+	/**
+	 * Hook
+	 */
+	protected function hook()
+	{
+		$shared = SharedApi::set('plugins.plugin-editor', $this->config);
+		$shared->router();
+		$shared->menu();
+		$shared->title();
+		$shared->tabs();
+	}
 }

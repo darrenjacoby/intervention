@@ -38,91 +38,91 @@ use Jacoby\Intervention\Support\Composer;
  */
 class All
 {
-    protected $config;
+	protected $config;
 
-    /**
-     * Initialize
-     *
-     * @param array $config
-     */
-    public function __construct($config = false)
-    {
-        $compose = Composer::set(Arr::normalizeTrue($config));
+	/**
+	 * Initialize
+	 *
+	 * @param array $config
+	 */
+	public function __construct($config = false)
+	{
+		$compose = Composer::set(Arr::normalizeTrue($config));
 
-        $compose = $compose->has('posts.categories.all.all')->add('posts.categories.all.', [
-            'tabs', 'search', 'actions', 'list', 'notes',
-        ]);
+		$compose = $compose->has('posts.categories.all.all')->add('posts.categories.all.', [
+			'tabs', 'search', 'actions', 'list', 'notes',
+		]);
 
-        $compose = $compose->has('posts.categories.all.title')->add('posts.categories.all.title.', [
-            'menu', 'page',
-        ]);
+		$compose = $compose->has('posts.categories.all.title')->add('posts.categories.all.title.', [
+			'menu', 'page',
+		]);
 
-        $compose = $compose->has('posts.categories.all.tabs')->add('posts.categories.all.tabs.', [
-            'screen-options', 'help',
-        ]);
+		$compose = $compose->has('posts.categories.all.tabs')->add('posts.categories.all.tabs.', [
+			'screen-options', 'help',
+		]);
 
-        $compose = $compose->has('posts.categories.all.actions')->add('posts.categories.all.actions.', [
-            'bulk',
-        ]);
+		$compose = $compose->has('posts.categories.all.actions')->add('posts.categories.all.actions.', [
+			'bulk',
+		]);
 
-        $compose = $compose->has('posts.categories.all.list')->add('posts.categories.all.list.', [
-            'cols', 'actions', 'count',
-        ]);
+		$compose = $compose->has('posts.categories.all.list')->add('posts.categories.all.list.', [
+			'cols', 'actions', 'count',
+		]);
 
-        $compose = $compose->has('posts.categories.all.list.cols')->add('posts.categories.all.list.cols.', [
-            'description', 'slug', 'count',
-        ]);
+		$compose = $compose->has('posts.categories.all.list.cols')->add('posts.categories.all.list.cols.', [
+			'description', 'slug', 'count',
+		]);
 
-        $compose = $compose->has('posts.categories.all.list.cols.count')->add('posts.categories.all.list.cols.', [
-            'posts',
-        ]);
+		$compose = $compose->has('posts.categories.all.list.cols.count')->add('posts.categories.all.list.cols.', [
+			'posts',
+		]);
 
-        $compose = $compose->has('posts.categories.all.list.actions.quick-edit')->add('posts.categories.all.list.actions.', [
-            'inline hide-if-no-js',
-        ]);
+		$compose = $compose->has('posts.categories.all.list.actions.quick-edit')->add('posts.categories.all.list.actions.', [
+			'inline hide-if-no-js',
+		]);
 
-        $this->config = $compose->get();
-        $this->hook();
-    }
+		$this->config = $compose->get();
+		$this->hook();
+	}
 
-    /**
-     * Hook
-     */
-    protected function hook()
-    {
-        // Required to run before $shared
-        $shared = SharedApi::set('posts.categories.all', $this->config);
-        $shared->router();
-        $shared->menu();
+	/**
+	 * Hook
+	 */
+	protected function hook()
+	{
+		// Required to run before $shared
+		$shared = SharedApi::set('posts.categories.all', $this->config);
+		$shared->router();
+		$shared->menu();
 
-        if (!isset($_GET['taxonomy'])) {
-            return;
-        }
+		if (!isset($_GET['taxonomy'])) {
+			return;
+		}
 
-        if ($_GET['taxonomy'] !== 'category') {
-            return;
-        }
+		if ($_GET['taxonomy'] !== 'category') {
+			return;
+		}
 
-        $checkbox = $this->config->has('posts.categories.all.actions') || $this->config->has('posts.categories.all.actions.bulk');
+		$checkbox = $this->config->has('posts.categories.all.actions') || $this->config->has('posts.categories.all.actions.bulk');
 
-        $shared->title();
-        $shared->tabs();
-        $shared->pagination();
-        $shared->search();
-        $shared->subsets();
-        $shared->actionBulk();
-        $shared->lists($checkbox);
+		$shared->title();
+		$shared->tabs();
+		$shared->pagination();
+		$shared->search();
+		$shared->subsets();
+		$shared->actionBulk();
+		$shared->lists($checkbox);
 
-        add_action('admin_head-edit-tags.php', [$this, 'head']);
-    }
+		add_action('admin_head-edit-tags.php', [$this, 'head']);
+	}
 
-    /**
-     * Head
-     */
-    public function head()
-    {
-        if ($this->config->has('posts.categories.all.notes')) {
-            echo '<style>.edit-tags-php .edit-term-notes {display: none;}</style>';
-        }
-    }
+	/**
+	 * Head
+	 */
+	public function head()
+	{
+		if ($this->config->has('posts.categories.all.notes')) {
+			echo '<style>.edit-tags-php .edit-term-notes {display: none;}</style>';
+		}
+	}
 }

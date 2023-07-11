@@ -8,7 +8,7 @@ Set application privacy options.
 <?php
 
 return [
-    'application.privacy.policy-page' => (int) $page_id,
+	'application.privacy.policy-page' => (int) $page_id,
 ];
 ```
 
@@ -18,7 +18,7 @@ return [
 <?php
 
 return [
-    'application.privacy.policy-page' => 2,
+	'application.privacy.policy-page' => 2,
 ];
 ```
 

@@ -18,7 +18,7 @@ use Jacoby\Intervention\Intervention;
  * Restrict direct access
  */
 if (!defined('ABSPATH')) {
-    die;
+	die;
 }
 
 define('INTERVENTION_DIR', dirname(__FILE__));
@@ -29,7 +29,7 @@ define('INTERVENTION_TEXT_DOMAIN', 'intervention');
  * Support for Bedrock/Composer
  */
 if (is_file(__DIR__ . '/vendor/autoload.php')) {
-    require_once __DIR__ . '/vendor/autoload.php';
+	require_once __DIR__ . '/vendor/autoload.php';
 }
 
 // include file_exists($composer = __DIR__ . '/vendor/autoload.php') ? $composer : __DIR__ . '/build/vendor/autoload.php';
@@ -46,23 +46,23 @@ include __DIR__ . '/mix.php';
  */
 function getConfigFile()
 {
-    $theme = get_stylesheet_directory();
+	$theme = get_stylesheet_directory();
 
-    $default = file_exists($theme . '/config/') ?
-    $theme . '/config/intervention.php' :
-    $theme . '/intervention.php';
+	$default = file_exists($theme . '/config/') ?
+	$theme . '/config/intervention.php' :
+	$theme . '/intervention.php';
 
-    $config = has_filter('sober/intervention/return') ?
-    apply_filters('sober/intervention/return', rtrim($default)) :
-    $default;
+	$config = has_filter('sober/intervention/return') ?
+	apply_filters('sober/intervention/return', rtrim($default)) :
+	$default;
 
-    if (!file_exists($config)) {
-        return;
-    }
+	if (!file_exists($config)) {
+		return;
+	}
 
-    $read = include $config;
+	$read = include $config;
 
-    return $read === 1 ? false : $read;
+	return $read === 1 ? false : $read;
 }
 
 /**

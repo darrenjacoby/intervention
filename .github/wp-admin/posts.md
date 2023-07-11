@@ -8,12 +8,12 @@ Update, remove or redirect the posts menu item.
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'posts',
-        'posts' => (string) $route,
-        'posts.title' => (string) $title,
-        'posts.icon' => (string) $dashicon,
-    ],
+	'wp-admin.$role|$username' => [
+		'posts',
+		'posts' => (string) $route,
+		'posts.title' => (string) $title,
+		'posts.icon' => (string) $dashicon,
+	],
 ];
 ```
 
@@ -30,9 +30,9 @@ Remove from menu;
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'posts',
-    ],
+	'wp-admin.$role|$username' => [
+		'posts',
+	],
 ];
 ```
 
@@ -42,9 +42,9 @@ Remove from menu and enforce a page redirect;
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'posts' => 'pages',
-    ],
+	'wp-admin.$role|$username' => [
+		'posts' => 'pages',
+	],
 ];
 ```
 

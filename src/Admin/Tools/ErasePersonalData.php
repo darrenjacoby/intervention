@@ -25,42 +25,42 @@ use Jacoby\Intervention\Support\Composer;
  */
 class ErasePersonalData
 {
-    protected $config;
+	protected $config;
 
-    /**
-     * Initialize
-     *
-     * @param array $config
-     */
-    public function __construct($config = false)
-    {
-        $compose = Composer::set(Arr::normalizeTrue($config));
+	/**
+	 * Initialize
+	 *
+	 * @param array $config
+	 */
+	public function __construct($config = false)
+	{
+		$compose = Composer::set(Arr::normalizeTrue($config));
 
-        $compose = $compose->has('tools.erase-personal-data.all')->add('tools.erase-personal-data.', [
-            'tabs',
-        ]);
+		$compose = $compose->has('tools.erase-personal-data.all')->add('tools.erase-personal-data.', [
+			'tabs',
+		]);
 
-        $compose = $compose->has('tools.erase-personal-data.title')->add('tools.erase-personal-data.title.', [
-            'menu', 'page',
-        ]);
+		$compose = $compose->has('tools.erase-personal-data.title')->add('tools.erase-personal-data.title.', [
+			'menu', 'page',
+		]);
 
-        $compose = $compose->has('tools.erase-personal-data.tabs')->add('tools.erase-personal-data.tabs.', [
-            'screen-options', 'help',
-        ]);
+		$compose = $compose->has('tools.erase-personal-data.tabs')->add('tools.erase-personal-data.tabs.', [
+			'screen-options', 'help',
+		]);
 
-        $this->config = $compose->get();
-        $this->hook();
-    }
+		$this->config = $compose->get();
+		$this->hook();
+	}
 
-    /**
-     * Hook
-     */
-    protected function hook()
-    {
-        $shared = SharedApi::set('tools.erase-personal-data', $this->config);
-        $shared->router();
-        $shared->menu();
-        $shared->title();
-        $shared->tabs();
-    }
+	/**
+	 * Hook
+	 */
+	protected function hook()
+	{
+		$shared = SharedApi::set('tools.erase-personal-data', $this->config);
+		$shared->router();
+		$shared->menu();
+		$shared->title();
+		$shared->tabs();
+	}
 }

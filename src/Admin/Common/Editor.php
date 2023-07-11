@@ -99,40 +99,40 @@ use Jacoby\Intervention\Support\Composer;
  */
 class Editor
 {
-    protected $config;
-    protected $editor;
+	protected $config;
+	protected $editor;
 
-    /**
-     * Initialize
-     *
-     * @param array $config
-     */
-    public function __construct($config = false)
-    {
-        $this->config = Arr::normalizeTrue($config);
+	/**
+	 * Initialize
+	 *
+	 * @param array $config
+	 */
+	public function __construct($config = false)
+	{
+		$this->config = Arr::normalizeTrue($config);
 
-        $this->editor = Composer::set($this->config)
-            ->group('common.editor')
-            ->get()
-            ->keys()
-            ->toArray();
+		$this->editor = Composer::set($this->config)
+			->group('common.editor')
+			->get()
+			->keys()
+			->toArray();
 
-        $this->hook();
-    }
+		$this->hook();
+	}
 
-    /**
-     * Hook
-     */
-    protected function hook()
-    {
-        // remove blockeditor
-        if ($this->config->has('common.editor')) {
-            PostComponents::set(['post', 'page'])->remove(['editor' => true]);
-            Widgets::set(['appearance.widgets.block-editor']);
-            return;
-        }
+	/**
+	 * Hook
+	 */
+	protected function hook()
+	{
+		// remove blockeditor
+		if ($this->config->has('common.editor')) {
+			PostComponents::set(['post', 'page'])->remove(['editor' => true]);
+			Widgets::set(['appearance.widgets.block-editor']);
+			return;
+		}
 
-        // pass to blockeditor
-        BlockEditor::set($this->editor);
-    }
+		// pass to blockeditor
+		BlockEditor::set($this->editor);
+	}
 }

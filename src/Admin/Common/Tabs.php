@@ -54,31 +54,31 @@ use Jacoby\Intervention\Support\Composer;
  */
 class Tabs
 {
-    protected $config;
+	protected $config;
 
-    /**
-     * Initialize
-     *
-     * @param array $config
-     */
-    public function __construct($config = false)
-    {
-        $compose = Composer::set(Arr::normalizeTrue($config));
+	/**
+	 * Initialize
+	 *
+	 * @param array $config
+	 */
+	public function __construct($config = false)
+	{
+		$compose = Composer::set(Arr::normalizeTrue($config));
 
-        $compose = $compose->has('common.tabs')->add('common.tabs.', [
-            'screen-options', 'help',
-        ]);
+		$compose = $compose->has('common.tabs')->add('common.tabs.', [
+			'screen-options', 'help',
+		]);
 
-        $this->config = $compose->get();
-        $this->hook();
-    }
+		$this->config = $compose->get();
+		$this->hook();
+	}
 
-    /**
-     * Hook
-     */
-    protected function hook()
-    {
-        $group = Composer::set($this->config)->groupKeys('common.tabs')->get();
-        TabsSupport::set('all')->remove($group->toArray());
-    }
+	/**
+	 * Hook
+	 */
+	protected function hook()
+	{
+		$group = Composer::set($this->config)->groupKeys('common.tabs')->get();
+		TabsSupport::set('all')->remove($group->toArray());
+	}
 }

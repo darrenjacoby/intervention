@@ -43,143 +43,143 @@ use Jacoby\Intervention\Support\Composer;
  */
 class Customize
 {
-    protected $config;
+	protected $config;
 
-    /**
-     * Initialize
-     *
-     * @param array $config
-     */
-    public function __construct($config = false)
-    {
-        $compose = Composer::set(Arr::normalizeTrue($config));
+	/**
+	 * Initialize
+	 *
+	 * @param array $config
+	 */
+	public function __construct($config = false)
+	{
+		$compose = Composer::set(Arr::normalizeTrue($config));
 
-        $compose = $compose->has('appearance.customize.all')->add('appearance.customize.', [
-            'theme', 'site', 'custom-css', 'colors', 'header-image', 'background-image', 'homepage', 'menus', 'widgets', 'footer',
-        ]);
+		$compose = $compose->has('appearance.customize.all')->add('appearance.customize.', [
+			'theme', 'site', 'custom-css', 'colors', 'header-image', 'background-image', 'homepage', 'menus', 'widgets', 'footer',
+		]);
 
-        $compose = $compose->has('appearance.customize.title')->add('appearance.customize.title.', [
-            'menu', 'page',
-        ]);
+		$compose = $compose->has('appearance.customize.title')->add('appearance.customize.title.', [
+			'menu', 'page',
+		]);
 
-        $compose = $compose->has('appearance.customize.site')->add('appearance.customize.site.', [
-            'title', 'tagline', 'icon',
-        ]);
+		$compose = $compose->has('appearance.customize.site')->add('appearance.customize.site.', [
+			'title', 'tagline', 'icon',
+		]);
 
-        $compose = $compose->has('appearance.customize.footer')->add('appearance.customize.footer.', [
-            'devices',
-        ]);
+		$compose = $compose->has('appearance.customize.footer')->add('appearance.customize.footer.', [
+			'devices',
+		]);
 
-        $this->config = $compose->get();
-        $this->hook();
-    }
+		$this->config = $compose->get();
+		$this->hook();
+	}
 
-    /**
-     * Hook
-     */
-    protected function hook()
-    {
-        $shared = SharedApi::set('appearance.customize', $this->config);
-        $shared->router();
-        $shared->menu();
-        $shared->title();
+	/**
+	 * Hook
+	 */
+	protected function hook()
+	{
+		$shared = SharedApi::set('appearance.customize', $this->config);
+		$shared->router();
+		$shared->menu();
+		$shared->title();
 
-        if ($this->config->has('appearance.customize.footer.devices')) {
-            add_filter('customize_previewable_devices', '__return_empty_array');
-        }
+		if ($this->config->has('appearance.customize.footer.devices')) {
+			add_filter('customize_previewable_devices', '__return_empty_array');
+		}
 
-        add_action('admin_init', [$this, 'head']);
-        add_action('customize_register', [$this, 'customize'], 20);
-    }
+		add_action('admin_init', [$this, 'head']);
+		add_action('customize_register', [$this, 'customize'], 20);
+	}
 
-    /**
-     * Head
-     */
-    public function head()
-    {
-        if (!is_customize_preview()) {
-            return;
-        }
+	/**
+	 * Head
+	 */
+	public function head()
+	{
+		if (!is_customize_preview()) {
+			return;
+		}
 
-        if (wp_doing_ajax()) {
-            return;
-        }
+		if (wp_doing_ajax()) {
+			return;
+		}
 
-        if ($this->config->has('appearance.customize.footer')) {
-            echo '<style>.wp-customizer #customize-footer-actions {display: none;}</style>';
-        }
+		if ($this->config->has('appearance.customize.footer')) {
+			echo '<style>.wp-customizer #customize-footer-actions {display: none;}</style>';
+		}
 
-        // replaced $wp_customize->remove_panel('widgets'); due to error
-        if ($this->config->has('appearance.customize.widgets')) {
-            echo '<style>#accordion-panel-widgets {display: none !important;}</style>';
-        }
-    }
+		// replaced $wp_customize->remove_panel('widgets'); due to error
+		if ($this->config->has('appearance.customize.widgets')) {
+			echo '<style>#accordion-panel-widgets {display: none !important;}</style>';
+		}
+	}
 
-    /**
-     * Customize
-     *
-     * @param object $wp_customize
-     */
-    public function customize($wp_customize)
-    {
-        if ($this->config->has('appearance.customize.theme')) {
-            $wp_customize->remove_section('installed_themes');
-            $wp_customize->remove_section('wporg_themes');
-        }
+	/**
+	 * Customize
+	 *
+	 * @param object $wp_customize
+	 */
+	public function customize($wp_customize)
+	{
+		if ($this->config->has('appearance.customize.theme')) {
+			$wp_customize->remove_section('installed_themes');
+			$wp_customize->remove_section('wporg_themes');
+		}
 
-        if ($this->config->has('appearance.customize.site')) {
-            $wp_customize->remove_section('title_tagline');
-        }
+		if ($this->config->has('appearance.customize.site')) {
+			$wp_customize->remove_section('title_tagline');
+		}
 
-        if ($this->config->has('appearance.customize.site.title')) {
-            $wp_customize->remove_control('blogname');
-        }
+		if ($this->config->has('appearance.customize.site.title')) {
+			$wp_customize->remove_control('blogname');
+		}
 
-        if ($this->config->has('appearance.customize.site.tagline')) {
-            $wp_customize->remove_control('blogdescription');
-        }
+		if ($this->config->has('appearance.customize.site.tagline')) {
+			$wp_customize->remove_control('blogdescription');
+		}
 
-        if ($this->config->has('appearance.customize.site.icon')) {
-            $wp_customize->remove_control('site_icon');
-        }
+		if ($this->config->has('appearance.customize.site.icon')) {
+			$wp_customize->remove_control('site_icon');
+		}
 
-        if ($this->config->has('appearance.customize.colors')) {
-            $wp_customize->remove_section('colors');
-        }
+		if ($this->config->has('appearance.customize.colors')) {
+			$wp_customize->remove_section('colors');
+		}
 
-        if ($this->config->has('appearance.customize.header-image')) {
-            $wp_customize->remove_section('header_image');
-        }
+		if ($this->config->has('appearance.customize.header-image')) {
+			$wp_customize->remove_section('header_image');
+		}
 
-        if ($this->config->has('appearance.customize.background-image')) {
-            $wp_customize->remove_section('background_image');
-        }
+		if ($this->config->has('appearance.customize.background-image')) {
+			$wp_customize->remove_section('background_image');
+		}
 
-        if ($this->config->has('appearance.customize.homepage')) {
-            $wp_customize->remove_section('static_front_page');
-        }
+		if ($this->config->has('appearance.customize.homepage')) {
+			$wp_customize->remove_section('static_front_page');
+		}
 
-        if ($this->config->has('appearance.customize.custom-css') || $this->config->has('appearance.customize.css')) {
-            $wp_customize->remove_section('custom_css');
-        }
+		if ($this->config->has('appearance.customize.custom-css') || $this->config->has('appearance.customize.css')) {
+			$wp_customize->remove_section('custom_css');
+		}
 
-        if ($this->config->has('appearance.customize.menus')) {
-            // https://core.trac.wordpress.org/ticket/33411
-            $wp_customize->get_panel('nav_menus')->active_callback = '__return_false';
-        }
+		if ($this->config->has('appearance.customize.menus')) {
+			// https://core.trac.wordpress.org/ticket/33411
+			$wp_customize->get_panel('nav_menus')->active_callback = '__return_false';
+		}
 
-        if ($this->config->has('appearance.customize.menus.locations')) {
-            $wp_customize->remove_section('menu_locations');
-        }
+		if ($this->config->has('appearance.customize.menus.locations')) {
+			$wp_customize->remove_section('menu_locations');
+		}
 
-        if ($this->config->has('appearance.customize.menus.add')) {
-            $wp_customize->remove_section('add_menu');
-        }
+		if ($this->config->has('appearance.customize.menus.add')) {
+			$wp_customize->remove_section('add_menu');
+		}
 
-        /*
-    if ($this->config->has('appearance.customize.widgets')) {
-    $wp_customize->remove_panel('widgets');
-    }
-     */
-    }
+		/*
+		if ($this->config->has('appearance.customize.widgets')) {
+		$wp_customize->remove_panel('widgets');
+		}
+		*/
+	}
 }

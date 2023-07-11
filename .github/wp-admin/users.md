@@ -8,12 +8,12 @@ Update, remove or redirect the users menu item.
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'users',
-        'users' => (string) $route,
-        'users.title' => (string) $title,
-        'users.icon' => (string) $dashicon,
-    ],
+	'wp-admin.$role|$username' => [
+		'users',
+		'users' => (string) $route,
+		'users.title' => (string) $title,
+		'users.icon' => (string) $dashicon,
+	],
 ];
 ```
 
@@ -28,9 +28,9 @@ Remove from menu;
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'users',
-    ],
+	'wp-admin.$role|$username' => [
+		'users',
+	],
 ];
 ```
 
@@ -40,9 +40,9 @@ Remove from menu and enforce a page redirect;
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'users' => 'posts',
-    ],
+	'wp-admin.$role|$username' => [
+		'users' => 'posts',
+	],
 ];
 ```
 

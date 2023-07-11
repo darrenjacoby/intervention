@@ -11,35 +11,35 @@ Remove users profile components.
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'users.profile',
-        'users.profile' => (string) $route,
-        'users.profile.title' => (string) $title,
-        'users.profile.title.[menu, page]' => (string) $title,
-        'users.profile.tabs',
-        'users.profile.tabs.[screen-options, help]',
-        'users.profile.options',
-        'users.profile.options.[title, editor, syntax, schemes, shortcuts, toolbar]',
-        'users.profile.name',
-        'users.profile.name.[first, last, nickname, display]',
-        'users.profile.contact',
-        'users.profile.contact.web',
-        'users.profile.about',
-        'users.profile.about.[bio, picture]',
-        'users.profile.role',
-        'users.profile.role.[
-            all-not-admin,
-            all,
-            wc,
-            administrator,
-            author,
-            editor,
-            contributor,
-            subscriber,
-            customer,
-            shop-manager
-        ]',
-    ],
+	'wp-admin.$role|$username' => [
+		'users.profile',
+		'users.profile' => (string) $route,
+		'users.profile.title' => (string) $title,
+		'users.profile.title.[menu, page]' => (string) $title,
+		'users.profile.tabs',
+		'users.profile.tabs.[screen-options, help]',
+		'users.profile.options',
+		'users.profile.options.[title, editor, syntax, schemes, shortcuts, toolbar]',
+		'users.profile.name',
+		'users.profile.name.[first, last, nickname, display]',
+		'users.profile.contact',
+		'users.profile.contact.web',
+		'users.profile.about',
+		'users.profile.about.[bio, picture]',
+		'users.profile.role',
+		'users.profile.role.[
+			all-not-admin,
+			all,
+			wc,
+			administrator,
+			author,
+			editor,
+			contributor,
+			subscriber,
+			customer,
+			shop-manager
+		]',
+	],
 ];
 ```
 
@@ -53,9 +53,9 @@ Remove from menu;
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'users.profile',
-    ],
+	'wp-admin.$role|$username' => [
+		'users.profile',
+	],
 ];
 ```
 
@@ -65,9 +65,9 @@ Remove from menu and enforce a page redirect;
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'users.profile' => 'posts',
-    ],
+	'wp-admin.$role|$username' => [
+		'users.profile' => 'posts',
+	],
 ];
 ```
 

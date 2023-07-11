@@ -25,44 +25,44 @@ use Jacoby\Intervention\Support\Composer;
  */
 class Lists
 {
-    protected $config;
+	protected $config;
 
-    /**
-     * Initialize
-     *
-     * @param array $config
-     */
-    public function __construct($config = false)
-    {
-        $compose = Composer::set(Arr::normalizeTrue($config));
+	/**
+	 * Initialize
+	 *
+	 * @param array $config
+	 */
+	public function __construct($config = false)
+	{
+		$compose = Composer::set(Arr::normalizeTrue($config));
 
-        $compose = $compose->has('common.all')->add('common.all.', [
-            'list',
-        ]);
+		$compose = $compose->has('common.all')->add('common.all.', [
+			'list',
+		]);
 
-        $compose = $compose->has('common.all.list')->add('common.all.list.', [
-            'actions', 'cols', 'count',
-        ]);
+		$compose = $compose->has('common.all.list')->add('common.all.list.', [
+			'actions', 'cols', 'count',
+		]);
 
-        $this->config = $compose->get();
-        $this->hook();
-    }
+		$this->config = $compose->get();
+		$this->hook();
+	}
 
-    /**
-     * Hook
-     */
-    protected function hook()
-    {
-        if ($this->config->has('common.all.list.actions')) {
-            ListActions::set('all')->remove(['*.all.list.actions']);
-        }
+	/**
+	 * Hook
+	 */
+	protected function hook()
+	{
+		if ($this->config->has('common.all.list.actions')) {
+			ListActions::set('all')->remove(['*.all.list.actions']);
+		}
 
-        if ($this->config->has('common.all.list.cols')) {
-            ListColumns::set('all')->remove(['*.all.list.cols']);
-        }
+		if ($this->config->has('common.all.list.cols')) {
+			ListColumns::set('all')->remove(['*.all.list.cols']);
+		}
 
-        if ($this->config->has('common.all.list.count')) {
-            ListCount::set('all')->remove();
-        }
-    }
+		if ($this->config->has('common.all.list.count')) {
+			ListCount::set('all')->remove();
+		}
+	}
 }

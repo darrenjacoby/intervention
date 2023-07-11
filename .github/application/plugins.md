@@ -8,7 +8,7 @@ Set application plugins.
 <?php
 
 return [
-    'application.plugins' => (array) $plugins,
+	'application.plugins' => (array) $plugins,
 ];
 ```
 
@@ -20,10 +20,10 @@ return [
 <?php
 
 return [
-    'application.plugins' => [
-        'disable-comments' => true,
-        'regenerate-thumbnails' => true,
-    ],
+	'application.plugins' => [
+		'disable-comments' => true,
+		'regenerate-thumbnails' => true,
+	],
 ];
 ```
 
@@ -33,10 +33,10 @@ return [
 <?php
 
 return [
-    'application.plugins' => [
-        'disable-comments' => false,
-        'regenerate-thumbnails' => false,
-    ],
+	'application.plugins' => [
+		'disable-comments' => false,
+		'regenerate-thumbnails' => false,
+	],
 ];
 ```
 
@@ -52,9 +52,9 @@ Intervention matches folder name to the plugin file name, `'disable-comments' =>
 <?php
 
 return [
-    'application.plugins' => [
-        'advanced-custom-fields-pro/acf.php' => true,
-    ],
+	'application.plugins' => [
+		'advanced-custom-fields-pro/acf.php' => true,
+	],
 ];
 ```
 

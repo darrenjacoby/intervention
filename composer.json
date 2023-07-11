@@ -1,60 +1,60 @@
 {
-  "name": "jacoby/intervention",
-  "type": "wordpress-plugin",
-  "description": "WordPress plugin containing modules to cleanup and customize wp-admin.",
-  "keywords": [
-    "wordpress"
-  ],
-  "homepage": "https://github.com/darrenjacoby",
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "Darren Jacoby",
-      "email": "darren@jacoby.co.za",
-      "homepage": "https://twitter.com/withjacoby"
-    }
-  ],
-  "require": {
-    "php": "^7.4|^8.0",
-    "illuminate/collections": "^10.14",
-    "brick/varexporter": "^0.3.8"
-  },
-  "require-dev": {
-    "composer/installers": "^2.0",
-    "symplify/easy-coding-standard": "^11.5",
-    "humbug/php-scoper": "^0.18.3"
-  },
-  "autoload": {
-    "psr-4": {
-      "Jacoby\\Intervention\\": "src/"
-    }
-  },
-  "scripts": {
-    "build": [
-      "@build:assets",
-      "@build:php"
-    ],
-    "lint:php": [
-      "vendor/bin/ecs check --fix"
-    ],
-    "build:php": [
-      "./scoper.sh"
-    ],
-    "build:assets": [
-      "npm run build:production"
-    ],
-    "watch": [
-      "npm run start"
-    ]
-  },
-  "minimum-stability": "dev",
-  "prefer-stable": true,
-  "support": {
-    "issues": "https://github.com/darrenjacoby/intervention/issues"
-  },
-  "config": {
-    "allow-plugins": {
-      "composer/installers": true
-    }
-  }
+	"name": "jacoby/intervention",
+	"type": "wordpress-plugin",
+	"description": "WordPress plugin containing modules to cleanup and customize wp-admin.",
+	"keywords": [
+		"wordpress"
+	],
+	"homepage": "https://github.com/darrenjacoby",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Darren Jacoby",
+			"email": "darren@jacoby.co.za",
+			"homepage": "https://twitter.com/withjacoby"
+		}
+	],
+	"require": {
+		"php": "^7.4|^8.0",
+		"illuminate/collections": "^10.14",
+		"brick/varexporter": "^0.3.8"
+	},
+	"require-dev": {
+		"composer/installers": "^2.0",
+		"symplify/easy-coding-standard": "^11.5",
+		"humbug/php-scoper": "^0.18.3"
+	},
+	"autoload": {
+		"psr-4": {
+			"Jacoby\\Intervention\\": "src/"
+		}
+	},
+	"scripts": {
+		"build": [
+			"@build:assets",
+			"@build:php"
+		],
+		"lint:php": [
+			"vendor/bin/ecs check --fix"
+		],
+		"build:php": [
+			"./scoper.sh"
+		],
+		"build:assets": [
+			"npm run build:production"
+		],
+		"watch": [
+			"npm run start"
+		]
+	},
+	"minimum-stability": "dev",
+	"prefer-stable": true,
+	"support": {
+		"issues": "https://github.com/darrenjacoby/intervention/issues"
+	},
+	"config": {
+		"allow-plugins": {
+			"composer/installers": true
+		}
+	}
 }

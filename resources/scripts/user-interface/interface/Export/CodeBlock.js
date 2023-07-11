@@ -13,36 +13,36 @@ import { PseudoFade } from '../Page/PseudoFade';
  * @returns <CodeBlock />
  */
 const CodeBlock = ({ children }) => {
-  const [isHighlighted, setIsHighlighted] = useState(false);
+	const [isHighlighted, setIsHighlighted] = useState(false);
 
-  /**
-   * Effects
-   */
-  useEffect(() => {
-    Prism.highlightAll();
-    // hack to stop prism highlight jitter
-    setTimeout(() => setIsHighlighted(true), 15);
-  });
+	/**
+	 * Effects
+	 */
+	useEffect(() => {
+		Prism.highlightAll();
+		// hack to stop prism highlight jitter
+		setTimeout(() => setIsHighlighted(true), 15);
+	});
 
-  /**
-   * Render
-   */
-  return (
-    <div
-      className={`
-        relative
-        py-20
-        pl-16
-        ${isHighlighted ? '' : 'opacity-0'}
-      `}
-    >
-      <pre>
-        <code className="language-php text-14">{children}</code>
-      </pre>
+	/**
+	 * Render
+	 */
+	return (
+		<div
+			className={`
+				relative
+				py-20
+				pl-16
+				${isHighlighted ? '' : 'opacity-0'}
+			`}
+		>
+			<pre>
+				<code className="language-php text-14">{children}</code>
+			</pre>
 
-      <PseudoFade />
-    </div>
-  );
+			<PseudoFade />
+		</div>
+	);
 };
 
 export { CodeBlock };

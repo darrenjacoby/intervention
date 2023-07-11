@@ -2,28 +2,28 @@
  * <Panel />
  */
 .components-tab-panel__tabs {
-  border-bottom: 1px solid theme('colors.gray-5');
+	border-bottom: 1px solid theme('colors.gray-5');
 }
 
 .components-panel {
-  border: 0;
-  border-bottom: 1px solid theme('colors.gray-5');
+	border: 0;
+	border-bottom: 1px solid theme('colors.gray-5');
 }
 
 /* keep line the same with toolbar */
 .components-panel + .components-panel {
-  margin-top: 0;
+	margin-top: 0;
 }
 
 .components-panel,
 .components-panel__body-toggle {
-  min-height: 49px;
+	min-height: 49px;
 }
 
 .components-panel__body.is-opened {
-  padding-bottom: 13px !important;
+	padding-bottom: 13px !important;
 }
 
 .components-tab-panel__tabs-item {
-  height: 49px;
+	height: 49px;
 }

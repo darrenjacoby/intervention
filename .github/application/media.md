@@ -8,15 +8,15 @@ Set application media options.
 <?php
 
 return [
-    'application.media' => [
-        'sizes.$name' => (boolean|int|array) false|$width|[
-            'width'|'w' => (int) $width,
-            'height'|'h' => (int) $height,
-            'crop' => (boolean) $enable_crop,
-        ],
-        'mimes.$name' => (boolean|string) $enable_mime_type,
-        'uploads.organize' => (boolean) $enable_upload_organization,
-    ],
+	'application.media' => [
+		'sizes.$name' => (boolean|int|array) false|$width|[
+			'width'|'w' => (int) $width,
+			'height'|'h' => (int) $height,
+			'crop' => (boolean) $enable_crop,
+		],
+		'mimes.$name' => (boolean|string) $enable_mime_type,
+		'uploads.organize' => (boolean) $enable_upload_organization,
+	],
 ];
 ```
 
@@ -26,18 +26,18 @@ return [
 <?php
 
 return [
-    'application.media' => [
-        'sizes.thumbnail' => [
-            'width' => 200,
-            'height' => 200,
-            'crop' => true,
-        ],
-        'sizes.medium' => 400,
-        'sizes.large' => 1200,
-        'mimes.png' => false,
-        'mimes.svg' => true,
-        'uploads.organize' => true,
-    ],
+	'application.media' => [
+		'sizes.thumbnail' => [
+			'width' => 200,
+			'height' => 200,
+			'crop' => true,
+		],
+		'sizes.medium' => 400,
+		'sizes.large' => 1200,
+		'mimes.png' => false,
+		'mimes.svg' => true,
+		'uploads.organize' => true,
+	],
 ];
 ```
 
@@ -49,17 +49,17 @@ Intervention can register custom image sizes.
 <?php
 
 return [
-    'application.media' => [
-        'sizes.100vw' => 1800,
-        'sizes.3/12' => 400,
-        'sizes.4/12' => 600,
-        'sizes.6/12' => 800,
-        'sizes.9/12' => 1200,
-        'sizes.12/12' => 1600,
-        'sizes.sq.w' => 600,
-        'sizes.sq.h' => 600,
-        'sizes.sq.crop' => true,
-    ],
+	'application.media' => [
+		'sizes.100vw' => 1800,
+		'sizes.3/12' => 400,
+		'sizes.4/12' => 600,
+		'sizes.6/12' => 800,
+		'sizes.9/12' => 1200,
+		'sizes.12/12' => 1600,
+		'sizes.sq.w' => 600,
+		'sizes.sq.h' => 600,
+		'sizes.sq.crop' => true,
+	],
 ];
 ```
 
@@ -69,7 +69,7 @@ To remove an image size pass in `false`.
 <?php
 
 return [
-    'application.media.sizes.medium' => false,
+	'application.media.sizes.medium' => false,
 ];
 ```
 
@@ -85,20 +85,20 @@ To enable custom mimes, a string of the mime type will need to be passed.
 <?php
 
 return [
-    'application.media' => [
-        'mimes.svg' => true,
-        'mimes.bmp' => 'image/bmp',
-        'mimes.webm' => 'video/webm',
-    ],
+	'application.media' => [
+		'mimes.svg' => true,
+		'mimes.bmp' => 'image/bmp',
+		'mimes.webm' => 'video/webm',
+	],
 ];
 ```
 
 ### Further Reading;
 
 - `mimes.$name`
-  - [https://wpengine.com/support/mime-types-wordpress/](https://wpengine.com/support/mime-types-wordpress/)
+- [https://wpengine.com/support/mime-types-wordpress/](https://wpengine.com/support/mime-types-wordpress/)
 - `sizes.$name`
-  - [https://developer.wordpress.org/reference/functions/add_image_size/](https://developer.wordpress.org/reference/functions/add_image_size/)
+- [https://developer.wordpress.org/reference/functions/add_image_size/](https://developer.wordpress.org/reference/functions/add_image_size/)
 
 ### Bug?
 

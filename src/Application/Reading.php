@@ -26,60 +26,60 @@ use Jacoby\Intervention\Support\Arr;
  */
 class Reading
 {
-    protected $config;
-    protected $api;
+	protected $config;
+	protected $api;
 
-    /**
-     * Initialize
-     *
-     * @param array $config
-     */
-    public function __construct($config = false)
-    {
-        $this->config = Arr::normalize($config);
-        $this->api = OptionsApi::set($this->config);
-        $this->hook();
-    }
+	/**
+	 * Initialize
+	 *
+	 * @param array $config
+	 */
+	public function __construct($config = false)
+	{
+		$this->config = Arr::normalize($config);
+		$this->api = OptionsApi::set($this->config);
+		$this->hook();
+	}
 
-    /**
-     * Hook
-     */
-    protected function hook()
-    {
-        add_action('init', [$this, 'options']);
-        add_action('admin_head-options-reading.php', [$this->api, 'disableKeys']);
-    }
+	/**
+	 * Hook
+	 */
+	protected function hook()
+	{
+		add_action('init', [$this, 'options']);
+		add_action('admin_head-options-reading.php', [$this->api, 'disableKeys']);
+	}
 
-    /**
-     * Options
-     */
-    public function options()
-    {
-        $this->api->saveKeys([
-            'reading.posts-per-page',
-            'reading.posts-per-rss',
-            'reading.rss-excerpt',
-        ]);
+	/**
+	 * Options
+	 */
+	public function options()
+	{
+		$this->api->saveKeys([
+			'reading.posts-per-page',
+			'reading.posts-per-rss',
+			'reading.rss-excerpt',
+		]);
 
-        // frontpage
-        if ($this->config->has('reading.front-page') || $this->config->has('reading.front-page.posts')) {
-            $value = $this->config->get('reading.front-page');
-            $type = $value === 'posts' ? 'posts' : 'page';
-            $this->api->save('reading.front-page', $type);
+		// frontpage
+		if ($this->config->has('reading.front-page') || $this->config->has('reading.front-page.posts')) {
+			$value = $this->config->get('reading.front-page');
+			$type = $value === 'posts' ? 'posts' : 'page';
+			$this->api->save('reading.front-page', $type);
 
-            if ($type === 'page') {
-                $this->api->save('reading.front-page.page', $value);
-            }
+			if ($type === 'page') {
+				$this->api->save('reading.front-page.page', $value);
+			}
 
-            if ($type === 'page' && $this->config->has('reading.front-page.posts')) {
-                $this->api->save('reading.front-page.posts', $this->config->get('reading.front-page.posts'));
-            }
-        }
+			if ($type === 'page' && $this->config->has('reading.front-page.posts')) {
+				$this->api->save('reading.front-page.posts', $this->config->get('reading.front-page.posts'));
+			}
+		}
 
-        // discourage search
-        if ($this->config->has('reading.discourage-search')) {
-            $value = !$this->config->get('reading.discourage-search');
-            $this->api->save('reading.discourage-search', $value);
-        }
-    }
+		// discourage search
+		if ($this->config->has('reading.discourage-search')) {
+			$value = !$this->config->get('reading.discourage-search');
+			$this->api->save('reading.discourage-search', $value);
+		}
+	}
 }

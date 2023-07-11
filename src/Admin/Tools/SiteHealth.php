@@ -23,33 +23,33 @@ use Jacoby\Intervention\Support\Composer;
  */
 class SiteHealth
 {
-    protected $config;
+	protected $config;
 
-    /**
-     * Initialize
-     *
-     * @param array $config
-     */
-    public function __construct($config = false)
-    {
-        $compose = Composer::set(Arr::normalizeTrue($config));
+	/**
+	 * Initialize
+	 *
+	 * @param array $config
+	 */
+	public function __construct($config = false)
+	{
+		$compose = Composer::set(Arr::normalizeTrue($config));
 
-        $compose = $compose->has('tools.site-health.title')->add('tools.site-health.title.', [
-            'menu', 'page',
-        ]);
+		$compose = $compose->has('tools.site-health.title')->add('tools.site-health.title.', [
+			'menu', 'page',
+		]);
 
-        $this->config = $compose->get();
-        $this->hook();
-    }
+		$this->config = $compose->get();
+		$this->hook();
+	}
 
-    /**
-     * Hook
-     */
-    protected function hook()
-    {
-        $shared = SharedApi::set('tools.site-health', $this->config);
-        $shared->router();
-        $shared->menu();
-        $shared->title();
-    }
+	/**
+	 * Hook
+	 */
+	protected function hook()
+	{
+		$shared = SharedApi::set('tools.site-health', $this->config);
+		$shared->router();
+		$shared->menu();
+		$shared->title();
+	}
 }

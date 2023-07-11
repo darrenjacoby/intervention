@@ -8,12 +8,12 @@ Update, remove or redirect the appearance menu item.
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'appearance',
-        'appearance' => (string) $route,
-        'appearance.title' => (string) $title,
-        'appearance.icon' => (string) $dashicon,
-    ],
+	'wp-admin.$role|$username' => [
+		'appearance',
+		'appearance' => (string) $route,
+		'appearance.title' => (string) $title,
+		'appearance.icon' => (string) $dashicon,
+	],
 ];
 ```
 
@@ -28,9 +28,9 @@ Remove from menu;
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'appearance',
-    ],
+	'wp-admin.$role|$username' => [
+		'appearance',
+	],
 ];
 ```
 
@@ -40,9 +40,9 @@ Remove from menu and enforce a page redirect;
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'appearance' => 'posts',
-    ],
+	'wp-admin.$role|$username' => [
+		'appearance' => 'posts',
+	],
 ];
 ```
 

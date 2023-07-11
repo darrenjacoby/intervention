@@ -10,12 +10,12 @@ Remove wp-admin all/index item list components.
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'common.all.list',
-        'common.all.list.count',
-        'common.all.list.cols',
-        'common.all.list.actions',
-    ],
+	'wp-admin.$role|$username' => [
+		'common.all.list',
+		'common.all.list.count',
+		'common.all.list.cols',
+		'common.all.list.actions',
+	],
 ];
 ```
 

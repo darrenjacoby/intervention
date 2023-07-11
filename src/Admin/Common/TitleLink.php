@@ -20,32 +20,32 @@ use Jacoby\Intervention\Support\Composer;
  */
 class TitleLink
 {
-    protected $config;
+	protected $config;
 
-    /**
-     * Initialize
-     *
-     * @param array $config
-     */
-    public function __construct($config = false)
-    {
-        $compose = Composer::set(Arr::normalizeTrue($config));
+	/**
+	 * Initialize
+	 *
+	 * @param array $config
+	 */
+	public function __construct($config = false)
+	{
+		$compose = Composer::set(Arr::normalizeTrue($config));
 
-        $compose = $compose->has('common.title')->add('common.title.', [
-            'link',
-        ]);
+		$compose = $compose->has('common.title')->add('common.title.', [
+			'link',
+		]);
 
-        $this->config = $compose->get();
-        $this->hook();
-    }
+		$this->config = $compose->get();
+		$this->hook();
+	}
 
-    /**
-     * Hook
-     */
-    protected function hook()
-    {
-        if ($this->config->has('common.title-link')) {
-            TitleSupport::set('all')->removeLink();
-        }
-    }
+	/**
+	 * Hook
+	 */
+	protected function hook()
+	{
+		if ($this->config->has('common.title-link')) {
+			TitleSupport::set('all')->removeLink();
+		}
+	}
 }

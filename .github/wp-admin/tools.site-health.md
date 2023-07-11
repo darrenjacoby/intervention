@@ -11,12 +11,12 @@ Remove tools site-health components.
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'tools.site-health',
-        'tools.site-health' => (string) $route,
-        'tools.site-health.title' => (string) $title,
-        'tools.site-health.title.[menu, page]' => (string) $title,
-    ],
+	'wp-admin.$role|$username' => [
+		'tools.site-health',
+		'tools.site-health' => (string) $route,
+		'tools.site-health.title' => (string) $title,
+		'tools.site-health.title.[menu, page]' => (string) $title,
+	],
 ];
 ```
 
@@ -30,9 +30,9 @@ Remove from menu;
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'tools.site-health',
-    ],
+	'wp-admin.$role|$username' => [
+		'tools.site-health',
+	],
 ];
 ```
 
@@ -42,9 +42,9 @@ Remove from menu and enforce a page redirect;
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'tools.site-health' => 'posts',
-    ],
+	'wp-admin.$role|$username' => [
+		'tools.site-health' => 'posts',
+	],
 ];
 ```
 

@@ -6,10 +6,10 @@ The config file accepts dot notatation, a standard array, or a combination of th
 
 ```php
 return [
-    'wp-admin.$role|$username.common.adminbar.wp',
-    'wp-admin.$role|$username.common.adminbar.new',
-    'wp-admin.$role|$username.common.adminbar.edit',
-    'wp-admin.$role|$username.common.adminbar.view',
+	'wp-admin.$role|$username.common.adminbar.wp',
+	'wp-admin.$role|$username.common.adminbar.new',
+	'wp-admin.$role|$username.common.adminbar.edit',
+	'wp-admin.$role|$username.common.adminbar.view',
 ];
 ```
 
@@ -17,15 +17,15 @@ return [
 
 ```php
 return [
-    'wp-admin' => [
-        '$role|$username' => [
-            'common' => [
-                'adminbar' => [
-                    'wp', 'new', 'edit', 'view'
-                ],
-            ],
-        ],
-    ],
+	'wp-admin' => [
+		'$role|$username' => [
+			'common' => [
+				'adminbar' => [
+					'wp', 'new', 'edit', 'view'
+				],
+			],
+		],
+	],
 ];
 ```
 
@@ -35,10 +35,10 @@ Using these approaches interchangeably can help bring readability and structure 
 
 ```php
 return [
-    'wp-admin.$role|$username' => [
-        'common.adminbar', => [
-            'wp', 'new', 'edit', 'view'
-        ],
-    ],
+	'wp-admin.$role|$username' => [
+		'common.adminbar', => [
+			'wp', 'new', 'edit', 'view'
+		],
+	],
 ];
 ```

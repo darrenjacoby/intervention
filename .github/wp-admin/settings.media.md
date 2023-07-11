@@ -11,16 +11,16 @@ Remove settings media components.
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'settings.media',
-        'settings.media' => (string) $route,
-        'settings.media.title' => (string) $title,
-        'settings.media.title.[menu, page]' => (string) $title,
-        'settings.media.tabs',
-        'settings.media.tabs.[screen-options, help]',
-        'settings.media.sizes',
-        'settings.media.uploads',
-    ],
+	'wp-admin.$role|$username' => [
+		'settings.media',
+		'settings.media' => (string) $route,
+		'settings.media.title' => (string) $title,
+		'settings.media.title.[menu, page]' => (string) $title,
+		'settings.media.tabs',
+		'settings.media.tabs.[screen-options, help]',
+		'settings.media.sizes',
+		'settings.media.uploads',
+	],
 ];
 ```
 
@@ -34,9 +34,9 @@ Remove from menu;
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'settings.media',
-    ],
+	'wp-admin.$role|$username' => [
+		'settings.media',
+	],
 ];
 ```
 
@@ -46,9 +46,9 @@ Remove from menu and enforce a page redirect;
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'settings.media' => 'posts',
-    ],
+	'wp-admin.$role|$username' => [
+		'settings.media' => 'posts',
+	],
 ];
 ```
 

@@ -8,7 +8,7 @@ Set application posts/posttypes.
 <?php
 
 return [
-    'application.posts.$name' => (boolean|string|array) $enable|$label|$config,
+	'application.posts.$name' => (boolean|string|array) $enable|$label|$config,
 ];
 ```
 
@@ -22,7 +22,7 @@ The most simplified registration, `book` labels are auto generated as `Book` and
 <?php
 
 return [
-    'application.posts.book' => true,
+	'application.posts.book' => true,
 ];
 ```
 
@@ -32,7 +32,7 @@ You can also pass in the singular label as a string.
 <?php
 
 return [
-    'application.posts.book' => 'Boook',
+	'application.posts.book' => 'Boook',
 ];
 ```
 
@@ -42,18 +42,18 @@ The standard custom posttype configuration can be passed in.
 <?php
 
 return [
-    'application.posts' => [
-        'book' => [
-            'one' => 'Book',
-            'many' => 'Books',
-            'supports' => [
-                'title', 'thumbnail', 'editor'
-            ],
-            'has-archive' => true,
-            'hierarchical' => false,
-            'menu-position' => 10,
-        ],
-    ],
+	'application.posts' => [
+		'book' => [
+			'one' => 'Book',
+			'many' => 'Books',
+			'supports' => [
+				'title', 'thumbnail', 'editor'
+			],
+			'has-archive' => true,
+			'hierarchical' => false,
+			'menu-position' => 10,
+		],
+	],
 ];
 ```
 
@@ -65,10 +65,10 @@ return [
 <?php
 
 return [
-    'application.posts' => [
-        'post' => false,
-        'attachment' => false,
-    ],
+	'application.posts' => [
+		'post' => false,
+		'attachment' => false,
+	],
 ];
 ```
 
@@ -82,15 +82,15 @@ Change options on an existing post type.
 <?php
 
 return [
-    'application.posts' => [
-        'post' => [
-            'one' => 'Book',
-            'many' => 'Books',
-            'supports' => [
-                'title', 'thumbnail', 'editor'
-            ],
-        ],
-    ],
+	'application.posts' => [
+		'post' => [
+			'one' => 'Book',
+			'many' => 'Books',
+			'supports' => [
+				'title', 'thumbnail', 'editor'
+			],
+		],
+	],
 ];
 ```
 
@@ -100,9 +100,9 @@ If you are only changing one option, consider using dot notation for a cleaner c
 <?php
 
 return [
-    'application.posts.post.supports' => [
-        'title', 'thumbnail', 'editor'
-    ],
+	'application.posts.post.supports' => [
+		'title', 'thumbnail', 'editor'
+	],
 ];
 ```
 
@@ -114,9 +114,9 @@ return [
 <?php
 
 return [
-    'application.posttypes.post.supports' => [
-        'title', 'thumbnail', 'editor'
-    ],
+	'application.posttypes.post.supports' => [
+		'title', 'thumbnail', 'editor'
+	],
 ];
 ```
 

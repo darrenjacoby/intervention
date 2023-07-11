@@ -22,26 +22,26 @@ use Jacoby\Intervention\Support\Composer;
  */
 class Posts
 {
-    /**
-     * Initialize
-     *
-     * @param array $config
-     */
-    public function __construct($config = [])
-    {
-        $config = Arr::normalize($config);
+	/**
+	 * Initialize
+	 *
+	 * @param array $config
+	 */
+	public function __construct($config = [])
+	{
+		$config = Arr::normalize($config);
 
-        $posts = Composer::set($config)
-            ->group('posts')
-            ->get()
-            ->toArray();
+		$posts = Composer::set($config)
+			->group('posts')
+			->get()
+			->toArray();
 
-        $config = Composer::set($config)
-            ->forgetGroup('posts')
-            ->get()
-            ->put('posttypes', $posts)
-            ->toArray();
+		$config = Composer::set($config)
+			->forgetGroup('posts')
+			->get()
+			->put('posttypes', $posts)
+			->toArray();
 
-        new Posttypes($config);
-    }
+		new Posttypes($config);
+	}
 }

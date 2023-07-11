@@ -11,27 +11,27 @@ Remove all/index comment components.
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'comments.all',
-        'comments.all' => (string) $route,
-        'comments.all.title' => (string) $title,
-        'comments.all.title.[menu, page]' => (string) $title,
-        'comments.all.tabs',
-        'comments.all.tabs.[screen-options, help]',
-        'comments.all.pagination' => (int) $pagination,
-        'comments.all.search',
-        'comments.all.subsets',
-        'comments.all.subsets.[all, mine, pending, approved, spam, trash]',
-        'comments.all.subsets.counts',
-        'comments.all.actions',
-        'comments.all.actions.[bulk, types]',
-        'comments.all.list',
-        'comments.all.list.cols',
-        'comments.all.list.cols.[comment, response, date]',
-        'comments.all.list.actions',
-        'comments.all.list.actions.[unapprove, reply, quickedit, edit, spam, trash]',
-        'comments.all.list.count',
-    ],
+	'wp-admin.$role|$username' => [
+		'comments.all',
+		'comments.all' => (string) $route,
+		'comments.all.title' => (string) $title,
+		'comments.all.title.[menu, page]' => (string) $title,
+		'comments.all.tabs',
+		'comments.all.tabs.[screen-options, help]',
+		'comments.all.pagination' => (int) $pagination,
+		'comments.all.search',
+		'comments.all.subsets',
+		'comments.all.subsets.[all, mine, pending, approved, spam, trash]',
+		'comments.all.subsets.counts',
+		'comments.all.actions',
+		'comments.all.actions.[bulk, types]',
+		'comments.all.list',
+		'comments.all.list.cols',
+		'comments.all.list.cols.[comment, response, date]',
+		'comments.all.list.actions',
+		'comments.all.list.actions.[unapprove, reply, quickedit, edit, spam, trash]',
+		'comments.all.list.count',
+	],
 ];
 ```
 
@@ -45,9 +45,9 @@ return [
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'comments.all',
-    ],
+	'wp-admin.$role|$username' => [
+		'comments.all',
+	],
 ];
 ```
 
@@ -57,9 +57,9 @@ return [
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'comments.all' => 'posts',
-    ],
+	'wp-admin.$role|$username' => [
+		'comments.all' => 'posts',
+	],
 ];
 ```
 

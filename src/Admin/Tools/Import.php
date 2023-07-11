@@ -25,42 +25,42 @@ use Jacoby\Intervention\Support\Composer;
  */
 class Import
 {
-    protected $config;
+	protected $config;
 
-    /**
-     * Initialize
-     *
-     * @param array $config
-     */
-    public function __construct($config = false)
-    {
-        $compose = Composer::set(Arr::normalizeTrue($config));
+	/**
+	 * Initialize
+	 *
+	 * @param array $config
+	 */
+	public function __construct($config = false)
+	{
+		$compose = Composer::set(Arr::normalizeTrue($config));
 
-        $compose = $compose->has('tools.import.all')->add('tools.import.', [
-            'tabs',
-        ]);
+		$compose = $compose->has('tools.import.all')->add('tools.import.', [
+			'tabs',
+		]);
 
-        $compose = $compose->has('tools.import.title')->add('tools.import.title.', [
-            'menu', 'page',
-        ]);
+		$compose = $compose->has('tools.import.title')->add('tools.import.title.', [
+			'menu', 'page',
+		]);
 
-        $compose = $compose->has('tools.import.tabs')->add('tools.import.tabs.', [
-            'screen-options', 'help',
-        ]);
+		$compose = $compose->has('tools.import.tabs')->add('tools.import.tabs.', [
+			'screen-options', 'help',
+		]);
 
-        $this->config = $compose->get();
-        $this->hook();
-    }
+		$this->config = $compose->get();
+		$this->hook();
+	}
 
-    /**
-     * Hook
-     */
-    protected function hook()
-    {
-        $shared = SharedApi::set('tools.import', $this->config);
-        $shared->router();
-        $shared->menu();
-        $shared->title();
-        $shared->tabs();
-    }
+	/**
+	 * Hook
+	 */
+	protected function hook()
+	{
+		$shared = SharedApi::set('tools.import', $this->config);
+		$shared->router();
+		$shared->menu();
+		$shared->title();
+		$shared->tabs();
+	}
 }

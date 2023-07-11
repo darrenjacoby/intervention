@@ -25,7 +25,7 @@ const queryClient = new QueryClient();
  * @returns <WordPressContainer />
  */
 const WordPressContainer = ({ children }) => {
-  return <div className="relative -ml-10 md:-ml-20">{children}</div>;
+	return <div className="relative -ml-10 md:-ml-20">{children}</div>;
 };
 
 /**
@@ -36,37 +36,37 @@ const WordPressContainer = ({ children }) => {
  * @returns <App />
  */
 const App = () => {
-  /**
-   * Prefetch
-   *
-   * @description prefetch queries for WordPress data.
-   */
-  const prefetch = async () => {
-    await queryClient.prefetchQuery('import', importQueryFn);
-    await queryClient.prefetchQuery('export', exportQueryFn);
-  };
-  prefetch();
+	/**
+	 * Prefetch
+	 *
+	 * @description prefetch queries for WordPress data.
+	 */
+	const prefetch = async () => {
+		await queryClient.prefetchQuery('import', importQueryFn);
+		await queryClient.prefetchQuery('export', exportQueryFn);
+	};
+	prefetch();
 
-  /**
-   * Render
-   */
-  return (
-    <React.StrictMode>
-      <HashRouter>
-        <QueryClientProvider client={queryClient}>
-          <WordPressContainer>
-            <Head />
-            <Suspense fallback={<Loader />}>
-              <Routes>
-                <Route path="/" exact element={<Import />} />
-                <Route path="/export" element={<Export />} />
-              </Routes>
-            </Suspense>
-          </WordPressContainer>
-        </QueryClientProvider>
-      </HashRouter>
-    </React.StrictMode>
-  );
+	/**
+	 * Render
+	 */
+	return (
+		<React.StrictMode>
+			<HashRouter>
+				<QueryClientProvider client={queryClient}>
+					<WordPressContainer>
+						<Head />
+						<Suspense fallback={<Loader />}>
+							<Routes>
+								<Route path="/" exact element={<Import />} />
+								<Route path="/export" element={<Export />} />
+							</Routes>
+						</Suspense>
+					</WordPressContainer>
+				</QueryClientProvider>
+			</HashRouter>
+		</React.StrictMode>
+	);
 };
 
 export { App };

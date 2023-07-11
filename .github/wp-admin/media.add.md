@@ -11,14 +11,14 @@ Remove media add components.
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'media.add',
-        'media.add' => (string) $route,
-        'media.add.title' => (string) $title,
-        'media.add.title.[menu, page]' => (string) $title,
-        'media.add.tabs',
-        'media.add.tabs.[screen-options, help]',
-    ],
+	'wp-admin.$role|$username' => [
+		'media.add',
+		'media.add' => (string) $route,
+		'media.add.title' => (string) $title,
+		'media.add.title.[menu, page]' => (string) $title,
+		'media.add.tabs',
+		'media.add.tabs.[screen-options, help]',
+	],
 ];
 ```
 
@@ -32,9 +32,9 @@ Remove from menu;
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'media.add',
-    ],
+	'wp-admin.$role|$username' => [
+		'media.add',
+	],
 ];
 ```
 
@@ -44,9 +44,9 @@ Remove from menu and enforce a page redirect;
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'media.add' => 'posts',
-    ],
+	'wp-admin.$role|$username' => [
+		'media.add' => 'posts',
+	],
 ];
 ```
 

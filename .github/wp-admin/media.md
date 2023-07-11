@@ -8,12 +8,12 @@ Update, remove or redirect the media menu item.
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'media',
-        'media' => (string) $route,
-        'media.title' => (string) $title,
-        'media.icon' => (string) $dashicon,
-    ],
+	'wp-admin.$role|$username' => [
+		'media',
+		'media' => (string) $route,
+		'media.title' => (string) $title,
+		'media.icon' => (string) $dashicon,
+	],
 ];
 ```
 
@@ -28,9 +28,9 @@ Remove from menu;
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'media',
-    ],
+	'wp-admin.$role|$username' => [
+		'media',
+	],
 ];
 ```
 
@@ -40,9 +40,9 @@ Remove from menu and enforce a page redirect;
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'media' => 'posts',
-    ],
+	'wp-admin.$role|$username' => [
+		'media' => 'posts',
+	],
 ];
 ```
 

@@ -38,11 +38,11 @@ intervention('remove-customizer-items', ['site', 'custom-css'], '$role');
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'appearance.customize', => [
-            'site', 'custom-css'
-        ],
-    ],
+	'wp-admin.$role|$username' => [
+		'appearance.customize', => [
+			'site', 'custom-css'
+		],
+	],
 ];
 ```
 
@@ -56,11 +56,11 @@ intervention('remove-dashboard-items', ['right-now', 'recent-comments'], '$role'
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'dashboard.home' => [
-            'right-now', 'recent-comments'
-        ],
-    ],
+	'wp-admin.$role|$username' => [
+		'dashboard.home' => [
+			'right-now', 'recent-comments'
+		],
+	],
 ];
 ```
 
@@ -74,9 +74,9 @@ intervention('remove-help-tabs');
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'common.tabs',
-    ],
+	'wp-admin.$role|$username' => [
+		'common.tabs',
+	],
 ];
 ```
 
@@ -90,9 +90,9 @@ intervention('remove-howdy');
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'common.adminbar.user.howdy',
-    ],
+	'wp-admin.$role|$username' => [
+		'common.adminbar.user.howdy',
+	],
 ];
 ```
 
@@ -106,9 +106,9 @@ intervention('remove-menu-items', ['media', 'comments'], '$role');
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'media', 'comments'
-    ],
+	'wp-admin.$role|$username' => [
+		'media', 'comments'
+	],
 ];
 ```
 
@@ -122,11 +122,11 @@ intervention('remove-page-components', ['author', 'custom-fields']);
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'pages.item' => [
-            'author', 'custom-fields'
-        ],
-    ],
+	'wp-admin.$role|$username' => [
+		'pages.item' => [
+			'author', 'custom-fields'
+		],
+	],
 ];
 ```
 
@@ -140,11 +140,11 @@ intervention('remove-post-components', ['author', 'custom-fields']);
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'posts.item' => [
-            'author', 'custom-fields'
-        ],
-    ],
+	'wp-admin.$role|$username' => [
+		'posts.item' => [
+			'author', 'custom-fields'
+		],
+	],
 ];
 ```
 
@@ -158,12 +158,12 @@ intervention('remove-taxonomies', ['category', 'tag']);
 <?php
 
 return [
-    'application' => [
-        'taxonomies' => [
-            'category' => false,
-            'post-tag' => false,
-        ],
-    ],
+	'application' => [
+		'taxonomies' => [
+			'category' => false,
+			'post-tag' => false,
+		],
+	],
 ];
 ```
 
@@ -177,9 +177,9 @@ intervention('remove-toolbar-frontend', '$role');
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'common.adminbar.theme',
-    ],
+	'wp-admin.$role|$username' => [
+		'common.adminbar.theme',
+	],
 ];
 ```
 
@@ -193,11 +193,11 @@ intervention('remove-toolbar-items', ['logo', 'new'], '$role');
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'common.adminbar' => [
-            'wp', 'new'
-        ],
-    ],
+	'wp-admin.$role|$username' => [
+		'common.adminbar' => [
+			'wp', 'new'
+		],
+	],
 ];
 ```
 
@@ -211,9 +211,9 @@ intervention('remove-update-notices', '$role'));
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'common.updates',
-    ],
+	'wp-admin.$role|$username' => [
+		'common.updates',
+	],
 ];
 ```
 
@@ -227,11 +227,11 @@ intervention('remove-user-fields', ['options', 'names'], '$role');
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'users.profile' => [
-            'options', 'name'
-        ],
-    ],
+	'wp-admin.$role|$username' => [
+		'users.profile' => [
+			'options', 'name'
+		],
+	],
 ];
 ```
 
@@ -245,11 +245,11 @@ intervention('remove-user-roles', ['contributor', 'subscriber'], '$role');
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'users.profile.role' => [
-            'contributor', 'subscriber'
-        ],
-    ],
+	'wp-admin.$role|$username' => [
+		'users.profile.role' => [
+			'contributor', 'subscriber'
+		],
+	],
 ];
 ```
 
@@ -263,11 +263,11 @@ intervention('remove-widgets', ['calendar', 'rss']);
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'appearance.widgets.available' => [
-            'calendar', 'rss'
-        ],
-    ],
+	'wp-admin.$role|$username' => [
+		'appearance.widgets.available' => [
+			'calendar', 'rss'
+		],
+	],
 ];
 ```
 
@@ -281,9 +281,9 @@ intervention('remove-emoji', 40);
 <?php
 
 return [
-    'application' => [
-        'writing.emoji' => false,
-    ],
+	'application' => [
+		'writing.emoji' => false,
+	],
 ];
 ```
 
@@ -297,9 +297,9 @@ intervention('remove-attachment-pages');
 <?php
 
 return [
-    'application' => [
-        'posts.attachment' => false,
-    ],
+	'application' => [
+		'posts.attachment' => false,
+	],
 ];
 ```
 
@@ -313,9 +313,9 @@ intervention('update-dashboard-columns', 2);
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'dashboard.home.cols' => 2,
-    ],
+	'wp-admin.$role|$username' => [
+		'dashboard.home.cols' => 2,
+	],
 ];
 ```
 
@@ -330,9 +330,9 @@ intervention('update-label-footer', 'Created by');
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'common.footer.credit' => 'Created by',
-    ],
+	'wp-admin.$role|$username' => [
+		'common.footer.credit' => 'Created by',
+	],
 ];
 ```
 
@@ -346,12 +346,12 @@ intervention('update-label-page', 'Label');
 <?php
 
 return [
-    'application' => [
-        'posts.page.labels' => [
-            'one' => 'Label',
-            'many' => 'Labels',
-        ],
-    ],
+	'application' => [
+		'posts.page.labels' => [
+			'one' => 'Label',
+			'many' => 'Labels',
+		],
+	],
 ];
 ```
 
@@ -365,12 +365,12 @@ intervention('update-label-post', 'Label');
 <?php
 
 return [
-    'application' => [
-        'posts.post.labels' => [
-            'one' => 'Label',
-            'many' => 'Labels',
-        ],
-    ],
+	'application' => [
+		'posts.post.labels' => [
+			'one' => 'Label',
+			'many' => 'Labels',
+		],
+	],
 ];
 ```
 
@@ -384,9 +384,9 @@ intervention('update-pagination', 40);
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'common.pagination' => 40,
-    ],
+	'wp-admin.$role|$username' => [
+		'common.pagination' => 40,
+	],
 ];
 ```
 
@@ -400,9 +400,9 @@ intervention('add-dashboard-redirect', 'posts', '$role');
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'dashboard' => 'posts'
-    ],
+	'wp-admin.$role|$username' => [
+		'dashboard' => 'posts'
+	],
 ];
 ```
 
@@ -416,23 +416,23 @@ intervention('add-svg-support');
 <?php
 
 return [
-    'application' => [
-        'media.mimes.svg' => true,
-    ],
+	'application' => [
+		'media.mimes.svg' => true,
+	],
 ];
 ```
 
 ### add-dashboard-item
 
 * Removed to maintain focus on removing components from wp-admin.
-    * [WordPress documentation](https://developer.wordpress.org/reference/functions/wp_add_dashboard_widget/)
+	* [WordPress documentation](https://developer.wordpress.org/reference/functions/wp_add_dashboard_widget/)
 
 ### add-menu-page
 
 * Removed to maintain focus on removing components from wp-admin.
-    * [WordPress documentation](https://developer.wordpress.org/reference/functions/add_menu_page/)
+	* [WordPress documentation](https://developer.wordpress.org/reference/functions/add_menu_page/)
 
 ### add-acf-page
 
 * On the roadmap for better Advanced Custom Fields support.
-    * [Advaned Custom Fields documentation](https://www.advancedcustomfields.com/resources/acf_add_options_page/)
+	* [Advaned Custom Fields documentation](https://www.advancedcustomfields.com/resources/acf_add_options_page/)

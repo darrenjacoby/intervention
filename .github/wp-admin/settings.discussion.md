@@ -11,36 +11,36 @@ Remove settings discussion components.
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'settings.discussion',
-        'settings.discussion' => (string) $route,
-        'settings.discussion.title' => (string) $title,
-        'settings.discussion.title.[menu, page]' => (string) $title,
-        'settings.discussion.tabs',
-        'settings.discussion.tabs.[screen-options, help]',
-        'settings.discussion.post',
-        'settings.discussion.post.[ping-flag, ping-status, comments]',
-        'settings.discussion.comments',
-        'settings.discussion.comments.[
-            name-email,
-            registration,
-            close,
-            cookies,
-            thread,
-            pages,
-            order
-        ]',
-        'settings.discussion.emails',
-        'settings.discussion.emails.[comment, moderation]',
-        'settings.discussion.moderation',
-        'settings.discussion.moderation.approve',
-        'settings.discussion.moderation.approve.[manual, previous]',
-        'settings.discussion.moderation.queue',
-        'settings.discussion.moderation.queue.[links, keys]',
-        'settings.discussion.moderation.disallowed-keys',
-        'settings.discussion.avatars',
-        'settings.discussion.avatars.[show, rating, default]',
-    ],
+	'wp-admin.$role|$username' => [
+		'settings.discussion',
+		'settings.discussion' => (string) $route,
+		'settings.discussion.title' => (string) $title,
+		'settings.discussion.title.[menu, page]' => (string) $title,
+		'settings.discussion.tabs',
+		'settings.discussion.tabs.[screen-options, help]',
+		'settings.discussion.post',
+		'settings.discussion.post.[ping-flag, ping-status, comments]',
+		'settings.discussion.comments',
+		'settings.discussion.comments.[
+			name-email,
+			registration,
+			close,
+			cookies,
+			thread,
+			pages,
+			order
+		]',
+		'settings.discussion.emails',
+		'settings.discussion.emails.[comment, moderation]',
+		'settings.discussion.moderation',
+		'settings.discussion.moderation.approve',
+		'settings.discussion.moderation.approve.[manual, previous]',
+		'settings.discussion.moderation.queue',
+		'settings.discussion.moderation.queue.[links, keys]',
+		'settings.discussion.moderation.disallowed-keys',
+		'settings.discussion.avatars',
+		'settings.discussion.avatars.[show, rating, default]',
+	],
 ];
 ```
 
@@ -54,9 +54,9 @@ Remove from menu;
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'settings.discussion',
-    ],
+	'wp-admin.$role|$username' => [
+		'settings.discussion',
+	],
 ];
 ```
 
@@ -66,9 +66,9 @@ Remove from menu and enforce a page redirect;
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'settings.discussion' => 'posts',
-    ],
+	'wp-admin.$role|$username' => [
+		'settings.discussion' => 'posts',
+	],
 ];
 ```
 

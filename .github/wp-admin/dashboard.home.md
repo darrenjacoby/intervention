@@ -11,26 +11,26 @@ Remove dashboard home components.
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'dashboard.home',
-        'dashboard.home' => (string) $route,
-        'dashboard.home.title' => (string) $title,
-        'dashboard.home.title.[menu, page]' => (string) $title,
-        'dashboard.home.tabs',
-        'dashboard.home.tabs.[screen-options, help]',
-        'dashboard.home.cols' => (int) $num_of_cols,
-        'dashboard.home.welcome',
-        'dashboard.home.notices',
-        'dashboard.home.activity',
-        'dashboard.home.right-now',
-        'dashboard.home.recent-comments',
-        'dashboard.home.incoming-links',
-        'dashboard.home.plugins',
-        'dashboard.home.quick-draft',
-        'dashboard.home.drafts',
-        'dashboard.home.news',
-        'dashboard.home.site-health',
-    ],
+	'wp-admin.$role|$username' => [
+		'dashboard.home',
+		'dashboard.home' => (string) $route,
+		'dashboard.home.title' => (string) $title,
+		'dashboard.home.title.[menu, page]' => (string) $title,
+		'dashboard.home.tabs',
+		'dashboard.home.tabs.[screen-options, help]',
+		'dashboard.home.cols' => (int) $num_of_cols,
+		'dashboard.home.welcome',
+		'dashboard.home.notices',
+		'dashboard.home.activity',
+		'dashboard.home.right-now',
+		'dashboard.home.recent-comments',
+		'dashboard.home.incoming-links',
+		'dashboard.home.plugins',
+		'dashboard.home.quick-draft',
+		'dashboard.home.drafts',
+		'dashboard.home.news',
+		'dashboard.home.site-health',
+	],
 ];
 ```
 
@@ -44,9 +44,9 @@ Remove from menu;
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'dashboard.home',
-    ],
+	'wp-admin.$role|$username' => [
+		'dashboard.home',
+	],
 ];
 ```
 
@@ -56,9 +56,9 @@ Remove from menu and enforce a page redirect;
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'dashboard.home' => 'posts',
-    ],
+	'wp-admin.$role|$username' => [
+		'dashboard.home' => 'posts',
+	],
 ];
 ```
 

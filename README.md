@@ -29,12 +29,12 @@ Create `config/intervention.php` for Sage 10, or `intervention.php` inside your 
 <?php
 
 return [
-    'application' => [
+	'application' => [
 
-    ],
-    'wp-admin.$role|$username' => [
+	],
+	'wp-admin.$role|$username' => [
 
-    ],
+	],
 ];
 ```
 
@@ -53,9 +53,9 @@ Return `wp-admin.$role` or `wp-admin.$username`
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'common.adminbar',
-    ],
+	'wp-admin.$role|$username' => [
+		'common.adminbar',
+	],
 ];
 ```
 
@@ -182,21 +182,21 @@ Return `application`.
 <?php
 
 return [
-    'application' => [
-        'general' => [
-            'tagline' => 'Intervention Example',
-            'wp-address' => 'https://example.com/wp',
-            'site-address' => 'https://example.com',
-            'admin-email' => 'example@example.com',
-            'membership' => false,
-            'default-role' => 'editor',
-            'language' => 'en_US',
-            'timezone' => 'Africa/Johannesburg',
-            'date-format' => 'F j Y',
-            'time-format' => 'g:i a',
-            'week-starts' => 'Mon',
-        ],
-    ],
+	'application' => [
+		'general' => [
+			'tagline' => 'Intervention Example',
+			'wp-address' => 'https://example.com/wp',
+			'site-address' => 'https://example.com',
+			'admin-email' => 'example@example.com',
+			'membership' => false,
+			'default-role' => 'editor',
+			'language' => 'en_US',
+			'timezone' => 'Africa/Johannesburg',
+			'date-format' => 'F j Y',
+			'time-format' => 'g:i a',
+			'week-starts' => 'Mon',
+		],
+	],
 ];
 ```
 

@@ -15,17 +15,17 @@ use Jacoby\Intervention\Support\Arr;
  */
 class Config
 {
-    /**
-     * Interface
-     *
-     * @param string $file
-     */
-    public static function get($file)
-    {
-        $file = INTERVENTION_DIR . '/config/' . $file . '.php';
+	/**
+	 * Interface
+	 *
+	 * @param string $file
+	 */
+	public static function get($file)
+	{
+		$file = INTERVENTION_DIR . '/config/' . $file . '.php';
 
-        $arr = file_exists($file) ? require $file : [];
+		$arr = file_exists($file) ? require $file : [];
 
-        return Arr::collect($arr);
-    }
+		return Arr::collect($arr);
+	}
 }

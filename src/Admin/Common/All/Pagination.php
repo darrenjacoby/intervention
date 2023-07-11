@@ -20,27 +20,27 @@ use Jacoby\Intervention\Support\Arr;
  */
 class Pagination
 {
-    protected $config;
+	protected $config;
 
-    /**
-     * Initialize
-     *
-     * @param array $config
-     */
-    public function __construct($config = false)
-    {
-        $this->config = Arr::normalizeTrue($config);
-        $this->hook();
-    }
+	/**
+	 * Initialize
+	 *
+	 * @param array $config
+	 */
+	public function __construct($config = false)
+	{
+		$this->config = Arr::normalizeTrue($config);
+		$this->hook();
+	}
 
-    /**
-     * Hook
-     */
-    protected function hook()
-    {
-        if ($this->config->get('common.all.pagination')) {
-            PaginationSupport::set('all')->to($this->config->get('common.all.pagination'));
-            Tabs::set('all')->remove(['screen-options.pagination']);
-        }
-    }
+	/**
+	 * Hook
+	 */
+	protected function hook()
+	{
+		if ($this->config->get('common.all.pagination')) {
+			PaginationSupport::set('all')->to($this->config->get('common.all.pagination'));
+			Tabs::set('all')->remove(['screen-options.pagination']);
+		}
+	}
 }

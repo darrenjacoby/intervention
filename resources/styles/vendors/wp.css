@@ -1,42 +1,42 @@
 body {
-  background-color: theme('colors.white');
+	background-color: theme('colors.white');
 }
 
 #wpfooter {
-  height: 26px;
-  padding: 2px 16px;
-  border-top: 1px solid theme('colors.gray-5');
+	height: 26px;
+	padding: 2px 16px;
+	border-top: 1px solid theme('colors.gray-5');
 }
 
 #wpbody-content {
-  position: relative;
-  padding-bottom: 0;
+	position: relative;
+	padding-bottom: 0;
 
-  @media (min-width: theme('screens.lg')) {
-    padding-bottom: 26px;
-  }
+	@media (min-width: theme('screens.lg')) {
+		padding-bottom: 26px;
+	}
 }
 
 #intervention > div {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - (32px + 26px));
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	min-height: calc(100vh - (32px + 26px));
 }
 
 a:focus {
-  color: theme('colors.primary');
-  outline: 1px solid transparent;
-  box-shadow: 0 0 0 1px theme('colors.primary'),
-    0 0 2px 1px theme('colors.primary');
+	color: theme('colors.primary');
+	outline: 1px solid transparent;
+	box-shadow: 0 0 0 1px theme('colors.primary'),
+		0 0 2px 1px theme('colors.primary');
 }
 
 ul#adminmenu a.wp-has-current-submenu::after,
 ul#adminmenu > li.current > a.current::after {
-  border-right-color: white;
+	border-right-color: white;
 }
 
 input,
 select {
-  margin: 0;
+	margin: 0;
 }

@@ -25,14 +25,14 @@ const staticExports = intervention.route.export.data;
  * @returns {null|array}
  */
 const sessionFn = (write = false) => {
-  const key = 'intervention-export-selection';
+	const key = 'intervention-export-selection';
 
-  if (write !== false) {
-    sessionStorage.setItem(key, JSON.stringify(write));
-    return;
-  }
+	if (write !== false) {
+		sessionStorage.setItem(key, JSON.stringify(write));
+		return;
+	}
 
-  return JSON.parse(sessionStorage.getItem(key));
+	return JSON.parse(sessionStorage.getItem(key));
 };
 
 /**
@@ -43,11 +43,11 @@ const sessionFn = (write = false) => {
  * @returns {object}
  */
 const queryFn = async () => {
-  return await apiFetch({
-    url: intervention.route.export.url,
-    method: 'POST',
-    data: { selected: sessionFn() },
-  });
+	return await apiFetch({
+		url: intervention.route.export.url,
+		method: 'POST',
+		data: { selected: sessionFn() },
+	});
 };
 
 /**
@@ -60,10 +60,10 @@ const queryFn = async () => {
  * @returns {object}
  */
 const stateFactory = (group, state = false) => {
-  return group.reduce((carry, item) => {
-    carry[item.key] = state ? state.includes(item.key) : true;
-    return carry;
-  }, {});
+	return group.reduce((carry, item) => {
+		carry[item.key] = state ? state.includes(item.key) : true;
+		return carry;
+	}, {});
 };
 
 /**
@@ -75,12 +75,12 @@ const stateFactory = (group, state = false) => {
  * @returns {array}
  */
 const getKeysEqualToTrue = (group) => {
-  return Object.entries(group).reduce((carry, [k, v]) => {
-    if (v === true) {
-      carry.push(k);
-    }
-    return carry;
-  }, []);
+	return Object.entries(group).reduce((carry, [k, v]) => {
+		if (v === true) {
+		carry.push(k);
+		}
+		return carry;
+	}, []);
 };
 
 /**
@@ -91,7 +91,7 @@ const getKeysEqualToTrue = (group) => {
  * @returns {boolean}
  */
 const isAllChecked = (group) => {
-  return Object.values(group).includes(false);
+	return Object.values(group).includes(false);
 };
 
 /**
@@ -102,108 +102,108 @@ const isAllChecked = (group) => {
  * @returns <Export />
  */
 const Export = () => {
-  /**
-   * Query
-   */
-  const query = useQuery('export', queryFn, {
-    suspense: true,
-  });
+	/**
+	 * Query
+	 */
+	const query = useQuery('export', queryFn, {
+		suspense: true,
+	});
 
-  const applicationKeys = Object.keys(stateFactory(staticExports.application));
-  const session = sessionFn() || applicationKeys;
+	const applicationKeys = Object.keys(stateFactory(staticExports.application));
+	const session = sessionFn() || applicationKeys;
 
-  /**
-   * State
-   */
-  const [application, setApplication] = useState(
-    stateFactory(staticExports.application, session)
-  );
+	/**
+	 * State
+	 */
+	const [application, setApplication] = useState(
+		stateFactory(staticExports.application, session)
+	);
 
-  /**
-   * Effects
-   *
-   * @description merge groups, update session storage and refetch query from `UserInterface/Tools/Export.php`.
-   */
-  useEffect(() => {
-    const selected = getKeysEqualToTrue(application);
-    sessionFn(selected);
-    query.refetch();
-  }, [application]);
+	/**
+	 * Effects
+	 *
+	 * @description merge groups, update session storage and refetch query from `UserInterface/Tools/Export.php`.
+	 */
+	useEffect(() => {
+		const selected = getKeysEqualToTrue(application);
+		sessionFn(selected);
+		query.refetch();
+	}, [application]);
 
-  /**
-   * Write
-   *
-   * @description write state for group item checkbox.
-   *
-   * @param {object} group
-   * @param {object} item
-   */
-  const write = (group, { key, state }) => {
-    return Object.entries(group).reduce((carry, [k, v]) => {
-      carry[k] = key === k ? state : v;
-      return carry;
-    }, {});
-  };
+	/**
+	 * Write
+	 *
+	 * @description write state for group item checkbox.
+	 *
+	 * @param {object} group
+	 * @param {object} item
+	 */
+	const write = (group, { key, state }) => {
+		return Object.entries(group).reduce((carry, [k, v]) => {
+			carry[k] = key === k ? state : v;
+			return carry;
+		}, {});
+	};
 
-  /**
-   * Write All
-   *
-   * @description write state for group toggle all checkbox.
-   *
-   * @param {object} group
-   */
-  const writeAll = (group) => {
-    const state = isAllChecked(group);
-    return Object.entries(group).reduce((carry, [k]) => {
-      carry[k] = state;
-      return carry;
-    }, {});
-  };
+	/**
+	 * Write All
+	 *
+	 * @description write state for group toggle all checkbox.
+	 *
+	 * @param {object} group
+	 */
+	const writeAll = (group) => {
+		const state = isAllChecked(group);
+		return Object.entries(group).reduce((carry, [k]) => {
+			carry[k] = state;
+			return carry;
+		}, {});
+	};
 
-  /**
-   * Render
-   */
-  return (
-    <Page>
-      <Sidebar>
-        <SidebarGroup title={__('Application')}>
-          <SidebarCheckboxFlex>
-            <SidebarCheckboxItem>
-              <CheckboxControl
-                label={__('Toggle All', 'intervention')}
-                checked={!isAllChecked(application)}
-                onChange={() => setApplication(writeAll(application))}
-              />
-            </SidebarCheckboxItem>
+	/**
+	 * Render
+	 */
+	return (
+		<Page>
+			<Sidebar>
+			<SidebarGroup title={__('Application')}>
+				<SidebarCheckboxFlex>
+				<SidebarCheckboxItem>
+					<CheckboxControl
+					label={__('Toggle All', 'intervention')}
+					checked={!isAllChecked(application)}
+					onChange={() => setApplication(writeAll(application))}
+					/>
+				</SidebarCheckboxItem>
 
-            {staticExports.application.map(({ key, title }) => (
-              <SidebarCheckboxItem key={key}>
-                <CheckboxControl
-                  label={__(title)}
-                  checked={application[key] ?? false}
-                  onChange={(state) =>
-                    setApplication(write(application, { key, state }))
-                  }
-                />
-              </SidebarCheckboxItem>
-            ))}
-          </SidebarCheckboxFlex>
-        </SidebarGroup>
-      </Sidebar>
+				{staticExports.application.map(({ key, title }) => (
+					<SidebarCheckboxItem key={key}>
+					<CheckboxControl
+						label={__(title)}
+						checked={application[key] ?? false}
+						onChange={(state) =>
+						setApplication(write(application, { key, state }))
+						}
+					/>
+					</SidebarCheckboxItem>
+				))}
+				</SidebarCheckboxFlex>
+			</SidebarGroup>
+			</Sidebar>
 
-      {/* bugfix: w-full strangely wraps the sidebar on smaller screens, w-1/2 stops prismjs doing that */}
-      <div className="flex-1 w-1/2">
-        <Toolbar>
-          <ToolbarTitle>{__('Exporter')}</ToolbarTitle>
-          <ButtonCopy textToCopy={query.data} />
-        </Toolbar>
+			{/* bugfix: w-full strangely wraps the sidebar on smaller screens, w-1/2 stops prismjs doing that */}
+			<div className="flex-1 w-1/2">
+			<Toolbar>
+				<ToolbarTitle>{__('Exporter')}</ToolbarTitle>
+				<ButtonCopy textToCopy={query.data} />
+			</Toolbar>
 
-        {query.isError && <>{__('Sorry, an error has occured')}.</>}
+			{query.isError && <>{__('Sorry, an error has occured')}.</>}
 
-        {query.isSuccess && <CodeBlock>{query.data}</CodeBlock>}
-      </div>
-    </Page>
-  );
+			{query.isSuccess && <CodeBlock>{query.data}</CodeBlock>}
+			</div>
+		</Page>
+	);
 };
 
 export { Export, queryFn };

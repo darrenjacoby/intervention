@@ -12,14 +12,14 @@ Remove wp-admin theme editor components.
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'appearance.theme-editor',
-        'appearance.theme-editor' => (string) $route,
-        'appearance.theme-editor.title' => (string) $title,
-        'appearance.theme-editor.title.[menu, page]' => (string) $title,
-        'appearance.theme-editor.tabs',
-        'appearance.theme-editor.tabs.[screen-options, help]',
-    ],
+	'wp-admin.$role|$username' => [
+		'appearance.theme-editor',
+		'appearance.theme-editor' => (string) $route,
+		'appearance.theme-editor.title' => (string) $title,
+		'appearance.theme-editor.title.[menu, page]' => (string) $title,
+		'appearance.theme-editor.tabs',
+		'appearance.theme-editor.tabs.[screen-options, help]',
+	],
 ];
 ```
 
@@ -33,9 +33,9 @@ Remove from menu;
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'appearance.theme-editor',
-    ],
+	'wp-admin.$role|$username' => [
+		'appearance.theme-editor',
+	],
 ];
 ```
 
@@ -45,9 +45,9 @@ Remove from menu and enforce a page redirect;
 <?php
 
 return [
-    'wp-admin.$role|$username' => [
-        'appearance.theme-editor' => 'posts',
-    ],
+	'wp-admin.$role|$username' => [
+		'appearance.theme-editor' => 'posts',
+	],
 ];
 ```
 

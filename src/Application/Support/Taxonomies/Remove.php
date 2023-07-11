@@ -16,47 +16,47 @@ use Jacoby\Intervention\Support\Arr;
  */
 class Remove
 {
-    protected $taxonomy;
+	protected $taxonomy;
 
-    /**
-     * Interface
-     *
-     * @param string $taxonomy
-     * @return Jacoby\Intervention\Application\Support\Taxonomy\Register
-     */
-    public static function set($taxonomy = 'category')
-    {
-        return new self($taxonomy);
-    }
+	/**
+	 * Interface
+	 *
+	 * @param string $taxonomy
+	 * @return Jacoby\Intervention\Application\Support\Taxonomy\Register
+	 */
+	public static function set($taxonomy = 'category')
+	{
+		return new self($taxonomy);
+	}
 
-    /**
-     * Initialize
-     *
-     * @param string $taxonomy
-     */
-    public function __construct($taxonomy = 'category')
-    {
-        $this->taxonomy = $taxonomy;
-        $this->remove();
-    }
+	/**
+	 * Initialize
+	 *
+	 * @param string $taxonomy
+	 */
+	public function __construct($taxonomy = 'category')
+	{
+		$this->taxonomy = $taxonomy;
+		$this->remove();
+	}
 
-    /**
-     * Remove
-     *
-     * @param string $this->taxonomy
-     */
-    public function remove()
-    {
-        if (!taxonomy_exists($this->taxonomy)) {
-            return;
-        }
+	/**
+	 * Remove
+	 *
+	 * @param string $this->taxonomy
+	 */
+	public function remove()
+	{
+		if (!taxonomy_exists($this->taxonomy)) {
+			return;
+		}
 
-        if (Arr::collect(['category', 'post_tag'])->contains($this->taxonomy)) {
-            unset($GLOBALS['wp_taxonomies'][$this->taxonomy]);
-        } else {
-            add_action('wp_loaded', function () {
-                unregister_taxonomy($this->taxonomy);
-            });
-        }
-    }
+		if (Arr::collect(['category', 'post_tag'])->contains($this->taxonomy)) {
+			unset($GLOBALS['wp_taxonomies'][$this->taxonomy]);
+		} else {
+			add_action('wp_loaded', function () {
+				unregister_taxonomy($this->taxonomy);
+			});
+		}
+	}
 }

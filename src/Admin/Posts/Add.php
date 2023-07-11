@@ -57,72 +57,72 @@ use Jacoby\Intervention\Support\Composer;
  */
 class Add
 {
-    protected $config;
-    protected $editor;
+	protected $config;
+	protected $editor;
 
-    /**
-     * Initialize
-     *
-     * @param array $config
-     */
-    public function __construct($config = false)
-    {
-        $compose = Composer::set(Arr::normalizeTrue($config));
+	/**
+	 * Initialize
+	 *
+	 * @param array $config
+	 */
+	public function __construct($config = false)
+	{
+		$compose = Composer::set(Arr::normalizeTrue($config));
 
-        $compose = $compose->has('posts.add.all')->add('posts.add.', [
-            'tabs',
-            'editor',
-            'author',
-            'excerpt',
-            'trackbacks',
-            'custom-fields',
-            'revisions',
-            'editor',
-            'categories',
-            'tags',
-            'sticky',
-            'discussion',
-            'link',
-            'featured-image',
-            'format',
-        ]);
+		$compose = $compose->has('posts.add.all')->add('posts.add.', [
+			'tabs',
+			'editor',
+			'author',
+			'excerpt',
+			'trackbacks',
+			'custom-fields',
+			'revisions',
+			'editor',
+			'categories',
+			'tags',
+			'sticky',
+			'discussion',
+			'link',
+			'featured-image',
+			'format',
+		]);
 
-        $compose = $compose->has('posts.add.tabs')->add('posts.add.tabs.', [
-            'screen-options', 'help',
-        ]);
+		$compose = $compose->has('posts.add.tabs')->add('posts.add.tabs.', [
+			'screen-options', 'help',
+		]);
 
-        $compose = $compose->has('posts.add.title')->add('posts.add.title.', [
-            'menu', 'page',
-        ]);
+		$compose = $compose->has('posts.add.title')->add('posts.add.title.', [
+			'menu', 'page',
+		]);
 
-        $this->config = $compose->get();
+		$this->config = $compose->get();
 
-        $this->editor = Composer::set($this->config)
-            ->group('posts.add')
-            ->get()
-            ->keys()
-            ->toArray();
+		$this->editor = Composer::set($this->config)
+			->group('posts.add')
+			->get()
+			->keys()
+			->toArray();
 
-        $this->hook();
-    }
+		$this->hook();
+	}
 
-    /**
-     * Hook
-     */
-    protected function hook()
-    {
-        $shared = SharedApi::set('posts.add', $this->config);
-        $shared->router();
-        $shared->menu();
+	/**
+	 * Hook
+	 */
+	protected function hook()
+	{
+		$shared = SharedApi::set('posts.add', $this->config);
+		$shared->router();
+		$shared->menu();
 
-        if ($GLOBALS['pagenow'] !== 'post-new.php') {
-            return;
-        }
+		if ($GLOBALS['pagenow'] !== 'post-new.php') {
+			return;
+		}
 
-        $shared->title();
-        $shared->tabs();
+		$shared->title();
+		$shared->tabs();
 
-        BlockEditor::set($this->editor);
-        PostComponents::set(['post'])->remove($this->editor);
-    }
+		BlockEditor::set($this->editor);
+		PostComponents::set(['post'])->remove($this->editor);
+	}
 }
