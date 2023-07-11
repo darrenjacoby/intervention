@@ -4,7 +4,7 @@ Donate link: https://paypal.me/darrenjacoby
 Tags: wp-admin, admin, version control, settings, options, minimal
 Requires at least: 5.0
 Tested up to: 6.0
-Requires PHP: 7.0
+Requires PHP: 7.4
 License: MIT
 License URI: https://github.com/darrenjacoby/intervention/blob/main/LICENSE.md
 Stable tag: 2.0.0
@@ -41,7 +41,7 @@ Install via WordPress, or;
 * Using user role `administrator`, browse to `Tools/Intervention` and begin configure Intervention.
 
 == Changelog ==
-= 2.0.0 (28/05/2022) =
+= 2.0.0 (11/07/2023) =
 * Release
 
 = License =
