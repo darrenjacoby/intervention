@@ -38,109 +38,109 @@ use Jacoby\Intervention\Support\Composer;
  */
 class Add
 {
-	protected $config;
+    protected $config;
 
-	/**
-	 * Initialize
-	 *
-	 * @param array $config
-	 */
-	public function __construct($config = false)
-	{
-		$compose = Composer::set(Arr::normalizeTrue($config));
+    /**
+     * Initialize
+     *
+     * @param array $config
+     */
+    public function __construct($config = false)
+    {
+        $compose = Composer::set(Arr::normalizeTrue($config));
 
-		$compose = $compose->has('plugins.add.all')->add('plugins.add.', [
-			'title-link', 'tabs', 'filter', 'search', 'popular-tags', 'item',
-		]);
+        $compose = $compose->has('plugins.add.all')->add('plugins.add.', [
+            'title-link', 'tabs', 'filter', 'search', 'popular-tags', 'item',
+        ]);
 
-		$compose = $compose->has('plugins.add.title')->add('plugins.add.title.', [
-			'menu', 'page',
-		]);
+        $compose = $compose->has('plugins.add.title')->add('plugins.add.title.', [
+            'menu', 'page',
+        ]);
 
-		$compose = $compose->has('plugins.add.tabs')->add('plugins.add.tabs.', [
-			'screen-options', 'help',
-		]);
+        $compose = $compose->has('plugins.add.tabs')->add('plugins.add.tabs.', [
+            'screen-options', 'help',
+        ]);
 
-		$compose = $compose->has('plugins.add.filter')->add('plugins.add.filter.', [
-			'featured', 'popular', 'recommended', 'favorites',
-		]);
+        $compose = $compose->has('plugins.add.filter')->add('plugins.add.filter.', [
+            'featured', 'popular', 'recommended', 'favorites',
+        ]);
 
-		$compose = $compose->has('plugins.add.item')->add('plugins.add.item.', [
-			'actions', 'meta',
-		]);
+        $compose = $compose->has('plugins.add.item')->add('plugins.add.item.', [
+            'actions', 'meta',
+        ]);
 
-		$this->config = $compose->get();
-		$this->hook();
-	}
+        $this->config = $compose->get();
+        $this->hook();
+    }
 
-	/**
-	 * Hook
-	 */
-	protected function hook()
-	{
-		$shared = SharedApi::set('plugins.add', $this->config);
-		$shared->router();
-		$shared->menu();
-		$shared->title();
-		$shared->tabs();
-		$shared->search();
+    /**
+     * Hook
+     */
+    protected function hook()
+    {
+        $shared = SharedApi::set('plugins.add', $this->config);
+        $shared->router();
+        $shared->menu();
+        $shared->title();
+        $shared->tabs();
+        $shared->search();
 
-		add_action('admin_head-plugin-install.php', [$this, 'head']);
-		add_filter('install_plugins_tabs', [$this, 'uploadFilter']);
-		add_filter('plugin_install_action_links', [$this, 'actionsItem']);
-	}
+        add_action('admin_head-plugin-install.php', [$this, 'head']);
+        add_filter('install_plugins_tabs', [$this, 'uploadFilter']);
+        add_filter('plugin_install_action_links', [$this, 'actionsItem']);
+    }
 
-	/**
-	 * Head
-	 */
-	public function head()
-	{
-		if ($this->config->has('plugins.add.popular-tags')) {
-			echo '<style>.plugin-install-php .plugins-popular-tags-wrapper {display: none;}</style>';
-		}
+    /**
+     * Head
+     */
+    public function head()
+    {
+        if ($this->config->has('plugins.add.popular-tags')) {
+            echo '<style>.plugin-install-php .plugins-popular-tags-wrapper {display: none;}</style>';
+        }
 
-		if ($this->config->has('plugins.add.search') && $this->config->has('plugins.add.filter')) {
-			echo '<style>.plugin-install-php .wp-filter {display: none;}</style>';
-		}
+        if ($this->config->has('plugins.add.search') && $this->config->has('plugins.add.filter')) {
+            echo '<style>.plugin-install-php .wp-filter {display: none;}</style>';
+        }
 
-		if ($this->config->has('plugins.add.item.meta')) {
-			echo '<style>.plugin-install-php .plugin-card-bottom {display: none;}</style>';
-		}
-	}
+        if ($this->config->has('plugins.add.item.meta')) {
+            echo '<style>.plugin-install-php .plugin-card-bottom {display: none;}</style>';
+        }
+    }
 
-	/**
-	 * Upload Filter
-	 */
-	public function uploadFilter($tabs)
-	{
-		if ($this->config->has('plugins.add.filter.featured')) {
-			unset($tabs['featured']);
-		}
+    /**
+     * Upload Filter
+     */
+    public function uploadFilter($tabs)
+    {
+        if ($this->config->has('plugins.add.filter.featured')) {
+            unset($tabs['featured']);
+        }
 
-		if ($this->config->has('plugins.add.filter.popular')) {
-			unset($tabs['popular']);
-		}
+        if ($this->config->has('plugins.add.filter.popular')) {
+            unset($tabs['popular']);
+        }
 
-		if ($this->config->has('plugins.add.filter.recommended')) {
-			unset($tabs['recommended']);
-		}
+        if ($this->config->has('plugins.add.filter.recommended')) {
+            unset($tabs['recommended']);
+        }
 
-		if ($this->config->has('plugins.add.filter.favorites')) {
-			unset($tabs['favorites']);
-		}
+        if ($this->config->has('plugins.add.filter.favorites')) {
+            unset($tabs['favorites']);
+        }
 
-		return $tabs;
-	}
+        return $tabs;
+    }
 
-	/**
-	 * Item Actions
-	 */
-	public function actionsItem($actions)
-	{
-		if ($this->config->has('plugins.add.item.actions')) {
-			return [];
-		}
+    /**
+     * Item Actions
+     */
+    public function actionsItem($actions)
+    {
+        if ($this->config->has('plugins.add.item.actions')) {
+            return [];
+        }
 
-		return $actions;
-	}
+        return $actions;
+    }
 }

@@ -11,25 +11,25 @@ Remove wp-admin customize components.
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'appearance.customize',
-		'appearance.customize' => (string) $route,
-		'appearance.customize.title' => (string) $title,
-		'appearance.customize.title.[menu, page]' => (string) $title,
-		'appearance.customize.theme',
-		'appearance.customize.site',
-		'appearance.customize.site.[title, tagline, icon]',
-		'appearance.customize.custom-css',
-		'appearance.customize.colors',
-		'appearance.customize.header-image',
-		'appearance.customize.background-image',
-		'appearance.customize.homepage',
-		'appearance.customize.menus',
-		'appearance.customize.menus.[locations, add]',
-		'appearance.customize.widgets',
-		'appearance.customize.footer',
-		'appearance.customize.footer.[devices]',
-	],
+    'wp-admin.$role|$username' => [
+        'appearance.customize',
+        'appearance.customize' => (string) $route,
+        'appearance.customize.title' => (string) $title,
+        'appearance.customize.title.[menu, page]' => (string) $title,
+        'appearance.customize.theme',
+        'appearance.customize.site',
+        'appearance.customize.site.[title, tagline, icon]',
+        'appearance.customize.custom-css',
+        'appearance.customize.colors',
+        'appearance.customize.header-image',
+        'appearance.customize.background-image',
+        'appearance.customize.homepage',
+        'appearance.customize.menus',
+        'appearance.customize.menus.[locations, add]',
+        'appearance.customize.widgets',
+        'appearance.customize.footer',
+        'appearance.customize.footer.[devices]',
+    ],
 ];
 ```
 
@@ -43,9 +43,9 @@ Remove from menu;
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'appearance.customize',
-	],
+    'wp-admin.$role|$username' => [
+        'appearance.customize',
+    ],
 ];
 ```
 
@@ -55,9 +55,9 @@ Remove from menu and enforce a page redirect;
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'appearance.customize' => 'posts',
-	],
+    'wp-admin.$role|$username' => [
+        'appearance.customize' => 'posts',
+    ],
 ];
 ```
 

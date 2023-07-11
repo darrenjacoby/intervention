@@ -11,15 +11,15 @@ Remove posts categories item components.
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'posts.categories.item',
-		'posts.categories.item' => (string) $route,
-		'posts.categories.item.title' => (string) $title,
-		'posts.categories.item.title.page' => (string) $title,
-		'posts.categories.item.slug',
-		'posts.categories.item.parent',
-		'posts.categories.item.description',
-	],
+    'wp-admin.$role|$username' => [
+        'posts.categories.item',
+        'posts.categories.item' => (string) $route,
+        'posts.categories.item.title' => (string) $title,
+        'posts.categories.item.title.page' => (string) $title,
+        'posts.categories.item.slug',
+        'posts.categories.item.parent',
+        'posts.categories.item.description',
+    ],
 ];
 ```
 
@@ -33,9 +33,9 @@ Remove from menu;
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'posts.categories.item',
-	],
+    'wp-admin.$role|$username' => [
+        'posts.categories.item',
+    ],
 ];
 ```
 
@@ -45,9 +45,9 @@ Remove from menu and enforce a page redirect;
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'posts.categories.item' => 'pages',
-	],
+    'wp-admin.$role|$username' => [
+        'posts.categories.item' => 'pages',
+    ],
 ];
 ```
 

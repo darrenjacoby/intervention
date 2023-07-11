@@ -23,57 +23,57 @@ use Jacoby\Intervention\Support\Arr;
  */
 class Theme
 {
-	protected $config;
+    protected $config;
 
-	/**
-	 * Initialize
-	 *
-	 * @param array $config
-	 */
-	public function __construct($config = false)
-	{
-		$this->config = Arr::normalize($config);
-		$this->hook();
-	}
+    /**
+     * Initialize
+     *
+     * @param array $config
+     */
+    public function __construct($config = false)
+    {
+        $this->config = Arr::normalize($config);
+        $this->hook();
+    }
 
-	/**
-	 * Hook
-	 *
-	 * @link https://developer.wordpress.org/reference/hooks/init
-	 */
-	protected function hook()
-	{
-		add_action('init', [$this, 'options']);
+    /**
+     * Hook
+     *
+     * @link https://developer.wordpress.org/reference/hooks/init
+     */
+    protected function hook()
+    {
+        add_action('init', [$this, 'options']);
 
-		$this->admin();
-	}
+        $this->admin();
+    }
 
-	/**
-	 * Options
-	 */
-	public function options()
-	{
-		if ($this->config->has('theme')) {
-			$theme = $this->config->get('theme');
-			$active = wp_get_theme();
+    /**
+     * Options
+     */
+    public function options()
+    {
+        if ($this->config->has('theme')) {
+            $theme = $this->config->get('theme');
+            $active = wp_get_theme();
 
-			if (!wp_get_theme($theme)->exists()) {
-				return;
-			}
+            if (!wp_get_theme($theme)->exists()) {
+                return;
+            }
 
-			if ($active->stylesheet !== $theme) {
-				switch_theme($theme);
-			}
-		}
-	}
+            if ($active->stylesheet !== $theme) {
+                switch_theme($theme);
+            }
+        }
+    }
 
-	/**
-	 * Admin
-	 */
-	public function admin()
-	{
-		if ($this->config->has('theme')) {
-			Admin::set('appearance.themes', true);
-		}
-	}
+    /**
+     * Admin
+     */
+    public function admin()
+    {
+        if ($this->config->has('theme')) {
+            Admin::set('appearance.themes', true);
+        }
+    }
 }

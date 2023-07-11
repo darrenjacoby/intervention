@@ -22,36 +22,36 @@ use Jacoby\Intervention\Support\Arr;
  */
 class Uploads
 {
-	protected $config;
+    protected $config;
 
-	/**
-	 * Initialize
-	 *
-	 * @param array $config
-	 */
-	public function __construct($config = false)
-	{
-		$this->config = Arr::normalize($config);
-		$this->api = OptionsApi::set($this->config);
-		$this->hook();
-	}
+    /**
+     * Initialize
+     *
+     * @param array $config
+     */
+    public function __construct($config = false)
+    {
+        $this->config = Arr::normalize($config);
+        $this->api = OptionsApi::set($this->config);
+        $this->hook();
+    }
 
-	/**
-	 * Hook
-	 */
-	protected function hook()
-	{
-		add_action('init', [$this, 'options']); // after_setup_theme
-		add_action('admin_head-options-media.php', [$this->api, 'disableKeys']);
-	}
+    /**
+     * Hook
+     */
+    protected function hook()
+    {
+        add_action('init', [$this, 'options']); // after_setup_theme
+        add_action('admin_head-options-media.php', [$this->api, 'disableKeys']);
+    }
 
-	/**
-	 * Options
-	 */
-	public function options()
-	{
-		$this->api->saveKeys([
-			'media.uploads.organize',
-		]);
-	}
+    /**
+     * Options
+     */
+    public function options()
+    {
+        $this->api->saveKeys([
+            'media.uploads.organize',
+        ]);
+    }
 }

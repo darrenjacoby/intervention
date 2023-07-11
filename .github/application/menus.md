@@ -8,9 +8,9 @@ Set application menus.
 <?php
 
 return [
-	'application.menus' => [
-		'$name' => (boolean|string) $enable|$name
-	],
+    'application.menus' => [
+        '$name' => (boolean|string) $enable|$name
+    ],
 ];
 ```
 
@@ -22,10 +22,10 @@ return [
 <?php
 
 return [
-	'application.menus' => [
-		'main' => true,
-		'side' => 'Sidebar'
-	],
+    'application.menus' => [
+        'main' => true,
+        'side' => 'Sidebar'
+    ],
 ];
 ```
 
@@ -37,9 +37,9 @@ Passing in `true` will use the key in studly case. `main_menu` displays as `Main
 <?php
 
 return [
-	'application.menus' => [
-		'primary_navigation' => false,
-	],
+    'application.menus' => [
+        'primary_navigation' => false,
+    ],
 ];
 ```
 

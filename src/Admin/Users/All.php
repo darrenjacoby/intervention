@@ -43,73 +43,73 @@ use Jacoby\Intervention\Support\Composer;
  */
 class All
 {
-	protected $config;
+    protected $config;
 
-	/**
-	 * Initialize
-	 *
-	 * @param array $config
-	 */
-	public function __construct($config = false)
-	{
-		$compose = Composer::set(Arr::normalizeTrue($config));
+    /**
+     * Initialize
+     *
+     * @param array $config
+     */
+    public function __construct($config = false)
+    {
+        $compose = Composer::set(Arr::normalizeTrue($config));
 
-		$compose = $compose->has('users.all.all')->add('users.all.', [
-			'title-link', 'tabs', 'pagination', 'search', 'subsets', 'actions', 'list',
-		]);
+        $compose = $compose->has('users.all.all')->add('users.all.', [
+            'title-link', 'tabs', 'pagination', 'search', 'subsets', 'actions', 'list',
+        ]);
 
-		$compose = $compose->has('users.all.title')->add('users.all.title.', [
-			'menu', 'page',
-		]);
+        $compose = $compose->has('users.all.title')->add('users.all.title.', [
+            'menu', 'page',
+        ]);
 
-		$compose = $compose->has('users.all.tabs')->add('users.all.tabs.', [
-			'screen-options', 'help',
-		]);
+        $compose = $compose->has('users.all.tabs')->add('users.all.tabs.', [
+            'screen-options', 'help',
+        ]);
 
-		$compose = $compose->has('users.all.actions')->add('users.all.actions.', [
-			'change-role', 'bulk',
-		]);
+        $compose = $compose->has('users.all.actions')->add('users.all.actions.', [
+            'change-role', 'bulk',
+        ]);
 
-		$compose = $compose->has('users.all.list')->add('users.all.list.', [
-			'cols', 'actions', 'count',
-		]);
+        $compose = $compose->has('users.all.list')->add('users.all.list.', [
+            'cols', 'actions', 'count',
+        ]);
 
-		$compose = $compose->has('users.all.list.cols')->add('users.all.list.cols.', [
-			'name', 'email', 'role', 'posts',
-		]);
+        $compose = $compose->has('users.all.list.cols')->add('users.all.list.cols.', [
+            'name', 'email', 'role', 'posts',
+        ]);
 
-		$this->config = $compose->get();
-		$this->hook();
-	}
+        $this->config = $compose->get();
+        $this->hook();
+    }
 
-	/**
-	 * Hook
-	 */
-	protected function hook()
-	{
-		$checkbox = $this->config->has('users.all.actions.bulk') && $this->config->has('users.all.actions.change-role');
+    /**
+     * Hook
+     */
+    protected function hook()
+    {
+        $checkbox = $this->config->has('users.all.actions.bulk') && $this->config->has('users.all.actions.change-role');
 
-		$shared = SharedApi::set('users.all', $this->config);
-		$shared->router();
-		$shared->menu();
-		$shared->title();
-		$shared->tabs();
-		$shared->pagination();
-		$shared->search();
-		$shared->subsets();
-		$shared->actionBulk();
-		$shared->lists($checkbox);
+        $shared = SharedApi::set('users.all', $this->config);
+        $shared->router();
+        $shared->menu();
+        $shared->title();
+        $shared->tabs();
+        $shared->pagination();
+        $shared->search();
+        $shared->subsets();
+        $shared->actionBulk();
+        $shared->lists($checkbox);
 
-		add_action('admin_head-users.php', [$this, 'head']);
-	}
+        add_action('admin_head-users.php', [$this, 'head']);
+    }
 
-	/**
-	 * Head
-	 */
-	public function head()
-	{
-		if ($this->config->has('users.all.actions.change-role')) {
-			echo '<script>jQuery(document).ready(function() {jQuery("#new_role, #new_role2").closest(".actions").css("display", "none")})</script>';
-		}
-	}
+    /**
+     * Head
+     */
+    public function head()
+    {
+        if ($this->config->has('users.all.actions.change-role')) {
+            echo '<script>jQuery(document).ready(function() {jQuery("#new_role, #new_role2").closest(".actions").css("display", "none")})</script>';
+        }
+    }
 }

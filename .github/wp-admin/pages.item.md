@@ -11,42 +11,42 @@ Remove pages item components.
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'pages.item',
-		'pages.item' => (string) $route,
-		'pages.item.title' => (string) $title,
-		'pages.item.title.[menu, page]' => (string) $title,
-		// block-editor
-		'pages.item.add',
-		'pages.item.add.[
-			search,
-			preview,
-			headers,
-			tips,
-			grid,
-			icons,
-		],'
-		'pages.item.add.blocks',
-		'pages.item.add.blocks.[
-			text,
-			media,
-			design,
-			widgets,
-			theme,
-			embeds,
-		],'
-		'pages.item.editor',
-		'pages.item.author',
-		'pages.item.link',
-		'pages.item.featured-image',
-		'pages.item.attributes',
-		'pages.item.custom-fields',
-		'pages.item.discussion',
-		// classic
-		'pages.item.title-link',
-		'pages.item.tabs',
-		'pages.item.tabs.[screen-options, help]',
-	],
+    'wp-admin.$role|$username' => [
+        'pages.item',
+        'pages.item' => (string) $route,
+        'pages.item.title' => (string) $title,
+        'pages.item.title.[menu, page]' => (string) $title,
+        // block-editor
+        'pages.item.add',
+        'pages.item.add.[
+            search,
+            preview,
+            headers,
+            tips,
+            grid,
+            icons,
+        ],'
+        'pages.item.add.blocks',
+        'pages.item.add.blocks.[
+            text,
+            media,
+            design,
+            widgets,
+            theme,
+            embeds,
+        ],'
+        'pages.item.editor',
+        'pages.item.author',
+        'pages.item.link',
+        'pages.item.featured-image',
+        'pages.item.attributes',
+        'pages.item.custom-fields',
+        'pages.item.discussion',
+        // classic
+        'pages.item.title-link',
+        'pages.item.tabs',
+        'pages.item.tabs.[screen-options, help]',
+    ],
 ];
 ```
 
@@ -60,9 +60,9 @@ Remove from menu;
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'pages.item',
-	],
+    'wp-admin.$role|$username' => [
+        'pages.item',
+    ],
 ];
 ```
 
@@ -72,9 +72,9 @@ Remove from menu and enforce a page redirect;
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'pages.item' => 'posts',
-	],
+    'wp-admin.$role|$username' => [
+        'pages.item' => 'posts',
+    ],
 ];
 ```
 

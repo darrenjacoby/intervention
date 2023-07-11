@@ -8,7 +8,7 @@ Set application taxonomies.
 <?php
 
 return [
-	'application.taxonomies.$name' => (boolean|string|array) $enable|$label|$config,
+    'application.taxonomies.$name' => (boolean|string|array) $enable|$label|$config,
 ];
 ```
 
@@ -22,7 +22,7 @@ The most simplified registration, `genre` labels are auto generated as `Genre` a
 <?php
 
 return [
-	'application.taxonomies.genre' => true,
+    'application.taxonomies.genre' => true,
 ];
 ```
 
@@ -32,7 +32,7 @@ You can also pass in the singular label as a string.
 <?php
 
 return [
-	'application.taxonomies.genre' => 'Types',
+    'application.taxonomies.genre' => 'Types',
 ];
 ```
 
@@ -42,16 +42,16 @@ The standard custom posttype configuration can be passed in.
 <?php
 
 return [
-	'application.taxonomies' => [
-		'genre' => [
-			'one' => 'Genre',
-			'many' => 'Genres',
-			'links' => [
-				'post', 'book'
-			],
-			'hierarchical' => true,
-		],
-	],
+    'application.taxonomies' => [
+        'genre' => [
+            'one' => 'Genre',
+            'many' => 'Genres',
+            'links' => [
+                'post', 'book'
+            ],
+            'hierarchical' => true,
+        ],
+    ],
 ];
 ```
 
@@ -63,7 +63,7 @@ return [
 <?php
 
 return [
-	'application.taxonomies.post-tag' => false,
+    'application.taxonomies.post-tag' => false,
 ];
 ```
 
@@ -75,15 +75,15 @@ Change options on an existing post type.
 <?php
 
 return [
-	'application.taxonomies' => [
-		'category' => [
-			'one' => 'Genre',
-			'many' => 'Genres',
-			'links' => [
-				'post', 'book'
-			],
-		],
-	],
+    'application.taxonomies' => [
+        'category' => [
+            'one' => 'Genre',
+            'many' => 'Genres',
+            'links' => [
+                'post', 'book'
+            ],
+        ],
+    ],
 ];
 ```
 
@@ -93,9 +93,9 @@ If you are only changing one option, consider using dot notation for a cleaner c
 <?php
 
 return [
-	'application.taxonomies.category.links' => [
-		'post', 'book'
-	],
+    'application.taxonomies.category.links' => [
+        'post', 'book'
+    ],
 ];
 ```
 

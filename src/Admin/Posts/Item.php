@@ -54,52 +54,52 @@ use Jacoby\Intervention\Support\Composer;
  */
 class Item
 {
-	protected $config;
-	protected $editor;
+    protected $config;
+    protected $editor;
 
-	/**
-	 * Initialize
-	 *
-	 * @param array $config
-	 */
-	public function __construct($config = false)
-	{
-		$compose = Composer::set(Arr::normalizeTrue($config));
+    /**
+     * Initialize
+     *
+     * @param array $config
+     */
+    public function __construct($config = false)
+    {
+        $compose = Composer::set(Arr::normalizeTrue($config));
 
-		$compose = $compose->has('posts.item.all')->add('posts.item.', [
-			'title-link',
-			'tabs',
-			'editor',
-			'author',
-			'excerpt',
-			'trackbacks',
-			'custom-fields',
-			'comments',
-			'slug',
-			'revisions',
-			'thumbnail',
-			'editor',
-			'categories',
-			'tags',
-			'sticky',
-			'discussion',
-			'link',
-			'featured-image',
-			'format',
-		]);
+        $compose = $compose->has('posts.item.all')->add('posts.item.', [
+            'title-link',
+            'tabs',
+            'editor',
+            'author',
+            'excerpt',
+            'trackbacks',
+            'custom-fields',
+            'comments',
+            'slug',
+            'revisions',
+            'thumbnail',
+            'editor',
+            'categories',
+            'tags',
+            'sticky',
+            'discussion',
+            'link',
+            'featured-image',
+            'format',
+        ]);
 
-		/*
-		$compose = $compose->has('posts.item.tabs')->add('posts.item.tabs.', [
-		'screen-options', 'help',
-		]);
-		 */
+        /*
+        $compose = $compose->has('posts.item.tabs')->add('posts.item.tabs.', [
+        'screen-options', 'help',
+        ]);
+         */
 
-		$config = Composer::set($compose->get())
-			->group('posts.item')
-			->get()
-			->toArray();
+        $config = Composer::set($compose->get())
+            ->group('posts.item')
+            ->get()
+            ->toArray();
 
-		new Add(['posts.add' => $config]);
-		new Edit(['posts.edit' => $config]);
-	}
+        new Add(['posts.add' => $config]);
+        new Edit(['posts.edit' => $config]);
+    }
 }

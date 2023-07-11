@@ -25,39 +25,39 @@ use Jacoby\Intervention\Support\Composer;
  */
 class Footer
 {
-	protected $config;
+    protected $config;
 
-	/**
-	 * Initialize
-	 *
-	 * @param array $config
-	 */
-	public function __construct($config = false)
-	{
-		$compose = Composer::set(Arr::normalizeTrue($config));
+    /**
+     * Initialize
+     *
+     * @param array $config
+     */
+    public function __construct($config = false)
+    {
+        $compose = Composer::set(Arr::normalizeTrue($config));
 
-		$compose = $compose->has('common.footer')->add('common.footer.', [
-			'credit', 'version',
-		]);
+        $compose = $compose->has('common.footer')->add('common.footer.', [
+            'credit', 'version',
+        ]);
 
-		$this->config = $compose->get();
-		$this->hook();
-	}
+        $this->config = $compose->get();
+        $this->hook();
+    }
 
-	/**
-	 * Hook
-	 */
-	protected function hook()
-	{
-		if ($this->config->get('common.footer.credit')) {
-			add_filter('admin_footer_text', function () {
-				$label = $this->config->get('common.footer.credit');
-				return $label === true ? '' : $label;
-			});
-		}
+    /**
+     * Hook
+     */
+    protected function hook()
+    {
+        if ($this->config->get('common.footer.credit')) {
+            add_filter('admin_footer_text', function () {
+                $label = $this->config->get('common.footer.credit');
+                return $label === true ? '' : $label;
+            });
+        }
 
-		if ($this->config->get('common.footer.version')) {
-			add_filter('update_footer', '__return_empty_string', 11);
-		}
-	}
+        if ($this->config->get('common.footer.version')) {
+            add_filter('update_footer', '__return_empty_string', 11);
+        }
+    }
 }

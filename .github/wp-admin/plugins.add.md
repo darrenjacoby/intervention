@@ -11,21 +11,21 @@ Remove plugins add-new components.
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'plugins.add',
-		'plugins.add' => (string) $route,
-		'plugins.add.title' => (string) $title,
-		'plugins.add.title.[menu, page]' => (string) $title,
-		'plugins.add.title-link',
-		'plugins.add.tabs',
-		'plugins.add.tabs.help',
-		'plugins.add.filter',
-		'plugins.add.filter.[featured, popular, recommended, favorites]',
-		'plugins.add.search',
-		'plugins.add.popular-tags',
-		'plugins.add.item',
-		'plugins.add.item.[actions, meta]',
-	],
+    'wp-admin.$role|$username' => [
+        'plugins.add',
+        'plugins.add' => (string) $route,
+        'plugins.add.title' => (string) $title,
+        'plugins.add.title.[menu, page]' => (string) $title,
+        'plugins.add.title-link',
+        'plugins.add.tabs',
+        'plugins.add.tabs.help',
+        'plugins.add.filter',
+        'plugins.add.filter.[featured, popular, recommended, favorites]',
+        'plugins.add.search',
+        'plugins.add.popular-tags',
+        'plugins.add.item',
+        'plugins.add.item.[actions, meta]',
+    ],
 ];
 ```
 
@@ -39,9 +39,9 @@ Remove from menu;
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'plugins.add',
-	],
+    'wp-admin.$role|$username' => [
+        'plugins.add',
+    ],
 ];
 ```
 
@@ -51,9 +51,9 @@ Remove from menu and enforce a page redirect;
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'plugins.add' => 'posts',
-	],
+    'wp-admin.$role|$username' => [
+        'plugins.add' => 'posts',
+    ],
 ];
 ```
 

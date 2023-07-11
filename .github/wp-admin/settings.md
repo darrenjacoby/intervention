@@ -8,12 +8,12 @@ Update, remove or redirect the settings menu item.
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'settings',
-		'settings' => (string) $route,
-		'settings.title' => (string) $title,
-		'settings.icon' => (string) $dashicon,
-	],
+    'wp-admin.$role|$username' => [
+        'settings',
+        'settings' => (string) $route,
+        'settings.title' => (string) $title,
+        'settings.icon' => (string) $dashicon,
+    ],
 ];
 ```
 
@@ -28,9 +28,9 @@ Remove from menu;
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'settings',
-	],
+    'wp-admin.$role|$username' => [
+        'settings',
+    ],
 ];
 ```
 
@@ -40,9 +40,9 @@ Remove from menu and enforce a page redirect;
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'settings' => 'posts',
-	],
+    'wp-admin.$role|$username' => [
+        'settings' => 'posts',
+    ],
 ];
 ```
 

@@ -20,32 +20,32 @@ use Jacoby\Intervention\Support\Composer;
  */
 class Search
 {
-	protected $config;
+    protected $config;
 
-	/**
-	 * Initialize
-	 *
-	 * @param array $config
-	 */
-	public function __construct($config = false)
-	{
-		$compose = Composer::set(Arr::normalizeTrue($config));
+    /**
+     * Initialize
+     *
+     * @param array $config
+     */
+    public function __construct($config = false)
+    {
+        $compose = Composer::set(Arr::normalizeTrue($config));
 
-		$compose = $compose->has('common.all')->add('common.all.', [
-			'search',
-		]);
+        $compose = $compose->has('common.all')->add('common.all.', [
+            'search',
+        ]);
 
-		$this->config = $compose->get();
-		$this->hook();
-	}
+        $this->config = $compose->get();
+        $this->hook();
+    }
 
-	/**
-	 * Hook
-	 */
-	protected function hook()
-	{
-		if ($this->config->get('common.all.search')) {
-			SearchSupport::set('all')->remove(['*.all.search']);
-		}
-	}
+    /**
+     * Hook
+     */
+    protected function hook()
+    {
+        if ($this->config->get('common.all.search')) {
+            SearchSupport::set('all')->remove(['*.all.search']);
+        }
+    }
 }

@@ -11,25 +11,25 @@ Remove wp-admin menu components.
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'appearance.menus',
-		'appearance.menus' => (string) $route,
-		'appearance.menus.title' => (string) $title,
-		'appearance.menus.title.[menu, page]' => (string) $title,
-		'appearance.menus.title-link',
-		'appearance.menus.tabs',
-		'appearance.menus.tabs.[screen-options, help]',
-		'appearance.menus.nag',
-		'appearance.menus.add',
-		'appearance.menus.add.[custom, post, page, category, tag]',
-		'appearance.menus.item',
-		'appearance.menus.item.[target, title, classes, xfn, description, remove]',
-		'appearance.menus.settings',
-		'appearance.menus.settings.[auto-add, location]',
-		'appearance.menus.delete',
-		'appearance.menus.max-depth' => (int) $depth,
-		'appearance.menus.max-depth.$name' => (int) $depth,
-	],
+    'wp-admin.$role|$username' => [
+        'appearance.menus',
+        'appearance.menus' => (string) $route,
+        'appearance.menus.title' => (string) $title,
+        'appearance.menus.title.[menu, page]' => (string) $title,
+        'appearance.menus.title-link',
+        'appearance.menus.tabs',
+        'appearance.menus.tabs.[screen-options, help]',
+        'appearance.menus.nag',
+        'appearance.menus.add',
+        'appearance.menus.add.[custom, post, page, category, tag]',
+        'appearance.menus.item',
+        'appearance.menus.item.[target, title, classes, xfn, description, remove]',
+        'appearance.menus.settings',
+        'appearance.menus.settings.[auto-add, location]',
+        'appearance.menus.delete',
+        'appearance.menus.max-depth' => (int) $depth,
+        'appearance.menus.max-depth.$name' => (int) $depth,
+    ],
 ];
 ```
 
@@ -43,9 +43,9 @@ Remove from menu;
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'appearance.menus',
-	],
+    'wp-admin.$role|$username' => [
+        'appearance.menus',
+    ],
 ];
 ```
 
@@ -55,9 +55,9 @@ Remove from menu and enforce a page redirect;
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'appearance.menus' => 'posts',
-	],
+    'wp-admin.$role|$username' => [
+        'appearance.menus' => 'posts',
+    ],
 ];
 ```
 

@@ -8,9 +8,9 @@ Remove wp-admin all/index subsets component.
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'common.all.subsets',
-	],
+    'wp-admin.$role|$username' => [
+        'common.all.subsets',
+    ],
 ];
 ```
 

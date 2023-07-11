@@ -11,14 +11,14 @@ Remove tools export components.
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'tools.export',
-		'tools.export' => (string) $route,
-		'tools.export.title' => (string) $title,
-		'tools.export.title.[menu, page]' => (string) $title,
-		'tools.export.tabs',
-		'tools.export.tabs.[screen-options, help]',
-	],
+    'wp-admin.$role|$username' => [
+        'tools.export',
+        'tools.export' => (string) $route,
+        'tools.export.title' => (string) $title,
+        'tools.export.title.[menu, page]' => (string) $title,
+        'tools.export.tabs',
+        'tools.export.tabs.[screen-options, help]',
+    ],
 ];
 ```
 
@@ -32,9 +32,9 @@ Remove from menu;
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'tools.export',
-	],
+    'wp-admin.$role|$username' => [
+        'tools.export',
+    ],
 ];
 ```
 
@@ -44,9 +44,9 @@ Remove from menu and enforce a page redirect;
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'tools.export' => 'posts',
-	],
+    'wp-admin.$role|$username' => [
+        'tools.export' => 'posts',
+    ],
 ];
 ```
 

@@ -11,24 +11,24 @@ Remove posts tags all/index components.
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'posts.tags.all',
-		'posts.tags.all' => (string) $route,
-		'posts.tags.all.title' => (string) $title,
-		'posts.tags.all.title.[menu, page]' => (string) $title,
-		'posts.tags.all.tabs',
-		'posts.tags.all.tabs.[screen-options, help]',
-		'posts.tags.all.search',
-		'posts.tags.all.actions',
-		'posts.tags.all.actions.bulk',
-		'posts.tags.all.list',
-		'posts.tags.all.list.cols',
-		'posts.tags.all.list.cols.[description, slug, count]',
-		'posts.tags.all.list.actions',
-		'posts.tags.all.list.actions.[edit, quick-edit, trash, view]',
-		'posts.tags.all.list.count',
-		'posts.tags.all.notes',
-	],
+    'wp-admin.$role|$username' => [
+        'posts.tags.all',
+        'posts.tags.all' => (string) $route,
+        'posts.tags.all.title' => (string) $title,
+        'posts.tags.all.title.[menu, page]' => (string) $title,
+        'posts.tags.all.tabs',
+        'posts.tags.all.tabs.[screen-options, help]',
+        'posts.tags.all.search',
+        'posts.tags.all.actions',
+        'posts.tags.all.actions.bulk',
+        'posts.tags.all.list',
+        'posts.tags.all.list.cols',
+        'posts.tags.all.list.cols.[description, slug, count]',
+        'posts.tags.all.list.actions',
+        'posts.tags.all.list.actions.[edit, quick-edit, trash, view]',
+        'posts.tags.all.list.count',
+        'posts.tags.all.notes',
+    ],
 ];
 ```
 
@@ -42,9 +42,9 @@ Remove from menu;
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'posts.tags.all',
-	],
+    'wp-admin.$role|$username' => [
+        'posts.tags.all',
+    ],
 ];
 ```
 
@@ -54,9 +54,9 @@ Remove from menu and enforce a page redirect;
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'posts.tags.all' => 'pages',
-	],
+    'wp-admin.$role|$username' => [
+        'posts.tags.all' => 'pages',
+    ],
 ];
 ```
 

@@ -8,9 +8,9 @@ Remove wp-admin all/index search component.
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'common.all.search',
-	],
+    'wp-admin.$role|$username' => [
+        'common.all.search',
+    ],
 ];
 ```
 

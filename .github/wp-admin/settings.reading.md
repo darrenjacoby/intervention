@@ -11,20 +11,20 @@ Remove settings reading components.
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'settings.reading',
-		'settings.reading' => (string) $route,
-		'settings.reading.title' => (string) $title,
-		'settings.reading.title.[menu, page]' => (string) $title,
-		'settings.reading.tabs',
-		'settings.reading.tabs.[screen-options, help]',
-		'settings.reading.front-page',
-		'settings.reading.front-page.posts',
-		'settings.reading.posts-per-page',
-		'settings.reading.posts-per-rss',
-		'settings.reading.rss-excerpt',
-		'settings.reading.discourage-search',
-	],
+    'wp-admin.$role|$username' => [
+        'settings.reading',
+        'settings.reading' => (string) $route,
+        'settings.reading.title' => (string) $title,
+        'settings.reading.title.[menu, page]' => (string) $title,
+        'settings.reading.tabs',
+        'settings.reading.tabs.[screen-options, help]',
+        'settings.reading.front-page',
+        'settings.reading.front-page.posts',
+        'settings.reading.posts-per-page',
+        'settings.reading.posts-per-rss',
+        'settings.reading.rss-excerpt',
+        'settings.reading.discourage-search',
+    ],
 ];
 ```
 
@@ -38,9 +38,9 @@ Remove from menu;
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'settings.reading',
-	],
+    'wp-admin.$role|$username' => [
+        'settings.reading',
+    ],
 ];
 ```
 
@@ -50,9 +50,9 @@ Remove from menu and enforce a page redirect;
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'settings.reading' => 'posts',
-	],
+    'wp-admin.$role|$username' => [
+        'settings.reading' => 'posts',
+    ],
 ];
 ```
 

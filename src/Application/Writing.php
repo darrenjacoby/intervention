@@ -31,58 +31,58 @@ use Jacoby\Intervention\Support\Arr;
  */
 class Writing
 {
-	protected $config;
-	protected $api;
+    protected $config;
+    protected $api;
 
-	/**
-	 * Initialize
-	 *
-	 * @param array $config
-	 */
-	public function __construct($config = false)
-	{
-		$this->config = Arr::normalize($config);
-		$this->api = OptionsApi::set($this->config);
-		$this->hook();
-	}
+    /**
+     * Initialize
+     *
+     * @param array $config
+     */
+    public function __construct($config = false)
+    {
+        $this->config = Arr::normalize($config);
+        $this->api = OptionsApi::set($this->config);
+        $this->hook();
+    }
 
-	/**
-	 * Hook
-	 *
-	 * @link https://developer.wordpress.org/reference/hooks/init
-	 */
-	protected function hook()
-	{
-		add_action('init', [$this, 'options']);
-		add_action('admin_head-options-writing.php', [$this->api, 'disableKeys']);
+    /**
+     * Hook
+     *
+     * @link https://developer.wordpress.org/reference/hooks/init
+     */
+    protected function hook()
+    {
+        add_action('init', [$this, 'options']);
+        add_action('admin_head-options-writing.php', [$this->api, 'disableKeys']);
 
-		if ($this->config->get('writing.emoji') === false) {
-			add_action('init', [$this, 'emoji']);
-		}
-	}
+        if ($this->config->get('writing.emoji') === false) {
+            add_action('init', [$this, 'emoji']);
+        }
+    }
 
-	/**
-	 * Options
-	 */
-	public function options()
-	{
-		$this->api->saveKeys([
-			'writing.default-post-format',
-			'writing.default-category',
-			'writing.post-via-email.server',
-			'writing.post-via-email.login',
-			'writing.post-via-email.pass',
-			'writing.post-via-email.port',
-			'writing.post-via-email.default-category',
-			'writing.update-services',
-		]);
-	}
+    /**
+     * Options
+     */
+    public function options()
+    {
+        $this->api->saveKeys([
+            'writing.default-post-format',
+            'writing.default-category',
+            'writing.post-via-email.server',
+            'writing.post-via-email.login',
+            'writing.post-via-email.pass',
+            'writing.post-via-email.port',
+            'writing.post-via-email.default-category',
+            'writing.update-services',
+        ]);
+    }
 
-	/**
-	 * Emoji remove
-	 */
-	public function emoji()
-	{
-		Emoji::remove();
-	}
+    /**
+     * Emoji remove
+     */
+    public function emoji()
+    {
+        Emoji::remove();
+    }
 }

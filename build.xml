@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-	<project name="Intervention" default="build" basedir=".">
+<project name="Intervention" default="build" basedir=".">
 
-	<target name="build">
-		<phingcall target="prepare"/>
-		<phingcall target="composer"/>
-		<phingcall target="transfer"/>
-	</target>
+  <target name="build">
+    <phingcall target="prepare"/>
+    <phingcall target="composer"/>
+    <phingcall target="transfer"/>
+  </target>
 
-	<target name="prepare">
-		<delete dir="dist"/>
-		<mkdir dir="dist"/>
-	</target>
+  <target name="prepare">
+    <delete dir="dist"/>
+    <mkdir dir="dist"/>
+  </target>
 
-	<target name="composer">
-		<exec passthru="true" checkreturn="false" command="composer update --no-dev --optimize-autoloader --prefer-dist --no-interaction"/>
-	</target>
+  <target name="composer">
+    <exec passthru="true" checkreturn="false" command="composer update --no-dev --optimize-autoloader --prefer-dist --no-interaction"/>
+  </target>
 
-	<target name="transfer">
-		<copy todir="dist">
-		<fileset dir="vendor">
-			<include name="autoload.php"></include>
-			<include name="**.php"></include>
-			<include name="**/*.php"></include>
-		</fileset>
-		</copy>
-	</target>
+  <target name="transfer">
+    <copy todir="dist">
+      <fileset dir="vendor">
+        <include name="autoload.php"></include>
+        <include name="**.php"></include>
+        <include name="**/*.php"></include>
+      </fileset>
+    </copy>
+  </target>
 </project>

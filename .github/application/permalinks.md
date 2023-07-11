@@ -8,12 +8,12 @@ Set application permalinks options.
 <?php
 
 return [
-	'application.permalinks' => [
-		'structure' => (string) $tags,
-		'category-base' => (boolean|string) false|$category_base_path,
-		'tag-base' => (boolean|string) false|$tag_base_path,
-		'search-base' => (boolean|string) true|$search_base_path
-	],
+    'application.permalinks' => [
+        'structure' => (string) $tags,
+        'category-base' => (boolean|string) false|$category_base_path,
+        'tag-base' => (boolean|string) false|$tag_base_path,
+        'search-base' => (boolean|string) true|$search_base_path
+    ],
 ];
 ```
 
@@ -23,12 +23,12 @@ return [
 <?php
 
 return [
-	'application.permalinks' => [
-		'structure' => '/%postname%/',
-		'category-base' => 'category',
-		'tag-base' => 'tag',
-		'search-base' => 'search',
-	],
+    'application.permalinks' => [
+        'structure' => '/%postname%/',
+        'category-base' => 'category',
+        'tag-base' => 'tag',
+        'search-base' => 'search',
+    ],
 ];
 ```
 
@@ -37,9 +37,9 @@ return [
 ### Further Reading;
 
 - `permalinks.structure`
-	- [https://wordpress.org/support/article/using-permalinks/#structure-tags](https://wordpress.org/support/article/using-permalinks/#structure-tags)
+  - [https://wordpress.org/support/article/using-permalinks/#structure-tags](https://wordpress.org/support/article/using-permalinks/#structure-tags)
 - `permalinks.category-base` and `permalinks.tag-base`
-	- [https://wordpress.org/support/article/using-permalinks/#category-base-and-tag-base](https://wordpress.org/support/article/using-permalinks/#category-base-and-tag-base)
+  - [https://wordpress.org/support/article/using-permalinks/#category-base-and-tag-base](https://wordpress.org/support/article/using-permalinks/#category-base-and-tag-base)
 
 ### Bug?
 

@@ -2,35 +2,35 @@
  * <ButtonGroup />
  */
 .components-button-group .components-button {
-	padding: 6px;
-	color: theme('colors.gray-70');
-	box-shadow: inset 0 0 0 1px theme('colors.gray-30');
-	transition: box-shadow 0s;
+  padding: 6px;
+  color: theme('colors.gray-70');
+  box-shadow: inset 0 0 0 1px theme('colors.gray-30');
+  transition: box-shadow 0s;
 
-	@media (min-width: theme('screens.lg')) {
-		padding: 6px 8px;
-	}
+  @media (min-width: theme('screens.lg')) {
+    padding: 6px 8px;
+  }
 
-	&.is-active {
-		position: relative;
-		color: theme('colors.primary-10');
-	}
+  &.is-active {
+    position: relative;
+    color: theme('colors.primary-10');
+  }
 
-	&.is-active:not(:focus) {
-		box-shadow: inset 0 0 0 1px theme('colors.primary');
-	}
+  &.is-active:not(:focus) {
+    box-shadow: inset 0 0 0 1px theme('colors.primary');
+  }
 }
 
 .components-button-group .components-button.breadcrumb:hover,
 .components-button-group .components-button.breadcrumb:focus {
-	color: theme('colors.primary-10');
+  color: theme('colors.primary-10');
 }
 
 .components-button-group .components-button:only-child {
-	border-radius: 2px;
+  border-radius: 2px;
 }
 
 .components-button-group .components-button.breadcrumb:focus .divider,
 .components-button-group .components-button.breadcrumb:focus + button .divider {
-	opacity: 0;
+  opacity: 0;
 }

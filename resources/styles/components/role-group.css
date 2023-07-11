@@ -1,17 +1,17 @@
 .rolegroup-dropdown .components-button.components-custom-select-control__button.is-small {
-	width: 100%;
-	color: theme('colors.gray-90');
+  width: 100%;
+  color: theme('colors.gray-90');
 
-	@media (min-width: theme('screens.lg')) {
-		min-width: 184px;
-	}
+  @media (min-width: theme('screens.lg')) {
+    min-width: 184px;
+  }
 }
 
 .rolegroup-dropdown-disabled .components-button.components-custom-select-control__button.is-small {
-	/* color: theme('colors.gray-50'); */
-	opacity: 0.3;
+  /* color: theme('colors.gray-50'); */
+  opacity: 0.3;
 }
 
 .rolegroup-dropdown-disabled .components-custom-select-control__button-icon {
-	display: none;
+  display: none;
 }

@@ -23,32 +23,32 @@ use Jacoby\Intervention\Support\Composer;
  */
 class Dashboard
 {
-	/**
-	 * Initialize
-	 *
-	 * @param array $config
-	 */
-	public function __construct($config = false)
-	{
-		$compose = Composer::set(Arr::normalizeTrue($config));
+    /**
+     * Initialize
+     *
+     * @param array $config
+     */
+    public function __construct($config = false)
+    {
+        $compose = Composer::set(Arr::normalizeTrue($config));
 
-		$compose = $compose->has('dashboard.title')->add('dashboard.title.', [
-			'menu',
-		]);
+        $compose = $compose->has('dashboard.title')->add('dashboard.title.', [
+            'menu',
+        ]);
 
-		$this->config = $compose->get();
-		$this->hook();
-	}
+        $this->config = $compose->get();
+        $this->hook();
+    }
 
-	/**
-	 * Hook
-	 */
-	protected function hook()
-	{
-		$shared = SharedApi::set('dashboard', $this->config);
-		$shared->router();
-		$shared->menu();
-		$shared->title();
-		$shared->icon();
-	}
+    /**
+     * Hook
+     */
+    protected function hook()
+    {
+        $shared = SharedApi::set('dashboard', $this->config);
+        $shared->router();
+        $shared->menu();
+        $shared->title();
+        $shared->icon();
+    }
 }

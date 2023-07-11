@@ -11,14 +11,14 @@ Remove tools erase-personal-data components.
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'tools.erase-personal-data',
-		'tools.erase-personal-data' => (string) $route,
-		'tools.erase-personal-data.title' => (string) $title,
-		'tools.erase-personal-data.title.[menu, page]' => (string) $title,
-		'tools.erase-personal-data.tabs',
-		'tools.erase-personal-data.tabs.[screen-options, help]',
-	],
+    'wp-admin.$role|$username' => [
+        'tools.erase-personal-data',
+        'tools.erase-personal-data' => (string) $route,
+        'tools.erase-personal-data.title' => (string) $title,
+        'tools.erase-personal-data.title.[menu, page]' => (string) $title,
+        'tools.erase-personal-data.tabs',
+        'tools.erase-personal-data.tabs.[screen-options, help]',
+    ],
 ];
 ```
 
@@ -32,9 +32,9 @@ Remove from menu;
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'tools.erase-personal-data',
-	],
+    'wp-admin.$role|$username' => [
+        'tools.erase-personal-data',
+    ],
 ];
 ```
 
@@ -44,9 +44,9 @@ Remove from menu and enforce a page redirect;
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'tools.erase-personal-data' => 'posts',
-	],
+    'wp-admin.$role|$username' => [
+        'tools.erase-personal-data' => 'posts',
+    ],
 ];
 ```
 

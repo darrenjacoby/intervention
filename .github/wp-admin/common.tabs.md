@@ -11,42 +11,42 @@ Remove wp-admin screen options and help tabs.
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'common.tabs',
-		'common.tabs.screen-options',
-		'common.tabs.screen-options.[pagination, view-mode]',
-		'common.tabs.help',
-		'common.tabs.help.[
-			overview,
-			navigation,
-			layout,
-			content,
-			screen-content,
-			available-actions,
-			bulk-actions,
-			adding-terms,
-			managing-pages,
-			available-actions,
-			attaching-files,
-			sidebar,
-			moderating-comments,
-			adding-themes,
-			preview-customize,
-			removing-reusing,
-			missing-widgets,
-			custom-html-widget,
-			menu-management,
-			editing-menus,
-			troubleshooting,
-			adding-plugins,
-			user-roles,
-			converter,
-			post-email,
-			update-services,
-			visibility,
-			permalink-settings,
-			custom-structures,
-		]',
+    'wp-admin.$role|$username' => [
+        'common.tabs',
+        'common.tabs.screen-options',
+        'common.tabs.screen-options.[pagination, view-mode]',
+        'common.tabs.help',
+        'common.tabs.help.[
+            overview,
+            navigation,
+            layout,
+            content,
+            screen-content,
+            available-actions,
+            bulk-actions,
+            adding-terms,
+            managing-pages,
+            available-actions,
+            attaching-files,
+            sidebar,
+            moderating-comments,
+            adding-themes,
+            preview-customize,
+            removing-reusing,
+            missing-widgets,
+            custom-html-widget,
+            menu-management,
+            editing-menus,
+            troubleshooting,
+            adding-plugins,
+            user-roles,
+            converter,
+            post-email,
+            update-services,
+            visibility,
+            permalink-settings,
+            custom-structures,
+        ]',
 ];
 ```
 
@@ -58,9 +58,9 @@ Remove screen options and help tabs;
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'common.tabs',
-	],
+    'wp-admin.$role|$username' => [
+        'common.tabs',
+    ],
 ];
 ```
 
@@ -70,9 +70,9 @@ Remove screen options tab;
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'common.tabs.screen-options',
-	],
+    'wp-admin.$role|$username' => [
+        'common.tabs.screen-options',
+    ],
 ];
 ```
 
@@ -82,9 +82,9 @@ Remove help tab;
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'common.tabs.help',
-	],
+    'wp-admin.$role|$username' => [
+        'common.tabs.help',
+    ],
 ];
 ```
 

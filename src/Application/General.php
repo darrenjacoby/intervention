@@ -41,97 +41,97 @@ use Jacoby\Intervention\Support\Str;
  */
 class General
 {
-	protected $config;
-	protected $api;
+    protected $config;
+    protected $api;
 
-	/**
-	 * Initialize
-	 *
-	 * @param array $config
-	 */
-	public function __construct($config = false)
-	{
-		$this->config = Arr::normalize($config);
-		$this->api = OptionsApi::set($this->config);
-		$this->hook();
-	}
+    /**
+     * Initialize
+     *
+     * @param array $config
+     */
+    public function __construct($config = false)
+    {
+        $this->config = Arr::normalize($config);
+        $this->api = OptionsApi::set($this->config);
+        $this->hook();
+    }
 
-	/**
-	 * Hook
-	 */
-	protected function hook()
-	{
-		add_action('init', [$this, 'options']);
-		add_action('admin_head-options-general.php', [$this->api, 'disableKeys']);
-	}
+    /**
+     * Hook
+     */
+    protected function hook()
+    {
+        add_action('init', [$this, 'options']);
+        add_action('admin_head-options-general.php', [$this->api, 'disableKeys']);
+    }
 
-	/**
-	 * Options
-	 */
-	public function options()
-	{
-		$this->api->saveKeys([
-			'general.site-title',
-			'general.tagline',
-			'general.wp-address',
-			'general.site-address',
-			'general.admin-email',
-			'general.membership',
-			'general.default-role',
-			'general.timezone',
-			'general.date-format',
-			'general.time-format',
-			'general.week-starts',
-		]);
+    /**
+     * Options
+     */
+    public function options()
+    {
+        $this->api->saveKeys([
+            'general.site-title',
+            'general.tagline',
+            'general.wp-address',
+            'general.site-address',
+            'general.admin-email',
+            'general.membership',
+            'general.default-role',
+            'general.timezone',
+            'general.date-format',
+            'general.time-format',
+            'general.week-starts',
+        ]);
 
-		/**
-		 * Disable login email verification screen.
-		 */
-		if ($this->config->has('general.admin-email')) {
-			add_filter('admin_email_check_interval', '__return_false');
-		}
+        /**
+         * Disable login email verification screen.
+         */
+        if ($this->config->has('general.admin-email')) {
+            add_filter('admin_email_check_interval', '__return_false');
+        }
 
-		/**
-		 * Only show login email verification screen if `general.admin-email` is not set.
-		 */
-		if ($this->config->has('general.admin-email.verification') && !$this->config->has('general.admin-email')) {
-			$value = $this->config->get('general.admin-email.verification');
+        /**
+         * Only show login email verification screen if `general.admin-email` is not set.
+         */
+        if ($this->config->has('general.admin-email.verification') && !$this->config->has('general.admin-email')) {
+            $value = $this->config->get('general.admin-email.verification');
 
-			add_filter('admin_email_check_interval', function () use ($value) {
-				return $value;
-			});
-		}
+            add_filter('admin_email_check_interval', function () use ($value) {
+                return $value;
+            });
+        }
 
-		/**
-		 * Set filters for `email-from`.
-		 */
-		if ($this->config->has('general.email-from')) {
-			$from = $this->config->get('general.email-from');
-			add_filter('wp_mail_from', function () use ($from) {
-				return $from;
-			});
-		}
+        /**
+         * Set filters for `email-from`.
+         */
+        if ($this->config->has('general.email-from')) {
+            $from = $this->config->get('general.email-from');
+            add_filter('wp_mail_from', function () use ($from) {
+                return $from;
+            });
+        }
 
-		if ($this->config->has('general.email-from-name')) {
-			$from_name = $this->config->get('general.email-from-name');
-			add_filter('wp_mail_from_name', function () use ($from_name) {
-				return $from_name;
-			});
-		}
+        if ($this->config->has('general.email-from-name')) {
+            $from_name = $this->config->get('general.email-from-name');
+            add_filter('wp_mail_from_name', function () use ($from_name) {
+                return $from_name;
+            });
+        }
 
-		/**
-		 * Set `switch_to_locale` for `general.language`.
-		 */
-		if ($this->config->has('general.language')) {
-			$general_language = $this->config->get('general.language');
+        /**
+         * Set `switch_to_locale` for `general.language`.
+         */
+        if ($this->config->has('general.language')) {
+            $general_language = $this->config->get('general.language');
 
-			if (!empty($general_language) && !in_array($general_language, get_available_languages())) {
-				require_once ABSPATH . 'wp-admin/includes/file.php';
-				require_once ABSPATH . 'wp-admin/includes/translation-install.php';
-				wp_download_language_pack($general_language);
-			}
+            if (!empty($general_language) && !in_array($general_language, get_available_languages())) {
+                require_once ABSPATH . 'wp-admin/includes/file.php';
+                require_once ABSPATH . 'wp-admin/includes/translation-install.php';
+                wp_download_language_pack($general_language);
+            }
 
-			switch_to_locale($general_language);
-		}
-	}
+            switch_to_locale($general_language);
+        }
+    }
 }

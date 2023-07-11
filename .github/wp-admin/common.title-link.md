@@ -10,9 +10,9 @@ Remove wp-admin title links.
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'common.title-link',
-	],
+    'wp-admin.$role|$username' => [
+        'common.title-link',
+    ],
 ];
 ```
 

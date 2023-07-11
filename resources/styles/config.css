@@ -1,9 +1,9 @@
 * {
-	&,
-	&::before,
-	&::after {
-		box-sizing: border-box;
-		border: 0;
-		border-style: solid;
-	}
+  &,
+  &::before,
+  &::after {
+    box-sizing: border-box;
+    border: 0;
+    border-style: solid;
+  }
 }

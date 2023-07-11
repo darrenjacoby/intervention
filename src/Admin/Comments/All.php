@@ -44,77 +44,77 @@ use Jacoby\Intervention\Support\Composer;
  */
 class All
 {
-	protected $config;
+    protected $config;
 
-	/**
-	 * Initialize
-	 *
-	 * @param array $config
-	 */
-	public function __construct($config = false)
-	{
-		$compose = Composer::set(Arr::normalizeTrue($config));
+    /**
+     * Initialize
+     *
+     * @param array $config
+     */
+    public function __construct($config = false)
+    {
+        $compose = Composer::set(Arr::normalizeTrue($config));
 
-		$compose = $compose->has('comments.all.all')->add('comments.all.', [
-			'tabs', 'pagination', 'search', 'subsets', 'actions', 'list',
-		]);
+        $compose = $compose->has('comments.all.all')->add('comments.all.', [
+            'tabs', 'pagination', 'search', 'subsets', 'actions', 'list',
+        ]);
 
-		$compose = $compose->has('comments.all.title')->add('comments.all.title.', [
-			'menu', 'page',
-		]);
+        $compose = $compose->has('comments.all.title')->add('comments.all.title.', [
+            'menu', 'page',
+        ]);
 
-		$compose = $compose->has('comments.all.tabs')->add('comments.all.tabs.', [
-			'screen-options', 'help',
-		]);
+        $compose = $compose->has('comments.all.tabs')->add('comments.all.tabs.', [
+            'screen-options', 'help',
+        ]);
 
-		$compose = $compose->has('comments.all.actions')->add('comments.all.actions.', [
-			'types', 'bulk',
-		]);
+        $compose = $compose->has('comments.all.actions')->add('comments.all.actions.', [
+            'types', 'bulk',
+        ]);
 
-		$compose = $compose->has('comments.all.list')->add('comments.all.list.', [
-			'cols', 'actions', 'count',
-		]);
+        $compose = $compose->has('comments.all.list')->add('comments.all.list.', [
+            'cols', 'actions', 'count',
+        ]);
 
-		$compose = $compose->has('comments.all.list.cols')->add('comments.all.list.cols.', [
-			'comment', 'response', 'date',
-		]);
+        $compose = $compose->has('comments.all.list.cols')->add('comments.all.list.cols.', [
+            'comment', 'response', 'date',
+        ]);
 
-		$compose = $compose->has('comments.all.subsets.pending')->add('comments.all.subsets.', [
-			'moderated',
-		]);
+        $compose = $compose->has('comments.all.subsets.pending')->add('comments.all.subsets.', [
+            'moderated',
+        ]);
 
-		$this->config = $compose->get();
-		$this->hook();
-	}
+        $this->config = $compose->get();
+        $this->hook();
+    }
 
-	/**
-	 * Hook
-	 */
-	protected function hook()
-	{
-		$checkbox = $this->config->has('comments.all.actions.bulk') && $this->config->has('comments.all.actions.types');
+    /**
+     * Hook
+     */
+    protected function hook()
+    {
+        $checkbox = $this->config->has('comments.all.actions.bulk') && $this->config->has('comments.all.actions.types');
 
-		$shared = SharedApi::set('comments.all', $this->config);
-		$shared->router();
-		$shared->menu();
-		$shared->title();
-		$shared->tabs();
-		$shared->pagination();
-		$shared->search();
-		$shared->subsets();
-		$shared->actionBulk();
-		$shared->lists($checkbox);
+        $shared = SharedApi::set('comments.all', $this->config);
+        $shared->router();
+        $shared->menu();
+        $shared->title();
+        $shared->tabs();
+        $shared->pagination();
+        $shared->search();
+        $shared->subsets();
+        $shared->actionBulk();
+        $shared->lists($checkbox);
 
-		add_action('admin_head-edit-comments.php', [$this, 'head']);
-	}
+        add_action('admin_head-edit-comments.php', [$this, 'head']);
+    }
 
-	/**
-	 * Head
-	 */
-	public function head()
-	{
-		if ($this->config->has('comments.all.actions.types')) {
-			echo '<script>jQuery(document).ready(function() {jQuery("#filter-by-comment-type").closest(".actions").css("display", "none")})</script>';
-		}
-	}
+    /**
+     * Head
+     */
+    public function head()
+    {
+        if ($this->config->has('comments.all.actions.types')) {
+            echo '<script>jQuery(document).ready(function() {jQuery("#filter-by-comment-type").closest(".actions").css("display", "none")})</script>';
+        }
+    }
 }

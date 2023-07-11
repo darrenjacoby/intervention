@@ -11,14 +11,14 @@ Remove tools import components.
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'tools.import',
-		'tools.import' => (string) $route,
-		'tools.import.title' => (string) $title,
-		'tools.import.title.[menu, page]' => (string) $title,
-		'tools.import.tabs',
-		'tools.import.tabs.[screen-options, help]',
-	],
+    'wp-admin.$role|$username' => [
+        'tools.import',
+        'tools.import' => (string) $route,
+        'tools.import.title' => (string) $title,
+        'tools.import.title.[menu, page]' => (string) $title,
+        'tools.import.tabs',
+        'tools.import.tabs.[screen-options, help]',
+    ],
 ];
 ```
 
@@ -32,9 +32,9 @@ Remove from menu;
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'tools.import',
-	],
+    'wp-admin.$role|$username' => [
+        'tools.import',
+    ],
 ];
 ```
 
@@ -44,9 +44,9 @@ Remove from menu and enforce a page redirect;
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'tools.import' => 'posts',
-	],
+    'wp-admin.$role|$username' => [
+        'tools.import' => 'posts',
+    ],
 ];
 ```
 

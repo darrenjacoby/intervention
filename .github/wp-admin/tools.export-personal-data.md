@@ -11,14 +11,14 @@ Remove tools export-personal-data components.
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'tools.export-personal-data',
-		'tools.export-personal-data' => (string) $route,
-		'tools.export-personal-data.title' => (string) $title,
-		'tools.export-personal-data.title.[menu, page]' => (string) $title,
-		'tools.export-personal-data.tabs',
-		'tools.export-personal-data.tabs.[screen-options, help]',
-	],
+    'wp-admin.$role|$username' => [
+        'tools.export-personal-data',
+        'tools.export-personal-data' => (string) $route,
+        'tools.export-personal-data.title' => (string) $title,
+        'tools.export-personal-data.title.[menu, page]' => (string) $title,
+        'tools.export-personal-data.tabs',
+        'tools.export-personal-data.tabs.[screen-options, help]',
+    ],
 ];
 ```
 
@@ -32,9 +32,9 @@ Remove from menu;
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'tools.export-personal-data',
-	],
+    'wp-admin.$role|$username' => [
+        'tools.export-personal-data',
+    ],
 ];
 ```
 
@@ -44,9 +44,9 @@ Remove from menu and enforce a page redirect;
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'tools.export-personal-data' => 'posts',
-	],
+    'wp-admin.$role|$username' => [
+        'tools.export-personal-data' => 'posts',
+    ],
 ];
 ```
 

@@ -25,42 +25,42 @@ use Jacoby\Intervention\Support\Composer;
  */
 class ExportPersonalData
 {
-	protected $config;
+    protected $config;
 
-	/**
-	 * Initialize
-	 *
-	 * @param array $config
-	 */
-	public function __construct($config = false)
-	{
-		$compose = Composer::set(Arr::normalizeTrue($config));
+    /**
+     * Initialize
+     *
+     * @param array $config
+     */
+    public function __construct($config = false)
+    {
+        $compose = Composer::set(Arr::normalizeTrue($config));
 
-		$compose = $compose->has('tools.export-personal-data.all')->add('tools.export-personal-data.', [
-			'tabs',
-		]);
+        $compose = $compose->has('tools.export-personal-data.all')->add('tools.export-personal-data.', [
+            'tabs',
+        ]);
 
-		$compose = $compose->has('tools.export-personal-data.title')->add('tools.export-personal-data.title.', [
-			'menu', 'page',
-		]);
+        $compose = $compose->has('tools.export-personal-data.title')->add('tools.export-personal-data.title.', [
+            'menu', 'page',
+        ]);
 
-		$compose = $compose->has('tools.export-personal-data.tabs')->add('tools.export-personal-data.tabs.', [
-			'screen-options', 'help',
-		]);
+        $compose = $compose->has('tools.export-personal-data.tabs')->add('tools.export-personal-data.tabs.', [
+            'screen-options', 'help',
+        ]);
 
-		$this->config = $compose->get();
-		$this->hook();
-	}
+        $this->config = $compose->get();
+        $this->hook();
+    }
 
-	/**
-	 * Hook
-	 */
-	protected function hook()
-	{
-		$shared = SharedApi::set('tools.export-personal-data', $this->config);
-		$shared->router();
-		$shared->menu();
-		$shared->title();
-		$shared->tabs();
-	}
+    /**
+     * Hook
+     */
+    protected function hook()
+    {
+        $shared = SharedApi::set('tools.export-personal-data', $this->config);
+        $shared->router();
+        $shared->menu();
+        $shared->title();
+        $shared->tabs();
+    }
 }

@@ -11,15 +11,15 @@ Remove settings privacy components.
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'settings.privacy',
-		'settings.privacy' => (string) $route,
-		'settings.privacy.title' => (string) $title,
-		'settings.privacy.title.[menu, page]' => (string) $title,
-		'settings.privacy.tabs',
-		'settings.privacy.tabs.[screen-options, help]',
-		'settings.privacy.policy-page',
-	],
+    'wp-admin.$role|$username' => [
+        'settings.privacy',
+        'settings.privacy' => (string) $route,
+        'settings.privacy.title' => (string) $title,
+        'settings.privacy.title.[menu, page]' => (string) $title,
+        'settings.privacy.tabs',
+        'settings.privacy.tabs.[screen-options, help]',
+        'settings.privacy.policy-page',
+    ],
 ];
 ```
 
@@ -33,9 +33,9 @@ Remove from menu;
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'settings.privacy',
-	],
+    'wp-admin.$role|$username' => [
+        'settings.privacy',
+    ],
 ];
 ```
 
@@ -45,9 +45,9 @@ Remove from menu and enforce a page redirect;
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'settings.privacy' => 'posts',
-	],
+    'wp-admin.$role|$username' => [
+        'settings.privacy' => 'posts',
+    ],
 ];
 ```
 

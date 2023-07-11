@@ -17,58 +17,58 @@ use Jacoby\Intervention\Support\Config;
  */
 class Router
 {
-	protected $routes;
-	protected $route = false;
+    protected $routes;
+    protected $route = false;
 
-	/**
-	 * Interface
-	 *
-	 * @param string $key
-	 * @return Jacoby\Intervention\Admin\Support\Router
-	 */
-	public static function set($key = '')
-	{
-		return new self($key);
-	}
+    /**
+     * Interface
+     *
+     * @param string $key
+     * @return Jacoby\Intervention\Admin\Support\Router
+     */
+    public static function set($key = '')
+    {
+        return new self($key);
+    }
 
-	/**
-	 * Initialize
-	 *
-	 * @param string $key
-	 */
-	public function __construct($key = false)
-	{
-		$this->key = $key;
-	}
+    /**
+     * Initialize
+     *
+     * @param string $key
+     */
+    public function __construct($key = false)
+    {
+        $this->key = $key;
+    }
 
-	/**
-	 * Route
-	 *
-	 * @param string $str
-	 */
-	public function route($str)
-	{
-		// Support for shorthand/true
-		$value = $str === true ? 'posts' : $str;
+    /**
+     * Route
+     *
+     * @param string $str
+     */
+    public function route($str)
+    {
+        // Support for shorthand/true
+        $value = $str === true ? 'posts' : $str;
 
-		if (!Config::get('admin/pagenow')->get($value)) {
-			return;
-		}
+        if (!Config::get('admin/pagenow')->get($value)) {
+            return;
+        }
 
-		$this->route = Config::get('admin/pagenow')->get($value);
+        $this->route = Config::get('admin/pagenow')->get($value);
 
-		if (wp_doing_ajax()) {
-			return;
-		}
+        if (wp_doing_ajax()) {
+            return;
+        }
 
-		// Route
-		add_action('admin_init', function () {
-			if (Config::get('admin/pagenow')->get($this->key) === $GLOBALS['pagenow'] . $_SERVER['QUERY_STRING']) {
-				wp_redirect(admin_url($this->route));
-			};
-		});
+        // Route
+        add_action('admin_init', function () {
+            if (Config::get('admin/pagenow')->get($this->key) === $GLOBALS['pagenow'] . $_SERVER['QUERY_STRING']) {
+                wp_redirect(admin_url($this->route));
+            };
+        });
 
-		// Remove menu item
-		Menu::set($this->key)->remove();
-	}
+        // Remove menu item
+        Menu::set($this->key)->remove();
+    }
 }

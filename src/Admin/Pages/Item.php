@@ -51,41 +51,41 @@ use Jacoby\Intervention\Support\Composer;
  */
 class Item
 {
-	/**
-	 * Initialize
-	 *
-	 * @param array $config
-	 */
-	public function __construct($config = false)
-	{
-		$compose = Composer::set(Arr::normalizeTrue($config));
+    /**
+     * Initialize
+     *
+     * @param array $config
+     */
+    public function __construct($config = false)
+    {
+        $compose = Composer::set(Arr::normalizeTrue($config));
 
-		$compose = $compose->has('pages.item')->add('pages.item.', [
-			'all',
-		]);
+        $compose = $compose->has('pages.item')->add('pages.item.', [
+            'all',
+        ]);
 
-		$compose = $compose->has('pages.item.all')->add('pages.item.', [
-			'tabs',
-			'editor',
-			'author',
-			'custom-fields',
-			'editor',
-			'discussion',
-			'attributes',
-			'link',
-			'featured-image',
-		]);
+        $compose = $compose->has('pages.item.all')->add('pages.item.', [
+            'tabs',
+            'editor',
+            'author',
+            'custom-fields',
+            'editor',
+            'discussion',
+            'attributes',
+            'link',
+            'featured-image',
+        ]);
 
-		$compose = $compose->has('pages.item.tabs')->add('pages.item.tabs.', [
-			'screen-options', 'help',
-		]);
+        $compose = $compose->has('pages.item.tabs')->add('pages.item.tabs.', [
+            'screen-options', 'help',
+        ]);
 
-		$config = Composer::set($compose->get())
-			->group('pages.item')
-			->get()
-			->toArray();
+        $config = Composer::set($compose->get())
+            ->group('pages.item')
+            ->get()
+            ->toArray();
 
-		new Add(['pages.add' => $config]);
-		new Edit(['pages.edit' => $config]);
-	}
+        new Add(['pages.add' => $config]);
+        new Edit(['pages.edit' => $config]);
+    }
 }

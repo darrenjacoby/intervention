@@ -33,90 +33,90 @@ use Jacoby\Intervention\Support\Composer;
  */
 class Themes
 {
-	protected $config;
+    protected $config;
 
-	/**
-	 * Initialize
-	 *
-	 * @param array $config
-	 */
-	public function __construct($config = false)
-	{
-		$compose = Composer::set(Arr::normalizeTrue($config));
+    /**
+     * Initialize
+     *
+     * @param array $config
+     */
+    public function __construct($config = false)
+    {
+        $compose = Composer::set(Arr::normalizeTrue($config));
 
-		$compose = $compose->has('appearance.themes.all')->add('appearance.themes.', [
-			'title-link', 'title-count', 'search', 'tabs', 'inactive', 'theme',
-		]);
+        $compose = $compose->has('appearance.themes.all')->add('appearance.themes.', [
+            'title-link', 'title-count', 'search', 'tabs', 'inactive', 'theme',
+        ]);
 
-		$compose = $compose->has('appearance.themes.title')->add('appearance.themes.title.', [
-			'menu', 'page',
-		]);
+        $compose = $compose->has('appearance.themes.title')->add('appearance.themes.title.', [
+            'menu', 'page',
+        ]);
 
-		$compose = $compose->has('appearance.themes.tabs')->add('appearance.themes.tabs.', [
-			'screen-options', 'help',
-		]);
+        $compose = $compose->has('appearance.themes.tabs')->add('appearance.themes.tabs.', [
+            'screen-options', 'help',
+        ]);
 
-		$compose = $compose->has('appearance.themes.theme')->add('appearance.themes.theme.', [
-			'nag', 'actions',
-		]);
+        $compose = $compose->has('appearance.themes.theme')->add('appearance.themes.theme.', [
+            'nag', 'actions',
+        ]);
 
-		$compose = $compose->has('appearance.themes.theme.actions')->add('appearance.themes.theme.actions.', [
-			'activate', 'customize',
-		]);
+        $compose = $compose->has('appearance.themes.theme.actions')->add('appearance.themes.theme.actions.', [
+            'activate', 'customize',
+        ]);
 
-		$this->config = $compose->get();
-		$this->hook();
-	}
+        $this->config = $compose->get();
+        $this->hook();
+    }
 
-	/**
-	 * Hook
-	 */
-	protected function hook()
-	{
-		$shared = SharedApi::set('appearance.themes', $this->config);
-		$shared->router();
-		$shared->menu();
-		$shared->title();
-		$shared->tabs();
+    /**
+     * Hook
+     */
+    protected function hook()
+    {
+        $shared = SharedApi::set('appearance.themes', $this->config);
+        $shared->router();
+        $shared->menu();
+        $shared->title();
+        $shared->tabs();
 
-		add_action('admin_head-themes.php', [$this, 'head']);
-	}
+        add_action('admin_head-themes.php', [$this, 'head']);
+    }
 
-	/**
-	 * Head
-	 */
-	public function head()
-	{
-		if ($this->config->has('appearance.themes.title-count')) {
-			echo '<style>.themes-php .title-count.theme-count {display: none;}</style>';
-		}
+    /**
+     * Head
+     */
+    public function head()
+    {
+        if ($this->config->has('appearance.themes.title-count')) {
+            echo '<style>.themes-php .title-count.theme-count {display: none;}</style>';
+        }
 
-		if ($this->config->has('appearance.themes.add')) {
-			echo '<style>.themes-php .theme.add-new-theme {display: none;}</style>';
-		}
+        if ($this->config->has('appearance.themes.add')) {
+            echo '<style>.themes-php .theme.add-new-theme {display: none;}</style>';
+        }
 
-		if ($this->config->has('appearance.themes.search')) {
-			echo '<style>.themes-php .search-form {display: none;}</style>';
-		}
+        if ($this->config->has('appearance.themes.search')) {
+            echo '<style>.themes-php .search-form {display: none;}</style>';
+        }
 
-		if ($this->config->has('appearance.themes.inactive')) {
-			echo '<style>.themes-php .themes .theme:not(.active) {display: none;}</style>';
-		}
+        if ($this->config->has('appearance.themes.inactive')) {
+            echo '<style>.themes-php .themes .theme:not(.active) {display: none;}</style>';
+        }
 
-		if ($this->config->has('appearance.themes.theme.nag')) {
-			echo '<style>.themes-php .themes .notice {display: none;}</style>';
-		}
+        if ($this->config->has('appearance.themes.theme.nag')) {
+            echo '<style>.themes-php .themes .notice {display: none;}</style>';
+        }
 
-		if ($this->config->has('appearance.themes.theme.actions.activate')) {
-			echo '<style>.themes-php .theme-actions .activate {display: none;}</style>';
-		}
+        if ($this->config->has('appearance.themes.theme.actions.activate')) {
+            echo '<style>.themes-php .theme-actions .activate {display: none;}</style>';
+        }
 
-		if ($this->config->has('appearance.themes.theme.actions.customize')) {
-			echo '<style>.themes-php .theme-actions .load-customize {display: none;}</style>';
-		}
+        if ($this->config->has('appearance.themes.theme.actions.customize')) {
+            echo '<style>.themes-php .theme-actions .load-customize {display: none;}</style>';
+        }
 
-		if ($this->config->has('appearance.themes.theme.actions.activate') && $this->config->has('appearance.themes.theme.actions.customize')) {
-			echo '<style>.themes-php .theme-actions {display: none;}</style>';
-		}
-	}
+        if ($this->config->has('appearance.themes.theme.actions.activate') && $this->config->has('appearance.themes.theme.actions.customize')) {
+            echo '<style>.themes-php .theme-actions {display: none;}</style>';
+        }
+    }
 }

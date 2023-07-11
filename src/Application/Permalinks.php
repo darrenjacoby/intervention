@@ -25,64 +25,64 @@ use Jacoby\Intervention\Support\Arr;
  */
 class Permalinks
 {
-	protected $config;
+    protected $config;
 
-	/**
-	 * Initialize
-	 *
-	 * @param array $config
-	 */
-	public function __construct($config = false)
-	{
-		$this->config = Arr::normalize($config);
-		$this->api = OptionsApi::set($this->config);
-		$this->hook();
-	}
+    /**
+     * Initialize
+     *
+     * @param array $config
+     */
+    public function __construct($config = false)
+    {
+        $this->config = Arr::normalize($config);
+        $this->api = OptionsApi::set($this->config);
+        $this->hook();
+    }
 
-	/**
-	 * Hook
-	 */
-	protected function hook()
-	{
-		add_action('init', [$this, 'options']);
-		add_action('admin_head-options-permalink.php', [$this->api, 'disableKeys']);
-	}
+    /**
+     * Hook
+     */
+    protected function hook()
+    {
+        add_action('init', [$this, 'options']);
+        add_action('admin_head-options-permalink.php', [$this->api, 'disableKeys']);
+    }
 
-	/**
-	 * Options
-	 */
-	public function options()
-	{
-		$this->api->saveKeys([
-			'permalinks.category-base',
-			'permalinks.tag-base',
-		]);
+    /**
+     * Options
+     */
+    public function options()
+    {
+        $this->api->saveKeys([
+            'permalinks.category-base',
+            'permalinks.tag-base',
+        ]);
 
-		if ($this->config->has('permalinks.structure')) {
-			$structure = $this->config->get('permalinks.structure');
+        if ($this->config->has('permalinks.structure')) {
+            $structure = $this->config->get('permalinks.structure');
 
-			if (get_option('permalink_structure') !== $structure) {
-				$this->api->save('permalinks.structure', $structure);
+            if (get_option('permalink_structure') !== $structure) {
+                $this->api->save('permalinks.structure', $structure);
 
-				$GLOBALS['wp_rewrite']->permalink_structure = $structure;
-				$GLOBALS['wp_rewrite']->flush_rules();
-			}
-		}
+                $GLOBALS['wp_rewrite']->permalink_structure = $structure;
+                $GLOBALS['wp_rewrite']->flush_rules();
+            }
+        }
 
-		if ($this->config->has('permalinks.search-base')) {
-			$search_base = $this->config->get('permalinks.search-base') === true ?
-			'search' :
-			$this->config->get('permalinks.search-base');
+        if ($this->config->has('permalinks.search-base')) {
+            $search_base = $this->config->get('permalinks.search-base') === true ?
+            'search' :
+            $this->config->get('permalinks.search-base');
 
-			add_action('template_redirect', function () use ($search_base) {
-				if (is_search() && !empty($_GET['s'])) {
-					wp_redirect(home_url('/' . $search_base . '/') . urlencode(get_query_var('s')));
-					exit();
-				}
-			});
+            add_action('template_redirect', function () use ($search_base) {
+                if (is_search() && !empty($_GET['s'])) {
+                    wp_redirect(home_url('/' . $search_base . '/') . urlencode(get_query_var('s')));
+                    exit();
+                }
+            });
 
-			$GLOBALS['wp_rewrite']->search_base = $search_base;
-			$GLOBALS['wp_rewrite']->flush_rules();
-		}
-	}
+            $GLOBALS['wp_rewrite']->search_base = $search_base;
+            $GLOBALS['wp_rewrite']->flush_rules();
+        }
+    }
 }

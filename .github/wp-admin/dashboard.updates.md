@@ -11,14 +11,14 @@ Remove dashboard updates components.
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'dashboard.updates',
-		'dashboard.updates' => (string) $route,
-		'dashboard.updates.title' => (string) $title,
-		'dashboard.updates.title.[menu, page]' => (string) $title,
-		'dashboard.updates.tabs',
-		'dashboard.updates.tabs.help',
-	],
+    'wp-admin.$role|$username' => [
+        'dashboard.updates',
+        'dashboard.updates' => (string) $route,
+        'dashboard.updates.title' => (string) $title,
+        'dashboard.updates.title.[menu, page]' => (string) $title,
+        'dashboard.updates.tabs',
+        'dashboard.updates.tabs.help',
+    ],
 ];
 ```
 
@@ -32,9 +32,9 @@ Remove from menu;
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'dashboard.updates',
-	],
+    'wp-admin.$role|$username' => [
+        'dashboard.updates',
+    ],
 ];
 ```
 
@@ -44,9 +44,9 @@ Remove from menu and enforce a page redirect;
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'dashboard.updates' => 'posts',
-	],
+    'wp-admin.$role|$username' => [
+        'dashboard.updates' => 'posts',
+    ],
 ];
 ```
 

@@ -26,46 +26,46 @@ use Jacoby\Intervention\Support\Composer;
  */
 class Add
 {
-	protected $config;
+    protected $config;
 
-	/**
-	 * Initialize
-	 *
-	 * @param array $config
-	 */
-	public function __construct($config = false)
-	{
-		$compose = Composer::set(Arr::normalizeTrue($config));
+    /**
+     * Initialize
+     *
+     * @param array $config
+     */
+    public function __construct($config = false)
+    {
+        $compose = Composer::set(Arr::normalizeTrue($config));
 
-		$compose = $compose->has('media.add.all')->add('media.add.', [
-			'tabs',
-		]);
+        $compose = $compose->has('media.add.all')->add('media.add.', [
+            'tabs',
+        ]);
 
-		$compose = $compose->has('media.add.title')->add('media.add.title.', [
-			'menu', 'page',
-		]);
+        $compose = $compose->has('media.add.title')->add('media.add.title.', [
+            'menu', 'page',
+        ]);
 
-		$compose = $compose->has('media.add.tabs')->add('media.add.tabs.', [
-			'screen-options', 'help',
-		]);
+        $compose = $compose->has('media.add.tabs')->add('media.add.tabs.', [
+            'screen-options', 'help',
+        ]);
 
-		$this->config = $compose->get();
-		$this->hook();
-	}
+        $this->config = $compose->get();
+        $this->hook();
+    }
 
-	/**
-	 * Hook
-	 */
-	protected function hook()
-	{
-		$shared = SharedApi::set('media.add', $this->config);
-		$shared->router();
-		$shared->menu();
-		$shared->title();
-		$shared->tabs();
+    /**
+     * Hook
+     */
+    protected function hook()
+    {
+        $shared = SharedApi::set('media.add', $this->config);
+        $shared->router();
+        $shared->menu();
+        $shared->title();
+        $shared->tabs();
 
-		if ($this->config->has('media.add.add')) {
-			Title::set('media.add')->removeLink();
-		}
-	}
+        if ($this->config->has('media.add.add')) {
+            Title::set('media.add')->removeLink();
+        }
+    }
 }

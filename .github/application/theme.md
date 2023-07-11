@@ -8,7 +8,7 @@ Set application theme.
 <?php
 
 return [
-	'application.theme' => (string) $stylesheet,
+    'application.theme' => (string) $stylesheet,
 ];
 ```
 
@@ -22,7 +22,7 @@ return [
 <?php
 
 return [
-	'application.theme' => 'sage',
+    'application.theme' => 'sage',
 ];
 ```
 

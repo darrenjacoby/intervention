@@ -8,12 +8,12 @@ Update, remove or redirect the pages menu item.
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'pages',
-		'pages' => (string) $route,
-		'pages.title' => (string) $title,
-		'pages.icon' => (string) $dashicon,
-	],
+    'wp-admin.$role|$username' => [
+        'pages',
+        'pages' => (string) $route,
+        'pages.title' => (string) $title,
+        'pages.icon' => (string) $dashicon,
+    ],
 ];
 ```
 
@@ -30,9 +30,9 @@ Remove from menu;
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'pages',
-	],
+    'wp-admin.$role|$username' => [
+        'pages',
+    ],
 ];
 ```
 
@@ -42,9 +42,9 @@ Remove from menu and enforce a page redirect;
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'pages' => 'posts',
-	],
+    'wp-admin.$role|$username' => [
+        'pages' => 'posts',
+    ],
 ];
 ```
 

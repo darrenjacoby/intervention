@@ -24,46 +24,46 @@ use Jacoby\Intervention\Support\Str;
  */
 class Menus
 {
-	protected $config;
+    protected $config;
 
-	/**
-	 * Initialize
-	 *
-	 * @param array $config
-	 */
-	public function __construct($config = false)
-	{
-		$this->config = Composer::set(Arr::normalize($config))
-			->group('menus')
-			->get();
+    /**
+     * Initialize
+     *
+     * @param array $config
+     */
+    public function __construct($config = false)
+    {
+        $this->config = Composer::set(Arr::normalize($config))
+            ->group('menus')
+            ->get();
 
-		$this->hook();
-	}
+        $this->hook();
+    }
 
-	/**
-	 * Hook
-	 */
-	protected function hook()
-	{
-		add_action('init', [$this, 'options']);
-	}
+    /**
+     * Hook
+     */
+    protected function hook()
+    {
+        add_action('init', [$this, 'options']);
+    }
 
-	/**
-	 * Options
-	 */
-	public function options()
-	{
-		if (!$this->config) {
-			return;
-		}
+    /**
+     * Options
+     */
+    public function options()
+    {
+        if (!$this->config) {
+            return;
+        }
 
-		foreach ($this->config as $item => $value) {
-			if ($value === false) {
-				unregister_nav_menu($item);
-			} else {
-				$value = $value === true ? Str::studly($item) : $value;
-				register_nav_menu($item, $value);
-			}
-		}
-	}
+        foreach ($this->config as $item => $value) {
+            if ($value === false) {
+                unregister_nav_menu($item);
+            } else {
+                $value = $value === true ? Str::studly($item) : $value;
+                register_nav_menu($item, $value);
+            }
+        }
+    }
 }

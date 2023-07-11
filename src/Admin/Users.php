@@ -24,36 +24,36 @@ use Jacoby\Intervention\Support\Composer;
  */
 class Users
 {
-	/**
-	 * Initialize
-	 *
-	 * @param array $config
-	 */
-	public function __construct($config = false)
-	{
-		$compose = Composer::set(Arr::normalizeTrue($config));
+    /**
+     * Initialize
+     *
+     * @param array $config
+     */
+    public function __construct($config = false)
+    {
+        $compose = Composer::set(Arr::normalizeTrue($config));
 
-		$compose = $compose->has('users.title')->add('users.title.', [
-			'menu',
-		]);
+        $compose = $compose->has('users.title')->add('users.title.', [
+            'menu',
+        ]);
 
-		$this->config = $compose->get();
-		$this->hook();
-	}
+        $this->config = $compose->get();
+        $this->hook();
+    }
 
-	/**
-	 * Hook
-	 */
-	protected function hook()
-	{
-		$shared = SharedApi::set('users', $this->config);
-		$shared->router();
-		$shared->menu();
-		$shared->title();
-		$shared->icon();
+    /**
+     * Hook
+     */
+    protected function hook()
+    {
+        $shared = SharedApi::set('users', $this->config);
+        $shared->router();
+        $shared->menu();
+        $shared->title();
+        $shared->icon();
 
-		if ($this->config->get('users') === true) {
-			Menu::set('profile')->remove();
-		}
-	}
+        if ($this->config->get('users') === true) {
+            Menu::set('profile')->remove();
+        }
+    }
 }

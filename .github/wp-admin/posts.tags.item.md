@@ -11,15 +11,15 @@ Remove posts tags item components.
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'posts.tags.item',
-		'posts.tags.item' => (string) $route,
-		'posts.tags.item.title' => (string) $title,
-		'posts.tags.item.title.page' => (string) $title,
-		'posts.tags.item.slug',
-		'posts.tags.item.parent',
-		'posts.tags.item.description',
-	],
+    'wp-admin.$role|$username' => [
+        'posts.tags.item',
+        'posts.tags.item' => (string) $route,
+        'posts.tags.item.title' => (string) $title,
+        'posts.tags.item.title.page' => (string) $title,
+        'posts.tags.item.slug',
+        'posts.tags.item.parent',
+        'posts.tags.item.description',
+    ],
 ];
 ```
 
@@ -33,9 +33,9 @@ Remove from menu;
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'posts.tags.item',
-	],
+    'wp-admin.$role|$username' => [
+        'posts.tags.item',
+    ],
 ];
 ```
 
@@ -45,9 +45,9 @@ Remove from menu and enforce a page redirect;
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'posts.tags.item' => 'pages',
-	],
+    'wp-admin.$role|$username' => [
+        'posts.tags.item' => 'pages',
+    ],
 ];
 ```
 

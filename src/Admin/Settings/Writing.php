@@ -31,82 +31,82 @@ use Jacoby\Intervention\Support\Composer;
  */
 class Writing
 {
-	protected $config;
+    protected $config;
 
-	/**
-	 * Initialize
-	 *
-	 * @param array $config
-	 */
-	public function __construct($config = false)
-	{
-		$compose = Composer::set(Arr::normalizeTrue($config));
+    /**
+     * Initialize
+     *
+     * @param array $config
+     */
+    public function __construct($config = false)
+    {
+        $compose = Composer::set(Arr::normalizeTrue($config));
 
-		$compose = $compose->has('settings.writing.all')->add('settings.writing.', [
-			'tabs', 'default-category', 'default-post-format', 'post-via-email', 'update-services',
-		]);
+        $compose = $compose->has('settings.writing.all')->add('settings.writing.', [
+            'tabs', 'default-category', 'default-post-format', 'post-via-email', 'update-services',
+        ]);
 
-		$compose = $compose->has('settings.writing.title')->add('settings.writing.title.', [
-			'menu', 'page',
-		]);
+        $compose = $compose->has('settings.writing.title')->add('settings.writing.title.', [
+            'menu', 'page',
+        ]);
 
-		$compose = $compose->has('settings.writing.tabs')->add('settings.writing.tabs.', [
-			'screen-options', 'help',
-		]);
+        $compose = $compose->has('settings.writing.tabs')->add('settings.writing.tabs.', [
+            'screen-options', 'help',
+        ]);
 
-		$this->config = $compose->get();
-		$this->hook();
-	}
+        $this->config = $compose->get();
+        $this->hook();
+    }
 
-	/**
-	 * Hook
-	 */
-	protected function hook()
-	{
-		$shared = SharedApi::set('settings.writing', $this->config);
-		$shared->router();
-		$shared->menu();
-		$shared->title();
-		$shared->tabs();
+    /**
+     * Hook
+     */
+    protected function hook()
+    {
+        $shared = SharedApi::set('settings.writing', $this->config);
+        $shared->router();
+        $shared->menu();
+        $shared->title();
+        $shared->tabs();
 
-		add_action('admin_head-options-writing.php', [$this, 'head']);
-	}
+        add_action('admin_head-options-writing.php', [$this, 'head']);
+    }
 
-	/**
-	 * Head
-	 */
-	public function head()
-	{
-		if ($this->config->has('settings.writing.default-category') && $this->config->has('settings.writing.default-post-format')) {
-			echo '<script>jQuery(document).ready(function() {jQuery("#default_category").parents("table").remove()});</script>';
-		}
+    /**
+     * Head
+     */
+    public function head()
+    {
+        if ($this->config->has('settings.writing.default-category') && $this->config->has('settings.writing.default-post-format')) {
+            echo '<script>jQuery(document).ready(function() {jQuery("#default_category").parents("table").remove()});</script>';
+        }
 
-		if ($this->config->has('settings.writing.default-category')) {
-			echo '<script>jQuery(document).ready(function() {jQuery("#default_category").parents("tr").remove()});</script>';
-		}
+        if ($this->config->has('settings.writing.default-category')) {
+            echo '<script>jQuery(document).ready(function() {jQuery("#default_category").parents("tr").remove()});</script>';
+        }
 
-		if ($this->config->has('settings.writing.default-post-format')) {
-			echo '<script>jQuery(document).ready(function() {jQuery("#default_post_format").parents("tr").remove()});</script>';
-		}
+        if ($this->config->has('settings.writing.default-post-format')) {
+            echo '<script>jQuery(document).ready(function() {jQuery("#default_post_format").parents("tr").remove()});</script>';
+        }
 
-		if ($this->config->has('settings.writing.post-via-email')) {
-			echo '<script>
-				jQuery(document).ready(function() {
-					jQuery("#mailserver_url").parents("table").prev().prev().remove();
-					jQuery("#mailserver_url").parents("table").prev().remove();
-					jQuery("#mailserver_url").parents("table").remove()
-				});
-			</script>';
-		}
+        if ($this->config->has('settings.writing.post-via-email')) {
+            echo '<script>
+                jQuery(document).ready(function() {
+                    jQuery("#mailserver_url").parents("table").prev().prev().remove();
+                    jQuery("#mailserver_url").parents("table").prev().remove();
+                    jQuery("#mailserver_url").parents("table").remove()
+                });
+            </script>';
+        }
 
-		if ($this->config->has('settings.writing.update-services')) {
-			echo '<script>
-				jQuery(document).ready(function() {
-					jQuery("#ping_sites").prev().prev().remove();
-					jQuery("#ping_sites").prev().remove();
-					jQuery("#ping_sites").remove()
-				});
-			</script>';
-		}
-	}
+        if ($this->config->has('settings.writing.update-services')) {
+            echo '<script>
+                jQuery(document).ready(function() {
+                    jQuery("#ping_sites").prev().prev().remove();
+                    jQuery("#ping_sites").prev().remove();
+                    jQuery("#ping_sites").remove()
+                });
+            </script>';
+        }
+    }
 }

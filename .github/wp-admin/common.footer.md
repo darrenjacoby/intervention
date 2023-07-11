@@ -10,12 +10,12 @@ Remove wp-admin footer components.
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'common.footer',
-		'common.footer.credit',
-		'common.footer.credit' => (string) $credit,
-		'common.footer.version',
-	],
+    'wp-admin.$role|$username' => [
+        'common.footer',
+        'common.footer.credit',
+        'common.footer.credit' => (string) $credit,
+        'common.footer.version',
+    ],
 ];
 ```
 
@@ -27,9 +27,9 @@ Remove all;
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'common.footer',
-	],
+    'wp-admin.$role|$username' => [
+        'common.footer',
+    ],
 ];
 ```
 

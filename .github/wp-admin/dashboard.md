@@ -8,12 +8,12 @@ Update, remove or redirect the dashboard menu item.
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'dashboard',
-		'dashboard' => (string) $route,
-		'dashboard.title' => (string) $title,
-		'dashboard.icon' => (string) $dashicon,
-	],
+    'wp-admin.$role|$username' => [
+        'dashboard',
+        'dashboard' => (string) $route,
+        'dashboard.title' => (string) $title,
+        'dashboard.icon' => (string) $dashicon,
+    ],
 ];
 ```
 
@@ -28,9 +28,9 @@ Remove from menu;
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'dashboard',
-	],
+    'wp-admin.$role|$username' => [
+        'dashboard',
+    ],
 ];
 ```
 
@@ -40,9 +40,9 @@ Remove from menu and enforce a page redirect;
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'dashboard' => 'posts',
-	],
+    'wp-admin.$role|$username' => [
+        'dashboard' => 'posts',
+    ],
 ];
 ```
 

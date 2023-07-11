@@ -11,18 +11,18 @@ Remove settings writing components.
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'settings.writing',
-		'settings.writing' => (string) $route,
-		'settings.writing.title' => (string) $title,
-		'settings.writing.title.[menu, page]' => (string) $title,
-		'settings.writing.tabs',
-		'settings.writing.tabs.[screen-options, help]',
-		'settings.writing.default-category',
-		'settings.writing.default-post-format',
-		'settings.writing.post-via-email',
-		'settings.writing.update-services',
-	],
+    'wp-admin.$role|$username' => [
+        'settings.writing',
+        'settings.writing' => (string) $route,
+        'settings.writing.title' => (string) $title,
+        'settings.writing.title.[menu, page]' => (string) $title,
+        'settings.writing.tabs',
+        'settings.writing.tabs.[screen-options, help]',
+        'settings.writing.default-category',
+        'settings.writing.default-post-format',
+        'settings.writing.post-via-email',
+        'settings.writing.update-services',
+    ],
 ];
 ```
 
@@ -36,9 +36,9 @@ Remove from menu;
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'settings.writing',
-	],
+    'wp-admin.$role|$username' => [
+        'settings.writing',
+    ],
 ];
 ```
 
@@ -48,9 +48,9 @@ Remove from menu and enforce a page redirect;
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'settings.writing' => 'posts',
-	],
+    'wp-admin.$role|$username' => [
+        'settings.writing' => 'posts',
+    ],
 ];
 ```
 

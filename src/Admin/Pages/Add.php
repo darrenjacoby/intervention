@@ -54,66 +54,66 @@ use Jacoby\Intervention\Support\Composer;
  */
 class Add
 {
-	protected $config;
-	protected $editor;
+    protected $config;
+    protected $editor;
 
-	/**
-	 * Initialize
-	 *
-	 * @param array $config
-	 */
-	public function __construct($config = false)
-	{
-		$compose = Composer::set(Arr::normalizeTrue($config));
+    /**
+     * Initialize
+     *
+     * @param array $config
+     */
+    public function __construct($config = false)
+    {
+        $compose = Composer::set(Arr::normalizeTrue($config));
 
-		$compose = $compose->has('pages.add')->add('pages.add.', [
-			'all',
-		]);
+        $compose = $compose->has('pages.add')->add('pages.add.', [
+            'all',
+        ]);
 
-		$compose = $compose->has('pages.add.all')->add('pages.add.', [
-			'tabs',
-			'editor',
-			'author',
-			'custom-fields',
-			'editor',
-			'discussion',
-			'attributes',
-			'link',
-			'featured-image',
-		]);
+        $compose = $compose->has('pages.add.all')->add('pages.add.', [
+            'tabs',
+            'editor',
+            'author',
+            'custom-fields',
+            'editor',
+            'discussion',
+            'attributes',
+            'link',
+            'featured-image',
+        ]);
 
-		$compose = $compose->has('pages.add.tabs')->add('pages.add.tabs.', [
-			'screen-options', 'help',
-		]);
+        $compose = $compose->has('pages.add.tabs')->add('pages.add.tabs.', [
+            'screen-options', 'help',
+        ]);
 
-		$this->config = $compose->get();
+        $this->config = $compose->get();
 
-		$this->editor = Composer::set($this->config)
-			->group('pages.add')
-			->get()
-			->keys()
-			->toArray();
+        $this->editor = Composer::set($this->config)
+            ->group('pages.add')
+            ->get()
+            ->keys()
+            ->toArray();
 
-		$this->hook();
-	}
+        $this->hook();
+    }
 
-	/**
-	 * Hook
-	 */
-	protected function hook()
-	{
-		$shared = SharedApi::set('pages.add', $this->config);
-		$shared->router();
-		$shared->menu();
+    /**
+     * Hook
+     */
+    protected function hook()
+    {
+        $shared = SharedApi::set('pages.add', $this->config);
+        $shared->router();
+        $shared->menu();
 
-		if ($GLOBALS['pagenow'] !== 'post-new.php') {
-			return;
-		}
+        if ($GLOBALS['pagenow'] !== 'post-new.php') {
+            return;
+        }
 
-		$shared->title();
-		$shared->tabs();
+        $shared->title();
+        $shared->tabs();
 
-		BlockEditor::set($this->editor);
-		PostComponents::set(['page'])->remove($this->editor);
-	}
+        BlockEditor::set($this->editor);
+        PostComponents::set(['page'])->remove($this->editor);
+    }
 }

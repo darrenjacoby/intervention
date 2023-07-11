@@ -33,79 +33,79 @@ use Jacoby\Intervention\Support\Composer;
  */
 class Reading
 {
-	protected $config;
+    protected $config;
 
-	/**
-	 * Initialize
-	 *
-	 * @param array $config
-	 */
-	public function __construct($config = false)
-	{
-		$compose = Composer::set(Arr::normalizeTrue($config));
+    /**
+     * Initialize
+     *
+     * @param array $config
+     */
+    public function __construct($config = false)
+    {
+        $compose = Composer::set(Arr::normalizeTrue($config));
 
-		$compose = $compose->has('settings.reading.all')->add('settings.reading.', [
-			'tabs', 'front-page', 'posts-per-page', 'posts-per-rss', 'rss-excerpt', 'discourage-search',
-		]);
+        $compose = $compose->has('settings.reading.all')->add('settings.reading.', [
+            'tabs', 'front-page', 'posts-per-page', 'posts-per-rss', 'rss-excerpt', 'discourage-search',
+        ]);
 
-		$compose = $compose->has('settings.reading.title')->add('settings.reading.title.', [
-			'menu', 'page',
-		]);
+        $compose = $compose->has('settings.reading.title')->add('settings.reading.title.', [
+            'menu', 'page',
+        ]);
 
-		$compose = $compose->has('settings.reading.tabs')->add('settings.reading.tabs.', [
-			'screen-options', 'help',
-		]);
+        $compose = $compose->has('settings.reading.tabs')->add('settings.reading.tabs.', [
+            'screen-options', 'help',
+        ]);
 
-		$this->config = $compose->get();
-		$this->hook();
-	}
+        $this->config = $compose->get();
+        $this->hook();
+    }
 
-	/**
-	 * Hook
-	 */
-	protected function hook()
-	{
-		$shared = SharedApi::set('settings.reading', $this->config);
-		$shared->router();
-		$shared->menu();
-		$shared->title();
-		$shared->tabs();
+    /**
+     * Hook
+     */
+    protected function hook()
+    {
+        $shared = SharedApi::set('settings.reading', $this->config);
+        $shared->router();
+        $shared->menu();
+        $shared->title();
+        $shared->tabs();
 
-		add_action('admin_head-options-reading.php', [$this, 'head']);
-	}
+        add_action('admin_head-options-reading.php', [$this, 'head']);
+    }
 
-	/**
-	 * Head
-	 */
-	public function head()
-	{
-		if ($this->config->has('settings.reading.front-page')) {
-			echo '<script>jQuery(document).ready(function() {jQuery("#front-static-pages").parents("tr").remove()});</script>';
-		}
+    /**
+     * Head
+     */
+    public function head()
+    {
+        if ($this->config->has('settings.reading.front-page')) {
+            echo '<script>jQuery(document).ready(function() {jQuery("#front-static-pages").parents("tr").remove()});</script>';
+        }
 
-		if ($this->config->has('settings.reading.front-page.posts')) {
-			echo '<script>
-				jQuery(document).ready(function() {
-					jQuery("#front-static-pages input[value=posts").parents("p").remove();
-					jQuery("#front-static-pages label[for=page_for_posts").parents("li").remove();
-				});
-			</script>';
-		}
+        if ($this->config->has('settings.reading.front-page.posts')) {
+            echo '<script>
+                jQuery(document).ready(function() {
+                    jQuery("#front-static-pages input[value=posts").parents("p").remove();
+                    jQuery("#front-static-pages label[for=page_for_posts").parents("li").remove();
+                });
+            </script>';
+        }
 
-		if ($this->config->has('settings.reading.posts-per-page')) {
-			echo '<script>jQuery(document).ready(function() {jQuery("#posts_per_page").parents("tr").remove()});</script>';
-		}
+        if ($this->config->has('settings.reading.posts-per-page')) {
+            echo '<script>jQuery(document).ready(function() {jQuery("#posts_per_page").parents("tr").remove()});</script>';
+        }
 
-		if ($this->config->has('settings.reading.posts-per-rss')) {
-			echo '<script>jQuery(document).ready(function() {jQuery("#posts_per_rss").parents("tr").remove()});</script>';
-		}
+        if ($this->config->has('settings.reading.posts-per-rss')) {
+            echo '<script>jQuery(document).ready(function() {jQuery("#posts_per_rss").parents("tr").remove()});</script>';
+        }
 
-		if ($this->config->has('settings.reading.rss-excerpt')) {
-			echo '<script>jQuery(document).ready(function() {jQuery("input[name=rss_use_excerpt]").parents("tr").remove()});</script>';
-		}
+        if ($this->config->has('settings.reading.rss-excerpt')) {
+            echo '<script>jQuery(document).ready(function() {jQuery("input[name=rss_use_excerpt]").parents("tr").remove()});</script>';
+        }
 
-		if ($this->config->has('settings.reading.discourage-search')) {
-			echo '<script>jQuery(document).ready(function() {jQuery("#blog_public").parents("tr").remove()});</script>';
-		}
-	}
+        if ($this->config->has('settings.reading.discourage-search')) {
+            echo '<script>jQuery(document).ready(function() {jQuery("#blog_public").parents("tr").remove()});</script>';
+        }
+    }
 }

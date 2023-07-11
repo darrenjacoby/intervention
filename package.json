@@ -1,57 +1,57 @@
 {
-	"name": "intervention",
-	"version": "2.0.0-rc.5",
-	"description": "Easily customize wp-admin and configure application options.",
-	"main": "index.js",
-	"scripts": {
-		"build": "mix",
-		"build:production": "mix --production",
-		"start": "mix watch",
-		"test": "npm run lint",
-		"lint": "npm run lint:js && npm run lint:css",
-		"lint:js": "eslint resources/scripts",
-		"lint:css": "stylelint \"resources/**/*.css\""
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/darrenjacoby/intervention.git"
-	},
-	"keywords": [
-		"wordpress",
-		"wordpress-plugin",
-		"wp-admin"
-	],
-	"author": "Darren Jacoby",
-	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/darrenjacoby/intervention/issues"
-	},
-	"homepage": "https://github.com/darrenjacoby/intervention#readme",
-	"devDependencies": {
-		"@wordpress/babel-plugin-makepot": "^5.21.0",
-		"@wordpress/babel-preset-default": "^7.21.0",
-		"@wordpress/dependency-extraction-webpack-plugin": "^4.20.0",
-		"eslint": "^8.44.0",
-		"eslint-plugin-react": "^7.32.2",
-		"eslint-webpack-plugin": "^4.0.1",
-		"laravel-mix": "^6.0.49",
-		"laravel-mix-tailwind": "^0.1.2",
-		"postcss": "^8.4.25",
-		"postcss-import": "^15.1.0",
-		"postcss-preset-env": "^9.0.0",
-		"stylelint": "^15.10.1",
-		"stylelint-config-rational-order": "^0.1.2",
-		"stylelint-config-standard": "^34.0.0",
-		"stylelint-order": "^6.0.3",
-		"stylelint-webpack-plugin": "^4.1.1"
-	},
-	"dependencies": {
-		"deep-object-diff": "^1.1.9",
-		"jotai": "^2.2.2",
-		"prismjs": "^1.29.0",
-		"react-copy-to-clipboard": "^5.1.0",
-		"react-query": "^3.39.3",
-		"react-router-dom": "^6.14.1",
-		"tailwindcss": "^3.3.2"
-	}
+  "name": "intervention",
+  "version": "2.0.0-rc.5",
+  "description": "Easily customize wp-admin and configure application options.",
+  "main": "index.js",
+  "scripts": {
+    "build": "mix",
+    "build:production": "mix --production",
+    "start": "mix watch",
+    "test": "npm run lint",
+    "lint": "npm run lint:js && npm run lint:css",
+    "lint:js": "eslint resources/scripts",
+    "lint:css": "stylelint \"resources/**/*.css\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/darrenjacoby/intervention.git"
+  },
+  "keywords": [
+    "wordpress",
+    "wordpress-plugin",
+    "wp-admin"
+  ],
+  "author": "Darren Jacoby",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/darrenjacoby/intervention/issues"
+  },
+  "homepage": "https://github.com/darrenjacoby/intervention#readme",
+  "devDependencies": {
+    "@wordpress/babel-plugin-makepot": "^5.21.0",
+    "@wordpress/babel-preset-default": "^7.21.0",
+    "@wordpress/dependency-extraction-webpack-plugin": "^4.20.0",
+    "eslint": "^8.44.0",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-webpack-plugin": "^4.0.1",
+    "laravel-mix": "^6.0.49",
+    "laravel-mix-tailwind": "^0.1.2",
+    "postcss": "^8.4.25",
+    "postcss-import": "^15.1.0",
+    "postcss-preset-env": "^9.0.0",
+    "stylelint": "^15.10.1",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-standard": "^34.0.0",
+    "stylelint-order": "^6.0.3",
+    "stylelint-webpack-plugin": "^4.1.1"
+  },
+  "dependencies": {
+    "deep-object-diff": "^1.1.9",
+    "jotai": "^2.2.2",
+    "prismjs": "^1.29.0",
+    "react-copy-to-clipboard": "^5.1.0",
+    "react-query": "^3.39.3",
+    "react-router-dom": "^6.14.1",
+    "tailwindcss": "^3.3.2"
+  }
 }

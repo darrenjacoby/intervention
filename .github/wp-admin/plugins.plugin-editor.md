@@ -11,14 +11,14 @@ Remove wp-admin plugin editor components.
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'plugins.plugin-editor',
-		'plugins.plugin-editor' => (string) $route,
-		'plugins.plugin-editor.title' => (string) $title,
-		'plugins.plugin-editor.title.[menu, page]' => (string) $title,
-		'plugins.plugin-editor.tabs',
-		'plugins.plugin-editor.tabs.[screen-options, help]',
-	],
+    'wp-admin.$role|$username' => [
+        'plugins.plugin-editor',
+        'plugins.plugin-editor' => (string) $route,
+        'plugins.plugin-editor.title' => (string) $title,
+        'plugins.plugin-editor.title.[menu, page]' => (string) $title,
+        'plugins.plugin-editor.tabs',
+        'plugins.plugin-editor.tabs.[screen-options, help]',
+    ],
 ];
 ```
 
@@ -32,9 +32,9 @@ Remove from menu;
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'plugins.plugin-editor',
-	],
+    'wp-admin.$role|$username' => [
+        'plugins.plugin-editor',
+    ],
 ];
 ```
 
@@ -44,9 +44,9 @@ Remove from menu and enforce a page redirect;
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'plugins.plugin-editor' => 'posts',
-	],
+    'wp-admin.$role|$username' => [
+        'plugins.plugin-editor' => 'posts',
+    ],
 ];
 ```
 

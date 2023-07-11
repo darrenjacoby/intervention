@@ -8,9 +8,9 @@ Remove wp-admin update notices.
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'common.updates'
-	],
+    'wp-admin.$role|$username' => [
+        'common.updates'
+    ],
 ];
 ```
 

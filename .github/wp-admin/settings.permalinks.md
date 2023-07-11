@@ -11,17 +11,17 @@ Remove settings permalinks components.
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'settings.permalinks',
-		'settings.permalinks' => (string) $route,
-		'settings.permalinks.title' => (string) $title,
-		'settings.permalinks.title.[menu, page]' => (string) $title,
-		'settings.permalinks.tabs',
-		'settings.permalinks.tabs.[screen-options, help]',
-		'settings.permalinks.common',
-		'settings.permalinks.optional',
-		'settings.permalinks.optional.[category, tag]',
-	],
+    'wp-admin.$role|$username' => [
+        'settings.permalinks',
+        'settings.permalinks' => (string) $route,
+        'settings.permalinks.title' => (string) $title,
+        'settings.permalinks.title.[menu, page]' => (string) $title,
+        'settings.permalinks.tabs',
+        'settings.permalinks.tabs.[screen-options, help]',
+        'settings.permalinks.common',
+        'settings.permalinks.optional',
+        'settings.permalinks.optional.[category, tag]',
+    ],
 ];
 ```
 
@@ -35,9 +35,9 @@ Remove from menu;
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'settings.permalinks',
-	],
+    'wp-admin.$role|$username' => [
+        'settings.permalinks',
+    ],
 ];
 ```
 
@@ -47,9 +47,9 @@ Remove from menu and enforce a page redirect;
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'settings.permalinks' => 'posts',
-	],
+    'wp-admin.$role|$username' => [
+        'settings.permalinks' => 'posts',
+    ],
 ];
 ```
 

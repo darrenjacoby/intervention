@@ -8,9 +8,9 @@ Change wp-admin all/index item pagination.
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'common.all.pagination' => (int) $pagination,
-	],
+    'wp-admin.$role|$username' => [
+        'common.all.pagination' => (int) $pagination,
+    ],
 ];
 ```
 

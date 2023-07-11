@@ -12,24 +12,24 @@ import { __ } from '../../utils/wp';
  * @returns <ButtonCopy />
  */
 const ButtonCopy = ({ textToCopy }) => {
-	const [copied, setCopied] = useState(__('Copy'));
+  const [copied, setCopied] = useState(__('Copy'));
 
-	/**
-	 * Effects
-	 */
-	useEffect(() => {
-		const timer = setTimeout(() => setCopied(__('Copy')), 5000);
-		return () => clearTimeout(timer);
-	}, [copied]);
+  /**
+   * Effects
+   */
+  useEffect(() => {
+    const timer = setTimeout(() => setCopied(__('Copy')), 5000);
+    return () => clearTimeout(timer);
+  }, [copied]);
 
-	/**
-	 * Render
-	 */
-	return (
-		<CopyToClipboard text={textToCopy} onCopy={() => setCopied(__('Copied'))}>
-			<Button className="is-secondary">{copied}</Button>
-		</CopyToClipboard>
-	);
+  /**
+   * Render
+   */
+  return (
+    <CopyToClipboard text={textToCopy} onCopy={() => setCopied(__('Copied'))}>
+      <Button className="is-secondary">{copied}</Button>
+    </CopyToClipboard>
+  );
 };
 
 export { ButtonCopy };

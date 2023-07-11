@@ -8,12 +8,12 @@ Update, remove or redirect the tools menu item.
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'tools',
-		'tools' => (string) $route,
-		'tools.title' => (string) $title,
-		'tools.icon' => (string) $dashicon,
-	],
+    'wp-admin.$role|$username' => [
+        'tools',
+        'tools' => (string) $route,
+        'tools.title' => (string) $title,
+        'tools.icon' => (string) $dashicon,
+    ],
 ];
 ```
 
@@ -28,9 +28,9 @@ Remove from menu;
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'tools',
-	],
+    'wp-admin.$role|$username' => [
+        'tools',
+    ],
 ];
 ```
 
@@ -40,9 +40,9 @@ Remove from menu and enforce a page redirect;
 <?php
 
 return [
-	'wp-admin.$role|$username' => [
-		'tools' => 'posts',
-	],
+    'wp-admin.$role|$username' => [
+        'tools' => 'posts',
+    ],
 ];
 ```
 

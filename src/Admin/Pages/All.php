@@ -45,109 +45,109 @@ use Jacoby\Intervention\Support\Composer;
  */
 class All
 {
-	protected $config;
+    protected $config;
 
-	/**
-	 * Initialize
-	 *
-	 * @param array $config
-	 */
-	public function __construct($config = false)
-	{
-		$compose = Composer::set(Arr::normalizeTrue($config));
+    /**
+     * Initialize
+     *
+     * @param array $config
+     */
+    public function __construct($config = false)
+    {
+        $compose = Composer::set(Arr::normalizeTrue($config));
 
-		$compose = $compose->has('pages.all.all')->add('pages.all.', [
-			'title-link', 'tabs', 'pagination', 'search', 'subsets', 'actions', 'filter', 'list',
-		]);
+        $compose = $compose->has('pages.all.all')->add('pages.all.', [
+            'title-link', 'tabs', 'pagination', 'search', 'subsets', 'actions', 'filter', 'list',
+        ]);
 
-		$compose = $compose->has('pages.all.title')->add('pages.all.title.', [
-			'menu', 'page',
-		]);
+        $compose = $compose->has('pages.all.title')->add('pages.all.title.', [
+            'menu', 'page',
+        ]);
 
-		$compose = $compose->has('pages.all.tabs')->add('pages.all.tabs.', [
-			'screen-options', 'help',
-		]);
+        $compose = $compose->has('pages.all.tabs')->add('pages.all.tabs.', [
+            'screen-options', 'help',
+        ]);
 
-		$compose = $compose->has('pages.all.actions')->add('pages.all.actions.', [
-			'bulk',
-		]);
+        $compose = $compose->has('pages.all.actions')->add('pages.all.actions.', [
+            'bulk',
+        ]);
 
-		$compose = $compose->has('pages.all.filter')->add('pages.all.filter.', [
-			'date',
-		]);
+        $compose = $compose->has('pages.all.filter')->add('pages.all.filter.', [
+            'date',
+        ]);
 
-		$compose = $compose->has('pages.all.list')->add('pages.all.list.', [
-			'cols', 'actions', 'count',
-		]);
+        $compose = $compose->has('pages.all.list')->add('pages.all.list.', [
+            'cols', 'actions', 'count',
+        ]);
 
-		$compose = $compose->has('pages.all.list.cols')->add('pages.all.list.cols.', [
-			'author', 'comments', 'date',
-		]);
+        $compose = $compose->has('pages.all.list.cols')->add('pages.all.list.cols.', [
+            'author', 'comments', 'date',
+        ]);
 
-		$compose = $compose->has('pages.all.list.actions.quick-edit')->add('pages.all.list.actions.', [
-			'inline hide-if-no-js',
-		]);
+        $compose = $compose->has('pages.all.list.actions.quick-edit')->add('pages.all.list.actions.', [
+            'inline hide-if-no-js',
+        ]);
 
-		$compose = $compose->has('pages.all.subsets.published')->add('pages.all.subsets.', [
-			'publish',
-		]);
+        $compose = $compose->has('pages.all.subsets.published')->add('pages.all.subsets.', [
+            'publish',
+        ]);
 
-		$compose = $compose->has('pages.all.subsets.scheduled')->add('pages.all.subsets.', [
-			'future',
-		]);
+        $compose = $compose->has('pages.all.subsets.scheduled')->add('pages.all.subsets.', [
+            'future',
+        ]);
 
-		$this->config = $compose->get();
-		$this->hook();
-	}
+        $this->config = $compose->get();
+        $this->hook();
+    }
 
-	/**
-	 * Hook
-	 */
-	protected function hook()
-	{
-		$shared = SharedApi::set('pages.all', $this->config);
-		$shared->router();
-		$shared->menu();
+    /**
+     * Hook
+     */
+    protected function hook()
+    {
+        $shared = SharedApi::set('pages.all', $this->config);
+        $shared->router();
+        $shared->menu();
 
-		if (!isset($_GET['post_type'])) {
-			return;
-		}
+        if (!isset($_GET['post_type'])) {
+            return;
+        }
 
-		if ($_GET['post_type'] !== 'page') {
-			return;
-		}
+        if ($_GET['post_type'] !== 'page') {
+            return;
+        }
 
-		$checkbox = $this->config->has('pages.all.actions') || $this->config->has('pages.all.actions.bulk');
-		$shared->title();
-		$shared->tabs();
-		$shared->pagination();
-		$shared->search();
-		$shared->subsets();
-		$shared->actionBulk();
-		$shared->lists($checkbox);
+        $checkbox = $this->config->has('pages.all.actions') || $this->config->has('pages.all.actions.bulk');
+        $shared->title();
+        $shared->tabs();
+        $shared->pagination();
+        $shared->search();
+        $shared->subsets();
+        $shared->actionBulk();
+        $shared->lists($checkbox);
 
-		if ($this->config->has('pages.all.filter.date')) {
-			add_filter('disable_months_dropdown', '__return_true', 10, 2);
-		}
+        if ($this->config->has('pages.all.filter.date')) {
+            add_filter('disable_months_dropdown', '__return_true', 10, 2);
+        }
 
-		add_action('admin_head-edit.php', [$this, 'head']);
-	}
+        add_action('admin_head-edit.php', [$this, 'head']);
+    }
 
-	/**
-	 * Head
-	 */
-	public function head()
-	{
-		if ($this->config->has('pages.all.filter.date')) {
-			echo '<style>.edit-php #filter-by-date {display: none;}</style>';
-		}
+    /**
+     * Head
+     */
+    public function head()
+    {
+        if ($this->config->has('pages.all.filter.date')) {
+            echo '<style>.edit-php #filter-by-date {display: none;}</style>';
+        }
 
-		if ($this->config->has('pages.all.filter.category')) {
-			echo '<style>.edit-php #cat {display: none;}</style>';
-		}
+        if ($this->config->has('pages.all.filter.category')) {
+            echo '<style>.edit-php #cat {display: none;}</style>';
+        }
 
-		if ($this->config->has('pages.all.filter.date') && $this->config->has('pages.all.filter.category')) {
-			echo '<style>.edit-php #post-query-submit {display: none;}</style>';
-		}
-	}
+        if ($this->config->has('pages.all.filter.date') && $this->config->has('pages.all.filter.category')) {
+            echo '<style>.edit-php #post-query-submit {display: none;}</style>';
+        }
+    }
 }

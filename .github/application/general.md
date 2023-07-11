@@ -8,23 +8,23 @@ Set application general options.
 <?php
 
 return [
-	'application.general' => [
-		'site-title' => (string) $title,
-		'tagline' => (string) $tagline,
-		'wp-address' => (string) $wp_url,
-		'site-address' => (string) $site_url,
-		'admin-email' => (string) $admin_email,
-		'admin-email.verification' => (boolean|int) $verification,
-		'email-from' => (string) $email_from,
-		'email-from-name' => (string) $email_from_name,
-		'membership' => (boolean) $enable_membership,
-		'default-role' => (string) $role,
-		'language' => (string) $language,
-		'timezone' => (string) $timezone,
-		'date-format' => (string) $date_format,
-		'time-format' => (string) $time_format,
-		'week-starts' => (string) $week_starts,
-	],
+    'application.general' => [
+        'site-title' => (string) $title,
+        'tagline' => (string) $tagline,
+        'wp-address' => (string) $wp_url,
+        'site-address' => (string) $site_url,
+        'admin-email' => (string) $admin_email,
+        'admin-email.verification' => (boolean|int) $verification,
+        'email-from' => (string) $email_from,
+        'email-from-name' => (string) $email_from_name,
+        'membership' => (boolean) $enable_membership,
+        'default-role' => (string) $role,
+        'language' => (string) $language,
+        'timezone' => (string) $timezone,
+        'date-format' => (string) $date_format,
+        'time-format' => (string) $time_format,
+        'week-starts' => (string) $week_starts,
+    ],
 ];
 ```
 
@@ -34,23 +34,23 @@ return [
 <?php
 
 return [
-	'application.general' => [
-		'site-title' => 'example',
-		'tagline' => 'Intervention Example',
-		'wp-address' => 'https://example.com/wp',
-		'site-address' => 'https://example.com',
-		'admin-email' => 'example@example.com',
-		'admin-email.verification' => 6 * MONTH_IN_SECONDS,
-		'email-from' => 'app@example.com'
-		'email-from-name' => 'example'
-		'membership' => true,
-		'default-role' => 'editor',
-		'language' => 'en_US',
-		'timezone' => 'Africa/Johannesburg',
-		'date-format' => 'F j Y',
-		'time-format' => 'g:i a',
-		'week-starts' => 'Mon',
-	],
+    'application.general' => [
+        'site-title' => 'example',
+        'tagline' => 'Intervention Example',
+        'wp-address' => 'https://example.com/wp',
+        'site-address' => 'https://example.com',
+        'admin-email' => 'example@example.com',
+        'admin-email.verification' => 6 * MONTH_IN_SECONDS,
+        'email-from' => 'app@example.com'
+        'email-from-name' => 'example'
+        'membership' => true,
+        'default-role' => 'editor',
+        'language' => 'en_US',
+        'timezone' => 'Africa/Johannesburg',
+        'date-format' => 'F j Y',
+        'time-format' => 'g:i a',
+        'week-starts' => 'Mon',
+    ],
 ];
 ```
 
@@ -61,15 +61,15 @@ The language must be installed and available in order for `'language' => (string
 ### Further Reading;
 
 - **Option Reference**
-- [https://codex.wordpress.org/Option_Reference#General](https://codex.wordpress.org/Option_Reference#Reading)
+  - [https://codex.wordpress.org/Option_Reference#General](https://codex.wordpress.org/Option_Reference#Reading)
 - `general.timezone`
-- [WordPress accepted timezones gist](https://gist.github.com/mj1856/f0eaa302d56cd7b3dd3e)
+  - [WordPress accepted timezones gist](https://gist.github.com/mj1856/f0eaa302d56cd7b3dd3e)
 - `general.date-format`
-- [https://www.php.net/manual/en/datetime.formats.date.php](https://www.php.net/manual/en/datetime.formats.date.php)
+  - [https://www.php.net/manual/en/datetime.formats.date.php](https://www.php.net/manual/en/datetime.formats.date.php)
 - `general.time-format`
-- [https://www.php.net/manual/en/datetime.formats.time.php](https://www.php.net/manual/en/datetime.formats.time.php)
+  - [https://www.php.net/manual/en/datetime.formats.time.php](https://www.php.net/manual/en/datetime.formats.time.php)
 - `general.week-starts`
-- [https://www.php.net/manual/en/datetime.formats.relative.php](https://www.php.net/manual/en/datetime.formats.relative.php)
+  - [https://www.php.net/manual/en/datetime.formats.relative.php](https://www.php.net/manual/en/datetime.formats.relative.php)
 
 ### Bug?
 
