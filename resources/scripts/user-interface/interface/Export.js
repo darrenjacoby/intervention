@@ -1,6 +1,7 @@
 import { useQuery } from 'react-query';
 import { useState, useEffect } from '@wordpress/element';
 import { CheckboxControl } from '@wordpress/components';
+import apiFetch from '@wordpress/api-fetch';
 import { Page } from './Page/Page';
 import { Toolbar, ToolbarTitle } from './Page/Toolbar';
 import {
@@ -11,11 +12,43 @@ import {
 } from './Page/Sidebar';
 import { ButtonCopy } from './Export/ButtonCopy';
 import { CodeBlock } from './Export/CodeBlock';
-import { exportQuery } from '../queries';
-import { exportSessionStorage } from '../sessions';
 import { __ } from '../utils/wp';
 
 const staticExports = intervention.route.export.data;
+
+/**
+ * Session Fn
+ *
+ * @description write/read session storage for `intervention-export-selection`.
+ *
+ * @param {array} write
+ * @returns {null|array}
+ */
+const sessionFn = (write = false) => {
+  const key = 'intervention-export-selection';
+
+  if (write !== false) {
+    sessionStorage.setItem(key, JSON.stringify(write));
+    return;
+  }
+
+  return JSON.parse(sessionStorage.getItem(key));
+};
+
+/**
+ * Query Fn
+ *
+ * @description query Intervention and WordPress data.
+ *
+ * @returns {object}
+ */
+const queryFn = async () => {
+  return await apiFetch({
+    url: intervention.route.export.url,
+    method: 'POST',
+    data: { selected: sessionFn() },
+  });
+};
 
 /**
  * State Factory
@@ -72,12 +105,12 @@ const Export = () => {
   /**
    * Query
    */
-  const query = useQuery('export', exportQuery, {
+  const query = useQuery('export', queryFn, {
     suspense: true,
   });
 
   const applicationKeys = Object.keys(stateFactory(staticExports.application));
-  const session = exportSessionStorage() || applicationKeys;
+  const session = sessionFn() || applicationKeys;
 
   /**
    * State
@@ -93,7 +126,7 @@ const Export = () => {
    */
   useEffect(() => {
     const selected = getKeysEqualToTrue(application);
-    exportSessionStorage(selected);
+    sessionFn(selected);
     query.refetch();
   }, [application]);
 
@@ -173,4 +206,4 @@ const Export = () => {
   );
 };
 
-export { Export };
+export { Export, queryFn };

@@ -3,10 +3,9 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import { Suspense } from '@wordpress/element';
 import { Head } from './Head';
-import { Export } from './Export';
-import { Import } from './Import';
+import { Export, queryFn as exportQueryFn } from './Export';
+import { Import, queryFn as importQueryFn } from './Import';
 import { Loader } from './Page/Loader';
-import { importQuery, exportQuery } from '../queries';
 
 /**
  * Query
@@ -43,8 +42,8 @@ const App = () => {
    * @description prefetch queries for WordPress data.
    */
   const prefetch = async () => {
-    await queryClient.prefetchQuery('import', importQuery);
-    await queryClient.prefetchQuery('export', exportQuery);
+    await queryClient.prefetchQuery('import', importQueryFn);
+    await queryClient.prefetchQuery('export', exportQueryFn);
   };
   prefetch();
 

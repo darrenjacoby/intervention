@@ -1,8 +1,8 @@
 import { useQuery, useMutation } from 'react-query';
 import { useState, useEffect } from '@wordpress/element';
 import { RadioControl, Button } from '@wordpress/components';
-import apiFetch from '@wordpress/api-fetch';
 import { sprintf } from '@wordpress/i18n';
+import apiFetch from '@wordpress/api-fetch';
 import { Page } from './Page/Page';
 import {
   Toolbar,
@@ -21,10 +21,41 @@ import {
   RowValueFromTo,
 } from './Import/Row';
 import { __ } from '../utils/wp';
-import { importQuery } from '../queries';
-import { importSessionStorage } from '../sessions';
 
 apiFetch.use(apiFetch.createNonceMiddleware(intervention.nonce));
+
+/**
+ * Session Fn
+ *
+ * @description write/read session storage for `intervention-import-show`.
+ *
+ * @param {string} write
+ * @returns {null|string}
+ */
+const sessionFn = (write = false) => {
+  const key = 'intervention-import-show';
+
+  if (write !== false) {
+    sessionStorage.setItem(key, write);
+    return;
+  }
+
+  return sessionStorage.getItem(key);
+};
+
+/**
+ * Query Fn
+ *
+ * @description query Intervention and WordPress data.
+ *
+ * @returns {object}
+ */
+const queryFn = async () => {
+  return await apiFetch({
+    url: intervention.route.import.url,
+    method: 'POST',
+  });
+};
 
 /**
  * Import
@@ -37,14 +68,14 @@ const Import = () => {
   /**
    * Query
    */
-  const query = useQuery('import', importQuery, {
+  const query = useQuery('import', queryFn, {
     suspense: true,
   });
 
   /**
    * State
    */
-  const session = importSessionStorage();
+  const session = sessionFn();
   const [show, setShow] = useState(session ? session : 'all');
   const [data, setData] = useState(query.data.items);
   const [diff, setDiff] = useState(query.data.diff);
@@ -71,7 +102,7 @@ const Import = () => {
    * Effects
    */
   useEffect(() => {
-    importSessionStorage(show);
+    sessionFn(show);
   }, [show]);
 
   /**
@@ -175,4 +206,4 @@ const Import = () => {
   );
 };
 
-export { Import };
+export { Import, queryFn };
