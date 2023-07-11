@@ -20,14 +20,6 @@ msgstr ""
 msgid "Sorry, an error has occured"
 msgstr ""
 
-#: resources/scripts/user-interface/interface/Export/ButtonCopy.js:21
-msgid "Copy"
-msgstr ""
-
-#: resources/scripts/user-interface/interface/Export/ButtonCopy.js:29
-msgid "Copied"
-msgstr ""
-
 #: resources/scripts/user-interface/interface/Head.js:17
 #: resources/scripts/user-interface/interface/Import.js:172
 msgid "Import"
