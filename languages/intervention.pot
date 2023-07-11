@@ -11,26 +11,17 @@ msgstr ""
 msgid "Toggle All"
 msgstr ""
 
-#: resources/scripts/user-interface/interface/Export.js:197
-msgid "Exporter"
-msgstr ""
-
-#: resources/scripts/user-interface/interface/Export.js:201
-#: resources/scripts/user-interface/interface/Import.js:177
-msgid "Sorry, an error has occured"
-msgstr ""
-
-#: resources/scripts/user-interface/interface/Head.js:17
-#: resources/scripts/user-interface/interface/Import.js:172
-msgid "Import"
-msgstr ""
-
-#: resources/scripts/user-interface/interface/Head.js:18
+#: resources/scripts/user-interface/interface/Export.js:198
 msgid "Export"
 msgstr ""
 
-#: resources/scripts/user-interface/interface/Head.js:24
-msgid "Documentation"
+#: resources/scripts/user-interface/interface/Export.js:199
+msgid "WordPress to Intervention"
+msgstr ""
+
+#: resources/scripts/user-interface/interface/Export.js:205
+#: resources/scripts/user-interface/interface/Import.js:177
+msgid "Sorry, an error has occured"
 msgstr ""
 
 #: resources/scripts/user-interface/interface/Import.js:132
@@ -49,12 +40,12 @@ msgstr ""
 msgid "Match"
 msgstr ""
 
-#: resources/scripts/user-interface/interface/Import.js:148
-msgid "Importer"
-msgstr ""
-
 #: resources/scripts/user-interface/interface/Import.js:161
 msgid "Mismatch (%s)"
+msgstr ""
+
+#: resources/scripts/user-interface/interface/Import.js:172
+msgid "Import"
 msgstr ""
 
 #: resources/scripts/user-interface/interface/Import.js:172
@@ -69,6 +60,10 @@ msgstr ""
 msgid "Imported %1$s and %2$s failed"
 msgstr ""
 
-#: resources/scripts/user-interface/interface/Import/ToolbarContentImported.js:33
+#: resources/scripts/user-interface/interface/Import/ToolbarContentImported.js:32
 msgid "Imported %s"
+msgstr ""
+
+#: resources/scripts/user-interface/interface/Import/ToolbarContentImported.js:38
+msgid "Intervention to WordPress"
 msgstr ""

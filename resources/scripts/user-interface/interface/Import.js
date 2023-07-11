@@ -145,9 +145,9 @@ const Import = () => {
       <div className="w-full flex-1">
         <Toolbar>
           <ToolbarFlex>
-            <ToolbarTitle>{__('Importer')}</ToolbarTitle>
+            <ToolbarTitle>{__('Import')}</ToolbarTitle>
             <ToolbarContent>
-              <ToolbarContentImported imported={imported} />
+              <ToolbarContentImported imported={imported} diff={diff} />
             </ToolbarContent>
           </ToolbarFlex>
 

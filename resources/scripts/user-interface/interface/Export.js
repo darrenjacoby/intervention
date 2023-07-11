@@ -3,7 +3,7 @@ import { useState, useEffect } from '@wordpress/element';
 import { CheckboxControl } from '@wordpress/components';
 import apiFetch from '@wordpress/api-fetch';
 import { Page } from './Page/Page';
-import { Toolbar, ToolbarTitle } from './Page/Toolbar';
+import { Toolbar, ToolbarFlex, ToolbarTitle, ToolbarContent } from './Page/Toolbar';
 import {
   Sidebar,
   SidebarGroup,
@@ -194,7 +194,11 @@ const Export = () => {
       {/* bugfix: w-full strangely wraps the sidebar on smaller screens, w-1/2 stops prismjs doing that */}
       <div className="flex-1 w-1/2">
         <Toolbar>
-          <ToolbarTitle>{__('Exporter')}</ToolbarTitle>
+          <ToolbarFlex>
+            <ToolbarTitle>{__('Export')}</ToolbarTitle>
+            <ToolbarContent>{__('WordPress to Intervention')}</ToolbarContent>
+          </ToolbarFlex>
+
           <ButtonCopy textToCopy={query.data} />
         </Toolbar>
 

@@ -9,7 +9,7 @@ import { __ } from '../../utils/wp';
  * @param {object} props
  * @returns <ToolbarContentRender />
  */
-const ToolbarContentImported = ({ imported, diff, setRadio }) => {
+const ToolbarContentImported = ({ imported, diff }) => {
   /**
    * Imported with fails
    */
@@ -21,7 +21,6 @@ const ToolbarContentImported = ({ imported, diff, setRadio }) => {
           imported.completed.length,
           imported.skipped.length
         )}
-        {'.'}
       </>
     );
   }
@@ -30,13 +29,13 @@ const ToolbarContentImported = ({ imported, diff, setRadio }) => {
    * Imported
    */
   if (imported.completed.length > 0) {
-    return <>{sprintf(__('Imported %s'), imported.completed.length)}.</>;
+    return <>{sprintf(__('Imported %s'), imported.completed.length)}</>;
   }
 
   /**
    * Matching
    */
-  return <></>;
+  return <>{__('Intervention to WordPress')}</>;
 };
 
 export { ToolbarContentImported };

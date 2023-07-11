@@ -3,7 +3,7 @@
         'name' => 'jacoby/intervention',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '21791bf5809a6a5b6d8f349fb018731fabcf4782',
+        'reference' => 'ffd712c688d73696d82de490b919a06089cb34e0',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -49,7 +49,7 @@
         'jacoby/intervention' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '21791bf5809a6a5b6d8f349fb018731fabcf4782',
+            'reference' => 'ffd712c688d73696d82de490b919a06089cb34e0',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

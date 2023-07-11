@@ -246,6 +246,7 @@ Includes support for github-updater to track updates through wp-admin.
 
 - [Download](https://github.com/afragen/github-updater)
 
-**Have a suggestion, or want to track new releases? [@withjacoby](https://twitter.com/withjacoby)**
+### Support
 
-If you would like to buy me a coffee, [paypal.me/darrenjacoby](https://paypal.me/darrenjacoby)
+- Twitter: [@withjacoby](https://twitter.com/withjacoby)
+- Paypal: [paypal.me/darrenjacoby](https://paypal.me/darrenjacoby)
