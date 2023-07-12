@@ -9,7 +9,7 @@ License: MIT
 License URI: https://github.com/darrenjacoby/intervention/blob/main/LICENSE.md
 Stable tag: 2.0.0
 
-Less But Better — Dieter Rams.
+Less But Better — Dieter Rams. Easily configure the WordPress admin interface and application state using a single config file.
 
 == Description ==
 Easily configure the WordPress admin interface and application state using a single config file.
