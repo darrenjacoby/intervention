@@ -40,3 +40,5 @@ webpack.config.js
 .wordpress-org
 wp-cli.local.yml
 yarn.lock
+resources
+vendor-bin
