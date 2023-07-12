@@ -2,6 +2,8 @@
 
 Easily customize [wp-admin](#admin) and configure [application](#application) options.
 
+[View on WordPress.org](https://wordpress.org/plugins/intervention/)
+
 ## Installation
 
 [Composer](https://getcomposer.org/)
