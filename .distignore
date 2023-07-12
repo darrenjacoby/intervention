@@ -8,12 +8,16 @@
 .editorconfig
 .eslintignore
 .eslintrc
+.eslintrc.json
 .git
 .github
 .gitignore
 .gitlab-ci.yml
+.prettier
+.stylelintrc
 .travis.yml
 .DS_Store
+build.xml
 Thumbs.db
 behat.yml
 bitbucket-pipelines.yml
@@ -22,6 +26,7 @@ bin
 composer.json
 composer.lock
 dependencies.yml
+esc.php
 Gruntfile.js
 package.json
 package-lock.json
@@ -35,8 +40,12 @@ phpcs.xml
 .phpcs.xml.dist
 phpcs.xml.dist
 README.md
+scoper.inc.php
+scoper.sh
+tailwind.config.js
 tests
 webpack.config.js
+webpack.mix.js
 .wordpress-org
 wp-cli.local.yml
 yarn.lock
