@@ -12,15 +12,12 @@ Stable tag: 2.0.0
 Less But Better — Dieter Rams.
 
 == Description ==
-Easily simplify the WordPress admin interface and application state using a single config file.
-
-== Features ==
+Easily configure the WordPress admin interface and application state using a single config file.
 
 * Simplify the WordPress admin interface.
-* Export the WordPress database options which can be placed under version control.
-* Import the Intervention config file to a WordPress installation for fast setup.
+* Place WordPress application state in a config file.
 
-Full feature list: https://github.com/darrenjacoby/intervention
+[Intervention on GitHub](https://github.com/darrenjacoby/intervention)
 
 == Installation ==
 = Requirements =
@@ -43,6 +40,3 @@ MIT
 
 = Translations =
 English, German, Dutch, Swedish.
-
-= Development =
-Building over at https://github.com/darrenjacoby/intervention
