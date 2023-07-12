@@ -4,17 +4,16 @@ Easily customize [wp-admin](#admin) and configure [application](#application) op
 
 ## Installation
 
-[Composer/Bedrock](https://roots.io/bedrock/)
+[Composer](https://getcomposer.org/)
 
 ```shell
-$ composer require soberwp/intervention:dev-main
-$ wp plugin activate intervention
+$ composer require wpackagist-plugin/intervention
 ```
 
 [WP-CLI](http://wp-cli.org/)
 
 ```shell
-$ wp plugin install https://github.com/darrenjacoby/intervention/archive/master.zip --activate
+$ wp plugin install intervention --activate
 ```
 
 #### Requirements
@@ -176,7 +175,7 @@ Set application options.
 
 Return `application`.
 
-**New!** You can auto-generate/export a config file from the database using `Tools/Intervention` in the WordPress admin.
+Tip: automate exporting a config file from the database using Tools→Intervention in the WordPress admin.
 
 ```php
 <?php
@@ -231,22 +230,6 @@ return [
 - [Remove attachments](.github/application/posts.md#remove)
 - [Enable custom media/mime types](.github/application/media.md#mime-types)
 
-#### Composer
-
-- Change the composer.json version to ^2.0.0\*\*<br>
-- Check [CHANGELOG.md](CHANGELOG.md) for any breaking changes before updating.
-
-```shell
-$ composer update
-```
-
-#### WordPress
-
-Includes support for github-updater to track updates through wp-admin.
-
-- [Download](https://github.com/afragen/github-updater)
-
-### Support
+### Connect
 
 - Twitter: [@withjacoby](https://twitter.com/withjacoby)
-- Paypal: [paypal.me/darrenjacoby](https://paypal.me/darrenjacoby)

@@ -26,7 +26,7 @@ bin
 composer.json
 composer.lock
 dependencies.yml
-esc.php
+ecs.php
 Gruntfile.js
 package.json
 package-lock.json
