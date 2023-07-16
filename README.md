@@ -1,7 +1,5 @@
 <img src=".github/logo.svg?sanitize=true">
 
-<br />
-
 Easily customize [wp-admin](#admin) and configure [application](#application) options.
 
 [View on WordPress.org](https://wordpress.org/plugins/intervention/)
