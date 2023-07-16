@@ -37,7 +37,7 @@ class Str
      */
     public static function explode($delimiter, $value, $limit = PHP_INT_MAX)
     {
-        return Arr::collect(explode($delimiter, $value, $limit));
+        return Arr::collect(explode($delimiter, (string) $value, $limit));
     }
 
     /**
