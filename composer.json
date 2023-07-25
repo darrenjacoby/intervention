@@ -21,7 +21,7 @@
   },
   "require-dev": {
     "composer/installers": "^2.0",
-    "symplify/easy-coding-standard": "^11.5",
+    "symplify/easy-coding-standard": "^12.0",
     "humbug/php-scoper": "^0.17.5"
   },
   "autoload": {
