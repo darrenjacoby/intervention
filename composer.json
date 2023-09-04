@@ -17,7 +17,7 @@
   "require": {
     "php": "^7.4|^8.0",
     "illuminate/collections": "^8.83.27",
-    "brick/varexporter": "^0.3.8"
+    "brick/varexporter": "^0.4.0"
   },
   "require-dev": {
     "composer/installers": "^2.0",
