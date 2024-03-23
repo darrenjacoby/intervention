@@ -23,6 +23,8 @@ use Jacoby\Intervention\Support\Composer;
  */
 class Plugins
 {
+	protected $config;
+	
     /**
      * Initialize
      *

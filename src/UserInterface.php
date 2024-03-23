@@ -20,6 +20,9 @@ use Jacoby\Intervention\UserInterface\Support\UserColorSchemeCustomProps;
  */
 class UserInterface
 {
+    protected $routeExport;
+    protected $routeImport;
+
     /**
      * Initialize
      */

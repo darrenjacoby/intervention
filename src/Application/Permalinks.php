@@ -25,6 +25,7 @@ use Jacoby\Intervention\Support\Arr;
  */
 class Permalinks
 {
+    protected $api;
     protected $config;
 
     /**

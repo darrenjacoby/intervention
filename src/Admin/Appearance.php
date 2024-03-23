@@ -23,6 +23,8 @@ use Jacoby\Intervention\Support\Composer;
  */
 class Appearance
 {
+	protected $config;
+
     /**
      * Initialize
      *
