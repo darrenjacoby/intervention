@@ -21,6 +21,7 @@ use Jacoby\Intervention\Support\Arr;
  */
 class Privacy
 {
+    protected $api;
     protected $config;
 
     /**

@@ -24,6 +24,8 @@ use Jacoby\Intervention\Support\Composer;
  */
 class Users
 {
+	protected $config;
+	
     /**
      * Initialize
      *

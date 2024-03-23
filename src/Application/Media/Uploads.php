@@ -22,6 +22,7 @@ use Jacoby\Intervention\Support\Arr;
  */
 class Uploads
 {
+    protected $api;
     protected $config;
 
     /**
