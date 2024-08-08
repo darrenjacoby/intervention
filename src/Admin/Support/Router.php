@@ -17,6 +17,7 @@ use Jacoby\Intervention\Support\Config;
  */
 class Router
 {
+    protected $key;
     protected $routes;
     protected $route = false;
 

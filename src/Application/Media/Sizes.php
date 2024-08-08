@@ -26,6 +26,7 @@ use Jacoby\Intervention\Support\Composer;
  */
 class Sizes
 {
+    protected $api;
     protected $config;
     protected $sizes;
     protected $defaults;
