@@ -36,7 +36,7 @@
     "eslint-webpack-plugin": "^4.0.1",
     "laravel-mix": "^6.0.49",
     "laravel-mix-tailwind": "^0.1.2",
-    "postcss": "^8.4.25",
+    "postcss": "^8.4.31",
     "postcss-import": "^15.1.0",
     "postcss-preset-env": "^9.0.0",
     "stylelint": "^15.10.1",
